@@ -14,6 +14,10 @@
     button:hover { background: #2980b9; }
     .error { color: red; margin-top: 10px; }
     .success { color: green; margin-top: 10px; }
+    .section { margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #ecf0f1; }
   </style>
 </head>
 <body>
@@ -69,12 +73,57 @@
       container.innerHTML = `
         <h1>${currentBookName}</h1>
         <p>${currentBookPart ? currentBookPart + ' (' + currentPrefix + ')' : '(Prefix: ' + currentPrefix + ')'}</p>
-        <label>ชื่อผู้ใช้งาน</label>
-        <input type="text" id="user_name" value="${savedUserName}" placeholder="กรอกชื่อของคุณ">
-        <label>ชื่อเรื่อง</label>
-        <input type="text" id="story_name" onblur="checkLastParagraph()">
-        <div id="paragraph_suggestion" style="font-size: 0.9em; color: #888; margin-bottom: 10px;"></div>
-        <!-- คุณสามารถเพิ่ม input และปุ่มอื่น ๆ ต่อได้ที่นี่ -->
+
+        <div class="section">
+          <label>ชื่อผู้ใช้งาน</label>
+          <input type="text" id="user_name" value="${savedUserName}" placeholder="กรอกชื่อของคุณ">
+
+          <label>วรรค/บท</label>
+          <input type="text" id="chapter_name" placeholder="วรรค/บท">
+
+          <label>ชื่อเรื่อง</label>
+          <input type="text" id="story_name" onblur="checkLastParagraph()">
+          <div id="paragraph_suggestion" style="font-size: 0.9em; color: #888; margin-bottom: 10px;"></div>
+
+          <label>ชื่อตอน</label>
+          <input type="text" id="section_name" placeholder="ชื่อตอน">
+
+          <label>สถานะ</label>
+          <select id="display_flag">
+            <option value="2" selected>2 - พร้อมใช้</option>
+            <option value="1">1 - รอตรวจ</option>
+            <option value="0">0 - ร่าง</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <label>Group ID</label>
+          <input type="number" id="master_group_id" placeholder="Group ID">
+
+          <label>หน้าเริ่ม</label>
+          <input type="number" id="master_page_start">
+
+          <label>หน้าจบ</label>
+          <input type="number" id="master_page_end">
+
+          <label>ย่อหน้า</label>
+          <input type="number" id="master_paragraph_num">
+        </div>
+
+        <div class="section">
+          <label>เนื้อหาบาลี</label>
+          <textarea id="pali_input" rows="6" placeholder="วางเนื้อหาบาลีที่นี่"></textarea>
+          <button onclick="generateTable()">แบ่งประโยคและแสดงตาราง</button>
+        </div>
+
+        <div class="section">
+          <table id="create-sentence-table"></table>
+        </div>
+
+        <div class="section">
+          <button onclick="saveData()">บันทึกข้อมูล</button>
+          <div id="status-message"></div>
+        </div>
       `;
 
       document.getElementById('user_name').addEventListener('input', (e) => {
@@ -82,76 +131,7 @@
       });
     }
 
-    function validateCreateInputs() {
-      const requiredFields = ['chapter_name', 'story_name', 'section_name'];
-      for (const id of requiredFields) {
-        if (!document.getElementById(id)?.value.trim()) {
-          alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-          return false;
-        }
-      }
-      return true;
-    }
-
-    async function saveData() {
-      const statusId = 'status-message';
-      const statusEl = document.getElementById(statusId);
-      const userName = document.getElementById('user_name')?.value.trim();
-      if (!userName) return alert('กรุณาใส่ชื่อผู้ใช้งาน');
-      if (!validateCreateInputs()) return;
-
-      try {
-        statusEl.textContent = 'กำลังบันทึก...';
-        const batch = writeBatch(db);
-        const chapterName = document.getElementById('chapter_name').value.trim();
-        const storyName = document.getElementById('story_name').value.trim();
-        const sectionName = document.getElementById('section_name').value.trim();
-        const displayFlag = parseInt(document.getElementById('display_flag').value);
-        const rows = document.querySelectorAll('#create-sentence-table tbody tr');
-
-        for (const row of rows) {
-          const docId = row.dataset.id;
-          const groupIdNum = row.querySelector('.group-id-input')?.value || '0';
-          if (isNaN(parseInt(groupIdNum))) throw new Error(`Group ID ต้องเป็นตัวเลข (${groupIdNum})`);
-          const fullGroupId = `${currentPrefix}-${groupIdNum}`;
-          const docRef = doc(db, "pali_sentences", docId);
-          const snapshot = await getDoc(docRef);
-          if (snapshot.exists()) throw new Error(`ID ซ้ำ: ${docId} มีอยู่ในระบบแล้ว`);
-
-          batch.set(docRef, {
-            id: parseInt(docId),
-            sentence_group_id: fullGroupId,
-            pali_order: row.rowIndex,
-            book_title: currentBookName,
-            book_part: currentBookPart,
-            chapter_name: chapterName,
-            story_name: storyName,
-            section_name: sectionName,
-            display_flag: displayFlag,
-            page_start: parseInt(row.querySelector('.page-start-input')?.value) || 0,
-            page_end: parseInt(row.querySelector('.page-end-input')?.value) || 0,
-            paragraph_num: parseInt(row.querySelector('.paragraph-num-input')?.value) || 0,
-            text_type: row.querySelector('.text-type-input')?.value,
-            pali_text: row.querySelector('.pali-text-input')?.value.trim(),
-            user_name_pali: userName,
-            timestamp_pali: serverTimestamp(),
-            thai_text: "",
-            thai_order: 0,
-            user_name_thai: "",
-            timestamp_thai: null,
-            translation_status: 'untranslated'
-          });
-        }
-        await batch.commit();
-        statusEl.textContent = 'บันทึกข้อมูลสำเร็จ!';
-        statusEl.className = 'success';
-      } catch (error) {
-        document.getElementById('status-message').textContent = `บันทึกไม่สำเร็จ: ${error.message}`;
-        statusEl.className = 'error';
-      }
-    }
-
-    async function checkLastParagraph() {
+    window.checkLastParagraph = async function () {
       const paraSuggestionEl = document.getElementById('paragraph_suggestion');
       try {
         const story = document.getElementById('story_name')?.value.trim();
@@ -173,10 +153,88 @@
       } catch (error) {
         document.getElementById('master_paragraph_num').value = 1;
         if (error.code === 'failed-precondition') {
-          paraSuggestionEl.innerHTML = `เป็นเรื่องใหม่ (จำเป็นต้อง <a href='https://console.firebase.google.com/u/0/project/pali-exam-builder/firestore/indexes' target='_blank'>สร้าง Index</a>)`;
+          paraSuggestionEl.innerHTML = `จำเป็นต้อง <a href='https://console.firebase.google.com/u/0/project/pali-exam-builder/firestore/indexes' target='_blank'>สร้าง Index</a>`;
         } else {
           paraSuggestionEl.textContent = 'เป็นเรื่องใหม่';
         }
+      }
+    }
+
+    window.generateTable = async function () {
+      const input = document.getElementById('pali_input').value.trim();
+      const table = document.getElementById('create-sentence-table');
+      if (!input) return alert('กรุณาใส่เนื้อหาบาลี');
+      table.innerHTML = '<thead><tr><th>ประโยค</th><th>ประเภท</th></tr></thead><tbody></tbody>';
+      const tbody = table.querySelector('tbody');
+      input.split('\n').filter(Boolean).forEach(line => {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+          <td><textarea class="pali-text-input" rows="2">${line.trim()}</textarea></td>
+          <td>
+            <select class="text-type-input">
+              <option value="ร้อยแก้ว">ร้อยแก้ว</option>
+              <option value="ร้อยกรอง">ร้อยกรอง</option>
+            </select>
+          </td>`;
+      });
+    }
+
+    window.saveData = async function () {
+      const statusEl = document.getElementById('status-message');
+      const userName = document.getElementById('user_name')?.value.trim();
+      if (!userName) return alert('กรุณาใส่ชื่อผู้ใช้งาน');
+      try {
+        statusEl.textContent = 'กำลังบันทึก...';
+        const batch = writeBatch(db);
+        const chapterName = document.getElementById('chapter_name').value.trim();
+        const storyName = document.getElementById('story_name').value.trim();
+        const sectionName = document.getElementById('section_name').value.trim();
+        const displayFlag = parseInt(document.getElementById('display_flag').value);
+        const groupId = document.getElementById('master_group_id').value;
+        const pageStart = parseInt(document.getElementById('master_page_start').value) || 0;
+        const pageEnd = parseInt(document.getElementById('master_page_end').value) || 0;
+        const paragraphNum = parseInt(document.getElementById('master_paragraph_num').value) || 0;
+        const rows = document.querySelectorAll('#create-sentence-table tbody tr');
+
+        const q = query(paliCollection, orderBy("id", "desc"), limit(1));
+        const latest = await getDocs(q);
+        let nextId = latest.empty ? 1 : (latest.docs[0].data().id + 1);
+
+        rows.forEach((row, index) => {
+          const docId = nextId + index;
+          const fullGroupId = `${currentPrefix}-${groupId}`;
+          const docRef = doc(db, "pali_sentences", docId.toString());
+          batch.set(docRef, {
+            id: docId,
+            sentence_group_id: fullGroupId,
+            pali_order: index + 1,
+            book_title: currentBookName,
+            book_part: currentBookPart,
+            chapter_name: chapterName,
+            story_name: storyName,
+            section_name: sectionName,
+            display_flag: displayFlag,
+            page_start: pageStart,
+            page_end: pageEnd,
+            paragraph_num: paragraphNum,
+            text_type: row.querySelector('.text-type-input').value,
+            pali_text: row.querySelector('.pali-text-input').value.trim(),
+            user_name_pali: userName,
+            timestamp_pali: serverTimestamp(),
+            thai_text: "",
+            thai_order: 0,
+            user_name_thai: "",
+            timestamp_thai: null,
+            translation_status: 'untranslated'
+          });
+        });
+
+        await batch.commit();
+        statusEl.textContent = '✅ บันทึกข้อมูลสำเร็จ';
+        statusEl.className = 'success';
+      } catch (error) {
+        statusEl.textContent = `❌ บันทึกไม่สำเร็จ: ${error.message}`;
+        statusEl.className = 'error';
       }
     }
   </script>
