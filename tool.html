@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เครื่องมือข้อมูลบาลี (v2.1)</title>
+    <title>เครื่องมือข้อมูลบาลี (v2.2)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
@@ -26,9 +26,9 @@
         button:disabled { background: #bdc3c7; cursor: not-allowed; }
         .view { display: none; }
         .view.active { display: block; }
-        #status-message { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 4px; word-break: break-word; }
-        #status-message.success { color: #155724; background-color: #d4edda; }
-        #status-message.error { color: #721c24; background-color: #f8d7da; }
+        .status-message { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 4px; word-break: break-word; }
+        .status-message.success { color: #155724; background-color: #d4edda; }
+        .status-message.error { color: #721c24; background-color: #f8d7da; }
         .suggestion-text { font-size: 0.9em; color: var(--text-light); margin-top: 5px; min-height: 1.2em; }
         #edit-view-content { display: none; grid-template-columns: 1fr 1.5fr; gap: 25px; }
         #pali-display-panel { background-color: #fafafa; padding: 15px; border-radius: 5px; border: 1px solid #eee; height: fit-content; position: sticky; top: 20px; }
@@ -81,7 +81,7 @@
             <fieldset><legend>วางเนื้อหาบาลี</legend><textarea id="pali-input" rows="8"></textarea><button id="split-btn" style="margin-top:10px;">กดเพื่อแบ่งประโยค</button></fieldset>
             <div id="create-data-work-area" style="display: none;">
                 <fieldset><legend>ตารางสร้างข้อมูล</legend><div class="table-wrapper"><table id="create-sentence-table" style="width:100%"></table></div></fieldset>
-                <fieldset><legend>บันทึกข้อมูล</legend><button id="create-save-btn">บันทึกข้อมูลใหม่</button><div id="create-status-message" class="status-message"></div></fieldset>
+                <fieldset><legend>บันทึกข้อมูล</legend><button id="create-save-btn" disabled>บันทึกข้อมูลใหม่</button><div id="create-status-message" class="status-message"></div></fieldset>
             </div>
         </div>
 
@@ -106,7 +106,7 @@
                 <div id="translation-panel">
                     <h3>ตารางแก้ไขคำแปล</h3>
                     <div class="table-wrapper"><table id="edit-sentence-table" style="width:100%"></table></div>
-                    <fieldset><legend>บันทึกการแก้ไข</legend><button id="edit-save-btn">อัปเดตคำแปล</button><div id="edit-status-message" class="status-message"></div></fieldset>
+                    <fieldset><legend>บันทึกการแก้ไข</legend><button id="edit-save-btn" disabled>อัปเดตคำแปล</button><div id="edit-status-message" class="status-message"></div></fieldset>
                 </div>
             </div>
         </div>
@@ -137,7 +137,6 @@
             const createHeader = `<thead><tr><th>ID</th><th>Group ID</th><th>เนื้อหาบาลี</th><th>หน้าเริ่ม</th><th>หน้าจบ</th><th>ย่อหน้า</th><th>ประเภท</th></tr></thead><tbody></tbody>`;
             const editHeader = `<thead><tr><th>ID</th><th>ลำดับบาลี</th><th>เนื้อหาบาลี</th><th>ลำดับแปลไทย</th><th>เนื้อหาคำแปลไทย</th></tr></thead><tbody></tbody>`;
 
-            // Cache DOM elements
             const container = document.getElementById('container');
             const mainHeader = document.getElementById('main-header');
             const subHeader = document.getElementById('sub-header');
@@ -179,7 +178,9 @@
                     return;
                 }
                 mainHeader.textContent = `${currentBookName}`;
-                subHeader.textContent = currentBookPart ? `${currentBookPart} (Prefix: ${currentPrefix})` : `(Prefix: ${currentPrefix})`;
+                // === ส่วนที่แก้ไข: เอา Prefix Display ออก ===
+                subHeader.textContent = currentBookPart;
+                
                 const savedUserName = localStorage.getItem('paliToolUserName');
                 if (savedUserName) { userNameInput.value = savedUserName; }
                 userNameInput.addEventListener('input', () => { localStorage.setItem('paliToolUserName', userNameInput.value); });
@@ -198,7 +199,7 @@
             editSaveBtn.addEventListener('click', () => saveData('edit'));
             
             function updateStatus(elementId, message, type) { const el = document.getElementById(elementId); if(el){ el.textContent = message; el.className = `status-message ${type}`; } }
-            async function findLastId(field) { const q = query(paliCollection, orderBy(field, "desc"), limit(1)); const querySnapshot = await getDocs(q); if (querySnapshot.empty) return 0; return querySnapshot.docs[0].data()[field] || 0; }
+            async function findLastId(field) { const q = query(paliCollection, orderBy(field, "desc"), limit(1)); const querySnapshot = await getDocs(q); if (querySnapshot.empty) return 0; const data = querySnapshot.docs[0].data(); return data[field] || 0; }
             async function findLastGroupId() { const statusElId = 'group_id_suggestion'; updateStatus(statusElId, `กำลังค้นหา...`, ''); try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), orderBy("sentence_group_id", "desc"), limit(1)); const querySnapshot = await getDocs(q); let lastNumber = 0; if (!querySnapshot.empty) { const lastFullId = querySnapshot.docs[0].data().sentence_group_id; lastNumber = parseInt(lastFullId.toString().split('-').pop()) || 0; } document.getElementById('master_group_id').value = lastNumber + 1; updateStatus(statusElId, `ID ล่าสุดที่พบ: ${currentPrefix}-${lastNumber}. ID ถัดไปคือ ${lastNumber + 1}`, 'success'); } catch (error) { updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. อาจต้องสร้าง Index`, 'error'); } }
             async function checkLastParagraph() { const paraSuggestionEl = document.getElementById('paragraph_suggestion'); if (!storyNameInput.value.trim()) return; paraSuggestionEl.textContent = 'กำลังตรวจสอบ...'; try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), where("story_name", "==", storyNameInput.value.trim()), orderBy("paragraph_num", "desc"), limit(1)); const querySnapshot = await getDocs(q); let lastParagraph = 0; if (!querySnapshot.empty) { lastParagraph = querySnapshot.docs[0].data().paragraph_num || 0; } document.getElementById('master_paragraph_num').value = lastParagraph + 1; paraSuggestionEl.textContent = `เรื่องนี้มีย่อหน้าล่าสุดคือ ${lastParagraph}`; } catch (error) { document.getElementById('master_paragraph_num').value = 1; if (error.code === 'failed-precondition') { paraSuggestionEl.textContent = 'เป็นเรื่องใหม่ (ต้องสร้าง Index เพื่อยืนยัน)'; } else { paraSuggestionEl.textContent = 'เป็นเรื่องใหม่'; } } }
             async function generateCreateTable() { const paliInput = document.getElementById('pali-input'); if (!paliInput.value.trim()) { alert('กรุณาวางเนื้อหาบาลีก่อน'); return; } const masterGroupId = document.getElementById('master_group_id').value; if (!masterGroupId) { alert('กรุณาใส่ Group ID'); return; } createDataWorkArea.style.display = 'block'; const table = createSentenceTable; table.innerHTML = createHeader; const tbody = table.querySelector('tbody'); try { const nextId = await findLastId("id") + 1; const masterPageStart = document.getElementById('master_page_start').value; const masterPageEnd = document.getElementById('master_page_end').value; const masterParagraphNum = document.getElementById('master_paragraph_num').value; let validLinesCount = 0; paliInput.value.split(/\r?\n/).forEach((line, index) => { const cleanedLine = line.trim(); if (cleanedLine.length === 0) return; const row = tbody.insertRow(); row.dataset.id = nextId + index; row.innerHTML = `<td class="id-cell">${nextId + index}</td><td><input type="number" class="group-id-input" value="${masterGroupId}"></td><td><textarea class="pali-text-input" rows="3">${cleanedLine}</textarea></td><td><input type="number" class="page-start-input" value="${masterPageStart}"></td><td><input type="number" class="page-end-input" value="${masterPageEnd}"></td><td><input type="number" class="paragraph-num-input" value="${masterParagraphNum}"></td><td><select class="text-type-input"><option value="ร้อยแก้ว">ร้อยแก้ว</option><option value="ร้อยกรอง">ร้อยกรอง</option></select></td>`; validLinesCount++; }); if (validLinesCount > 0) { createSaveBtn.disabled = false; } } catch(error) { updateStatus('create-status-message', `เกิดข้อผิดพลาด: ${error.message}`, 'error'); } }
