@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกคัมภีร์ - เครื่องมือข้อมูลบาลี</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .selector-container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center; width: 100%; max-width: 600px; }
+        h1 { color: #2c3e50; margin-top: 0; }
+        p { color: #555; }
+        select { width: 100%; padding: 12px; margin-top: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
+        button { background: #27ae60; color: #fff; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-size: 18px; transition: background-color 0.3s; margin-top: 30px; width: 100%; }
+        button:hover { background: #229954; }
+        button:disabled { background: #bdc3c7; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <div class="selector-container">
+        <h1>เลือกคัมภีร์</h1>
+        <p>กรุณาเลือกคัมภีร์และภาค (ถ้ามี) ที่คุณต้องการทำงานด้วย</p>
+        <select id="book_selector">
+            <option value="">-- กำลังโหลดรายการคัมภีร์... --</option>
+        </select>
+        <select id="part_selector" style="display: none;"></select>
+        <button id="start_button" disabled>เริ่มทำงานกับคัมภีร์นี้</button>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- URL ของสารบัญกลางของคุณถูกใส่ไว้ที่นี่แล้ว ---
+        const MASTER_INDEX_URL = 'https://script.google.com/macros/s/AKfycbx8X7q-wRxeybVfaCp_XX6C5DJTDdxhkKXNScYz82r8-bvze3ovSV9b5c76mVBnQG8/exec';
+        
+        const bookSelector = document.getElementById('book_selector');
+        const partSelector = document.getElementById('part_selector');
+        const startButton = document.getElementById('start_button');
+
+        let bookDatabase = [];
+        let selectedData = {
+            bookName: '',
+            bookPart: '',
+            webAppUrl: ''
+        };
+
+        async function loadBookList() {
+            try {
+                const response = await fetch(MASTER_INDEX_URL);
+                if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+                const result = await response.json();
+                if (result.status !== 'success') throw new Error(result.message);
+                
+                // กรองข้อมูลเพื่อให้แน่ใจว่ามี name และ url ครบถ้วน
+                bookDatabase = result.data.filter(book => book.name && book.url);
+                
+                const uniqueBookNames = [...new Set(bookDatabase.map(book => book.name))];
+
+                bookSelector.innerHTML = '<option value="">-- กรุณาเลือกคัมภีร์ --</option>';
+                uniqueBookNames.sort().forEach(bookName => {
+                    const option = document.createElement('option');
+                    option.value = bookName;
+                    option.textContent = bookName;
+                    bookSelector.appendChild(option);
+                });
+            } catch (error) {
+                bookSelector.innerHTML = `<option value="">เกิดข้อผิดพลาดในการโหลดรายการ</option>`;
+                console.error('Failed to load book list:', error);
+                alert(`เกิดข้อผิดพลาดในการโหลดรายการคัมภีร์: ${error.message}\nกรุณาตรวจสอบว่า Master URL ถูกต้องและ Deploy เรียบร้อยแล้ว`);
+            }
+        }
+
+        function updatePartSelector() {
+            const selectedBookName = bookSelector.value;
+            selectedData = { bookName: selectedBookName, bookPart: '', webAppUrl: '' }; // รีเซ็ตค่าทุกครั้งที่เปลี่ยนคัมภีร์
+            startButton.disabled = true;
+            partSelector.style.display = 'none';
+            partSelector.innerHTML = ''; // เคลียร์ค่าเก่า
+
+            if (!selectedBookName) return;
+
+            // ค้นหาว่าคัมภีร์ที่เลือกมีภาคหรือไม่
+            const parts = bookDatabase.filter(book => book.name === selectedBookName && book.part);
+
+            if (parts.length > 0) {
+                // กรณีมีภาค
+                partSelector.innerHTML = '<option value="">-- กรุณาเลือกภาค --</option>';
+                parts.forEach(part => {
+                    const option = document.createElement('option');
+                    option.value = part.url; // ใส่ URL ไว้ใน value เพื่อให้ดึงง่าย
+                    option.dataset.partName = part.part; // เก็บชื่อภาคไว้ต่างหาก
+                    option.textContent = part.part;
+                    partSelector.appendChild(option);
+                });
+                partSelector.style.display = 'block';
+            } else {
+                // กรณีไม่มีภาค
+                const bookWithoutPart = bookDatabase.find(b => b.name === selectedBookName && !b.part);
+                if (bookWithoutPart) {
+                    selectedData.webAppUrl = bookWithoutPart.url;
+                    startButton.disabled = false; // เปิดปุ่มทันที
+                }
+            }
+        }
+        
+        bookSelector.addEventListener('change', updatePartSelector);
+
+        partSelector.addEventListener('change', () => {
+            const selectedOption = partSelector.options[partSelector.selectedIndex];
+            if (partSelector.value) {
+                selectedData.webAppUrl = partSelector.value;
+                selectedData.bookPart = selectedOption.dataset.partName;
+                startButton.disabled = false;
+            } else {
+                selectedData.webAppUrl = '';
+                selectedData.bookPart = '';
+                startButton.disabled = true;
+            }
+        });
+
+        startButton.addEventListener('click', () => {
+            if (selectedData && selectedData.webAppUrl) {
+                const params = new URLSearchParams({
+                    bookName: selectedData.bookName,
+                    bookPart: selectedData.bookPart,
+                    webAppUrl: selectedData.webAppUrl
+                });
+                // URLSearchParams จะจัดการเรื่องการเข้ารหัส (encoding) ให้เองโดยอัตโนมัติ
+                window.location.href = `tool.html?${params.toString()}`;
+            } else {
+                alert('กรุณาเลือกข้อมูลให้ครบถ้วนก่อนกดปุ่ม');
+            }
+        });
+
+        loadBookList();
+    });
+    </script>
+</body>
+</html>

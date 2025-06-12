@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เครื่องมือข้อมูลบาลี</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; color: #333; line-height: 1.6; margin: 0; padding: 20px; }
+        .container { max-width: 95%; margin: auto; background: #fff; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; }
+        .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin: 0; }
+        fieldset { border: 1px solid #bdc3c7; border-radius: 5px; padding: 20px; margin-bottom: 25px; }
+        .hidden-section { display: none; }
+        legend { font-weight: 700; font-size: 1.2em; color: #34495e; padding: 0 10px; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; align-items: end;}
+        .single-input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        textarea, input, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px; font-family: 'Sarabun', sans-serif; }
+        button { background: #3498db; color: #fff; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; height: 40px; }
+        button:hover { background: #2980b9; }
+        button.secondary { background-color: #95a5a6; }
+        button:disabled { background: #bdc3c7; cursor: not-allowed; }
+        .table-wrapper { margin-top: 20px; overflow-x: auto; border: 1px solid #ddd; }
+        table { width: 100%; border-collapse: collapse; min-width: 1700px; }
+        th, td { padding: 8px; border: 1px solid #ddd; text-align: left; vertical-align: top; }
+        th { background-color: #ecf0f1; position: sticky; top: 0; z-index: 1; text-align: center; }
+        #status-message { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 4px; word-break: break-word; }
+        #status-message.success { color: #155724; background-color: #d4edda; }
+        #status-message.error { color: #721c24; background-color: #f8d7da; }
+        .suggestion-text { font-size: 0.9em; color: #555; margin-top: 5px; min-height: 1.2em; }
+        .placeholder { text-align: center; color: #777; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-bar">
+            <h1 id="main-header" style="border-bottom: none;">กำลังโหลด...</h1>
+            <a href="index.html" style="text-decoration: none;"><button class="secondary">กลับไปหน้าเลือกคัมภีร์</button></a>
+        </div>
+
+        <div id="main-content" class="hidden-section">
+            <fieldset>
+                <legend>ข้อมูลผู้ใช้งาน</legend>
+                <input type="hidden" id="current-mode">
+                <input type="text" id="user_name" placeholder="ใส่ชื่อของคุณที่นี่ เพื่อบันทึกว่าใครเป็นผู้ทำงาน" required>
+            </fieldset>
+
+            <fieldset id="fetch-section">
+                <legend>ดึงข้อมูลมาแก้ไข (ใส่คำแปลไทย)</legend>
+                <div class="form-grid">
+                    <input type="number" id="fetch-group-id" placeholder="ใส่ รหัสกลุ่มเนื้อหา (group_id)">
+                    <input type="number" id="fetch-page-num" placeholder="หรือใส่เลขหน้า (page_start)">
+                    <button id="fetch-btn">ดึงข้อมูล</button>
+                    <button id="reset-btn" class="secondary" style="display:none;">กลับสู่โหมดสร้างข้อมูลใหม่</button>
+                </div>
+            </fieldset>
+
+            <div id="create-mode-container">
+                <fieldset><legend>ข้อมูลกำกับ</legend>
+                    <div class="form-grid">
+                        <input type="text" id="chapter_name" list="chapter_name_list" placeholder="วรรค/บท (พิมพ์หรือเลือก)">
+                        <datalist id="chapter_name_list"></datalist>
+                        <input type="text" id="story_name" list="story_name_list" placeholder="ชื่อเรื่อง (พิมพ์หรือเลือก)">
+                        <datalist id="story_name_list"></datalist>
+                        <input type="text" id="section_name" list="section_name_list" placeholder="ชื่อตอน (พิมพ์หรือเลือก)">
+                        <datalist id="section_name_list"></datalist>
+                        <select id="display_flag" required>
+                            <option value="2" selected>2 - พร้อมใช้ (Published)</option>
+                            <option value="1">1 - รอตรวจ (Review)</option>
+                            <option value="0">0 - ร่าง (Draft)</option>
+                        </select>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>ข้อมูลหน้าและย่อหน้า (ใส่ครั้งเดียวเพื่อความสะดวก)</legend>
+                    <div class="single-input-grid">
+                        <div>
+                            <label for="master_page_start">หน้าเริ่ม</label>
+                            <input type="number" id="master_page_start" placeholder="ใส่เลขหน้าเริ่มต้น">
+                        </div>
+                        <div>
+                            <label for="master_page_end">หน้าจบ</label>
+                            <input type="number" id="master_page_end" placeholder="ใส่เลขหน้าสิ้นสุด (ถ้ามี)">
+                        </div>
+                        <div>
+                            <label for="master_paragraph_num">ย่อหน้า</label>
+                            <input type="number" id="master_paragraph_num" placeholder="ใส่เลขย่อหน้า">
+                            <p id="paragraph_suggestion" class="suggestion-text"></p>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <fieldset><legend>วางเนื้อหาบาลี</legend><textarea id="pali-input" rows="8" placeholder="วางเนื้อหาฯ ที่นี่ และใช้ Enter เพื่อแบ่งแถว"></textarea><button id="split-btn" style="margin-top:10px;">กดเพื่อแบ่งประโยค</button></fieldset>
+            </div>
+
+            <fieldset><legend id="table-legend">ตารางข้อมูล</legend><div class="table-wrapper"><table id="sentence-table"><thead id="sentence-thead"></thead><tbody id="sentence-tbody"></tbody></table></div><p id="sentence-placeholder" class="placeholder">ข้อมูลจะปรากฏที่นี่</p></fieldset>
+            <fieldset><legend>บันทึกข้อมูล</legend><button id="save-btn" disabled>บันทึกข้อมูล</button><div id="status-message"></div></fieldset>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let currentWebAppUrl = null, currentBookName = '', currentBookPart = '';
+        let currentEditGroupId = null, currentEditPageNum = null;
+        
+        const createHeader = `<tr><th>ID</th><th>รหัสกลุ่ม</th><th>เนื้อหาบาลี</th><th>หน้าเริ่ม</th><th>หน้าจบ</th><th>ย่อหน้า</th><th>ประเภท</th></tr>`;
+        const editHeader = `<tr><th>ลำดับบาลี</th><th>เนื้อหาบาลี</th><th>ลำดับแปลไทย</th><th>เนื้อหาคำแปลไทย</th></tr>`;
+
+        // Cache DOM elements
+        const mainContent = document.getElementById('main-content');
+        const storyNameInput = document.getElementById('story_name');
+        const masterParagraphNumInput = document.getElementById('master_paragraph_num');
+        const paragraphSuggestion = document.getElementById('paragraph_suggestion');
+        const splitBtn = document.getElementById('split-btn'), saveBtn = document.getElementById('save-btn');
+        const fetchBtn = document.getElementById('fetch-btn'), resetBtn = document.getElementById('reset-btn'), paliInput = document.getElementById('pali-input');
+        const sentenceThead = document.getElementById('sentence-thead'), sentenceTbody = document.getElementById('sentence-tbody');
+        const sentencePlaceholder = document.getElementById('sentence-placeholder');
+        const statusMessage = document.getElementById('status-message');
+        const userNameInput = document.getElementById('user_name');
+        const modeInput = document.getElementById('current-mode');
+        const createModeContainer = document.getElementById('create-mode-container');
+        const tableLegend = document.getElementById('table-legend');
+        
+        function initializeTool() {
+            const params = new URLSearchParams(window.location.search);
+            currentBookName = decodeURIComponent(params.get('bookName') || '');
+            currentBookPart = decodeURIComponent(params.get('bookPart') || '');
+            currentWebAppUrl = decodeURIComponent(params.get('webAppUrl') || '');
+            if (!currentWebAppUrl || !currentBookName) {
+                document.getElementById('main-header').textContent = 'ข้อผิดพลาด: ไม่พบข้อมูลคัมภีร์';
+                mainContent.innerHTML = '<p style="text-align:center; color:red; font-size: 1.2em;">กรุณากลับไปที่หน้าแรก (index.html) เพื่อเลือกคัมภีร์ก่อน</p>';
+                mainContent.classList.remove('hidden-section');
+                return;
+            }
+            document.getElementById('main-header').textContent = `กำลังทำงานกับ: ${currentBookName}` + (currentBookPart ? ` - ${currentBookPart}` : '');
+            const savedUserName = localStorage.getItem('paliToolUserName');
+            if (savedUserName) { userNameInput.value = savedUserName; }
+            userNameInput.addEventListener('input', () => { localStorage.setItem('paliToolUserName', userNameInput.value); });
+            mainContent.classList.remove('hidden-section');
+            resetToCreateMode();
+        }
+        
+        storyNameInput.addEventListener('blur', checkLastParagraph);
+        splitBtn.addEventListener('click', generateCreateTable);
+        fetchBtn.addEventListener('click', fetchDataForEdit);
+        resetBtn.addEventListener('click', resetToCreateMode);
+        saveBtn.addEventListener('click', saveData);
+
+        async function apiFetch(url, options = {}) {
+            try { const response = await fetch(url, options); const result = await response.json(); if (!response.ok || (result && result.status !== 'success')) { throw new Error(result.message || `Network error: ${response.statusText}`); } return result; } catch (error) { console.error('API Fetch Error:', error); throw error; }
+        }
+        
+        async function checkLastParagraph() {
+            const storyName = storyNameInput.value.trim();
+            paragraphSuggestion.textContent = '';
+            if (!storyName) { masterParagraphNumInput.value = '1'; return; }
+            paragraphSuggestion.style.color = '#555';
+            paragraphSuggestion.textContent = 'กำลังตรวจสอบย่อหน้า...';
+            try {
+                const url = `${currentWebAppUrl}?action=getLastParagraph&bookName=${encodeURIComponent(currentBookName)}&bookPart=${encodeURIComponent(currentBookPart)}&storyName=${encodeURIComponent(storyName)}`;
+                const result = await apiFetch(url);
+                const lastParagraph = result.lastParagraph || 0;
+                if (lastParagraph > 0) { paragraphSuggestion.textContent = `เรื่องนี้มีอยู่แล้ว ย่อหน้าล่าสุดคือ ${lastParagraph}`; masterParagraphNumInput.value = lastParagraph + 1; }
+                else { paragraphSuggestion.textContent = 'เป็นเรื่องใหม่ จะเริ่มที่ย่อหน้า 1'; masterParagraphNumInput.value = '1'; }
+            } catch (error) { paragraphSuggestion.style.color = 'red'; paragraphSuggestion.textContent = 'ไม่สามารถตรวจสอบย่อหน้าได้'; masterParagraphNumInput.value = '1'; }
+        }
+        
+        async function populateDatalists() {
+             if (!currentWebAppUrl) return;
+            try {
+                const url = `${currentWebAppUrl}?action=getDropdownData&bookName=${encodeURIComponent(currentBookName)}&bookPart=${encodeURIComponent(currentBookPart)}`;
+                const result = await apiFetch(url);
+                const { chapters, stories, sections } = result.data;
+                addOptionsToDatalist('chapter_name_list', chapters);
+                addOptionsToDatalist('story_name_list', stories);
+                addOptionsToDatalist('section_name_list', sections);
+            } catch (error) { 
+                updateStatus(`ไม่สามารถโหลด Datalist: ${error.message}`, 'error');
+            }
+        }
+        
+        async function fetchDataForEdit() {
+            const groupId = document.getElementById('fetch-group-id').value.trim();
+            const pageNum = document.getElementById('fetch-page-num').value.trim();
+            if (!groupId && !pageNum) { alert('กรุณาใส่รหัสกลุ่มเนื้อหา หรือ เลขหน้า'); return; }
+
+            setMode('edit');
+            updateStatus('กำลังดึงข้อมูล...', 'loading');
+            currentEditGroupId = groupId;
+            currentEditPageNum = pageNum;
+            
+            let fetchUrl = `${currentWebAppUrl}?action=getDataForEdit&bookName=${encodeURIComponent(currentBookName)}&bookPart=${encodeURIComponent(currentBookPart)}`;
+            if (groupId) { fetchUrl += `&groupId=${groupId}`; }
+            if (pageNum) { fetchUrl += `&page=${pageNum}`; }
+            
+            try {
+                const result = await apiFetch(fetchUrl);
+                generateEditTable(result.data);
+                updateStatus(`พบ ${result.data.length} รายการ พร้อมแก้ไข`, 'success');
+            } catch (error) {
+                updateStatus(`เกิดข้อผิดพลาด: ${error.message}`, 'error');
+                saveBtn.disabled = true;
+            }
+        }
+
+        function addOptionsToDatalist(datalistId, options) {
+            const datalistElement = document.getElementById(datalistId);
+            datalistElement.innerHTML = '';
+            options.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option;
+                datalistElement.appendChild(optionElement);
+            });
+        }
+        
+        async function generateCreateTable() {
+            if (!paliInput.value.trim()) { alert('กรุณาวางเนื้อหาภาษาบาลีก่อน'); return; }
+
+            const masterPageStart = document.getElementById('master_page_start').value;
+            const masterPageEnd = document.getElementById('master_page_end').value;
+            const masterParagraphNum = masterParagraphNumInput.value;
+            
+            splitBtn.disabled = true; splitBtn.textContent = 'กำลังโหลด ID...';
+            updateStatus('กำลังขอ ID เริ่มต้น...', 'loading');
+
+            try {
+                const url = `${currentWebAppUrl}?action=getNextId&bookName=${encodeURIComponent(currentBookName)}&bookPart=${encodeURIComponent(currentBookPart)}`;
+                const result = await apiFetch(url);
+                const nextId = result.nextId;
+                
+                sentenceThead.innerHTML = createHeader;
+                sentenceTbody.innerHTML = '';
+                let validLinesCount = 0;
+
+                const lines = paliInput.value.split(/\r?\n/);
+                lines.forEach((line) => {
+                    const cleanedLine = line.trim(); if (cleanedLine.length === 0) return;
+                    let formattedLine = cleanedLine.replace(/\s+/g, '  ').replace(/  ฯ/g, ' ฯ');
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td class="id-cell">${nextId + validLinesCount}</td><td><input type="number" class="group-id-input" placeholder="ใส่ group id"></td><td><textarea class="pali-text-input" rows="3">${formattedLine}</textarea></td><td><input type="number" class="page-start-input" value="${masterPageStart}"></td><td><input type="number" class="page-end-input" value="${masterPageEnd}"></td><td><input type="number" class="paragraph-num-input" value="${masterParagraphNum}"></td><td><select class="text-type-input"><option value="ร้อยแก้ว">ร้อยแก้ว</option><option value="ร้อยกรอง">ร้อยกรอง</option></select></td>`;
+                    sentenceTbody.appendChild(row);
+                    validLinesCount++;
+                });
+                
+                if (validLinesCount > 0) {
+                    sentencePlaceholder.style.display = 'none';
+                    saveBtn.disabled = false;
+                    updateStatus(`พร้อมสร้างข้อมูล ${validLinesCount} แถว`, 'success');
+                } else {
+                    sentencePlaceholder.style.display = 'block';
+                    sentencePlaceholder.textContent = 'ไม่พบข้อมูลที่สามารถแบ่งได้ (กรุณากด Enter เพื่อแบ่งแถว)';
+                    saveBtn.disabled = true;
+                    updateStatus('', '');
+                }
+            } catch (error) { 
+                updateStatus(`ไม่สามารถดึง ID จาก Server: ${error.message}`, 'error');
+            } 
+            finally { 
+                splitBtn.disabled = false; 
+                splitBtn.textContent = 'กดเพื่อแบ่งประโยค'; 
+            }
+        }
+        
+        function generateEditTable(data) {
+            sentenceThead.innerHTML = editHeader;
+            sentenceTbody.innerHTML = '';
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.dataset.id = item.id;
+                row.innerHTML = `<td style="text-align:center;">${item.pali_order || '-'}</td><td><div class="pali-text-display">${item.pali_text}</div></td><td><input type="number" class="thai-order-input" value="${item.thai_order || item.pali_order || ''}"></td><td><textarea class="thai-text-input" rows="3">${item.thai_text || ''}</textarea></td>`;
+                sentenceTbody.appendChild(row);
+            });
+            sentencePlaceholder.style.display = 'none';
+            saveBtn.disabled = false;
+        }
+        
+        // --- ส่วนที่เพิ่มกลับเข้ามา ---
+        async function saveData() {
+            const userName = userNameInput.value.trim();
+            if (!userName) { alert('กรุณาใส่ชื่อของคุณในช่อง "ข้อมูลผู้ใช้งาน" ก่อน'); userNameInput.focus(); return; }
+
+            const mode = modeInput.value;
+            let payload;
+
+            if (mode === 'create') {
+                const chapterName = document.getElementById('chapter_name').value.trim(), storyName = document.getElementById('story_name').value.trim(),
+                      sectionName = document.getElementById('section_name').value.trim(), displayFlag = document.getElementById('display_flag').value;
+                const rows = Array.from(sentenceTbody.querySelectorAll('tr'));
+                if (rows.length === 0) { alert('ไม่มีข้อมูลให้บันทึก'); return; }
+                
+                const rowsData = rows.map((row, index) => ({
+                    user_name: userName, pali_order: index + 1, book_title: currentBookName, book_part: currentBookPart,
+                    chapter_name: chapterName, story_name: storyName, section_name: sectionName, display_flag: displayFlag,
+                    sentence_group_id: row.querySelector('.group-id-input')?.value.trim() || '',
+                    pali_text: row.querySelector('.pali-text-input')?.value.trim() || '',
+                    page_start: row.querySelector('.page-start-input')?.value || '',
+                    page_end: row.querySelector('.page-end-input')?.value || '',
+                    paragraph_num: row.querySelector('.paragraph-num-input')?.value || '',
+                    text_type: row.querySelector('.text-type-input')?.value || 'ร้อยแก้ว'
+                }));
+                payload = { action: 'create', data: rowsData };
+            } else { // mode === 'edit'
+                const rows = Array.from(sentenceTbody.querySelectorAll('tr'));
+                const updateData = rows.map(row => ({
+                    id: row.dataset.id, user_name: userName,
+                    thai_order: row.querySelector('.thai-order-input')?.value || '',
+                    thai_text: row.querySelector('.thai-text-input')?.value.trim() || ''
+                }));
+                payload = { action: 'update', data: updateData };
+            }
+
+            updateStatus('กำลังบันทึกข้อมูล...', 'loading');
+            saveBtn.disabled = true;
+
+            try {
+                const result = await apiFetch(currentWebAppUrl, { method: 'POST', mode: 'cors', cache: 'no-cache', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                updateStatus(result.message, 'success');
+                if (mode === 'create') {
+                    resetToCreateMode(); // รีเซ็ตฟอร์มทั้งหมด
+                    paliInput.value = ''; // เคลียร์ช่องบาลี
+                } else {
+                    setTimeout(fetchDataForEdit, 1500); // โหลดข้อมูลซ้ำในโหมดแก้ไข
+                }
+            } catch (error) {
+                updateStatus(`บันทึกข้อมูลไม่สำเร็จ: ${error.message}`, 'error');
+                saveBtn.disabled = false;
+            }
+        }
+        
+        function updateStatus(message, type) {
+            statusMessage.textContent = message;
+            statusMessage.className = type;
+        }
+
+        function setMode(mode) {
+            modeInput.value = mode;
+            if (mode === 'create') {
+                createModeContainer.style.display = 'block';
+                resetBtn.style.display = 'none';
+                saveBtn.textContent = 'บันทึกข้อมูลใหม่';
+                tableLegend.textContent = 'ตารางสร้างข้อมูล';
+                sentenceThead.innerHTML = createHeader;
+            } else { // 'edit'
+                createModeContainer.style.display = 'none';
+                resetBtn.style.display = 'block';
+                saveBtn.textContent = 'อัปเดตข้อมูลแปลไทย';
+                tableLegend.textContent = 'ตารางแก้ไขข้อมูล';
+                sentenceThead.innerHTML = editHeader;
+            }
+            sentenceTbody.innerHTML = '';
+            sentencePlaceholder.style.display = 'block';
+            sentencePlaceholder.textContent = 'ข้อมูลจะปรากฏที่นี่';
+            saveBtn.disabled = true;
+            updateStatus('', '');
+        }
+
+        function resetToCreateMode() {
+            setMode('create');
+            document.getElementById('fetch-group-id').value = '';
+            document.getElementById('fetch-page-num').value = '';
+            document.getElementById('master_page_start').value = '';
+            document.getElementById('master_page_end').value = '';
+            masterParagraphNumInput.value = '';
+            paragraphSuggestion.textContent = '';
+            if (currentWebAppUrl) { populateDatalists(); }
+        }
+
+        initializeTool();
+    });
+    </script>
+</body>
+</html>
