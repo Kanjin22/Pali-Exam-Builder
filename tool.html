@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เครื่องมือข้อมูลบาลี (v2.2)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <title>เครื่องมือข้อมูลบาลี (v2.3)</title>
+    <!-- (CSS Style เหมือนเดิมทั้งหมด) -->
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -60,6 +58,7 @@
 
         <!-- Create View -->
         <div id="create-view" class="view">
+            <!-- (HTML ในส่วนนี้เหมือนเดิม) -->
             <h2>หน้าเครื่องมือ (สร้างข้อมูลบาลี)</h2>
             <fieldset> <legend>ข้อมูลผู้ใช้งาน</legend> <input type="text" id="user_name" placeholder="ใส่ชื่อของคุณที่นี่" required> </fieldset>
             <fieldset><legend>ข้อมูลกำกับ</legend>
@@ -87,6 +86,7 @@
 
         <!-- Edit View -->
         <div id="edit-view" class="view">
+             <!-- (HTML ในส่วนนี้เหมือนเดิม) -->
              <h2>หน้าแก้ไข (เพิ่มคำแปลไทย)</h2>
             <fieldset id="edit-mode-selector">
                 <legend>ค้นหากลุ่มข้อมูลเพื่อแก้ไข</legend>
@@ -116,7 +116,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, collection, doc, getDocs, writeBatch, serverTimestamp, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
       
-        // --- ใส่ firebaseConfig ของคุณที่นี่ ---
         const firebaseConfig = {
           apiKey: "YOUR_API_KEY",
           authDomain: "YOUR_AUTH_DOMAIN",
@@ -137,34 +136,17 @@
             const createHeader = `<thead><tr><th>ID</th><th>Group ID</th><th>เนื้อหาบาลี</th><th>หน้าเริ่ม</th><th>หน้าจบ</th><th>ย่อหน้า</th><th>ประเภท</th></tr></thead><tbody></tbody>`;
             const editHeader = `<thead><tr><th>ID</th><th>ลำดับบาลี</th><th>เนื้อหาบาลี</th><th>ลำดับแปลไทย</th><th>เนื้อหาคำแปลไทย</th></tr></thead><tbody></tbody>`;
 
-            const container = document.getElementById('container');
-            const mainHeader = document.getElementById('main-header');
-            const subHeader = document.getElementById('sub-header');
-            const createView = document.getElementById('create-view');
-            const editView = document.getElementById('edit-view');
-            const goToEditBtn = document.getElementById('go_to_edit_view_btn');
-            const goToCreateBtn = document.getElementById('go_to_create_view_btn');
-            const createDataWorkArea = document.getElementById('create-data-work-area');
-            const editViewContent = document.getElementById('edit-view-content');
-            const createSentenceTable = document.getElementById('create-sentence-table');
-            const editSentenceTable = document.getElementById('edit-sentence-table');
-            const createSaveBtn = document.getElementById('create-save-btn');
-            const editSaveBtn = document.getElementById('edit-save-btn');
             const userNameInput = document.getElementById('user_name');
             const storyNameInput = document.getElementById('story_name');
 
             function switchView(viewToShow) {
                 currentMode = viewToShow;
-                createView.classList.toggle('active', viewToShow === 'create');
-                editView.classList.toggle('active', viewToShow === 'edit');
-                goToEditBtn.style.display = viewToShow === 'create' ? 'inline-block' : 'none';
-                goToCreateBtn.style.display = viewToShow === 'edit' ? 'inline-block' : 'none';
-                createDataWorkArea.style.display = 'none';
-                editViewContent.style.display = 'none';
-                createSentenceTable.innerHTML = '';
-                editSentenceTable.innerHTML = '';
-                updateStatus('create-status-message', '', '');
-                updateStatus('edit-status-message', '', '');
+                document.getElementById('create-view').classList.toggle('active', viewToShow === 'create');
+                document.getElementById('edit-view').classList.toggle('active', viewToShow === 'edit');
+                document.getElementById('go_to_edit_view_btn').style.display = viewToShow === 'create' ? 'inline-block' : 'none';
+                document.getElementById('go_to_create_view_btn').style.display = viewToShow === 'edit' ? 'inline-block' : 'none';
+                document.getElementById('create-data-work-area').style.display = 'none';
+                document.getElementById('edit-view-content').style.display = 'none';
             }
 
             function initializeTool() {
@@ -173,14 +155,12 @@
                 currentBookPart = decodeURIComponent(params.get('bookPart') || '');
                 currentPrefix = decodeURIComponent(params.get('prefix') || '');
                 if (!currentBookName || !currentPrefix) {
-                    mainHeader.textContent = 'ข้อผิดพลาด';
-                    container.innerHTML = `<div class="header-bar"><h1>ข้อผิดพลาด</h1></div><p style="text-align:center; color:red;">ไม่พบคัมภีร์หรือ Prefix ที่เลือกใน URL<br>กรุณากลับไปที่หน้าแรกแล้วเลือกคัมภีร์อีกครั้ง</p><br><p style="text-align:center;"><a href="index.html"><button>กลับไปหน้าแรก</button></a></p>`;
+                    document.getElementById('main-header').textContent = 'ข้อผิดพลาด';
+                    document.getElementById('container').innerHTML = `<div class="header-bar"><h1>ข้อผิดพลาด</h1></div><p style="text-align:center; color:red;">ไม่พบคัมภีร์หรือ Prefix ที่เลือกใน URL<br>กรุณากลับไปที่หน้าแรกแล้วเลือกคัมภีร์อีกครั้ง</p><br><p style="text-align:center;"><a href="index.html"><button>กลับไปหน้าแรก</button></a></p>`;
                     return;
                 }
-                mainHeader.textContent = `${currentBookName}`;
-                // === ส่วนที่แก้ไข: เอา Prefix Display ออก ===
-                subHeader.textContent = currentBookPart;
-                
+                document.getElementById('main-header').textContent = `${currentBookName}`;
+                document.getElementById('sub-header').textContent = currentBookPart;
                 const savedUserName = localStorage.getItem('paliToolUserName');
                 if (savedUserName) { userNameInput.value = savedUserName; }
                 userNameInput.addEventListener('input', () => { localStorage.setItem('paliToolUserName', userNameInput.value); });
@@ -189,24 +169,73 @@
             }
 
             // --- Event Listeners ---
-            goToEditBtn.addEventListener('click', () => switchView('edit'));
-            goToCreateBtn.addEventListener('click', () => switchView('create'));
+            document.getElementById('go_to_edit_view_btn').addEventListener('click', () => switchView('edit'));
+            document.getElementById('go_to_create_view_btn').addEventListener('click', () => switchView('create'));
             storyNameInput.addEventListener('blur', checkLastParagraph);
             document.getElementById('find_last_group_id_btn').addEventListener('click', findLastGroupId);
             document.getElementById('split-btn').addEventListener('click', generateCreateTable);
-            createSaveBtn.addEventListener('click', () => saveData('create'));
+            document.getElementById('create-save-btn').addEventListener('click', () => saveData('create'));
             document.getElementById('search_groups_btn').addEventListener('click', searchGroupsToEdit);
-            editSaveBtn.addEventListener('click', () => saveData('edit'));
+            document.getElementById('edit-save-btn').addEventListener('click', () => saveData('edit'));
             
             function updateStatus(elementId, message, type) { const el = document.getElementById(elementId); if(el){ el.textContent = message; el.className = `status-message ${type}`; } }
             async function findLastId(field) { const q = query(paliCollection, orderBy(field, "desc"), limit(1)); const querySnapshot = await getDocs(q); if (querySnapshot.empty) return 0; const data = querySnapshot.docs[0].data(); return data[field] || 0; }
-            async function findLastGroupId() { const statusElId = 'group_id_suggestion'; updateStatus(statusElId, `กำลังค้นหา...`, ''); try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), orderBy("sentence_group_id", "desc"), limit(1)); const querySnapshot = await getDocs(q); let lastNumber = 0; if (!querySnapshot.empty) { const lastFullId = querySnapshot.docs[0].data().sentence_group_id; lastNumber = parseInt(lastFullId.toString().split('-').pop()) || 0; } document.getElementById('master_group_id').value = lastNumber + 1; updateStatus(statusElId, `ID ล่าสุดที่พบ: ${currentPrefix}-${lastNumber}. ID ถัดไปคือ ${lastNumber + 1}`, 'success'); } catch (error) { updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. อาจต้องสร้าง Index`, 'error'); } }
+            
+            // === ฟังก์ชันที่แก้ไข: findLastGroupId ===
+            async function findLastGroupId() {
+                const statusElId = 'group_id_suggestion';
+                updateStatus(statusElId, `กำลังค้นหา Group ID ล่าสุดสำหรับ Prefix: ${currentPrefix}...`, '');
+                try {
+                    // สร้าง Query เพื่อค้นหาเอกสารทั้งหมดที่ขึ้นต้นด้วย Prefix ของเรา
+                    // โดยใช้เทคนิคการค้นหาช่วงข้อมูล (Range Query)
+                    const q = query(paliCollection, 
+                        where('sentence_group_id', '>=', `${currentPrefix}-`),
+                        where('sentence_group_id', '<', `${currentPrefix}-z`)
+                    );
+                    
+                    const querySnapshot = await getDocs(q);
+                    
+                    let lastNumber = 0;
+                    if (!querySnapshot.empty) {
+                        // เมื่อได้ข้อมูลทั้งหมดมาแล้ว ให้เรามาหาค่าสูงสุดด้วยตัวเองในฝั่ง JavaScript
+                        // เพื่อให้แน่ใจว่าได้ค่าที่ถูกต้องจริงๆ แม้จะเรียงแบบข้อความ
+                        const allNumbers = querySnapshot.docs.map(doc => {
+                            const fullId = doc.data().sentence_group_id;
+                            // ตัดเอาเฉพาะส่วนที่เป็นตัวเลข (หลังเครื่องหมาย "-")
+                            return parseInt(fullId.toString().split('-').pop()) || 0;
+                        });
+                        
+                        lastNumber = Math.max(...allNumbers);
+                    }
+                    
+                    document.getElementById('master_group_id').value = lastNumber + 1;
+                    updateStatus(statusElId, `ID ล่าสุดที่พบ: ${currentPrefix}-${lastNumber}. ID ถัดไปคือ ${lastNumber + 1}`, 'success');
+
+                } catch (error) {
+                    if (error.code === 'failed-precondition') {
+                         updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. คุณอาจจะต้องสร้าง Index สำหรับการค้นหานี้ก่อน (คลิกลิงก์ใน Console)`, 'error');
+                    } else {
+                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}`, 'error');
+                    }
+                }
+            }
+
+            // (ฟังก์ชันที่เหลือเหมือนเดิมทั้งหมด)
+            async function checkLastParagraph() { /* ... */ }
+            async function generateCreateTable() { /* ... */ }
+            async function saveData(mode) { /* ... */ }
+            async function searchGroupsToEdit() { /* ... */ }
+            async function fetchDataForEdit(groupId) { /* ... */ }
+            function generateEditTable(data) { /* ... */ }
+            async function populateStoryDatalistForSearch(){ /* ... */ }
+            
+            // --- โค้ดเต็มของฟังก์ชันที่เหลือ (เพื่อความสมบูรณ์) ---
             async function checkLastParagraph() { const paraSuggestionEl = document.getElementById('paragraph_suggestion'); if (!storyNameInput.value.trim()) return; paraSuggestionEl.textContent = 'กำลังตรวจสอบ...'; try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), where("story_name", "==", storyNameInput.value.trim()), orderBy("paragraph_num", "desc"), limit(1)); const querySnapshot = await getDocs(q); let lastParagraph = 0; if (!querySnapshot.empty) { lastParagraph = querySnapshot.docs[0].data().paragraph_num || 0; } document.getElementById('master_paragraph_num').value = lastParagraph + 1; paraSuggestionEl.textContent = `เรื่องนี้มีย่อหน้าล่าสุดคือ ${lastParagraph}`; } catch (error) { document.getElementById('master_paragraph_num').value = 1; if (error.code === 'failed-precondition') { paraSuggestionEl.textContent = 'เป็นเรื่องใหม่ (ต้องสร้าง Index เพื่อยืนยัน)'; } else { paraSuggestionEl.textContent = 'เป็นเรื่องใหม่'; } } }
-            async function generateCreateTable() { const paliInput = document.getElementById('pali-input'); if (!paliInput.value.trim()) { alert('กรุณาวางเนื้อหาบาลีก่อน'); return; } const masterGroupId = document.getElementById('master_group_id').value; if (!masterGroupId) { alert('กรุณาใส่ Group ID'); return; } createDataWorkArea.style.display = 'block'; const table = createSentenceTable; table.innerHTML = createHeader; const tbody = table.querySelector('tbody'); try { const nextId = await findLastId("id") + 1; const masterPageStart = document.getElementById('master_page_start').value; const masterPageEnd = document.getElementById('master_page_end').value; const masterParagraphNum = document.getElementById('master_paragraph_num').value; let validLinesCount = 0; paliInput.value.split(/\r?\n/).forEach((line, index) => { const cleanedLine = line.trim(); if (cleanedLine.length === 0) return; const row = tbody.insertRow(); row.dataset.id = nextId + index; row.innerHTML = `<td class="id-cell">${nextId + index}</td><td><input type="number" class="group-id-input" value="${masterGroupId}"></td><td><textarea class="pali-text-input" rows="3">${cleanedLine}</textarea></td><td><input type="number" class="page-start-input" value="${masterPageStart}"></td><td><input type="number" class="page-end-input" value="${masterPageEnd}"></td><td><input type="number" class="paragraph-num-input" value="${masterParagraphNum}"></td><td><select class="text-type-input"><option value="ร้อยแก้ว">ร้อยแก้ว</option><option value="ร้อยกรอง">ร้อยกรอง</option></select></td>`; validLinesCount++; }); if (validLinesCount > 0) { createSaveBtn.disabled = false; } } catch(error) { updateStatus('create-status-message', `เกิดข้อผิดพลาด: ${error.message}`, 'error'); } }
-            async function saveData(mode) { const statusElId = mode === 'create' ? 'create-status-message' : 'edit-status-message'; const saveBtnId = mode === 'create' ? 'create-save-btn' : 'edit-save-btn'; if (!userNameInput.value.trim()) { alert('กรุณาใส่ชื่อผู้ใช้งาน'); return; } updateStatus(statusElId, 'กำลังบันทึก...', 'loading'); document.getElementById(saveBtnId).disabled = true; try { const batch = writeBatch(db); if (mode === 'create') { const chapterName = document.getElementById('chapter_name').value, storyName = storyNameInput.value, sectionName = document.getElementById('section_name').value; const displayFlag = parseInt(document.getElementById('display_flag').value); Array.from(createSentenceTable.querySelector('tbody').rows).forEach((row, index) => { const docId = row.dataset.id; const groupIdNum = row.querySelector('.group-id-input')?.value || '0'; const fullGroupId = `${currentPrefix}-${groupIdNum}`; const docRef = doc(db, "pali_sentences", docId); batch.set(docRef, { id: parseInt(docId), sentence_group_id: fullGroupId, pali_order: index + 1, book_title: currentBookName, book_part: currentBookPart, chapter_name: chapterName, story_name: storyName, section_name: sectionName, display_flag: displayFlag, page_start: parseInt(row.querySelector('.page-start-input')?.value) || 0, page_end: parseInt(row.querySelector('.page-end-input')?.value) || 0, paragraph_num: parseInt(row.querySelector('.paragraph-num-input')?.value) || 0, text_type: row.querySelector('.text-type-input')?.value, pali_text: row.querySelector('.pali-text-input')?.value.trim(), user_name_pali: userNameInput.value.trim(), timestamp_pali: serverTimestamp(), thai_text: "", thai_order: 0, user_name_thai: "", timestamp_thai: null, translation_status: 'untranslated' }); }); } else { Array.from(editSentenceTable.querySelector('tbody').rows).forEach(row => { const docId = row.dataset.id; const docRef = doc(db, "pali_sentences", docId); batch.update(docRef, { thai_text: row.querySelector('.thai-text-input')?.value.trim() || '', thai_order: parseInt(row.querySelector('.thai-order-input')?.value) || 0, user_name_thai: userNameInput.value.trim(), timestamp_thai: serverTimestamp(), translation_status: 'completed' }); }); } await batch.commit(); updateStatus(statusElId, 'บันทึกข้อมูลสำเร็จ!', 'success'); if (mode === 'create') { document.getElementById('pali-input').value = ''; createSentenceTable.innerHTML = ''; createDataWorkArea.style.display = 'none'; } else { document.getElementById('group-results').innerHTML = ''; editViewContent.style.display = 'none'; } } catch (error) { updateStatus(statusElId, `บันทึกไม่สำเร็จ: ${error.message}`, 'error'); document.getElementById(saveBtnId).disabled = false; } }
-            async function searchGroupsToEdit() { const storyName = document.getElementById('search_story_name').value.trim(); const pageNum = parseInt(document.getElementById('search_page_num').value.trim()); if (!storyName && !pageNum) { alert('กรุณาเลือกชื่อเรื่อง หรือใส่เลขหน้า'); return; } updateStatus('edit-status-message', 'กำลังค้นหากลุ่ม...', 'loading'); const groupResultsDiv = document.getElementById('group-results'); groupResultsDiv.innerHTML = ''; editViewContent.style.display = 'none'; try { let constraints = [ where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), orderBy("sentence_group_id") ]; if (storyName) constraints.push(where("story_name", "==", storyName)); if (pageNum) constraints.push(where("page_start", "==", pageNum)); const q = query(paliCollection, ...constraints); const querySnapshot = await getDocs(q); if (querySnapshot.empty) { throw new Error('ไม่พบข้อมูลตามเงื่อนไข'); } const groups = new Map(); querySnapshot.forEach(doc => { const data = doc.data(); if (!groups.has(data.sentence_group_id)) { groups.set(data.sentence_group_id, { pali_text: data.pali_text.substring(0, 50) + '...', status: data.translation_status || 'untranslated' }); } }); updateStatus('edit-status-message', `พบ ${groups.size} กลุ่ม, กรุณาเลือกกลุ่มที่ต้องการแก้ไข`, 'success'); groups.forEach((data, groupId) => { const div = document.createElement('div'); const statusClass = `status-${data.status}`; div.innerHTML = `<span>Group ID: ${groupId} (ตัวอย่าง: ${data.pali_text})</span> <span class="status-badge ${statusClass}">${data.status}</span>`; div.dataset.groupId = groupId; div.addEventListener('click', () => fetchDataForEdit(groupId)); groupResultsDiv.appendChild(div); }); } catch (error) { updateStatus('edit-status-message', `ค้นหาไม่สำเร็จ: ${error.message}`, 'error'); } }
-            async function fetchDataForEdit(groupId) { if (!groupId) return; editViewContent.style.display = 'grid'; document.getElementById('group-results').innerHTML = ''; updateStatus('edit-status-message', `กำลังดึงข้อมูล Group ID: ${groupId}...`, 'loading'); try { const q = query(paliCollection, where("sentence_group_id", "==", groupId), orderBy("pali_order")); const querySnapshot = await getDocs(q); const data = querySnapshot.docs.map(doc => doc.data()); const paliDisplayText = document.getElementById('pali-display-text'); paliDisplayText.innerHTML = ''; data.forEach(item => { const p = document.createElement('p'); p.id = `pali-ref-${item.id}`; p.innerHTML = `<b>(ลำดับ ${item.pali_order})</b> ${item.pali_text}`; paliDisplayText.appendChild(p); }); document.getElementById('pali-display-header').textContent = `เนื้อหาบาลี (Group: ${groupId})`; generateEditTable(data); } catch (error) { updateStatus('edit-status-message', `เกิดข้อผิดพลาด: ${error.message}`, 'error'); } }
-            function generateEditTable(data) { const table = editSentenceTable; table.innerHTML = editHeader; const tbody = table.querySelector('tbody'); data.forEach(item => { const row = tbody.insertRow(); row.dataset.id = item.id; row.dataset.refId = `pali-ref-${item.id}`; row.innerHTML = `<td class="id-cell">${item.id}</td><td style="text-align:center;">${item.pali_order || '-'}</td><td><div class="pali-text-display">${item.pali_text}</div></td><td><input type="number" class="thai-order-input" value="${item.thai_order || item.pali_order || ''}"></td><td><textarea class="thai-text-input" rows="3">${item.thai_text || ''}</textarea></td>`; row.querySelectorAll('input, textarea').forEach(input => { input.addEventListener('focus', () => { document.querySelectorAll('#pali-display-text p').forEach(p => p.classList.remove('highlight')); const refEl = document.getElementById(row.dataset.refId); if(refEl) refEl.classList.add('highlight'); }); }); }); editSaveBtn.disabled = false; updateStatus('edit-status-message', `พร้อมแก้ไข ${data.length} รายการ`, 'success'); }
+            async function generateCreateTable() { const paliInput = document.getElementById('pali-input'); if (!paliInput.value.trim()) { alert('กรุณาวางเนื้อหาบาลีก่อน'); return; } const masterGroupId = document.getElementById('master_group_id').value; if (!masterGroupId) { alert('กรุณาใส่ Group ID'); return; } document.getElementById('create-data-work-area').style.display = 'block'; const table = document.getElementById('create-sentence-table'); table.innerHTML = createHeader; const tbody = table.querySelector('tbody'); try { const nextId = await findLastId("id") + 1; const masterPageStart = document.getElementById('master_page_start').value; const masterPageEnd = document.getElementById('master_page_end').value; const masterParagraphNum = document.getElementById('master_paragraph_num').value; let validLinesCount = 0; paliInput.value.split(/\r?\n/).forEach((line, index) => { const cleanedLine = line.trim(); if (cleanedLine.length === 0) return; const row = tbody.insertRow(); row.dataset.id = nextId + index; row.innerHTML = `<td class="id-cell">${nextId + index}</td><td><input type="number" class="group-id-input" value="${masterGroupId}"></td><td><textarea class="pali-text-input" rows="3">${cleanedLine}</textarea></td><td><input type="number" class="page-start-input" value="${masterPageStart}"></td><td><input type="number" class="page-end-input" value="${masterPageEnd}"></td><td><input type="number" class="paragraph-num-input" value="${masterParagraphNum}"></td><td><select class="text-type-input"><option value="ร้อยแก้ว">ร้อยแก้ว</option><option value="ร้อยกรอง">ร้อยกรอง</option></select></td>`; validLinesCount++; }); if (validLinesCount > 0) { document.getElementById('create-save-btn').disabled = false; } } catch(error) { updateStatus('create-status-message', `เกิดข้อผิดพลาด: ${error.message}`, 'error'); } }
+            async function saveData(mode) { const statusElId = mode === 'create' ? 'create-status-message' : 'edit-status-message'; const saveBtnId = mode === 'create' ? 'create-save-btn' : 'edit-save-btn'; if (!userNameInput.value.trim()) { alert('กรุณาใส่ชื่อผู้ใช้งาน'); return; } updateStatus(statusElId, 'กำลังบันทึก...', 'loading'); document.getElementById(saveBtnId).disabled = true; try { const batch = writeBatch(db); if (mode === 'create') { const chapterName = document.getElementById('chapter_name').value, storyName = storyNameInput.value, sectionName = document.getElementById('section_name').value; const displayFlag = parseInt(document.getElementById('display_flag').value); Array.from(document.getElementById('create-sentence-table').querySelector('tbody').rows).forEach((row, index) => { const docId = row.dataset.id; const groupIdNum = row.querySelector('.group-id-input')?.value || '0'; const fullGroupId = `${currentPrefix}-${groupIdNum}`; const docRef = doc(db, "pali_sentences", docId); batch.set(docRef, { id: parseInt(docId), sentence_group_id: fullGroupId, pali_order: index + 1, book_title: currentBookName, book_part: currentBookPart, chapter_name: chapterName, story_name: storyName, section_name: sectionName, display_flag: displayFlag, page_start: parseInt(row.querySelector('.page-start-input')?.value) || 0, page_end: parseInt(row.querySelector('.page-end-input')?.value) || 0, paragraph_num: parseInt(row.querySelector('.paragraph-num-input')?.value) || 0, text_type: row.querySelector('.text-type-input')?.value, pali_text: row.querySelector('.pali-text-input')?.value.trim(), user_name_pali: userNameInput.value.trim(), timestamp_pali: serverTimestamp(), thai_text: "", thai_order: 0, user_name_thai: "", timestamp_thai: null, translation_status: 'untranslated' }); }); } else { Array.from(document.getElementById('edit-sentence-table').querySelector('tbody').rows).forEach(row => { const docId = row.dataset.id; const docRef = doc(db, "pali_sentences", docId); batch.update(docRef, { thai_text: row.querySelector('.thai-text-input')?.value.trim() || '', thai_order: parseInt(row.querySelector('.thai-order-input')?.value) || 0, user_name_thai: userNameInput.value.trim(), timestamp_thai: serverTimestamp(), translation_status: 'completed' }); }); } await batch.commit(); updateStatus(statusElId, 'บันทึกข้อมูลสำเร็จ!', 'success'); if (mode === 'create') { document.getElementById('pali-input').value = ''; document.getElementById('create-sentence-table').innerHTML = ''; document.getElementById('create-data-work-area').style.display = 'none'; } else { document.getElementById('group-results').innerHTML = ''; document.getElementById('edit-view-content').style.display = 'none'; } } catch (error) { updateStatus(statusElId, `บันทึกไม่สำเร็จ: ${error.message}`, 'error'); document.getElementById(saveBtnId).disabled = false; } }
+            async function searchGroupsToEdit() { const storyName = document.getElementById('search_story_name').value.trim(); const pageNum = parseInt(document.getElementById('search_page_num').value.trim()); if (!storyName && !pageNum) { alert('กรุณาเลือกชื่อเรื่อง หรือใส่เลขหน้า'); return; } updateStatus('edit-status-message', 'กำลังค้นหากลุ่ม...', 'loading'); const groupResultsDiv = document.getElementById('group-results'); groupResultsDiv.innerHTML = ''; document.getElementById('edit-view-content').style.display = 'none'; try { let constraints = [ where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart)]; if (storyName) constraints.push(where("story_name", "==", storyName)); if (pageNum) constraints.push(where("page_start", "==", pageNum)); const q = query(paliCollection, ...constraints, orderBy("sentence_group_id")); const querySnapshot = await getDocs(q); if (querySnapshot.empty) { throw new Error('ไม่พบข้อมูลตามเงื่อนไข'); } const groups = new Map(); querySnapshot.forEach(doc => { const data = doc.data(); if (!groups.has(data.sentence_group_id)) { groups.set(data.sentence_group_id, { pali_text: data.pali_text.substring(0, 50) + '...', status: data.translation_status || 'untranslated' }); } }); updateStatus('edit-status-message', `พบ ${groups.size} กลุ่ม, กรุณาเลือกกลุ่มที่ต้องการแก้ไข`, 'success'); groups.forEach((data, groupId) => { const div = document.createElement('div'); const statusClass = `status-${data.status}`; div.innerHTML = `<span>Group ID: ${groupId} (ตัวอย่าง: ${data.pali_text})</span> <span class="status-badge ${statusClass}">${data.status}</span>`; div.dataset.groupId = groupId; div.addEventListener('click', () => fetchDataForEdit(groupId)); groupResultsDiv.appendChild(div); }); } catch (error) { updateStatus('edit-status-message', `ค้นหาไม่สำเร็จ: ${error.message}`, 'error'); } }
+            async function fetchDataForEdit(groupId) { if (!groupId) return; document.getElementById('edit-view-content').style.display = 'grid'; document.getElementById('group-results').innerHTML = ''; updateStatus('edit-status-message', `กำลังดึงข้อมูล Group ID: ${groupId}...`, 'loading'); try { const q = query(paliCollection, where("sentence_group_id", "==", groupId), orderBy("pali_order")); const querySnapshot = await getDocs(q); const data = querySnapshot.docs.map(doc => doc.data()); const paliDisplayText = document.getElementById('pali-display-text'); paliDisplayText.innerHTML = ''; data.forEach(item => { const p = document.createElement('p'); p.id = `pali-ref-${item.id}`; p.innerHTML = `<b>(ลำดับ ${item.pali_order})</b> ${item.pali_text}`; paliDisplayText.appendChild(p); }); document.getElementById('pali-display-header').textContent = `เนื้อหาบาลี (Group: ${groupId})`; generateEditTable(data); } catch (error) { updateStatus('edit-status-message', `เกิดข้อผิดพลาด: ${error.message}`, 'error'); } }
+            function generateEditTable(data) { const table = document.getElementById('edit-sentence-table'); table.innerHTML = editHeader; const tbody = table.querySelector('tbody'); data.forEach(item => { const row = tbody.insertRow(); row.dataset.id = item.id; row.dataset.refId = `pali-ref-${item.id}`; row.innerHTML = `<td class="id-cell">${item.id}</td><td style="text-align:center;">${item.pali_order || '-'}</td><td><div class="pali-text-display">${item.pali_text}</div></td><td><input type="number" class="thai-order-input" value="${item.thai_order || item.pali_order || ''}"></td><td><textarea class="thai-text-input" rows="3">${item.thai_text || ''}</textarea></td>`; row.querySelectorAll('input, textarea').forEach(input => { input.addEventListener('focus', () => { document.querySelectorAll('#pali-display-text p').forEach(p => p.classList.remove('highlight')); const refEl = document.getElementById(row.dataset.refId); if(refEl) refEl.classList.add('highlight'); }); }); }); document.getElementById('edit-save-btn').disabled = false; updateStatus('edit-status-message', `พร้อมแก้ไข ${data.length} รายการ`, 'success'); }
             async function populateStoryDatalistForSearch(){ try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart)); const querySnapshot = await getDocs(q); const stories = new Set(); querySnapshot.forEach(doc => { const storyName = doc.data().story_name; if (storyName) stories.add(storyName); }); const datalistElement = document.getElementById('story_name_datalist_for_search'); datalistElement.innerHTML = ''; Array.from(stories).sort().forEach(story => { const option = document.createElement('option'); option.value = story; datalistElement.appendChild(option); }); } catch(error) { console.error("Could not populate story datalist:", error); } }
             
             initializeTool();
