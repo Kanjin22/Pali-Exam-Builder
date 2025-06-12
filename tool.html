@@ -15,8 +15,7 @@
         fieldset { border: 1px solid #bdc3c7; border-radius: 5px; padding: 20px; margin-bottom: 25px; }
         .hidden-section { display: none; }
         legend { font-weight: 700; font-size: 1.2em; color: #34495e; padding: 0 10px; }
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; align-items: end;}
-        .single-input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px 20px; align-items: end;}
         textarea, input, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px; font-family: 'Sarabun', sans-serif; }
         button { background: #3498db; color: #fff; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; height: 40px; }
         button:hover { background: #2980b9; }
@@ -75,9 +74,16 @@
                 </fieldset>
                 
                 <fieldset>
-                    <legend>ข้อมูลหน้าและย่อหน้า (ใส่ครั้งเดียวเพื่อความสะดวก)</legend>
-                    <div class="single-input-grid">
+                    <legend>ข้อมูล Group ID, หน้า, และย่อหน้า</legend>
+                    <div class="form-grid">
                         <div>
+                            <label for="master_group_id">Group ID</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="number" id="master_group_id" placeholder="ใส่ ID เริ่มต้น">
+                                <button id="find_last_group_id_btn" style="width: auto; white-space: nowrap; flex-shrink: 0;">ค้นหา ID ล่าสุด</button>
+                            </div>
+                        </div>
+                         <div>
                             <label for="master_page_start">หน้าเริ่ม</label>
                             <input type="number" id="master_page_start" placeholder="ใส่เลขหน้าเริ่มต้น">
                         </div>
@@ -114,6 +120,7 @@
         const storyNameInput = document.getElementById('story_name');
         const masterParagraphNumInput = document.getElementById('master_paragraph_num');
         const paragraphSuggestion = document.getElementById('paragraph_suggestion');
+        const findLastGroupIdBtn = document.getElementById('find_last_group_id_btn');
         const splitBtn = document.getElementById('split-btn'), saveBtn = document.getElementById('save-btn');
         const fetchBtn = document.getElementById('fetch-btn'), resetBtn = document.getElementById('reset-btn'), paliInput = document.getElementById('pali-input');
         const sentenceThead = document.getElementById('sentence-thead'), sentenceTbody = document.getElementById('sentence-tbody');
@@ -144,6 +151,7 @@
         }
         
         storyNameInput.addEventListener('blur', checkLastParagraph);
+        findLastGroupIdBtn.addEventListener('click', findLastGroupId);
         splitBtn.addEventListener('click', generateCreateTable);
         fetchBtn.addEventListener('click', fetchDataForEdit);
         resetBtn.addEventListener('click', resetToCreateMode);
@@ -153,6 +161,26 @@
             try { const response = await fetch(url, options); const result = await response.json(); if (!response.ok || (result && result.status !== 'success')) { throw new Error(result.message || `Network error: ${response.statusText}`); } return result; } catch (error) { console.error('API Fetch Error:', error); throw error; }
         }
         
+        async function findLastGroupId() {
+            findLastGroupIdBtn.disabled = true;
+            findLastGroupIdBtn.textContent = 'กำลังค้นหา...';
+            updateStatus('กำลังค้นหา Group ID ล่าสุด...', 'loading');
+            
+            try {
+                const url = `${currentWebAppUrl}?action=getLastGroupId&bookName=${encodeURIComponent(currentBookName)}&bookPart=${encodeURIComponent(currentBookPart)}`;
+                const result = await apiFetch(url);
+                const lastGroupId = result.lastGroupId || 0;
+                document.getElementById('master_group_id').value = lastGroupId + 1;
+                updateStatus(`พบ Group ID ล่าสุดคือ ${lastGroupId}, เลขถัดไปคือ ${lastGroupId + 1}`, 'success');
+            } catch (error) {
+                updateStatus(`เกิดข้อผิดพลาดในการค้นหา Group ID: ${error.message}`, 'error');
+                document.getElementById('master_group_id').value = '';
+            } finally {
+                findLastGroupIdBtn.disabled = false;
+                findLastGroupIdBtn.textContent = 'ค้นหา ID ล่าสุด';
+            }
+        }
+
         async function checkLastParagraph() {
             const storyName = storyNameInput.value.trim();
             paragraphSuggestion.textContent = '';
@@ -186,16 +214,13 @@
             const groupId = document.getElementById('fetch-group-id').value.trim();
             const pageNum = document.getElementById('fetch-page-num').value.trim();
             if (!groupId && !pageNum) { alert('กรุณาใส่รหัสกลุ่มเนื้อหา หรือ เลขหน้า'); return; }
-
             setMode('edit');
             updateStatus('กำลังดึงข้อมูล...', 'loading');
             currentEditGroupId = groupId;
             currentEditPageNum = pageNum;
-            
             let fetchUrl = `${currentWebAppUrl}?action=getDataForEdit&bookName=${encodeURIComponent(currentBookName)}&bookPart=${encodeURIComponent(currentBookPart)}`;
             if (groupId) { fetchUrl += `&groupId=${groupId}`; }
             if (pageNum) { fetchUrl += `&page=${pageNum}`; }
-            
             try {
                 const result = await apiFetch(fetchUrl);
                 generateEditTable(result.data);
@@ -218,33 +243,30 @@
         
         async function generateCreateTable() {
             if (!paliInput.value.trim()) { alert('กรุณาวางเนื้อหาภาษาบาลีก่อน'); return; }
-
+            const masterGroupId = document.getElementById('master_group_id').value;
+            if (!masterGroupId) { alert('กรุณาใส่ Group ID เริ่มต้น หรือกดปุ่ม "ค้นหา ID ล่าสุด" ก่อน'); return; }
             const masterPageStart = document.getElementById('master_page_start').value;
             const masterPageEnd = document.getElementById('master_page_end').value;
             const masterParagraphNum = masterParagraphNumInput.value;
-            
             splitBtn.disabled = true; splitBtn.textContent = 'กำลังโหลด ID...';
             updateStatus('กำลังขอ ID เริ่มต้น...', 'loading');
-
             try {
                 const url = `${currentWebAppUrl}?action=getNextId&bookName=${encodeURIComponent(currentBookName)}&bookPart=${encodeURIComponent(currentBookPart)}`;
                 const result = await apiFetch(url);
                 const nextId = result.nextId;
-                
                 sentenceThead.innerHTML = createHeader;
                 sentenceTbody.innerHTML = '';
                 let validLinesCount = 0;
-
                 const lines = paliInput.value.split(/\r?\n/);
                 lines.forEach((line) => {
                     const cleanedLine = line.trim(); if (cleanedLine.length === 0) return;
                     let formattedLine = cleanedLine.replace(/\s+/g, '  ').replace(/  ฯ/g, ' ฯ');
                     const row = document.createElement('tr');
-                    row.innerHTML = `<td class="id-cell">${nextId + validLinesCount}</td><td><input type="number" class="group-id-input" placeholder="ใส่ group id"></td><td><textarea class="pali-text-input" rows="3">${formattedLine}</textarea></td><td><input type="number" class="page-start-input" value="${masterPageStart}"></td><td><input type="number" class="page-end-input" value="${masterPageEnd}"></td><td><input type="number" class="paragraph-num-input" value="${masterParagraphNum}"></td><td><select class="text-type-input"><option value="ร้อยแก้ว">ร้อยแก้ว</option><option value="ร้อยกรอง">ร้อยกรอง</option></select></td>`;
+                    // แต่ละแถวจะใช้ group id เดียวกัน เพื่อให้รู้ว่าเป็นกลุ่มเดียวกัน
+                    row.innerHTML = `<td class="id-cell">${nextId + validLinesCount}</td><td><input type="number" class="group-id-input" value="${masterGroupId}"></td><td><textarea class="pali-text-input" rows="3">${formattedLine}</textarea></td><td><input type="number" class="page-start-input" value="${masterPageStart}"></td><td><input type="number" class="page-end-input" value="${masterPageEnd}"></td><td><input type="number" class="paragraph-num-input" value="${masterParagraphNum}"></td><td><select class="text-type-input"><option value="ร้อยแก้ว">ร้อยแก้ว</option><option value="ร้อยกรอง">ร้อยกรอง</option></select></td>`;
                     sentenceTbody.appendChild(row);
                     validLinesCount++;
                 });
-                
                 if (validLinesCount > 0) {
                     sentencePlaceholder.style.display = 'none';
                     saveBtn.disabled = false;
@@ -277,20 +299,16 @@
             saveBtn.disabled = false;
         }
         
-        // --- ส่วนที่เพิ่มกลับเข้ามา ---
         async function saveData() {
             const userName = userNameInput.value.trim();
             if (!userName) { alert('กรุณาใส่ชื่อของคุณในช่อง "ข้อมูลผู้ใช้งาน" ก่อน'); userNameInput.focus(); return; }
-
             const mode = modeInput.value;
             let payload;
-
             if (mode === 'create') {
                 const chapterName = document.getElementById('chapter_name').value.trim(), storyName = document.getElementById('story_name').value.trim(),
                       sectionName = document.getElementById('section_name').value.trim(), displayFlag = document.getElementById('display_flag').value;
                 const rows = Array.from(sentenceTbody.querySelectorAll('tr'));
                 if (rows.length === 0) { alert('ไม่มีข้อมูลให้บันทึก'); return; }
-                
                 const rowsData = rows.map((row, index) => ({
                     user_name: userName, pali_order: index + 1, book_title: currentBookName, book_part: currentBookPart,
                     chapter_name: chapterName, story_name: storyName, section_name: sectionName, display_flag: displayFlag,
@@ -311,18 +329,16 @@
                 }));
                 payload = { action: 'update', data: updateData };
             }
-
             updateStatus('กำลังบันทึกข้อมูล...', 'loading');
             saveBtn.disabled = true;
-
             try {
                 const result = await apiFetch(currentWebAppUrl, { method: 'POST', mode: 'cors', cache: 'no-cache', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                 updateStatus(result.message, 'success');
                 if (mode === 'create') {
-                    resetToCreateMode(); // รีเซ็ตฟอร์มทั้งหมด
-                    paliInput.value = ''; // เคลียร์ช่องบาลี
+                    resetToCreateMode();
+                    paliInput.value = '';
                 } else {
-                    setTimeout(fetchDataForEdit, 1500); // โหลดข้อมูลซ้ำในโหมดแก้ไข
+                    setTimeout(fetchDataForEdit, 1500);
                 }
             } catch (error) {
                 updateStatus(`บันทึกข้อมูลไม่สำเร็จ: ${error.message}`, 'error');
@@ -361,6 +377,7 @@
             setMode('create');
             document.getElementById('fetch-group-id').value = '';
             document.getElementById('fetch-page-num').value = '';
+            document.getElementById('master_group_id').value = '';
             document.getElementById('master_page_start').value = '';
             document.getElementById('master_page_end').value = '';
             masterParagraphNumInput.value = '';
