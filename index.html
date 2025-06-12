@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เลือกคัมภีร์ - เครื่องมือข้อมูลบาลี</title>
-    <!-- (CSS Style เหมือนเดิม) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
         .selector-container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center; width: 100%; max-width: 600px; }
@@ -29,37 +31,33 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- รายชื่อคัมภีร์ทั้งหมดของคุณ ---
         const bookDatabase = [
-            { name: "ธมฺมปทฏฺฐกถา", part: "ปฐโม ภาโค" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "ทุติโย ภาโค" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "ตติโย ภาโค" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "จตุตฺโถ ภาโค" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "ปญฺจโม ภาโค" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "ฉฏฺโฐ ภาโค" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "สตฺตโม ภาโค" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "อฏฺฐโม ภาโค" },
-            { name: "มงฺคลตฺถทีปนี", part: "ปฐโม ภาโค" },
-            { name: "มงฺคลตฺถทีปนี", part: "ทุติโย ภาโค" },
-            { name: "สมนฺตปาสาทิกา ฯ", part: "ปฐโม ภาโค" },
-            { name: "สมนฺตปาสาทิกา ฯ", part: "ทุติโย ภาโค" },
-            { name: "สมนฺตปาสาทิกา ฯ", part: "ตติโย ภาโค" },
-            { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ปฐโม ภาโค" },
-            { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ทุติโย ภาโค" },
-            { name: "อภิธมฺมตฺถสงฺคหฯ อภิธมฺมตฺถวิภาวินีฯ", part: "" }
+            { name: "ธมฺมปทฏฺฐกถา", part: "ปฐโม ภาโค", prefix: "DP1" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ทุติโย ภาโค", prefix: "DP2" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ตติโย ภาโค", prefix: "DP3" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "จตุตฺโถ ภาโค", prefix: "DP4" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ปญฺจโม ภาโค", prefix: "DP5" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ฉฏฺโฐ ภาโค", prefix: "DP6" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "สตฺตโม ภาโค", prefix: "DP7" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "อฏฺฐโม ภาโค", prefix: "DP8" },
+            { name: "มงฺคลตฺถทีปนี", part: "ปฐโม ภาโค", prefix: "MT1" },
+            { name: "มงฺคลตฺถทีปนี", part: "ทุติโย ภาโค", prefix: "MT2" },
+            { name: "สมนฺตปาสาทิกา ฯ", part: "ปฐโม ภาโค", prefix: "SP1" },
+            { name: "สมนฺตปาสาทิกา ฯ", part: "ทุติโย ภาโค", prefix: "SP2" },
+            { name: "สมนฺตปาสาทิกา ฯ", part: "ตติโย ภาโค", prefix: "SP3" },
+            { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ปฐโม ภาโค", prefix: "VM1" },
+            { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ทุติโย ภาโค", prefix: "VM2" },
+            { name: "อภิธมฺมตฺถสงฺคหฯ อภิธมฺมตฺถวิภาวินีฯ", part: "", prefix: "ABH" }
         ];
         
         const bookSelector = document.getElementById('book_selector');
         const partSelector = document.getElementById('part_selector');
         const startButton = document.getElementById('start_button');
 
-        let selectedData = { bookName: '', bookPart: '' };
+        let selectedData = { bookName: '', bookPart: '', prefix: '' };
 
         function loadBookList() {
-            // ดึงชื่อคัมภีร์ที่ไม่ซ้ำกันออกมา
             const uniqueBookNames = [...new Set(bookDatabase.map(book => book.name))];
-            
-            // ไม่ต้องเรียงตามตัวอักษรแล้ว เพื่อให้เป็นไปตามลำดับที่คุณให้มา
             uniqueBookNames.forEach(bookName => {
                 const option = document.createElement('option');
                 option.value = bookName;
@@ -70,7 +68,7 @@
 
         function updatePartSelector() {
             const selectedBookName = bookSelector.value;
-            selectedData = { bookName: selectedBookName, bookPart: '' };
+            selectedData = { bookName: selectedBookName, bookPart: '', prefix: '' };
             startButton.disabled = true;
             partSelector.style.display = 'none';
             partSelector.innerHTML = '';
@@ -84,6 +82,7 @@
                 parts.forEach(part => {
                     const option = document.createElement('option');
                     option.value = part.part;
+                    option.dataset.prefix = part.prefix;
                     option.textContent = part.part;
                     partSelector.appendChild(option);
                 });
@@ -91,6 +90,7 @@
             } else {
                 const bookWithoutPart = bookDatabase.find(b => b.name === selectedBookName && b.part === "");
                 if (bookWithoutPart) {
+                    selectedData.prefix = bookWithoutPart.prefix;
                     startButton.disabled = false;
                 }
             }
@@ -99,20 +99,24 @@
         bookSelector.addEventListener('change', updatePartSelector);
 
         partSelector.addEventListener('change', () => {
+            const selectedOption = partSelector.options[partSelector.selectedIndex];
             if (partSelector.value) {
                 selectedData.bookPart = partSelector.value;
+                selectedData.prefix = selectedOption.dataset.prefix;
                 startButton.disabled = false;
             } else {
                 selectedData.bookPart = '';
+                selectedData.prefix = '';
                 startButton.disabled = true;
             }
         });
 
         startButton.addEventListener('click', () => {
-            if (selectedData.bookName) {
+            if (selectedData.bookName && selectedData.prefix) {
                 const params = new URLSearchParams({
                     bookName: selectedData.bookName,
-                    bookPart: selectedData.bookPart
+                    bookPart: selectedData.bookPart,
+                    prefix: selectedData.prefix
                 });
                 window.location.href = `tool.html?${params.toString()}`;
             } else {
