@@ -29,14 +29,24 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- ส่วนที่แก้ไข: กำหนดรายชื่อคัมภีร์ไว้ที่นี่โดยตรง ---
+        // --- รายชื่อคัมภีร์ทั้งหมดของคุณ ---
         const bookDatabase = [
-            { name: "ธรรมบท", part: "ภาค 1" },
-            { name: "ธรรมบท", part: "ภาค 2" },
-            { name: "สมันตปาสาทิกา", part: "ปฐโม ภาโค" },
-            { name: "สมันตปาสาทิกา", part: "ทุติโย ภาโค" },
-            { name: "มงคลทีปนี", part: "" } // ตัวอย่างคัมภีร์ที่ไม่มีภาค
-            // *** คุณสามารถเพิ่มคัมภีร์ใหม่ๆ ได้ที่นี่ ***
+            { name: "ธมฺมปทฏฺฐกถา", part: "ปฐโม ภาโค" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ทุติโย ภาโค" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ตติโย ภาโค" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "จตุตฺโถ ภาโค" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ปญฺจโม ภาโค" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ฉฏฺโฐ ภาโค" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "สตฺตโม ภาโค" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "อฏฺฐโม ภาโค" },
+            { name: "มงฺคลตฺถทีปนี", part: "ปฐโม ภาโค" },
+            { name: "มงฺคลตฺถทีปนี", part: "ทุติโย ภาโค" },
+            { name: "สมนฺตปาสาทิกา ฯ", part: "ปฐโม ภาโค" },
+            { name: "สมนฺตปาสาทิกา ฯ", part: "ทุติโย ภาโค" },
+            { name: "สมนฺตปาสาทิกา ฯ", part: "ตติโย ภาโค" },
+            { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ปฐโม ภาโค" },
+            { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ทุติโย ภาโค" },
+            { name: "อภิธมฺมตฺถสงฺคหฯ อภิธมฺมตฺถวิภาวินีฯ", part: "" }
         ];
         
         const bookSelector = document.getElementById('book_selector');
@@ -46,14 +56,16 @@
         let selectedData = { bookName: '', bookPart: '' };
 
         function loadBookList() {
+            // ดึงชื่อคัมภีร์ที่ไม่ซ้ำกันออกมา
             const uniqueBookNames = [...new Set(bookDatabase.map(book => book.name))];
-            uniqueBookNames.sort().forEach(bookName => {
+            
+            // ไม่ต้องเรียงตามตัวอักษรแล้ว เพื่อให้เป็นไปตามลำดับที่คุณให้มา
+            uniqueBookNames.forEach(bookName => {
                 const option = document.createElement('option');
                 option.value = bookName;
                 option.textContent = bookName;
                 bookSelector.appendChild(option);
             });
-            bookSelector.options[0].textContent = '-- กรุณาเลือกคัมภีร์ --';
         }
 
         function updatePartSelector() {
@@ -77,7 +89,7 @@
                 });
                 partSelector.style.display = 'block';
             } else {
-                const bookWithoutPart = bookDatabase.find(b => b.name === selectedBookName && !b.part);
+                const bookWithoutPart = bookDatabase.find(b => b.name === selectedBookName && b.part === "");
                 if (bookWithoutPart) {
                     startButton.disabled = false;
                 }
