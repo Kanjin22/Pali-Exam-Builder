@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* (CSS Style เหมือนเดิมทั้งหมด สามารถคัดลอกจาก create.html มาได้) */
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
         .container { max-width: 95%; margin: auto; background: var(--white-bg); padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; }
@@ -23,20 +22,25 @@
         button { background: var(--primary-color); color: var(--white-bg); padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; height: 40px; }
         button:hover { filter: brightness(90%); }
         .status-message { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 4px; word-break: break-word; min-height: 1.5em;}
-        .status-message.success { color: #155724; background-color: #d4edda; }
-        .status-message.error { color: #721c24; background-color: #f8d7da; }
-        #edit-view-content { display: none; grid-template-columns: 1fr 1.5fr; gap: 25px; }
+        .status-message.success, .suggestion-text.success { color: #155724; background-color: #d4edda; padding: 10px; border-radius: 4px;}
+        .status-message.error, .suggestion-text.error { color: #721c24; background-color: #f8d7da; padding: 10px; border-radius: 4px;}
+        #edit-view-content { display: none; grid-template-columns: 1fr 1.5fr; gap: 25px; margin-top: 20px; }
         #pali-display-panel { background-color: #fafafa; padding: 15px; border-radius: 5px; border: 1px solid #eee; height: fit-content; position: sticky; top: 20px; }
         #pali-display-panel h3 { margin-top: 0; }
         #pali-display-panel p { margin: 0 0 1em 0; padding: 0.5em; border-bottom: 1px dotted #ccc; transition: background-color 0.3s; }
         #pali-display-panel p.highlight { background-color: #fff8e1; }
-        #group-results div { padding: 8px; cursor: pointer; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        #group-results div { padding: 8px; cursor: default; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         #group-results div:hover { background-color: #f0f8ff; }
-        .edit-buttons { display: flex; align-items: center; gap: 8px; }
+        .group-info { flex-grow: 1; }
+        .edit-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .edit-buttons button { padding: 5px 10px; height: auto; font-size: 14px; }
         .status-badge { font-size: 0.8em; padding: 2px 8px; border-radius: 10px; color: #fff; }
         .status-untranslated { background-color: var(--danger-color); }
         .status-completed { background-color: var(--success-color); }
+        .table-wrapper { margin-top: 20px; overflow-x: auto; border: 1px solid #ddd; }
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        th, td { padding: 8px; border: 1px solid #ddd; text-align: left; vertical-align: top; word-wrap: break-word; }
+        th { background-color: #ecf0f1; position: sticky; top: 0; z-index: 1; text-align: center; }
     </style>
 </head>
 <body>
@@ -48,9 +52,8 @@
             </div>
             <a href="index.html" style="text-decoration: none;"><button class="secondary">กลับไปหน้าสารบัญ</button></a>
         </div>
-
         <div id="edit-view">
-            <h2>หน้าแก้ไขข้อมูล</h2>
+            <h2>หน้าแก้ไข (เพิ่ม/แก้ไขคำแปล)</h2>
             <fieldset> <legend>ข้อมูลผู้ใช้งาน</legend> <input type="text" id="user_name" placeholder="ใส่ชื่อของคุณที่นี่" required> </fieldset>
             <fieldset id="edit-mode-selector">
                 <legend>ค้นหากลุ่มข้อมูล</legend>
@@ -79,7 +82,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, collection, doc, getDocs, writeBatch, serverTimestamp, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-      
+        
         const firebaseConfig = {
             apiKey: "YOUR_API_KEY",
             authDomain: "YOUR_AUTH_DOMAIN",
@@ -98,7 +101,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log("Script Started on translate.html");
             const editHeader = `<thead><tr><th>ID</th><th>ลำดับบาลี</th><th>เนื้อหาบาลี</th><th>ลำดับแปลไทย</th><th>เนื้อหาคำแปลไทย</th></tr></thead><tbody></tbody>`;
-            
             const container = document.getElementById('container'), mainHeader = document.getElementById('main-header'), subHeader = document.getElementById('sub-header');
             const editViewContent = document.getElementById('edit-view-content'), editSentenceTable = document.getElementById('edit-sentence-table');
             const editSaveBtn = document.getElementById('edit-save-btn'), userNameInput = document.getElementById('user_name');
@@ -108,7 +110,6 @@
                 currentBookName = decodeURIComponent(params.get('bookName') || '');
                 currentBookPart = decodeURIComponent(params.get('bookPart') || '');
                 currentPrefix = decodeURIComponent(params.get('prefix') || '');
-
                 if (!currentBookName || !currentPrefix) {
                     mainHeader.textContent = 'ข้อผิดพลาด';
                     container.innerHTML = `<div class="header-bar"><h1>ข้อผิดพลาด</h1></div><p style="text-align:center; color:red;">ไม่พบคัมภีร์หรือ Prefix ที่เลือก<br>กรุณากลับไปที่หน้าแรก</p><br><p style="text-align:center;"><a href="index.html"><button class="secondary">กลับไปหน้าแรก</button></a></p>`;
@@ -151,29 +152,29 @@
                     groups.forEach((data, groupId) => {
                         const div = document.createElement('div');
                         const statusClass = `status-${data.status}`;
-                        div.innerHTML = `<span>Group ID: ${groupId} (ตัวอย่าง: ${data.pali_text})</span>
+                        div.innerHTML = `<div class="group-info"><strong>Group ID: ${groupId}</strong><br><small>ตัวอย่าง: ${data.pali_text}</small></div>
                                      <div class="edit-buttons">
                                         <span class="status-badge ${statusClass}">${data.status}</span>
                                         <button class="secondary" title="แก้ไขข้อมูลหลัก">✏️ แก้ไขหลัก</button>
-                                        <button class="success" title="เพิ่ม/แก้ไขคำแปล">แปลไทย</button>
+                                        <button class="success" title="เพิ่ม/แก้ไขคำแปล">✍️ แปลไทย</button>
                                      </div>`;
                         div.querySelector('[title="แก้ไขข้อมูลหลัก"]').addEventListener('click', (e) => { e.stopPropagation(); navigateToSuperEdit(groupId); });
-                        div.querySelector('[title="แปลไทย"]').addEventListener('click', (e) => { e.stopPropagation(); fetchDataForTranslate(groupId); });
+                        div.querySelector('[title="เพิ่ม/แก้ไขคำแปล"]').addEventListener('click', (e) => { e.stopPropagation(); fetchDataForTranslate(groupId); });
                         groupResultsDiv.appendChild(div);
                     });
                 } catch (error) { updateStatus(`ค้นหาไม่สำเร็จ: ${error.message} (อาจต้องสร้าง Index)`, 'error'); }
             }
             
             function navigateToSuperEdit(groupId) {
-                const params = new URLSearchParams(window.location.search); // ดึง Parameter เดิมมา
-                params.append('editGroupId', groupId); // เพิ่ม Group ID ที่จะแก้ไขเข้าไป
+                const params = new URLSearchParams(window.location.search);
+                params.append('editGroupId', groupId);
                 window.location.href = `create.html?${params.toString()}`;
             }
 
             async function fetchDataForTranslate(groupId) {
                 if (!groupId) return;
                 editViewContent.style.display = 'grid';
-                groupResultsDiv.innerHTML = '';
+                document.getElementById('group-results').innerHTML = '';
                 updateStatus(`กำลังดึงข้อมูล Group ID: ${groupId}...`, 'loading');
                 try {
                     const q = query(paliCollection, where("sentence_group_id", "==", groupId), orderBy("pali_order"));
@@ -245,7 +246,7 @@
                     Array.from(stories).sort().forEach(story => { const option = document.createElement('option'); option.value = story; datalistElement.appendChild(option); });
                 } catch(error) {
                     console.error("Could not populate story datalist:", error);
-                    // อาจต้องสร้าง Index สำหรับ story_name
+                    alert("เกิดข้อผิดพลาดในการโหลดรายชื่อเรื่อง อาจต้องสร้าง Index สำหรับ story_name");
                 }
             }
             
