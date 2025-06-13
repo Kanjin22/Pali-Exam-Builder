@@ -123,29 +123,33 @@
             async function checkLastParagraph() { const paraSuggestionEl = document.getElementById('paragraph_suggestion'); if (!dom.storyNameInput.value.trim()) { paraSuggestionEl.textContent = ''; return; } paraSuggestionEl.textContent = 'กำลังตรวจสอบ...'; try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), where("story_name", "==", dom.storyNameInput.value.trim()), orderBy("paragraph_num", "desc"), limit(1)); const querySnapshot = await getDocs(q); let lastParagraph = 0; if (!querySnapshot.empty) { lastParagraph = querySnapshot.docs[0].data().paragraph_num || 0; } updateStatus('paragraph_suggestion', `เรื่องนี้มีย่อหน้าล่าสุดคือ ${lastParagraph}. แนะนำให้ใช้: ${lastParagraph + 1}`, 'success'); } catch (error) { if (error.code === 'failed-precondition') { updateStatus('paragraph_suggestion', 'เป็นเรื่องใหม่ (ต้องสร้าง Index เพื่อยืนยัน)', 'warning'); } else { updateStatus('paragraph_suggestion', 'เป็นเรื่องใหม่', 'success'); } } }
             async function checkPageExists() { const pageNum = parseInt(dom.masterPageStartInput.value); const resultEl = document.getElementById('page_check_result'); if (!pageNum) { resultEl.innerHTML = ''; return; } resultEl.className = 'suggestion-text'; resultEl.textContent = `กำลังตรวจสอบหน้า ${pageNum}...`; try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), where("page_start", "==", pageNum), limit(5)); const querySnapshot = await getDocs(q); if (querySnapshot.empty) { updateStatus('page_check_result', `✅ หน้านี้ยังว่าง`, 'success'); } else { let html = `⚠️ หน้านี้มีข้อมูลแล้ว!`; html += `<ul>`; querySnapshot.forEach(doc => { const data = doc.data(); html += `<li>Group ID: ${data.sentence_group_id}, เนื้อหา: ${data.pali_text.substring(0,30)}...</li>`; }); html += `</ul>`; updateStatus('page_check_result', html, 'warning'); } } catch(error) { updateStatus('page_check_result', `เกิดข้อผิดพลาด: ${error.message} (ต้องสร้าง Index)`, 'error'); } }
             async function calculateHash(text) { const encoder = new TextEncoder(); const data = encoder.encode(text.trim()); const hashBuffer = await crypto.subtle.digest('SHA-256', data); const hashArray = Array.from(new Uint8Array(hashBuffer)); return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); }
-            function formatPaliText(text) { 
-                if (!text || !text.trim()) return '';
-                // 1. ทำให้ช่องว่างทั้งหมดเป็น 1 ช่องว่างมาตรฐานก่อน เพื่อให้ง่ายต่อการจัดการ
-                let workInProgress = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
-                // 2. ใช้การแทนที่แบบมีเงื่อนไขเพื่อแยกแยะ ฯ แต่ละประเภท
-                workInProgress = workInProgress.replace(/ฯเปฯ|ฯลฯ|ฯ/g, (match) => {
-                    // ถ้าเจอคำว่า ฯเปฯ หรือ ฯลฯ แบบติดกัน ให้ใส่เว้นวรรคหน้าหลัง 1 เคาะ
-                    if (match === 'ฯเปฯ' || match === 'ฯลฯ') {
-                        return ` ${match} `;
-                    }
-                        // ถ้าเจอ ฯ เดี่ยวๆ (ซึ่งคือจุดจบประโยค) ให้จัดรูปแบบเป็น ' ฯ  '
-                        else {
-                            return ' ฯ  ';
-                        }
-                    });
-                    // 3. จัดการกรณีที่อาจมีช่องว่างซ้อนกันจากการแทนที่
-                    workInProgress = workInProgress.replace(/\s+/g, ' ');
-                    // 4. คืนค่ารูปแบบช่องว่างที่ถูกต้องกลับมา
-                    workInProgress = workInProgress.replace(/ ฯ /g, ' ฯ  '); // ทำให้ ฯ จบประโยคมี 2 เคาะหลัง
-                    workInProgress = workInProgress.replace(/ ฯเปฯ /g, ' ฯเปฯ '); // ทำให้ ฯเปฯ มี 1 เคาะรอบๆ
-                    workInProgress = workInProgress.replace(/ ฯลฯ /g, ' ฯลฯ ');   // ทำให้ ฯลฯ มี 1 เคาะรอบๆ
-                    return workInProgress.trim(); 
-                }
+            function formatPaliText(text) {
+    if (!text || !text.trim()) return '';
+
+    // 1. ทำให้ข้อความเป็นบรรทัดเดียว และยุบช่องว่างที่ซ้ำซ้อนทั้งหมดให้เหลือ 1 เคาะก่อน
+    let workInProgress = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
+
+    // 2. จัดการ ฯเปฯ และ ฯลฯ ก่อน โดยทำให้มันติดกันและมีเว้นวรรค 1 เคาะรอบๆ
+    // รูปแบบนี้จะครอบคลุมทั้งแบบมีและไม่มีช่องว่าง เช่น "ฯ เป ฯ" หรือ "ฯเปฯ"
+    workInProgress = workInProgress.replace(/ฯ\s*เป\s*ฯ/g, ' ฯเปฯ ');
+    workInProgress = workInProgress.replace(/ฯ\s*ล\s*ฯ/g, ' ฯลฯ ');
+
+    // 3. ตอนนี้ ฯ ที่เหลือคือจุดจบประโยคแน่นอน
+    // เราจะทำให้มันมีรูปแบบ ' ฯ ' (เว้น 1 เคาะรอบๆ) ก่อน
+    workInProgress = workInProgress.replace(/\s*ฯ\s*/g, ' ฯ ');
+
+    // 4. ทำให้ช่องว่างทั้งหมดกลายเป็น 2 เคาะ
+    workInProgress = workInProgress.replace(/ /g, '  ');
+
+    // 5. คืนค่ารูปแบบพิเศษที่เราต้องการ
+    // คืนค่า ฯ จบประโยค ให้เป็น "หน้า 1 เคาะ หลัง 2 เคาะ"
+    workInProgress = workInProgress.replace(/    ฯ    /g, ' ฯ  ');
+    // คืนค่า ฯเปฯ และ ฯลฯ ให้มี 1 เคาะรอบๆ
+    workInProgress = workInProgress.replace(/    ฯเปฯ    /g, '  ฯเปฯ  ');
+    workInProgress = workInProgress.replace(/    ฯลฯ    /g, '  ฯลฯ  ');
+
+    return workInProgress.trim();
+}
             function mergeLines() { originalPaliText = dom.paliInput.value; let singleLineText = dom.paliInput.value.replace(/(\r\n|\n|\r)/gm, " "); dom.paliInput.value = formatPaliText(singleLineText).replace(/\n/g, ' '); dom.mergeLinesBtn.style.display = 'none'; dom.undoMergeBtn.style.display = 'inline-block'; checkFirstSentenceHash(); }
             function undoMerge() { dom.paliInput.value = originalPaliText; dom.mergeLinesBtn.style.display = 'inline-block'; dom.undoMergeBtn.style.display = 'none'; checkFirstSentenceHash(); }
             async function checkFirstSentenceHash() { const content = dom.paliInput.value.trim(); const resultEl = document.getElementById('hash_check_result'); if (!content) { resultEl.innerHTML = ''; return; } const firstLine = content.split(/\r?\n/).find(line => line.trim() !== ''); if (!firstLine) { resultEl.innerHTML = ''; return; } resultEl.className = 'suggestion-text'; resultEl.textContent = 'กำลังตรวจสอบ...'; try { const contentHash = await calculateHash(firstLine); const q = query(paliCollection, where("first_sentence_hash", "==", contentHash), limit(1)); const querySnapshot = await getDocs(q); if (!querySnapshot.empty) { const docData = querySnapshot.docs[0].data(); updateStatus('hash_check_result', `⚠️ <strong>คำเตือน:</strong> อาจซ้ำกับ Group ID: <strong>${docData.sentence_group_id}</strong>`, 'warning'); } else { updateStatus('hash_check_result', '✅ เนื้อหานี้ไม่น่าจะซ้ำ', 'success'); } } catch(error) { updateStatus('hash_check_result', `เกิดข้อผิดพลาด: ${error.message} (ต้องสร้าง Index)`, 'error'); } }
