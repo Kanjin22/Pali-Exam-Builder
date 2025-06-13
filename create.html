@@ -126,25 +126,26 @@
             function formatPaliText(text) {
     if (!text || !text.trim()) return '';
 
-    // 1. ทำให้เป็นบรรทัดเดียว และมี 1 เคาะมาตรฐาน
+    // 1. ทำให้เป็นบรรทัดเดียวและยุบช่องว่างที่ซ้ำซ้อนทั้งหมดให้เหลือ 1 เคาะมาตรฐาน
     let workInProgress = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
 
-    // 2. จัดการ ฯเปฯ และ ฯลฯ ให้เป็นรูปแบบมาตรฐาน
-    workInProgress = workInProgress.replace(/ฯ\s*เป\s*ฯ/g, 'ฯเปฯ');
-    workInProgress = workInProgress.replace(/ฯ\s*ล\s*ฯ/g, 'ฯลฯ');
+    // 2. จัดการกับ ฯเปฯ และ ฯลฯ ก่อน โดยทำให้มันติดกันและมีเว้นวรรค 1 เคาะรอบๆ
+    // รูปแบบนี้จะครอบคลุมทั้งแบบมีและไม่มีช่องว่าง เช่น "ฯ เป ฯ" หรือ "ฯเปฯ"
+    workInProgress = workInProgress.replace(/ฯ\s*เป\s*ฯ/g, ' ฯเปฯ ');
+    workInProgress = workInProgress.replace(/ฯ\s*ล\s*ฯ/g, ' ฯลฯ ');
 
-    // 3. ทำให้ช่องว่างทั้งหมดกลายเป็น 2 เคาะ
+    // 3. ทำให้ช่องว่างที่เหลือทั้งหมด (ที่ตอนนี้เป็น 1 เคาะ) กลายเป็น 2 เคาะ
     workInProgress = workInProgress.replace(/ /g, '  ');
 
-    // 4. จัดการ ฯ ที่เป็นจุดจบประโยค (สำคัญที่สุด)
-    // ค้นหา "ฯ" ที่ไม่ได้ถูกตามด้วย "เป" หรือ "ล" แล้วแทนที่ด้วย " ฯ  "
-    workInProgress = workInProgress.replace(/ฯ(?!เป|ล)/g, ' ฯ  ');
+    // 4. [หัวใจสำคัญ] คืนค่ารูปแบบของ ฯ จบประโยคให้ถูกต้อง
+    // ค้นหา "  ฯ  " (ที่เพี้ยนไป) แล้วเปลี่ยนกลับเป็น " ฯ  " (หน้า 1 หลัง 2)
+    workInProgress = workInProgress.replace(/  ฯ  /g, ' ฯ  ');
+    
+    // 5. คืนค่ารูปแบบของ ฯเปฯ และ ฯลฯ ให้มี 2 เคาะรอบๆ (เพื่อความสม่ำเสมอ)
+    workInProgress = workInProgress.replace(/  ฯเปฯ  /g, '  ฯเปฯ  ');
+    workInProgress = workInProgress.replace(/  ฯลฯ  /g, '  ฯลฯ  ');
 
-    // 5. คืนค่า ฯเปฯ และ ฯลฯ ที่อาจจะมีช่องว่างผิดๆ กลับมา
-    workInProgress = workInProgress.replace(/ฯ  เป  ฯ/g, 'ฯเปฯ');
-    workInProgress = workInProgress.replace(/ฯ  ล  ฯ/g, 'ฯลฯ');
-
-    return workInProgress;
+    return workInProgress.trim();
 }
             function mergeLines() { originalPaliText = dom.paliInput.value; let singleLineText = dom.paliInput.value.replace(/(\r\n|\n|\r)/gm, " "); dom.paliInput.value = formatPaliText(singleLineText).replace(/\n/g, ' '); dom.mergeLinesBtn.style.display = 'none'; dom.undoMergeBtn.style.display = 'inline-block'; checkFirstSentenceHash(); }
             function undoMerge() { dom.paliInput.value = originalPaliText; dom.mergeLinesBtn.style.display = 'inline-block'; dom.undoMergeBtn.style.display = 'none'; checkFirstSentenceHash(); }
