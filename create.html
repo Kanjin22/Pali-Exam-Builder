@@ -121,20 +121,41 @@
             }
 
             async function findLastGroupId() {
-                if(!dom.storyNameInput.value.trim()) return;
                 const statusElId = 'group_id_suggestion';
-                updateStatus(statusElId, `กำลังค้นหา...`, '');
+                if (!dom.storyNameInput.value.trim() && !dom.masterPageStartInput.value.trim()) return;
+                updateStatus(statusElId, `กำลังค้นหา ID ล่าสุด...`, '');
+
                 try {
-                    const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), orderBy("sentence_group_id", "desc"), limit(1));
+                    // สร้าง Query เพื่อค้นหาเอกสารทั้งหมดที่ขึ้นต้นด้วย Prefix ของเรา
+                    // โดยใช้เทคนิคการค้นหาช่วงข้อมูล (Range Query) ที่แม่นยำกว่า
+                    const q = query(paliCollection, 
+                        where('sentence_group_id', '>=', `${currentPrefix}-`),
+                        where('sentence_group_id', '<', `${currentPrefix}-z`) // 'z' เป็นตัวอักษรที่มาทีหลังสุด
+                    );
+        
                     const querySnapshot = await getDocs(q);
+        
                     let lastNumber = 0;
                     if (!querySnapshot.empty) {
-                        const lastFullId = querySnapshot.docs[0].data().sentence_group_id;
-                        lastNumber = parseInt(lastFullId.toString().split('-').pop()) || 0;
+                        // เมื่อได้ข้อมูลทั้งหมดมาแล้ว ให้เรามาหาค่าสูงสุดด้วยตัวเองในฝั่ง JavaScript
+                        // เพื่อให้แน่ใจว่าได้ค่าที่ถูกต้องจริงๆ (11 > 9)
+                        const allNumbers = querySnapshot.docs.map(doc => {
+                            const fullId = doc.data().sentence_group_id;
+                            return parseInt(fullId.toString().split('-').pop()) || 0;
+                        });
+            
+                        lastNumber = Math.max(...allNumbers);
                     }
+        
                     updateStatus(statusElId, `ID ล่าสุดที่ใช้ในคัมภีร์นี้คือ: <strong>${currentPrefix}-${lastNumber}</strong>. แนะนำให้ใช้: <strong>${lastNumber + 1}</strong>`, 'success');
+
                 } catch (error) {
-                    updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. อาจต้องสร้าง Index`, 'error');
+                    // Error นี้จะเกิดขึ้นถ้ายังไม่มี Index สำหรับการค้นหาแบบช่วงข้อมูล
+                    if (error.code === 'failed-precondition') {
+                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. คุณอาจจะต้องสร้าง Index สำหรับการค้นหานี้ก่อน (คลิกลิงก์ใน Console)`, 'error');
+                    } else {
+                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}`, 'error');
+                    }
                 }
             }
 
