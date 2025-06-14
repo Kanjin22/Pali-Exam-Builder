@@ -74,7 +74,16 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, collection, doc, getDocs, writeBatch, serverTimestamp, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         
-        const firebaseConfig = { /* ... YOUR FIREBASE CONFIG ... */ };
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyDoe7sUNTdaK7uFxvi_Y16C4nCX4kKFiDA",
+        authDomain: "pali-exam-builder.firebaseapp.com",
+        projectId: "pali-exam-builder",
+        storageBucket: "pali-exam-builder.firebasestorage.app",
+        messagingSenderId: "783124881115",
+        appId: "1:783124881115:web:688f964e586df5b17d36fe",
+        measurementId: "G-8HV8B03THV"
+        };
       
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
