@@ -245,7 +245,7 @@
             dom.storyNameInput.addEventListener('blur', async () => { await checkLastParagraph(); await findLastGroupId(); });
             dom.masterPageStartInput.addEventListener('blur', checkPageExists);
             dom.paliInput.addEventListener('blur', checkFirstSentenceHash);
-            dom.mergeLinesBtn.addEventListener('click', mergeAndFormat);
+            dom.mergeLinesBtn.addEventListener('click', autoFormatPaliText);
             dom.undoMergeBtn.addEventListener('click', undoMerge);
             dom.splitBtn.addEventListener('click', () => generateCreateTable(null));
             dom.createSaveBtn.addEventListener('click', saveData);
