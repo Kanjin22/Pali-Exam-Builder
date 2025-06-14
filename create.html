@@ -62,8 +62,8 @@
                 <textarea id="pali-input" rows="8"></textarea>
                 <p id="hash_check_result" class="suggestion-text"></p>
                 <div style="margin-top:10px; display:flex; gap: 10px; flex-wrap: wrap;">
-                    <button id="format-spacing-btn" class="secondary">จัดระเบียบช่องว่าง (สำหรับคาถา)</button>
-                    <button id="merge-lines-btn" class="secondary">รวมบรรทัด (สำหรับร้อยแก้ว)</button>
+                    <button id="format-spacing-btn" class="secondary">จัดระเบียบช่องว่าง</button>
+                    <button id="merge-lines-btn" class="secondary">รวมบรรทัด</button>
                     <button id="undo-merge-btn" class="secondary" style="display: none;">ยกเลิก</button>
                     <button id="split-btn">กดเพื่อแบ่งประโยค</button>
                 </div>
@@ -116,7 +116,7 @@
             async function checkPageExists() { const pageNum = parseInt(dom.masterPageStartInput.value); const resultEl = document.getElementById('page_check_result'); if (!pageNum) { resultEl.innerHTML = ''; return; } resultEl.className = 'suggestion-text'; resultEl.textContent = `กำลังตรวจสอบหน้า ${pageNum}...`; try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), where("page_start", "==", pageNum), limit(5)); const querySnapshot = await getDocs(q); if (querySnapshot.empty) { updateStatus('page_check_result', `✅ หน้านี้ยังว่าง`, 'success'); } else { let html = `⚠️ หน้านี้มีข้อมูลแล้ว!`; html += `<ul>`; querySnapshot.forEach(doc => { const data = doc.data(); html += `<li>Group ID: ${data.sentence_group_id}, เนื้อหา: ${data.pali_text.substring(0,30)}...</li>`; }); html += `</ul>`; updateStatus('page_check_result', html, 'warning'); } } catch(error) { updateStatus('page_check_result', `เกิดข้อผิดพลาด: ${error.message} (ต้องสร้าง Index)`, 'error'); } }
             async function calculateHash(text) { const encoder = new TextEncoder(); const data = encoder.encode(text.trim()); const hashBuffer = await crypto.subtle.digest('SHA-256', data); const hashArray = Array.from(new Uint8Array(hashBuffer)); return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); }
             
-            function formatSpacingOnly() {
+             function formatSpacingOnly() {
                 originalPaliText = dom.paliInput.value;
                 let text = dom.paliInput.value;
                 if (!text.trim()) return;
