@@ -220,7 +220,7 @@
                         lastNumber = parseInt(fullId.toString().split('-').pop()) || 0;
                     } 
                     lastFoundGroupId = lastNumber; 
-                    updateStatus(statusElId, `ID ล่าสุดที่ใช้ในคัมภีร์นี้คือ: <strong><span class="math-inline">\{currentPrefix\}\-</span>{lastNumber}</strong>. แนะนำให้ใช้: <strong>${lastNumber + 1}</strong>`, 'success'); 
+                    updateStatus(statusElId, `ID ล่าสุดที่ใช้ในคัมภีร์นี้คือ: <strong>${currentPrefix}-${lastNumber}</strong>. แนะนำให้ใช้: <strong>${lastNumber + 1}</strong>`, 'success'); 
                 } catch (error) { 
                     lastFoundGroupId = 0; 
                     if (error.code === 'failed-precondition') { 
@@ -399,12 +399,12 @@
                 row.dataset.id = id; 
                 const {masterGroupId, masterPageStart, masterPageEnd, masterParagraphNum} = masterData; 
                 row.innerHTML = `
-                    <td class="order-cell"><span class="math-inline">\{tbody\.rows\.length\}</td\>
-<td class\="id\-cell"\></span>{id}</td>
-                    <td><input type="number" class="group-id-input" value="<span class="math-inline">\{docData ? docData\.sentence\_group\_id\.split\('\-'\)\.pop\(\) \: masterGroupId\}"\></td\>
-<td\><textarea class\="pali\-text\-input" rows\="3"\></span>{paliText}</textarea></td>
-                    <td><input type="number" class="page-start-input" value="<span class="math-inline">\{docData ? docData\.page\_start \: masterPageStart\}"\></td\>
-<td\><input type\="number" class\="page\-end\-input" value\="</span>{docData ? docData.page_end : masterPageEnd}"></td>
+                    <td class="order-cell">${tbody.rows.length}</td>
+                    <td class="id-cell">${id}</td>
+                    <td><input type="number" class="group-id-input" value="${docData ? docData.sentence_group_id.split('-').pop() : masterGroupId}"></td>
+                    <td><textarea class="pali-text-input" rows="3">${paliText}</textarea></td>
+                    <td><input type="number" class="page-start-input" value="${docData ? docData.page_start : masterPageStart}"></td>
+                    <td><input type="number" class="page-end-input" value="${docData ? docData.page_end : masterPageEnd}"></td>
                     <td><input type="number" class="paragraph-num-input" value="${docData ? docData.paragraph_num : masterParagraphNum}"></td>
                     <td><select class="text-type-input">
                         <option value="ร้อยแก้ว" ${docData && docData.text_type === 'ร้อยแก้ว' ? 'selected' : ''}>ร้อยแก้ว</option>
@@ -559,7 +559,7 @@
                     Array.from(dom.createSentenceTable.querySelector('tbody').rows).forEach((row, index) => { 
                         const docId = row.dataset.id; 
                         const groupIdNum = row.querySelector('.group-id-input')?.value || '0'; 
-                        const fullGroupId = `<span class="math-inline">\{currentPrefix\}\-</span>{groupIdNum}`; 
+                        const fullGroupId = `${currentPrefix}-${groupIdNum}`; 
                         const docRef = doc(db, "pali_sentences", docId); 
                         let dataToSave = { 
                             id: parseInt(docId), 
@@ -723,4 +723,18 @@
                 
                 // Increment paragraph_num if there's a last row and it's not in super-edit mode
                 if (currentMode !== 'super-edit' && lastRow) {
-                    masterData.masterParagraphNum = parseInt(masterData.masterParagraphNum) +
+                    masterData.masterParagraphNum = parseInt(masterData.masterParagraphNum) + 1;
+                }
+
+                addNewRow(tbody, nextAvailableId++, '', null, masterData);
+                updateTableOrder();
+            });
+
+            dom.createSaveBtn.addEventListener('click', saveData); // ปุ่มบันทึกข้อมูล
+            
+            // Initialize the tool after all event listeners are set up
+            initializeTool();
+        });
+    </script>
+</body>
+</html>
