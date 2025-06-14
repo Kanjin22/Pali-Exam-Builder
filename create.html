@@ -147,10 +147,18 @@
             }
 
             function validatePageEnd() {
-                const startPage = parseInt(dom.masterPageStartInput.value);
-                const endPage = parseInt(dom.masterPageEndInput.value);
-                if (startPage && endPage && endPage < startPage) {
+                const startPageValue = dom.masterPageStartInput.value;
+                const endPageValue = dom.masterPageEndInput.value;
+                if (startPageValue === '' || endPageValue === '') {
+                    return true;
+                }
+
+                const startPage = parseInt(startPageValue);
+                const endPage = parseInt(endPageValue);
+
+                if (endPage < startPage) {
                     alert('ข้อผิดพลาด: เลขหน้าจบต้องไม่น้อยกว่าเลขหน้าเริ่ม');
+                    dom.masterPageEndInput.value = '';
                     dom.masterPageEndInput.focus();
                     return false;
                 }
@@ -166,7 +174,7 @@
                 originalPaliText = dom.paliInput.value;
                 let text = dom.paliInput.value;
                 if (!text.trim()) return;
-                text = text.replace(/€/g, 'ฐ').replace(/ /g, 'ญ');
+                text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
                 const pePlaceholder = " __PEYALA__ ";
                 const etcPlaceholder = " __ETC__ ";
                 text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
