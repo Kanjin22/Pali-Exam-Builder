@@ -144,7 +144,7 @@
                 originalPaliText = dom.paliInput.value;
                 let text = dom.paliInput.value;
                 if (!text.trim()) return;
-                text = text.replace(/€/g, 'ฐ').replace(/ /g, 'ญ');
+                text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
                 const pePlaceholder = " __PEYALA__ ";
                 const etcPlaceholder = " __ETC__ ";
                 text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
