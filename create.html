@@ -96,796 +96,268 @@
             margin-top: 10px;
         }
     </style>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, limit, startAfter, writeBatch, serverTimestamp, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-        
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDoe7sUNTdaK7uFxvi_Y16C4nCX4kKFiDA",
-  authDomain: "pali-exam-builder.firebaseapp.com",
-  projectId: "pali-exam-builder",
-  storageBucket: "pali-exam-builder.firebasestorage.app",
-  messagingSenderId: "783124881115",
-  appId: "1:783124881115:web:688f964e586df5b17d36fe",
-  measurementId: "G-8HV8B03THV"
-};
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getFirestore, collection, query, where, orderBy, limit, getDocs, writeBatch, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+    import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyDoe7sUNTdaK7uFxvi_Y16C4nCX4kKFiDA",
+        authDomain: "pali-exam-builder.firebaseapp.com",
+        projectId: "pali-exam-builder",
+        storageBucket: "pali-exam-builder.firebasestorage.app",
+        messagingSenderId: "783124881115",
+        appId: "1:783124881115:web:688f964e586df5b17d36fe",
+        measurementId: "G-8HV8B03THV"
+    };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+    const paliCollection = collection(db, "pali_sentences");
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // DOM Elements (Existing)
-            const dom = {
-                masterBookNameInput: document.getElementById('masterBookName'),
-                masterBookPartInput: document.getElementById('masterBookPart'),
-                masterPrefixInput: document.getElementById('masterPrefix'),
-                masterGroupIdInput: document.getElementById('masterGroupId'),
-                masterPageStartInput: document.getElementById('masterPageStart'),
-                masterPageEndInput: document.getElementById('masterPageEnd'),
-                masterParagraphNumInput: document.getElementById('masterParagraphNum'),
-                addRowBtn: document.getElementById('addRowBtn'),
-                createSaveBtn: document.getElementById('createSaveBtn'),
-                prevPageBtn: document.getElementById('prevPageBtn'),
-                nextPageBtn: document.getElementById('nextPageBtn'),
-                currentPageSpan: document.getElementById('currentPage'),
-                sentenceTableBody: document.getElementById('sentenceTableBody'),
-                tableContainer: document.getElementById('tableContainer'),
-                superEditModeToggle: document.getElementById('superEditModeToggle'),
-                // New for table view switching
-                goToPrepBtn: document.getElementById('goToPrepBtn'), // Button in Table View to go back to Prep View
+    // --- Global Variables ---
+    let currentBookName = '';
+    let currentBookPart = '';
+    let currentPrefix = ''; // e.g., 'ปฐม', 'SN'
+    let currentMode = 'create'; // 'create' or 'super-edit'
+
+    let lastFoundGroupId = 0;
+    let minAllowedGroupId = 1;
+
+    let lastFoundParagraphNum = 0;
+    let lastFoundPageEnd = 0;
+
+    let nextAvailableId = 1; // สำหรับ Pali Order (id ในตาราง), รันต่อจากแถวสุดท้ายในตาราง
+
+    // Moved DOM Elements Collection inside DOMContentLoaded for robustness
+    let dom = {}; // Declare it here, initialize inside DOMContentLoaded
+
+    // --- Utility Functions (rest of these functions remain the same) ---
+    // ... (all utility functions like updateStatus, calculateHash, getUrlParameter, etc.)
+
+    // --- Core Logic Functions (rest of these functions remain the same) ---
+    // ... (all core logic functions like findLastGroupId, findLastParagraphAndPage, addNewRow, updateTableOrder, splitSentence, deleteRow, loadDataForSuperEdit, validateTableData, saveData)
+
+
+    // --- Event Listeners and Initialization ---
+    // Function to set up the tool initially
+    async function initializeTool() {
+        // Check authentication status
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                dom.authStatus.textContent = `เข้าสู่ระบบในฐานะ: ${user.isAnonymous ? 'ผู้เยี่ยมชม' : user.uid}`;
+                dom.generalStatusMessage.classList.remove('error');
+                dom.generalStatusMessage.classList.add('success');
+                dom.generalStatusMessage.textContent = 'เข้าสู่ระบบสำเร็จ!';
+
+                // Get parameters from URL (bookName, bookPart, prefix, mode, storyName, groupId)
+                currentBookName = getUrlParameter('bookName') || dom.bookNameInput.value.trim();
+                currentBookPart = getUrlParameter('bookPart') || dom.bookPartInput.value.trim();
+                currentPrefix = getUrlParameter('prefix') || ''; // e.g., "ปฐม" or "SN"
+                currentMode = getUrlParameter('mode') || 'create'; // Default to 'create'
+
+                dom.bookNameInput.value = currentBookName;
+                dom.bookPartInput.value = currentBookPart;
+
+                // Set UI based on mode
+                if (currentMode === 'super-edit') {
+                    document.body.classList.add('super-edit-mode');
+                    dom.generalStatusMessage.textContent = 'โหมดแก้ไขข้อมูล';
+                    // Populate search fields from URL for super-edit
+                    dom.searchBookNameInput.value = currentBookName;
+                    dom.searchBookPartInput.value = currentBookPart;
+                    dom.searchStoryNameInput.value = getUrlParameter('storyName') || '';
+                    dom.searchGroupIdInput.value = getUrlParameter('groupId') || '';
+
+                    // If a specific group ID is provided in super-edit mode, load it immediately
+                    if (dom.searchBookNameInput.value && dom.searchGroupIdInput.value) {
+                         await loadDataForSuperEdit();
+                    }
+                } else {
+                    document.body.classList.remove('super-edit-mode');
+                    dom.generalStatusMessage.textContent = 'โหมดสร้างข้อมูลใหม่';
+                    // In create mode, we need to find the last IDs to suggest
+                    await findLastGroupId(); // Call the UPDATED function
+                    await findLastParagraphAndPage(); // This remains the same
+                }
+
+            } else {
+                dom.authStatus.textContent = 'ยังไม่ได้เข้าสู่ระบบ กำลังเข้าสู่ระบบ...';
+                try {
+                    await signInAnonymously(auth);
+                } catch (error) {
+                    dom.authStatus.textContent = `ข้อผิดพลาดในการเข้าสู่ระบบ: ${error.message}`;
+                    dom.generalStatusMessage.classList.remove('success');
+                    dom.generalStatusMessage.classList.add('error');
+                    dom.generalStatusMessage.textContent = 'ไม่สามารถเข้าสู่ระบบได้! โปรดตรวจสอบการตั้งค่า Firebase Authentication';
+                    console.error("Authentication error:", error);
+                }
+            }
+        });
+
+        // Set up input change listeners for dynamic updates or suggestions
+        dom.bookNameInput.addEventListener('change', async () => {
+            currentBookName = dom.bookNameInput.value.trim();
+            // When book name changes, re-fetch the last Group ID (book-wide)
+            if (currentMode === 'create') await findLastGroupId();
+        });
+        dom.bookPartInput.addEventListener('change', async () => {
+            currentBookPart = dom.bookPartInput.value.trim();
+            // Note: findLastGroupId no longer depends on bookPart.
+            // findLastParagraphAndPage still does, if needed.
+            if (currentMode === 'create') await findLastParagraphAndPage();
+        });
+        dom.storyNameInput.addEventListener('change', async () => {
+            // When story name changes, re-fetch the last paragraph/page end (story-specific)
+            if (currentMode === 'create') await findLastParagraphAndPage();
+        });
+    }
+
+
+    // DOMContentLoaded ensures the HTML is fully loaded before running script
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize dom object here, guaranteeing elements are loaded
+        dom = {
+            generalStatusMessage: document.getElementById('general-status-message'),
+            createStatusMessage: document.getElementById('create-status-message'),
+            authStatus: document.getElementById('auth-status'),
+            userNameInput: document.getElementById('user_name'),
+            bookNameInput: document.getElementById('book_name'),
+            bookPartInput: document.getElementById('book_part'),
+            chapterNameInput: document.getElementById('chapter_name'),
+            storyNameInput: document.getElementById('story_name'),
+            sectionNameInput: document.getElementById('section_name'),
+            displayFlagInput: document.getElementById('display_flag'),
+            paliInput: document.getElementById('pali_input'),
+            masterGroupIdInput: document.getElementById('master_group_id_input'),
+            masterPageStartInput: document.getElementById('master_page_start_input'),
+            masterPageEndInput: document.getElementById('master_page_end_input'),
+            masterParagraphNumInput: document.getElementById('master_paragraph_num_input'),
+            groupIdSuggestion: document.getElementById('group_id_suggestion'),
+            paragraphNumSuggestion: document.getElementById('paragraph_num_suggestion'),
+            generateTableBtn: document.getElementById('generate_table_btn'),
+            clearTableBtn: document.getElementById('clear_table_btn'),
+            createSentenceTable: document.getElementById('create_sentence_table'),
+            createAddRowBtn: document.getElementById('create_add_row_btn'),
+            createSaveBtn: document.getElementById('create_save_btn'),
+            createBackBtn: document.getElementById('create_back_btn'),
+            // Super Edit Mode elements
+            searchBookNameInput: document.getElementById('search_book_name'),
+            searchBookPartInput: document.getElementById('search_book_part'),
+            searchStoryNameInput: document.getElementById('search_story_name'),
+            searchGroupIdInput: document.getElementById('search_group_id'),
+            searchDataBtn: document.getElementById('search_data_btn'),
+            clearSearchBtn: document.getElementById('clear_search_btn'),
+            createSection: document.querySelector('.create-section'),
+            superEditSection: document.querySelector('.super-edit-form-section')
+        };
+
+        // Event Listener for Generate Table Button
+        dom.generateTableBtn.addEventListener('click', async () => {
+            const paliText = dom.paliInput.value.trim();
+            if (!paliText) {
+                updateStatus('create-status-message', 'กรุณาใส่ข้อความบาลีหลักเพื่อแบ่งประโยค', 'warning');
+                return;
+            }
+
+            if (!dom.masterGroupIdInput.value.trim()) {
+                updateStatus('create-status-message', 'กรุณาใส่ Group ID เริ่มต้น', 'warning');
+                return;
+            }
+             if (!dom.masterPageStartInput.value.trim() || !dom.masterPageEndInput.value.trim()) {
+                updateStatus('create-status-message', 'กรุณาใส่ Page Start และ Page End เริ่มต้น', 'warning');
+                return;
+            }
+             if (!dom.masterParagraphNumInput.value.trim()) {
+                updateStatus('create-status-message', 'กรุณาใส่ Paragraph Num เริ่มต้น', 'warning');
+                return;
+            }
+
+
+            const sentences = paliText.split(/([.!?].*?\s*)/).filter(s => s.trim().length > 0);
+            const tbody = dom.createSentenceTable.querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous rows
+
+            // Prepare master data for the first set of rows
+            const initialMasterData = {
+                masterGroupId: dom.masterGroupIdInput.value,
+                masterPageStart: dom.masterPageStartInput.value,
+                masterPageEnd: dom.masterPageEndInput.value,
+                masterParagraphNum: dom.masterParagraphNumInput.value,
             };
 
-            // New DOM Elements for Preparation View
-            const preparationView = document.getElementById('preparationView');
-            const tableView = document.getElementById('tableView'); // Wrap existing table in this div
-            const paliInputRaw = document.getElementById('paliInputRaw'); // Renamed from paliInput for clarity
-            const paliInputPageNum = document.getElementById('paliInputPageNum');
-            const organizeSpacesBtn = document.getElementById('organizeSpacesBtn');
-            const combineLinesBtn = document.getElementById('combineLinesBtn');
-            const splitSentenceBtn = document.getElementById('splitSentenceBtn');
-            const startEditingBtn = document.getElementById('startEditingBtn'); // New button to move to table view
-            const undoPrepBtn = document.getElementById('undoPrepBtn'); // Renamed for clarity
-            const prepStatusMessage = document.getElementById('prepStatusMessage');
-
-            // New for Find and Replace
-            const searchText = document.getElementById('searchText');
-            const replaceText = document.getElementById('replaceText');
-            const replaceAllBtn = document.getElementById('replaceAllBtn');
-
-            // State Variables (Existing)
-            let lastVisible = null;
-            let firstVisible = null;
-            let currentQueryLimit = 20; // Default limit
-            let currentMode = 'normal'; // 'normal' or 'super-edit'
-
-            // New State Variables for Preparation View
-            let lastProcessedTextPrep = ""; // For undo in preparation
-            let currentPrepMode = 'CLEAN_PALI_MODE'; // Initial mode for preparation flow
-            let sentencesReadyForTable = []; // Array to hold sentences after splitting, before moving to table
-
-            // Constants
-            const HASH_KEY = 'processed_pali_hashes';
-
-            // --- Utility Functions for Preparation View ---
-
-            // Function to display status messages in preparation view
-            function showPrepStatus(message, type = 'info') {
-                prepStatusMessage.textContent = message;
-                prepStatusMessage.className = 'status-message'; // Reset classes
-                prepStatusMessage.style.display = 'block';
-                if (type === 'success') {
-                    prepStatusMessage.classList.add('status-success');
-                } else if (type === 'warning') {
-                    prepStatusMessage.classList.add('status-warning');
-                } else if (type === 'error') {
-                    prepStatusMessage.classList.add('status-error');
-                } else {
-                    prepStatusMessage.classList.add('status-info');
-                }
-            }
-
-            function hidePrepStatus() {
-                prepStatusMessage.style.display = 'none';
-            }
-
-            // Function to generate SHA-256 hash of a string
-            async function generateSha256Hash(text) {
-                const textEncoder = new TextEncoder();
-                const data = textEncoder.encode(text);
-                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const hexHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-                return hexHash;
-            }
-
-            // Function to load all stored hashes from localStorage
-            function loadStoredHashes() {
-                const hashesJson = localStorage.getItem(HASH_KEY);
-                try {
-                    return hashesJson ? new Set(JSON.parse(hashesJson)) : new Set();
-                } catch (e) {
-                    console.error("Error parsing stored hashes from localStorage:", e);
-                    localStorage.removeItem(HASH_KEY); // Clear corrupt data
-                    return new Set();
-                }
-            }
-
-            // Function to save a new hash to localStorage
-            function addHashToStorage(hash) {
-                const storedHashes = loadStoredHashes();
-                storedHashes.add(hash);
-                localStorage.setItem(HASH_KEY, JSON.stringify(Array.from(storedHashes)));
-            }
-
-            // Function to check if a hash exists in localStorage
-            function isHashStored(hash) {
-                const storedHashes = loadStoredHashes();
-                return storedHashes.has(hash);
-            }
-
-            // --- Core Text Processing Functions for Preparation View ---
-
-            function processPaliTextForSpaces(text) {
-                // แยกข้อความเป็นบรรทัดๆ เพื่อรักษาสภาพการขึ้นบรรทัดใหม่
-                let lines = text.split(/\r?\n/); 
-                let processedLines = [];
-
-                lines.forEach(line => {
-                    // 1. ทำการ trim ช่องว่างหน้าหลังของแต่ละบรรทัดก่อน
-                    line = line.trim();
-
-                    // 2. ✅ แปลง € เป็น ฐ และ § เป็น ญ
-                    line = line.replace(/€/g, 'ฐ');
-                    line = line.replace(/§/g, 'ญ');
-
-                    // 3. ✅ จัดการ ฯเปฯ และ ฯลฯ เป็นคำธรรมดา ไม่ไปยุ่งกับช่องว่าง
-                    // ใช้ placeholder เพื่อป้องกันการถูกประมวลผลช่องว่างผิดพลาด
-                    const PE_PLACEHOLDER = '___PE___';
-                    const LA_PLACEHOLDER = '___LA___';
-                    line = line.replace(/ฯเปฯ/g, PE_PLACEHOLDER);
-                    line = line.replace(/ฯลฯ/g, LA_PLACEHOLDER);
-
-                    // 4. ลดช่องว่างหลายอันให้เหลือ 1 อัน (เฉพาะ space/tab, ไม่รวม newline)
-                    line = line.replace(/[ \t]+/g, ' ');
-
-                    // 5. ✅ จัดการให้หน้า ฯ มี 1 เคาะ และหลัง ฯ มี 2 เคาะ
-                    // p1 คืออักขระก่อนหน้า ฯ, p2 คืออักขระหลัง ฯ
-                    // (match, p1, p2) => ... เป็น callback function ของ replace
-                    // มันจะรับข้อความที่ match ทั้งหมด (match), capture group 1 (p1), capture group 2 (p2)
-                    line = line.replace(/(\S)?\s*ฯ\s*(\S)?/g, (match, p1, p2) => {
-                        let result = '';
-                        if (p1) result += p1;
-                        result += ' ฯ'; // 1 เคาะหน้า ฯ
-                        if (p2) result += '  ' + p2; // 2 เคาะหลัง ฯ
-                        return result;
-                    });
-                    
-                    // 6. ✅ จัดการให้ทุกคำห่างกัน 2 เคาะ (เฉพาะในบรรทัดเดียวกัน)
-                    // แทนที่ช่องว่างเดี่ยวๆ (ที่ไม่ใช่ช่องว่างคู่ หรือช่องว่างรอบ ฯ) ด้วยช่องว่างคู่
-                    // [^\sฯ] หมายถึง อักขระใดๆ ที่ไม่ใช่ช่องว่างและไม่ใช่ ฯ
-                    line = line.replace(/([^\sฯ])\s([^\sฯ])/g, '$1  $2');
-                    
-                    // 7. แก้ไขช่องว่างรอบ ฯ อีกครั้ง เพื่อให้แน่ใจว่าถูกต้องตามกฎ 1-2 เคาะ
-                    // ถ้ามีช่องว่างหน้า ฯ เกิน 1 ก็ลดเหลือ 1 (เช่น "คำ   ฯ" -> "คำ ฯ")
-                    line = line.replace(/(\S)\s+ฯ/g, '$1 ฯ'); 
-                    // ถ้ามีช่องว่างหลัง ฯ ไม่ใช่ 2 ก็ปรับเป็น 2 (เช่น "ฯคำ" -> "ฯ  คำ", "ฯ คำ" -> "ฯ  คำ", "ฯ   คำ" -> "ฯ  คำ")
-                    line = line.replace(/ฯ\s*(\S)/g, 'ฯ  $1'); 
-
-                    // 8. นำ placeholder กลับคืน
-                    line = line.replace(new RegExp(PE_PLACEHOLDER, 'g'), 'ฯเปฯ');
-                    line = line.replace(new RegExp(LA_PLACEHOLDER, 'g'), 'ฯลฯ');
-
-                    processedLines.push(line);
-                });
-
-                return processedLines.join('\n'); // เชื่อมบรรทัดกลับด้วย newline เดิม
-            }
-
-            function combineAllLines(text) {
-                // ฟังก์ชันนี้ยังคงเหมือนเดิม เพื่อใช้สำหรับรวมบรรทัดหลังจากจัดระเบียบแล้ว
-                return text.replace(/[\r\n]+/g, ' ').trim();
-            }
-
-            function splitIntoSentences(text) {
-                let sentences = [];
-                // Split by 'ฯ' while keeping the delimiter
-                // This will split "ประโยค1ฯประโยค2" into ["ประโยค1", "ฯ", "ประโยค2"]
-                let tempParts = text.split(/(ฯ)/); 
-                let currentSentence = '';
-                for (let i = 0; i < tempParts.length; i++) {
-                    currentSentence += tempParts[i];
-                    if (tempParts[i] === 'ฯ') {
-                        // If 'ฯ' is encountered, push the accumulated sentence (including 'ฯ')
-                        sentences.push(currentSentence.trim());
-                        currentSentence = ''; // Reset for the next sentence
-                    }
-                }
-                // Add any remaining part after the last 'ฯ' or if no 'ฯ' was present
-                if (currentSentence.trim().length > 0) {
-                    sentences.push(currentSentence.trim());
-                }
-
-                // Further split by newlines (Enter key presses) within each resulting 'sentence'
-                // This ensures that if the user did NOT combine lines, each physical line becomes a separate "sentence"
-                // unless it's explicitly part of a ฯ-delimited one. This respects the user's manual line breaks.
-                let finalSentences = [];
-                sentences.forEach(s => {
-                    const lines = s.split(/\n+/).filter(line => line.trim() !== ''); // Split by one or more newlines
-                    lines.forEach(line => {
-                        finalSentences.push(line.trim());
-                    });
-                });
-
-                return finalSentences.filter(s => s.length > 0); // Filter out any empty strings
-            }
-
-            // --- UI State Management for Preparation View ---
-            function updatePrepUIState() {
-                paliInputRaw.readOnly = false;
-                organizeSpacesBtn.disabled = true;
-                combineLinesBtn.disabled = true;
-                splitSentenceBtn.disabled = true;
-                startEditingBtn.style.display = 'none'; // Hide by default
-                undoPrepBtn.disabled = true;
-
-                // Also manage state for find/replace
-                searchText.disabled = false;
-                replaceText.disabled = false;
-                replaceAllBtn.disabled = false;
-
-                switch (currentPrepMode) {
-                    case 'CLEAN_PALI_MODE':
-                        if (paliInputRaw.value.trim().length > 0) {
-                            organizeSpacesBtn.disabled = false;
-                        }
-                        break;
-                    case 'POST_CLEAN_MODE':
-                        organizeSpacesBtn.disabled = true; // After cleaning, this button is disabled
-                        combineLinesBtn.disabled = false;
-                        splitSentenceBtn.disabled = false;
-                        undoPrepBtn.disabled = false;
-                        break;
-                    case 'SPLIT_DONE_MODE':
-                        paliInputRaw.readOnly = true; // Lock text area after splitting
-                        organizeSpacesBtn.disabled = true;
-                        combineLinesBtn.disabled = true;
-                        splitSentenceBtn.disabled = true;
-                        startEditingBtn.style.display = 'inline-block'; // Show button to move to table
-                        undoPrepBtn.disabled = false;
-                        // Disable find and replace when split is done and locked
-                        searchText.disabled = true;
-                        replaceText.disabled = true;
-                        replaceAllBtn.disabled = true;
-                        break;
-                }
-            }
-
-            // --- Main Tool Functions (Existing and Modified) ---
-
-            // Function to add a new row to the table
-            // Modified to accept initial paliText and masterData for prep mode
-            let nextAvailableLocalId = 1; // Used for new rows not yet in Firebase
-            function addNewRow(tbody, id, paliText = '', thaiText = null, initialMasterData = null) {
-                const newRow = tbody.insertRow();
-                // If ID is from Firebase (string), use it. Otherwise, generate a local temporary ID.
-                newRow.dataset.id = id || `temp-${nextAvailableLocalId++}`; 
-                newRow.innerHTML = `
-                    <td class="order-cell" data-order="${id}"></td>
-                    <td><textarea class="pali-text-input" rows="3" placeholder="ข้อความบาลี">${paliText}</textarea></td>
-                    <td><input type="text" class="group-id-input" value="${initialMasterData ? initialMasterData.masterGroupId : ''}"></td>
-                    <td><input type="number" class="page-start-input" value="${initialMasterData ? initialMasterData.masterPageStart : ''}" min="1"></td>
-                    <td><input type="number" class="page-end-input" value="${initialMasterData ? initialMasterData.masterPageEnd : ''}" min="1"></td>
-                    <td><input type="number" class="paragraph-num-input" value="${initialMasterData ? initialMasterData.masterParagraphNum : ''}" min="1"></td>
-                    <td>
-                        <button class="add-below-btn success-btn">เพิ่ม</button>
-                        <button class="delete-row-btn danger-btn">ลบ</button>
-                    </td>
-                `;
-                // Add event listeners for new buttons in the row
-                newRow.querySelector('.add-below-btn').addEventListener('click', (e) => addRowBelow(e.target.closest('tr')));
-                newRow.querySelector('.delete-row-btn').addEventListener('click', (e) => deleteRow(e.target.closest('tr')));
-                
-                // Add input event listeners to trigger updateTableOrder
-                newRow.querySelector('.pali-text-input').addEventListener('input', updateTableOrder);
-                newRow.querySelector('.group-id-input').addEventListener('input', updateTableOrder);
-                newRow.querySelector('.page-start-input').addEventListener('input', updateTableOrder);
-                newRow.querySelector('.page-end-input').addEventListener('input', updateTableOrder);
-                newRow.querySelector('.paragraph-num-input').addEventListener('input', updateTableOrder);
-
-                // Set the focus to the new Pali text area if it's not pre-filled
-                if (!paliText) {
-                    newRow.querySelector('.pali-text-input').focus();
-                }
-                return newRow; // Return the new row
-            }
-
-            // Function to add a row below a specific row (existing)
-            function addRowBelow(currentRow) {
-                const tbody = dom.sentenceTableBody;
-                
-                let masterData = {};
-                // If there's a current row, get its data as a starting point
-                masterData.masterGroupId = currentRow.querySelector('.group-id-input')?.value || '';
-                masterData.masterPageStart = currentRow.querySelector('.page-start-input')?.value || '';
-                masterData.masterPageEnd = currentRow.querySelector('.page-end-input')?.value || '';
-                masterData.masterParagraphNum = currentRow.querySelector('.paragraph-num-input')?.value || '';
-                
-                // Increment paragraph_num for the new row if not in super-edit mode
-                if (currentMode !== 'super-edit') {
-                    masterData.masterParagraphNum = parseInt(masterData.masterParagraphNum) + 1;
-                }
-
-                // Insert the new row directly after the current row
-                const newRow = addNewRow(tbody, null, '', null, masterData); // Pass null for ID to generate local temp ID
-                currentRow.after(newRow);
-                updateTableOrder();
-            }
-
-            // Function to delete a row (existing)
-            function deleteRow(row) {
-                if (confirm('คุณต้องการลบแถวนี้หรือไม่?')) {
-                    row.remove();
-                    updateTableOrder();
-                }
-            }
-
-            // Logic to get latest paragraph number and page numbers
-            function getLastRowMasterData() {
-                const lastRow = dom.sentenceTableBody.lastElementChild;
-                let masterData = {};
-                if (lastRow) {
-                    masterData.masterGroupId = lastRow.querySelector('.group-id-input')?.value || '';
-                    masterData.masterPageStart = lastRow.querySelector('.page-start-input')?.value || '';
-                    masterData.masterPageEnd = lastRow.querySelector('.page-end-input')?.value || '';
-                    masterData.masterParagraphNum = lastRow.querySelector('.paragraph-num-input')?.value || '';
-                } else {
-                    // Fallback to master inputs if no rows exist
-                    masterData.masterGroupId = dom.masterGroupIdInput.value;
-                    masterData.masterPageStart = dom.masterPageStartInput.value;
-                    masterData.masterPageEnd = dom.masterPageEndInput.value;
-                    masterData.masterParagraphNum = dom.masterParagraphNumInput.value;
-                }
-                return masterData;
-            }
-
-            // Function to update the order number in the first column
-            function updateTableOrder() {
-                const rows = dom.sentenceTableBody.rows;
-                Array.from(rows).forEach((row, index) => {
-                    row.querySelector('.order-cell').textContent = index + 1;
-                });
-            }
-
-            // Function to load data from Firebase (existing)
-            async function loadData(startAfterDoc = null, direction = 'next') {
-                const bookName = dom.masterBookNameInput.value;
-                const bookPart = dom.masterBookPartInput.value;
-                const prefix = dom.masterPrefixInput.value;
-
-                if (!bookName || !prefix) {
-                    console.log("Book name or prefix is missing. Cannot load data.");
-                    return;
-                }
-
-                dom.sentenceTableBody.innerHTML = ''; // Clear existing table rows
-                let q;
-
-                if (startAfterDoc && direction === 'next') {
-                    q = query(
-                        collection(db, "pali_sentences"),
-                        orderBy("book_name"),
-                        orderBy("book_part"),
-                        orderBy("prefix"),
-                        orderBy("group_id"),
-                        orderBy("page_start"),
-                        orderBy("paragraph_num"),
-                        orderBy("sentence_order"),
-                        startAfter(startAfterDoc),
-                        limit(currentQueryLimit)
-                    );
-                } else if (startAfterDoc && direction === 'prev') {
-                    // For previous page, query in reverse and then reverse the results
-                    q = query(
-                        collection(db, "pali_sentences"),
-                        orderBy("book_name", "desc"),
-                        orderBy("book_part", "desc"),
-                        orderBy("prefix", "desc"),
-                        orderBy("group_id", "desc"),
-                        orderBy("page_start", "desc"),
-                        orderBy("paragraph_num", "desc"),
-                        orderBy("sentence_order", "desc"),
-                        startAfter(startAfterDoc),
-                        limit(currentQueryLimit)
-                    );
-                } else {
-                    q = query(
-                        collection(db, "pali_sentences"),
-                        orderBy("book_name"),
-                        orderBy("book_part"),
-                        orderBy("prefix"),
-                        orderBy("group_id"),
-                        orderBy("page_start"),
-                        orderBy("paragraph_num"),
-                        orderBy("sentence_order"),
-                        limit(currentQueryLimit)
-                    );
-                }
-
-                try {
-                    const querySnapshot = await getDocs(q);
-                    const docs = [];
-                    querySnapshot.forEach((doc) => {
-                        docs.push({ id: doc.id, ...doc.data() });
-                    });
-
-                    if (direction === 'prev') {
-                        docs.reverse(); // Reverse results for previous page
-                    }
-
-                    if (docs.length > 0) {
-                        firstVisible = querySnapshot.docs[0];
-                        lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
-                    } else {
-                        firstVisible = null;
-                        lastVisible = null;
-                    }
-
-                    docs.forEach(data => {
-                        const masterData = {
-                            masterGroupId: data.group_id,
-                            masterPageStart: data.page_start,
-                            masterPageEnd: data.page_end,
-                            masterParagraphNum: data.paragraph_num
-                        };
-                        addNewRow(dom.sentenceTableBody, data.id, data.pali_text, data.thai_text, masterData);
-                    });
-                    dom.currentPageSpan.textContent = docs.length > 0 ? (docs[0].page_start || 'N/A') : 'N/A'; // Show first page number
-                    updatePaginationButtons();
-                } catch (error) {
-                    console.error("Error loading documents: ", error);
-                }
-            }
-
-            // Function to save data to Firebase (existing)
-            async function saveData() {
-                const rows = dom.sentenceTableBody.rows;
-                if (rows.length === 0) {
-                    alert('ไม่มีข้อมูลในตารางให้บันทึก');
-                    return;
-                }
-
-                if (!dom.masterBookNameInput.value || !dom.masterPrefixInput.value) {
-                    alert('กรุณากรอกชื่อหนังสือและ Prefix ใน Master Controls');
-                    return;
-                }
-
-                if (!confirm('คุณต้องการบันทึกข้อมูลใช่หรือไม่? โปรดตรวจสอบข้อมูลให้ถูกต้องก่อนบันทึก')) {
-                    return;
-                }
-
-                const batch = writeBatch(db);
-                const bookName = dom.masterBookNameInput.value;
-                const bookPart = dom.masterBookPartInput.value;
-                const prefix = dom.masterPrefixInput.value;
-
-                let hasError = false;
-                Array.from(rows).forEach((row, index) => {
-                    const id = row.dataset.id;
-                    const paliText = row.querySelector('.pali-text-input')?.value.trim();
-                    const groupId = row.querySelector('.group-id-input')?.value.trim();
-                    const pageStart = parseInt(row.querySelector('.page-start-input')?.value);
-                    const pageEnd = parseInt(row.querySelector('.page-end-input')?.value);
-                    const paragraphNum = parseInt(row.querySelector('.paragraph-num-input')?.value);
-
-                    // Basic validation
-                    if (!paliText || !groupId || isNaN(pageStart) || isNaN(pageEnd) || isNaN(paragraphNum)) {
-                        alert(`ข้อมูลไม่ครบถ้วนในแถวที่ ${index + 1}. โปรดตรวจสอบข้อความบาลี, Group ID, เลขหน้า, และเลขย่อหน้า`);
-                        hasError = true;
-                        return; // Skip this row in batch if invalid
-                    }
-
-                    const docRef = doc(db, "pali_sentences", id.startsWith('temp-') ? undefined : id); // Create new doc if temp ID
-                    batch.set(docRef, {
-                        book_name: bookName,
-                        book_part: bookPart,
-                        prefix: prefix,
-                        group_id: groupId,
-                        page_start: pageStart,
-                        page_end: pageEnd,
-                        paragraph_num: paragraphNum,
-                        sentence_order: index + 1, // Sentence order based on current table position
-                        pali_text: paliText,
-                        thai_text: '', // Assuming no Thai text here, or handled elsewhere
-                        user_name_pali: 'admin', // Placeholder, implement user login later
-                        timestamp_pali: serverTimestamp(),
-                        translation_status: 'pending' // Default status
-                    }, { merge: true }); // Use merge to update existing fields and add new ones
-                });
-
-                if (hasError) {
-                    return;
-                }
-
-                try {
-                    await batch.commit();
-                    alert('บันทึกข้อมูลสำเร็จ!');
-                    // After successful save, reload data to get actual Firebase IDs for temp rows
-                    await loadData();
-                    updateTableOrder(); // Re-order after loading if needed
-                } catch (error) {
-                    console.error("Error saving documents: ", error);
-                    alert(`เกิดข้อผิดพลาดในการบันทึกข้อมูล: ${error.message}`);
-                }
-            }
-
-            // Function to toggle super edit mode (existing)
-            function toggleSuperEditMode() {
-                const inputs = document.querySelectorAll('.group-id-input, .page-start-input, .page-end-input, .paragraph-num-input');
-                inputs.forEach(input => {
-                    input.readOnly = !input.readOnly;
-                });
-
-                if (currentMode === 'normal') {
-                    currentMode = 'super-edit';
-                    dom.superEditModeToggle.textContent = 'ออกจาก Super Edit Mode';
-                    dom.superEditModeToggle.classList.remove('secondary');
-                    dom.superEditModeToggle.classList.add('warning-btn');
-                    alert('เข้าสู่ Super Edit Mode: ตอนนี้คุณสามารถแก้ไข Group ID, Page และ Paragraph Number ได้โดยตรง');
-                } else {
-                    currentMode = 'normal';
-                    dom.superEditModeToggle.textContent = 'เข้าสู่ Super Edit Mode';
-                    dom.superEditModeToggle.classList.remove('warning-btn');
-                    dom.superEditModeToggle.classList.add('secondary');
-                    alert('ออกจาก Super Edit Mode');
-                }
-            }
-
-            // Function to update pagination button states (existing)
-            function updatePaginationButtons() {
-                dom.prevPageBtn.disabled = !firstVisible;
-                dom.nextPageBtn.disabled = !lastVisible || (dom.sentenceTableBody.rows.length < currentQueryLimit); // Disable next if less than limit
-            }
-
-            // Initialize the tool (Existing, but modified)
-            async function initializeTool() {
-                // Get URL parameters (existing)
-                const urlParams = new URLSearchParams(window.location.search);
-                dom.masterBookNameInput.value = urlParams.get('bookName') || 'ไม่ระบุ';
-                dom.masterBookPartInput.value = urlParams.get('bookPart') || '';
-                dom.masterPrefixInput.value = urlParams.get('prefix') || '';
-
-                // Initially show the preparation view
-                tableView.style.display = 'none';
-                preparationView.style.display = 'block';
-                updatePrepUIState(); // Initial UI state for preparation view
-                
-                // Load existing data into the table, but keep table view hidden
-                // We load it in background in case user wants to switch back to it
-                await loadData(); // Load existing data into table (but table is hidden)
-                updateTableOrder(); // Ensure initial order is correct
-            }
-
-            // --- Event Listeners for Preparation View ---
-
-            paliInputRaw.addEventListener('input', updatePrepUIState);
-            paliInputRaw.addEventListener('paste', () => { // Enable button on paste
-                setTimeout(updatePrepUIState, 0); // Allow paste event to complete
+            let currentSentenceNumber = 1;
+            sentences.forEach(sentence => {
+                const masterDataForCurrentRow = { ...initialMasterData }; // Copy initial data
+                addNewRow(tbody, currentSentenceNumber++, sentence.trim(), null, masterDataForCurrentRow);
             });
-
-            organizeSpacesBtn.addEventListener('click', async () => {
-                let rawText = paliInputRaw.value;
-                if (!rawText.trim()) {
-                    showPrepStatus('กรุณาวางเนื้อหาบาลีก่อน!', 'warning');
-                    return;
-                }
-
-                lastProcessedTextPrep = rawText; // Save for undo
-
-                let cleanedText = processPaliTextForSpaces(rawText);
-
-                showPrepStatus('กำลังตรวจสอบความซ้ำซ้อน...', 'info');
-                const currentHash = await generateSha256Hash(cleanedText);
-
-                if (isHashStored(currentHash)) {
-                    showPrepStatus('ข้อความนี้ (หลังจากจัดระเบียบแล้ว) เคยประมวลผลไปแล้ว! คุณสามารถดำเนินการต่อได้ หรือล้างแล้ววางข้อความใหม่', 'warning');
-                } else {
-                    addHashToStorage(currentHash);
-                    showPrepStatus('จัดระเบียบช่องว่างสำเร็จ และบันทึกสถานะการประมวลผลแล้ว!', 'success');
-                }
-
-                paliInputRaw.value = cleanedText;
-                currentPrepMode = 'POST_CLEAN_MODE';
-                updatePrepUIState();
-            });
-
-            combineLinesBtn.addEventListener('click', () => {
-                let text = paliInputRaw.value;
-                if (!text.trim()) {
-                    showPrepStatus('ไม่มีข้อความให้รวมบรรทัด!', 'warning');
-                    return;
-                }
-                lastProcessedTextPrep = text; // Save for undo
-
-                let combinedText = combineAllLines(text);
-                paliInputRaw.value = combinedText;
-                showPrepStatus('รวมบรรทัดสำเร็จ!', 'success');
-                updatePrepUIState();
-            });
-
-            splitSentenceBtn.addEventListener('click', () => {
-                let textToSplit = paliInputRaw.value;
-                if (!textToSplit.trim()) {
-                    showPrepStatus('ไม่มีข้อความให้แบ่งประโยค!', 'warning');
-                    return;
-                }
-                lastProcessedTextPrep = textToSplit; // Save for undo
-
-                sentencesReadyForTable = splitIntoSentences(textToSplit);
-                
-                if (sentencesReadyForTable.length === 0) {
-                    showPrepStatus('ไม่พบประโยคที่สามารถแบ่งได้! โปรดตรวจสอบเนื้อหา.', 'error');
-                    return;
-                }
-
-                showPrepStatus(`แบ่งประโยคสำเร็จ ${sentencesReadyForTable.length} ประโยค!`, 'success');
-                currentPrepMode = 'SPLIT_DONE_MODE';
-                updatePrepUIState();
-                paliInputRaw.value = sentencesReadyForTable.join('\n---\n'); // Show split results for confirmation
-                paliInputRaw.readOnly = true; // Lock text area after splitting
-            });
-
-            startEditingBtn.addEventListener('click', () => {
-                if (sentencesReadyForTable.length === 0) {
-                    showPrepStatus('ไม่มีประโยคที่แบ่งแล้วให้ส่ง!', 'error');
-                    return;
-                }
-
-                // Clear existing table data if any, or append
-                // For now, it will clear if there are any existing rows in the table body.
-                // If you want to append, modify this logic.
-                dom.sentenceTableBody.innerHTML = ''; 
-                
-                // Set master page number from input in prep view
-                // Set initial values for master inputs
-                dom.masterPageStartInput.value = paliInputPageNum.value;
-                dom.masterPageEndInput.value = paliInputPageNum.value; 
-                
-                let currentParagraphNum = parseInt(dom.masterParagraphNumInput.value);
-                // If master paragraph num is not set or 0, start from 1. Else, use its value.
-                if (isNaN(currentParagraphNum) || currentParagraphNum === 0) {
-                    currentParagraphNum = 1;
-                }
-
-                let currentGroupId = dom.masterGroupIdInput.value || ''; 
-
-                sentencesReadyForTable.forEach((sentence, index) => {
-                    const initialMasterData = {
-                        masterGroupId: currentGroupId,
-                        masterPageStart: paliInputPageNum.value,
-                        masterPageEnd: paliInputPageNum.value,
-                        masterParagraphNum: currentParagraphNum
-                    };
-                    addNewRow(dom.sentenceTableBody, null, sentence, null, initialMasterData); // Pass null for ID to generate local temp ID
-                    currentParagraphNum++; // Increment paragraph num for next sentence
-                });
-
-                updateTableOrder();
-                showPrepStatus(`นำเข้า ${sentencesReadyForTable.length} ประโยคสู่ตารางแล้ว!`, 'success');
-                
-                // Switch to table view
-                preparationView.style.display = 'none';
-                tableView.style.display = 'block';
-                
-                // Reset prep view for next use
-                paliInputRaw.value = '';
-                paliInputRaw.readOnly = false;
-                paliInputPageNum.value = 1; // Reset page number
-                currentPrepMode = 'CLEAN_PALI_MODE';
-                hidePrepStatus();
-                sentencesReadyForTable = []; // Clear array
-                lastProcessedTextPrep = ""; // Clear undo history for prep
-                updatePrepUIState(); // Reset preparation buttons
-            });
-
-            undoPrepBtn.addEventListener('click', () => {
-                if (lastProcessedTextPrep !== "") {
-                    paliInputRaw.value = lastProcessedTextPrep;
-                    lastProcessedTextPrep = ""; 
-                    sentencesReadyForTable = []; 
-
-                    if (currentPrepMode === 'SPLIT_DONE_MODE') {
-                        currentPrepMode = 'POST_CLEAN_MODE';
-                        paliInputRaw.readOnly = false;
-                        showPrepStatus('ยกเลิกการแบ่งประโยคแล้ว', 'info');
-                    } else if (currentPrepMode === 'POST_CLEAN_MODE') {
-                        currentPrepMode = 'CLEAN_PALI_MODE';
-                        showPrepStatus('ยกเลิกการจัดระเบียบช่องว่างแล้ว', 'info');
-                    }
-                    hidePrepStatus();
-                    updatePrepUIState();
-                } else {
-                    showPrepStatus('ไม่สามารถยกเลิกได้แล้ว หรือไม่มีการเปลี่ยนแปลงล่าสุด', 'warning');
-                }
-            });
-
-            // New: Find and Replace Event Listener
-            replaceAllBtn.addEventListener('click', () => {
-                let currentText = paliInputRaw.value;
-                const searchStr = searchText.value;
-                const replaceStr = replaceText.value;
-
-                if (!searchStr) {
-                    showPrepStatus('กรุณาใส่ข้อความที่ต้องการค้นหา', 'warning');
-                    return;
-                }
-
-                if (currentText.indexOf(searchStr) === -1) {
-                    showPrepStatus(`ไม่พบข้อความ "${searchStr}" ในเนื้อหา`, 'info');
-                    return;
-                }
-                
-                lastProcessedTextPrep = currentText; // Save for undo
-
-                // Perform global replacement for all occurrences
-                // Escape special regex characters in searchStr
-                const escapedSearchStr = searchStr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                const replacedCount = (currentText.match(new RegExp(escapedSearchStr, 'g')) || []).length;
-                let newText = currentText.replace(new RegExp(escapedSearchStr, 'g'), replaceStr);
-                
-                paliInputRaw.value = newText;
-                showPrepStatus(`แทนที่ "${searchStr}" ด้วย "${replaceStr}" จำนวน ${replacedCount} ครั้งสำเร็จ!`, 'success');
-                currentPrepMode = 'POST_CLEAN_MODE'; // After replacement, it's a "cleaned" state
-                updatePrepUIState();
-            });
-
-            goToPrepBtn.addEventListener('click', () => {
-                // Switch back to preparation view
-                tableView.style.display = 'none';
-                preparationView.style.display = 'block';
-                
-                // Clear prep view for a fresh start when returning
-                paliInputRaw.value = '';
-                paliInputRaw.readOnly = false;
-                paliInputPageNum.value = 1; // Reset page number
-                currentPrepMode = 'CLEAN_PALI_MODE';
-                hidePrepStatus();
-                sentencesReadyForTable = []; // Clear array
-                lastProcessedTextPrep = ""; // Clear undo history for prep
-                updatePrepUIState(); // Reset preparation buttons
-            });
-
-            // --- Event Listeners for Table View (Existing) ---
-            dom.addRowBtn.addEventListener('click', () => {
-                const tbody = dom.sentenceTableBody;
-                let masterData = getLastRowMasterData();
-                
-                // Increment paragraph_num if there's a last row and it's not in super-edit mode
-                if (currentMode !== 'super-edit' && tbody.lastElementChild) {
-                    masterData.masterParagraphNum = parseInt(masterData.masterParagraphNum) + 1;
-                }
-
-                addNewRow(tbody, null, '', null, masterData); // Pass null for ID to generate local temp ID
-                updateTableOrder();
-            });
-
-            dom.createSaveBtn.addEventListener('click', saveData); // ปุ่มบันทึกข้อมูล
-            dom.superEditModeToggle.addEventListener('click', toggleSuperEditMode); // Toggle super edit mode
-            dom.prevPageBtn.addEventListener('click', async () => {
-                if (firstVisible) {
-                    await loadData(firstVisible, 'prev');
-                }
-            });
-            dom.nextPageBtn.addEventListener('click', async () => {
-                if (lastVisible) {
-                    await loadData(lastVisible, 'next');
-                }
-            });
-            
-            // Initialize the tool after all event listeners are set up
-            initializeTool();
+            updateTableOrder();
+            updateStatus('create-status-message', `แบ่งข้อความเป็น ${sentences.length} ประโยคแล้ว`, 'success');
         });
-    </script>
+
+        // Event Listener for Clear Table Button
+        dom.clearTableBtn.addEventListener('click', () => {
+            dom.createSentenceTable.querySelector('tbody').innerHTML = '';
+            dom.paliInput.value = '';
+            nextAvailableId = 1; // Reset sentence ID counter
+            updateStatus('create-status-message', 'ตารางถูกล้างแล้ว', 'info');
+        });
+
+        // Event Listener for Search Data Button (Super Edit Mode)
+        dom.searchDataBtn.addEventListener('click', loadDataForSuperEdit);
+
+        // Event Listener for Clear Search Button (Super Edit Mode)
+        dom.clearSearchBtn.addEventListener('click', () => {
+            dom.searchBookNameInput.value = '';
+            dom.searchBookPartInput.value = '';
+            dom.searchStoryNameInput.value = '';
+            dom.searchGroupIdInput.value = '';
+            dom.createSentenceTable.querySelector('tbody').innerHTML = '';
+            updateStatus('create-status-message', 'ล้างการค้นหาแล้ว', 'info');
+        });
+
+        // Event Listener for Back to Main Button
+        dom.createBackBtn.addEventListener('click', () => {
+            const params = new URLSearchParams({ bookName: currentBookName, bookPart: currentBookPart, prefix: currentPrefix });
+            window.location.href = `translate.html?${params.toString()}`;
+        });
+
+        // Event Listener for Add Row Button
+        dom.createAddRowBtn.addEventListener('click', () => {
+            const tbody = dom.createSentenceTable.querySelector('tbody');
+            const lastRow = tbody.lastElementChild;
+            const masterData = {};
+
+            // Get values from the last row if it exists, otherwise from master inputs
+            if (lastRow) {
+                masterData.masterGroupId = lastRow.querySelector('.group-id-input')?.value || '';
+                masterData.masterPageStart = lastRow.querySelector('.page-start-input')?.value || '';
+                masterData.masterPageEnd = lastRow.querySelector('.page-end-input')?.value || '';
+                masterData.masterParagraphNum = lastRow.querySelector('.paragraph-num-input')?.value || '';
+            } else {
+                // Fallback to master inputs if no rows exist
+                masterData.masterGroupId = dom.masterGroupIdInput.value;
+                masterData.masterPageStart = dom.masterPageStartInput.value;
+                masterData.masterPageEnd = dom.masterPageEndInput.value;
+                masterData.masterParagraphNum = dom.masterParagraphNumInput.value;
+            }
+            
+            if (currentMode !== 'super-edit' && lastRow) {
+                masterData.masterParagraphNum = parseInt(masterData.masterParagraphNum) + 1;
+            }
+
+            addNewRow(tbody, nextAvailableId++, '', null, masterData);
+            updateTableOrder();
+        });
+
+        dom.createSaveBtn.addEventListener('click', saveData); // ปุ่มบันทึกข้อมูล
+        
+        // Initialize the tool after all event listeners are set up
+        initializeTool();
+    });
+</script>
 </body>
 </html>
