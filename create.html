@@ -62,7 +62,8 @@
                 <textarea id="pali-input" rows="8"></textarea>
                 <p id="hash_check_result" class="suggestion-text"></p>
                 <div style="margin-top:10px; display:flex; gap: 10px; flex-wrap: wrap;">
-                    <button id="merge-lines-btn" class="secondary">รวมบรรทัดและจัดระเบียบ</button>
+                    <button id="format-spacing-btn" class="secondary">จัดระเบียบช่องว่าง (สำหรับคาถา)</button>
+                    <button id="merge-lines-btn" class="secondary">รวมบรรทัด (สำหรับร้อยแก้ว)</button>
                     <button id="undo-merge-btn" class="secondary" style="display: none;">ยกเลิกการรวม</button>
                     <button id="split-btn">กดเพื่อแบ่งประโยค</button>
                 </div>
@@ -102,6 +103,7 @@
                 userNameInput: document.getElementById('user_name'), storyNameInput: document.getElementById('story_name'),
                 masterPageStartInput: document.getElementById('master_page_start'), paliInput: document.getElementById('pali-input'),
                 createSaveBtn: document.getElementById('create-save-btn'),
+                formatSpacingBtn: document.getElementById('format-spacing-btn'),
                 mergeLinesBtn: document.getElementById('merge-lines-btn'), undoMergeBtn: document.getElementById('undo-merge-btn'),
                 splitBtn: document.getElementById('split-btn'), createDataWorkArea: document.getElementById('create-data-work-area'),
                 createSentenceTable: document.getElementById('create-sentence-table'),
@@ -114,31 +116,39 @@
             async function checkPageExists() { const pageNum = parseInt(dom.masterPageStartInput.value); const resultEl = document.getElementById('page_check_result'); if (!pageNum) { resultEl.innerHTML = ''; return; } resultEl.className = 'suggestion-text'; resultEl.textContent = `กำลังตรวจสอบหน้า ${pageNum}...`; try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), where("page_start", "==", pageNum), limit(5)); const querySnapshot = await getDocs(q); if (querySnapshot.empty) { updateStatus('page_check_result', `✅ หน้านี้ยังว่าง`, 'success'); } else { let html = `⚠️ หน้านี้มีข้อมูลแล้ว!`; html += `<ul>`; querySnapshot.forEach(doc => { const data = doc.data(); html += `<li>Group ID: ${data.sentence_group_id}, เนื้อหา: ${data.pali_text.substring(0,30)}...</li>`; }); html += `</ul>`; updateStatus('page_check_result', html, 'warning'); } } catch(error) { updateStatus('page_check_result', `เกิดข้อผิดพลาด: ${error.message} (ต้องสร้าง Index)`, 'error'); } }
             async function calculateHash(text) { const encoder = new TextEncoder(); const data = encoder.encode(text.trim()); const hashBuffer = await crypto.subtle.digest('SHA-256', data); const hashArray = Array.from(new Uint8Array(hashBuffer)); return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); }
             
-            // เปลี่ยนชื่อฟังก์ชันเป็น autoFormatPaliText
-function autoFormatPaliText() {
-    originalPaliText = dom.paliInput.value;
-    let text = dom.paliInput.value;
-    if (!text.trim()) return;
-
-    // --- เพิ่ม 2 บรรทัดนี้เข้าไป ---
-    text = text.replace(/€/g, 'ฐ');
-    text = text.replace(/ /g, 'ญ');
-    // -----------------------------
-    
-    // (โค้ดที่เหลือในฟังก์ชันนี้เหมือนเดิมทุกประการ)
-    const pePlaceholder = " __PEYALA__ ";
-    const etcPlaceholder = " __ETC__ ";
-    text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
-    text = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
-    text = text.replace(/\s*ฯ\s*/g, ' ฯ  ');
-    text = text.replace(/ (?![ฯ]|__PEYALA__|__ETC__)/g, '  ');
-    text = text.replace(new RegExp(pePlaceholder, 'g'), ' ฯเปฯ ').replace(new RegExp(etcPlaceholder, 'g'), ' ฯลฯ ');
-    dom.paliInput.value = text.trim();
-    dom.mergeLinesBtn.style.display = 'none';
-    dom.undoMergeBtn.style.display = 'inline-block';
-    checkFirstSentenceHash();
-}
+            function formatSpacingOnly() {
+                originalPaliText = dom.paliInput.value;
+                let text = dom.paliInput.value;
+                if (!text.trim()) return;
+                text = text.replace(/€/g, 'ฐ').replace(/ /g, 'ญ');
+                const pePlaceholder = " __PEYALA__ ";
+                const etcPlaceholder = " __ETC__ ";
+                text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
+                let lines = text.split(/\r?\n/);
+                let formattedLines = lines.map(line => {
+                    let tempLine = line.replace(/\s+/g, ' ');
+                    tempLine = tempLine.replace(/\s*ฯ\s*/g, ' ฯ  ');
+                    tempLine = tempLine.replace(/ (?![ฯ]|__PEYALA__|__ETC__)/g, '  ');
+                    return tempLine;
+                });
+                text = formattedLines.join('\n');
+                text = text.replace(new RegExp(pePlaceholder, 'g'), ' ฯเปฯ ').replace(new RegExp(etcPlaceholder, 'g'), ' ฯลฯ ');
+                dom.paliInput.value = text.trim();
+                alert('จัดระเบียบช่องว่างเรียบร้อยแล้ว');
+                checkFirstSentenceHash();
+            }
             
+            function mergeLines() {
+                originalPaliText = dom.paliInput.value;
+                let text = dom.paliInput.value;
+                if (!text.trim()) return;
+                let singleLineText = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
+                dom.paliInput.value = singleLineText.trim();
+                dom.mergeLinesBtn.style.display = 'none';
+                dom.undoMergeBtn.style.display = 'inline-block';
+                checkFirstSentenceHash();
+            }
+
             function undoMerge() {
                 dom.paliInput.value = originalPaliText;
                 dom.mergeLinesBtn.style.display = 'inline-block';
@@ -173,15 +183,14 @@ function autoFormatPaliText() {
                     let tempContent = sourceContent.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
                     
                     const lines = tempContent.split(/\r?\n/);
+                    
                     lines.forEach(line => {
                         if (line.trim() === '') return;
                         const parts = line.split('ฯ');
                         for (let i = 0; i < parts.length; i++) {
                             let sentence = parts[i].trim();
                             if (sentence.length > 0) {
-                                if (i < parts.length - 1) {
-                                    sentence += ' ฯ';
-                                }
+                                if (i < parts.length - 1) { sentence += ' ฯ'; }
                                 let displaySentence = sentence.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ');
                                 finalSentences.push(displaySentence.trim());
                             }
@@ -189,7 +198,7 @@ function autoFormatPaliText() {
                     });
 
                     if (finalSentences.length === 0 && sourceContent.trim().length > 0) {
-                        finalSentences.push(sourceContent.trim());
+                        finalSentences.push(sourceContent.trim().replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ'));
                     }
 
                     finalSentences.forEach((sentence, index) => {
@@ -199,9 +208,7 @@ function autoFormatPaliText() {
                         row.innerHTML = `<td class="id-cell">${row.dataset.id}</td><td><input type="number" class="group-id-input" value="${docData ? docData.sentence_group_id.split('-').pop() : masterGroupId}"></td><td><textarea class="pali-text-input" rows="3">${sentence}</textarea></td><td><input type="number" class="page-start-input" value="${docData ? docData.page_start : masterPageStart}"></td><td><input type="number" class="page-end-input" value="${docData ? docData.page_end : masterPageEnd}"></td><td><input type="number" class="paragraph-num-input" value="${docData ? docData.paragraph_num : masterParagraphNum}"></td><td><select class="text-type-input"><option value="ร้อยแก้ว" ${docData && docData.text_type === 'ร้อยแก้ว' ? 'selected' : ''}>ร้อยแก้ว</option><option value="คาถา" ${docData && docData.text_type === 'คาถา' ? 'selected' : ''}>คาถา</option></select></td>`;
                     });
 
-                    if (finalSentences.length > 0) {
-                        dom.createSaveBtn.disabled = false;
-                    }
+                    if (finalSentences.length > 0) { dom.createSaveBtn.disabled = false; }
                 } catch (error) {
                     updateStatus('create-status-message', `เกิดข้อผิดพลาด: ${error.message}`, 'error');
                 }
@@ -238,7 +245,7 @@ function autoFormatPaliText() {
             dom.storyNameInput.addEventListener('blur', async () => { await checkLastParagraph(); await findLastGroupId(); });
             dom.masterPageStartInput.addEventListener('blur', checkPageExists);
             dom.paliInput.addEventListener('blur', checkFirstSentenceHash);
-            dom.mergeLinesBtn.addEventListener('click', autoFormatPaliText);
+            dom.mergeLinesBtn.addEventListener('click', mergeAndFormat);
             dom.undoMergeBtn.addEventListener('click', undoMerge);
             dom.splitBtn.addEventListener('click', () => generateCreateTable(null));
             dom.createSaveBtn.addEventListener('click', saveData);
