@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v4.6)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v4.5 Corrected)</title>
     <!-- (CSS Style เหมือนเดิม) -->
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
@@ -62,8 +62,9 @@
                 <textarea id="pali-input" rows="8"></textarea>
                 <p id="hash_check_result" class="suggestion-text"></p>
                 <div style="margin-top:10px; display:flex; gap: 10px; flex-wrap: wrap;">
-                    <button id="format-btn" class="secondary">จัดระเบียบข้อความ</button>
-                    <button id="undo-btn" class="secondary" style="display: none;">ยกเลิก</button>
+                    <button id="format-spacing-btn" class="secondary">จัดระเบียบช่องว่าง (สำหรับคาถา)</button>
+                    <button id="merge-lines-btn" class="secondary">รวมบรรทัด (สำหรับร้อยแก้ว)</button>
+                    <button id="undo-merge-btn" class="secondary" style="display: none;">ยกเลิก</button>
                     <button id="split-btn">กดเพื่อแบ่งประโยค</button>
                 </div>
             </fieldset>
@@ -102,8 +103,8 @@
                 userNameInput: document.getElementById('user_name'), storyNameInput: document.getElementById('story_name'),
                 masterPageStartInput: document.getElementById('master_page_start'), paliInput: document.getElementById('pali-input'),
                 createSaveBtn: document.getElementById('create-save-btn'),
-                formatBtn: document.getElementById('format-btn'),
-                undoBtn: document.getElementById('undo-btn'),
+                formatSpacingBtn: document.getElementById('format-spacing-btn'),
+                mergeLinesBtn: document.getElementById('merge-lines-btn'), undoMergeBtn: document.getElementById('undo-merge-btn'),
                 splitBtn: document.getElementById('split-btn'), createDataWorkArea: document.getElementById('create-data-work-area'),
                 createSentenceTable: document.getElementById('create-sentence-table'),
             };
@@ -115,23 +116,43 @@
             async function checkPageExists() { const pageNum = parseInt(dom.masterPageStartInput.value); const resultEl = document.getElementById('page_check_result'); if (!pageNum) { resultEl.innerHTML = ''; return; } resultEl.className = 'suggestion-text'; resultEl.textContent = `กำลังตรวจสอบหน้า ${pageNum}...`; try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), where("page_start", "==", pageNum), limit(5)); const querySnapshot = await getDocs(q); if (querySnapshot.empty) { updateStatus('page_check_result', `✅ หน้านี้ยังว่าง`, 'success'); } else { let html = `⚠️ หน้านี้มีข้อมูลแล้ว!`; html += `<ul>`; querySnapshot.forEach(doc => { const data = doc.data(); html += `<li>Group ID: ${data.sentence_group_id}, เนื้อหา: ${data.pali_text.substring(0,30)}...</li>`; }); html += `</ul>`; updateStatus('page_check_result', html, 'warning'); } } catch(error) { updateStatus('page_check_result', `เกิดข้อผิดพลาด: ${error.message} (ต้องสร้าง Index)`, 'error'); } }
             async function calculateHash(text) { const encoder = new TextEncoder(); const data = encoder.encode(text.trim()); const hashBuffer = await crypto.subtle.digest('SHA-256', data); const hashArray = Array.from(new Uint8Array(hashBuffer)); return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); }
             
-            function formatText() {
+            function formatSpacingOnly() {
                 originalPaliText = dom.paliInput.value;
                 let text = dom.paliInput.value;
                 if (!text.trim()) return;
-                text = text.replace(/€/g, 'ฐ').replace(/ /g, 'ญ');
-                text = text.replace(/\s+/g, ' ');
-                text = text.replace(/\s*ฯเปฯ\s*/g, ' ฯเปฯ ').replace(/\s*ฯลฯ\s*/g, ' ฯลฯ ').replace(/\s*ฯ\s*/g, ' ฯ ');
+                text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
+                const pePlaceholder = " __PEYALA__ ";
+                const etcPlaceholder = " __ETC__ ";
+                text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
+                let lines = text.split(/\r?\n/);
+                let formattedLines = lines.map(line => {
+                    let tempLine = line.replace(/\s+/g, ' ');
+                    tempLine = tempLine.replace(/\s*ฯ\s*/g, ' ฯ  ');
+                    tempLine = tempLine.replace(/ (?![ฯ]|__PEYALA__|__ETC__)/g, '  ');
+                    return tempLine;
+                });
+                text = formattedLines.join('\n');
+                text = text.replace(new RegExp(pePlaceholder, 'g'), ' ฯเปฯ ').replace(new RegExp(etcPlaceholder, 'g'), ' ฯลฯ ');
                 dom.paliInput.value = text.trim();
-                dom.formatBtn.style.display = 'none';
-                dom.undoBtn.style.display = 'inline-block';
+                alert('จัดระเบียบช่องว่างเรียบร้อยแล้ว');
                 checkFirstSentenceHash();
             }
 
-            function undoFormat() {
+            function mergeLines() {
+                originalPaliText = dom.paliInput.value;
+                let text = dom.paliInput.value;
+                if (!text.trim()) return;
+                let singleLineText = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
+                dom.paliInput.value = singleLineText.trim();
+                dom.mergeLinesBtn.style.display = 'none';
+                dom.undoMergeBtn.style.display = 'inline-block';
+                checkFirstSentenceHash();
+            }
+
+            function undoMerge() {
                 dom.paliInput.value = originalPaliText;
-                dom.formatBtn.style.display = 'inline-block';
-                dom.undoBtn.style.display = 'none';
+                dom.mergeLinesBtn.style.display = 'inline-block';
+                dom.undoMergeBtn.style.display = 'none';
                 checkFirstSentenceHash();
             }
 
@@ -186,10 +207,11 @@
                 }
             }
 
-            async function saveData() { /* ... โค้ดเหมือนเดิม ... */ }
-            async function fetchDataForFullEdit(groupId) { /* ... โค้ดเหมือนเดิม ... */ }
-            function populateCreateFormWithData(data) { /* ... โค้ดเหมือนเดิม ... */ }
-            async function populateCreateDatalists() { /* ... โค้ดเหมือนเดิม ... */ }
+            async function saveData() { const statusElId = 'create-status-message'; if (!dom.userNameInput.value.trim()) { alert('กรุณาใส่ชื่อผู้ใช้งาน'); return; } updateStatus(statusElId, 'กำลังบันทึก...', ''); dom.createSaveBtn.disabled = true; try { const batch = writeBatch(db); const chapterName = document.getElementById('chapter_name').value, storyName = dom.storyNameInput.value, sectionName = document.getElementById('section_name').value; const displayFlag = parseInt(document.getElementById('display_flag').value); const firstLine = dom.paliInput.value.trim().split(/\r?\n/).find(line => line.trim() !== '') || ''; const firstSentenceHash = firstLine ? await calculateHash(firstLine) : null; Array.from(dom.createSentenceTable.querySelector('tbody').rows).forEach((row, index) => { const docId = row.dataset.id; const groupIdNum = row.querySelector('.group-id-input')?.value || '0'; const fullGroupId = `${currentPrefix}-${groupIdNum}`; const docRef = doc(db, "pali_sentences", docId); let dataToSave = { id: parseInt(docId), sentence_group_id: fullGroupId, pali_order: index + 1, book_title: currentBookName, book_part: currentBookPart, chapter_name: chapterName, story_name: storyName, section_name: sectionName, display_flag: displayFlag, page_start: parseInt(row.querySelector('.page-start-input')?.value) || 0, page_end: parseInt(row.querySelector('.page-end-input')?.value) || 0, paragraph_num: parseInt(row.querySelector('.paragraph-num-input')?.value) || 0, text_type: row.querySelector('.text-type-input')?.value, pali_text: row.querySelector('.pali-text-input')?.value.trim(), user_name_pali: dom.userNameInput.value.trim(), timestamp_pali: serverTimestamp(), first_sentence_hash: (index === 0 ? firstSentenceHash : null) }; if (currentMode === 'create') { Object.assign(dataToSave, { thai_text: "", thai_order: 0, user_name_thai: "", timestamp_thai: null, translation_status: 'untranslated' }); } batch.set(docRef, dataToSave, { merge: true }); }); await batch.commit(); updateStatus(statusElId, 'บันทึกข้อมูลสำเร็จ! กำลังรีเฟรชหน้า...', 'success'); setTimeout(() => { if(currentMode === 'super-edit') { const params = new URLSearchParams({ bookName: currentBookName, bookPart: currentBookPart, prefix: currentPrefix }); window.location.href = `translate.html?${params.toString()}`; } else { window.location.reload(); } }, 1500); } catch (error) { updateStatus(statusElId, `บันทึกไม่สำเร็จ: ${error.message}`, 'error'); dom.createSaveBtn.disabled = false; } }
+            async function fetchDataForFullEdit(groupId) { updateStatus('create-status-message', `กำลังดึงข้อมูล Group ID: ${groupId} เพื่อแก้ไข...`, 'loading'); try { const q = query(paliCollection, where("sentence_group_id", "==", groupId), orderBy("pali_order")); const querySnapshot = await getDocs(q); const data = querySnapshot.docs.map(doc => doc.data()); if (data.length > 0) { populateCreateFormWithData(data); } else { throw new Error('ไม่พบข้อมูล'); } } catch (error) { updateStatus('create-status-message', `เกิดข้อผิดพลาด: ${error.message}`, 'error'); } }
+            function populateCreateFormWithData(data) { currentMode = 'super-edit'; document.getElementById('create-view-header').textContent = `โหมดแก้ไขข้อมูลหลัก (Group: ${data[0].sentence_group_id})`; dom.createSaveBtn.textContent = 'อัปเดตข้อมูลหลัก'; const firstDoc = data[0]; document.getElementById('chapter_name').value = firstDoc.chapter_name || ''; dom.storyNameInput.value = firstDoc.story_name || ''; document.getElementById('section_name').value = firstDoc.section_name || ''; document.getElementById('display_flag').value = firstDoc.display_flag || '2'; document.getElementById('master_group_id').value = firstDoc.sentence_group_id.split('-').pop() || ''; dom.masterPageStartInput.value = firstDoc.page_start || ''; document.getElementById('master_page_end').value = firstDoc.page_end || ''; document.getElementById('master_paragraph_num').value = firstDoc.paragraph_num || ''; dom.paliInput.value = data.map(d => d.pali_text).join('\n'); generateCreateTable(data); }
+            async function populateCreateDatalists() { try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart)); const querySnapshot = await getDocs(q); const chapters = new Set(), stories = new Set(), sections = new Set(); querySnapshot.forEach(doc => { const data = doc.data(); if (data.chapter_name) chapters.add(data.chapter_name); if (data.story_name) stories.add(data.story_name); if (data.section_name) sections.add(data.section_name); }); fillDatalist('chapter_datalist', chapters); fillDatalist('story_datalist', stories); fillDatalist('section_datalist', sections); } catch (error) { console.error("Could not populate create-view datalists:", error); } }
+            function fillDatalist(datalistId, dataSet) { const datalistElement = document.getElementById(datalistId); if (datalistElement) { datalistElement.innerHTML = ''; Array.from(dataSet).sort().forEach(item => { const option = document.createElement('option'); option.value = item; datalistElement.appendChild(option); }); } }
             
             function initializeTool() {
                 const params = new URLSearchParams(window.location.search);
@@ -216,8 +238,9 @@
             dom.storyNameInput.addEventListener('blur', async () => { await checkLastParagraph(); await findLastGroupId(); });
             dom.masterPageStartInput.addEventListener('blur', checkPageExists);
             dom.paliInput.addEventListener('blur', checkFirstSentenceHash);
-            dom.formatBtn.addEventListener('click', formatText);
-            dom.undoBtn.addEventListener('click', undoFormat);
+            dom.formatSpacingBtn.addEventListener('click', () => formatSpacingOnly());
+            dom.mergeLinesBtn.addEventListener('click', mergeLines);
+            dom.undoMergeBtn.addEventListener('click', undoMerge);
             dom.splitBtn.addEventListener('click', () => generateCreateTable(null));
             dom.createSaveBtn.addEventListener('click', saveData);
             
