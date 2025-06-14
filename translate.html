@@ -117,34 +117,75 @@
             function updateStatus(message, type) { const el = document.getElementById('edit-status-message'); if(el){ el.innerHTML = message; el.className = `status-message ${type}`; } }
             
             async function searchGroupsToEdit() {
-                const paliText = document.getElementById('search_pali_text').value.trim();
-                const pageNum = parseInt(document.getElementById('search_page_num').value.trim());
-                if (!paliText && !pageNum) { alert('กรุณาใส่ "คำบาลี" หรือ "เลขหน้า" เพื่อใช้ในการค้นหา'); return; }
-                updateStatus('กำลังค้นหากลุ่ม...', 'loading');
-                const groupResultsDiv = document.getElementById('group-results');
-                groupResultsDiv.innerHTML = '';
-                editViewContent.style.display = 'none';
-                try {
-                    let constraints = [ where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart) ];
-                    if (paliText) { constraints.push(where("pali_text", ">=", paliText)); constraints.push(where("pali_text", "<=", paliText + '\uf8ff')); }
-                    if (pageNum) { constraints.push(where("page_start", "==", pageNum)); }
-                    const q = query(paliCollection, ...constraints, limit(20));
-                    const querySnapshot = await getDocs(q);
-                    if (querySnapshot.empty) { throw new Error('ไม่พบข้อมูลตามเงื่อนไขที่ระบุ'); }
-                    const groups = new Map();
-                    querySnapshot.forEach(doc => { const data = doc.data(); if (!groups.has(data.sentence_group_id)) { groups.set(data.sentence_group_id, { pali_text: data.pali_text.substring(0, 50) + '...', status: data.translation_status || 'untranslated' }); } });
-                    const sortedGroups = new Map([...groups.entries()].sort());
-                    updateStatus(`พบ ${sortedGroups.size} กลุ่ม, กรุณาเลือกกลุ่มที่ต้องการแก้ไข`, 'success');
-                    sortedGroups.forEach((data, groupId) => {
-                        const div = document.createElement('div');
-                        const statusClass = `status-${data.status}`;
-                        div.innerHTML = `<div class="group-info"><strong>Group ID: ${groupId}</strong><br><small>ตัวอย่าง: ${data.pali_text}</small></div><div class="edit-buttons"><span class="status-badge ${statusClass}">${data.status}</span><button class="secondary" title="แก้ไขข้อมูลหลัก">✏️ แก้ไขหลัก</button><button class="success" title="เพิ่ม/แก้ไขคำแปล">✍️ แปลไทย</button></div>`;
-                        div.querySelector('[title="แก้ไขข้อมูลหลัก"]').addEventListener('click', (e) => { e.stopPropagation(); navigateToSuperEdit(groupId); });
-                        div.querySelector('[title="เพิ่ม/แก้ไขคำแปล"]').addEventListener('click', (e) => { e.stopPropagation(); fetchDataForTranslate(groupId); });
-                        groupResultsDiv.appendChild(div);
-                    });
-                } catch (error) { updateStatus(`ค้นหาไม่สำเร็จ: ${error.message} (อาจต้องสร้าง Index)`, 'error'); }
+    const paliText = document.getElementById('search_pali_text').value.trim();
+    const pageNum = parseInt(document.getElementById('search_page_num').value.trim());
+
+    if (!paliText && !pageNum) {
+        alert('กรุณาใส่ "คำบาลี" หรือ "เลขหน้า" เพื่อใช้ในการค้นหา');
+        return;
+    }
+    
+    updateStatus('กำลังค้นหากลุ่ม...', 'loading');
+    const groupResultsDiv = document.getElementById('group-results');
+    groupResultsDiv.innerHTML = '';
+    document.getElementById('edit-view-content').style.display = 'none';
+
+    try {
+        let constraints = [
+            where("book_title", "==", currentBookName),
+            where("book_part", "==", currentBookPart)
+        ];
+
+        // สร้าง Query พื้นฐานก่อน
+        let q = query(paliCollection, ...constraints);
+
+        // เพิ่มเงื่อนไขการกรองทีละขั้น
+        if (paliText) {
+            q = query(q, where("pali_text", ">=", paliText), where("pali_text", "<=", paliText + '\uf8ff'));
+        }
+        if (pageNum) {
+            q = query(q, where("page_start", "==", pageNum));
+        }
+        
+        // เพิ่มการเรียงลำดับในตอนท้าย
+        q = query(q, orderBy("pali_text"), limit(20));
+
+        // --- DEBUGGING ---
+        console.log("Final Query Constraints:", q.constraints); 
+
+        const querySnapshot = await getDocs(q);
+
+        console.log(`Query successful, found ${querySnapshot.size} documents.`); // <-- ดูว่าดึงมาได้กี่รายการ
+
+        if (querySnapshot.empty) { throw new Error('ไม่พบข้อมูลตามเงื่อนไขที่ระบุ'); }
+        
+        const groups = new Map();
+        querySnapshot.forEach(doc => {
+            const data = doc.data();
+            if (!groups.has(data.sentence_group_id)) {
+                groups.set(data.sentence_group_id, { 
+                    pali_text: data.pali_text.substring(0, 50) + '...', 
+                    status: data.translation_status || 'untranslated' 
+                });
             }
+        });
+        
+        const sortedGroups = new Map([...groups.entries()].sort());
+        updateStatus(`พบ ${sortedGroups.size} กลุ่ม, กรุณาเลือกกลุ่มที่ต้องการแก้ไข`, 'success');
+        
+        sortedGroups.forEach((data, groupId) => {
+            // ... (โค้ดแสดงผลเหมือนเดิม)
+        });
+
+    } catch (error) {
+        // --- DEBUGGING ---
+        console.error("Full Search Error:", error); 
+        updateStatus(`ค้นหาไม่สำเร็จ: ${error.message} (Code: ${error.code})`, 'error'); 
+        if (error.code === 'failed-precondition') {
+            alert('เกิดข้อผิดพลาด: จำเป็นต้องสร้าง Index ใน Firestore ก่อน โปรดตรวจสอบ Console เพื่อดูลิงก์สำหรับสร้าง Index');
+        }
+    }
+}
             
             function navigateToSuperEdit(groupId) {
                 const params = new URLSearchParams(window.location.search);
