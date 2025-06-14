@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.6 - เพิ่มเครื่องมือเตรียมเนื้อหา)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.5 - รวมเครื่องมือเตรียมเนื้อหา)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
@@ -69,36 +69,32 @@
         #tableView { 
             display: none; 
         }
-        /* New: Styles for Find and Replace and text manipulation */
-        .text-manipulation-section {
-            margin-top: 20px; /* Adjusted margin */
+        /* New: Styles for Find and Replace */
+        .find-replace-section {
+            margin-top: 30px;
             padding: 15px;
             background-color: #fff;
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
-        .text-manipulation-section h3 {
+        .find-replace-section h3 {
             margin-top: 0;
             color: var(--primary-color);
             border-bottom: 1px dashed var(--border-color);
             padding-bottom: 10px;
             margin-bottom: 15px;
         }
-        .text-manipulation-section .form-group {
+        .find-replace-section .form-group {
             margin-bottom: 10px;
         }
-        .text-manipulation-section input[type="text"] {
+        .find-replace-section input[type="text"] {
             width: calc(100% - 20px); /* Adjust width for padding */
             padding: 8px 10px;
             font-size: 0.95rem;
         }
-        .text-manipulation-section button {
+        .find-replace-section button {
             width: auto;
             margin-top: 10px;
-            margin-right: 10px; /* Add some spacing between buttons */
-        }
-        .text-manipulation-section .button-group {
-            justify-content: flex-start; /* Align buttons to the left */
         }
 
         /* Super Edit Mode Specific Styles */
@@ -216,30 +212,24 @@
                     <label for="pali_input">ข้อความบาลีหลัก (ทั้งหมด):</label>
                     <textarea id="pali_input" placeholder="วางข้อความบาลีทั้งหมดที่นี่"></textarea>
                 </div>
-
-                <div class="text-manipulation-section">
-                    <h3>เครื่องมือจัดการข้อความหลัก</h3>
-                    <div class="button-group">
-                        <button id="trim_whitespace_btn" class="secondary">จัดระเบียบช่องว่าง</button>
-                        <button id="merge_lines_btn" class="secondary">รวมบรรทัด</button>
-                        <button id="undo_pali_input_btn" class="warning-btn" disabled>ยกเลิก</button>
-                    </div>
-                    <div class="form-group">
-                        <label for="find_text_pali_input">ค้นหาในกล่องหลัก:</label>
-                        <input type="text" id="find_text_pali_input" placeholder="คำหรือวลีที่ต้องการค้นหา">
-                    </div>
-                    <div class="form-group">
-                        <label for="replace_text_pali_input">แทนที่ด้วย:</label>
-                        <input type="text" id="replace_text_pali_input" placeholder="คำหรือวลีใหม่">
-                    </div>
-                    <div class="button-group">
-                        <button id="find_replace_pali_input_btn" class="warning-btn">ค้นหาและแทนที่ในกล่องหลัก</button>
-                    </div>
-                </div>
-
                 <div class="button-group">
                     <button id="generate_table_btn" class="primary">แบ่งประโยคและสร้างตาราง</button>
                     <button id="clear_table_btn" class="secondary">ล้างตาราง</button>
+                </div>
+
+                <div class="find-replace-section">
+                    <h3>ค้นหาและแทนที่ข้อความในตาราง</h3>
+                    <div class="form-group">
+                        <label for="find_text">ค้นหา:</label>
+                        <input type="text" id="find_text" placeholder="คำหรือวลีที่ต้องการค้นหา">
+                    </div>
+                    <div class="form-group">
+                        <label for="replace_text">แทนที่ด้วย:</label>
+                        <input type="text" id="replace_text" placeholder="คำหรือวลีใหม่">
+                    </div>
+                    <div class="button-group">
+                        <button id="find_replace_btn" class="warning-btn">ค้นหาและแทนที่ทั้งหมด</button>
+                    </div>
                 </div>
             </div>
             
@@ -308,10 +298,6 @@
 
         let nextAvailableId = 1; // สำหรับ Pali Order (id ในตาราง), รันต่อจากแถวสุดท้ายในตาราง
 
-        // History for undo function on pali_input textarea
-        const paliInputHistory = [];
-        const MAX_HISTORY_LENGTH = 10; // Store up to 10 previous states
-
         // Declare dom globally, but initialize it inside DOMContentLoaded
         let dom = {}; 
 
@@ -355,29 +341,6 @@
                 row.querySelector('.order-cell').textContent = index + 1;
             });
             nextAvailableId = rows.length + 1; // Update next available ID
-        }
-
-        // --- Pali Input History and Undo ---
-        function savePaliInputState() {
-            const currentState = dom.paliInput.value;
-            if (paliInputHistory.length === 0 || paliInputHistory[paliInputHistory.length - 1] !== currentState) {
-                paliInputHistory.push(currentState);
-                if (paliInputHistory.length > MAX_HISTORY_LENGTH) {
-                    paliInputHistory.shift(); // Remove the oldest state
-                }
-                dom.undoPaliInputBtn.disabled = false;
-            }
-        }
-
-        function undoLastPaliInputChange() {
-            if (paliInputHistory.length > 1) { // Need at least two states to undo (current + previous)
-                paliInputHistory.pop(); // Remove current state
-                dom.paliInput.value = paliInputHistory[paliInputHistory.length - 1]; // Set to previous state
-                updateStatus('create-status-message', 'ยกเลิกการกระทำล่าสุดในกล่องบาลีหลักแล้ว', 'info');
-            }
-            if (paliInputHistory.length <= 1) { // No more states to undo
-                dom.undoPaliInputBtn.disabled = true;
-            }
         }
 
 
@@ -666,15 +629,14 @@
             let isValid = true;
             for (const row of rows) {
                 const paliText = row.querySelector('.pali-text-input')?.value.trim();
-                const thaiText = row.querySelector('.thai-text-input')?.value.trim(); // Thai text can be empty
+                const thaiText = row.querySelector('.thai-text-input')?.value.trim();
                 const groupId = row.querySelector('.group-id-input')?.value.trim();
                 const pageStart = row.querySelector('.page-start-input')?.value.trim();
                 const pageEnd = row.querySelector('.page-end-input')?.value.trim();
                 const paragraphNum = row.querySelector('.paragraph-num-input')?.value.trim();
-                const paliOrder = row.querySelector('.pali-order-input')?.value.trim(); // Ensure pali_order is also present
 
-                if (!paliText || !groupId || !pageStart || !pageEnd || !paragraphNum || !paliOrder) {
-                    updateStatus('create-status-message', 'มีข้อมูลในตารางไม่ครบถ้วน (บาลี, Group ID, Page Start, Page End, Paragraph Num, Pali Order)', 'error');
+                if (!paliText || !groupId || !pageStart || !pageEnd || !paragraphNum) {
+                    updateStatus('create-status-message', 'มีข้อมูลในตารางไม่ครบถ้วน (บาลี, Group ID, Page Start, Page End, Paragraph Num)', 'error');
                     isValid = false;
                     break;
                 }
@@ -759,10 +721,6 @@
                      // Clear table and inputs for next entry after successful save in create mode
                     dom.createSentenceTable.innerHTML = ''; // Clear tbody
                     dom.paliInput.value = '';
-                    // Clear history after saving new data to avoid misleading undo
-                    paliInputHistory.length = 0; 
-                    dom.undoPaliInputBtn.disabled = true;
-
                     dom.masterGroupIdInput.value = minAllowedGroupId; // Suggest next ID based on the last save
                     dom.masterPageStartInput.value = lastFoundPageEnd; // Reset page/paragraph suggestions
                     dom.masterPageEndInput.value = lastFoundPageEnd;
@@ -782,69 +740,26 @@
             }
         }
 
-        // --- New Text Manipulation Functions ---
-        function findAndReplaceInPaliInput() {
-            savePaliInputState(); // Save current state before modification
-            const findText = dom.findTextPaliInput.value;
-            const replaceText = dom.replaceTextPaliInput.value;
+        function findAndReplaceInTable() {
+            const findText = dom.findText.value;
+            const replaceText = dom.replaceText.value;
 
             if (!findText) {
-                updateStatus('create-status-message', 'กรุณาใส่ข้อความที่ต้องการค้นหาในกล่องหลัก', 'warning');
+                updateStatus('create-status-message', 'กรุณาใส่ข้อความที่ต้องการค้นหา', 'warning');
                 return;
             }
 
-            const originalPali = dom.paliInput.value;
-            // Use global regex to replace all occurrences
-            const newPali = originalPali.replace(new RegExp(findText.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'), replaceText);
-            
-            if (originalPali === newPali) {
-                updateStatus('create-status-message', 'ไม่พบข้อความที่ต้องการค้นหาในกล่องบาลีหลัก', 'info');
-                paliInputHistory.pop(); // Remove the state if no change occurred
-                if (paliInputHistory.length <= 1) dom.undoPaliInputBtn.disabled = true;
-                return;
-            }
-
-            dom.paliInput.value = newPali;
-            updateStatus('create-status-message', `ดำเนินการแทนที่แล้วในกล่องบาลีหลัก`, 'success');
-        }
-
-        function trimWhitespaceInPaliInput() {
-            savePaliInputState(); // Save current state before modification
-            let text = dom.paliInput.value;
-
-            // Remove multiple spaces, tabs, newlines (replace with single space)
-            text = text.replace(/[\s\t\n]+/g, ' '); 
-            // Trim leading/trailing whitespace
-            text = text.trim();
-
-            if (dom.paliInput.value === text) {
-                updateStatus('create-status-message', 'ไม่พบการเปลี่ยนแปลงหลังจัดระเบียบช่องว่าง', 'info');
-                paliInputHistory.pop(); // Remove the state if no change occurred
-                if (paliInputHistory.length <= 1) dom.undoPaliInputBtn.disabled = true;
-                return;
-            }
-
-            dom.paliInput.value = text;
-            updateStatus('create-status-message', 'จัดระเบียบช่องว่างในกล่องบาลีหลักสำเร็จ', 'success');
-        }
-
-        function mergeLinesInPaliInput() {
-            savePaliInputState(); // Save current state before modification
-            let text = dom.paliInput.value;
-            // Replace all newline characters with a single space
-            text = text.replace(/\n/g, ' ');
-            // Then, trim multiple spaces
-            text = text.replace(/\s+/g, ' ').trim();
-
-            if (dom.paliInput.value === text) {
-                updateStatus('create-status-message', 'ไม่พบการเปลี่ยนแปลงหลังรวมบรรทัด', 'info');
-                paliInputHistory.pop(); // Remove the state if no change occurred
-                if (paliInputHistory.length <= 1) dom.undoPaliInputBtn.disabled = true;
-                return;
-            }
-
-            dom.paliInput.value = text;
-            updateStatus('create-status-message', 'รวมบรรทัดในกล่องบาลีหลักสำเร็จ', 'success');
+            const rows = Array.from(dom.createSentenceTable.rows);
+            let count = 0;
+            rows.forEach(row => {
+                const paliInput = row.querySelector('.pali-text-input');
+                const originalPali = paliInput.value;
+                if (originalPali.includes(findText)) {
+                    paliInput.value = originalPali.replace(new RegExp(findText.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'), replaceText);
+                    count++;
+                }
+            });
+            updateStatus('create-status-message', `ดำเนินการแทนที่แล้ว ${count} จุด`, 'success');
         }
 
 
@@ -890,9 +805,6 @@
                         await findLastParagraphAndPage(); 
                     }
 
-                    // Initial save of pali input state (empty or pre-filled)
-                    savePaliInputState();
-
                 } else {
                     dom.authStatus.textContent = 'ยังไม่ได้เข้าสู่ระบบ กำลังเข้าสู่ระบบ...';
                     try {
@@ -924,35 +836,24 @@
                 if (currentMode === 'create') await findLastParagraphAndPage();
             });
 
-            // Event listener for changes in the pali_input textarea to save history
-            dom.paliInput.addEventListener('input', () => {
-                 // Only save history if it's a significant change (not every single key stroke)
-                 // This can be optimized later if needed, e.g., debounce
-                if (paliInputHistory[paliInputHistory.length - 1] !== dom.paliInput.value) {
-                    savePaliInputState();
+            // Toggle between create and super-edit mode
+            dom.superEditModeToggle.addEventListener('change', (event) => {
+                if (event.target.checked) {
+                    currentMode = 'super-edit';
+                    document.body.classList.add('super-edit-mode');
+                    dom.generalStatusMessage.textContent = 'โหมดแก้ไขข้อมูล';
+                } else {
+                    currentMode = 'create';
+                    document.body.classList.remove('super-edit-mode');
+                    dom.generalStatusMessage.textContent = 'โหมดสร้างข้อมูลใหม่';
                 }
+                // Clear table and reset suggestions when changing mode
+                dom.createSentenceTable.innerHTML = '';
+                dom.paliInput.value = '';
+                nextAvailableId = 1;
+                findLastGroupId();
+                findLastParagraphAndPage();
             });
-
-            // No superEditModeToggle in current HTML structure, so remove this block
-            // if you decided to remove the checkbox for mode switching.
-            // If you intend to add it back, ensure its ID is 'superEditModeToggle'
-            // dom.superEditModeToggle.addEventListener('change', (event) => {
-            //     if (event.target.checked) {
-            //         currentMode = 'super-edit';
-            //         document.body.classList.add('super-edit-mode');
-            //         dom.generalStatusMessage.textContent = 'โหมดแก้ไขข้อมูล';
-            //     } else {
-            //         currentMode = 'create';
-            //         document.body.classList.remove('super-edit-mode');
-            //         dom.generalStatusMessage.textContent = 'โหมดสร้างข้อมูลใหม่';
-            //     }
-            //     // Clear table and reset suggestions when changing mode
-            //     dom.createSentenceTable.innerHTML = '';
-            //     dom.paliInput.value = '';
-            //     nextAvailableId = 1;
-            //     findLastGroupId();
-            //     findLastParagraphAndPage();
-            // });
         }
 
 
@@ -992,17 +893,13 @@
                 searchGroupIdInput: document.getElementById('search_group_id'),
                 searchDataBtn: document.getElementById('search_data_btn'),
                 clearSearchBtn: document.getElementById('clear_search_btn'),
-                // superEditModeToggle: document.getElementById('superEditModeToggle'), // Removed as per HTML structure
+                superEditModeToggle: document.getElementById('superEditModeToggle'),
                 createSection: document.querySelector('.create-section'), // The div that holds preparationView and tableView
                 superEditSection: document.querySelector('.super-edit-form-section'), // The div that holds super-edit specific inputs
                 tableView: document.getElementById('tableView'), // The div that holds the table
-                // New elements for text manipulation in pali_input
-                findTextPaliInput: document.getElementById('find_text_pali_input'),
-                replaceTextPaliInput: document.getElementById('replace_text_pali_input'),
-                findReplacePaliInputBtn: document.getElementById('find_replace_pali_input_btn'),
-                trimWhitespaceBtn: document.getElementById('trim_whitespace_btn'),
-                mergeLinesBtn: document.getElementById('merge_lines_btn'),
-                undoPaliInputBtn: document.getElementById('undo_pali_input_btn')
+                findText: document.getElementById('find_text'),
+                replaceText: document.getElementById('replace_text'),
+                findReplaceBtn: document.getElementById('find_replace_btn')
             };
 
             // Event Listener for Generate Table Button
@@ -1046,7 +943,6 @@
                 });
                 updateTableOrder();
                 updateStatus('create-status-message', `แบ่งข้อความเป็น ${sentences.length} ประโยคแล้ว`, 'success');
-                dom.tableView.style.display = 'block'; // Ensure table is visible after generation
             });
 
             // Event Listener for Clear Table Button
@@ -1054,10 +950,7 @@
                 dom.createSentenceTable.innerHTML = ''; // Correctly referencing tbody
                 dom.paliInput.value = '';
                 nextAvailableId = 1; // Reset sentence ID counter
-                paliInputHistory.length = 0; // Clear history
-                dom.undoPaliInputBtn.disabled = true;
-                updateStatus('create-status-message', 'ตารางและกล่องข้อความหลักถูกล้างแล้ว', 'info');
-                dom.tableView.style.display = 'none'; // Hide table if cleared
+                updateStatus('create-status-message', 'ตารางถูกล้างแล้ว', 'info');
             });
 
             // Event Listener for Search Data Button (Super Edit Mode)
@@ -1070,7 +963,6 @@
                 dom.searchStoryNameInput.value = '';
                 dom.searchGroupIdInput.value = '';
                 dom.createSentenceTable.innerHTML = ''; // Correctly referencing tbody
-                dom.tableView.style.display = 'none'; // Hide table after clearing search
                 updateStatus('create-status-message', 'ล้างการค้นหาแล้ว', 'info');
             });
 
@@ -1100,10 +992,6 @@
                     masterData.masterParagraphNum = dom.masterParagraphNumInput.value;
                 }
                 
-                // Increment paragraph_num if there's a last row and it's not in super-edit mode
-                // This logic implies paragraph_num increments per added row, which might be desired
-                // If paragraph_num should only increment when a new *actual paragraph* starts,
-                // this logic should be more nuanced.
                 if (currentMode !== 'super-edit' && lastRow) {
                     masterData.masterParagraphNum = parseInt(masterData.masterParagraphNum) + 1;
                 }
@@ -1113,12 +1001,7 @@
             });
 
             dom.createSaveBtn.addEventListener('click', saveData); // ปุ่มบันทึกข้อมูล
-
-            // Event Listeners for new text manipulation buttons
-            dom.findReplacePaliInputBtn.addEventListener('click', findAndReplaceInPaliInput);
-            dom.trimWhitespaceBtn.addEventListener('click', trimWhitespaceInPaliInput);
-            dom.mergeLinesBtn.addEventListener('click', mergeLinesInPaliInput);
-            dom.undoPaliInputBtn.addEventListener('click', undoLastPaliInputChange);
+            dom.findReplaceBtn.addEventListener('click', findAndReplaceInTable); // ปุ่มค้นหาและแทนที่
 
             // Initialize the tool after all event listeners are set up
             initializeTool();
