@@ -208,25 +208,63 @@
             }
 
             async function findLastGroupId() { 
-                if(!dom.storyNameInput.value.trim()) return; 
+                // เพิ่มการตรวจสอบ book_title, book_part และ story_name
+                // currentPrefix ต้องถูกส่งมาด้วย เช่น "SN" หรือ "PS"
+                if (!currentBookName || !currentBookPart || !dom.storyNameInput.value.trim() || !currentPrefix) { 
+                    updateStatus('group_id_suggestion', 'กรุณากรอกชื่อเรื่องและตรวจสอบค่า Prefix ที่ส่งมาใน URL', 'warning');
+                    lastFoundGroupId = 0; // รีเซ็ตค่า
+                    return; 
+                } 
+
                 const statusElId = 'group_id_suggestion'; 
-                updateStatus(statusElId, `กำลังค้นหา...`, ''); 
+                updateStatus(statusElId, `กำลังค้นหา Group ID ล่าสุดในคัมภีร์...`, ''); 
                 try { 
-                    const q = query(paliCollection, where('sentence_group_id', '>=', `${currentPrefix}-`), where('sentence_group_id', '<', `${currentPrefix}-z`), orderBy('sentence_group_id', 'desc'), limit(1)); // Added orderBy
+                    // Query ยังคงกรองด้วย book_title, book_part, story_name และ prefix เพื่อลดข้อมูลที่ต้องดึง
+                    // แต่เราจะเรียงตาม sentence_group_id แบบสตริงตามปกติ
+                    // และอาจจะต้องดึงมามากกว่า 1 เพื่อหาค่าสูงสุดที่แท้จริง
+                    // หรือดึงมาทั้งหมดที่เข้าเงื่อนไขแล้วมาประมวลผล
+                    // *** วิธีนี้จะดึงแค่ 50 รายการล่าสุดมาประมวลผลเพื่อประสิทธิภาพ
+                    // ถ้าต้องการหาจากทั้งหมดจริงๆ อาจต้องใช้ Cloud Functions หรือปรับ Query ให้กว้างขึ้น
+                    const q = query(
+                        paliCollection, 
+                        where("book_title", "==", currentBookName),
+                        where("book_part", "==", currentBookPart),
+                        where("story_name", "==", dom.storyNameInput.value.trim()),
+                        // ใช้สตริงเริ่มต้นด้วย prefix เพื่อกรอง
+                        where('sentence_group_id', '>=', `${currentPrefix}-`), 
+                        where('sentence_group_id', '<=', `${currentPrefix}-\uFFFF`), // \uFFFF คือตัวอักษร Unicode สุดท้าย เพื่อให้ครอบคลุมทุกตัวเลข
+                        orderBy('sentence_group_id', 'desc'), // เรียงแบบสตริงเพื่อประสิทธิภาพ query
+                        limit(50) // ดึงมาจำนวนหนึ่งเพื่อหาค่าสูงสุดในฝั่ง client
+                    ); 
+                    
                     const querySnapshot = await getDocs(q); 
-                    let lastNumber = 0; 
+                    let maxNumber = 0; 
+                    
                     if (!querySnapshot.empty) { 
-                        const fullId = querySnapshot.docs[0].data().sentence_group_id;
-                        lastNumber = parseInt(fullId.toString().split('-').pop()) || 0;
+                        querySnapshot.forEach(doc => {
+                            const fullId = doc.data().sentence_group_id;
+                            // ใช้ Regular Expression เพื่อดึงเฉพาะตัวเลขหลัง hyphen (-)
+                            const match = fullId.match(new RegExp(`${currentPrefix}-(\\d+)`));
+                            if (match && match[1]) {
+                                const currentNumber = parseInt(match[1]);
+                                if (!isNaN(currentNumber) && currentNumber > maxNumber) {
+                                    maxNumber = currentNumber;
+                                }
+                            }
+                        });
                     } 
-                    lastFoundGroupId = lastNumber; 
-                    updateStatus(statusElId, `ID ล่าสุดที่ใช้ในคัมภีร์นี้คือ: <strong>${currentPrefix}-${lastNumber}</strong>. แนะนำให้ใช้: <strong>${lastNumber + 1}</strong>`, 'success'); 
+                    
+                    lastFoundGroupId = maxNumber; // กำหนดค่าสูงสุดที่หาเจอ
+                    updateStatus(statusElId, `ID ล่าสุดที่ใช้ในคัมภีร์นี้คือ: <strong>${currentPrefix}-${lastFoundGroupId}</strong>. แนะนำให้ใช้: <strong>${lastFoundGroupId + 1}</strong>`, 'success'); 
+
                 } catch (error) { 
                     lastFoundGroupId = 0; 
                     if (error.code === 'failed-precondition') { 
-                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. คุณอาจจะต้องสร้าง Index สำหรับการค้นหานี้ก่อน`, 'error'); 
+                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. <br><strong>คุณอาจจะต้องสร้าง Index สำหรับการค้นหานี้ก่อนใน Firestore Console.</strong>`, 'error'); 
+                        console.error("Firestore Indexing Error:", error);
                     } else { 
-                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}`, 'error'); 
+                        updateStatus(statusElId, `เกิดข้อผิดพลาดในการดึง Group ID: ${error.message}`, 'error'); 
+                        console.error("Error fetching last Group ID:", error);
                     } 
                 } 
             }
