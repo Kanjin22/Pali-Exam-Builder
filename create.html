@@ -114,22 +114,30 @@
             async function checkPageExists() { const pageNum = parseInt(dom.masterPageStartInput.value); const resultEl = document.getElementById('page_check_result'); if (!pageNum) { resultEl.innerHTML = ''; return; } resultEl.className = 'suggestion-text'; resultEl.textContent = `กำลังตรวจสอบหน้า ${pageNum}...`; try { const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), where("page_start", "==", pageNum), limit(5)); const querySnapshot = await getDocs(q); if (querySnapshot.empty) { updateStatus('page_check_result', `✅ หน้านี้ยังว่าง`, 'success'); } else { let html = `⚠️ หน้านี้มีข้อมูลแล้ว!`; html += `<ul>`; querySnapshot.forEach(doc => { const data = doc.data(); html += `<li>Group ID: ${data.sentence_group_id}, เนื้อหา: ${data.pali_text.substring(0,30)}...</li>`; }); html += `</ul>`; updateStatus('page_check_result', html, 'warning'); } } catch(error) { updateStatus('page_check_result', `เกิดข้อผิดพลาด: ${error.message} (ต้องสร้าง Index)`, 'error'); } }
             async function calculateHash(text) { const encoder = new TextEncoder(); const data = encoder.encode(text.trim()); const hashBuffer = await crypto.subtle.digest('SHA-256', data); const hashArray = Array.from(new Uint8Array(hashBuffer)); return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); }
             
-            function mergeAndFormat() {
-                originalPaliText = dom.paliInput.value;
-                let text = dom.paliInput.value;
-                if (!text.trim()) return;
-                const pePlaceholder = " __PEYALA__ ";
-                const etcPlaceholder = " __ETC__ ";
-                text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
-                text = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
-                text = text.replace(/\s*ฯ\s*/g, ' ฯ  ');
-                text = text.replace(/ (?![ฯ]|__PEYALA__|__ETC__)/g, '  ');
-                text = text.replace(new RegExp(pePlaceholder, 'g'), ' ฯเปฯ ').replace(new RegExp(etcPlaceholder, 'g'), ' ฯลฯ ');
-                dom.paliInput.value = text.trim();
-                dom.mergeLinesBtn.style.display = 'none';
-                dom.undoMergeBtn.style.display = 'inline-block';
-                checkFirstSentenceHash();
-            }
+            // เปลี่ยนชื่อฟังก์ชันเป็น autoFormatPaliText
+function autoFormatPaliText() {
+    originalPaliText = dom.paliInput.value;
+    let text = dom.paliInput.value;
+    if (!text.trim()) return;
+
+    // --- เพิ่ม 2 บรรทัดนี้เข้าไป ---
+    text = text.replace(/€/g, 'ฐ');
+    text = text.replace(/ /g, 'ญ');
+    // -----------------------------
+    
+    // (โค้ดที่เหลือในฟังก์ชันนี้เหมือนเดิมทุกประการ)
+    const pePlaceholder = " __PEYALA__ ";
+    const etcPlaceholder = " __ETC__ ";
+    text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
+    text = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
+    text = text.replace(/\s*ฯ\s*/g, ' ฯ  ');
+    text = text.replace(/ (?![ฯ]|__PEYALA__|__ETC__)/g, '  ');
+    text = text.replace(new RegExp(pePlaceholder, 'g'), ' ฯเปฯ ').replace(new RegExp(etcPlaceholder, 'g'), ' ฯลฯ ');
+    dom.paliInput.value = text.trim();
+    dom.mergeLinesBtn.style.display = 'none';
+    dom.undoMergeBtn.style.display = 'inline-block';
+    checkFirstSentenceHash();
+}
             
             function undoMerge() {
                 dom.paliInput.value = originalPaliText;
@@ -230,7 +238,7 @@
             dom.storyNameInput.addEventListener('blur', async () => { await checkLastParagraph(); await findLastGroupId(); });
             dom.masterPageStartInput.addEventListener('blur', checkPageExists);
             dom.paliInput.addEventListener('blur', checkFirstSentenceHash);
-            dom.mergeLinesBtn.addEventListener('click', mergeAndFormat);
+            dom.mergeLinesBtn.addEventListener('click', autoFormatPaliText);
             dom.undoMergeBtn.addEventListener('click', undoMerge);
             dom.splitBtn.addEventListener('click', () => generateCreateTable(null));
             dom.createSaveBtn.addEventListener('click', saveData);
