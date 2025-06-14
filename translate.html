@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แก้ไขข้อมูล</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <title>เพิ่ม/แก้ไขคำแปล</title>
+    <!-- (CSS Style เหมือนเดิมทั้งหมด) -->
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -46,11 +44,8 @@
 <body>
     <div class="container" id="container">
         <div class="header-bar">
-            <div>
-                <h1 id="main-header">กำลังโหลด...</h1>
-                <p id="sub-header" style="margin: 5px 0 0; color: #555;"></p>
-            </div>
-            <a href="index.html" style="text-decoration: none;"><button class="secondary">กลับไปหน้าสารบัญ</button></a>
+            <div><h1 id="main-header">กำลังโหลด...</h1><p id="sub-header"></p></div>
+            <a href="index.html"><button class="secondary">กลับไปหน้าสารบัญ</button></a>
         </div>
         <div id="edit-view">
             <h2>หน้าแก้ไข (เพิ่ม/แก้ไขคำแปล)</h2>
@@ -66,10 +61,7 @@
                 <div id="group-results" style="margin-top: 15px;"></div>
             </fieldset>
             <div id="edit-view-content" style="display: none;">
-                <div id="pali-display-panel">
-                    <h3 id="pali-display-header">เนื้อหาบาลี (สำหรับอ้างอิง)</h3>
-                    <div id="pali-display-text"></div>
-                </div>
+                <div id="pali-display-panel"><h3 id="pali-display-header">เนื้อหาบาลี</h3><div id="pali-display-text"></div></div>
                 <div id="translation-panel">
                     <h3>ตารางแก้ไขคำแปล</h3>
                     <div class="table-wrapper"><table id="edit-sentence-table" style="width:100%"></table></div>
@@ -78,19 +70,11 @@
             </div>
         </div>
     </div>
-
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, collection, doc, getDocs, writeBatch, serverTimestamp, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "pali-exam-builder",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
+        const firebaseConfig = { /* ... YOUR FIREBASE CONFIG ... */ };
       
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
@@ -110,11 +94,7 @@
                 currentBookName = decodeURIComponent(params.get('bookName') || '');
                 currentBookPart = decodeURIComponent(params.get('bookPart') || '');
                 currentPrefix = decodeURIComponent(params.get('prefix') || '');
-                if (!currentBookName || !currentPrefix) {
-                    mainHeader.textContent = 'ข้อผิดพลาด';
-                    container.innerHTML = `<div class="header-bar"><h1>ข้อผิดพลาด</h1></div><p style="text-align:center; color:red;">ไม่พบคัมภีร์หรือ Prefix ที่เลือก<br>กรุณากลับไปที่หน้าแรก</p><br><p style="text-align:center;"><a href="index.html"><button class="secondary">กลับไปหน้าแรก</button></a></p>`;
-                    return;
-                }
+                if (!currentBookName || !currentPrefix) { mainHeader.textContent = 'ข้อผิดพลาด'; container.innerHTML = `<div class="header-bar"><h1>ข้อผิดพลาด</h1></div><p>ไม่พบคัมภีร์/Prefix</p><a href="index.html"><button>กลับ</button></a>`; return; }
                 mainHeader.textContent = `${currentBookName}`;
                 subHeader.textContent = currentBookPart;
                 const savedUserName = localStorage.getItem('paliToolUserName');
@@ -144,20 +124,13 @@
                     const q = query(paliCollection, ...constraints);
                     const querySnapshot = await getDocs(q);
                     if (querySnapshot.empty) { throw new Error('ไม่พบข้อมูลตามเงื่อนไข'); }
-                    
                     const groups = new Map();
                     querySnapshot.forEach(doc => { const data = doc.data(); if (!groups.has(data.sentence_group_id)) { groups.set(data.sentence_group_id, { pali_text: data.pali_text.substring(0, 50) + '...', status: data.translation_status || 'untranslated' }); } });
-                    
                     updateStatus(`พบ ${groups.size} กลุ่ม, กรุณาเลือกกลุ่มที่ต้องการแก้ไข`, 'success');
                     groups.forEach((data, groupId) => {
                         const div = document.createElement('div');
                         const statusClass = `status-${data.status}`;
-                        div.innerHTML = `<div class="group-info"><strong>Group ID: ${groupId}</strong><br><small>ตัวอย่าง: ${data.pali_text}</small></div>
-                                     <div class="edit-buttons">
-                                        <span class="status-badge ${statusClass}">${data.status}</span>
-                                        <button class="secondary" title="แก้ไขข้อมูลหลัก">✏️ แก้ไขหลัก</button>
-                                        <button class="success" title="เพิ่ม/แก้ไขคำแปล">✍️ แปลไทย</button>
-                                     </div>`;
+                        div.innerHTML = `<div class="group-info"><strong>Group ID: ${groupId}</strong><br><small>ตัวอย่าง: ${data.pali_text}</small></div><div class="edit-buttons"><span class="status-badge ${statusClass}">${data.status}</span><button class="secondary" title="แก้ไขข้อมูลหลัก">✏️ แก้ไขหลัก</button><button class="success" title="เพิ่ม/แก้ไขคำแปล">✍️ แปลไทย</button></div>`;
                         div.querySelector('[title="แก้ไขข้อมูลหลัก"]').addEventListener('click', (e) => { e.stopPropagation(); navigateToSuperEdit(groupId); });
                         div.querySelector('[title="เพิ่ม/แก้ไขคำแปล"]').addEventListener('click', (e) => { e.stopPropagation(); fetchDataForTranslate(groupId); });
                         groupResultsDiv.appendChild(div);

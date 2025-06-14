@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; }
+        :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; }
         body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center; width: 100%; max-width: 600px; transition: all 0.3s ease; }
+        .container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center; width: 100%; max-width: 600px; }
         h1 { color: #2c3e50; margin-top: 0; }
         p { color: #555; }
         select { width: 100%; padding: 12px; margin-top: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
@@ -26,130 +26,39 @@
     <div class="container">
         <h1>เลือกคัมภีร์</h1>
         <p>กรุณาเลือกคัมภีร์และภาค (ถ้ามี) ที่คุณต้องการทำงานด้วย</p>
-        <select id="book_selector">
-            <option value="">-- กรุณาเลือกคัมภีร์ --</option>
-        </select>
+        <select id="book_selector"><option value="">-- กรุณาเลือกคัมภีร์ --</option></select>
         <select id="part_selector" style="display: none;"></select>
-        
-        <!-- === ส่วนเมนูใหม่ === -->
         <div id="menu_container" class="menu-container">
             <h2 id="selected_book_header"></h2>
             <div class="menu-buttons">
                 <button id="btn_create" class="success">➕ เพิ่มข้อมูลบาลีใหม่</button>
                 <button id="btn_translate">✍️ เพิ่ม/แก้ไขคำแปล</button>
-                <!-- เราจะนำ Super Edit ไปรวมกับหน้าแก้ไขคำแปลเพื่อความง่าย -->
             </div>
         </div>
     </div>
-
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const bookDatabase = [
-            { name: "ธมฺมปทฏฺฐกถา", part: "ปฐโม ภาโค", prefix: "DP1" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "ทุติโย ภาโค", prefix: "DP2" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "ตติโย ภาโค", prefix: "DP3" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "จตุตฺโถ ภาโค", prefix: "DP4" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "ปญฺจโม ภาโค", prefix: "DP5" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "ฉฏฺโฐ ภาโค", prefix: "DP6" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "สตฺตโม ภาโค", prefix: "DP7" },
-            { name: "ธมฺมปทฏฺฐกถา", part: "อฏฺฐโม ภาโค", prefix: "DP8" },
-            { name: "มงฺคลตฺถทีปนี", part: "ปฐโม ภาโค", prefix: "MT1" },
-            { name: "มงฺคลตฺถทีปนี", part: "ทุติโย ภาโค", prefix: "MT2" },
-            { name: "สมนฺตปาสาทิกา ฯ", part: "ปฐโม ภาโค", prefix: "SP1" },
-            { name: "สมนฺตปาสาทิกา ฯ", part: "ทุติโย ภาโค", prefix: "SP2" },
-            { name: "สมนฺตปาสาทิกา ฯ", part: "ตติโย ภาโค", prefix: "SP3" },
-            { name: "วิสุทฺธิมคฺคสฺس ฯ", part: "ปฐโม ภาโค", prefix: "VM1" },
-            { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ทุติโย ภาโค", prefix: "VM2" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "ปฐโม ภาโค", prefix: "DP1" }, { name: "ธมฺมปทฏฺฐกถา", part: "ทุติโย ภาโค", prefix: "DP2" }, { name: "ธมฺมปทฏฺฐกถา", part: "ตติโย ภาโค", prefix: "DP3" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "จตุตฺโถ ภาโค", prefix: "DP4" }, { name: "ธมฺมปทฏฺฐกถา", part: "ปญฺจโม ภาโค", prefix: "DP5" }, { name: "ธมฺมปทฏฺฐกถา", part: "ฉฏฺโฐ ภาโค", prefix: "DP6" },
+            { name: "ธมฺมปทฏฺฐกถา", part: "สตฺตโม ภาโค", prefix: "DP7" }, { name: "ธมฺมปทฏฺฐกถา", part: "อฏฺฐโม ภาโค", prefix: "DP8" }, { name: "มงฺคลตฺถทีปนี", part: "ปฐโม ภาโค", prefix: "MT1" },
+            { name: "มงฺคลตฺถทีปนี", part: "ทุติโย ภาโค", prefix: "MT2" }, { name: "สมนฺตปาสาทิกา ฯ", part: "ปฐโม ภาโค", prefix: "SP1" }, { name: "สมนฺตปาสาทิกา ฯ", part: "ทุติโย ภาโค", prefix: "SP2" },
+            { name: "สมนฺตปาสาทิกา ฯ", part: "ตติโย ภาโค", prefix: "SP3" }, { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ปฐโม ภาโค", prefix: "VM1" }, { name: "วิสุทฺธิมคฺคสฺส ฯ", part: "ทุติโย ภาโค", prefix: "VM2" },
             { name: "อภิธมฺมตฺถสงฺคหฯ อภิธมฺมตฺถวิภาวินีฯ", part: "", prefix: "ABH" }
         ];
-        
         const bookSelector = document.getElementById('book_selector');
         const partSelector = document.getElementById('part_selector');
         const menuContainer = document.getElementById('menu_container');
         const selectedBookHeader = document.getElementById('selected_book_header');
-        
         let selectedData = { bookName: '', bookPart: '', prefix: '' };
-
-        function loadBookList() {
-            const uniqueBookNames = [...new Set(bookDatabase.map(book => book.name))];
-            uniqueBookNames.forEach(bookName => {
-                const option = document.createElement('option');
-                option.value = bookName;
-                option.textContent = bookName;
-                bookSelector.appendChild(option);
-            });
-        }
-
-        function updatePartSelector() {
-            const selectedBookName = bookSelector.value;
-            selectedData = { bookName: selectedBookName, bookPart: '', prefix: '' };
-            menuContainer.style.display = 'none';
-            partSelector.style.display = 'none';
-            partSelector.innerHTML = '';
-
-            if (!selectedBookName) return;
-            const parts = bookDatabase.filter(book => book.name === selectedBookName && book.part);
-
-            if (parts.length > 0) {
-                partSelector.innerHTML = '<option value="">-- กรุณาเลือกภาค --</option>';
-                parts.forEach(part => {
-                    const option = document.createElement('option');
-                    option.value = part.part;
-                    option.dataset.prefix = part.prefix;
-                    option.textContent = part.part;
-                    partSelector.appendChild(option);
-                });
-                partSelector.style.display = 'block';
-            } else {
-                const bookWithoutPart = bookDatabase.find(b => b.name === selectedBookName && b.part === "");
-                if (bookWithoutPart) {
-                    selectedData.prefix = bookWithoutPart.prefix;
-                    showMenu();
-                }
-            }
-        }
-        
-        function showMenu() {
-            if (!selectedData.bookName || !selectedData.prefix) return;
-            let headerText = selectedData.bookName;
-            if (selectedData.bookPart) {
-                headerText += ` - ${selectedData.bookPart}`;
-            }
-            selectedBookHeader.textContent = `ทำงานกับ: ${headerText}`;
-            menuContainer.style.display = 'block';
-        }
-        
+        function loadBookList() { const uniqueBookNames = [...new Set(bookDatabase.map(book => book.name))]; uniqueBookNames.forEach(bookName => { const option = document.createElement('option'); option.value = bookName; option.textContent = bookName; bookSelector.appendChild(option); }); }
+        function updatePartSelector() { const selectedBookName = bookSelector.value; selectedData = { bookName: selectedBookName, bookPart: '', prefix: '' }; menuContainer.style.display = 'none'; partSelector.style.display = 'none'; partSelector.innerHTML = ''; if (!selectedBookName) return; const parts = bookDatabase.filter(book => book.name === selectedBookName && book.part); if (parts.length > 0) { partSelector.innerHTML = '<option value="">-- กรุณาเลือกภาค --</option>'; parts.forEach(part => { const option = document.createElement('option'); option.value = part.part; option.dataset.prefix = part.prefix; option.textContent = part.part; partSelector.appendChild(option); }); partSelector.style.display = 'block'; } else { const bookWithoutPart = bookDatabase.find(b => b.name === selectedBookName && b.part === ""); if (bookWithoutPart) { selectedData.prefix = bookWithoutPart.prefix; showMenu(); } } }
+        function showMenu() { if (!selectedData.bookName || !selectedData.prefix) return; let headerText = selectedData.bookName; if (selectedData.bookPart) { headerText += ` - ${selectedData.bookPart}`; } selectedBookHeader.textContent = `ทำงานกับ: ${headerText}`; menuContainer.style.display = 'block'; }
         bookSelector.addEventListener('change', updatePartSelector);
-
-        partSelector.addEventListener('change', () => {
-            const selectedOption = partSelector.options[partSelector.selectedIndex];
-            if (partSelector.value) {
-                selectedData.bookPart = partSelector.value;
-                selectedData.prefix = selectedOption.dataset.prefix;
-                showMenu();
-            } else {
-                selectedData.bookPart = '';
-                selectedData.prefix = '';
-                menuContainer.style.display = 'none';
-            }
-        });
-
-        function navigateTo(page) {
-            if (!selectedData.bookName || !selectedData.prefix) {
-                alert('เกิดข้อผิดพลาด: ข้อมูลที่เลือกไม่สมบูรณ์');
-                return;
-            }
-            const params = new URLSearchParams({
-                bookName: selectedData.bookName,
-                bookPart: selectedData.bookPart,
-                prefix: selectedData.prefix
-            });
-            window.location.href = `${page}.html?${params.toString()}`;
-        }
-        
+        partSelector.addEventListener('change', () => { const selectedOption = partSelector.options[partSelector.selectedIndex]; if (partSelector.value) { selectedData.bookPart = partSelector.value; selectedData.prefix = selectedOption.dataset.prefix; showMenu(); } else { selectedData.bookPart = ''; selectedData.prefix = ''; menuContainer.style.display = 'none'; } });
+        function navigateTo(page) { if (!selectedData.bookName || !selectedData.prefix) { alert('เกิดข้อผิดพลาด: ข้อมูลที่เลือกไม่สมบูรณ์'); return; } const params = new URLSearchParams({ bookName: selectedData.bookName, bookPart: selectedData.bookPart, prefix: selectedData.prefix }); window.location.href = `${page}.html?${params.toString()}`; }
         document.getElementById('btn_create').addEventListener('click', () => navigateTo('create'));
         document.getElementById('btn_translate').addEventListener('click', () => navigateTo('translate'));
-
         loadBookList();
     });
     </script>
