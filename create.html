@@ -73,16 +73,15 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, limit, startAfter, writeBatch, serverTimestamp, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDoe7sUNTdaK7uFxvi_Y16C4nCX4kKFiDA",
-  authDomain: "pali-exam-builder.firebaseapp.com",
-  projectId: "pali-exam-builder",
-  storageBucket: "pali-exam-builder.firebasestorage.app",
-  messagingSenderId: "783124881115",
-  appId: "1:783124881115:web:688f964e586df5b17d36fe",
-  measurementId: "G-8HV8B03THV"
-};
+        // Your Firebase configuration (replace with your actual config)
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY", // <--- *** ใส่ API Key ของคุณที่นี่ ***
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -196,68 +195,97 @@ const firebaseConfig = {
             // --- Core Text Processing Functions for Preparation View ---
 
             function processPaliTextForSpaces(text) {
-                // ✅ แปลง € เป็น ฐ และ § เป็น ญ
-                text = text.replace(/€/g, 'ฐ');
-                text = text.replace(/§/g, 'ญ');
+                // แยกข้อความเป็นบรรทัดๆ เพื่อรักษาสภาพการขึ้นบรรทัดใหม่
+                let lines = text.split(/\r?\n/); 
+                let processedLines = [];
 
-                // ✅ จัดการ ฯเปฯ และ ฯลฯ เป็นคำธรรมดา ไม่ไปยุ่งกับช่องว่าง
-                const PE_PLACEHOLDER = '___PE___';
-                const LA_PLACEHOLDER = '___LA___';
-                text = text.replace(/ฯเปฯ/g, PE_PLACEHOLDER);
-                text = text.replace(/ฯลฯ/g, LA_PLACEHOLDER);
+                lines.forEach(line => {
+                    // 1. ทำการ trim ช่องว่างหน้าหลังของแต่ละบรรทัดก่อน
+                    line = line.trim();
 
-                // ลดช่องว่างหลายอันให้เหลือ 1 อัน และลบช่องว่างหน้า/หลังสุด
-                text = text.replace(/\s+/g, ' ').trim();
+                    // 2. ✅ แปลง € เป็น ฐ และ § เป็น ญ
+                    line = line.replace(/€/g, 'ฐ');
+                    line = line.replace(/§/g, 'ญ');
 
-                // ✅ จัดการให้หน้า ฯ มี 1 เคาะ และหลัง ฯ มี 2 เคาะ
-                text = text.replace(/(\S)?\s*ฯ\s*(\S)?/g, (match, p1, p2) => {
-                    let result = '';
-                    if (p1) result += p1;
-                    result += ' ฯ'; // 1 เคาะหน้า ฯ
-                    if (p2) result += '  ' + p2; // 2 เคาะหลัง ฯ
-                    return result;
+                    // 3. ✅ จัดการ ฯเปฯ และ ฯลฯ เป็นคำธรรมดา ไม่ไปยุ่งกับช่องว่าง
+                    // ใช้ placeholder เพื่อป้องกันการถูกประมวลผลช่องว่างผิดพลาด
+                    const PE_PLACEHOLDER = '___PE___';
+                    const LA_PLACEHOLDER = '___LA___';
+                    line = line.replace(/ฯเปฯ/g, PE_PLACEHOLDER);
+                    line = line.replace(/ฯลฯ/g, LA_PLACEHOLDER);
+
+                    // 4. ลดช่องว่างหลายอันให้เหลือ 1 อัน (เฉพาะ space/tab, ไม่รวม newline)
+                    line = line.replace(/[ \t]+/g, ' ');
+
+                    // 5. ✅ จัดการให้หน้า ฯ มี 1 เคาะ และหลัง ฯ มี 2 เคาะ
+                    // p1 คืออักขระก่อนหน้า ฯ, p2 คืออักขระหลัง ฯ
+                    // (match, p1, p2) => ... เป็น callback function ของ replace
+                    // มันจะรับข้อความที่ match ทั้งหมด (match), capture group 1 (p1), capture group 2 (p2)
+                    line = line.replace(/(\S)?\s*ฯ\s*(\S)?/g, (match, p1, p2) => {
+                        let result = '';
+                        if (p1) result += p1;
+                        result += ' ฯ'; // 1 เคาะหน้า ฯ
+                        if (p2) result += '  ' + p2; // 2 เคาะหลัง ฯ
+                        return result;
+                    });
+                    
+                    // 6. ✅ จัดการให้ทุกคำห่างกัน 2 เคาะ (เฉพาะในบรรทัดเดียวกัน)
+                    // แทนที่ช่องว่างเดี่ยวๆ (ที่ไม่ใช่ช่องว่างคู่ หรือช่องว่างรอบ ฯ) ด้วยช่องว่างคู่
+                    // [^\sฯ] หมายถึง อักขระใดๆ ที่ไม่ใช่ช่องว่างและไม่ใช่ ฯ
+                    line = line.replace(/([^\sฯ])\s([^\sฯ])/g, '$1  $2');
+                    
+                    // 7. แก้ไขช่องว่างรอบ ฯ อีกครั้ง เพื่อให้แน่ใจว่าถูกต้องตามกฎ 1-2 เคาะ
+                    // ถ้ามีช่องว่างหน้า ฯ เกิน 1 ก็ลดเหลือ 1 (เช่น "คำ   ฯ" -> "คำ ฯ")
+                    line = line.replace(/(\S)\s+ฯ/g, '$1 ฯ'); 
+                    // ถ้ามีช่องว่างหลัง ฯ ไม่ใช่ 2 ก็ปรับเป็น 2 (เช่น "ฯคำ" -> "ฯ  คำ", "ฯ คำ" -> "ฯ  คำ", "ฯ   คำ" -> "ฯ  คำ")
+                    line = line.replace(/ฯ\s*(\S)/g, 'ฯ  $1'); 
+
+                    // 8. นำ placeholder กลับคืน
+                    line = line.replace(new RegExp(PE_PLACEHOLDER, 'g'), 'ฯเปฯ');
+                    line = line.replace(new RegExp(LA_PLACEHOLDER, 'g'), 'ฯลฯ');
+
+                    processedLines.push(line);
                 });
-                
-                // ✅ จัดการให้ทุกคำห่างกัน 2 เคาะ
-                text = text.replace(/([^\s])\s([^\s])/g, '$1  $2');
 
-                // นำ placeholder กลับคืน
-                text = text.replace(new RegExp(PE_PLACEHOLDER, 'g'), 'ฯเปฯ');
-                text = text.replace(new RegExp(LA_PLACEHOLDER, 'g'), 'ฯลฯ');
-
-                return text;
+                return processedLines.join('\n'); // เชื่อมบรรทัดกลับด้วย newline เดิม
             }
 
             function combineAllLines(text) {
+                // ฟังก์ชันนี้ยังคงเหมือนเดิม เพื่อใช้สำหรับรวมบรรทัดหลังจากจัดระเบียบแล้ว
                 return text.replace(/[\r\n]+/g, ' ').trim();
             }
 
             function splitIntoSentences(text) {
                 let sentences = [];
                 // Split by 'ฯ' while keeping the delimiter
+                // This will split "ประโยค1ฯประโยค2" into ["ประโยค1", "ฯ", "ประโยค2"]
                 let tempParts = text.split(/(ฯ)/); 
                 let currentSentence = '';
                 for (let i = 0; i < tempParts.length; i++) {
                     currentSentence += tempParts[i];
                     if (tempParts[i] === 'ฯ') {
+                        // If 'ฯ' is encountered, push the accumulated sentence (including 'ฯ')
                         sentences.push(currentSentence.trim());
-                        currentSentence = '';
+                        currentSentence = ''; // Reset for the next sentence
                     }
                 }
+                // Add any remaining part after the last 'ฯ' or if no 'ฯ' was present
                 if (currentSentence.trim().length > 0) {
                     sentences.push(currentSentence.trim());
                 }
 
                 // Further split by newlines (Enter key presses) within each resulting 'sentence'
+                // This ensures that if the user did NOT combine lines, each physical line becomes a separate "sentence"
+                // unless it's explicitly part of a ฯ-delimited one. This respects the user's manual line breaks.
                 let finalSentences = [];
                 sentences.forEach(s => {
-                    const lines = s.split(/\n+/).filter(line => line.trim() !== '');
+                    const lines = s.split(/\n+/).filter(line => line.trim() !== ''); // Split by one or more newlines
                     lines.forEach(line => {
                         finalSentences.push(line.trim());
                     });
                 });
 
-                return finalSentences.filter(s => s.length > 0);
+                return finalSentences.filter(s => s.length > 0); // Filter out any empty strings
             }
 
             // --- UI State Management for Preparation View ---
@@ -276,17 +304,17 @@ const firebaseConfig = {
                         }
                         break;
                     case 'POST_CLEAN_MODE':
-                        organizeSpacesBtn.disabled = true;
+                        organizeSpacesBtn.disabled = true; // After cleaning, this button is disabled
                         combineLinesBtn.disabled = false;
                         splitSentenceBtn.disabled = false;
                         undoPrepBtn.disabled = false;
                         break;
                     case 'SPLIT_DONE_MODE':
-                        paliInputRaw.readOnly = true;
+                        paliInputRaw.readOnly = true; // Lock text area after splitting
                         organizeSpacesBtn.disabled = true;
                         combineLinesBtn.disabled = true;
                         splitSentenceBtn.disabled = true;
-                        startEditingBtn.style.display = 'inline-block';
+                        startEditingBtn.style.display = 'inline-block'; // Show button to move to table
                         undoPrepBtn.disabled = false;
                         break;
                 }
