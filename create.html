@@ -132,8 +132,8 @@
 
     let nextAvailableId = 1; // สำหรับ Pali Order (id ในตาราง), รันต่อจากแถวสุดท้ายในตาราง
 
-    // Moved DOM Elements Collection inside DOMContentLoaded for robustness
-    let dom = {}; // Declare it here, initialize inside DOMContentLoaded
+    // Declare dom globally, but initialize it inside DOMContentLoaded
+    let dom = {}; 
 
     // --- Utility Functions (rest of these functions remain the same) ---
     // ... (all utility functions like updateStatus, calculateHash, getUrlParameter, etc.)
