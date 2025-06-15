@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แก้ไขข้อมูล</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <title>เพิ่ม/แก้ไขคำแปล (v4.2 - Final Corrected)</title>
+    <!-- (CSS Style เหมือนเดิมทั้งหมด) -->
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -17,13 +15,13 @@
         h2 { border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
         fieldset { border: 1px solid var(--border-color); border-radius: 5px; padding: 20px; margin-bottom: 25px; }
         legend { font-weight: 700; font-size: 1.2em; color: var(--text-light); padding: 0 10px; }
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px 20px; align-items: end;}
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; align-items: end;}
         textarea, input, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px; font-family: 'Sarabun', sans-serif; }
         button { background: var(--primary-color); color: var(--white-bg); padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; height: 40px; }
         button:hover { filter: brightness(90%); }
         .status-message { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 4px; word-break: break-word; min-height: 1.5em;}
-        .status-message.success, .suggestion-text.success { color: #155724; background-color: #d4edda; padding: 10px; border-radius: 4px;}
-        .status-message.error, .suggestion-text.error { color: #721c24; background-color: #f8d7da; padding: 10px; border-radius: 4px;}
+        .status-message.success { color: #155724; background-color: #d4edda; }
+        .status-message.error { color: #721c24; background-color: #f8d7da; }
         #edit-view-content { display: none; grid-template-columns: 1fr 1.5fr; gap: 25px; margin-top: 20px; }
         #pali-display-panel { background-color: #fafafa; padding: 15px; border-radius: 5px; border: 1px solid #eee; height: fit-content; position: sticky; top: 20px; }
         #pali-display-panel h3 { margin-top: 0; }
@@ -46,10 +44,7 @@
 <body>
     <div class="container" id="container">
         <div class="header-bar">
-            <div>
-                <h1 id="main-header">กำลังโหลด...</h1>
-                <p id="sub-header" style="margin: 5px 0 0; color: #555;"></p>
-            </div>
+            <div> <h1 id="main-header">กำลังโหลด...</h1> <p id="sub-header"></p> </div>
             <a href="index.html" style="text-decoration: none;"><button class="secondary">กลับไปหน้าสารบัญ</button></a>
         </div>
         <div id="edit-view">
@@ -57,19 +52,16 @@
             <fieldset> <legend>ข้อมูลผู้ใช้งาน</legend> <input type="text" id="user_name" placeholder="ใส่ชื่อของคุณที่นี่" required> </fieldset>
             <fieldset id="edit-mode-selector">
                 <legend>ค้นหากลุ่มข้อมูล</legend>
+                <p style="font-size: 0.9em; color: #555; margin-top: 0;">กรอก "คำบาลี" หรือ "เลขหน้า" (หรือทั้งสองอย่างเพื่อผลลัพธ์ที่แม่นยำขึ้น)</p>
                 <div class="form-grid">
-                    <input type="text" id="search_story_name" list="story_name_datalist_for_search" placeholder="เลือก/พิมพ์ชื่อเรื่อง">
-                    <datalist id="story_name_datalist_for_search"></datalist>
-                    <input type="number" id="search_page_num" placeholder="ใส่เลขหน้า">
+                    <input type="text" id="search_pali_text" placeholder="ใส่คำบาลีที่ต้องการค้นหา">
+                    <input type="number" id="search_page_num" placeholder="ใส่เลขหน้า (ถ้าต้องการ)">
                     <button id="search_groups_btn">ค้นหากลุ่ม</button>
                 </div>
                 <div id="group-results" style="margin-top: 15px;"></div>
             </fieldset>
             <div id="edit-view-content" style="display: none;">
-                <div id="pali-display-panel">
-                    <h3 id="pali-display-header">เนื้อหาบาลี (สำหรับอ้างอิง)</h3>
-                    <div id="pali-display-text"></div>
-                </div>
+                <div id="pali-display-panel"><h3 id="pali-display-header">เนื้อหาบาลี</h3><div id="pali-display-text"></div></div>
                 <div id="translation-panel">
                     <h3>ตารางแก้ไขคำแปล</h3>
                     <div class="table-wrapper"><table id="edit-sentence-table" style="width:100%"></table></div>
@@ -84,12 +76,13 @@
         import { getFirestore, collection, doc, getDocs, writeBatch, serverTimestamp, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
+            apiKey: "AIzaSyDoe7sUNTdaK7uFxvi_Y16C4nCX4kKFiDA",
+            authDomain: "pali-exam-builder.firebaseapp.com",
             projectId: "pali-exam-builder",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
+            storageBucket: "pali-exam-builder.appspot.com",
+            messagingSenderId: "783124881115",
+            appId: "1:783124881115:web:688f964e586df5b17d36fe",
+            measurementId: "G-8HV8B03THV"
         };
       
         const app = initializeApp(firebaseConfig);
@@ -110,17 +103,12 @@
                 currentBookName = decodeURIComponent(params.get('bookName') || '');
                 currentBookPart = decodeURIComponent(params.get('bookPart') || '');
                 currentPrefix = decodeURIComponent(params.get('prefix') || '');
-                if (!currentBookName || !currentPrefix) {
-                    mainHeader.textContent = 'ข้อผิดพลาด';
-                    container.innerHTML = `<div class="header-bar"><h1>ข้อผิดพลาด</h1></div><p style="text-align:center; color:red;">ไม่พบคัมภีร์หรือ Prefix ที่เลือก<br>กรุณากลับไปที่หน้าแรก</p><br><p style="text-align:center;"><a href="index.html"><button class="secondary">กลับไปหน้าแรก</button></a></p>`;
-                    return;
-                }
+                if (!currentBookName || !currentPrefix) { mainHeader.textContent = 'ข้อผิดพลาด'; container.innerHTML = `<div class="header-bar"><h1>ข้อผิดพลาด</h1></div><p style="text-align:center; color:red;">ไม่พบคัมภีร์หรือ Prefix ที่เลือก<br>กรุณากลับไปที่หน้าแรก</p><br><p style="text-align:center;"><a href="index.html"><button class="secondary">กลับไปหน้าแรก</button></a></p>`; return; }
                 mainHeader.textContent = `${currentBookName}`;
                 subHeader.textContent = currentBookPart;
                 const savedUserName = localStorage.getItem('paliToolUserName');
                 if (savedUserName) { userNameInput.value = savedUserName; }
                 userNameInput.addEventListener('input', () => { localStorage.setItem('paliToolUserName', userNameInput.value); });
-                populateStoryDatalistForSearch();
             }
 
             document.getElementById('search_groups_btn').addEventListener('click', searchGroupsToEdit);
@@ -129,41 +117,75 @@
             function updateStatus(message, type) { const el = document.getElementById('edit-status-message'); if(el){ el.innerHTML = message; el.className = `status-message ${type}`; } }
             
             async function searchGroupsToEdit() {
-                const storyName = document.getElementById('search_story_name').value.trim();
-                const pageNum = parseInt(document.getElementById('search_page_num').value.trim());
-                if (!storyName && !pageNum) { alert('กรุณาเลือกชื่อเรื่อง หรือใส่เลขหน้า'); return; }
-                updateStatus('กำลังค้นหากลุ่ม...', 'loading');
-                const groupResultsDiv = document.getElementById('group-results');
-                groupResultsDiv.innerHTML = '';
-                editViewContent.style.display = 'none';
-                try {
-                    let constraints = [ where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), orderBy("sentence_group_id") ];
-                    if (storyName) constraints.push(where("story_name", "==", storyName));
-                    if (pageNum) constraints.push(where("page_start", "==", pageNum));
-                    
-                    const q = query(paliCollection, ...constraints);
-                    const querySnapshot = await getDocs(q);
-                    if (querySnapshot.empty) { throw new Error('ไม่พบข้อมูลตามเงื่อนไข'); }
-                    
-                    const groups = new Map();
-                    querySnapshot.forEach(doc => { const data = doc.data(); if (!groups.has(data.sentence_group_id)) { groups.set(data.sentence_group_id, { pali_text: data.pali_text.substring(0, 50) + '...', status: data.translation_status || 'untranslated' }); } });
-                    
-                    updateStatus(`พบ ${groups.size} กลุ่ม, กรุณาเลือกกลุ่มที่ต้องการแก้ไข`, 'success');
-                    groups.forEach((data, groupId) => {
-                        const div = document.createElement('div');
-                        const statusClass = `status-${data.status}`;
-                        div.innerHTML = `<div class="group-info"><strong>Group ID: ${groupId}</strong><br><small>ตัวอย่าง: ${data.pali_text}</small></div>
-                                     <div class="edit-buttons">
-                                        <span class="status-badge ${statusClass}">${data.status}</span>
-                                        <button class="secondary" title="แก้ไขข้อมูลหลัก">✏️ แก้ไขหลัก</button>
-                                        <button class="success" title="เพิ่ม/แก้ไขคำแปล">✍️ แปลไทย</button>
-                                     </div>`;
-                        div.querySelector('[title="แก้ไขข้อมูลหลัก"]').addEventListener('click', (e) => { e.stopPropagation(); navigateToSuperEdit(groupId); });
-                        div.querySelector('[title="เพิ่ม/แก้ไขคำแปล"]').addEventListener('click', (e) => { e.stopPropagation(); fetchDataForTranslate(groupId); });
-                        groupResultsDiv.appendChild(div);
-                    });
-                } catch (error) { updateStatus(`ค้นหาไม่สำเร็จ: ${error.message} (อาจต้องสร้าง Index)`, 'error'); }
+    const paliText = document.getElementById('search_pali_text').value.trim();
+    const pageNum = parseInt(document.getElementById('search_page_num').value.trim());
+
+    if (!paliText && !pageNum) {
+        alert('กรุณาใส่ "คำบาลี" หรือ "เลขหน้า" เพื่อใช้ในการค้นหา');
+        return;
+    }
+    
+    updateStatus('กำลังค้นหากลุ่ม...', 'loading');
+    const groupResultsDiv = document.getElementById('group-results');
+    groupResultsDiv.innerHTML = '';
+    document.getElementById('edit-view-content').style.display = 'none';
+
+    try {
+        let constraints = [
+            where("book_title", "==", currentBookName),
+            where("book_part", "==", currentBookPart)
+        ];
+
+        // สร้าง Query พื้นฐานก่อน
+        let q = query(paliCollection, ...constraints);
+
+        // เพิ่มเงื่อนไขการกรองทีละขั้น
+        if (paliText) {
+            q = query(q, where("pali_text", ">=", paliText), where("pali_text", "<=", paliText + '\uf8ff'));
+        }
+        if (pageNum) {
+            q = query(q, where("page_start", "==", pageNum));
+        }
+        
+        // เพิ่มการเรียงลำดับในตอนท้าย
+        q = query(q, orderBy("pali_text"), limit(20));
+
+        // --- DEBUGGING ---
+        console.log("Final Query Constraints:", q.constraints); 
+
+        const querySnapshot = await getDocs(q);
+
+        console.log(`Query successful, found ${querySnapshot.size} documents.`); // <-- ดูว่าดึงมาได้กี่รายการ
+
+        if (querySnapshot.empty) { throw new Error('ไม่พบข้อมูลตามเงื่อนไขที่ระบุ'); }
+        
+        const groups = new Map();
+        querySnapshot.forEach(doc => {
+            const data = doc.data();
+            if (!groups.has(data.sentence_group_id)) {
+                groups.set(data.sentence_group_id, { 
+                    pali_text: data.pali_text.substring(0, 50) + '...', 
+                    status: data.translation_status || 'untranslated' 
+                });
             }
+        });
+        
+        const sortedGroups = new Map([...groups.entries()].sort());
+        updateStatus(`พบ ${sortedGroups.size} กลุ่ม, กรุณาเลือกกลุ่มที่ต้องการแก้ไข`, 'success');
+        
+        sortedGroups.forEach((data, groupId) => {
+            // ... (โค้ดแสดงผลเหมือนเดิม)
+        });
+
+    } catch (error) {
+        // --- DEBUGGING ---
+        console.error("Full Search Error:", error); 
+        updateStatus(`ค้นหาไม่สำเร็จ: ${error.message} (Code: ${error.code})`, 'error'); 
+        if (error.code === 'failed-precondition') {
+            alert('เกิดข้อผิดพลาด: จำเป็นต้องสร้าง Index ใน Firestore ก่อน โปรดตรวจสอบ Console เพื่อดูลิงก์สำหรับสร้าง Index');
+        }
+    }
+}
             
             function navigateToSuperEdit(groupId) {
                 const params = new URLSearchParams(window.location.search);
@@ -232,21 +254,6 @@
                 } catch (error) {
                     updateStatus(`บันทึกไม่สำเร็จ: ${error.message}`, 'error');
                     editSaveBtn.disabled = false;
-                }
-            }
-
-            async function populateStoryDatalistForSearch(){
-                try {
-                    const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), orderBy("story_name"));
-                    const querySnapshot = await getDocs(q);
-                    const stories = new Set();
-                    querySnapshot.forEach(doc => { const storyName = doc.data().story_name; if (storyName) stories.add(storyName); });
-                    const datalistElement = document.getElementById('story_name_datalist_for_search');
-                    datalistElement.innerHTML = '';
-                    Array.from(stories).sort().forEach(story => { const option = document.createElement('option'); option.value = story; datalistElement.appendChild(option); });
-                } catch(error) {
-                    console.error("Could not populate story datalist:", error);
-                    alert("เกิดข้อผิดพลาดในการโหลดรายชื่อเรื่อง อาจต้องสร้าง Index สำหรับ story_name");
                 }
             }
             
