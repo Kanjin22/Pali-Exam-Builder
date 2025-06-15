@@ -758,6 +758,41 @@
                     }); 
                 } 
             }
+
+                        // --- ฟังก์ชันใหม่: แสดงข้อมูลล่าสุดเป็น Placeholder ---
+            async function displayLastEntryInfo() {
+                const paliInput = document.getElementById('pali-input');
+                paliInput.placeholder = 'กำลังดึงข้อมูลล่าสุด...';
+                
+                try {
+                    // ค้นหาเอกสารล่าสุดโดยเรียงตามเวลาที่บันทึกข้อมูลบาลี
+                    const q = query(
+                        paliCollection, 
+                        where("book_title", "==", currentBookName),
+                        where("book_part", "==", currentBookPart),
+                        orderBy("timestamp_pali", "desc"), 
+                        limit(1)
+                    );
+
+                    const querySnapshot = await getDocs(q);
+
+                    if (!querySnapshot.empty) {
+                        const lastDocData = querySnapshot.docs[0].data();
+                        const lastSentence = lastDocData.pali_text || '';
+                        const lastPage = lastDocData.page_start || 'ไม่ระบุ';
+                        const lastGroup = lastDocData.sentence_group_id || 'ไม่ระบุ';
+
+                        // สร้างข้อความสำหรับ placeholder
+                        const placeholderText = `ข้อมูลล่าสุดที่บันทึก:\n- Group ID: ${lastGroup}\n- หน้า: ${lastPage}\n- ประโยคสุดท้าย: ${lastSentence}`;
+                        paliInput.placeholder = placeholderText;
+                    } else {
+                        paliInput.placeholder = 'ยังไม่มีข้อมูลในคัมภีร์นี้ เริ่มต้นได้เลย!';
+                    }
+                } catch(error) {
+                    paliInput.placeholder = 'ไม่สามารถดึงข้อมูลล่าสุดได้...';
+                    console.error("Error fetching last entry:", error);
+                }
+            }
             
             function initializeTool() {
                 const params = new URLSearchParams(window.location.search);
@@ -782,6 +817,7 @@
                 if (editGroupId) {
                     fetchDataForFullEdit(editGroupId);
                 }
+                displayLastEntryInfo();
             }
             
             // Event Listeners
