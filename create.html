@@ -350,7 +350,7 @@
                     let tempLine = line.replace(/\s+/g, ' '); // Replace multiple spaces with single space
                     tempLine = tempLine.replace(/\s*ฯ\s*/g, ' ฯ  '); // Ensure ' ฯ  ' (one space before, two spaces after)
                     // Replace single space with two spaces, but not before 'ฯ' or placeholders
-                    tempLine = tempLine.replace(/ (?![ฯ|]|__PEYALA__|__ETC__)/g, '  '); // Two spaces for regular words
+                    tempLine = tempLine.replace(/ (?![ฯ]|__PEYALA__|__ETC__)/g, '  '); // Two spaces for regular words
 
                     return tempLine;
                 });
