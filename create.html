@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.5 - Final Validation Logic)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.6 - Corrected Group ID Logic)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -207,64 +207,47 @@
                 return true; 
             }
 
+            // v5.6: แก้ไขให้ค้นหา Group ID สูงสุดของทั้งคัมภีร์
             async function findLastGroupId() { 
-                // เพิ่มการตรวจสอบ book_title, book_part และ story_name
-                // currentPrefix ต้องถูกส่งมาด้วย เช่น "SN" หรือ "PS"
-                if (!currentBookName || !currentBookPart || !dom.storyNameInput.value.trim() || !currentPrefix) { 
-                    updateStatus('group_id_suggestion', 'กรุณากรอกชื่อเรื่องและตรวจสอบค่า Prefix ที่ส่งมาใน URL', 'warning');
-                    lastFoundGroupId = 0; // รีเซ็ตค่า
+                // 1. แก้ไขเงื่อนไข: ไม่ต้องรอให้กรอกชื่อเรื่องแล้ว
+                if (!currentBookName || !currentPrefix) { 
+                    // ไม่ต้องแสดง error, แค่ไม่ต้องทำงาน
                     return; 
                 } 
 
                 const statusElId = 'group_id_suggestion'; 
-                updateStatus(statusElId, `กำลังค้นหา Group ID ล่าสุดในคัมภีร์...`, ''); 
+                updateStatus(statusElId, `กำลังค้นหา ID ล่าสุดของคัมภีร์...`, ''); 
+                
                 try { 
-                    // Query ยังคงกรองด้วย book_title, book_part, story_name และ prefix เพื่อลดข้อมูลที่ต้องดึง
-                    // แต่เราจะเรียงตาม sentence_group_id แบบสตริงตามปกติ
-                    // และอาจจะต้องดึงมามากกว่า 1 เพื่อหาค่าสูงสุดที่แท้จริง
-                    // หรือดึงมาทั้งหมดที่เข้าเงื่อนไขแล้วมาประมวลผล
-                    // *** วิธีนี้จะดึงแค่ 50 รายการล่าสุดมาประมวลผลเพื่อประสิทธิภาพ
-                    // ถ้าต้องการหาจากทั้งหมดจริงๆ อาจต้องใช้ Cloud Functions หรือปรับ Query ให้กว้างขึ้น
+                    // 2. แก้ไข Query: ลบเงื่อนไข where("story_name", ...) ออกไป
+                    //    และเปลี่ยนไปใช้ Query ที่แม่นยำกว่า
                     const q = query(
-                        paliCollection, 
-                        where("book_title", "==", currentBookName),
-                        where("book_part", "==", currentBookPart),
-                        where("story_name", "==", dom.storyNameInput.value.trim()),
-                        // ใช้สตริงเริ่มต้นด้วย prefix เพื่อกรอง
-                        where('sentence_group_id', '>=', `${currentPrefix}-`), 
-                        where('sentence_group_id', '<=', `${currentPrefix}-\uFFFF`), // \uFFFF คือตัวอักษร Unicode สุดท้าย เพื่อให้ครอบคลุมทุกตัวเลข
-                        orderBy('sentence_group_id', 'desc'), // เรียงแบบสตริงเพื่อประสิทธิภาพ query
-                        limit(50) // ดึงมาจำนวนหนึ่งเพื่อหาค่าสูงสุดในฝั่ง client
-                    ); 
+                        paliCollection,
+                        where('sentence_group_id', '>=', `${currentPrefix}-`),
+                        where('sentence_group_id', '<', `${currentPrefix}-z`)
+                    );
                     
                     const querySnapshot = await getDocs(q); 
                     let maxNumber = 0; 
                     
                     if (!querySnapshot.empty) { 
-                        querySnapshot.forEach(doc => {
+                        // 3. ใช้ตรรกะการหาค่าสูงสุดที่แม่นยำเหมือนเดิม
+                        const allNumbers = querySnapshot.docs.map(doc => {
                             const fullId = doc.data().sentence_group_id;
-                            // ใช้ Regular Expression เพื่อดึงเฉพาะตัวเลขหลัง hyphen (-)
-                            const match = fullId.match(new RegExp(`${currentPrefix}-(\\d+)`));
-                            if (match && match[1]) {
-                                const currentNumber = parseInt(match[1]);
-                                if (!isNaN(currentNumber) && currentNumber > maxNumber) {
-                                    maxNumber = currentNumber;
-                                }
-                            }
+                            return parseInt(fullId.toString().split('-').pop()) || 0;
                         });
+                        maxNumber = Math.max(...allNumbers);
                     } 
                     
-                    lastFoundGroupId = maxNumber; // กำหนดค่าสูงสุดที่หาเจอ
+                    lastFoundGroupId = maxNumber;
                     updateStatus(statusElId, `ID ล่าสุดที่ใช้ในคัมภีร์นี้คือ: <strong>${currentPrefix}-${lastFoundGroupId}</strong>. แนะนำให้ใช้: <strong>${lastFoundGroupId + 1}</strong>`, 'success'); 
 
                 } catch (error) { 
                     lastFoundGroupId = 0; 
                     if (error.code === 'failed-precondition') { 
-                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. <br><strong>คุณอาจจะต้องสร้าง Index สำหรับการค้นหานี้ก่อนใน Firestore Console.</strong>`, 'error'); 
-                        console.error("Firestore Indexing Error:", error);
+                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. <br><strong>อาจต้องสร้าง Index ใหม่สำหรับการค้นหานี้</strong>`, 'error'); 
                     } else { 
-                        updateStatus(statusElId, `เกิดข้อผิดพลาดในการดึง Group ID: ${error.message}`, 'error'); 
-                        console.error("Error fetching last Group ID:", error);
+                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}`, 'error'); 
                     } 
                 } 
             }
@@ -788,6 +771,9 @@
                 const savedUserName = localStorage.getItem('paliToolUserName');
                 if (savedUserName) { dom.userNameInput.value = savedUserName; }
                 dom.userNameInput.addEventListener('input', () => { localStorage.setItem('paliToolUserName', dom.userNameInput.value); });
+                // v5.6: ค้นหา Group ID ล่าสุดของทั้งคัมภีร์ทันทีที่หน้าโหลด
+                findLastGroupId(); 
+                
                 populateCreateDatalists();
                 if (editGroupId) {
                     fetchDataForFullEdit(editGroupId);
@@ -795,7 +781,8 @@
             }
             
             // Event Listeners
-            dom.storyNameInput.addEventListener('blur', async () => { await checkLastParagraph(); await findLastGroupId(); });
+            // v5.6: เรียกใช้แค่ checkLastParagraph เมื่อเลือกเรื่อง
+            dom.storyNameInput.addEventListener('blur', checkLastParagraph);
             dom.masterPageStartInput.addEventListener('blur', checkPageExists);
             dom.masterPageEndInput.addEventListener('blur', validatePageEnd); // Add listener for validatePageEnd
             dom.masterGroupIdInput.addEventListener('input', validateGroupId); // Add input listener for real-time validation
