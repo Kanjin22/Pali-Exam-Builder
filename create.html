@@ -442,10 +442,13 @@
                     <td><input type="number" class="page-start-input" value="${docData ? docData.page_start : masterPageStart}"></td>
                     <td><input type="number" class="page-end-input" value="${docData ? docData.page_end : masterPageEnd}"></td>
                     <td><input type="number" class="paragraph-num-input" value="${docData ? docData.paragraph_num : masterParagraphNum}"></td>
-                    <td><select class="text-type-input">
-                        <option value="ร้อยแก้ว" ${docData && docData.text_type === 'ร้อยแก้ว' ? 'selected' : ''}>ร้อยแก้ว</option>
-                        <option value="คาถา" ${docData && docData.text_type === 'คาถา' ? 'selected' : ''}>คาถา</option>
-                    </select></td>
+                    <td>
+                        <select class="text-type-input">
+                            <option value="ร้อยแก้ว" ${docData && docData.text_type === 'ร้อยแก้ว' ? 'selected' : ''}>ร้อยแก้ว</option>
+                            <option value="คาถา 1 บาท" ${docData && docData.text_type === 'คาถา 1 บาท' ? 'selected' : ''}>คาถา 1 บาท</option>
+                            <option value="คาถา 2 บาท" ${docData && docData.text_type === 'คาถา 2 บาท' ? 'selected' : ''}>คาถา 2 บาท</option>
+                        </select>
+                    </td>
                     <td style="text-align:center;">
                         <button type="button" class="delete-row-btn" title="ลบแถวนี้">🗑️</button>
                     </td>`; 
