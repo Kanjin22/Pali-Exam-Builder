@@ -770,7 +770,7 @@
                 } 
             }
 
-                        // --- ฟังก์ชันใหม่: แสดงข้อมูลล่าสุดเป็น Placeholder ---
+            // --- ฟังก์ชันใหม่: แสดงข้อมูลล่าสุดเป็น Placeholder ---
             async function displayLastEntryInfo() {
                 const paliInput = document.getElementById('pali-input');
                 paliInput.placeholder = 'กำลังดึงข้อมูลล่าสุด...';
@@ -790,7 +790,7 @@
                     if (!querySnapshot.empty) {
                         const lastDocData = querySnapshot.docs[0].data();
                         const lastSentence = lastDocData.pali_text || '';
-                        const lastPage = lastDocData.page_start || 'ไม่ระบุ';
+                        const lastPage = lastDocData.page_end || 'ไม่ระบุ';
                         const lastGroup = lastDocData.sentence_group_id || 'ไม่ระบุ';
 
                         // สร้างข้อความสำหรับ placeholder
