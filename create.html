@@ -320,6 +320,12 @@
                 originalPaliText = dom.paliInput.value;
                 let text = dom.paliInput.value;
                 if (!text.trim()) return;
+                
+                // --- ส่วนที่เพิ่มเข้ามา: เชื่อมศัพท์ที่ถูกฉีก ---
+                // ค้นหาแพทเทิร์น: (ตัวอักษร)-[ขึ้นบรรทัดใหม่]*[ตัวอักษร]
+                const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*\n\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
+                text = text.replace(hyphenatedWordRegex, '$1$2');
+                // $1 คือตัวอักษรตัวสุดท้ายก่อนขีดกลาง, $2 คือตัวอักษรตัวแรกของบรรทัดใหม่
 
                 // ✅ ไม่รวมบรรทัด (เหมาะสำหรับคาถา) - ยังคงรักษาการขึ้นบรรทัดใหม่
                 // ✅ แปลง € เป็น ฐ และ   เป็น ญ (ใช้ space ก่อน ญ เพื่อความแม่นยำ)
@@ -368,6 +374,11 @@
                 originalPaliText = dom.paliInput.value;
                 let text = dom.paliInput.value;
                 if (!text.trim()) return;
+                
+                // --- ส่วนที่เพิ่มเข้ามา: เชื่อมศัพท์ที่ถูกฉีก ---
+                const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*\n\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
+                text = text.replace(hyphenatedWordRegex, '$1$2');
+
                 // ✅ ทำหน้าที่ รวมทุกบรรทัดเป็นบรรทัดเดียวเท่านั้น
                 // ✅ ไม่ยุ่ง กับการจัดระเบียบช่องว่างหรือแทนที่อักขระ
                 let singleLineText = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
