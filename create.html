@@ -36,7 +36,9 @@
         #create-sentence-table th:nth-child(3), #create-sentence-table td:nth-child(3) { width: 80px; }
         #create-sentence-table th:nth-child(4) { width: 55%; }
         #create-sentence-table td input, #create-sentence-table td select, #create-sentence-table td textarea { width: 95%; box-sizing: border-box;}
-        .delete-row-btn { cursor: pointer; color: var(--danger-color); font-weight: bold; font-size: 1.2em; border: none; background: none; padding: 0; }
+        .delete-row-btn, .split-row-btn { cursor: pointer; font-weight: bold; font-size: 1.2em; border: none; background: none; padding: 0 5px; }
+        .delete-row-btn { color: var(--danger-color); }
+        .split-row-btn { color: var(--primary-color); }
         .draggable-row { cursor: move; }
         .dragging { background-color: #f0f8ff; opacity: 0.7; }
     </style>
@@ -451,13 +453,86 @@
                 } 
             }
 
-            // v5.0: ปุ่มลบแถว
-            function addNewRow(tbody, id, paliText = '', docData = null, masterData = {}) { 
-                const row = tbody.insertRow(); 
+                        /**
+             * ฟังก์ชันอัปเดตลำดับและ Group ID ตั้งแต่แถวที่กำหนด
+             * @param {HTMLTableRowElement} startRow แถวที่เริ่มการอัปเดต
+             */
+            function updateSequentialData(startRow) {
+                const tbody = startRow.closest('tbody');
+                const allRows = Array.from(tbody.rows);
+                const startIndex = allRows.indexOf(startRow);
+
+                if (startIndex === -1) return;
+
+                let currentGroupId = parseInt(startRow.querySelector('.group-id-input').value);
+
+                // อัปเดต Group ID ตั้งแต่แถวถัดไป
+                for (let i = startIndex + 1; i < allRows.length; i++) {
+                    const row = allRows[i];
+                    const groupIdInput = row.querySelector('.group-id-input');
+                    if (groupIdInput) {
+                        currentGroupId++;
+                        groupIdInput.value = currentGroupId;
+                    }
+                }
+                updateTableOrder(); // อัปเดตเลขลำดับทั้งหมด
+            }
+
+                        /**
+             * ฟังก์ชันจัดการการแบ่งประโยคในแถว
+             * @param {Event} event Event object จากปุ่มที่ถูกคลิก
+             */
+            function handleSplitRow(event) {
+                const splitButton = event.currentTarget;
+                const currentRow = splitButton.closest('tr');
+                const tbody = currentRow.closest('tbody');
+                const paliTextarea = currentRow.querySelector('.pali-text-input');
+
+                const cursorPos = paliTextarea.selectionStart;
+                const fullText = paliTextarea.value;
+
+                if (cursorPos === 0 || cursorPos === fullText.length) {
+                    alert('กรุณาวางเคอร์เซอร์ในตำแหน่งที่ต้องการแบ่ง (ไม่ใช่จุดเริ่มต้นหรือท้ายสุด)');
+                    return;
+                }
+
+                const textBefore = fullText.substring(0, cursorPos).trim();
+                const textAfter = fullText.substring(cursorPos).trim();
+
+                if (!textAfter) {
+                    alert('ไม่มีข้อความเหลือให้แบ่ง');
+                    return;
+                }
+
+                // 1. อัปเดตข้อความในแถวปัจจุบัน
+                paliTextarea.value = textBefore;
+
+                // 2. รวบรวมข้อมูลจากแถวปัจจุบันเพื่อสร้างแถวใหม่
+                const masterData = {
+                    masterGroupId: parseInt(currentRow.querySelector('.group-id-input').value) + 1, // เพิ่ม Group ID ขึ้น 1
+                    masterPageStart: currentRow.querySelector('.page-start-input').value,
+                    masterPageEnd: currentRow.querySelector('.page-end-input').value,
+                    masterParagraphNum: currentRow.querySelector('.paragraph-num-input').value
+                };
+
+                // 3. สร้างแถวใหม่และแทรกเข้าไป
+                const newRow = addNewRow(tbody, nextAvailableId++, textAfter, null, masterData, true);
+                currentRow.after(newRow); // ย้ายแถวใหม่มาไว้หลังแถวปัจจุบัน
+
+                // 4. อัปเดต Group ID และลำดับของแถวที่ตามมาทั้งหมด
+                updateSequentialData(newRow);
+            }
+
+                        // ** แก้ไข addNewRow **
+            // เพิ่มปุ่ม "แบ่ง" (✂️) และ Event Listener
+            function addNewRow(tbody, id, paliText = '', docData = null, masterData = {}, isSplit = false) { 
+                const row = tbody.insertRow(isSplit ? -1 : undefined); // ถ้าเป็นการ split ให้เพิ่มท้ายสุดแล้วค่อยย้าย
                 row.className = 'draggable-row'; 
                 row.draggable = true; 
                 row.dataset.id = id; 
                 const {masterGroupId, masterPageStart, masterPageEnd, masterParagraphNum} = masterData; 
+                
+                // **** เพิ่มปุ่ม ✂️ ใน template ****
                 row.innerHTML = `
                     <td class="order-cell">${tbody.rows.length}</td>
                     <td class="id-cell">${id}</td>
@@ -474,14 +549,27 @@
                         </select>
                     </td>
                     <td style="text-align:center;">
+                        <button type="button" class="split-row-btn" title="แบ่งประโยคที่ตำแหน่งเคอร์เซอร์">✂️</button>
                         <button type="button" class="delete-row-btn" title="ลบแถวนี้">🗑️</button>
                     </td>`; 
+
+                // **** เพิ่ม Event Listener สำหรับปุ่มใหม่ ****
+                row.querySelector('.split-row-btn').addEventListener('click', handleSplitRow);
+
                 row.querySelector('.delete-row-btn').addEventListener('click', function() { 
                     if (confirm('คุณต้องการลบแถวนี้ใช่หรือไม่?')) { 
-                        this.closest('tr').remove(); 
-                        updateTableOrder(); 
+                        const rowToRemove = this.closest('tr');
+                        const nextRow = rowToRemove.nextElementSibling;
+                        rowToRemove.remove(); 
+                        if(nextRow) {
+                           // หากแถวที่ถูกลบไม่ใช่แถวสุดท้าย ให้ทำการ re-number จากแถวถัดไป
+                           updateSequentialData(nextRow); 
+                        } else {
+                           updateTableOrder(); // หากเป็นแถวสุดท้าย อัปเดตแค่ลำดับก็พอ
+                        }
                     } 
                 }); 
+                return row; // คืนค่า element ของแถวเพื่อให้ย้ายตำแหน่งได้
             }
 
             function updateTableOrder() { 
@@ -498,29 +586,23 @@
 
             // v5.0: การลากและวาง (Drag & Drop)
             function makeTableDraggable(tbody) { 
-                let draggingRow = null; 
-                tbody.addEventListener('dragstart', (e) => { 
-                    draggingRow = e.target.closest('tr'); 
-                    if (draggingRow) { 
-                        setTimeout(() => draggingRow.classList.add('dragging'), 0); 
-                    } 
-                }); 
-                tbody.addEventListener('dragend', (e) => { 
-                    if (draggingRow) { 
-                        draggingRow.classList.remove('dragging'); 
-                        draggingRow = null; 
-                        updateTableOrder(); // Update order after drag ends
-                    } 
-                }); 
-                tbody.addEventListener('dragover', (e) => { 
-                    e.preventDefault(); 
-                    const targetRow = e.target.closest('tr'); 
-                    if (targetRow && targetRow !== draggingRow && targetRow.tagName === 'TR') { // Ensure target is a row
-                        const rect = targetRow.getBoundingClientRect(); 
-                        const next = (e.clientY - rect.top) / (rect.bottom - rect.top) > 0.5; 
-                        tbody.insertBefore(draggingRow, next ? targetRow.nextSibling : targetRow); 
-                    } 
-                }); 
+                let draggingRow = null;
+                tbody.addEventListener('dragstart', (e) => {
+                    draggingRow = e.target.closest('tr');
+                    if (draggingRow) {
+                        setTimeout(() => draggingRow.classList.add('dragging'), 0);
+                    }
+                });
+                tbody.addEventListener('dragend', (e) => {
+                    if (draggingRow) {
+                        draggingRow.classList.remove('dragging');
+                        const firstRow = draggingRow.closest('tbody')?.rows[0]; // ใช้ ? เพื่อความปลอดภัย
+                        draggingRow = null;
+                        if (firstRow) {
+                            updateSequentialData(firstRow); // Re-number all from the top after drag
+                        }
+                    }
+                });
             }
 
             // v4.5: ปุ่ม "กดเพื่อแบ่งประโยค"
@@ -601,7 +683,8 @@
                             masterParagraphNum: masterData.masterParagraphNum // แก้ไขให้ใช้ตัวแปรที่รับมา
                         };
                         addNewRow(tbody, newId, sentence, docData, rowMasterData);
-                    }); // <-- ใช้ rowMasterData ที่สร้างใหม่
+                    });
+
                         makeTableDraggable(tbody); 
                     if (finalSentences.length > 0) { 
                         dom.createSaveBtn.disabled = false; 
