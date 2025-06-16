@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.7 - Network Handling)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.1)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -418,7 +418,6 @@
                 dom.mergeLinesBtn.style.display = 'inline-block';
                 dom.cleanFormatBtn.style.display = 'inline-block';
                 dom.undoBtn.style.display = 'none';
-                checkFirstSentenceHash();
             }
 
             async function checkFirstSentenceHash() { 
@@ -601,9 +600,8 @@
                             masterPageEnd: masterPageEnd,
                             masterParagraphNum: masterParagraphNum
                         };
-                        addNewRow(tbody, newId, sentence, docData, masterData); 
-                    });
-                    makeTableDraggable(tbody); 
+                        addNewRow(tbody, newId, sentence, docData, rowMasterData); // <-- ใช้ rowMasterData ที่สร้างใหม่                    });
+                        makeTableDraggable(tbody); 
                     if (finalSentences.length > 0) { 
                         dom.createSaveBtn.disabled = false; 
                     } 
@@ -872,10 +870,8 @@
             
             // Event Listeners
             // v5.6: เรียกใช้แค่ checkLastParagraph เมื่อเลือกเรื่อง
-            dom.storyNameInput.addEventListener('blur', async () => {
-                await checkLastParagraph();
-                await findLastGroupId();
-            });            dom.masterPageStartInput.addEventListener('blur', checkPageExists);
+            dom.storyNameInput.addEventListener('blur', checkLastParagraph);         
+            dom.masterPageStartInput.addEventListener('blur', checkPageExists);
             dom.masterPageEndInput.addEventListener('blur', validatePageEnd); // Add listener for validatePageEnd
             dom.masterGroupIdInput.addEventListener('input', validateGroupId); // Add input listener for real-time validation
             dom.masterParagraphNumInput.addEventListener('input', validateParagraphNum); // Add input listener for real-time validation
