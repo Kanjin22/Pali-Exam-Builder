@@ -255,7 +255,7 @@
                 let cleanedLines = lines.filter(line => !noisePatterns.some(pattern => pattern.test(line.trim())));
                 text = cleanedLines.join('\n');
                 text = text.replace(/[๐-๙]+-/g, '');
-                text = text.replace(/€/g, 'ฐ').replace(/ /g, 'ญ');
+                text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
                 const pePlaceholder = " __PEYALA__ ", etcPlaceholder = " __ETC__ ";
                 text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
                 text = text.replace(/\s*\|\s*/g, '  |  ');
