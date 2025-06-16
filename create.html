@@ -718,48 +718,79 @@
                 }));
 
                 // --- 2. เริ่มการตรวจสอบ (Validation) ---
+                // ... ภายในฟังก์ชัน saveData() ...
+
+                // --- 2. เริ่มการตรวจสอบ (Validation) ที่ครอบคลุมทุกกฎ ---
                 try {
-                    // กฎ 2.1: ตรวจสอบทีละแถว
+                    // ดึงค่าบังคับกรอกครั้งแรกมาใช้เป็นเกณฑ์
+                    const initialMasterGroupId = parseInt(dom.masterGroupIdInput.value);
+                    const initialMasterParagraphNum = parseInt(dom.masterParagraphNumInput.value);
+
+                    let previousRowPageEnd = 0; // เก็บค่าหน้าจบของแถวก่อนหน้า
+
+                    // กฎ 2.1: ตรวจสอบข้อมูลในแต่ละแถว (Loop)
                     for (let i = 0; i < rowDataForValidation.length; i++) {
                         const currentRow = rowDataForValidation[i];
-                        // ตรวจสอบหน้าจบ vs หน้าเริ่มในแถวเดียวกัน
+
+                        // --- กฎ: เลขหน้าจบต้องไม่น้อยกว่าเลขหน้าเริ่มของตน ---
                         if (currentRow.pageEnd > 0 && currentRow.pageEnd < currentRow.pageStart) {
-                            throw new Error(`ข้อผิดพลาดแถวที่ ${currentRow.rowIndex}: เลขหน้าจบ (${currentRow.pageEnd}) ต้องไม่น้อยกว่าเลขหน้าเริ่ม (${currentRow.pageStart})`);
+                            throw new Error(`แถวที่ ${currentRow.rowIndex}: เลขหน้าจบ (${currentRow.pageEnd}) ต้องไม่น้อยกว่าเลขหน้าเริ่ม (${currentRow.pageStart})`);
                         }
-                        // ตรวจสอบหน้าเริ่ม vs หน้าจบของแถวก่อนหน้า
-                        if (i > 0) {
-                            const prevRow = rowDataForValidation[i - 1];
-                            if (prevRow.pageEnd > 0 && currentRow.pageStart < prevRow.pageEnd) {
-                                throw new Error(`ข้อผิดพลาดแถวที่ ${currentRow.rowIndex}: เลขหน้าเริ่ม (${currentRow.pageStart}) ต้องไม่น้อยกว่าเลขหน้าจบของแถวก่อนหน้า (${prevRow.pageEnd})`);
+
+                        // --- กฎ: เลขหน้าเริ่มของแถวล่างต้องไม่มากกว่าเลขหน้าจบของแถวบน ---
+                        // (ใช้ค่า previousRowPageEnd ที่อัปเดตในแต่ละรอบ)
+                        if (previousRowPageEnd > 0 && currentRow.pageStart < previousRowPageEnd) {
+                            throw new Error(`แถวที่ ${currentRow.rowIndex}: เลขหน้าเริ่ม (${currentRow.pageStart}) ต้องไม่น้อยกว่าเลขหน้าจบของแถวก่อนหน้า (${previousRowPageEnd})`);
+                        }
+                        
+                        // อัปเดตค่าหน้าจบสำหรับใช้ในรอบถัดไป
+                        // ถ้าหน้าจบแถวนี้มีค่า ให้ใช้ค่านั้น, ถ้าไม่มี ให้ใช้ค่าหน้าเริ่มแทน
+                        previousRowPageEnd = currentRow.pageEnd > 0 ? currentRow.pageEnd : currentRow.pageStart;
+
+                        // --- ตรวจสอบเฉพาะโหมด 'create' เท่านั้น ---
+                        if (currentMode === 'create') {
+                            // --- กฎ: Group ID ในแถวต้องไม่น้อยกว่า Group ID ที่บังคับกรอก ---
+                            if (currentRow.groupId < initialMasterGroupId) {
+                                throw new Error(`แถวที่ ${currentRow.rowIndex}: Group ID (${currentRow.groupId}) ต้องไม่น้อยกว่า Group ID เริ่มต้นที่กำหนดไว้ (${initialMasterGroupId})`);
+                            }
+
+                            // --- กฎ: ย่อหน้าในแถวต้องไม่น้อยกว่าย่อหน้าที่บังคับกรอก ---
+                            if (currentRow.paragraphNum < initialMasterParagraphNum) {
+                                throw new Error(`แถวที่ ${currentRow.rowIndex}: เลขย่อหน้า (${currentRow.paragraphNum}) ต้องไม่น้อยกว่าย่อหน้าเริ่มต้นที่กำหนดไว้ (${initialMasterParagraphNum})`);
                             }
                         }
                     }
 
-                    // กฎ 2.2: ตรวจสอบภาพรวมของกลุ่ม (เฉพาะโหมดสร้างใหม่)
+                    // กฎ 2.2: ตรวจสอบภาพรวมเพิ่มเติม (เฉพาะโหมดสร้างใหม่)
                     if (currentMode === 'create') {
+                        // ดึงค่า ID และย่อหน้าที่ต่ำที่สุดจาก "ทั้งตาราง"
                         const minGroupIdInTable = Math.min(...rowDataForValidation.map(r => r.groupId));
                         const minParaNumInTable = Math.min(...rowDataForValidation.map(r => r.paragraphNum));
                         
+                        // ตรวจสอบกับค่าล่าสุดที่ดึงมาจาก Firestore
                         if (minGroupIdInTable < lastFoundGroupId) {
-                            throw new Error(`ข้อผิดพลาด: Group ID ที่กรอก (${minGroupIdInTable}) น้อยกว่าค่าล่าสุดในระบบ (${lastFoundGroupId})`);
+                            throw new Error(`ภาพรวม: Group ID ที่ใช้ (${minGroupIdInTable}) น้อยกว่าค่าล่าสุดในระบบ (${lastFoundGroupId})`);
                         }
                         if (minParaNumInTable < lastFoundParagraphNum) {
-                            throw new Error(`ข้อผิดพลาด: ย่อหน้าที่กรอก (${minParaNumInTable}) น้อยกว่าค่าล่าสุดในระบบ (${lastFoundParagraphNum})`);
+                            throw new Error(`ภาพรวม: ย่อหน้าที่ใช้ (${minParaNumInTable}) น้อยกว่าค่าล่าสุดในระบบ (${lastFoundParagraphNum})`);
                         }
 
-                        // ตรวจสอบความต่อเนื่องของ Group ID
+                        // (Optional) ตรวจสอบความต่อเนื่องของ Group ID ถ้ายังต้องการ
+                        // ถ้าไม่ต้องการแล้ว สามารถลบส่วนนี้ออกได้
                         const uniqueGroupIds = [...new Set(rowDataForValidation.map(r => r.groupId))].sort((a, b) => a - b);
                         for (let i = 0; i < uniqueGroupIds.length - 1; i++) {
+                            // อนุญาตให้เลขซ้ำได้ (== 0) แต่ไม่อนุญาตให้ข้าม (> 1)
                             if (uniqueGroupIds[i + 1] - uniqueGroupIds[i] > 1) {
-                                throw new Error(`ข้อผิดพลาด: พบการข้ามลำดับของ Group ID (จาก ${uniqueGroupIds[i]} ไป ${uniqueGroupIds[i+1]})`);
+                                throw new Error(`ภาพรวม: พบการข้ามลำดับของ Group ID (จาก ${uniqueGroupIds[i]} ไป ${uniqueGroupIds[i+1]})`);
                             }
                         }
                     }
                
                 } catch (error) {
-                    // v5.7: แก้ไขการจัดการ Error
-                    handleFirestoreError(error, statusElId, 'บันทึกไม่สำเร็จ');
-                    dom.createSaveBtn.disabled = false;
+                    // ส่วนนี้จะจัดการแสดงผลข้อผิดพลาดทั้งหมด
+                    updateStatus(statusElId, `❌ บันทึกไม่สำเร็จ: ${error.message}`, 'error');
+                    dom.createSaveBtn.disabled = false; // คืนปุ่มให้กดได้อีกครั้ง
+                    return; // **สำคัญมาก** หยุดการทำงานของฟังก์ชัน saveData ทันที
                 }
 
                 // --- 3. ถ้าทุกอย่างถูกต้อง ดำเนินการบันทึก ---
@@ -990,12 +1021,11 @@
                     masterData.masterPageEnd = dom.masterPageEndInput.value;
                     masterData.masterParagraphNum = dom.masterParagraphNumInput.value;
                 }
-    
-    // ไม่มีการแก้ไข paragraph number อีกต่อไป
-    
-    addNewRow(tbody, nextAvailableId++, '', null, masterData);
-    updateTableOrder();
-});
+                
+                // ไม่มีการแก้ไข paragraph number อีกต่อไป
+                addNewRow(tbody, nextAvailableId++, '', null, masterData)
+                updateTableOrder();
+            });
 
             dom.createSaveBtn.addEventListener('click', saveData); // ปุ่มบันทึกข้อมูล
             
