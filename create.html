@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.9 - Final Order Logic)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.10 - Last Entry Logic Fix)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -402,12 +402,7 @@
                                 let sentence = parts[i].trim(); 
                                 if (sentence.length > 0) { 
                                     if (i < parts.length - 1) { sentence += ' ฯ'; } 
-                                    let displaySentence = sentence.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ'); 
-                                    finalSentences.push(displaySentence.trim()); 
-                                } 
-                            } 
-                        }); 
-                        if (finalSentences.length === 0 && sourceContent.trim().length > 0) { finalSentences.push(sourceContent.trim().replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯฯ')); } 
+                                    let displaySentence = sentence.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯฯ')); } 
                         finalSentences.forEach((sentence, index) => { 
                             const newId = nextAvailableId++; 
                             const currentGroupId = masterData.masterGroupId + index;
@@ -570,16 +565,32 @@
 
             async function displayLastEntryInfo() {
                 const paliInput = document.getElementById('pali-input');
-                paliInput.placeholder = 'กำลังดึงข้อมูลล่าสุด...';
+                paliInput.placeholder = 'กำลังค้นหาประโยคลำดับสูงสุด...';
                 try {
-                    const q = query( paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart), orderBy("timestamp_pali", "desc"), limit(1) );
+                    const q = query(paliCollection, where("book_title", "==", currentBookName), where("book_part", "==", currentBookPart));
                     const querySnapshot = await getDocs(q);
                     if (!querySnapshot.empty) {
-                        const lastDocData = querySnapshot.docs[0].data();
-                        const lastSentence = lastDocData.pali_text || '';
-                        const lastPage = lastDocData.page_end || lastDocData.page_start || 'ไม่ระบุ';
-                        const placeholderText = `ประโยคสุดท้ายของ ${currentBookName} ${currentBookPart} ที่มีตอนนี้คือ:\n- หน้า: ${lastPage}\n- เนื้อหาบาลีประโยคสุดท้าย: ${lastSentence}`;
-                        paliInput.placeholder = placeholderText;
+                        let highestNum = -1;
+                        let lastDocData = null;
+                        querySnapshot.forEach(doc => {
+                            const data = doc.data();
+                            const currentNum = parseInt((data.sentence_group_id || '0-0').split('-')[1], 10);
+                            if (currentNum > highestNum) {
+                                highestNum = currentNum;
+                                lastDocData = data;
+                            }
+                        });
+                        if (lastDocData) {
+                             const finalGroupQuery = query(paliCollection, where("sentence_group_id", "==", lastDocData.sentence_group_id), orderBy("pali_order", "desc"), limit(1));
+                            const finalGroupSnapshot = await getDocs(finalGroupQuery);
+                            if(!finalGroupSnapshot.empty) {
+                                const finalSentenceData = finalGroupSnapshot.docs[0].data();
+                                const lastSentence = finalSentenceData.pali_text || '';
+                                const lastPage = finalSentenceData.page_end || finalSentenceData.page_start || 'ไม่ระบุ';
+                                const placeholderText = `ประโยคลำดับสูงสุดของ ${currentBookName} ${currentBookPart} คือ:\n- Group ID: ${finalSentenceData.sentence_group_id}\n- หน้า: ${lastPage}\n- เนื้อหา: ${lastSentence}`;
+                                paliInput.placeholder = placeholderText;
+                            } else { throw new Error("Could not find the last sentence of the highest group."); }
+                        } else { paliInput.placeholder = 'ยังไม่มีข้อมูลในคัมภีร์นี้ เริ่มต้นได้เลย!'; }
                     } else {
                         paliInput.placeholder = 'ยังไม่มีข้อมูลในคัมภีร์นี้ เริ่มต้นได้เลย!';
                     }
