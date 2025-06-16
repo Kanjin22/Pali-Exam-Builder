@@ -595,7 +595,7 @@
                         const currentGroupId = dataToPopulate ? docData.sentence_group_id.split('-').pop() : masterGroupId + index; // เลขเริ่มต้น + ลำดับแถว
                         
                         // สร้าง object masterData ใหม่สำหรับแต่ละแถว
-                        const masterData = {
+                        const rowMasterData = {
                             masterGroupId: currentGroupId,
                             masterPageStart: masterPageStart,
                             masterPageEnd: masterPageEnd,
