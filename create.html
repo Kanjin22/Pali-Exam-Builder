@@ -594,6 +594,13 @@
                         // --- ส่วนที่แก้ไข: คำนวณ Group ID ใหม่สำหรับแต่ละแถว ---
                         const currentGroupId = dataToPopulate ? docData.sentence_group_id.split('-').pop() : masterGroupId + index; // เลขเริ่มต้น + ลำดับแถว
                         
+                        // สร้าง object masterData ใหม่สำหรับแต่ละแถว
+                        const masterData = {
+                            masterGroupId: currentGroupId,
+                            masterPageStart: masterPageStart,
+                            masterPageEnd: masterPageEnd,
+                            masterParagraphNum: masterParagraphNum
+                        };
                         addNewRow(tbody, newId, sentence, docData, masterData); 
                     });
                     makeTableDraggable(tbody); 
