@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.8 - Final with Placeholder Text Update)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.9 - Final Order Logic)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -407,7 +407,7 @@
                                 } 
                             } 
                         }); 
-                        if (finalSentences.length === 0 && sourceContent.trim().length > 0) { finalSentences.push(sourceContent.trim().replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ')); } 
+                        if (finalSentences.length === 0 && sourceContent.trim().length > 0) { finalSentences.push(sourceContent.trim().replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯฯ')); } 
                         finalSentences.forEach((sentence, index) => { 
                             const newId = nextAvailableId++; 
                             const currentGroupId = masterData.masterGroupId + index;
@@ -429,7 +429,9 @@
                 if (aPrefix > bPrefix) return 1;
                 const aNum = parseInt(aNumStr, 10) || 0;
                 const bNum = parseInt(bNumStr, 10) || 0;
-                return aNum - bNum;
+                if (aNum < bNum) return -1;
+                if (aNum > bNum) return 1;
+                return a.originalIndex - b.originalIndex;
             }
 
             async function saveData() {
@@ -438,9 +440,19 @@
                 const tableRows = Array.from(dom.createSentenceTable.querySelector('tbody').rows);
                 if (tableRows.length === 0) { alert('ไม่มีข้อมูลในตารางให้บันทึก'); return; }
 
-                let dataFromTable = tableRows.map(row => {
+                let dataFromTable = tableRows.map((row, index) => {
                     const groupIdNum = row.querySelector('.group-id-input')?.value || '0';
-                    return { docId: row.dataset.id, groupIdNum: parseInt(groupIdNum), fullGroupId: `${currentPrefix}-${groupIdNum}`, pageStart: parseInt(row.querySelector('.page-start-input')?.value || '0'), pageEnd: parseInt(row.querySelector('.page-end-input')?.value || '0'), paragraphNum: parseInt(row.querySelector('.paragraph-num-input')?.value || '0'), textType: row.querySelector('.text-type-input')?.value, paliText: row.querySelector('.pali-text-input')?.value.trim() };
+                    return {
+                        originalIndex: index,
+                        docId: row.dataset.id,
+                        groupIdNum: parseInt(groupIdNum),
+                        fullGroupId: `${currentPrefix}-${groupIdNum}`,
+                        pageStart: parseInt(row.querySelector('.page-start-input')?.value || '0'),
+                        pageEnd: parseInt(row.querySelector('.page-end-input')?.value || '0'),
+                        paragraphNum: parseInt(row.querySelector('.paragraph-num-input')?.value || '0'),
+                        textType: row.querySelector('.text-type-input')?.value,
+                        paliText: row.querySelector('.pali-text-input')?.value.trim(),
+                    };
                 });
 
                 dataFromTable.sort(naturalSortTableData);
@@ -478,10 +490,13 @@
 
                     dataFromTable.forEach((data, index) => {
                         const docRef = doc(db, "pali_sentences", data.docId);
+                        
+                        const subOrder = dataFromTable.filter(d => d.fullGroupId === data.fullGroupId).findIndex(d => d.originalIndex === data.originalIndex) + 1;
+                            
                         let dataToSave = {
                             id: parseInt(data.docId),
                             sentence_group_id: data.fullGroupId,
-                            pali_order: index + 1,
+                            pali_order: subOrder,
                             book_title: currentBookName, book_part: currentBookPart,
                             chapter_name: chapterName, story_name: storyName, section_name: sectionName,
                             display_flag: displayFlag,
@@ -563,9 +578,8 @@
                         const lastDocData = querySnapshot.docs[0].data();
                         const lastSentence = lastDocData.pali_text || '';
                         const lastPage = lastDocData.page_end || lastDocData.page_start || 'ไม่ระบุ';
-                        const lastGroup = lastDocData.sentence_group_id || 'ไม่ระบุ';
                         const placeholderText = `ประโยคสุดท้ายของ ${currentBookName} ${currentBookPart} ที่มีตอนนี้คือ:\n- หน้า: ${lastPage}\n- เนื้อหาบาลีประโยคสุดท้าย: ${lastSentence}`;
-                        paliInput.placeholder = placeholderText;                        paliInput.placeholder = placeholderText;
+                        paliInput.placeholder = placeholderText;
                     } else {
                         paliInput.placeholder = 'ยังไม่มีข้อมูลในคัมภีร์นี้ เริ่มต้นได้เลย!';
                     }
