@@ -596,11 +596,12 @@
                         // สร้าง object masterData ใหม่สำหรับแต่ละแถว
                         const rowMasterData = {
                             masterGroupId: currentGroupId,
-                            masterPageStart: masterPageStart,
-                            masterPageEnd: masterPageEnd,
-                            masterParagraphNum: masterParagraphNum
+                            masterPageStart: masterData.masterPageStart,
+                            masterPageEnd: masterData.masterPageEnd, // แก้ไขให้ใช้ตัวแปรที่รับมา
+                            masterParagraphNum: masterData.masterParagraphNum // แก้ไขให้ใช้ตัวแปรที่รับมา
                         };
-                        addNewRow(tbody, newId, sentence, docData, rowMasterData); // <-- ใช้ rowMasterData ที่สร้างใหม่                    });
+                        addNewRow(tbody, newId, sentence, docData, rowMasterData);
+                    }); // <-- ใช้ rowMasterData ที่สร้างใหม่
                         makeTableDraggable(tbody); 
                     if (finalSentences.length > 0) { 
                         dom.createSaveBtn.disabled = false; 
@@ -884,33 +885,34 @@
             dom.splitBtn.addEventListener('click', () => generateCreateTable(null)); // ปุ่ม "กดเพื่อแบ่งประโยค"
 
             // v5.0: ปุ่ม "+ เพิ่มแถวว่าง"
+            // Event Listener ของ addRowBtn ที่แก้ไขแล้ว
             dom.addRowBtn.addEventListener('click', () => {
                 const tbody = dom.createSentenceTable.querySelector('tbody');
+                if (!tbody) return; // เพิ่มการป้องกันถ้า tbody ไม่มี
                 const lastRow = tbody.lastElementChild;
                 let masterData = { masterGroupId: '', masterPageStart: '', masterPageEnd: '', masterParagraphNum: '' };
-
-                // Try to get values from the last row if it exists
+                
                 if (lastRow) {
-                    masterData.masterGroupId = lastRow.querySelector('.group-id-input')?.value || '';
+                    // ดึงข้อมูลจากแถวสุดท้าย
+                    const lastGroupId = parseInt(lastRow.querySelector('.group-id-input')?.value || '0');
+                    // ตรรกะใหม่: เพิ่ม Group ID ขึ้น 1, แต่ใช้ข้อมูลอื่นๆ เหมือนเดิม
+                    masterData.masterGroupId = lastGroupId + 1; 
                     masterData.masterPageStart = lastRow.querySelector('.page-start-input')?.value || '';
                     masterData.masterPageEnd = lastRow.querySelector('.page-end-input')?.value || '';
                     masterData.masterParagraphNum = lastRow.querySelector('.paragraph-num-input')?.value || '';
                 } else {
-                    // Fallback to master inputs if no rows exist
+                    // กรณีไม่มีแถวเลย ให้ดึงข้อมูลจาก input หลัก
                     masterData.masterGroupId = dom.masterGroupIdInput.value;
                     masterData.masterPageStart = dom.masterPageStartInput.value;
                     masterData.masterPageEnd = dom.masterPageEndInput.value;
                     masterData.masterParagraphNum = dom.masterParagraphNumInput.value;
                 }
-                
-                // Increment paragraph_num if there's a last row and it's not in super-edit mode
-                if (currentMode !== 'super-edit' && lastRow) {
-                    masterData.masterParagraphNum = parseInt(masterData.masterParagraphNum) + 1;
-                }
-
-                addNewRow(tbody, nextAvailableId++, '', null, masterData);
-                updateTableOrder();
-            });
+    
+    // ไม่มีการแก้ไข paragraph number อีกต่อไป
+    
+    addNewRow(tbody, nextAvailableId++, '', null, masterData);
+    updateTableOrder();
+});
 
             dom.createSaveBtn.addEventListener('click', saveData); // ปุ่มบันทึกข้อมูล
             
