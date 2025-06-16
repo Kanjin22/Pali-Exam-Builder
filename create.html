@@ -530,9 +530,9 @@
                     alert('Group ID หรือ ย่อหน้า ที่กรอกไม่ถูกต้อง กรุณาตรวจสอบข้อความแนะนำ'); 
                     return; 
                 } 
-                if (!validatePageEnd()) return; 
-
-                const masterGroupId = document.getElementById('master_group_id').value; 
+                if (!validatePageEnd()) return;
+                
+                const masterGroupId = parseInt(document.getElementById('master_group_id').value); // แปลงเป็นตัวเลข
                 const masterPageStart = dom.masterPageStartInput.value; 
                 const masterParagraphNum = document.getElementById('master_paragraph_num').value; 
 
@@ -591,8 +591,11 @@
                     finalSentences.forEach((sentence, index) => { 
                         const docData = dataToPopulate ? dataToPopulate[index] : null; 
                         const newId = docData ? docData.id : nextAvailableId++; 
+                        // --- ส่วนที่แก้ไข: คำนวณ Group ID ใหม่สำหรับแต่ละแถว ---
+                        const currentGroupId = dataToPopulate ? docData.sentence_group_id.split('-').pop() : masterGroupId + index; // เลขเริ่มต้น + ลำดับแถว
+                        
                         addNewRow(tbody, newId, sentence, docData, masterData); 
-                    }); 
+                    });
                     makeTableDraggable(tbody); 
                     if (finalSentences.length > 0) { 
                         dom.createSaveBtn.disabled = false; 
