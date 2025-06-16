@@ -872,8 +872,10 @@
             
             // Event Listeners
             // v5.6: เรียกใช้แค่ checkLastParagraph เมื่อเลือกเรื่อง
-            dom.storyNameInput.addEventListener('blur', checkLastParagraph);
-            dom.masterPageStartInput.addEventListener('blur', checkPageExists);
+            dom.storyNameInput.addEventListener('blur', async () => {
+                await checkLastParagraph();
+                await findLastGroupId();
+            });            dom.masterPageStartInput.addEventListener('blur', checkPageExists);
             dom.masterPageEndInput.addEventListener('blur', validatePageEnd); // Add listener for validatePageEnd
             dom.masterGroupIdInput.addEventListener('input', validateGroupId); // Add input listener for real-time validation
             dom.masterParagraphNumInput.addEventListener('input', validateParagraphNum); // Add input listener for real-time validation
