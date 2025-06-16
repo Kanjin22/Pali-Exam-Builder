@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>เครื่องมือตรวจสอบคุณภาพข้อมูลบาลี (v4.1 - Bug Fix)</title>
+    <style>
+        /* CSS ทั้งหมดเหมือนเดิม */
+        body { font-family: 'Sarabun', sans-serif; padding: 20px; line-height: 1.6; background-color: #f4f6f9; }
+        .container { max-width: 1200px; margin: auto; background: #fff; padding: 20px 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .audit-section { border: 1px solid #ddd; padding: 15px; margin-top: 20px; background-color: #fdfdfd; border-radius: 5px; }
+        h3 { color: #34495e; }
+        ul { padding-left: 20px; max-height: 300px; overflow-y: auto; border: 1px solid #ecf0f1; padding-top: 10px; }
+        li { margin-bottom: 10px; padding: 10px; background-color: #fff; border-left-width: 5px; list-style-type: '⚠️'; display: flex; justify-content: space-between; align-items: center; }
+        li.error-item { border-color: #e74c3c; }
+        li.info-item { border-color: #3498db; list-style-type: 'ℹ️';}
+        code { background-color: #ecf0f1; color: #c0392b; padding: 2px 5px; border-radius: 3px; font-weight: bold; }
+        p.status { font-weight: bold; font-size: 1.2em; text-align: center; padding: 15px; border-radius: 5px; }
+        p.status.loading { color: #3498db; background-color: #eaf5ff; }
+        p.status.success { color: #27ae60; background-color: #eafaf1; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;}
+        .summary-box { background: #ecf0f1; text-align: center; padding: 15px; border-radius: 5px; }
+        .summary-box .count { font-size: 2em; font-weight: bold; }
+        .summary-box .label { font-size: 0.9em; color: #555; }
+        .edit-btn { display: inline-block; margin-left: 15px; padding: 4px 10px; font-size: 0.85em; text-decoration: none; color: #fff; background-color: var(--primary-color); border-radius: 4px; transition: background-color 0.2s; white-space: nowrap; }
+        .edit-btn:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>เครื่องมือตรวจสอบคุณภาพข้อมูล (Data Audit)</h1>
+        <p class="status loading" id="status">กำลังเชื่อมต่อและดึงข้อมูลจาก Firebase...</p>
+        <div class="summary">
+            <div class="summary-box"><div id="total-docs" class="count">0</div><div class="label">ประโยคทั้งหมด</div></div>
+            <div class="summary-box"><div id="untranslated-docs" class="count" style="color: #f39c12;">0</div><div class="label">ประโยคที่ยังไม่แปล</div></div>
+            <div class="summary-box"><div id="total-errors" class="count" style="color: #e74c3c;">0</div><div class="label">ข้อผิดพลาดโครงสร้าง</div></div>
+        </div>
+        <div id="results">
+            <div class="audit-section"><h3>0. ประโยคที่ยังไม่ได้แปล (พบ <span id="count-untranslated">0</span>)</h3><ul id="list-untranslated"></ul></div>
+            <div class="audit-section"><h3>1. หน้าเริ่ม > หน้าจบ (พบ <span id="count-page-range">0</span>)</h3><ul id="list-page-range"></ul></div>
+            <div class="audit-section"><h3>2. ลำดับหน้าซ้อนกัน (พบ <span id="count-page-overlap">0</span>)</h3><ul id="list-page-overlap"></ul></div>
+            <div class="audit-section"><h3>3. Group ID ข้ามลำดับ (พบ <span id="count-group-gap">0</span>)</h3><ul id="list-group-gap"></ul></div>
+            <div class="audit-section"><h3>4. ย่อหน้าไม่ต่อเนื่องภายในเรื่อง (พบ <span id="count-para-gap">0</span>)</h3><ul id="list-para-gap"></ul></div>
+            <div class="audit-section"><h3>5. ข้อมูลที่จำเป็นขาดหาย (พบ <span id="count-missing-data">0</span>)</h3><ul id="list-missing-data"></ul></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, collection, getDocs, query } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyDoe7sUNTdaK7uFxvi_Y16C4nCX4kKFiDA",
+            authDomain: "pali-exam-builder.firebaseapp.com",
+            projectId: "pali-exam-builder",
+            storageBucket: "pali-exam-builder.appspot.com",
+            messagingSenderId: "783124881115",
+            appId: "1:783124881115:web:688f964e586df5b17d36fe",
+            measurementId: "G-8HV8B03THV"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const statusEl = document.getElementById('status');
+        const totalDocsEl = document.getElementById('total-docs');
+        const totalErrorsEl = document.getElementById('total-errors');
+        const untranslatedDocsEl = document.getElementById('untranslated-docs');
+
+        function createEditLink(doc) {
+            if (!doc || !doc.book_title || !doc.book_part || !doc.sentence_group_id) {
+                return '';
+            }
+            const params = new URLSearchParams({
+                bookName: doc.book_title,
+                bookPart: doc.book_part,
+                prefix: doc.sentence_group_id.split('-')[0],
+                editGroupId: doc.sentence_group_id
+            });
+            const editUrl = `create.html?${params.toString()}`;
+            return `<a href="${editUrl}" target="_blank" class="edit-btn">แก้ไข ✏️</a>`;
+        }
+
+        function createListItem(content, type = 'error', editButtonHtml = '') {
+            const item = document.createElement('li');
+            item.innerHTML = `<div>${content}</div>${editButtonHtml}`;
+            item.className = type === 'error' ? 'error-item' : 'info-item';
+            return item;
+        }
+        
+        // **** นี่คือจุดที่แก้ไข: ลบบรรทัดที่ประกาศฟังก์ชันซ้ำซ้อนออกไปแล้ว ****
+        function renderResults(listId, countId, items) {
+            const listEl = document.getElementById(listId);
+            const countEl = document.getElementById(countId);
+            listEl.innerHTML = '';
+            countEl.textContent = items.length;
+            if (listId !== 'list-untranslated') {
+                totalErrorsEl.textContent = parseInt(totalErrorsEl.textContent) + items.length;
+            }
+            if (items.length === 0) {
+                listEl.appendChild(createListItem('<em>ไม่พบรายการในหมวดนี้ 🎉</em>', 'info'));
+            } else {
+                items.forEach(item => listEl.appendChild(item));
+            }
+        }
+        
+        function naturalSortGroupId(a, b) {
+            const aId = a.sentence_group_id || '';
+            const bId = b.sentence_group_id || '';
+            const [aPrefix, aNumStr] = aId.split('-');
+            const [bPrefix, bNumStr] = bId.split('-');
+            if (aPrefix < bPrefix) return -1;
+            if (aPrefix > bPrefix) return 1;
+            const aNum = parseInt(aNumStr, 10) || 0;
+            const bNum = parseInt(bNumStr, 10) || 0;
+            if (aNum < bNum) return -1;
+            if (aNum > bNum) return 1;
+            const aOrder = a.pali_order || 0;
+            const bOrder = b.pali_order || 0;
+            return aOrder - bOrder;
+        }
+
+        async function runAudit() {
+            try {
+                statusEl.textContent = `กำลังดึงข้อมูลทั้งหมดจาก Firebase...`;
+                const q = query(collection(db, "pali_sentences"));
+                const querySnapshot = await getDocs(q);
+                statusEl.textContent = `ดึงข้อมูลสำเร็จ ${querySnapshot.size} รายการ, กำลังจัดเรียงและตรวจสอบ...`;
+                const allDocs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort(naturalSortGroupId);
+                totalDocsEl.textContent = allDocs.length;
+
+                const untranslatedItems = [];
+                allDocs.forEach(doc => {
+                    if (!doc.thai_text || doc.thai_text.trim() === '' || doc.translation_status === 'untranslated') {
+                        untranslatedItems.push(createListItem(`<strong>Group:</strong> <code>${doc.sentence_group_id}</code> | <strong>ID:</strong> ${doc.id}<br><em>เนื้อหา: ${doc.pali_text.substring(0, 100)}...</em>`, 'info'));
+                    }
+                });
+                untranslatedDocsEl.textContent = untranslatedItems.length;
+                renderResults('list-untranslated', 'count-untranslated', untranslatedItems);
+
+                const pageRangeErrors = [], missingDataErrors = [], groupGapErrors = [], pageOverlapErrors = [], paraGapErrors = [];
+                
+                for (let i = 0; i < allDocs.length; i++) {
+                    const doc = allDocs[i];
+                    
+                    if (doc.page_end && doc.page_start > doc.page_end) {
+                        const message = `<strong>ID:</strong> ${doc.id} | <strong>Group:</strong> <code>${doc.sentence_group_id}</code><br><strong>ปัญหา:</strong> หน้าเริ่ม <code>${doc.page_start}</code> > หน้าจบ <code>${doc.page_end}</code>`;
+                        pageRangeErrors.push(createListItem(message, 'error', createEditLink(doc)));
+                    }
+                    if (!doc.book_title || !doc.book_part || !doc.sentence_group_id || !doc.pali_text) {
+                        const message = `<strong>ID:</strong> ${doc.id} | <strong>Group:</strong> <code>${doc.sentence_group_id || 'N/A'}</code><br><strong>ปัญหา:</strong> ข้อมูลสำคัญขาดหาย`;
+                        missingDataErrors.push(createListItem(message, 'error', createEditLink(doc)));
+                    }
+
+                    if (i > 0) {
+                        const prev = allDocs[i-1];
+                        const curr = doc;
+
+                        const [prevPrefix, prevNumStr] = (prev.sentence_group_id || '').split('-');
+                        const [currPrefix, currNumStr] = (curr.sentence_group_id || '').split('-');
+                        if (prevPrefix === currPrefix) {
+                            const prevNum = parseInt(prevNumStr, 10);
+                            const currNum = parseInt(currNumStr, 10);
+                            if (currNum > prevNum && (currNum - prevNum > 1)) {
+                                const message = `<strong>ปัญหา:</strong> ข้ามลำดับจาก <code>${prev.sentence_group_id}</code> ไปยัง <code>${curr.sentence_group_id}</code>`;
+                                groupGapErrors.push(createListItem(message, 'error', createEditLink(curr)));
+                            }
+                        }
+                        
+                        const prevEffectivePageEnd = prev.page_end || prev.page_start;
+                        if (prevEffectivePageEnd > 0 && curr.page_start < prevEffectivePageEnd) {
+                             const message = `<strong>ID:</strong> ${curr.id} | <strong>Group:</strong> <code>${curr.sentence_group_id}</code> เริ่มที่หน้า <code>${curr.page_start}</code><br><strong>ปัญหา:</strong> ซ้อนกับ Group ก่อนหน้า (<code>${prev.sentence_group_id}</code>) ที่จบที่หน้า <code>${prevEffectivePageEnd}</code>`;
+                             pageOverlapErrors.push(createListItem(message, 'error', createEditLink(curr)));
+                        }
+                    }
+                }
+                
+                const stories = {};
+                allDocs.forEach(doc => {
+                    const storyKey = `${doc.book_title}-${doc.story_name}`;
+                    if (!stories[storyKey]) stories[storyKey] = [];
+                    stories[storyKey].push(doc);
+                });
+                for (const storyKey in stories) {
+                    const docsInStory = stories[storyKey];
+                    const uniqueParagraphs = [...new Set(docsInStory.map(d => d.paragraph_num).filter(p => p > 0))].sort((a,b) => a-b);
+                    for (let i = 1; i < uniqueParagraphs.length; i++) {
+                        const prevPara = uniqueParagraphs[i-1];
+                        const currPara = uniqueParagraphs[i];
+                        if (currPara - prevPara > 1) {
+                            const problematicDoc = docsInStory.find(d => d.paragraph_num === currPara);
+                            const message = `<strong>เรื่อง:</strong> ${docsInStory[0].story_name || '<em>(ไม่มีชื่อเรื่อง)</em>'} ใน <strong>คัมภีร์:</strong> ${docsInStory[0].book_title}<br><strong>ปัญหา:</strong> ข้ามลำดับย่อจาก <code>${prevPara}</code> ไปยัง <code>${currPara}</code>`;
+                            paraGapErrors.push(createListItem(message, 'error', createEditLink(problematicDoc)));
+                        }
+                    }
+                }
+
+                renderResults('list-page-range', 'count-page-range', pageRangeErrors);
+                renderResults('list-missing-data', 'count-missing-data', missingDataErrors);
+                renderResults('list-group-gap', 'count-group-gap', groupGapErrors);
+                renderResults('list-page-overlap', 'count-page-overlap', pageOverlapErrors);
+                renderResults('list-para-gap', 'count-para-gap', paraGapErrors);
+
+                statusEl.textContent = 'การตรวจสอบทั้งหมดเสร็จสิ้น!';
+                statusEl.className = 'status success';
+
+            } catch (error) {
+                statusEl.textContent = `เกิดข้อผิดพลาดรุนแรง: ${error.message}`;
+                console.error("Audit Error: ", error);
+            }
+        }
+
+        runAudit();
+
+    </script>
+</body>
+</html>
