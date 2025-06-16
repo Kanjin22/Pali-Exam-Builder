@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.7 - UI Text Clarity)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.8 - Final with Placeholder Text Update)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -564,8 +564,8 @@
                         const lastSentence = lastDocData.pali_text || '';
                         const lastPage = lastDocData.page_end || lastDocData.page_start || 'ไม่ระบุ';
                         const lastGroup = lastDocData.sentence_group_id || 'ไม่ระบุ';
-                        const placeholderText = `ข้อมูลล่าสุดที่บันทึก:\n- Group ID: ${lastGroup}\n- หน้า: ${lastPage}\n- ประโยคสุดท้าย: ${lastSentence}`;
-                        paliInput.placeholder = placeholderText;
+                        const placeholderText = `ประโยคสุดท้ายของ ${currentBookName} ${currentBookPart} ที่มีตอนนี้คือ:\n- หน้า: ${lastPage}\n- เนื้อหาบาลีประโยคสุดท้าย: ${lastSentence}`;
+                        paliInput.placeholder = placeholderText;                        paliInput.placeholder = placeholderText;
                     } else {
                         paliInput.placeholder = 'ยังไม่มีข้อมูลในคัมภีร์นี้ เริ่มต้นได้เลย!';
                     }
