@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.6 - Corrected Group ID Logic)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.7 - Network Handling)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -124,6 +124,21 @@
                 addRowBtn: document.getElementById('add-row-btn'),
             };
 
+            // v5.7: ฟังก์ชันจัดการ Error กลาง
+            function handleFirestoreError(error, elementId, defaultMessage = 'เกิดข้อผิดพลาด') {
+                let errorMessage = error.message;
+                // ตรวจสอบว่าเป็น Network Error หรือไม่
+                if (error.code === 'unavailable' || !navigator.onLine) {
+                    errorMessage = 'ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้';
+                } 
+                // ตรวจสอบว่าเป็นปัญหา Index หรือไม่
+                else if (error.code === 'failed-precondition') {
+                    errorMessage = `${defaultMessage}: ${error.message} (อาจต้องสร้าง Index)`;
+                }
+                updateStatus(elementId, `❌ ${errorMessage}`, 'error');
+                console.error(`Firestore Error on element ${elementId}:`, error);
+            }
+
             function updateStatus(elementId, message, type) { 
                 const el = document.getElementById(elementId); 
                 if(el){ 
@@ -242,14 +257,14 @@
                     lastFoundGroupId = maxNumber;
                     updateStatus(statusElId, `ID ล่าสุดที่ใช้ในคัมภีร์นี้คือ: <strong>${currentPrefix}-${lastFoundGroupId}</strong>. แนะนำให้ใช้: <strong>${lastFoundGroupId + 1}</strong>`, 'success'); 
 
-                } catch (error) { 
-                    lastFoundGroupId = 0; 
-                    if (error.code === 'failed-precondition') { 
-                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}. <br><strong>อาจต้องสร้าง Index ใหม่สำหรับการค้นหานี้</strong>`, 'error'); 
-                    } else { 
-                        updateStatus(statusElId, `เกิดข้อผิดพลาด: ${error.message}`, 'error'); 
-                    } 
-                } 
+                } catch (error) {
+                    // v5.7: แก้ไขการจัดการ Error
+                    // จะไม่รีเซ็ตค่าถ้าเป็นปัญหา network
+                    if (error.code !== 'unavailable' && navigator.onLine) {
+                        lastFoundGroupId = 0;
+                    }
+                    handleFirestoreError(error, statusElId, 'ไม่สามารถค้นหา Group ID ได้');
+                }
             }
 
             async function checkLastParagraph() { 
@@ -268,14 +283,14 @@
                     } 
                     lastFoundParagraphNum = lastParagraph; 
                     updateStatus('paragraph_suggestion', `เรื่องนี้มีย่อหน้าล่าสุดคือ ${lastParagraph}. แนะนำให้ใช้: ${lastParagraph + 1}`, 'success'); 
-                } catch (error) { 
-                    lastFoundParagraphNum = 0; 
-                    if (error.code === 'failed-precondition') { 
-                        updateStatus('paragraph_suggestion', 'เป็นเรื่องใหม่ (ต้องสร้าง Index เพื่อยืนยัน)', 'warning'); 
-                    } else { 
-                        updateStatus('paragraph_suggestion', 'เป็นเรื่องใหม่', 'success'); 
-                    } 
-                } 
+                
+                } catch (error) {
+                    // v5.7: แก้ไขการจัดการ Error
+                    if (error.code !== 'unavailable' && navigator.onLine) {
+                        lastFoundParagraphNum = 0;
+                    }
+                    handleFirestoreError(error, 'paragraph_suggestion', 'เป็นเรื่องใหม่');
+                }
             }
 
             async function checkPageExists() { 
@@ -302,8 +317,10 @@
                         html += `</ul>`; 
                         updateStatus('page_check_result', html, 'warning'); 
                     } 
-                } catch(error) { 
-                    updateStatus('page_check_result', `เกิดข้อผิดพลาด: ${error.message} (ต้องสร้าง Index)`, 'error'); 
+                
+                } catch(error) {
+                    // v5.7: แก้ไขการจัดการ Error
+                    handleFirestoreError(error, 'page_check_result', 'เกิดข้อผิดพลาดในการตรวจสอบหน้า');
                 } 
             }
 
@@ -428,8 +445,10 @@
                     } else { 
                         updateStatus('hash_check_result', '✅ เนื้อหานี้ไม่น่าจะซ้ำ', 'success'); 
                     } 
-                } catch(error) { 
-                    updateStatus('hash_check_result', `เกิดข้อผิดพลาด: ${error.message} (ต้องสร้าง Index)`, 'error'); 
+                
+                } catch(error) {
+                    // v5.7: แก้ไขการจัดการ Error
+                    handleFirestoreError(error, 'hash_check_result', 'เกิดข้อผิดพลาดในการตรวจสอบเนื้อหา');
                 } 
             }
 
@@ -644,9 +663,11 @@
                             }
                         }
                     }
+               
                 } catch (error) {
-                    alert(error.message); // แสดง alert แจ้งเตือน
-                    return; // หยุดการทำงานทันที
+                    // v5.7: แก้ไขการจัดการ Error
+                    handleFirestoreError(error, statusElId, 'บันทึกไม่สำเร็จ');
+                    dom.createSaveBtn.disabled = false;
                 }
 
                 // --- 3. ถ้าทุกอย่างถูกต้อง ดำเนินการบันทึก ---
