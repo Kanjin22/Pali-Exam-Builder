@@ -375,13 +375,21 @@
                 let text = dom.paliInput.value;
                 if (!text.trim()) return;
                 
-                // --- ส่วนที่เพิ่มเข้ามา: เชื่อมศัพท์ที่ถูกฉีก ---
-                const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*\n\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
-                text = text.replace(hyphenatedWordRegex, '$1$2');
+                // --- ขั้นตอนที่ 1: เชื่อมศัพท์ที่ถูกฉีกก่อน ---
+                // ค้นหาแพทเทิร์น: (ตัวอักษร)-[ขึ้นบรรทัดใหม่]*[ตัวอักษร]
+                // แล้วนำมาต่อกันโดย "ไม่มี" ช่องว่างคั่น
+                const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*(\r\n|\n|\r)\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
+                text = text.replace(hyphenatedWordRegex, '$1$3');
 
-                // ✅ ทำหน้าที่ รวมทุกบรรทัดเป็นบรรทัดเดียวเท่านั้น
-                // ✅ ไม่ยุ่ง กับการจัดระเบียบช่องว่างหรือแทนที่อักขระ
-                let singleLineText = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, ' ');
+                // --- ขั้นตอนที่ 2: รวมบรรทัดที่เหลือ ---
+                // ค้นหาการขึ้นบรรทัดใหม่ที่ยังเหลืออยู่ แล้วแทนที่ด้วย "ช่องว่าง 2 เคาะ"
+                let singleLineText = text.replace(/(\r\n|\n|\r)/gm, "  ");
+
+                // --- ขั้นตอนที่ 3: จัดการช่องว่างที่อาจจะเกิน 2 เคาะ ---
+                // ยุบช่องว่างที่อาจจะติดกัน 3 เคาะขึ้นไป ให้เหลือแค่ 2 เคาะ
+                singleLineText = singleLineText.replace(/\s{3,}/g, '  ');
+
+                // --- ขั้นตอนสุดท้าย: แสดงผลและสลับปุ่ม ---
                 dom.paliInput.value = singleLineText.trim();
                 dom.mergeLinesBtn.style.display = 'none';
                 dom.undoBtn.style.display = 'inline-block';
