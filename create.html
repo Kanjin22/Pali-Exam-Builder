@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.6 - Final)</title>
+    <title>สร้าง/แก้ไขข้อมูลหลัก (v5.9.7 - UI Text Clarity)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -88,7 +88,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, collection, doc, getDocs, writeBatch, serverTimestamp, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
         
-        // Firebase Config (ใส่ให้เรียบร้อยแล้ว)
         const firebaseConfig = {
             apiKey: "AIzaSyDoe7sUNTdaK7uFxvi_Y16C4nCX4kKFiDA",
             authDomain: "pali-exam-builder.firebaseapp.com",
@@ -115,6 +114,7 @@
             const dom = {
                 container: document.getElementById('container'), mainHeader: document.getElementById('main-header'), subHeader: document.getElementById('sub-header'),
                 userNameInput: document.getElementById('user_name'), storyNameInput: document.getElementById('story_name'),
+                chapter_name: document.getElementById('chapter_name'), section_name: document.getElementById('section_name'), display_flag: document.getElementById('display_flag'),
                 masterPageStartInput: document.getElementById('master_page_start'), masterPageEndInput: document.getElementById('master_page_end'),
                 paliInput: document.getElementById('pali-input'), masterGroupIdInput: document.getElementById('master_group_id'),
                 masterParagraphNumInput: document.getElementById('master_paragraph_num'),
@@ -151,8 +151,8 @@
                 const currentId = parseInt(dom.masterGroupIdInput.value); 
                 if (currentMode === 'super-edit') { updateStatus('group_id_suggestion', 'อยู่ในโหมดแก้ไขข้อมูลหลัก', ''); return true; } 
                 if (isNaN(currentId) || !currentId) { updateStatus('group_id_suggestion', 'กรุณากรอก Group ID (ตัวเลขเท่านั้น)', 'error'); return false; }
-                if (currentId < lastFoundGroupId) { updateStatus('group_id_suggestion', `❌ ไม่สามารถใช้ ID ที่น้อยกว่า ID ล่าสุดได้ (ล่าสุดคือ ${lastFoundGroupId})`, 'error'); return false; } 
-                else if (currentId > lastFoundGroupId + 1) { updateStatus('group_id_suggestion', `❌ ไม่สามารถข้ามลำดับ ID ได้ (ต้องใช้ ${lastFoundGroupId} หรือ ${lastFoundGroupId + 1})`, 'error'); return false; } 
+                if (currentId <= lastFoundGroupId) { updateStatus('group_id_suggestion', `❌ ไม่สามารถใช้ ID ที่น้อยกว่าหรือเท่ากับ ID สูงสุดได้ (สูงสุดคือ ${lastFoundGroupId})`, 'error'); return false; } 
+                else if (currentId > lastFoundGroupId + 1) { updateStatus('group_id_suggestion', `❌ ไม่สามารถข้ามลำดับ ID ได้ (ต้องใช้ ${lastFoundGroupId + 1})`, 'error'); return false; } 
                 else { updateStatus('group_id_suggestion', '✅ ID ถูกต้อง', 'success'); return true; } 
             }
 
@@ -181,7 +181,7 @@
             async function findLastGroupId() { 
                 if (!currentBookName || !currentPrefix) return; 
                 const statusElId = 'group_id_suggestion'; 
-                updateStatus(statusElId, `กำลังค้นหา ID ล่าสุดของคัมภีร์...`, ''); 
+                updateStatus(statusElId, `กำลังค้นหา ID สูงสุดของคัมภีร์...`, ''); 
                 try { 
                     const q = query(paliCollection, where('sentence_group_id', '>=', `${currentPrefix}-`), where('sentence_group_id', '<', `${currentPrefix}-z`));
                     const querySnapshot = await getDocs(q); 
@@ -191,7 +191,7 @@
                         maxNumber = Math.max(...allNumbers);
                     } 
                     lastFoundGroupId = maxNumber;
-                    updateStatus(statusElId, `ID ล่าสุดที่ใช้ในคัมภีร์นี้คือ: <strong>${currentPrefix}-${lastFoundGroupId}</strong>. แนะนำให้ใช้: <strong>${lastFoundGroupId + 1}</strong>`, 'success'); 
+                    updateStatus(statusElId, `ID <strong>สูงสุด</strong>ที่ใช้ในคัมภีร์นี้คือ: <strong>${currentPrefix}-${lastFoundGroupId}</strong>. แนะนำให้ใช้: <strong>${lastFoundGroupId + 1}</strong>`, 'success'); 
                 } catch (error) {
                     if (error.code !== 'unavailable' && navigator.onLine) { lastFoundGroupId = 0; }
                     handleFirestoreError(error, statusElId, 'ไม่สามารถค้นหา Group ID ได้');
@@ -314,7 +314,6 @@
                 } catch(error) { handleFirestoreError(error, 'hash_check_result', 'เกิดข้อผิดพลาดในการตรวจสอบเนื้อหา'); } 
             }
             
-            // --- ส่วนจัดการตาราง ---
             function handleSplitRow(event) {
                 const splitButton = event.currentTarget;
                 const currentRow = splitButton.closest('tr');
@@ -462,7 +461,7 @@
                     }
                     if (currentMode === 'create') {
                         const minGroupIdInTable = Math.min(...dataFromTable.map(r => r.groupIdNum));
-                        if (minGroupIdInTable < lastFoundGroupId) { throw new Error(`ภาพรวม: Group ID ที่ใช้ (${minGroupIdInTable}) น้อยกว่าค่าล่าสุดในระบบ (${lastFoundGroupId})`); }
+                        if (minGroupIdInTable <= lastFoundGroupId) { throw new Error(`ภาพรวม: Group ID ที่ใช้ (${minGroupIdInTable}) ต้องมากกว่า ID สูงสุดในระบบ (${lastFoundGroupId})`); }
                     }
                 } catch (error) { updateStatus(statusElId, `❌ บันทึกไม่สำเร็จ: ${error.message}`, 'error'); dom.createSaveBtn.disabled = false; return; }
 
@@ -601,7 +600,6 @@
                 }
             }
             
-            // Event Listeners
             dom.storyNameInput.addEventListener('blur', checkLastParagraph);         
             dom.masterPageStartInput.addEventListener('blur', checkPageExists);
             dom.masterPageEndInput.addEventListener('blur', validatePageEnd);
