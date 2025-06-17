@@ -2,9 +2,10 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>เครื่องมือตรวจสอบคุณภาพข้อมูลบาลี (v4.1 - Bug Fix)</title>
+    <title>เครื่องมือตรวจสอบคุณภาพข้อมูลบาลี (v4.5 - Edit Link Fix)</title>
+    <!-- CSS และ HTML ทั้งหมดเหมือนเดิม -->
     <style>
-        /* CSS ทั้งหมดเหมือนเดิม */
+        :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f4f6f9; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; padding: 20px; line-height: 1.6; background-color: #f4f6f9; }
         .container { max-width: 1200px; margin: auto; background: #fff; padding: 20px 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         h1, h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
@@ -24,6 +25,7 @@
         .summary-box .label { font-size: 0.9em; color: #555; }
         .edit-btn { display: inline-block; margin-left: 15px; padding: 4px 10px; font-size: 0.85em; text-decoration: none; color: #fff; background-color: var(--primary-color); border-radius: 4px; transition: background-color 0.2s; white-space: nowrap; }
         .edit-btn:hover { background-color: #2980b9; }
+        footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-light); font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -38,11 +40,14 @@
         <div id="results">
             <div class="audit-section"><h3>0. ประโยคที่ยังไม่ได้แปล (พบ <span id="count-untranslated">0</span>)</h3><ul id="list-untranslated"></ul></div>
             <div class="audit-section"><h3>1. หน้าเริ่ม > หน้าจบ (พบ <span id="count-page-range">0</span>)</h3><ul id="list-page-range"></ul></div>
-            <div class="audit-section"><h3>2. ลำดับหน้าซ้อนกัน (พบ <span id="count-page-overlap">0</span>)</h3><ul id="list-page-overlap"></ul></div>
+            <div class="audit-section"><h3>2. ประโยคคาบเกี่ยวหน้าซ้ำซ้อน (พบ <span id="count-page-overlap">0</span>)</h3><ul id="list-page-overlap"></ul></div>
             <div class="audit-section"><h3>3. Group ID ข้ามลำดับ (พบ <span id="count-group-gap">0</span>)</h3><ul id="list-group-gap"></ul></div>
             <div class="audit-section"><h3>4. ย่อหน้าไม่ต่อเนื่องภายในเรื่อง (พบ <span id="count-para-gap">0</span>)</h3><ul id="list-para-gap"></ul></div>
             <div class="audit-section"><h3>5. ข้อมูลที่จำเป็นขาดหาย (พบ <span id="count-missing-data">0</span>)</h3><ul id="list-missing-data"></ul></div>
         </div>
+        <footer>
+            <p>ออกแบบและพัฒนาเว็บไซต์โดย พระมหากาญจน์</p>
+        </footer>
     </div>
 
     <script type="module">
@@ -67,59 +72,11 @@
         const totalDocsEl = document.getElementById('total-docs');
         const totalErrorsEl = document.getElementById('total-errors');
         const untranslatedDocsEl = document.getElementById('untranslated-docs');
-
-        function createEditLink(doc) {
-            if (!doc || !doc.book_title || !doc.book_part || !doc.sentence_group_id) {
-                return '';
-            }
-            const params = new URLSearchParams({
-                bookName: doc.book_title,
-                bookPart: doc.book_part,
-                prefix: doc.sentence_group_id.split('-')[0],
-                editGroupId: doc.sentence_group_id
-            });
-            const editUrl = `create.html?${params.toString()}`;
-            return `<a href="${editUrl}" target="_blank" class="edit-btn">แก้ไข ✏️</a>`;
-        }
-
-        function createListItem(content, type = 'error', editButtonHtml = '') {
-            const item = document.createElement('li');
-            item.innerHTML = `<div>${content}</div>${editButtonHtml}`;
-            item.className = type === 'error' ? 'error-item' : 'info-item';
-            return item;
-        }
         
-        // **** นี่คือจุดที่แก้ไข: ลบบรรทัดที่ประกาศฟังก์ชันซ้ำซ้อนออกไปแล้ว ****
-        function renderResults(listId, countId, items) {
-            const listEl = document.getElementById(listId);
-            const countEl = document.getElementById(countId);
-            listEl.innerHTML = '';
-            countEl.textContent = items.length;
-            if (listId !== 'list-untranslated') {
-                totalErrorsEl.textContent = parseInt(totalErrorsEl.textContent) + items.length;
-            }
-            if (items.length === 0) {
-                listEl.appendChild(createListItem('<em>ไม่พบรายการในหมวดนี้ 🎉</em>', 'info'));
-            } else {
-                items.forEach(item => listEl.appendChild(item));
-            }
-        }
-        
-        function naturalSortGroupId(a, b) {
-            const aId = a.sentence_group_id || '';
-            const bId = b.sentence_group_id || '';
-            const [aPrefix, aNumStr] = aId.split('-');
-            const [bPrefix, bNumStr] = bId.split('-');
-            if (aPrefix < bPrefix) return -1;
-            if (aPrefix > bPrefix) return 1;
-            const aNum = parseInt(aNumStr, 10) || 0;
-            const bNum = parseInt(bNumStr, 10) || 0;
-            if (aNum < bNum) return -1;
-            if (aNum > bNum) return 1;
-            const aOrder = a.pali_order || 0;
-            const bOrder = b.pali_order || 0;
-            return aOrder - bOrder;
-        }
+        function createEditLink(doc){if(!doc||!doc.book_title||!doc.book_part||!doc.sentence_group_id){return''}const params=new URLSearchParams({bookName:doc.book_title,bookPart:doc.book_part,prefix:doc.sentence_group_id.split('-')[0],editGroupId:doc.sentence_group_id});const editUrl=`create.html?${params.toString()}`;return`<a href="${editUrl}" target="_blank" class="edit-btn">แก้ไข ✏️</a>`}
+        function createListItem(content,type='error',editButtonHtml=''){const item=document.createElement('li');item.innerHTML=`<div>${content}</div>${editButtonHtml}`;item.className=type==='error'?'error-item':'info-item';return item}
+        function renderResults(listId,countId,items){const listEl=document.getElementById(listId);const countEl=document.getElementById(countId);listEl.innerHTML='';countEl.textContent=items.length;if(listId!=='list-untranslated'){totalErrorsEl.textContent=parseInt(totalErrorsEl.textContent)+items.length}if(items.length===0){listEl.appendChild(createListItem('<em>ไม่พบรายการในหมวดนี้ 🎉</em>','info'))}else{items.forEach(item=>listEl.appendChild(item))}}
+        function naturalSortGroupId(a,b){const aId=a.sentence_group_id||'';const bId=b.sentence_group_id||'';const[aPrefix,aNumStr]=aId.split('-');const[bPrefix,bNumStr]=bId.split('-');if(aPrefix<bPrefix)return-1;if(aPrefix>bPrefix)return 1;const aNum=parseInt(aNumStr,10)||0;const bNum=parseInt(bNumStr,10)||0;if(aNum<bNum)return-1;if(aNum>bNum)return 1;const aOrder=a.pali_order||0;const bOrder=b.pali_order||0;return aOrder-bOrder}
 
         async function runAudit() {
             try {
@@ -141,22 +98,25 @@
 
                 const pageRangeErrors = [], missingDataErrors = [], groupGapErrors = [], pageOverlapErrors = [], paraGapErrors = [];
                 
+                // **** นี่คือส่วนที่แก้ไข: เพิ่มการเรียก createEditLink() กลับเข้าไปในทุกจุด ****
                 for (let i = 0; i < allDocs.length; i++) {
                     const doc = allDocs[i];
                     
+                    // 1. หน้าเริ่ม > หน้าจบ
                     if (doc.page_end && doc.page_start > doc.page_end) {
                         const message = `<strong>ID:</strong> ${doc.id} | <strong>Group:</strong> <code>${doc.sentence_group_id}</code><br><strong>ปัญหา:</strong> หน้าเริ่ม <code>${doc.page_start}</code> > หน้าจบ <code>${doc.page_end}</code>`;
                         pageRangeErrors.push(createListItem(message, 'error', createEditLink(doc)));
                     }
+                    // 5. ข้อมูลขาดหาย
                     if (!doc.book_title || !doc.book_part || !doc.sentence_group_id || !doc.pali_text) {
                         const message = `<strong>ID:</strong> ${doc.id} | <strong>Group:</strong> <code>${doc.sentence_group_id || 'N/A'}</code><br><strong>ปัญหา:</strong> ข้อมูลสำคัญขาดหาย`;
                         missingDataErrors.push(createListItem(message, 'error', createEditLink(doc)));
                     }
 
+                    // 3. Group ID ข้ามลำดับ
                     if (i > 0) {
                         const prev = allDocs[i-1];
                         const curr = doc;
-
                         const [prevPrefix, prevNumStr] = (prev.sentence_group_id || '').split('-');
                         const [currPrefix, currNumStr] = (curr.sentence_group_id || '').split('-');
                         if (prevPrefix === currPrefix) {
@@ -167,15 +127,32 @@
                                 groupGapErrors.push(createListItem(message, 'error', createEditLink(curr)));
                             }
                         }
-                        
-                        const prevEffectivePageEnd = prev.page_end || prev.page_start;
-                        if (prevEffectivePageEnd > 0 && curr.page_start < prevEffectivePageEnd) {
-                             const message = `<strong>ID:</strong> ${curr.id} | <strong>Group:</strong> <code>${curr.sentence_group_id}</code> เริ่มที่หน้า <code>${curr.page_start}</code><br><strong>ปัญหา:</strong> ซ้อนกับ Group ก่อนหน้า (<code>${prev.sentence_group_id}</code>) ที่จบที่หน้า <code>${prevEffectivePageEnd}</code>`;
-                             pageOverlapErrors.push(createListItem(message, 'error', createEditLink(curr)));
-                        }
                     }
                 }
                 
+                // 2. ประโยคคาบเกี่ยวหน้าซ้ำซ้อน
+                const pageSpans = {};
+                allDocs.forEach(doc => {
+                    if (doc.page_start && doc.page_end && doc.page_start !== doc.page_end) {
+                        const bookKey = `${doc.book_title}-${doc.book_part}`;
+                        const spanKey = `${doc.page_start}-${doc.page_end}`;
+                        const fullKey = `${bookKey}::${spanKey}`;
+                        if (!pageSpans[fullKey]) { pageSpans[fullKey] = []; }
+                        pageSpans[fullKey].push(doc);
+                    }
+                });
+
+                for (const fullKey in pageSpans) {
+                    if (pageSpans[fullKey].length > 1) {
+                        const [bookKey, spanKey] = fullKey.split('::');
+                        const docs = pageSpans[fullKey];
+                        let docLinks = docs.map(d => `<code>${d.sentence_group_id}</code> ${createEditLink(d)}`).join(', ');
+                        const message = `<strong>คัมภีร์:</strong> ${bookKey}<br><strong>ปัญหา:</strong> พบประโยคคาบเกี่ยวช่วงหน้า <code>${spanKey}</code> ซ้ำซ้อนกัน ${docs.length} ครั้ง<br><strong>Group IDs:</strong> ${docLinks}`;
+                        pageOverlapErrors.push(createListItem(message, 'error'));
+                    }
+                }
+                
+                // 4. ย่อหน้าไม่ต่อเนื่อง
                 const stories = {};
                 allDocs.forEach(doc => {
                     const storyKey = `${doc.book_title}-${doc.story_name}`;
