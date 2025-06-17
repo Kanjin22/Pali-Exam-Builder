@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เพิ่ม/แก้ไขคำแปล (v5.14 - The True Final Logic)</title>
+    <title>เพิ่ม/แก้ไขคำแปล (v5.15 - Search Sort Fix)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -138,6 +138,18 @@
             function initializeTool(){const params=new URLSearchParams(window.location.search);currentBookName=decodeURIComponent(params.get('bookName')||'');currentBookPart=decodeURIComponent(params.get('bookPart')||'');currentPrefix=decodeURIComponent(params.get('prefix')||'');if(!currentBookName||!currentPrefix){mainHeader.textContent='ข้อผิดพลาด';container.innerHTML=`<div class="header-bar"><h1>ข้อผิดพลาด</h1></div><p style="text-align:center; color:red;">ไม่พบคัมภีร์หรือ Prefix ที่เลือก<br>กรุณากลับไปที่หน้าแรก</p><br><p style="text-align:center;"><a href="index.html"><button class="secondary">กลับไปหน้าแรก</button></a></p>`;return}mainHeader.textContent=`${currentBookName}`;subHeader.textContent=currentBookPart;const savedUserName=localStorage.getItem('paliToolUserName');if(savedUserName){userNameInput.value=savedUserName}userNameInput.addEventListener('input',()=>{localStorage.setItem('paliToolUserName',userNameInput.value)})}
             function updateStatus(message, type) { const el = document.getElementById('edit-status-message'); if(el){ el.innerHTML = message; el.className = `status-message ${type}`; } }
             
+            function naturalSortGroupId(a, b) {
+                const aId = a[0];
+                const bId = b[0];
+                const [aPrefix, aNumStr] = aId.split('-');
+                const [bPrefix, bNumStr] = bId.split('-');
+                if (aPrefix < bPrefix) return -1;
+                if (aPrefix > bPrefix) return 1;
+                const aNum = parseInt(aNumStr, 10) || 0;
+                const bNum = parseInt(bNumStr, 10) || 0;
+                return aNum - bNum;
+            }
+
             async function executeSearch(searchQuery) {
                 updateStatus('กำลังค้นหากลุ่ม...', 'loading');
                 groupResultsDiv.innerHTML = '';
@@ -160,9 +172,12 @@
                             });
                         }
                     });
-                    const sortedGroups = new Map([...groups.entries()].sort());
+                    
+                    const sortedGroups = new Map([...groups.entries()].sort(naturalSortGroupId));
+                    
                     groupResultList = Array.from(sortedGroups.keys());
                     updateStatus(`พบ ${sortedGroups.size} กลุ่ม, กรุณาเลือกกลุ่มที่ต้องการแก้ไข`, 'success');
+                    
                     sortedGroups.forEach((data, groupId) => {
                         const div = document.createElement('div');
                         div.innerHTML = `
@@ -263,7 +278,6 @@
             function updateFinalPreview() {
                 previewPanel.style.display = 'block';
                 previewContent.innerHTML = ''; 
-
                 const currentTableData = Array.from(editSentenceTable.querySelector('tbody').rows).map(row => ({
                     id: row.dataset.id,
                     pali_text: row.cells[1].textContent.trim(),
@@ -271,15 +285,11 @@
                     thai_text: row.querySelector('.thai-text-input').value.trim(),
                     thai_order: parseInt(row.querySelector('.thai-order-input').value)
                 }));
-
                 const sortedPali = [...currentTableData].sort((a, b) => a.pali_order - b.pali_order);
                 const sortedThai = [...currentTableData].sort((a, b) => a.thai_order - b.thai_order);
-                
                 const paliContainer = document.createElement('div');
                 paliContainer.className = 'preview-pali';
-                
                 let proseBuffer = [];
-
                 function flushProseBuffer() {
                     if (proseBuffer.length > 0) {
                         const p = document.createElement('p');
@@ -288,11 +298,9 @@
                         proseBuffer = [];
                     }
                 }
-                
                 sortedPali.forEach(item => {
                     const originalDoc = currentGroupData.find(d => d.id === item.id);
                     const textType = originalDoc ? originalDoc.text_type : 'ร้อยแก้ว';
-
                     if (textType && textType.includes('คาถา')) {
                         flushProseBuffer(); 
                         const gathaParagraph = document.createElement('p');
@@ -302,14 +310,11 @@
                         proseBuffer.push(item.pali_text);
                     }
                 });
-                
                 flushProseBuffer(); 
-
                 const finalThaiText = sortedThai.map(item => item.thai_text).join(' ');
                 const thaiContainer = document.createElement('div');
                 thaiContainer.className = 'preview-thai';
                 thaiContainer.textContent = finalThaiText || '(ยังไม่มีคำแปล)';
-                
                 previewContent.appendChild(paliContainer);
                 previewContent.appendChild(thaiContainer);
             }
@@ -323,7 +328,13 @@
                     Array.from(editSentenceTable.querySelector('tbody').rows).forEach(row=>{
                         const docId=row.dataset.id;
                         const docRef=doc(db,"pali_sentences",docId);
-                        batch.update(docRef,{ thai_text:row.querySelector('.thai-text-input')?.value.trim()||'', thai_order:parseInt(row.querySelector('.thai-order-input')?.value)||0, user_name_thai:userNameInput.value.trim(), timestamp_thai:serverTimestamp(), translation_status:'completed' })
+                        batch.update(docRef,{
+                            thai_text:row.querySelector('.thai-text-input')?.value.trim()||'',
+                            thai_order:parseInt(row.querySelector('.thai-order-input')?.value)||0,
+                            user_name_thai:userNameInput.value.trim(),
+                            timestamp_thai:serverTimestamp(),
+                            translation_status:'completed'
+                        })
                     });
                     await batch.commit();
                     updateStatus('บันทึกข้อมูลสำเร็จ!','success');
