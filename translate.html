@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เพิ่ม/แก้ไขคำแปล (v5.13 - Ultimate Preview Logic)</title>
+    <title>เพิ่ม/แก้ไขคำแปล (v5.14 - The True Final Logic)</title>
     <style>
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f0f2f5; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; background-color: var(--light-bg); color: var(--text-dark); line-height: 1.6; margin: 0; padding: 20px; }
@@ -323,13 +323,7 @@
                     Array.from(editSentenceTable.querySelector('tbody').rows).forEach(row=>{
                         const docId=row.dataset.id;
                         const docRef=doc(db,"pali_sentences",docId);
-                        batch.update(docRef,{
-                            thai_text:row.querySelector('.thai-text-input')?.value.trim()||'',
-                            thai_order:parseInt(row.querySelector('.thai-order-input')?.value)||0,
-                            user_name_thai:userNameInput.value.trim(),
-                            timestamp_thai:serverTimestamp(),
-                            translation_status:'completed'
-                        })
+                        batch.update(docRef,{ thai_text:row.querySelector('.thai-text-input')?.value.trim()||'', thai_order:parseInt(row.querySelector('.thai-order-input')?.value)||0, user_name_thai:userNameInput.value.trim(), timestamp_thai:serverTimestamp(), translation_status:'completed' })
                     });
                     await batch.commit();
                     updateStatus('บันทึกข้อมูลสำเร็จ!','success');
