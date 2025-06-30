@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เครื่องมือทำความสะอาดข้อมูล (Group Editing)</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db; --secondary-color: #95a5a6; --danger-color: #e74c3c;
+            --success-color: #27ae60; --warning-color: #f39c12;
+            --header-bg-color: #e9f5ff; 
+            --duplicate-bg-color: #fffbe6;
+            --delete-bg-color: #ffebee;
+            --delete-text-color: #c0392b;
+        }
+        body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; color: #333; margin: 0; padding: 20px; }
+        .header { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; text-align: center; }
+        .main-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 20px; height: calc(100vh - 160px); }
+        .panel { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; }
+        .panel-header { padding: 15px 20px; border-bottom: 1px solid #eee; font-weight: bold; color: #2c3e50; display: flex; justify-content: space-between; align-items: center; }
+        textarea#raw_input { flex-grow: 1; padding: 15px; border: none; resize: none; font-size: 15px; line-height: 1.6; border-radius: 0 0 8px 8px;}
+        .controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        button { background: var(--primary-color); color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; transition: all 0.3s; }
+        button:hover { filter: brightness(90%); }
+        #editor_view { flex-grow: 1; overflow-y: auto; padding: 15px; font-family: monospace; }
+        .editor-line { display: flex; align-items: center; min-height: 24px; border-bottom: 1px solid #f0f0f0; }
+        .line-number { color: #95a5a6; min-width: 50px; text-align: right; padding-right: 15px; user-select: none; }
+        .line-content { white-space: pre; flex-grow: 1; cursor: default; }
+        .editor-line.is-header { background-color: var(--header-bg-color); }
+        .editor-line.is-duplicate { background-color: var(--duplicate-bg-color); cursor: pointer; }
+        .line-action { min-width: 60px; text-align: center; }
+        .line-action button { background-color: var(--warning-color); font-size: 12px; padding: 3px 8px; display: none; }
+        .editor-line.edit-mode .line-action button { display: inline-block; }
+        .editor-line.to-delete { background-color: var(--delete-bg-color) !important; }
+        .editor-line.to-delete .line-content { text-decoration: line-through; color: var(--delete-text-color); }
+        .editor-line.edit-mode.to-delete .line-action button { background-color: var(--success-color) !important; }
+        #final_output_panel { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 800px; height: 80vh; z-index: 1000; display: none; }
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; display: none; }
+    </style>
+</head>
+<body>
+    <div id="overlay"></div>
+    <div class="page-container">
+        <div class="header"><h1>⚙️ เครื่องมือทำความสะอาดข้อมูล (Group Editing)</h1><h2 id="book_info"></h2></div>
+        <div class="main-container">
+            <div class="panel">
+                <div class="panel-header">1. ข้อมูลดิบ</div>
+                <textarea id="raw_input" placeholder="วางข้อความดิบจาก BUDSIR ที่นี่..."></textarea>
+            </div>
+            <div class="panel">
+                <div class="panel-header"><span>2. แก้ไขและตรวจสอบ</span><button id="btn_process" class="success">ประมวลผล</button></div>
+                <div id="editor_view"><div style="color: #999; text-align: center; padding-top: 50px;">กรุณาวางข้อมูลดิบและกด "ประมวลผล"</div></div>
+            </div>
+        </div>
+        <div class="controls"><button id="btn_generate_final" disabled>สร้างผลลัพธ์สุดท้าย</button><a href="index.html" style="text-decoration: none;"><button>กลับหน้าหลัก</button></a></div>
+    </div>
+    <div id="final_output_panel" class="panel">
+        <div class="panel-header"><span>ผลลัพธ์ที่ทำความสะอาดแล้ว</span><button id="btn_close_popup" class="danger">ปิดและเริ่มใหม่</button></div>
+        <textarea id="cleaned_output" readonly></textarea>
+        <div class="controls" style="padding: 15px;"><button id="btn_copy" class="utility">คัดลอกทั้งหมด</button></div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const rawInputEl = document.getElementById('raw_input');
+        const btnProcess = document.getElementById('btn_process');
+        const editorView = document.getElementById('editor_view');
+        const btnGenerateFinal = document.getElementById('btn_generate_final');
+        const finalOutputPanel = document.getElementById('final_output_panel');
+        const cleanedOutputEl = document.getElementById('cleaned_output');
+        const btnCopy = document.getElementById('btn_copy');
+        const btnClosePopup = document.getElementById('btn_close_popup');
+        const overlay = document.getElementById('overlay');
+        const bookInfoEl = document.getElementById('book_info');
+
+        let previewLines = [];
+        let linesToDelete = new Set();
+        let lineMap = new Map();
+
+        const params = new URLSearchParams(window.location.search);
+        bookInfoEl.textContent = `คัมภีร์: ${params.get('bookName') || 'ไม่ได้ระบุ'}${params.get('bookPart') ? ' - ' + params.get('bookPart') : ''}`;
+
+        btnProcess.addEventListener('click', processAndDisplay);
+        btnGenerateFinal.addEventListener('click', generateFinalOutput);
+        btnClosePopup.addEventListener('click', () => { window.location.reload(); });
+        btnCopy.addEventListener('click', () => {
+            if (cleanedOutputEl.value) {
+                navigator.clipboard.writeText(cleanedOutputEl.value).then(() => alert('คัดลอกผลลัพธ์เรียบร้อยแล้ว'));
+            }
+        });
+
+        function processAndDisplay() {
+            const text = rawInputEl.value;
+            if (!text.trim()) { alert('กรุณาใส่ข้อมูลดิบ'); return; }
+            
+            linesToDelete.clear();
+            lineMap.clear();
+            editorView.innerHTML = '';
+            
+            const headerRegex = /หน้า\s*([0-9๐-๙]+)/;
+            previewLines = text.split('\n').map(line => {
+                const match = line.match(headerRegex);
+                return match ? `  (P${match[1]})` : line;
+            });
+
+            previewLines.forEach((line, index) => {
+                const trimmedLine = line.trim();
+                if (trimmedLine === '' || trimmedLine.startsWith('(P')) return;
+                if (!lineMap.has(trimmedLine)) lineMap.set(trimmedLine, []);
+                lineMap.get(trimmedLine).push(index);
+            });
+
+            renderEditorView();
+            btnGenerateFinal.disabled = false;
+        }
+
+        function renderEditorView() {
+            editorView.innerHTML = '';
+            previewLines.forEach((line, index) => {
+                editorView.appendChild(createEditorLine(line, index));
+            });
+        }
+        
+        function createEditorLine(lineText, index) {
+            const lineEl = document.createElement('div');
+            lineEl.className = 'editor-line';
+            lineEl.id = `line-${index}`;
+            
+            const numEl = document.createElement('div');
+            numEl.className = 'line-number';
+            numEl.textContent = index + 1;
+            
+            const contentEl = document.createElement('div');
+            contentEl.className = 'line-content';
+            contentEl.textContent = lineText;
+            
+            const actionEl = document.createElement('div');
+            actionEl.className = 'line-action';
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'ลบ';
+            deleteBtn.onclick = (e) => {
+                e.stopPropagation();
+                toggleDeleteState(index);
+            };
+            actionEl.appendChild(deleteBtn);
+
+            lineEl.appendChild(numEl);
+            lineEl.appendChild(contentEl);
+            lineEl.appendChild(actionEl);
+
+            const trimmedLine = lineText.trim();
+            const duplicateIndices = lineMap.get(trimmedLine);
+            
+            if (trimmedLine.startsWith('(P')) {
+                lineEl.classList.add('is-header');
+            } else if (duplicateIndices && duplicateIndices.length > 1) {
+                lineEl.classList.add('is-duplicate');
+                lineEl.onclick = () => activateGroupEditMode(trimmedLine);
+            }
+            return lineEl;
+        }
+
+        function activateGroupEditMode(lineText) {
+            const indices = lineMap.get(lineText);
+            if (!indices) return;
+
+            const isAlreadyEditing = document.getElementById(`line-${indices[0]}`).classList.contains('edit-mode');
+            
+            document.querySelectorAll('.editor-line.edit-mode').forEach(el => el.classList.remove('edit-mode'));
+
+            if (!isAlreadyEditing) {
+                indices.forEach(index => {
+                    document.getElementById(`line-${index}`)?.classList.add('edit-mode');
+                });
+            }
+        }
+
+        function toggleDeleteState(selectedIndex) {
+            const isCurrentlyMarked = linesToDelete.has(selectedIndex);
+
+            if (isCurrentlyMarked) {
+                linesToDelete.delete(selectedIndex);
+                updateLineAppearance(selectedIndex, false);
+            } else {
+                linesToDelete.add(selectedIndex);
+                updateLineAppearance(selectedIndex, true);
+            }
+        }
+        
+        function updateLineAppearance(index, isDeleting) {
+            const lineEl = document.getElementById(`line-${index}`);
+            if (!lineEl) return;
+            const button = lineEl.querySelector('button');
+            if (isDeleting) {
+                lineEl.classList.add('to-delete');
+                if (button) button.textContent = 'ยกเลิก';
+            } else {
+                lineEl.classList.remove('to-delete');
+                if (button) button.textContent = 'ลบ';
+            }
+        }
+
+        function generateFinalOutput() {
+            let finalLines = [];
+            for (let i = 0; i < previewLines.length; i++) {
+                if (linesToDelete.has(i)) {
+                    finalLines.push('');
+                } else {
+                    finalLines.push(previewLines[i]);
+                }
+            }
+            cleanedOutputEl.value = finalLines.join('\n');
+            finalOutputPanel.style.display = 'flex';
+            overlay.style.display = 'block';
+        }
+    });
+    </script>
+</body>
+</html>

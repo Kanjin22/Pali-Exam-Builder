@@ -68,6 +68,7 @@
                 <textarea id="pali-input" rows="8"></textarea>
                 <p id="hash_check_result" class="suggestion-text"></p>
                 <div style="margin-top:10px; display:flex; gap: 10px; flex-wrap: wrap;">
+                    <button id="copy-pali-btn" class="secondary">คัดลอกเนื้อหา</button>
                     <button id="clean-format-btn" class="secondary">ทำความสะอาด & จัดระเบียบ</button>
                     <button id="merge-lines-btn" class="secondary">รวมบรรทัดอย่างเดียว</button>
                     <button id="undo-btn" class="secondary" style="display: none;">ยกเลิก</button>
@@ -121,6 +122,7 @@
                 createSaveBtn: document.getElementById('create-save-btn'),
                 cleanFormatBtn: document.getElementById('clean-format-btn'),
                 mergeLinesBtn: document.getElementById('merge-lines-btn'),
+                copyPaliBtn: document.getElementById('copy-pali-btn'),
                 undoBtn: document.getElementById('undo-btn'),
                 splitBtn: document.getElementById('split-btn'), createDataWorkArea: document.getElementById('create-data-work-area'),
                 createSentenceTable: document.getElementById('create-sentence-table'),
@@ -250,7 +252,7 @@
                 if (!text.trim()) return;
                 const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*\n\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
                 text = text.replace(hyphenatedWordRegex, '$1$2');
-                const noisePatterns = [ /^=+.*/, /.*=+$/, /^\s*@.*/, /^\s*อรรถกถาบาลี.*/ ];
+                const noisePatterns = [ /^=+.*/, /.*=+$/, /^\s*@.*/, /^\s*อรรถกถาบาลี.*/, /^\s*คัมภีร์สำคัญอื่นๆ.*/  ];
                 let lines = text.split(/\r?\n/);
                 let cleanedLines = lines.filter(line => !noisePatterns.some(pattern => pattern.test(line.trim())));
                 text = cleanedLines.join('\n');
@@ -638,6 +640,25 @@
             dom.masterGroupIdInput.addEventListener('input', validateGroupId);
             dom.masterParagraphNumInput.addEventListener('input', validateParagraphNum);
             dom.paliInput.addEventListener('blur', checkFirstSentenceHash);
+
+            dom.copyPaliBtn.addEventListener('click', () => {
+                const textToCopy = dom.paliInput.value;
+                if (!textToCopy) return;
+
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const originalText = dom.copyPaliBtn.textContent;
+                    dom.copyPaliBtn.textContent = 'คัดลอกแล้ว!';
+                    dom.copyPaliBtn.disabled = true;
+                    setTimeout(() => {
+                        dom.copyPaliBtn.textContent = originalText;
+                        dom.copyPaliBtn.disabled = false;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('ไม่สามารถคัดลอกได้: ', err);
+                    alert('เกิดข้อผิดพลาด ไม่สามารถคัดลอกข้อความได้');
+                });
+            });
+            
             dom.cleanFormatBtn.addEventListener('click', cleanAndFormat);
             dom.mergeLinesBtn.addEventListener('click', mergeLines);
             dom.undoBtn.addEventListener('click', undoMerge);
