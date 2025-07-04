@@ -109,11 +109,9 @@
                 <a href="compare.html" style="text-decoration: none;">
                     <button type="button" class="utility">🔍 เครื่องมือเปรียบเทียบและแก้ไข</button>
                 </a>
-                <!-- START: เพิ่มปุ่มสำหรับหน้า Audit -->
                 <a href="check_audit.html" style="text-decoration: none;">
                     <button type="button" class="utility">📊 ตรวจสอบคุณภาพข้อมูลทั้งหมด</button>
                 </a>
-                <!-- END: เพิ่มปุ่มสำหรับหน้า Audit -->
             </div>
         </div>
 
@@ -211,7 +209,9 @@
         }
         
         document.getElementById('btn_create').addEventListener('click', () => navigateTo('create'));
-        document.getElementById('btn_translate').addEventListener('click', () => navigateTo('translate'));
+        // START: CORRECTED LINE
+        document.getElementById('btn_translate').addEventListener('click', () => navigateTo('create_translate'));
+        // END: CORRECTED LINE
         document.getElementById('btn_clean').addEventListener('click', () => navigateTo('clean'));
 
         loadBookList();
