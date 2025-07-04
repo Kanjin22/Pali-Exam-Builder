@@ -166,7 +166,7 @@
                 // 3.3 Fix potential single space before a placeholder
                 tempLine = tempLine.replace(/ (?=__)/g, '  '); // Lookahead for double underscore
 
-                return tempLine.trim();
+                return tempLine.trim(/\s+$/, '');
             });
 
             text = formattedLines.join('\n');
