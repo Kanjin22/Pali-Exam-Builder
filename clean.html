@@ -1,3 +1,5 @@
+--- START OF FILE clean.html ---
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -124,52 +126,39 @@
         btnCopyRaw.addEventListener('click', copyRawInput);
         btnUndoRaw.addEventListener('click', undoRawClean);
 
-        // START: CORRECTED FUNCTION
         function cleanRawInputText() {
             originalRawText = rawInputEl.value;
             let text = rawInputEl.value;
             if (!text.trim()) return;
             
-            // --- 1. General Cleaning (ข้ามบรรทัด) ---
-            // เชื่อมคำที่ถูกตัดด้วยยัติภังค์ (ทำก่อนแยกบรรทัด)
             const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*\n\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
             text = text.replace(hyphenatedWordRegex, '$1$2');
             
-            // --- 2. กรองบรรทัดที่ไม่ต้องการออก ---
             const noisePatterns = [ /^=+.*/, /.*=+$/, /^\s*@.*/, /^\s*อรรถกถาบาลี.*/, /^\s*คัมภีร์สำคัญอื่นๆ.*/ ];
             let lines = text.split(/\r?\n/);
             let cleanedLines = lines.filter(line => !noisePatterns.some(pattern => pattern.test(line.trim())));
             
-            // --- 3. ประมวลผลทีละบรรทัด ( 핵심 Logic อยู่ตรงนี้) ---
             const pePlaceholder = " __PEYALA__ ";
             const etcPlaceholder = " __ETC__ ";
 
             let formattedLines = cleanedLines.map(line => {
-                // 3.1 ลบข้อมูลและจัดการอักขระเบื้องต้น
                 let tempLine = line.replace(/\[?[๐-๙]+\]?-/g, ''); 
                 tempLine = tempLine.replace(/€/g, 'ฐ').replace(//g, 'ญ');
 
-                // 3.2 ใช้ Placeholder กับคำพิเศษเพื่อป้องกันการจัดช่องไฟผิดพลาด
                 tempLine = tempLine.replace(/\s*ฯเปฯ\s*/g, `  ${pePlaceholder}  `)
                                    .replace(/\s*ฯลฯ\s*/g, `  ${etcPlaceholder}  `);
                 tempLine = tempLine.replace(/\s*\|\s*/g, '  |  ');
                 tempLine = tempLine.replace(/\s*ฯ\s*/g, '  ฯ  ');
                 
-                // 3.3 จัดการช่องว่างให้เป็น 2 เคาะ
-                // - ทำให้ช่องว่างติดกันหลายๆ อันเหลือแค่อันเดียว (ไม่กระทบ \n เพราะเราทำทีละบรรทัด)
-                // - จากนั้นเปลี่ยนช่องว่าง 1 อันให้เป็น 2 อัน
-                // - ใช้ Lookahead (?![_]) เพื่อไม่ให้ไปเพิ่มช่องว่างหน้า Placeholder
                 tempLine = tempLine.replace(/\s+/g, ' '); 
                 tempLine = tempLine.replace(/ (?![_])/g, '  '); 
-                tempLine = tempLine.replace(/ (?=__)/g, '  '); // แก้ไขช่องว่างก่อน Placeholder
+                tempLine = tempLine.replace(/ (?=__)/g, '  ');
 
-                // 3.4 นำ Placeholder กลับเป็นคำเดิม
                 tempLine = tempLine.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ')
                                    .replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ');
 
-                // 3.5 เก็บตกช่องว่างที่อาจเกินมา และ "ลบเฉพาะช่องว่างท้ายบรรทัด"
                 tempLine = tempLine.replace(/\s{3,}/g, '  ');
-                return tempLine.replace(/\s+$/, ''); // <--- จุดสำคัญ: ลบเฉพาะช่องว่างที่อยู่ท้ายบรรทัด
+                return tempLine.replace(/\s+$/, '');
             });
 
             text = formattedLines.join('\n');
@@ -179,7 +168,6 @@
             btnCleanRaw.style.display = 'none';
             btnUndoRaw.style.display = 'inline-block';
         }
-        // END: CORRECTED FUNCTION
 
         function copyRawInput() {
             const textToCopy = rawInputEl.value;
@@ -388,20 +376,29 @@
             }
         }
 
+        // --- START: MODIFIED FUNCTION ---
         function generateFinalOutput() {
             let finalLines = [];
+            // วนลูปตามจำนวนบรรทัดทั้งหมดในหน้า preview
             for (let i = 0; i < previewLines.length; i++) {
+                // ตรวจสอบว่าบรรทัดนี้ถูกเลือกให้ลบหรือไม่
                 if (linesToDelete.has(i)) {
-                    continue;
+                    // ถ้าใช่ ให้เพิ่มบรรทัดว่างเข้าไปแทน
+                    finalLines.push('');
                 } else {
+                    // ถ้าไม่ใช่ ให้ใช้ข้อความเดิมจากบรรทัดนั้น
                     finalLines.push(previewLines[i].text);
                 }
             }
-            const finalOutputText = finalLines.filter(line => !/^\s*\(\s*P[0-9๐-๙]+\s*\)\s*$/.test(line)).join('\n');
+            // นำ array มารวมกันเป็นข้อความเดียว โดยไม่กรองบรรทัดเลขหน้าออก
+            const finalOutputText = finalLines.join('\n');
+            
             cleanedOutputEl.value = finalOutputText;
             finalOutputPanel.style.display = 'flex';
             overlay.style.display = 'block';
         }
+        // --- END: MODIFIED FUNCTION ---
+
     });
     </script>
 </body>
