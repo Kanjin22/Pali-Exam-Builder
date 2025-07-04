@@ -68,9 +68,7 @@
                 <textarea id="pali-input" rows="8"></textarea>
                 <p id="hash_check_result" class="suggestion-text"></p>
                 <div style="margin-top:10px; display:flex; gap: 10px; flex-wrap: wrap;">
-                    <button id="copy-pali-btn" class="secondary">คัดลอกเนื้อหา</button>
-                    <button id="clean-format-btn" class="secondary">ทำความสะอาด & จัดระเบียบ</button>
-                    <button id="merge-lines-btn" class="secondary">รวมบรรทัดอย่างเดียว</button>
+                    <button id="merge-lines-btn" class="secondary">รวมบรรทัด</button>
                     <button id="undo-btn" class="secondary" style="display: none;">ยกเลิก</button>
                     <button id="split-btn">กดเพื่อแบ่งประโยค</button>
                 </div>
@@ -120,9 +118,7 @@
                 paliInput: document.getElementById('pali-input'), masterGroupIdInput: document.getElementById('master_group_id'),
                 masterParagraphNumInput: document.getElementById('master_paragraph_num'),
                 createSaveBtn: document.getElementById('create-save-btn'),
-                cleanFormatBtn: document.getElementById('clean-format-btn'),
                 mergeLinesBtn: document.getElementById('merge-lines-btn'),
-                copyPaliBtn: document.getElementById('copy-pali-btn'),
                 undoBtn: document.getElementById('undo-btn'),
                 splitBtn: document.getElementById('split-btn'), createDataWorkArea: document.getElementById('create-data-work-area'),
                 createSentenceTable: document.getElementById('create-sentence-table'),
@@ -246,36 +242,6 @@
                 return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); 
             }
             
-            function cleanAndFormat() {
-                originalPaliText = dom.paliInput.value;
-                let text = dom.paliInput.value;
-                if (!text.trim()) return;
-                const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*\n\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
-                text = text.replace(hyphenatedWordRegex, '$1$2');
-                const noisePatterns = [ /^=+.*/, /.*=+$/, /^\s*@.*/, /^\s*อรรถกถาบาลี.*/, /^\s*คัมภีร์สำคัญอื่นๆ.*/  ];
-                let lines = text.split(/\r?\n/);
-                let cleanedLines = lines.filter(line => !noisePatterns.some(pattern => pattern.test(line.trim())));
-                text = cleanedLines.join('\n');
-                text = text.replace(/[๐-๙]+-/g, '');
-                text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
-                const pePlaceholder = " __PEYALA__ ", etcPlaceholder = " __ETC__ ";
-                text = text.replace(/ฯเปฯ/g, pePlaceholder).replace(/ฯลฯ/g, etcPlaceholder);
-                text = text.replace(/\s*\|\s*/g, '  |  ');
-                lines = text.split(/\r?\n/);
-                let formattedLines = lines.map(line => {
-                    let tempLine = line.replace(/\s+/g, ' ');
-                    tempLine = tempLine.replace(/\s*ฯ\s*/g, ' ฯ  ');
-                    tempLine = tempLine.replace(/ (?![ฯ]|__PEYALA__|__ETC__)/g, '  ');
-                    return tempLine;
-                });
-                text = formattedLines.join('\n');
-                text = text.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ');
-                dom.paliInput.value = text.trim();
-                dom.cleanFormatBtn.style.display = 'none';
-                dom.undoBtn.style.display = 'inline-block';
-                checkFirstSentenceHash();
-            }
-
             function mergeLines() {
                 originalPaliText = dom.paliInput.value;
                 let text = dom.paliInput.value;
@@ -292,7 +258,6 @@
             function undoMerge() {
                 dom.paliInput.value = originalPaliText;
                 dom.mergeLinesBtn.style.display = 'inline-block';
-                dom.cleanFormatBtn.style.display = 'inline-block';
                 dom.undoBtn.style.display = 'none';
             }
 
@@ -403,7 +368,7 @@
                             for (let i = 0; i < parts.length; i++) { 
                                 let sentence = parts[i].trim(); 
                                 if (sentence.length > 0) { 
-                                    if (i < parts.length - 1) { sentence += ' ฯ'; } 
+                                    if (i < parts.length - 1) { sentence += '  ฯ'; } 
                                     let displaySentence = sentence.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ').replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ'); 
                                     finalSentences.push(displaySentence.trim()); 
                                 } 
@@ -641,25 +606,6 @@
             dom.masterParagraphNumInput.addEventListener('input', validateParagraphNum);
             dom.paliInput.addEventListener('blur', checkFirstSentenceHash);
 
-            dom.copyPaliBtn.addEventListener('click', () => {
-                const textToCopy = dom.paliInput.value;
-                if (!textToCopy) return;
-
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    const originalText = dom.copyPaliBtn.textContent;
-                    dom.copyPaliBtn.textContent = 'คัดลอกแล้ว!';
-                    dom.copyPaliBtn.disabled = true;
-                    setTimeout(() => {
-                        dom.copyPaliBtn.textContent = originalText;
-                        dom.copyPaliBtn.disabled = false;
-                    }, 2000);
-                }).catch(err => {
-                    console.error('ไม่สามารถคัดลอกได้: ', err);
-                    alert('เกิดข้อผิดพลาด ไม่สามารถคัดลอกข้อความได้');
-                });
-            });
-            
-            dom.cleanFormatBtn.addEventListener('click', cleanAndFormat);
             dom.mergeLinesBtn.addEventListener('click', mergeLines);
             dom.undoBtn.addEventListener('click', undoMerge);
             dom.splitBtn.addEventListener('click', () => generateCreateTable(null));

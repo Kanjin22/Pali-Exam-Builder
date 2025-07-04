@@ -8,6 +8,14 @@
         :root { --primary-color: #3498db; --secondary-color: #95a5a6; --success-color: #27ae60; --danger-color: #e74c3c; --warning-color: #f39c12; --light-bg: #f4f6f9; --white-bg: #fff; --text-dark: #2c3e50; --text-light: #555; --border-color: #ddd; }
         body { font-family: 'Sarabun', sans-serif; padding: 20px; line-height: 1.6; background-color: #f4f6f9; }
         .container { max-width: 1200px; margin: auto; background: #fff; padding: 20px 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        /* START: Added Styles for Header Bar */
+        .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;}
+        .header-bar h1 { border: none; padding: 0; margin: 0; }
+        button.secondary { background-color: var(--secondary-color); color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        button.secondary:hover { filter: brightness(90%); }
+        /* END: Added Styles */
+        
         h1, h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
         .audit-section { border: 1px solid #ddd; padding: 15px; margin-top: 20px; background-color: #fdfdfd; border-radius: 5px; }
         h3 { color: #34495e; }
@@ -30,7 +38,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>เครื่องมือตรวจสอบคุณภาพข้อมูล (Data Audit)</h1>
+        <!-- START: Added Header Bar -->
+        <div class="header-bar">
+            <h1>เครื่องมือตรวจสอบคุณภาพข้อมูล (Data Audit)</h1>
+            <a href="index.html"><button class="secondary">กลับไปหน้าสารบัญ</button></a>
+        </div>
+        <!-- END: Added Header Bar -->
+
         <p class="status loading" id="status">กำลังเชื่อมต่อและดึงข้อมูลจาก Firebase...</p>
         <div class="summary">
             <div class="summary-box"><div id="total-docs" class="count">0</div><div class="label">ประโยคทั้งหมด</div></div>
@@ -98,22 +112,18 @@
 
                 const pageRangeErrors = [], missingDataErrors = [], groupGapErrors = [], pageOverlapErrors = [], paraGapErrors = [];
                 
-                // **** นี่คือส่วนที่แก้ไข: เพิ่มการเรียก createEditLink() กลับเข้าไปในทุกจุด ****
                 for (let i = 0; i < allDocs.length; i++) {
                     const doc = allDocs[i];
                     
-                    // 1. หน้าเริ่ม > หน้าจบ
                     if (doc.page_end && doc.page_start > doc.page_end) {
                         const message = `<strong>ID:</strong> ${doc.id} | <strong>Group:</strong> <code>${doc.sentence_group_id}</code><br><strong>ปัญหา:</strong> หน้าเริ่ม <code>${doc.page_start}</code> > หน้าจบ <code>${doc.page_end}</code>`;
                         pageRangeErrors.push(createListItem(message, 'error', createEditLink(doc)));
                     }
-                    // 5. ข้อมูลขาดหาย
                     if (!doc.book_title || !doc.book_part || !doc.sentence_group_id || !doc.pali_text) {
                         const message = `<strong>ID:</strong> ${doc.id} | <strong>Group:</strong> <code>${doc.sentence_group_id || 'N/A'}</code><br><strong>ปัญหา:</strong> ข้อมูลสำคัญขาดหาย`;
                         missingDataErrors.push(createListItem(message, 'error', createEditLink(doc)));
                     }
 
-                    // 3. Group ID ข้ามลำดับ
                     if (i > 0) {
                         const prev = allDocs[i-1];
                         const curr = doc;
@@ -130,7 +140,6 @@
                     }
                 }
                 
-                // 2. ประโยคคาบเกี่ยวหน้าซ้ำซ้อน
                 const pageSpans = {};
                 allDocs.forEach(doc => {
                     if (doc.page_start && doc.page_end && doc.page_start !== doc.page_end) {
@@ -152,7 +161,6 @@
                     }
                 }
                 
-                // 4. ย่อหน้าไม่ต่อเนื่อง
                 const stories = {};
                 allDocs.forEach(doc => {
                     const storyKey = `${doc.book_title}-${doc.story_name}`;

@@ -12,7 +12,7 @@
             --primary-color: #3498db;
             --secondary-color: #95a5a6;
             --success-color: #27ae60;
-            --utility-color: #8e44ad; /* สีใหม่สำหรับปุ่มเครื่องมือ */
+            --utility-color: #8e44ad; /* สีสำหรับปุ่มเครื่องมือทั่วไป */
         }
         body {
             font-family: 'Sarabun', sans-serif;
@@ -82,7 +82,6 @@
         .menu-buttons button.success {
             background-color: var(--success-color);
         }
-        /* เพิ่มสไตล์สำหรับปุ่มใหม่ */
         .menu-buttons button.utility {
             background-color: var(--utility-color);
         }
@@ -100,10 +99,24 @@
             <div class="menu-buttons">
                 <button id="btn_create" class="success">➕ เพิ่มข้อมูลบาลีใหม่</button>
                 <button id="btn_translate">✍️ เพิ่ม/แก้ไขคำแปล</button>
-                <!-- ปุ่มใหม่ที่เพิ่มเข้ามา -->
-                <button id="btn_clean" class="utility">⚙️ ทำความสะอาดข้อมูล</button>
+                <button id="btn_clean" class="utility">⚙️ ทำความสะอาดข้อมูลซ้ำซ้อน</button>
             </div>
         </div>
+
+        <div id="utility_container" class="menu-container" style="display: block; border-top: 2px solid #ddd; margin-top: 35px;">
+            <h2>เครื่องมือทั่วไป</h2>
+            <div class="menu-buttons">
+                <a href="compare.html" style="text-decoration: none;">
+                    <button type="button" class="utility">🔍 เครื่องมือเปรียบเทียบและแก้ไข</button>
+                </a>
+                <!-- START: เพิ่มปุ่มสำหรับหน้า Audit -->
+                <a href="check_audit.html" style="text-decoration: none;">
+                    <button type="button" class="utility">📊 ตรวจสอบคุณภาพข้อมูลทั้งหมด</button>
+                </a>
+                <!-- END: เพิ่มปุ่มสำหรับหน้า Audit -->
+            </div>
+        </div>
+
     </div>
 
     <script>
@@ -197,10 +210,8 @@
             window.location.href = `${page}.html?${params.toString()}`;
         }
         
-        // กำหนด Event Listener ให้กับปุ่ม
         document.getElementById('btn_create').addEventListener('click', () => navigateTo('create'));
         document.getElementById('btn_translate').addEventListener('click', () => navigateTo('translate'));
-        // เพิ่ม Event Listener สำหรับปุ่มใหม่
         document.getElementById('btn_clean').addEventListener('click', () => navigateTo('clean'));
 
         loadBookList();

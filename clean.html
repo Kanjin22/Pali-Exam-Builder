@@ -11,37 +11,48 @@
         :root {
             --primary-color: #3498db; --secondary-color: #95a5a6; --danger-color: #e74c3c;
             --success-color: #27ae60; --warning-color: #f39c12;
-            --header-bg-color: #e9f5ff; 
-            --duplicate-bg-color: #fffbe6;
-            --delete-bg-color: #ffebee;
-            --delete-text-color: #c0392b;
+            --header-bg-color: #e9f5ff; --duplicate-bg-color: #fffbe6; --delete-bg-color: #ffebee;
+            --delete-text-color: #c0392b; --kept-bg-color: #e8f5e9; --kept-text-color: #1b5e20;
         }
         body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; color: #333; margin: 0; padding: 20px; }
         .header { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; text-align: center; }
         .main-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 20px; height: calc(100vh - 160px); }
         .panel { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; }
         .panel-header { padding: 15px 20px; border-bottom: 1px solid #eee; font-weight: bold; color: #2c3e50; display: flex; justify-content: space-between; align-items: center; }
-        textarea#raw_input { flex-grow: 1; padding: 15px; border: none; resize: none; font-size: 15px; line-height: 1.6; border-radius: 0 0 8px 8px;}
-        .controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        textarea#raw_input, textarea#cleaned_output { flex-grow: 1; padding: 15px; border: none; resize: none; font-size: 15px; line-height: 1.6; border-radius: 0 0 8px 8px;}
+        .controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap;}
         button { background: var(--primary-color); color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; transition: all 0.3s; }
         button:hover { filter: brightness(90%); }
+        button.success { background-color: var(--success-color); }
+        button.danger { background-color: var(--danger-color); }
+        button.utility { background-color: var(--secondary-color); }
+        /* START: Style for new buttons in raw input panel */
+        .raw-input-controls { padding: 10px 15px; border-top: 1px solid #eee; background-color: #f9f9f9; display: flex; gap: 10px; flex-wrap: wrap; }
+        .raw-input-controls button { font-size: 14px; padding: 5px 12px; font-weight: normal;}
+        /* END: Style for new buttons */
         #editor_view { flex-grow: 1; overflow-y: auto; padding: 15px; font-family: monospace; }
-        .editor-line { display: flex; align-items: center; min-height: 24px; border-bottom: 1px solid #f0f0f0; }
-        .line-number { color: #95a5a6; min-width: 50px; text-align: right; padding-right: 15px; user-select: none; }
-        .line-content { white-space: pre; flex-grow: 1; cursor: default; }
+        .editor-line { display: flex; align-items: flex-start; min-height: 24px; border-bottom: 1px solid #f0f0f0; transition: background-color 0.3s; }
+        .line-number { color: #95a5a6; min-width: 50px; text-align: right; padding-right: 15px; user-select: none; line-height: 24px; }
+        .line-content { white-space: pre-wrap; overflow-wrap: break-word; flex-grow: 1; cursor: default; }
+        .line-page-info { color: #95a5a6; font-size: 12px; margin-left: 15px; font-style: italic; line-height: 24px; }
         .editor-line.is-header { background-color: var(--header-bg-color); }
         .editor-line.is-duplicate { background-color: var(--duplicate-bg-color); cursor: pointer; }
-        .line-action { min-width: 60px; text-align: center; }
+        .line-action { width: 40px; text-align: center; line-height: 24px; }
         .line-action button { background-color: var(--warning-color); font-size: 12px; padding: 3px 8px; display: none; }
         .editor-line.edit-mode .line-action button { display: inline-block; }
         .editor-line.to-delete { background-color: var(--delete-bg-color) !important; }
         .editor-line.to-delete .line-content { text-decoration: line-through; color: var(--delete-text-color); }
         .editor-line.edit-mode.to-delete .line-action button { background-color: var(--success-color) !important; }
+        .editor-line.is-kept { background-color: var(--kept-bg-color) !important; }
+        .editor-line.is-kept .line-content, .editor-line.is-kept .line-number { color: var(--kept-text-color); font-weight: bold; }
+        .hidden { display: none; }
         #final_output_panel { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 800px; height: 80vh; z-index: 1000; display: none; }
         #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; display: none; }
     </style>
 </head>
 <body>
+    <input type="file" id="file_loader_input" class="hidden" accept=".txt,text/plain">
+
     <div id="overlay"></div>
     <div class="page-container">
         <div class="header"><h1>⚙️ เครื่องมือทำความสะอาดข้อมูล (Group Editing)</h1><h2 id="book_info"></h2></div>
@@ -49,10 +60,17 @@
             <div class="panel">
                 <div class="panel-header">1. ข้อมูลดิบ</div>
                 <textarea id="raw_input" placeholder="วางข้อความดิบจาก BUDSIR ที่นี่..."></textarea>
+                <!-- START: New Controls for Raw Input -->
+                <div class="raw-input-controls">
+                    <button id="btn_clean_raw">ทำความสะอาด & จัดระเบียบ</button>
+                    <button id="btn_copy_raw" class="utility">คัดลอก</button>
+                    <button id="btn_undo_raw" class="utility" style="display: none;">ยกเลิก</button>
+                </div>
+                <!-- END: New Controls for Raw Input -->
             </div>
             <div class="panel">
                 <div class="panel-header"><span>2. แก้ไขและตรวจสอบ</span><button id="btn_process" class="success">ประมวลผล</button></div>
-                <div id="editor_view"><div style="color: #999; text-align: center; padding-top: 50px;">กรุณาวางข้อมูลดิบและกด "ประมวลผล"</div></div>
+                <div id="editor_view"><div style="color: #999; text-align: center; padding-top: 50px;">กรุณาวางข้อมูลดิบ, ทำความสะอาด (ถ้าจำเป็น), แล้วกด "ประมวลผล"</div></div>
             </div>
         </div>
         <div class="controls"><button id="btn_generate_final" disabled>สร้างผลลัพธ์สุดท้าย</button><a href="index.html" style="text-decoration: none;"><button>กลับหน้าหลัก</button></a></div>
@@ -60,7 +78,11 @@
     <div id="final_output_panel" class="panel">
         <div class="panel-header"><span>ผลลัพธ์ที่ทำความสะอาดแล้ว</span><button id="btn_close_popup" class="danger">ปิดและเริ่มใหม่</button></div>
         <textarea id="cleaned_output" readonly></textarea>
-        <div class="controls" style="padding: 15px;"><button id="btn_copy" class="utility">คัดลอกทั้งหมด</button></div>
+        <div class="controls" style="padding: 15px;">
+            <button id="btn_copy" class="utility">คัดลอกทั้งหมด</button>
+            <button id="btn_append_to_file" class="success">เลือกไฟล์เดิมเพื่อนำมาต่อท้าย</button>
+            <button id="btn_save_and_new" class="primary">ดาวน์โหลดเป็นไฟล์ใหม่</button>
+        </div>
     </div>
 
     <script>
@@ -75,6 +97,16 @@
         const btnClosePopup = document.getElementById('btn_close_popup');
         const overlay = document.getElementById('overlay');
         const bookInfoEl = document.getElementById('book_info');
+        const fileLoaderInput = document.getElementById('file_loader_input');
+        const btnAppendToFile = document.getElementById('btn_append_to_file');
+        const btnSaveAndNew = document.getElementById('btn_save_and_new');
+
+        // START: New elements for raw input controls
+        const btnCleanRaw = document.getElementById('btn_clean_raw');
+        const btnCopyRaw = document.getElementById('btn_copy_raw');
+        const btnUndoRaw = document.getElementById('btn_undo_raw');
+        let originalRawText = '';
+        // END: New elements
 
         let previewLines = [];
         let linesToDelete = new Set();
@@ -83,6 +115,7 @@
         const params = new URLSearchParams(window.location.search);
         bookInfoEl.textContent = `คัมภีร์: ${params.get('bookName') || 'ไม่ได้ระบุ'}${params.get('bookPart') ? ' - ' + params.get('bookPart') : ''}`;
 
+        // Event listeners for main functionality
         btnProcess.addEventListener('click', processAndDisplay);
         btnGenerateFinal.addEventListener('click', generateFinalOutput);
         btnClosePopup.addEventListener('click', () => { window.location.reload(); });
@@ -91,24 +124,166 @@
                 navigator.clipboard.writeText(cleanedOutputEl.value).then(() => alert('คัดลอกผลลัพธ์เรียบร้อยแล้ว'));
             }
         });
+        btnAppendToFile.addEventListener('click', appendToExistingFile);
+        btnSaveAndNew.addEventListener('click', () => downloadAsNewFile());
+
+        // START: New event listeners for raw input controls
+        btnCleanRaw.addEventListener('click', cleanRawInputText);
+        btnCopyRaw.addEventListener('click', copyRawInput);
+        btnUndoRaw.addEventListener('click', undoRawClean);
+
+        function cleanRawInputText() {
+            originalRawText = rawInputEl.value;
+            let text = rawInputEl.value;
+            if (!text.trim()) return;
+            
+            const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*\n\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
+            text = text.replace(hyphenatedWordRegex, '$1$2');
+            const noisePatterns = [ /^=+.*/, /.*=+$/, /^\s*@.*/, /^\s*อรรถกถาบาลี.*/, /^\s*คัมภีร์สำคัญอื่นๆ.*/  ];
+            let lines = text.split(/\r?\n/);
+            let cleanedLines = lines.filter(line => !noisePatterns.some(pattern => pattern.test(line.trim())));
+            text = cleanedLines.join('\n');
+            text = text.replace(/\[?[๐-๙]+\]?-/g, ');
+            text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
+
+const pePlaceholder = " __PEYALA__ ";
+const etcPlaceholder = " __ETC__ ";
+
+// 1. ห่อคำพิเศษด้วยการเว้นวรรค 2 เคาะ แล้วค่อยแปลงเป็น Placeholder
+text = text.replace(/\s*ฯเปฯ\s*/g, `  ${pePlaceholder}  `)
+           .replace(/\s*ฯลฯ\s*/g, `  ${etcPlaceholder}  `);
+
+// 2. จัดการเครื่องหมาย | และ ฯ เดี่ยวๆ
+text = text.replace(/\s*\|\s*/g, '  |  ');
+text = text.replace(/\s*ฯ\s*/g, '  ฯ  ');
+
+// 3. จัดการการเว้นวรรคระหว่างคำทั่วไป
+lines = text.split(/\r?\n/);
+let formattedLines = lines.map(line => {
+    // 3.1 ทำให้การเว้นวรรคทุกที่เป็น 1 เคาะก่อน (ยกเว้นรอบๆ placeholder ของเรา)
+    let tempLine = line.replace(/\s+/g, ' ');
+
+    // 3.2 เพิ่มช่องว่างระหว่างคำทั่วไป ให้เป็น 2 เคาะ
+    // โดยจะไม่ไปยุ่งกับช่องว่างที่อยู่ติดกับ Placeholder ของเราแล้ว
+    tempLine = tempLine.replace(/ (?![_])/g, '  '); // ค้นหาเว้นวรรคที่ไม่ได้ตามด้วย _
+    
+    // 3.3 แก้ไขกรณีที่อาจจะมีเว้นวรรคเหลือ 1 เคาะ หน้า placeholder
+    tempLine = tempLine.replace(/ (?=__)/g, '  ');
+
+    return tempLine.trim(); // Trim แต่ละบรรทัดเพื่อความสะอาด
+});
+
+text = formattedLines.join('\n');
+
+// 4. นำคำพิเศษกลับมา โดยไม่ต้องมีเว้นวรรคเพิ่ม เพราะเราจัดการไปแล้ว
+text = text.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ')
+           .replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ');
+
+// 5. จัดการช่องว่างซ้ำซ้อนที่อาจเกิดขึ้นจากการ replace หลายขั้นตอน
+text = text.replace(/\s{3,}/g, '  ');
+
+rawInputEl.value = text.trim();
+// ...
+            
+            btnCleanRaw.style.display = 'none';
+            btnUndoRaw.style.display = 'inline-block';
+        }
+
+        function copyRawInput() {
+            const textToCopy = rawInputEl.value;
+            if (!textToCopy) return;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btnCopyRaw.textContent;
+                btnCopyRaw.textContent = 'คัดลอกแล้ว!';
+                btnCopyRaw.disabled = true;
+                setTimeout(() => {
+                    btnCopyRaw.textContent = originalText;
+                    btnCopyRaw.disabled = false;
+                }, 2000);
+            }).catch(err => {
+                console.error('ไม่สามารถคัดลอกได้: ', err);
+                alert('เกิดข้อผิดพลาด ไม่สามารถคัดลอกข้อความได้');
+            });
+        }
+
+        function undoRawClean() {
+            rawInputEl.value = originalRawText;
+            btnCleanRaw.style.display = 'inline-block';
+            btnUndoRaw.style.display = 'none';
+        }
+        // END: New functions
+
+        function appendToExistingFile() {
+            fileLoaderInput.onchange = (event) => {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const oldContent = e.target.result;
+                    const newContent = cleanedOutputEl.value;
+                    const combinedContent = oldContent + '\n\n' + newContent;
+                    downloadAsNewFile(combinedContent, file.name); 
+                };
+                reader.onerror = () => {
+                    alert('ไม่สามารถอ่านไฟล์ได้');
+                };
+                reader.readAsText(file);
+                fileLoaderInput.value = '';
+            };
+            fileLoaderInput.click();
+        }
+
+        function downloadAsNewFile(contentToSave, suggestedFilename) {
+            const textToSave = contentToSave || cleanedOutputEl.value;
+            if (!textToSave.trim()) { alert('ไม่มีข้อมูลให้บันทึก'); return; }
+
+            let filename = suggestedFilename;
+            if (!filename) {
+                const bookName = params.get('bookName') || 'ผลลัพธ์';
+                const bookPart = params.get('bookPart') || '';
+                filename = `cleaned-${bookName.replace(/\s+/g, '_')}${bookPart ? '-' + bookPart.replace(/\s+/g, '_') : ''}.txt`;
+            }
+            
+            const blob = new Blob([textToSave], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const downloadLink = document.createElement("a");
+            downloadLink.href = url;
+            downloadLink.download = filename;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(url); 
+            setTimeout(() => window.location.reload(), 500);
+        }
 
         function processAndDisplay() {
             const text = rawInputEl.value;
             if (!text.trim()) { alert('กรุณาใส่ข้อมูลดิบ'); return; }
-            
             linesToDelete.clear();
             lineMap.clear();
+            previewLines = [];
             editorView.innerHTML = '';
             
+            const lines = text.split('\n');
             const headerRegex = /หน้า\s*([0-9๐-๙]+)/;
-            previewLines = text.split('\n').map(line => {
+            let currentPage = 'N/A';
+
+            lines.forEach(line => {
                 const match = line.match(headerRegex);
-                return match ? `  (P${match[1]})` : line;
+                let lineObject;
+                if (match) {
+                    currentPage = `P${match[1]}`;
+                    lineObject = { text: `  (${currentPage})`, page: currentPage, isHeader: true };
+                } else {
+                    lineObject = { text: line, page: currentPage, isHeader: false };
+                }
+                previewLines.push(lineObject);
             });
 
-            previewLines.forEach((line, index) => {
-                const trimmedLine = line.trim();
-                if (trimmedLine === '' || trimmedLine.startsWith('(P')) return;
+            previewLines.forEach((lineObject, index) => {
+                const trimmedLine = lineObject.text.trim();
+                if (trimmedLine === '' || lineObject.isHeader) return;
                 if (!lineMap.has(trimmedLine)) lineMap.set(trimmedLine, []);
                 lineMap.get(trimmedLine).push(index);
             });
@@ -119,12 +294,12 @@
 
         function renderEditorView() {
             editorView.innerHTML = '';
-            previewLines.forEach((line, index) => {
-                editorView.appendChild(createEditorLine(line, index));
+            previewLines.forEach((lineObject, index) => {
+                editorView.appendChild(createEditorLine(lineObject, index));
             });
         }
         
-        function createEditorLine(lineText, index) {
+        function createEditorLine(lineObject, index) {
             const lineEl = document.createElement('div');
             lineEl.className = 'editor-line';
             lineEl.id = `line-${index}`;
@@ -135,11 +310,10 @@
             
             const contentEl = document.createElement('div');
             contentEl.className = 'line-content';
-            contentEl.textContent = lineText;
+            contentEl.textContent = lineObject.text;
             
             const actionEl = document.createElement('div');
             actionEl.className = 'line-action';
-            
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'ลบ';
             deleteBtn.onclick = (e) => {
@@ -147,16 +321,24 @@
                 toggleDeleteState(index);
             };
             actionEl.appendChild(deleteBtn);
-
+            
+            lineEl.appendChild(actionEl);
             lineEl.appendChild(numEl);
             lineEl.appendChild(contentEl);
-            lineEl.appendChild(actionEl);
 
-            const trimmedLine = lineText.trim();
+            if (!lineObject.isHeader) {
+                const pageInfoEl = document.createElement('span');
+                pageInfoEl.className = 'line-page-info';
+                pageInfoEl.textContent = `[${lineObject.page}]`;
+                lineEl.appendChild(pageInfoEl);
+            }
+
+            const trimmedLine = lineObject.text.trim();
             const duplicateIndices = lineMap.get(trimmedLine);
             
-            if (trimmedLine.startsWith('(P')) {
+            if (lineObject.isHeader) {
                 lineEl.classList.add('is-header');
+                actionEl.style.visibility = 'hidden';
             } else if (duplicateIndices && duplicateIndices.length > 1) {
                 lineEl.classList.add('is-duplicate');
                 lineEl.onclick = () => activateGroupEditMode(trimmedLine);
@@ -167,11 +349,8 @@
         function activateGroupEditMode(lineText) {
             const indices = lineMap.get(lineText);
             if (!indices) return;
-
             const isAlreadyEditing = document.getElementById(`line-${indices[0]}`).classList.contains('edit-mode');
-            
             document.querySelectorAll('.editor-line.edit-mode').forEach(el => el.classList.remove('edit-mode'));
-
             if (!isAlreadyEditing) {
                 indices.forEach(index => {
                     document.getElementById(`line-${index}`)?.classList.add('edit-mode');
@@ -181,7 +360,6 @@
 
         function toggleDeleteState(selectedIndex) {
             const isCurrentlyMarked = linesToDelete.has(selectedIndex);
-
             if (isCurrentlyMarked) {
                 linesToDelete.delete(selectedIndex);
                 updateLineAppearance(selectedIndex, false);
@@ -189,8 +367,23 @@
                 linesToDelete.add(selectedIndex);
                 updateLineAppearance(selectedIndex, true);
             }
+            const lineText = previewLines[selectedIndex].text.trim();
+            updateGroupHighlight(lineText);
         }
         
+        function updateGroupHighlight(lineText) {
+            const groupIndices = lineMap.get(lineText);
+            if (!groupIndices || groupIndices.length <= 1) return;
+            const deletedInGroup = groupIndices.filter(i => linesToDelete.has(i));
+            const keptInGroup = groupIndices.filter(i => !linesToDelete.has(i));
+            if (deletedInGroup.length > 0 && keptInGroup.length > 0) {
+                keptInGroup.forEach(index => { document.getElementById(`line-${index}`)?.classList.add('is-kept'); });
+                deletedInGroup.forEach(index => { document.getElementById(`line-${index}`)?.classList.remove('is-kept'); });
+            } else {
+                groupIndices.forEach(index => { document.getElementById(`line-${index}`)?.classList.remove('is-kept'); });
+            }
+        }
+
         function updateLineAppearance(index, isDeleting) {
             const lineEl = document.getElementById(`line-${index}`);
             if (!lineEl) return;
@@ -208,12 +401,14 @@
             let finalLines = [];
             for (let i = 0; i < previewLines.length; i++) {
                 if (linesToDelete.has(i)) {
-                    finalLines.push('');
+                    continue; // Skip lines marked for deletion entirely
                 } else {
-                    finalLines.push(previewLines[i]);
+                    finalLines.push(previewLines[i].text);
                 }
             }
-            cleanedOutputEl.value = finalLines.join('\n');
+            // Remove header lines like '(P123)' from the final output for cleaner text
+            const finalOutputText = finalLines.filter(line => !/^\s*\(\s*P[0-9๐-๙]+\s*\)\s*$/.test(line)).join('\n');
+            cleanedOutputEl.value = finalOutputText;
             finalOutputPanel.style.display = 'flex';
             overlay.style.display = 'block';
         }

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เครื่องมือเปรียบเทียบและแก้ไข (Diff & Correct)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"></script>
+    
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #f0f2f5; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        
+        /* START: Added/Modified Styles */
+        .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 20px; }
+        .header-bar h1 { margin: 0; text-align: left; color: #2c3e50; }
+        button.secondary { background-color: #95a5a6; padding: 10px 20px; font-size: 16px;}
+        /* END: Added/Modified Styles */
+        
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .panel { display: flex; flex-direction: column; }
+        .panel h2 { margin-top: 0; font-size: 18px; text-align: center; }
+        textarea { width: 100%; height: 250px; border-radius: 4px; border: 1px solid #ccc; padding: 10px; font-size: 15px; font-family: 'Sarabun', sans-serif; resize: vertical; box-sizing: border-box;}
+        textarea[readonly] { background-color: #e9ecef; cursor: text; }
+        .controls { text-align: center; margin: 20px 0; }
+        button { background: #27ae60; color: #fff; padding: 12px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 18px; font-weight: bold; transition: all 0.3s; }
+        button:hover { filter: brightness(90%); }
+        .result-container { margin-top: 20px; }
+        #result_panel, #summary_panel { padding: 20px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9; min-height: 100px; line-height: 1.8; font-size: 16px; word-wrap: break-word; }
+        
+        del { background-color: #ffebee; color: #c0392b; text-decoration: line-through; font-weight: bold; }
+        ins { background-color: #e8f5e9; color: #1b5e20; text-decoration: none; font-weight: bold; }
+        .summary-deleted-label { color: #7f8c8d; font-weight: normal; } 
+        
+        .no-difference { color: #27ae60; font-weight: bold; font-size: 20px; text-align: center; }
+        .copy-button { font-size: 14px; padding: 8px 15px; margin-top: 10px; width: 100%; background-color: #95a5a6; }
+        .summary-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .summary-table th, .summary-table td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; word-break: break-all; }
+        .summary-table th { background-color: #f2f2f2; }
+        .summary-original-text del { }
+        .summary-ai-text ins { }
+        
+        .correction-link { cursor: pointer; text-decoration: none; color: #1b5e20; }
+        .correction-link ins { text-decoration: none; } 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-bar">
+            <h1>✔️ เครื่องมือเปรียบเทียบและแก้ไข</h1>
+            <a href="index.html"><button class="secondary">กลับไปหน้าสารบัญ</button></a>
+        </div>
+        <div class="comparison-grid">
+            <div class="panel">
+                <h2>1. เนื้อหาต้นฉบับ</h2>
+                <textarea id="text_original" placeholder="วางเนื้อหาต้นฉบับที่แบ่งเป็นบรรทัดที่นี่..."></textarea>
+            </div>
+            <div class="panel">
+                <h2>2. เนื้อหาที่ AI ประมวลผล (แก้ไขได้)</h2>
+                <textarea id="text_ai" placeholder="วางเนื้อหาที่ AI รวมประโยคให้แล้วที่นี่..."></textarea>
+                <button id="btn_copy_ai" class="copy-button">คัดลอกผลลัพธ์ที่แก้ไขแล้ว</button>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="btn_compare">เปรียบเทียบ</button>
+        </div>
+
+        <div class="result-container comparison-grid">
+             <div class="panel">
+                <h2>ผลการเปรียบเทียบ (ภาพรวม)</h2>
+                <div id="result_panel">กรุณากรอกข้อมูลทั้ง 2 ช่อง แล้วกด "เปรียบเทียบ"</div>
+            </div>
+            <div class="panel">
+                <h2>สรุปจุดที่แตกต่าง</h2>
+                <div id="summary_panel"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const textOriginalEl = document.getElementById('text_original');
+            const textAiEl = document.getElementById('text_ai');
+            const btnCompare = document.getElementById('btn_compare');
+            const resultPanel = document.getElementById('result_panel');
+            const summaryPanel = document.getElementById('summary_panel');
+            const btnCopyAi = document.getElementById('btn_copy_ai');
+
+            btnCopyAi.addEventListener('click', () => { 
+                if (textAiEl.value) { 
+                    navigator.clipboard.writeText(textAiEl.value)
+                        .then(() => {
+                            alert('คัดลอกผลลัพธ์เรียบร้อยแล้ว');
+                            location.reload();
+                        })
+                        .catch(err => {
+                            console.error('Failed to copy: ', err);
+                            alert('คัดลอกไม่สำเร็จ: ' + err);
+                        });
+                } 
+            });
+            btnCompare.addEventListener('click', compareTexts);
+            
+            function compareTexts() {
+                textOriginalEl.readOnly = true;
+
+                const text1 = textOriginalEl.value;
+                const text2 = textAiEl.value;
+
+                if (!text1.trim() || !text2.trim()) { 
+                    resultPanel.innerHTML = 'กรุณากรอกข้อมูลให้ครบทั้ง 2 ช่อง';
+                    summaryPanel.innerHTML = '';
+                    textOriginalEl.readOnly = false; 
+                    return; 
+                }
+
+                const dmp = new diff_match_patch();
+                const diffs = dmp.diff_main(text1, text2);
+                dmp.diff_cleanupSemantic(diffs);
+
+                const hasDifference = diffs.some(part => part[0] !== 0);
+                
+                resultPanel.innerHTML = dmp.diff_prettyHtml(diffs);
+
+                if (!hasDifference) {
+                    summaryPanel.innerHTML = '<div class="no-difference">✅ ยอดเยี่ยม! เนื้อหาตรงกันทุกประการ!</div>';
+                } else {
+                    summaryPanel.innerHTML = '';
+                    const table = document.createElement('table');
+                    table.className = 'summary-table';
+                    table.innerHTML = '<thead><tr><th>ส่วนที่ต่างในต้นฉบับ (ลบออก)</th><th>ส่วนที่ AI สร้าง/แก้ไข (คลิกเพื่อไฮไลท์)</th></tr></thead>';
+                    const tbody = document.createElement('tbody');
+                    table.appendChild(tbody);
+
+                    let originalCursor = 0;
+                    let aiCursor = 0;
+
+                    let bufferedOriginalDiffText = [];
+                    let bufferedAiDiffText = [];
+                    
+                    let currentOriginalBlockStartIdx = -1; 
+                    let currentAiBlockStartIdx = -1;       
+
+                    for (const part of diffs) {
+                        const op = part[0];
+                        const diffText = part[1];
+
+                        if (op === 0) {
+                            if (bufferedOriginalDiffText.length > 0 || bufferedAiDiffText.length > 0) {
+                                addDiffRowToSummary(
+                                    tbody,
+                                    bufferedOriginalDiffText.join(''),
+                                    bufferedAiDiffText.join(''),
+                                    currentOriginalBlockStartIdx,
+                                    currentAiBlockStartIdx
+                                );
+                                bufferedOriginalDiffText = [];
+                                bufferedAiDiffText = [];
+                                currentOriginalBlockStartIdx = -1; 
+                                currentAiBlockStartIdx = -1;       
+                            }
+                            originalCursor += diffText.length;
+                            aiCursor += diffText.length;
+                        } else if (op === -1) {
+                            if (currentOriginalBlockStartIdx === -1) { 
+                                currentOriginalBlockStartIdx = originalCursor;
+                            }
+                            if (currentAiBlockStartIdx === -1) {
+                                currentAiBlockStartIdx = aiCursor; 
+                            }
+                            bufferedOriginalDiffText.push(diffText);
+                            originalCursor += diffText.length;
+                        } else if (op === 1) {
+                            if (currentAiBlockStartIdx === -1) { 
+                                currentAiBlockStartIdx = aiCursor;
+                            }
+                            if (currentOriginalBlockStartIdx === -1) {
+                                currentOriginalBlockStartIdx = originalCursor; 
+                            }
+                            bufferedAiDiffText.push(diffText);
+                            aiCursor += diffText.length;
+                        }
+                    }
+
+                    if (bufferedOriginalDiffText.length > 0 || bufferedAiDiffText.length > 0) {
+                        addDiffRowToSummary(
+                            tbody,
+                            bufferedOriginalDiffText.join(''),
+                            bufferedAiDiffText.join(''),
+                            currentOriginalBlockStartIdx,
+                            currentAiBlockStartIdx
+                        );
+                    }
+                    
+                    summaryPanel.appendChild(table);
+                }
+            }
+
+            function addDiffRowToSummary(tbody, originalDiffString, aiDiffString, originalDiffStartIdx, aiDiffStartIdx) {
+                const isOnlyLineBreaks = originalDiffString.replace(/[\r\n]/g, '') === '' && 
+                                         aiDiffString.replace(/[\r\n]/g, '') === '';
+                
+                if (isOnlyLineBreaks && (originalDiffString.length > 0 || aiDiffString.length > 0)) {
+                    return; 
+                }
+
+                if (!originalDiffString.length && !aiDiffString.length) {
+                    return;
+                }
+                
+                const row = tbody.insertRow();
+                const originalCell = row.insertCell(0);
+                const aiCell = row.insertCell(1);
+
+                if (originalDiffString) {
+                    originalCell.innerHTML = `<span class="summary-original-text"><del>${escapeHTML(originalDiffString)}</del></span>`;
+                } else {
+                    originalCell.textContent = '';
+                }
+                
+                const link = document.createElement('a');
+                link.className = 'correction-link';
+
+                let aiCellContent = '';
+                if (aiDiffString) {
+                    aiCellContent = `<span class="summary-ai-text"><ins>${escapeHTML(aiDiffString)}</ins></span>`;
+                } else if (originalDiffString) {
+                    aiCellContent = `<span class="summary-deleted-label">(ถูกลบออก)</span>`;
+                }
+                link.innerHTML = aiCellContent;
+
+                const canHighlightOriginal = originalDiffString.length > 0 && originalDiffStartIdx !== -1;
+                const canHighlightAI = aiDiffString.length > 0 && aiDiffStartIdx !== -1;
+
+                if (canHighlightOriginal || canHighlightAI) {
+                    link.onclick = () => highlightTextareas(
+                        originalDiffString,
+                        aiDiffString,
+                        originalDiffStartIdx,
+                        aiDiffStartIdx
+                    );
+                    aiCell.appendChild(link);
+                } else {
+                    aiCell.innerHTML = aiCellContent; 
+                }
+            }
+
+            function highlightTextareas(originalTextToSelect, aiTextToSelect, originalStartIndex, aiStartIndex) {
+                textOriginalEl.setSelectionRange(0, 0);
+                textAiEl.setSelectionRange(0, 0);
+
+                if (originalTextToSelect.length > 0 && originalStartIndex !== -1) {
+                    textOriginalEl.setSelectionRange(originalStartIndex, originalStartIndex + originalTextToSelect.length);
+                    textOriginalEl.scrollTop = textOriginalEl.scrollHeight * (originalStartIndex / textOriginalEl.value.length) - textOriginalEl.clientHeight / 2;
+                }
+
+                if (aiTextToSelect.length > 0 && aiStartIndex !== -1) {
+                    textAiEl.setSelectionRange(aiStartIndex, aiStartIndex + aiTextToSelect.length);
+                    textAiEl.scrollTop = textAiEl.scrollHeight * (aiStartIndex / textAiEl.value.length) - textAiEl.clientHeight / 2;
+                }
+
+                if (aiTextToSelect.length > 0 && aiStartIndex !== -1) {
+                    textAiEl.focus();
+                } else if (originalTextToSelect.length > 0 && originalStartIndex !== -1) {
+                    textOriginalEl.focus();
+                }
+            }
+
+            function escapeHTML(str) {
+                const div = document.createElement('div');
+                div.appendChild(document.createTextNode(str));
+                return div.innerHTML;
+            }
+        });
+    </script>
+</body>
+</html>
