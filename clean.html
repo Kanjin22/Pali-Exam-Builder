@@ -143,7 +143,7 @@
             let lines = text.split(/\r?\n/);
             let cleanedLines = lines.filter(line => !noisePatterns.some(pattern => pattern.test(line.trim())));
             text = cleanedLines.join('\n');
-            text = text.replace(/\[?[๐-๙]+\]?-/g, ');
+            text = text.replace(/\[?[๐-๙]+\]?-/g, '');
             text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
 
 const pePlaceholder = " __PEYALA__ ";
