@@ -130,52 +130,49 @@
             let text = rawInputEl.value;
             if (!text.trim()) return;
             
-            // --- General Cleaning ---
+            // --- 1. General Cleaning (ข้ามบรรทัด) ---
+            // เชื่อมคำที่ถูกตัดด้วยยัติภังค์ (ทำก่อนแยกบรรทัด)
             const hyphenatedWordRegex = /([a-zA-Zเ-ไก-ฮฯ-์])-\s*\n\s*\*?\s*([a-zA-Zเ-ไก-ฮฯ-์])/g;
             text = text.replace(hyphenatedWordRegex, '$1$2');
             
+            // --- 2. กรองบรรทัดที่ไม่ต้องการออก ---
             const noisePatterns = [ /^=+.*/, /.*=+$/, /^\s*@.*/, /^\s*อรรถกถาบาลี.*/, /^\s*คัมภีร์สำคัญอื่นๆ.*/ ];
             let lines = text.split(/\r?\n/);
             let cleanedLines = lines.filter(line => !noisePatterns.some(pattern => pattern.test(line.trim())));
-            text = cleanedLines.join('\n');
             
-            text = text.replace(/\[?[๐-๙]+\]?-/g, ''); // Corrected line with closing single quote
-            text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
-
-            // --- Spacing Logic ---
+            // --- 3. ประมวลผลทีละบรรทัด ( 핵심 Logic อยู่ตรงนี้) ---
             const pePlaceholder = " __PEYALA__ ";
             const etcPlaceholder = " __ETC__ ";
 
-            // 1. Wrap special words with double spaces, then convert to placeholders
-            text = text.replace(/\s*ฯเปฯ\s*/g, `  ${pePlaceholder}  `)
-                       .replace(/\s*ฯลฯ\s*/g, `  ${etcPlaceholder}  `);
+            let formattedLines = cleanedLines.map(line => {
+                // 3.1 ลบข้อมูลและจัดการอักขระเบื้องต้น
+                let tempLine = line.replace(/\[?[๐-๙]+\]?-/g, ''); 
+                tempLine = tempLine.replace(/€/g, 'ฐ').replace(//g, 'ญ');
 
-            // 2. Handle single pipe and punctuation marks
-            text = text.replace(/\s*\|\s*/g, '  |  ');
-            text = text.replace(/\s*ฯ\s*/g, '  ฯ  ');
-
-            // 3. Handle spacing for general words
-            lines = text.split(/\r?\n/); // Re-use the 'lines' variable
-            let formattedLines = lines.map(line => {
-                // 3.1 Normalize all whitespace to single spaces first
-                let tempLine = line.replace(/\s+/g, ' ');
-
-                // 3.2 Add double spaces between words, avoiding our placeholders
-                tempLine = tempLine.replace(/ (?![_])/g, '  '); // Lookahead for non-underscore
+                // 3.2 ใช้ Placeholder กับคำพิเศษเพื่อป้องกันการจัดช่องไฟผิดพลาด
+                tempLine = tempLine.replace(/\s*ฯเปฯ\s*/g, `  ${pePlaceholder}  `)
+                                   .replace(/\s*ฯลฯ\s*/g, `  ${etcPlaceholder}  `);
+                tempLine = tempLine.replace(/\s*\|\s*/g, '  |  ');
+                tempLine = tempLine.replace(/\s*ฯ\s*/g, '  ฯ  ');
                 
-                // 3.3 Fix potential single space before a placeholder
-                tempLine = tempLine.replace(/ (?=__)/g, '  '); // Lookahead for double underscore
-                return tempLine.replace(/\s+$/, ''); // ลบเฉพาะช่องว่างที่อยู่ท้ายบรรทัดเท่านั้น
+                // 3.3 จัดการช่องว่างให้เป็น 2 เคาะ
+                // - ทำให้ช่องว่างติดกันหลายๆ อันเหลือแค่อันเดียว (ไม่กระทบ \n เพราะเราทำทีละบรรทัด)
+                // - จากนั้นเปลี่ยนช่องว่าง 1 อันให้เป็น 2 อัน
+                // - ใช้ Lookahead (?![_]) เพื่อไม่ให้ไปเพิ่มช่องว่างหน้า Placeholder
+                tempLine = tempLine.replace(/\s+/g, ' '); 
+                tempLine = tempLine.replace(/ (?![_])/g, '  '); 
+                tempLine = tempLine.replace(/ (?=__)/g, '  '); // แก้ไขช่องว่างก่อน Placeholder
+
+                // 3.4 นำ Placeholder กลับเป็นคำเดิม
+                tempLine = tempLine.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ')
+                                   .replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ');
+
+                // 3.5 เก็บตกช่องว่างที่อาจเกินมา และ "ลบเฉพาะช่องว่างท้ายบรรทัด"
+                tempLine = tempLine.replace(/\s{3,}/g, '  ');
+                return tempLine.replace(/\s+$/, ''); // <--- จุดสำคัญ: ลบเฉพาะช่องว่างที่อยู่ท้ายบรรทัด
             });
 
             text = formattedLines.join('\n');
-
-            // 4. Convert placeholders back to original words
-            text = text.replace(new RegExp(pePlaceholder, 'g'), 'ฯเปฯ')
-                       .replace(new RegExp(etcPlaceholder, 'g'), 'ฯลฯ');
-
-            // 5. Final cleanup of any excess whitespace
-            text = text.replace(/\s{3,}/g, '  ');
 
             rawInputEl.value = text;
             
