@@ -165,8 +165,7 @@
                 
                 // 3.3 Fix potential single space before a placeholder
                 tempLine = tempLine.replace(/ (?=__)/g, '  '); // Lookahead for double underscore
-
-                return tempLine.trim(/\s+$/, '');
+                return tempLine.replace(/\s+$/, ''); // ลบเฉพาะช่องว่างที่อยู่ท้ายบรรทัดเท่านั้น
             });
 
             text = formattedLines.join('\n');
@@ -178,7 +177,7 @@
             // 5. Final cleanup of any excess whitespace
             text = text.replace(/\s{3,}/g, '  ');
 
-            rawInputEl.value = text.trim();
+            rawInputEl.value = text;
             
             btnCleanRaw.style.display = 'none';
             btnUndoRaw.style.display = 'inline-block';
