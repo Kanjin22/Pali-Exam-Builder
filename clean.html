@@ -140,7 +140,7 @@
             text = cleanedLines.join('\n');
             
             text = text.replace(/\[?[๐-๙]+\]?-/g, ''); // Corrected line with closing single quote
-            text = text.replace(/€/g, 'ฐ').replace(/ /g, 'ญ');
+            text = text.replace(/€/g, 'ฐ').replace(//g, 'ญ');
 
             // --- Spacing Logic ---
             const pePlaceholder = " __PEYALA__ ";
