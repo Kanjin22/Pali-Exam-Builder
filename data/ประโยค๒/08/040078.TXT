@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>                    ๑๐.   เรื่องภิกษุอาคันตุกะ*   [ ๗๐ ]
+<span class="LineNumber"> 002 </span>                               [ ข้อความเบื้องต้น ]
+<span class="LineNumber"> 003 </span>	พระศาสดาเมื่อประทับอยู่ในพระเชตวัน   ทรงปรารภพวกภิกษุ
+<span class="LineNumber"> 004 </span>อาคันตุกะ   ตรัสพระธรรมเทศนานี้ว่า   <B>" กณฺหํ   ธมฺมํ   วิปฺปหาย "</B>
+<span class="LineNumber"> 005 </span>เป็นต้น.
+<span class="LineNumber"> 006 </span>                [ พระศาสดาตรัสเหมาะแก่ความประพฤติ ]
+<span class="LineNumber"> 007 </span>	ดังได้ทราบมาว่า   ภิกษุประมาณ  ๕๐๐ รูป   จำพรรษาอยู่ใน
+<span class="LineNumber"> 008 </span>แคว้นโกศล   ออกพรรษาแล้ว   ปรึกษากันว่า   " จักเฝ้าพระศาสดา "
+<span class="LineNumber"> 009 </span>จึงไปยังพระเชตวัน   ถวายบังคมพระศาสดาแล้ว  นั่งอยู่ ณ ที่สุดแห่ง
+<span class="LineNumber"> 010 </span>หนึ่ง.   พระศาสดาทรงพิจารณาธรรมอันเป็นปฏิปักษ์แก่จริยาของพวกเธอ
+<span class="LineNumber"> 011 </span>เมื่อจะทรงแสดงธรรม  ได้ตรัสพระคาถาเหล่านี้ว่า :-
+<span class="LineNumber"> 012 </span>	     <B>" บัณฑิตละธรรมดำแล้ว  ออกจากอาลัย  อาศัย
+<span class="LineNumber"> 013 </span>	     ธรรมอันหาอาลัยมิได้แล้ว  ควรเจริญธรรมขาว,
+<span class="LineNumber"> 014 </span>	     ละกามทั้งหลายแล้ว    หมดความกังวล   พึง
+<span class="LineNumber"> 015 </span>	     ปรารถนาความยินดียิ่งในวิเวก    อันเป็นที่ซึ่ง
+<span class="LineNumber"> 016 </span>	     ประชาชนยินดีได้ยาก,   บัณฑิตควรทำตนให้ผ่อง
+<span class="LineNumber"> 017 </span>	     แผ้ว   จากเครื่องเศร้าหมอง.   ชนเหล่าใด
+<span class="LineNumber"> 018 </span>	     อบรมจิตดีแล้วโดยชอบ    ในองค์ธรรมแห่ง
+<span class="LineNumber"> 019 </span>	     ความตรัสรู้,  (และ)  ชนเหล่าใด   ไม่ถือมั่น</B>
+
+<span class='footnote'>* พระมหาเพียร  ป.ธ.  ๙  วัดกันมาตุยาราม  แปล.</span>

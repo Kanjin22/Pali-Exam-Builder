@@ -1,0 +1,5 @@
+<span class="LineNumber"> 001 </span>            [ อธิษฐานคาถาของท่านผู้รจนา ]
+<span class="LineNumber"> 002 </span><B>ขอพระสัทธรรม  จงดำรงอยู่สิ้นกาลนาน  ขอฝน
+<span class="LineNumber"> 003 </span>จงตกต้องตามฤดูกาล  ยังหมู่สัตว์ให้เอิบอิ่ม  สิ้นกาล
+<span class="LineNumber"> 004 </span>นาน  ขอพระราชาจงปกครองแผ่นดิน  โดยธรรม
+<span class="LineNumber"> 005 </span>เทอญ.</B>

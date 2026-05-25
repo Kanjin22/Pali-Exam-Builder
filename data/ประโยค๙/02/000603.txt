@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    603
+
+<span class="LineNumber"> 002 </span>ทสฺส...ตพฺพาติ  สญฺา  ฯ  เตสนฺติ  อวตฺถายาติ  ปเท  สมฺพนฺโธ  ฯ
+<span class="LineNumber"> 003 </span>อปา...ยาติ  ป...นตฺตาติ  สมฺพนฺโธ  ฯ  ป€...นาติ  ปียมานาติ
+<span class="LineNumber"> 004 </span>กตฺตา  ฯ  เสส...ยาติ  ปหี...ตาติ  สมฺพนฺโธ  ฯ  อุปริมคฺเคหีติ
+<span class="LineNumber"> 005 </span>ปหี...นาติ  กตฺตา  ฯ  ปหี...ตาติ  สิยา  ทสฺส...ตพฺพาติ  เหตุ  ฯ
+<span class="LineNumber"> 006 </span>	[๗๕๔]  (อาจริยานํ  มตึ  ทสฺเสนฺโต  ตตฺถาตฺยาทิมาห  ฯ
+<span class="LineNumber"> 007 </span>ตตฺถ  ติวิเธสุ  อกุสเลสุ  สิยา...สามญฺเน  อิธ  อิมสฺมึ  ทสฺสเนน
+<span class="LineNumber"> 008 </span>ปหาตพฺเพสูติ  ปเท  ทสฺสเนน  ปหาตพฺพํ  อิติ  โวหรนฺติ  กเถนฺติ
+<span class="LineNumber"> 009 </span>อาจริยาติ  โยชนา  ฯ
+<span class="LineNumber"> 010 </span>	ตตฺถาติ  นิทฺธารณํ  ฯ  สิยา...ปหาตพฺพมฺปีติ  นิทฺธารณิยํ  ฯ
+<span class="LineNumber"> 011 </span>สิยา...ปหาตพฺพมฺปีติ  โวหรนฺตีติ  กมฺมํ  ฯ  ทสฺสเนนาติ  ปหาตพฺพาติ
+<span class="LineNumber"> 012 </span>กตฺตา  ฯ  ปหา...เนาติ  โวหรนฺตีติ  ตติยาวิเสสนํ  ฯ  อิธาติ
+<span class="LineNumber"> 013 </span>โวหรนฺตีติ  อาธาโร  ฯ  ทสฺส...ตพฺพนฺติ  อิตีติ  สรูปํ  ฯ  อิตีติ
+<span class="LineNumber"> 014 </span>โวหรนฺตีติ  อากาโร<SUP>๑</SUP>  ฯ
+<span class="LineNumber"> 015 </span>	[๗๕๕]  โก  โทโสติ  โจทนํ  สนฺธายาห  ยทิตฺยาทึ  ฯ
+<span class="LineNumber"> 016 </span>อุทฺธ...สนฺธึ  ยทิ  ทเทยฺย  ตทา  ตสฺมึ  กาเล  อกุ...เสฺวว
+<span class="LineNumber"> 017 </span>ปฏิสนฺธึ  ทเทยฺย  ฯ
+<span class="LineNumber"> 018 </span>	ยทีติ  ปริกปฺโป  ฯ  จสทฺโท  วากฺยนฺตราภมฺโภ  ฯ  อุทฺธ...
+<span class="LineNumber"> 019 </span>ตนฺติ  ทเทยฺยาติ  กตฺตา  ปฏิสนฺธินฺติ  ทเทยฺยาติ  กมฺมํ  ฯ  ตทาติ
+<span class="LineNumber"> 020 </span>ทเทยฺยาติ  กาลสตฺตมี  ฯ  อกุ...ยาติ  อสมฺภวโตติ  สมฺพนฺโธ  ฯ
+<span class='footnote'>๑.  เอตฺถนฺตเร  ปาโ€  มยา  ปุน  รจิโต  โปราณปาโ€  หิ  นฏฺโ€  ฯ</span>
+<span class="LineNumber"> 021 </span>					อภิ.๑๗๕

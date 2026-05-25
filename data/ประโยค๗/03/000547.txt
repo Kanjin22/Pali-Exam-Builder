@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>เวยฺยาวจฺจกเรน วุตฺเตนปิ ภิกฺขุนา น นิสีทิตพฺพนฺติ ปเท
+<span class="LineNumber"> 002 </span>กตฺตา ฯ อปิสทฺโท น เกวลํ อวุตฺเตน น นิสีทิตพฺพนฺติ าเปติ ฯ
+<span class="LineNumber"> 003 </span>ปุจฺฉิยมาโนติ ปเท วิชฺชมานํ อิทํ ปจฺจตฺตวจนํ กรณตฺเถ วตฺตติ ฯ
+<span class="LineNumber"> 004 </span>อปิสทฺโท ปุริมตฺถํ อเปกฺขติ ฯ เอตฺถาติ ปุจฺฉิยมาโนติ ปเท ฯ
+<span class="LineNumber"> 005 </span>หิสทฺโท ทฬฺหีกรณํ ฯ อิตีติ ปทํ สมาปนฺนํ ฯ €านํ ภญฺชติ 
+<span class="LineNumber"> 006 </span>€ิตํ วินาเสติ ฯ อาคตการณตฺถนฺนาม<SUP>๑</SUP> €านเมว ฯ ตตฺถาติ ตีสุ
+<span class="LineNumber"> 007 </span>โจทนาสุ ฉสุ €าเนสุ จ ฯ เอตฺถาติ ปาลิยํ ฯ เอกโจทนาวุฑฺฒิยาติ
+<span class="LineNumber"> 008 </span>เอกาย โจทนาย วฑฺฒเนน ฯ โจทนาทฺวิคุณนฺติ โจทนาโต
+<span class="LineNumber"> 009 </span>ทฺวิคุณิตํ ฯ อิตีติ เอวํ ฯ ตตฺถาติ โจทนา€าเนสุ นิทฺธารณํ ฯ
+<span class="LineNumber"> 010 </span>กโรนฺตสฺส ภิกฺขุสฺส โจทนา€านานํ ภญฺชเน วาโท โก ปนาติ
+<span class="LineNumber"> 011 </span>สมฺพนฺโธ ฯ เอตฺถาติ ทฺวีสุ<SUP>๒</SUP> โจทนา€าเนสุ ฯ
+<span class="LineNumber"> 012 </span>	ยตสฺสาติ ยโต อสฺส ฯ ปญฺจมฺยตฺเถ โตปจฺจโยติ อาจริยา
+<span class="LineNumber"> 013 </span>กเถนฺติ ฯ ตตฺถาติ กถํ อยมตฺโถ ลพฺภตีติ อาห สมีปตฺเถ
+<span class="LineNumber"> 014 </span>หิ อิทํ ภุมฺมวจนนฺติ ฯ ปาลิยํ ปนสฺสาติปิ ปาโ€ ปปุพฺโพ
+<span class="LineNumber"> 015 </span>นส นาสเน ฯ
+<span class="LineNumber"> 016 </span>	[๗๙๑] กึ ปน ฯ เป ฯ ตพฺพนฺติ ปุจฺฉา ฯ ตตฺถาติ
+<span class="LineNumber"> 017 </span>นิทฺทิฏฺ€านิทฺทิฏฺเ€สุ ฯ
+<span class="LineNumber"> 018 </span>	มุขสฺส วิวโฏ มุขวิวโฏ มุขวิวรณํ ฯ มุขวิวเฏ นิยุตฺโต
+<span class="LineNumber"> 019 </span>มุขเววฏิโก ฯ อถวา มุเขน เววฏฺภาวํ เวยฺยาวจฺจการตฺตํ
+
+<span class='footnote'>๑. อาคตการณนฺติ วณฺณนาปาโ€ ฯ  ๒. อุโภสุ ฯ</span>
+<span class="LineNumber"> 020 </span>                            [ปา.๕๘..๖๐ ฯ ส.๒๐๓..๒๐๕]

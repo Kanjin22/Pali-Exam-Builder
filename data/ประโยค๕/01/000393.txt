@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>	[๕๐๐] <B>มยฺจ ภริยา นาติกฺกมาม 
+<span class="LineNumber"> 002 </span>                   อมฺเห จ ภริยา นาติกฺกมนฺติ 
+<span class="LineNumber"> 003 </span>                   อฺตฺร ตาหิ พฺรหฺมจริยํ จราม 
+<span class="LineNumber"> 004 </span>                   ตสฺมา หิ อมฺหํ ทหรา น มิยฺยเรติ</B> 
+<span class="LineNumber"> 005 </span>ทสกนิปาเต มหาธมฺมปาลชาตเก <SUP>๑</SUP>สทารสนฺโตโส ฯ 
+<span class="LineNumber"> 006 </span>	[๕๐๑]   ตตฺถ   <B>นาติกฺกมามาติ</B>  อตฺตโน  ภริยํ  อติกฺกมิตฺวา  พหิ 
+<span class="LineNumber"> 007 </span>มิจฺฉาจารํ   น   กโรม  ฯ  <B>อฺตฺร  ตาหีติ</B>  ตา  อตฺตโน  ภริยาโย 
+<span class="LineNumber"> 008 </span>€เปตฺวา    เสสอิตฺถีสุ    พฺรหฺมจริยํ    จราม   อมฺหากํ   ภริยาโยปิ 
+<span class="LineNumber"> 009 </span>เสสปุริเสสุ  เอวเมว  วตฺตนฺติ  ฯ  <B>ตสฺมา  หิ  อมฺหนฺติ </B> เอตฺถ หิกาโร 
+<span class="LineNumber"> 010 </span>นิปาตมตฺโต  ฯ   เตน   การเณน   อมฺหากํ   ทหรา   น   มิยฺยนฺติ 
+<span class="LineNumber"> 011 </span>อนฺตรา อกาลมรณํ นาม นตฺถีติ อตฺโถติ ตพฺพณฺณนา <SUP>๒</SUP> ฯ 
+<span class="LineNumber"> 012 </span>	<B>นาติกฺกมามาติ</B>    น    อติจราม    อคมนียฏฺ€าเนปิ   อิตรตฺถาปิ 
+<span class="LineNumber"> 013 </span>น วีติกฺกมาม ฯ เตนาห อฺตฺร ตาหีติ มหาสีหนาทฏีกา ฯ 
+<span class="LineNumber"> 014 </span>	[๕๐๒]   อภิชานามิ   โข   ปนาหํ   สารีปุตฺต  จตุรงฺคสมนฺนาคตํ 
+<span class="LineNumber"> 015 </span>พฺรหฺมจริยํ   จริตฺวา  <SUP>๓</SUP>  ตปสฺสี  สุทํ  โหมีติ  มหาสีหนาทสุตฺตสงฺขาเต 
+<span class="LineNumber"> 016 </span>โลมหํสสุตฺเต <SUP>๔</SUP> วิริยํ <SUP>๕</SUP> ฯ 
+<span class="LineNumber"> 017 </span>	[๕๐๓]  ตตฺถ  วิริยํ  พฺรหฺมจริยนฺติ  อธิปฺเปตํ  ฯ วิริยพฺรหฺมจริยสฺส 
+<span class="LineNumber"> 018 </span>หิ  อิทเมว  สุตฺตํ  <SUP>๖</SUP>  ฯ ตเมตํ เอตสฺมึ อตฺตภาเว จตุพฺพิธสฺส ทุกฺกรสฺส 
+<span class="LineNumber"> 019 </span>กตตฺตา   จตุรงฺคสมนฺนาคตนฺติ   วุตฺตํ  ฯ  ตปสฺสี  สุทํ  โหมีติ  สุทนฺติ 
+
+<span class='footnote'>๑. ขุ. ชา. ทสก. ๒๗/๒๘๙ ฯ  ๒. ชาตกฏฺ€กถา. ๕/๔๙๒ ฯ ๓. จริตาติ ปาลิ ฯ </span>
+<span class='footnote'>๔. ม. มู. ๑๒/๑๕๕ ฯ        ๕. สี. มหาสีหนาทสุตฺเต วิริยํ ฯ ๖. สี. วิริยพฺรหฺม-</span>
+<span class='footnote'>จริยสฺสาติ อิทเมว ยุตฺตํ ฯ </span>

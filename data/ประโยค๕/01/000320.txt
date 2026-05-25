@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>                            อฏฺ€มคาถายตฺถวณฺณา
+<span class="LineNumber"> 002 </span>	[๔๐๔]   อฏฺ€มคาถายํ  ฯ   ขนฺตีติ   ขมนํ  ฯ   <B>โสวจสฺสตาติ</B> 
+<span class="LineNumber"> 003 </span>โสวจสฺส<SUP>๑</SUP> ภาโว  ฯ  <B>สมณานฺจ ทสฺสนนฺติ </B>สมิตกฺกิเลสานํ เปกฺขนํ ฯ 
+<span class="LineNumber"> 004 </span><B>กาเลนาติ</B>   ยุตฺตปฺปตฺตกาเล  ฯ   <B>ธมฺมสากจฺฉาติ</B>   ธมฺมสฺส  สากจฺฉา 
+<span class="LineNumber"> 005 </span>สหกถนํ  ฯ   <B>เอตนฺติ</B>   ยา   จ   ขนฺติ  ยา  จ  โสวจสฺสตา  ยฺจ 
+<span class="LineNumber"> 006 </span>สมณทสฺสนํ   ยา   จ   ธมฺมสากจฺฉา   อิทํ  ขนฺตฺยาทิ  จตุพฺพิธํ  อุตฺตมํ 
+<span class="LineNumber"> 007 </span>มงฺคลนฺติ   คณฺหาหิ   เทวเตติ   อยเมตฺถ   สงฺเขโป  ฯ  อยนฺเตฺวตฺถ 
+<span class="LineNumber"> 008 </span>วิตฺถาโร ฯ 
+<span class="LineNumber"> 009 </span>                                          ขนฺติกถา 
+<span class="LineNumber"> 010 </span>	[๔๐๕]   ขนฺติ   นาม   อธิวาสนกฺขนฺติ  ยาย  สมนฺนาคโต  ภิกฺขุ 
+<span class="LineNumber"> 011 </span>ทสหิ  อกฺโกสวตฺถูหิ  อกฺโกสนฺเต  วธพนฺธาทีหิ วา วิเหสนฺเต <SUP>๒</SUP> ปุคฺคเล 
+<span class="LineNumber"> 012 </span>อสฺสุณนฺโต   วิย   อปสฺสนฺโต   วิย   จ   นิพฺพิกาโร  โหติ  ขนฺติวาที 
+<span class="LineNumber"> 013 </span>วิย   ภทฺรกโต   มนสิกโรติ   ตโต  อุตฺตรึ  อปราธาภาเวน  อายสฺมา 
+<span class="LineNumber"> 014 </span>ปุณฺณตฺเถโร วิยาติ อฏฺ€กถายํ <SUP>๓</SUP> วุตฺตํ ฯ 
+<span class="LineNumber"> 015 </span>	[๔๐๖] ตตฺถ ขนฺติวาทีติ ฯ 
+<span class="LineNumber"> 016 </span>	อตีเต    พาราณสิยํ    โพธิสตฺโต    กุณฺโฑ   นาม   พฺราหฺมโณ 
+<span class="LineNumber"> 017 </span>หุตฺวา  ตาปสปฺปพฺพชฺชํ  ปพฺพชิตฺวา  จิรํ  หิมวติ วสิตฺวา โลณมฺพิลเสวนตฺถํ 
+<span class="LineNumber"> 018 </span>พาราณสึ      คนฺตฺวา      ราชุยฺยาเน      วิหาสิ     เสนาปตินา 
+<span class="LineNumber"> 019 </span>อุปฏฺ€หิโต  ฯ   อเถกทิวสํ   กลาปุ   นาม   ราชา   สุรามทมตฺโต 
+
+<span class='footnote'>๑. โสวจสฺสสฺสาติ ยุตฺตตรํ. ๒. วิหึสนฺเต. ๓. ปรมตฺถโชติกา ขุทฺทกปา€วณฺณนา ๑๖๓. </span>

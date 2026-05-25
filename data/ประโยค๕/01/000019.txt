@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>		 <B>อมงฺกุภูโต ปริสํ วิคาหติ 
+<span class="LineNumber"> 002 </span>		 วิสารโท โหติ นโร อมจฺฉรี 
+<span class="LineNumber"> 003 </span>		 ตสฺมา หิ ทานานิ ททนฺติ ปณฺฑิตา 
+<span class="LineNumber"> 004 </span>		 วิเนยฺย มจฺเฉรมลํ สุเขสิโน 
+<span class="LineNumber"> 005 </span>		 เต ทีฆรตฺตํ ติทิเว ปติฏฺ€ิตา 
+<span class="LineNumber"> 006 </span>		 เทวานํ สหพฺยตํ คตา รมนฺติ เต 
+<span class="LineNumber"> 007 </span>		 กตาวกาสา กตกุสลา อิโต จุตา 
+<span class="LineNumber"> 008 </span>		 สยมฺปภา อนุวิจรนฺติ นนฺทเน 
+<span class="LineNumber"> 009 </span>		 เต ตตฺถ นนฺทนฺติ รมนฺติ โมทเร 
+<span class="LineNumber"> 010 </span>		 สมปฺปิตา กามคุเณหิ ปฺจหิ 
+<span class="LineNumber"> 011 </span>		 กตฺวาน วากฺยํ อสิตสฺส ตาทิโนฒ 
+<span class="LineNumber"> 012 </span>		 รมนฺติ สพฺเพ สุคตสฺส สาวกาติ ฯ</B> 
+<span class="LineNumber"> 013 </span>	                 จตุตฺเถ สุมนวคฺเค สีหสุตฺตํ ฯ 
+<span class="LineNumber"> 014 </span>	[๒๔]    อฏฺ€กนิปาตงฺคุตฺตรวณฺณนายํ  <SUP>๑</SUP>   <B>สีโห   เสนาปตีติ</B>  เอวํ-
+<span class="LineNumber"> 015 </span>นามโก  เสนาย  อธิปติ  ฯ  เวสาลิยฺหิ  สตฺต  ราชสหสฺสานิ สตฺต 
+<span class="LineNumber"> 016 </span>ราชสตานิ   สตฺต   จ   ราชาโน  เต  สพฺเพปิ  สนฺนิปติตฺวา  สพฺเพสํ 
+<span class="LineNumber"> 017 </span>มนํ   คเหตฺวา   รฏฺ€ํ   วิจาเรตุํ   สมตฺถํ  เอกํ  วิจินถาติ  วิจินนฺตา 
+<span class="LineNumber"> 018 </span>สีหราชกุมารํ   ทิสฺวา   อยํ   สกฺขิสฺสตีติ   สนฺนิฏฺ€านํ   กตฺวา   ตสฺส 
+<span class="LineNumber"> 019 </span>รตฺตมณิวณฺณํ กมฺพลปริโยนทฺธํ เสนาปติจฺฉตฺตํ อทํสูติ วุตฺตํ ฯ 
+<span class="LineNumber"> 020 </span>	[๒๕]  สนฺทิฏฺ€ิกนฺติ  สามํ  ปสฺสิตพฺพกํ  ฯ  ทายโกติ  ทานสูโร  ฯ 
+
+<span class='footnote'>๑. มโน. ปู. ๓/๒๖๑. </span>

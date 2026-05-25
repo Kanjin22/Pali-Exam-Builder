@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>		<B>โย จ โลภํ ปหนฺตฺวาน        โลภเนยฺเย น ลุพฺภติ 
+<span class="LineNumber"> 002 </span>		โลโภ ปหิยฺยเต ตมฺหา        อุทวินฺทุว โปกฺขรา ฯ 
+<span class="LineNumber"> 003 </span>		โย จ โทสํ ปหนฺตฺวาน         โทสเนยฺเย น ทุสฺสติ 
+<span class="LineNumber"> 004 </span>		โทโส ปหิยฺยเต ตมฺหา        ตาลปกฺกํว พนฺธนา ฯ 
+<span class="LineNumber"> 005 </span>		โย จ โมหํ ปหนฺตฺวาน         โมหเนยฺเย น มุยฺหติ</B> 
+<span class="LineNumber"> 006 </span>		โมหํ วิหนฺติ โส สพฺพํ อาทิจฺโจวุทยนฺตมนฺติ ฯ 
+<span class="LineNumber"> 007 </span>	[๕๙๖]   ตตฺถ  <B> โย   จ   โลภํ  ปหนฺตฺวานาติ</B>  โย  ปุพฺพภาเค 
+<span class="LineNumber"> 008 </span>ตทงฺควเสน    วิกฺขมฺภนวเสน    จ   ยถารหํ   สมถวิปสฺสนาหิ   โลภํ 
+<span class="LineNumber"> 009 </span>ปชหิตฺวา   ตถาปชหนเหตุ   โลภเนยฺเย   ทิพฺเพปิ  รูปาทิเก  อุปฏฺ€ิเต 
+<span class="LineNumber"> 010 </span>น   ลุพฺภติ   พลววิปสฺสนานุภาเวน  ฯ   <B>โลโภ   ปหิยฺยเต   ตมฺหาติ</B> 
+<span class="LineNumber"> 011 </span>ตสฺมา    อริยปุคฺคลา    อริยมคฺเคน   โลโภ   ปหิยฺยติ   อจฺจนฺตเมว 
+<span class="LineNumber"> 012 </span>ปริจฺจชิยติ  ฯ   ยถา   กึ  ฯ   <B>อุทวินฺทุว  โปกฺขราติ</B>  ปทุมินิปณฺณโต 
+<span class="LineNumber"> 013 </span>อุทกวินฺทุ   วิย  ฯ  ตาลปกฺกํว  พนฺธนาติ  ตาลผลํ  วิย  อุสุมุปฺปาเทน 
+<span class="LineNumber"> 014 </span>วณฺฏโต     ตติยมคฺคฺาณุปฺปาเทน     ตสฺส     จิตฺตโทโส    ปหียติ ปริจฺ-
+<span class="LineNumber"> 015 </span>จชิยตีติ  อตฺโถ  ฯ  วิหนฺติ  โสติ  โส  อริยปุคฺคโล  สพฺพํ อนวเสสํ 
+<span class="LineNumber"> 016 </span>โมหํ   จตุตฺถมคฺเคน   วิหนติ   วิทฺธมติ   สมุจฺฉินฺทติ   อาทิจฺโจ   วิย 
+<span class="LineNumber"> 017 </span>อุทยํ อุคฺคจฺฉนฺโต อนฺธการนฺติ ตพฺพณฺณนา <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 018 </span>                               วิรชจิตฺตกถา ฯ 
+	         
+<span class='footnote'>๑. ป. ที. อิติ. ๓๖๒. </span>

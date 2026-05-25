@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  100
+
+<span class="LineNumber"> 002 </span>	นนุ  จาติ  โจทนา  ฯ  ภิกฺขเว  อิมา  เวทนา  เทฺว  สุขา
+<span class="LineNumber"> 003 </span>ทุกฺขา  ฯ  อิตีติ  วจนโตติ  ปเท  นิทสฺสนํ  ฯ  วจนโตติ  เทฺว
+<span class="LineNumber"> 004 </span>เอวาติ  ปเท  เหตุ  ฯ  วจิยเต  วจนํ  ภาวสาธนํ  ฯ  เทฺว  เอวาติ
+<span class="LineNumber"> 005 </span>เวทนาติ  ปทสฺส  วิเสสนํ  ฯ  เอวสทฺโท  อุเปกฺขํ  นิวตฺเตติ  ฯ
+<span class="LineNumber"> 006 </span>เวทนาติ  โหนฺตีติ  ปเท  กตฺตา  ฯ
+<span class="LineNumber"> 007 </span>	[๑๒๘]  ปริหารโก  สมฺปฏิจฺฉิตฺวา  วิสชฺเชนฺโต  อาห
+<span class="LineNumber"> 008 </span>สจฺจนฺตฺยาทึ  ฯ  สจฺจํ  ตํ  ปน  เทฺวมา  ทุกฺขาติ  วจนํ
+<span class="LineNumber"> 009 </span>อนวชฺช...สงฺคเหตฺวา  วุตฺตํ  ภควตา  ฯ
+<span class="LineNumber"> 010 </span>	สจฺจนฺติ  ลิงฺคตฺโถ  ฯ  ตนฺติ  วุตฺตนฺติ  ปเท  กมฺมํ  ฯ
+<span class="LineNumber"> 011 </span>ปนสทฺโท  วิเสสตฺโถ  ฯ  อน...ขิกนฺติ  อทุ...สุขนฺติ  ปทสฺส
+<span class="LineNumber"> 012 </span>วิเสสนํ  ฯ  น  อวชฺชํ  อนวชฺชํ  ฯ  อนวชฺชนฺติ  อกาโร  ตพฺภาเว
+<span class="LineNumber"> 013 </span>วตฺตติ  ฯ  อนวชฺชสฺส  ปกฺโข  อนวชฺชปกฺโข  อนวชฺชปกฺเข  €ิตา
+<span class="LineNumber"> 014 </span>เวทนา  อนวชฺชปกฺขิกา  ฯ  ณิโก  ฯ  อทุ...สุขนฺติ  สงฺคเหตฺวาติ
+<span class="LineNumber"> 015 </span>ปเท  กมฺมํ  ฯ  สุข...นายนฺติ  สงฺคเหตฺวาติ  ปเท  อาธาโร  ฯ
+<span class="LineNumber"> 016 </span>สาว...กญฺจาติ  อทุ...สุขนฺติ  ปทสฺส  วิเสสนํ  ฯ  สห  อวชฺเชน
+<span class="LineNumber"> 017 </span>วตฺตตีติ  สาวชฺโช  ธมฺโม  ฯ  สาวชฺชสฺส  ปกฺโข  สาวชฺชปกฺโข
+<span class="LineNumber"> 018 </span>สาวชฺชปกฺเข  €ิตา  สาวชฺชปกฺขิกา  ฯ  สาวชฺชปกฺขิกญฺจ  อทุกฺขม-
+<span class="LineNumber"> 019 </span>สุขนฺติ  สมฺพนฺโธ  ฯ  ทุกฺข...นายนฺติ  สงฺคเหตฺวาติ  ปเท
+<span class="LineNumber"> 020 </span>อาธาโร  ฯ  สงฺคเหตฺวาติ  วุตฺตนฺติ  ปเท  ปุพฺพกาลกิริยา
+<span class="LineNumber"> 021 </span>วิเสสนํ  วา  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๑๗

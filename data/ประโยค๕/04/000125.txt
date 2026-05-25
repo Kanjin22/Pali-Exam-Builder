@@ -1,0 +1,11 @@
+<span class="LineNumber"> 001 </span>       ในกาลจบสัจจะ  กุฎุมพีเป็นพระโสดาบัน. 
+<span class="LineNumber"> 002 </span>       แม้กุฎุมพีคนหนึ่ง มีภริยาตาย เป็นผู้อันความโศกครอบงำแล้ว
+<span class="LineNumber"> 003 </span>อย่างนั้นเหมือนกัน.
+<span class="LineNumber"> 004 </span>       แม้พระศาสดา  เสด็จไปสู่เรือนของเขาโดยนัยก่อนนั่นแล ตรัส
+<span class="LineNumber"> 005 </span>อนนุโสจิยชาดก<SUP>๑</SUP>แล้ว.
+<span class="LineNumber"> 006 </span>       ในกาลจบสัจจะ แม้กุฎุมพีนั้น  ก็เป็นพระโสดาบัน.
+<span class="LineNumber"> 007 </span>       กุฎุมพีเหล่านี้  เบื้องต้นเป็นผู้เศร้าโศก ภายหลังบรรเทาความ
+<span class="LineNumber"> 008 </span>โศกนั้น  ได้ความสุขแล้ว  ด้วยประการฉะนี้.
+<span class="LineNumber"> 009 </span>                       กถาว่าด้วยจิตไม่โศก  จบ.
+
+<span class='footnote'>๑.  ชาตกฏฺ€กถา.  ๔/๓๔๒.</span>

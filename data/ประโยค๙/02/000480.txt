@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    480
+
+<span class="LineNumber"> 002 </span>	อาปา...ชติ  ฯ  ตถาหิ  สจฺจํ  กาโฬ  นาม  นาคราชา
+<span class="LineNumber"> 003 </span>มนฺธาตา  นาม  ราชาจกฺกวตฺติ  เกจิ  ยกฺขา  จิรายุโน  ฯ
+<span class="LineNumber"> 004 </span>	อปาเย  นิพฺพตฺตา  อาปายิกา  อาปายิกา  จ  มนุสฺสา  จ
+<span class="LineNumber"> 005 </span>อาปายิกมนุสฺสา  อาปายิกมนุสฺสานํ  อายุ  อาปายิกมนุสฺสายุ  ฯ
+<span class="LineNumber"> 006 </span>ปริจฺฉิชฺชนํ  ปริจฺเฉโท  อาปายิกมนุสฺสายุโก  ปริจฺเฉโท  อา...
+<span class="LineNumber"> 007 </span>เฉโท  ฯ  อาปา...เฉโทติ  น  วิชฺชตีติ  กตฺตา  ฯ  ตถาหีติ  ทฬฺหี-
+<span class="LineNumber"> 008 </span>กรณตฺเถ  นิปาโต  ฯ  กลฺยเต  อายุอาทินา  ปริจฺฉิยเตติ<SUP>๑</SUP>  กาโฬ
+<span class="LineNumber"> 009 </span>โย  นาคราชา  ฯ  กล  สงฺขฺยาเน  ธาตุยา  กมฺมาทิมฺหิ  โณ  ฯ
+<span class="LineNumber"> 010 </span>กฺวจิ  ธาตุ  ลสฺส  โฬ  ฯ  โส  จิรายุโก  ฯ  โส  หิ  กุกฺกุสนฺธาทโย
+<span class="LineNumber"> 011 </span>จตฺตาโร  สมฺมาสมฺพุทฺเธ  ปสฺสิ  อริยเมตฺเตยฺยพุทฺธํ  ปน  กิร
+<span class="LineNumber"> 012 </span>ปสฺสิสฺสตีติ  วทนฺติ  ฯ  มํ  สิรึ  ธาเรตีติ  มนฺธาตา  ฯ  มาสทฺโท
+<span class="LineNumber"> 013 </span>สิริวาจโก  ฯ  มาสทฺทุปปโท  ธา  ธารเณ  สพฺพโต  ณฺวุตฺวาวี
+<span class="LineNumber"> 014 </span>วาติ  ตุ  สตฺถุปิตาทีนมา  สิสฺมึ  สิโลโป  จ  นิคฺคหิตญฺจ  รสฺสํ
+<span class="LineNumber"> 015 </span>วคฺคนฺตํ  วา  วคฺเค  ฯ  ยกฺขิยนฺเต  ปูชิยนฺเตติ  ยกฺขา  เย  สตฺตา  ฯ
+<span class="LineNumber"> 016 </span>ยกฺข  ปูชายํ  สพฺพโต  ณฺวุตฺวาวี  วาติ  อ  ฯ  จิรํ  อายุ  เยสํ  เต
+<span class="LineNumber"> 017 </span>จิรายุโน  ฯ
+<span class="LineNumber"> 018 </span>	กาโฬ  มนฺธาตา  ยกฺขาติ  ปทตฺตยํ  ลิงฺคตฺโถ  ฯ  เกจีติ  ยกฺขาติ
+<span class="LineNumber"> 019 </span>วิเสสนํ  ฯ  จิรายุโนติ  กาโฬ...ยกฺขาติ  ปทตฺตยสฺส  วิเสสนํ  ฯ
+<span class="LineNumber"> 020 </span>	[๕๗๔]  ยทิ  อปายาทีนํ  อายุปปมาณคณนาย  นิยโม  นตฺถิ
+<span class="LineNumber"> 021 </span>กึ  อปายมนุสฺสวินิปาติกาสุเรสุ  ปมาณนฺติ  อาห  อปาเยสุตฺยาทึ  ฯ
+<span class='footnote'>๑.  ปริจฺฉินฺทิยเตติ  มญฺเ  ฯ</span>
+<span class="LineNumber"> 022 </span>						อภิ.๑๖๐

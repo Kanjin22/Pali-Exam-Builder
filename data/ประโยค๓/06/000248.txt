@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>                            ๑๗.  โกธวรรค  วรรณนา
+<span class="LineNumber"> 002 </span>                      ๑.  เรื่องเจ้าหญิงโรหิณี *  [ ๑๗๔ ]
+<span class="LineNumber"> 003 </span>                               [ ข้อความเบื้องต้น ]
+<span class="LineNumber"> 004 </span>           พระศาสดา  เมื่อประทับอยู่ในนิโครธาราม  ทรงปรารภเจ้า
+<span class="LineNumber"> 005 </span>หญิงโรหิณี  ตรัสพระธรรมเทศนานี้ว่า   <B>" โกธํ  ชเห "</B>   เป็นต้น. 
+<span class="LineNumber"> 006 </span>                    [ สร้างโรงฉันหายจากโรคผิวหนังได้ ]
+<span class="LineNumber"> 007 </span>           ได้ยินว่า  สมัยหนึ่ง  พระอนุรุทธผู้มีอายุ  ได้ไปเมืองกบิลพัสดุ์
+<span class="LineNumber"> 008 </span>พร้อมด้วยภิกษุ  ๕๐๐.  ครั้งนั้น  พวกพระญาติของท่าน  ทรงสดับว่า
+<span class="LineNumber"> 009 </span>" พระเถระมา "   จึงได้ไปสู่สำนักพระเถระ  เว้นแต่พระน้องนางของ
+<span class="LineNumber"> 010 </span>พระเถระชื่อโรหิณี.  พระเถระถามพวกพระญาติว่า   " พระนาง
+<span class="LineNumber"> 011 </span>โรหิณี  อยู่ที่ไหน ? "
+<span class="LineNumber"> 012 </span>           พวกพระญาติ.  อยู่ในตำหนัก  เจ้าข้า.
+<span class="LineNumber"> 013 </span>           พระเถระ.  เหตุไร ?  จึงไม่เสด็จมา.
+<span class="LineNumber"> 014 </span>           พวกพระญาติ.  พระสงไม่เสด็จมา  เพราะทรงละอายว่า
+<span class="LineNumber"> 015 </span>' โรคผิวหนังเกิดที่สรีระของเรา '  เจ้าข้า.
+<span class="LineNumber"> 016 </span>           พระเถระ  กล่าวว่า   " ท่านทั้งหลายจงเชิญพระนางเสด็จมา
+<span class="LineNumber"> 017 </span>เถิด "   ให้ไปเชิญพระนางเสด็จมาแล้ว   จึงกล่าวอย่างนี้  กะพระนาง
+<span class="LineNumber"> 018 </span>ผู้ทรงฉลองพระองค์เสด็จมาแล้วว่า   " โรหิณี  เหตุไร ?  เธอจึงไม่
+<span class="LineNumber"> 019 </span>เสด็จมา.
+
+<span class='footnote'>*  พระมหาผิว  ป. ธ.  ๗  ( ปัจจุบันเป็น  พระสุมงคลมุนี )  วัดบวรมงคล  แปล.</span>

@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ภินฺทิตพฺพานีติ ปเท กิริยาวิเสสนํ ฯ อวเสสเสนาสนานีติปิ อตฺถิ ฯ
+<span class="LineNumber"> 002 </span>โน จ โข อปริโภคํ ภินฺทิตพฺพานีติ สมฺพนฺโธ ฯ กโรนฺเตหีติ
+<span class="LineNumber"> 003 </span>ปทํ เปเสตพฺพนฺติ ปเท กตฺตา ฯ โน เจ หรนฺติ ฯ อถาติ ยทิ ฯ
+<span class="LineNumber"> 004 </span>หิมวสฺสาตปาทีหีติ ปทํ ปติภูเตสูติ ปเท กรณํ ฯ โจเรหีติ ปทํ
+<span class="LineNumber"> 005 </span>หเฏสูติ ปเท กตฺตา ฯ อคฺคินาติ ปทํ ทฑฺเฒสูติ ปเท กตฺตา ฯ
+<span class="LineNumber"> 006 </span>อิตีติ ปทํ โจเทตุนฺติ ปเท อากาโร ฯ ยนฺติ ยํ อลชฺชีนํ
+<span class="LineNumber"> 007 </span>เสนาสนเภทนาทิ ฯ
+<span class="LineNumber"> 008 </span>	[๓๗๕] ภินฺนาย ปน กุฏิกายาติ กุฏิกาย ภินฺนาย ฯ ภินฺนายาติ
+<span class="LineNumber"> 009 </span>ปทํ ปริวิตกฺกํ อุสฺสาหนฺติ ปททฺวเย ลกฺขณกิริยา ฯ ตตฺถาติ
+<span class="LineNumber"> 010 </span>อายสฺมโตติอาทิวจเน วินิจฺฉโย ฯ
+<span class="LineNumber"> 011 </span>	ทารูนํ คโห ทารุคโห ฯ ทารูนิ คเณตีติ ทารุคณโก<SUP>๑</SUP> ฯ
+<span class="LineNumber"> 012 </span>ทารูนิ โคเปตีติ ทารุโคปโก ฯ คเหตพฺพานีติ คหณานิ เทเวน
+<span class="LineNumber"> 013 </span>คหณานิ เทวคฺคหณานิ เทวคฺคหณานิ จ ตานิ ทารูนิ จาติ
+<span class="LineNumber"> 014 </span>เทว...ทารูนิ ฯ
+<span class="LineNumber"> 015 </span>	ราชปริคฺคหภูตานีติ รฺโ สนฺตกภูตานิ ฯ อคฺคิทาเหน
+<span class="LineNumber"> 016 </span>วา ฯ เป ฯ ปรุทฺธนาทินา<SUP>๒</SUP> วาติ ปทตฺตยํ วิปตฺตีติ ปเท กรณํ
+<span class="LineNumber"> 017 </span>ตติยาวิเสสนํ วา ฯ โคปุรญฺจ อทฺทาลโก<SUP>๓</SUP> จ ราชนฺเตปุรญฺจ
+<span class="LineNumber"> 018 </span>หตฺถิสาลา จ โคปุร...สาลาโย ฯ
+
+<span class='footnote'>๑. ทารุคเหคณโกติ สวณฺณนา ปาลิ ฯ  ๒. ...รุนฺธนทินาติ วรฺณนาปาโ€ ฯ  </span>
+<span class='footnote'>๓. อิทานิ อฏฺฏาลโกติ วลญฺชียติ ฯ</span>
+<span class="LineNumber"> 019 </span>                                [ปา.๗๗ ฯ ส.๓๔๗.๓๔๘]

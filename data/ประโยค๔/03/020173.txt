@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>พราหมณ์ผู้หนึ่งในกรุงตักกสิลา  ดังนี้เป็นต้น.   เรื่องนี้ก็เหมือนเรื่อง
+<span class="LineNumber"> 002 </span>ก่อน. 
+<span class="LineNumber"> 003 </span>	พระผู้มีพระภาค   ครั้งตรัสอดีตนิทานแล้ว   ตรัสคาถานี้  ใน
+<span class="LineNumber"> 004 </span>สารัมภชาดก  ในนวมวรรค<SUP>๑</SUP>เอกนิบาตนั้นนั่นแลว่า
+<span class="LineNumber"> 005 </span>	<B>"บุคคลพึงเปล่งแต่วาจางามเท่านั้น,   ไม่พึงเปล่ง
+<span class="LineNumber"> 006 </span>	วาจาลามกเลย.  การเปล่งวาจางาม  ยังประโยชน์
+<span class="LineNumber"> 007 </span>	ให้สำเร็จ,   บุคคลเปล่งวาจาลามก  ย่อมเดือด
+<span class="LineNumber"> 008 </span>	ร้อน."</B>
+<span class="LineNumber"> 009 </span>                                       [แก้อรรถ]
+<span class="LineNumber"> 010 </span>	บรรดาบทเหล่านั้น  บทว่า  <B>กลฺยาณิเมว</B>   ความว่า  พึงเปล่ง  คือ
+<span class="LineNumber"> 011 </span> พึงปล่อย  ได้แก่พึงกล่าววาจะอันงาม  หาโทษมิได้  เว้นจากโทษ  ๔
+<span class="LineNumber"> 012 </span>อย่างเท่านั้น.
+<span class="LineNumber"> 013 </span>	บทว่า  <B>ปาปิกํ</B>  ความว่า  และไม่พึงเปล่ง  ไม่พึงกล่าววาจาลามก
+<span class="LineNumber"> 014 </span>ไม่เป็นที่รัก  ไม่เป็นที่พอใจของชนเหล่าอื่น.
+<span class="LineNumber"> 015 </span>	บาทคาถาว่า  <B>โมกฺโข  กลฺยณิยา  สาธุ</B>  ได้แก่  การเปล่งวาจา
+<span class="LineNumber"> 016 </span>งามเท่านั้น  เป็นดี  เป็นที่เจริญใจ.
+<span class="LineNumber"> 017 </span>	บาทคาถาว่า  <B>มุตฺวา   ตปฺปติ  ปาปิกํ</B>  ความว่า  บุคคลเปล่ง
+<span class="LineNumber"> 018 </span>คือ  กล่าววาจาลามก  คือหยาบคาย  ย่อมเศร้าโศก  คือลำบาก.
+<span class="LineNumber"> 019 </span>                               เรื่องโคสารัมภะ  จบ.
+
+<span class='footnote'>๑.  ขุ.  ชา.  ๒๗/๒๘.  ตทฏฺ€กถา  ๒.  ๖/๒๐๗.</span>

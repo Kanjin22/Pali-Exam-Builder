@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>อิติ เอวํ ภิกฺขุนา วุตฺโต ฯ
+<span class="LineNumber"> 002 </span>	ชานนฺเตนาติ ปทํ คเหตุนฺติ ปเท กตฺตา ฯ คเหตุนฺติ
+<span class="LineNumber"> 003 </span>คหณํ ฯ อถวา ชานนฺเตนาติ ปทํ วฏฺฏตีติ ปเท กตฺตา ฯ
+<span class="LineNumber"> 004 </span>วฏฺฏตีติ ปทํ ภาววาจกํ ฯ อตฺตโนปทานํ ปรสฺสปทตฺตนฺติ
+<span class="LineNumber"> 005 </span>สุตฺเตน เตวิภตฺติยา ติอาเทโส ฯ
+<span class="LineNumber"> 006 </span>	อเส...วเสนาติ<SUP>๑</SUP> อเสสสฺส ปริยาทานวเสน ฯ ททมาเนน
+<span class="LineNumber"> 007 </span>จาติ ปทํ ทาตพฺพนฺติ ปเท กตฺตา ฯ มตกธนนฺติ ปทํ ทาตพฺพนฺติ
+<span class="LineNumber"> 008 </span>ปเท กมฺมํ ฯ เย วสฺสาติ อสฺส ภิกฺขุสฺส เย คหฏฺ€า วา
+<span class="LineNumber"> 009 </span>ปพฺพชิตา วา ฯ เย ตสฺสาติปิ อตฺถิ ฯ ป€มํเยวาติ<SUP>๒</SUP> ปทํ
+<span class="LineNumber"> 010 </span>อนุโมทิตฺวาติ ปเท กิริยาวิเสสนํ ฯ ตยาติ ปทํ กตนฺติ ปเท
+<span class="LineNumber"> 011 </span>กตฺตา ฯ มยา ฯ เป ฯ ภุตฺตํ วา อิติ วจเน วจเน ภิกฺขุนา วุตฺเต ฯ
+<span class="LineNumber"> 012 </span>โย ภิกฺขุ วทติ ฯ มยาติ ปทํ €ปิตนฺติ ปเท กตฺตา ฯ ตํ
+<span class="LineNumber"> 013 </span>ภณฺฑํ €ปิตํ<SUP>๓</SUP> ตยา ปากติกํ กาตุํ วฏฺฏติ ฯ
+<span class="LineNumber"> 014 </span>	[๔๖๑] เปต...เอตฺถ ปน ปท คตาติ ปเท อาธาโร ฯ
+<span class="LineNumber"> 015 </span>ตนฺติ สกฺกํ ฯ ตสฺสาติ ตสฺมึ สกฺเก ฯ วิรวนฺตสฺสาปีติ
+<span class="LineNumber"> 016 </span>วิรวนฺเตปิ ฯ กโรนฺเตหีติ ปทํ ลคฺคิต อิติ ปเท กตฺตา ฯ
+<span class="LineNumber"> 017 </span>	[๔๖๒] สุวณฺณมาณวโกติ สุปณฺณมาณวโก ฯ สุวณฺณํ
+
+<span class='footnote'>๑. ๒. อวเสส... ป€มเมว อิติ วณฺณนาปาโ€ ฯ   ๓. €ปิตํ ภณฺฑนฺติ ภวิตพฺพํ ฯ</span>
+<span class="LineNumber"> 018 </span>                          [ปา.๑๐๑ ฯ ส.๔๔๗.๔๔๘]

@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>		<B>อสสฺสตา วีปริณามธมฺมา 
+<span class="LineNumber"> 002 </span>		เอเต จ ตฺวา สติมา สุเมโธ 
+<span class="LineNumber"> 003 </span>		อเวกฺขตี วีปริณามธมฺเม 
+<span class="LineNumber"> 004 </span>		อิฏฺ€สฺส ธมฺมา น มเถนฺติ จิตฺตํ 
+<span class="LineNumber"> 005 </span>		อนิฏฺ€โต โน ปฏิฆาตเมติ 
+<span class="LineNumber"> 006 </span>		ตสฺสานุโรธา อถวา วิโรธา 
+<span class="LineNumber"> 007 </span>		วิธูปิตา อฏฺ€คตา น สนฺติ 
+<span class="LineNumber"> 008 </span>		ปทฺจ ตฺวา วิรชํ อโสกํ 
+<span class="LineNumber"> 009 </span>		สมฺมปฺปชานาติ ภวสฺส ปารคูติ <SUP>๑</SUP>ฯ</B> 
+<span class="LineNumber"> 010 </span>อฏฺ€กงฺคุตฺตเร ป€มปณฺณาสกสฺส ป€มวคฺเค ทุติยโลกธมฺมสุตฺเต 
+<span class="LineNumber"> 011 </span>                                          ปาลิ ฯ 
+<span class="LineNumber"> 012 </span>	[๕๖๘] <B>โก วิเสโสติ </B>กึ วิเสสการณํ ฯ <B>อธิปฺปายโสติ</B> อธิกปฺ-
+<span class="LineNumber"> 013 </span>ปโยโค ฯ <B>ปริยาทายาติ</B> คเหตฺวา ปรินิฏฺ€าเปตฺวาติ ตพฺพณฺณนา <SUP>๒</SUP> ฯ 
+<span class="LineNumber"> 014 </span>	อธิกํ    ปายสติ    ปยุชฺชติ   เอเตนาติ   อธิปฺปายโส   สวิเสสํ 
+<span class="LineNumber"> 015 </span>อติ กตฺตพฺพกิริยา ฯ เตนาห อธิกปฺปโยโคติ ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 016 </span>	อธิกํ    สวิเสสํ    ปายสติ   ปยุชฺชติ   เอเตนาติ   อธิปฺปายโส 
+<span class="LineNumber"> 017 </span>วิสิฏฺ€ปฺปโยโค  ฯ     เตนาห     อธิกปฺปโยโคติ     ขนฺธกวคฺเค มชฺฌิม-
+<span class="LineNumber"> 018 </span>ปณฺณาสกฏีกา ฯ 
+<span class="LineNumber"> 019 </span>	<B>อเวกฺขตี    วีปริณามธมฺเมติ </B>   วิปริณามธมฺมา    อิเมติ    เอวํ 
+<span class="LineNumber"> 020 </span>อเวกฺขติ  ฯ   <B>วิธูปิตาติ</B>   วิธมิตา   วิทฺธํสิตา  ฯ   <B>ปทฺจ  ตฺวาต</B>ิ 
+
+<span class='footnote'>๑. องฺ. อฏฺ€ก. ๒๓/๑๕๙-๑๖๑. ๒. มโน. ปู. ๓/๒๔๒. </span>

@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>จตสฺโส    ปริสา    จตูสุ   อปาเยสุ   ปฺจวิธพนฺธนกมฺมกรณฏฺ€านาทีสุ 
+<span class="LineNumber"> 002 </span>มหาทุกฺขํ    ปาปุณนฺติ    โอวาทกรา    ปน   ติสฺโส   กุสลสมฺปตฺติโย 
+<span class="LineNumber"> 003 </span>ฉ    กามสคฺเค    วีสติ    พฺรหฺมโลเกติ    อิมานิ   เจว   €านานิ 
+<span class="LineNumber"> 004 </span>อมตมหานิพฺพานฺจ  ปตฺวา  มหนฺตํ  สุขํ อนุภวนฺตีติ วตฺวา ทุกนิปาตสฺส<SUP>๑</SUP>
+<span class="LineNumber"> 005 </span>ปฺจมวคฺเค คาถาทฺวยมาห 
+<span class="LineNumber"> 006 </span>		<B>เย น กาหนฺติ โอวาทํ       นรา พุทฺเธน เทสิตํ 
+<span class="LineNumber"> 007 </span>		พฺยสนนฺเต คมิสฺสนฺติ       รกฺขสีหิว วาณิชา ฯ 
+<span class="LineNumber"> 008 </span>		เย จ กาหนฺติ โอวาทํ        นรา พุทฺเธน เทสิตํ 
+<span class="LineNumber"> 009 </span>		โสตฺถิปารํ คมิสฺสนฺติ         วลาเหเนว วาณิชาติ ฯ</B> 
+<span class="LineNumber"> 010 </span>	ตตฺถ     น    <B>กาหนฺตีติ</B>    น    กริสฺสนฺติ  ฯ    <B>พฺยสนนฺเต</B> 
+<span class="LineNumber"> 011 </span><B>คมิสฺสนฺตีติ</B>   เต   มหาวินาสํ   ปาปุณิสฺสนฺติ  ฯ   <B>รกฺขสีหิว  วาณิชาติ</B>        
+<span class="LineNumber"> 012 </span>รกฺขสีหิ    ปโลภิตา    วาณิชา    วิย  ฯ   <B>โสตฺถิปารํ   คมิสฺสนฺตีติ</B> 
+<span class="LineNumber"> 013 </span>อนนฺตราเยน    นิพฺพานํ    ปาปุณิสฺสนฺติ  ฯ   วลาเหเนว   <B>วาณิชาติ</B> 
+<span class="LineNumber"> 014 </span>วลาเหน   อาคจฺฉถาติ   วุตฺตา   ตสฺส   วจนกรา   วาณิชา  วิย  ฯ 
+<span class="LineNumber"> 015 </span>ยถา   หิ   เต   สมุทฺทปารํ   คนฺตฺวา   สกสกฏฺ€านานิ  อคมํสุ  เอวํ 
+<span class="LineNumber"> 016 </span>พุทฺธาทีนํ โอวาทกรา สํสารปารํ นิพฺพานํ คจฺฉนฺตีติ ฯ 
+<span class="LineNumber"> 017 </span>                 วลาหกชาตกวณฺณนายํ วาณิชวตฺถุ ฯ 
+<span class="LineNumber"> 018 </span>	[๔๔๘]    ตสฺมา   อิมํ   สุคโตวาทํ   อนุสฺสรนฺเตน   สุวเจเนว 
+<span class="LineNumber"> 019 </span>ภวิตพฺพํ   น  ทุพฺพเจน  ฯ  อปิจ  สาสนสฺส  จิรฏฺ€ิติกาเมน  สุวเจเนว 
+<span class="LineNumber"> 020 </span>ภวิตพฺพํ  ฯ    โสวจสฺสตา   หิ   สาสนสฺส   อสมฺโมสาย   สํวตฺตติ 
+
+<span class='footnote'>๑. ชาตกฏฺ€กถา. ๓/๑๗๒ ฯ </span>

@@ -1,0 +1,12 @@
+<span class="LineNumber"> 001 </span>                                        [แก้อรรถ]
+<span class="LineNumber"> 002 </span>	มะลิ   ชื่อว่า  <B>วสฺสิกา</B>  ในพระคาถานั้น. 
+<span class="LineNumber"> 003 </span>	บทว่า  <B>มชฺชวานิ<SUP>๑</SUP></B>   แปลว่า  เหี่ยวแล้ว.
+<span class="LineNumber"> 004 </span>	ท่านกล่าวคำอธิบายนี้ไว้ว่า:-
+<span class="LineNumber"> 005 </span>	"มะลิเครือ  ย่อมปล่อยคือย่อมสลัด   ซึ่งดอกที่บานแล้วในวันวาน
+<span class="LineNumber"> 006 </span>ในวันรุ่งขึ้น  เป็นดอกไม้เก่า  เสียจากขั้วฉันใด;  แม้ท่านทั้งหลายก็จง
+<span class="LineNumber"> 007 </span>ปลดเปลื้องโทษทั้งหลายมีราคะเป็นต้นฉันนั้นเถิด."
+<span class="LineNumber"> 008 </span>	ในกาลจบเทศนา  ภิกษุแม้ทั้งหมด  ตั้งอยู่ในพระอรหัตแล้ว
+<span class="LineNumber"> 009 </span>ดังนี้แล.
+<span class="LineNumber"> 010 </span>                         เรื่องภิกษุประมาณ  ๕๐๐  รูป  จบ.
+
+<span class='footnote'>๑.  สี.  ยุ.  มทฺทวานิ.   ม.  มจฺจวานิ.</span>

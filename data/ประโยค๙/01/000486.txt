@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  486
+
+<span class="LineNumber"> 002 </span>	อถวา  ฯ  กิเล...อรโย  ปจฺจตฺถิกา  วา  สํสา...กิเลสา
+<span class="LineNumber"> 003 </span>อเนน  ปุคฺคเลน  หตา  อิติ  ตสฺมา  โส  ปุคฺคโล  อรหา  วา
+<span class="LineNumber"> 004 </span>ปุคฺคโล  ปาป...วโต  อรหา  ฯ
+<span class="LineNumber"> 005 </span>	กิเลสา  อิติ  สงฺขาตา  กิเล...ขาตา  ฯ  อรนฺติ  คจฺฉนฺติ
+<span class="LineNumber"> 006 </span>ปจฺจตฺถิกภาวนฺติ  อรโย  ฯ  อร  คติยํ  มุนาทีหิ  จิ  ป€มา
+<span class="LineNumber"> 007 </span>โย  โยสฺวกตรสฺโส  โฌ  ฯ  สํ  ปุนปฺปุนํ  สรติ  คจฺฉติ  ปวตฺตติ
+<span class="LineNumber"> 008 </span>สตฺตสมฺมติขนฺธาทิปฏิปาฏิสงฺขาเต  ธมฺมปุฺชสฺสมินฺติ  สํสาโร  ฯ
+<span class="LineNumber"> 009 </span>สํปุพฺโพ  สร  คติยํ  ภาเว  จ  ฯ  จกฺเกติ  พฺยถติ  หึสติ  ภูมินฺติ
+<span class="LineNumber"> 010 </span>จกฺกํ  รถงฺคํ  ฯ  จกฺก  พฺยถเน  สพฺพโต...วาติ  อ  ฯ  จกฺกํ
+<span class="LineNumber"> 011 </span>วิยาติ  จกฺกํ  สํสาโร  เอว  จกฺกํ  สํ...จกฺกํ  ฯ  อรติ  ปวตฺตติ
+<span class="LineNumber"> 012 </span>อกฺโข  เอเตหีติ  อรา  อกฺขเตกิลฺลกา<SUP>๑</SUP>  ฯ  อร  คติยํ  สพฺพโต...
+<span class="LineNumber"> 013 </span>วาติ  อ  ฯ  กิลิสฺสนฺติ  สตฺตา  เอเตหีติ  กิเลสา  ทส  กิเลสา  ฯ
+<span class="LineNumber"> 014 </span>กิลิส  กิลิสเน  วิสรุชปทาทิโต  ณ  ฯ  หนิยึสูติ  หตา  ฯ  หน
+<span class="LineNumber"> 015 </span>หึสายํ  ภาวกมฺเมสุ  ต  กมฺเม  อตีเต  โต  คมขนหนรมาทีนมนฺโตติ
+<span class="LineNumber"> 016 </span>ธาตฺวนฺตโลโป  ฯ
+<span class="LineNumber"> 017 </span>	กิเลสสงฺขาตาติ  อรโยติ  ปทสฺส  วิเสสนํ  ฯ  อรโยติ  หตาติ
+<span class="LineNumber"> 018 </span>ปเท  กมฺมํ  ฯ  สํสารจกฺกสฺสาติ  อราติ  ปเท  สมฺพนฺโธ  ฯ  อราติ
+<span class="LineNumber"> 019 </span>หตาติ  ปเท  กมฺมํ  ฯ  กิเลสาติ  อราติ  ปทสฺส  วิเสสนํ  ฯ  อราติ
+<span class="LineNumber"> 020 </span>ปทสฺส  สมฺพนฺธิอเปกฺขตฺตา  อราติ  ปทํ  ป€มํ  ปกฺขิตฺตํ  ฯ  หตาติ
+<span class="LineNumber"> 021 </span>กมฺมวาจกํ  ฯ  อเนนาติ  หตาติ  ปเท  กตฺตา  ฯ  อิตีติ  เหตุ  ฯ
+<span class='footnote'>๑.  อกฺขคฺเค  กิลฺลกาติ  มฺเ  ฯ  โส  ปน  อกฺขคฺคกีโล อาณีติ  วุจฺจติ  อโร  ฯ</span>
+<span class="LineNumber"> 022 </span>					อภิ.๙๒

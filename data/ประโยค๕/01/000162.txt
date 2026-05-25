@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ทุกฺขสฺส   อนฺโต  น  ปฏิทิสฺสติ  ฯ  ตทา  หีติ  ตสฺมึ  กาเล  ฯ  <B>ตถา 
+<span class="LineNumber"> 002 </span>หี</B>ติปิ  ปาโ€  ฯ  เตนากาเรน  <SUP>๑</SUP> กตํ  เยน  ตสฺส  อนฺโต  ทฏฺ€ุํ  น 
+<span class="LineNumber"> 003 </span>สกฺกาติ  อตฺโถ  ฯ  ปกตนฺติ  มม  จ  ตุยฺหฺจ  ปาปํ  ปฏิกุฏฺ€ํ  <SUP>๒</SUP> กตํ 
+<span class="LineNumber"> 004 </span>อติพหุเมว กตํ ฯ มาริสาติ มยา สทิส ฯ ปิยาลปนเมตํ ฯ 
+<span class="LineNumber"> 005 </span>	<B>โส</B>การํ วตฺวา นิมุคฺโค เอวํ วตฺตุกาโม 
+<span class="LineNumber"> 006 </span>	[๒๑๑] <B>โสหํ นูน อิโต คนฺตฺวา    โยนึ ลทฺธาน มานุสึ 
+<span class="LineNumber"> 007 </span>                    วทฺู สีลสมฺปนฺโน      กาหามิ กุสลํ พหุนฺติ ฯ</B> 
+<span class="LineNumber"> 008 </span>	ตตฺถ   <B>นูนาติ</B>   เอกํสตฺเถ  นิปาโต  ฯ  โส  อหํ  อิโต  คนฺตฺวา 
+<span class="LineNumber"> 009 </span>โยนึ   มานุสึ   ลทฺธา   วทฺู  สีลสมฺปนฺโน  หุตฺวา  เอกํเสเนว  พหุํ 
+<span class="LineNumber"> 010 </span>กุสลํ กริสฺสามีติ อตฺโถ ฯ 
+<span class="LineNumber"> 011 </span>	ตทา  โกสลราชา  รตฺติภาเค  เตสํ  เนรยิกานํ  สทฺทํ สุตฺวา ภีโต 
+<span class="LineNumber"> 012 </span>ทุติยทิวเส   สตฺถุ  สนฺติกํ  คนฺตฺวา  อาจิกฺขิ  ฯ  สตฺถา  ตํ  อตฺถุปฺปตฺตึ 
+<span class="LineNumber"> 013 </span>กตฺวา จตุกฺกนิปาตสฺส ทุติยวคฺเค โลหกุมฺภีชาตกํ <SUP>๓</SUP> เทเสสิ ฯ 
+<span class="LineNumber"> 014 </span>                                     ราชปุตฺตวตฺถุ ฯ 
+<span class="LineNumber"> 015 </span>	ธมฺมปทสฺส ชราวคฺเค มลฺลิกาวตฺถุมฺปิ สมาหริตพฺพํ ฯ 
+<span class="LineNumber"> 016 </span>	                        มิจฺฉาจาเร วตฺถุกถา ฯ 
+<span class="LineNumber"> 017 </span>	[๒๑๒]  อตีเต  พาราณสิยํ  มหุสฺสโว  อโหสิ  ฯ  พหู นาคสุปณฺณา 
+<span class="LineNumber"> 018 </span>ภุมฺมฏฺ€กเทวา   จ   อาคนฺตฺวา   อุสฺสวํ   โอโลเกสุํ  ฯ  ตาวตึสโตปิ 
+<span class="LineNumber"> 019 </span>จ   จตฺตาโร   เทวปุตฺตา   ทิพฺพานิ   กกฺการุปุปฺผานิ   สีเส  จุมฺพิตกํ 
+
+<span class='footnote'>๑. เตน การเณนาติ ชาตกวณฺณนา ฯ  ๒. ปกฏฺ€นฺติปิ ปาโ€ ฯ . ว. </span>
+<span class='footnote'>๓. ชาตกฏฺ€กถา. ๔/๒๘๐ ฯ </span>

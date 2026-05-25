@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>	ตสฺส     เทฺว     องฺคานิ     เสวนจิตฺตฺจ     มคฺเคน    จ มคฺคปฺ-
+<span class="LineNumber"> 002 </span>ปฏิปาทนนฺติ กงฺขาวิตรณี <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 003 </span>	อพฺรหฺมจริยสฺส   ปน  จตฺตาริ  องฺคานิ  ภวนฺติ  อชฺฌาจรณีย-
+<span class="LineNumber"> 004 </span>วตฺถุฺจ โหติ      ตตฺถ      จ      เสวนจิตฺตํ      ปจฺจุปฏฺ€ิตํ      โหติ 
+<span class="LineNumber"> 005 </span>เสวนปฺปจฺจยปฺปโยคฺจ       สมาปชฺชติ       สาทิยนฺจาติ  <SUP>๒</SUP>ขุทฺทกปา€
+<span class="LineNumber"> 006 </span>วณฺณนา <SUP>๓</SUP> ฯ 
+<span class="LineNumber"> 007 </span>	[๑๑๖]   อชฺฌาจรณียวตฺถุ   นาม   ตึส   มคฺคา  ฯ  วุตฺตฺเหตํ 
+<span class="LineNumber"> 008 </span>กงฺขาวิตรณิยํ  <SUP>๔</SUP>  มนุสฺสามนุสฺสติรจฺฉานคตวเสน  หิ ติสฺโส อิตฺถิโย ตาสํ 
+<span class="LineNumber"> 009 </span>วจฺจมคฺคปฺปสฺสาวมคฺคมุขมคฺควเสน   ตโย   ตโย   กตฺวา   นว  มคฺคา 
+<span class="LineNumber"> 010 </span>ตถา    อุภโตพฺยฺชนกานํ  ฯ    ปุริสานมฺปน   วจฺจมคฺคมุขมคฺควเสน 
+<span class="LineNumber"> 011 </span>เทฺว เทฺว กตฺวา ฉ มคฺคา ตถา ปณฺฑกานนฺติ เอวํ ตึส มคฺคาติ ฯ 
+<span class="LineNumber"> 012 </span>	เสสมิธ   เจว   ป€มทุติยจตุตฺถปฺจเมสุ   จ   วตฺตพฺพํ   เหฏฺ€า 
+<span class="LineNumber"> 013 </span>อาคาริยวินเย วุตฺตนเยเนว เวทิตพฺพํ ฯ 
+<span class="LineNumber"> 014 </span>	[๑๑๗]   <B>กาโลติ</B>   ภิกฺขูนํ   โภชนกาโล  อธิปฺเปโต  ฯ  โส  จ 
+<span class="LineNumber"> 015 </span>สพฺพนฺติเมน   ปริจฺเฉเทน   มชฺฌนฺติโก  ฯ  เตเนวสฺส  ปทภาชเน  <SUP>๕</SUP> 
+<span class="LineNumber"> 016 </span>วิกาโล   นาม   มชฺฌนฺติเก   วีติวตฺเต  ยาว  อรุณุคฺคมนาติ  วุตฺตํ  ฯ 
+<span class="LineNumber"> 017 </span>€ิตมชฺฌนฺติโกปิ   กาลสงฺคหํ   คจฺฉติ  ฯ   ตโต  ปฏฺ€าย  ปน  ขาทิตุํ 
+<span class="LineNumber"> 018 </span>วา  ภุฺชิตุํ  วา  น  สกฺกา  สหสา  ปิวิตุํ  สกฺกา  ภเวยฺย กุกฺกุจฺจเกน 
+<span class="LineNumber"> 019 </span>ปน น กตฺตพฺพนฺติ วิกาลโภชนสิกฺขาปทวณฺณนา <SUP>๖</SUP> ฯ 
+
+<span class='footnote'>๑. กงฺ. วิ. ๑/๕๐ ฯ              ๒. สาทิยติ จาติ ฯ . ว. ๓. ปรมตฺถโชติกา ขุทฺทกปา€-</span>
+<span class='footnote'>วณฺณนา. ๒๗ ฯ   ๔. กงฺ. วิ. ๑/๔๒ ฯ ๕. วิ. มหาวิภงฺค. ๒/๓๓๖ ฯ    ๖. สมนฺต. </span>
+<span class='footnote'>๒/๔๑๒ ฯ </span>

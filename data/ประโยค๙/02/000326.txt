@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  326
+
+<span class="LineNumber"> 002 </span>อนุทฺธฏตฺตาติ  สมฺพนฺโธ  ฯ  อนุทฺธฏตฺตาติ  น  ปน  ปาฏิกงฺขิตพฺพาติ
+<span class="LineNumber"> 003 </span>เหตุ  ฯ
+<span class="LineNumber"> 004 </span>	[๓๙๘]  กงฺขธาตุสฺส  สงฺกาอตฺถสฺสปิ  วาจกตฺตา  ปาฏิกงฺขิ-
+<span class="LineNumber"> 005 </span>ตฺยาทิ  วุตฺตํ  ฯ
+<span class="LineNumber"> 006 </span>	ปาฏิกงฺขิตพฺพาติ  €ปนํ  ฯ  อิจฺฉิ...โหตีติ  วจนํ  อธิปฺปาย-
+<span class="LineNumber"> 007 </span>วเสน  วุตฺตํ  ฯ  อิจฺฉิตพฺพา  อิติ  วจนํ  วุตฺตํ  โหติ  ฯ  ตํ
+<span class="LineNumber"> 008 </span>เอกเวทนาวารํ  ปจฺจามสติ  น  ปวีสติ  อปฺปนาชวนวารนฺติ  าเปนฺโต
+<span class="LineNumber"> 009 </span>อาห  ตตฺถาตฺยาทึ  ฯ
+<span class="LineNumber"> 010 </span>	ตตฺถาปีติ  €ปนํ  ฯ  เอกเวทนาชวนวาเรปีติ  อปฺเปตีติ  อาธาโร  ฯ
+<span class="LineNumber"> 011 </span>กุสลชวนานนฺตรนฺติ  €ปนํ  ฯ  จตุ...นนฺตรนฺติ  อปฺเปตีติ
+<span class="LineNumber"> 012 </span>กาลสตฺตมี  ฯ  กุสลชวนนฺติ  อปฺเปตีติ  กตฺตา  ฯ  ภินฺโน  สนฺตาโน
+<span class="LineNumber"> 013 </span>ภินฺนสนฺตาโน  ฯ  นิพฺพตฺตนโตติ  น  อปฺเปตีติ  เหตุ  ฯ
+<span class="LineNumber"> 014 </span>	เหฏฺ€ิ...มปฺเปตีติ  €เปตฺวา  สมา...ปาโยติ  อธิปฺปาย-
+<span class="LineNumber"> 015 </span>€ปนํ  ฯ  เหฏฺ€ิมญฺจ  ผลตฺตยํ  สมาปตฺติวีถิยํ  อปฺเปติ  อิติ
+<span class="LineNumber"> 016 </span>อธิปฺปาโย  ฯ
+<span class="LineNumber"> 017 </span>	[๓๙๙]  ป€มคาถาย  โยชนํ  สรูเปน  สห  าเปนฺโต  อาห
+<span class="LineNumber"> 018 </span>สุขปุญฺมฺหาติ  อาทึ  ฯ  สุข...ทฺวตฺตึส  อปฺปนา  สมฺโภนฺติ  อุเป...
+<span class="LineNumber"> 019 </span>ตเถว  อคฺคผลวิปากกฺริยาวชฺชิตานิ  ปญฺจมชฺฌานานิ  ทฺวาทส  อปฺปนา
+<span class="LineNumber"> 020 </span>สมฺโภนฺติ  สุขิ...อฏฺ€  อปฺปนา  สมฺโภนฺติ  อุเป...สมฺโภนฺตีติ
+<span class="LineNumber"> 021 </span>โยชนา  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๔๔

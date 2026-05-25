@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  150
+
+<span class="LineNumber"> 002 </span>วิรุชฺฌติ  ฯ  กสฺมา  ฯ  รูปารมฺมณํ...ฉพฺพิธานีติ  อิมสฺส
+<span class="LineNumber"> 003 </span>สรูปสฺเสว  ป€มํ  ทสฺสิตตฺตา  ฯ
+<span class="LineNumber"> 004 </span>	[๑๙๒]  อวยวตฺถํ  าเปนฺโต  อาห  วณฺณวิการนฺตฺยาทึ  ฯ
+<span class="LineNumber"> 005 </span>วณฺณวิการํ  อาปชฺชมานํ  อารมฺมณหทยคตภาวํ  รูปยติ  ปกาเสติ
+<span class="LineNumber"> 006 </span>อิติ  ตสฺมา  ตํ  อารมฺมณํ  รูปํ  ฯ  ตเทว  รูปํ  ทุพฺพลปุริเสน
+<span class="LineNumber"> 007 </span>อาลมฺพิยมาโน  ทณฺฑาทิ  วิย  จิตฺต...ยติ  วา  ตานิ  จิตฺต-
+<span class="LineNumber"> 008 </span>เจตสิกานิ  อาคนฺตฺวา  เอตฺถ  รูเป  รมนฺติ  อิติ  ตสฺมา  อาลมฺพนํ
+<span class="LineNumber"> 009 </span>นาม  อิติ  ตสฺมา  รูปารมฺมณํ
+<span class="LineNumber"> 010 </span>	วิกรณํ  วิกาโร  วณฺณสฺส  วิกาโร  วณฺณวิกาโร  ฯ
+<span class="LineNumber"> 011 </span>รตฺตทุฏฺ€าทิกาเลสุ  กกณฺฏกรูปํ  วิย  วณฺณสฺส  ภินฺนวิกาโร-
+<span class="LineNumber"> 012 </span>ตฺยตฺโถ  ฯ  อาปชฺชตีติ  อาปชฺชนํ  ยํ  รูปํ  ฯ  รูปยตีติมสฺส
+<span class="LineNumber"> 013 </span>วิวรณํ  ปกาเสตีติ  ฯ  หรตีติ  หทยํ  ยํ  จิตฺตํ  ปุคฺคลํ  หรติ
+<span class="LineNumber"> 014 </span>อิติ  ตสฺมา  ตํ  จิตฺตํ  หทยํ  ฯ  หร  หรเณ  วชาทีหีติอาทินา  
+<span class="LineNumber"> 015 </span>โย  กฺวจิ  ธาตูติอาทินา  หรสฺส  รสฺส  โท  ฯ  หทเย  คโต
+<span class="LineNumber"> 016 </span>ปวตฺโต  หทยคโต  ฯ  ภวติ  เอเตนาติ  ภาโว  ผลํ  เอเตน
+<span class="LineNumber"> 017 </span>อธิปฺปาเยน  ภวติ  ปวตฺตติ  อิติ  ตสฺมา  โส  อธิปฺปาโย
+<span class="LineNumber"> 018 </span>ภาโว  ฯ  หทยคโต  ภาโว  หทยคตภาโว  ฯ
+<span class="LineNumber"> 019 </span>	วณฺณวิการนฺติ  อาปชฺชมานนฺติ  ปเท  กมฺมํ  ฯ  อาปชฺช-
+<span class="LineNumber"> 020 </span>มานนฺติ  ปกาเสตีติ  ปเท  กตฺตา  ฯ  หท...ภาวนฺติ  ปกาเสตีติ
+<span class="LineNumber"> 021 </span>ปเท  กมฺมํ  ฯ  อิตีติ  เหตุ  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๒๓

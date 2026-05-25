@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>ภิกฺขู โจเทตพฺพาติอาทิวจเน ฯ
+<span class="LineNumber"> 002 </span>	เอวนฺติ วุจฺจมานนเยน ฯ ตํ พฺยตฺเตน ภิกฺขุนาติอาทิวจนํ ฯ
+<span class="LineNumber"> 003 </span>ภิกฺขุนาติ ปทํ กตนฺติ ปเท กตฺตา ฯ
+<span class="LineNumber"> 004 </span>	อุปติสฺสตฺเถโรติ ปทํ อาหาติ ปเท กตฺตา ฯ อนฺเตวาสิเกหีติ
+<span class="LineNumber"> 005 </span>ปทํ วุตฺโตติ ปเท กตฺตา ฯ วุตฺโตติ ปทํ อุปติสฺสตฺเถโรติ
+<span class="LineNumber"> 006 </span>ปทสฺส วิเสสนํ ฯ ตโตติ ปจฺฉา ฯ อนฺเตวาสิเกหิ วุตฺโต
+<span class="LineNumber"> 007 </span>อุปติสฺสตฺเถโร ยสฺสา วีถิยา กุลทูสกกมฺมํ กตํ ตตฺเรว<SUP>๑</SUP>
+<span class="LineNumber"> 008 </span>วาริตนฺติ อาหาติ สมฺพนฺโธ ฯ อนฺเตวาสิเกหิ วุตฺโต อุปติสฺสตฺเถโร
+<span class="LineNumber"> 009 </span>อาห ฯ ตนฺติ ตํ วจนํ ฯ มโนรถมตฺตเมวาติ มนสฺมึ อิจฺฉามตฺตเมว
+<span class="LineNumber"> 010 </span>น สพฺเพสํ อิจฺฉา ฯ สพฺเพสํ มตึ ญาเปนฺโต สเจ หีติ<SUP>๒</SUP>
+<span class="LineNumber"> 011 </span>อาทิมาห ฯ ติโยชนํ ปรมํ ปมาณํ ยสฺส โส ติ...รโม ฯ
+<span class="LineNumber"> 012 </span>อิติสทฺโท สมาปนฺโน ฯ
+<span class="LineNumber"> 013 </span>	[๗๓๔] เต สงฺเฆน...กตาติ €ปนํ ฯ กถํ ฯ เป ฯ กาสีติ
+<span class="LineNumber"> 014 </span>ปุจฺฉา ฯ สงฺโฆ คนฺตฺวา ว คนฺตฺวา เอว อชฺโฌตฺถริตฺวา น
+<span class="LineNumber"> 015 </span>อกาสิ ฯ อถโข สจฺจโต ฯ กุเลหีติ ปทํ กยิรมาเนสูติ ปเท
+<span class="LineNumber"> 016 </span>กตฺตา ฯ กยิรมาเนสูติ ปทํ กเถตฺวาติ ปเท ภาวลกฺขณํ ฯ
+<span class="LineNumber"> 017 </span>€าเนติ ปทํ กเถตฺวาติ ปเท อาธาโร ฯ สมณปฺปฏิปทนฺติ
+<span class="LineNumber"> 018 </span>สมณานํ ปฏิปตฺตึ ฯ กเถตฺวา สฺาเปตฺวา อกํสุ ฯ อิตีติ
+
+<span class='footnote'>๑. ๒. ตโต สเจปิ อิติ วณฺณนาปาโ€ ฯ</span>
+<span class="LineNumber"> 019 </span>                    [ปา.๔๑๘..๔๒๐ ฯ ส.๑๔๑.๑๔๒]

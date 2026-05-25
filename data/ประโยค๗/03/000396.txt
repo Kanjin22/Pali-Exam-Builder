@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>วุตฺตํ มรณจิตฺตํ อสฺสาติ วุตฺตมรณจิตฺโต ฯ มรณมโน อสฺสาติ
+<span class="LineNumber"> 002 </span>มรณมโน ฯ นนุ มโนติ อิทํปิ อตฺถโต จิตฺตเมว อถ กสฺมา
+<span class="LineNumber"> 003 </span>วุตฺตนฺติ อาห ยสฺมาติอาทึ ฯ เอตฺถาติ จิตฺตมโนติ ปเท ฯ
+<span class="LineNumber"> 004 </span>	อิทํ หีติ หิ สจฺจํ อิทํ จิตฺตสฺกปฺโปติ ปทํ ฯ เอตฺถาติ
+<span class="LineNumber"> 005 </span>จิตฺตสฺกปฺโปติ ปเท ฯ สํวิทหนมตฺตสฺสาติ สฺาเจตนาวิตกฺก-
+<span class="LineNumber"> 006 </span>สงฺขาตสฺส สพฺพสฺส สํวิทหนสฺส ฯ สามฺตฺโถ เหตฺถ มตฺตสทฺโท
+<span class="LineNumber"> 007 </span>พฺราหฺณมตฺตํ โภชยตีติอาทีสุ วิย เตนาห ตญฺจ สํวิทหนนฺติอาทึ
+<span class="LineNumber"> 008 </span>อิมินา สํวิทหนํ นาเมตฺถ น วิธานนฺติ ทสฺเสติ ฯ สฺคหนฺติ
+<span class="LineNumber"> 009 </span>คหณํ ปริจฺฉินฺทนํ ฯ อสฺสาติ ภิกฺขุโน ฯ ตถา หีติ หิ สจฺจํ
+<span class="LineNumber"> 010 </span>ตํ วจนํ ฯ เอตฺถ จาติ เอตสฺมึ อธิกาเร ฯ
+<span class="LineNumber"> 011 </span>	[๕๔๔] ตตฺถาติ มรณวณฺณสํวณฺณนสมาทปเนสุ นิทฺธารณํ ฯ
+<span class="LineNumber"> 012 </span>มรณวณฺณสํสวณฺณเน อุจฺจาวจาการตา ตาว ปณฺฑิเตน
+<span class="LineNumber"> 013 </span>เวทิตพฺพาติ สมฺพนฺโธ ฯ สมาทปเน ปน อุจฺจาวจาการตา
+<span class="LineNumber"> 014 </span>เวทิตพฺพา ฯ
+<span class="LineNumber"> 015 </span>	โสพฺเภ ฯ เป ฯ เอตฺถ วจเน วินิจฺฉโย ฯ ฉินฺนํ ตฏํ
+<span class="LineNumber"> 016 </span>ยสฺส โส ฉินฺนตโฏ ฯ อวาโฏ อาวาโฏติ เทฺว ปริยายา ฯ
+<span class="LineNumber"> 017 </span>ยตฺถาติ ยสฺมึ €าเน ฯ
+<span class="LineNumber"> 018 </span>	[๕๔๕] วิภชิตฺวาติ ปทํ €เปตฺวาติ ปเท ปุพฺพกาลกิริยา ฯ
+<span class="LineNumber"> 019 </span>ตตฺราติ สยํ มาเรตีติอาทิวจเน<SUP>๑</SUP> ฯ เอตฺถาติ กาเยน
+
+<span class='footnote'>๑. สยํ หนตีติ ปาลิ ฯ</span>
+<span class="LineNumber"> 020 </span>                   [ปา.๑๓๕.๑๓๖ ฯ ส.๕๒๙..๕๓๑]

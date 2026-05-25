@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>๗  นี้  คือ 
+<span class="LineNumber"> 002 </span>	(๑)  <B>สพฺพา   อิตฺถิโย   อเวรา   ฯ เป ฯ   อตฺตานํ   ปริหรนฺตุ</B> 
+<span class="LineNumber"> 003 </span>ขอสตรีทั้งหลายทั้งปวง  จงเป็นผู้ไม่มีเวร  ฯ ล ฯ  รักษาตนอยู่เถิด
+<span class="LineNumber"> 004 </span>	(๒)  <B>สพฺเพ  ปุริสา</B>----  ขอบุรุษทั้งหลายทั้งปวง----
+<span class="LineNumber"> 005 </span>	(๓)  <B>สพฺเพ  อริยา</B>----  ขออริยชนทั้งหลายทั้งปวง----
+<span class="LineNumber"> 006 </span>	(๔)  <B>สพฺเพ  อนริยา</B>----  ขออนริยชนทั้งหลายทั้งปวง----
+<span class="LineNumber"> 007 </span>	(๕)  <B>สพฺเพ  เทวา</B>----  ขอเทพทั้งหลายทั้งปวง----
+<span class="LineNumber"> 008 </span>	(๖)  <B>สพฺเพ  มนุสฺสา</B>----  ขอมนุษย์ทั้งหลายทั้งปวง----
+<span class="LineNumber"> 009 </span>	(๗)  <B>สพฺเพ  วินิปาติกา  อเวรา  ฯ เป ฯ  อตฺตานํ  ปริหรนฺตุ</B>
+<span class="LineNumber"> 010 </span>ขอวินิปาติกะ  (ผู้ตกอยู่ในอบาย)  ทั้งหลายทั้งปวง   จงเป็นผู้ไม่มีเวร
+<span class="LineNumber"> 011 </span>ฯ ล ฯ  รักษาตนอยู่เถิด
+<span class="LineNumber"> 012 </span>                                    [ทิสผรณา  ๑๐] 
+<span class="LineNumber"> 013 </span>	เมตตาเจโตวิมุติ  บัณฑิตพึงทราบว่าเป็นทิสาผรณา  (แผ่เป็น
+<span class="LineNumber"> 014 </span>ทิศ  ๆ  ด้วยอาการ ๑๐  นี้  คือ
+<span class="LineNumber"> 015 </span>	(๑)  <B>สพฺเพ    ปุรตฺถิมาย    ทิสาย    สตฺตา    อเวรา    ฯ เป ฯ
+<span class="LineNumber"> 016 </span>อตฺตานํ  ปริหรนฺตุ</B>  ขอสัตว์ทั้งหลายทั้งปวง  ในทิศตะวันออก  จงเป็น
+<span class="LineNumber"> 017 </span>ผู้ไม่มีเวร  ฯลฯ  รักษาตนอยู่เถิด
+<span class="LineNumber"> 018 </span>	(๒)  <B>สพฺเพ  ปจฺฉิมาย  ทิสาย  สตฺตา</B>----  ขอสัตว์ทั้งหลาบ
+<span class="LineNumber"> 019 </span>ทั้งปวง  ในทิศตะวันตก----
+<span class="LineNumber"> 020 </span>	(๓)  <B>สพฺเพ  อุตฺตราย  ทิสาย  สตฺตา</B>----   ขอสัตว์ทั้งหลาย
+<span class="LineNumber"> 021 </span>ทั้งปวง  ในทิศเหนือ----
+
+

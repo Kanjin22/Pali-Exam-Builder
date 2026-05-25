@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    556
+
+<span class="LineNumber"> 002 </span>สีตา...อนตฺเถ  วิญฺาเปตีติ  สีตา...ปโน  สีตา...ปโน  จ  สา
+<span class="LineNumber"> 003 </span>ปโยโค  จาติ  สีตา...โยโค  สีตา...โยคํ  สมุฏฺ€าเปตีติ  สีตา...
+<span class="LineNumber"> 004 </span>ปิกา  ยา  เจตนา  ฯ
+<span class="LineNumber"> 005 </span>	สีตา...ปิกาติ  สงฺกิ...ตนาติ  วิเสสนํ  ฯ  สงฺกิ...ตนาติ
+<span class="LineNumber"> 006 </span>สญฺี  ฯ  สมฺผปฺปลาโปติ  สญฺา  ฯ
+<span class="LineNumber"> 007 </span>	[๖๖๘]  โส  ปน  สมฺผปฺปลาโป  ปเรหิ...ปโถ  ฯ
+<span class="LineNumber"> 008 </span>	โสติ  ลิงฺคตฺโถ  ฯ  ปนสทฺโท  วิเสสตฺโถ  ฯ  ปเรหีติ  คหิเตติ
+<span class="LineNumber"> 009 </span>กตฺตา  ฯ  ตสฺมึ  อตฺเถติ  ตสฺมึ  วจเน  ฯ  ตสฺมึ  อตฺเถติ  คหิเตติ
+<span class="LineNumber"> 010 </span>ลกฺขณวนฺตํ  ฯ  คหิเตเยวาติ  ลกฺขณกิริยา  ฯ  เอสทฺโท  อคฺคหิตํ
+<span class="LineNumber"> 011 </span>นิวตฺเตติ  ฯ  กมฺมปโถติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 012 </span>	[๖๖๙]  วจี...ทฺวาเรติ  €ปนํ  ฯ  ยา  ธมฺมชาติ  วาจาย...
+<span class="LineNumber"> 013 </span>เปติ  สยญฺจ  ปุคฺคเลน  วาจาย...กมฺมทฺวาเรติ  โยชนา  ฯ
+<span class="LineNumber"> 014 </span>	วาจายาติ  วจเนน  ฯ  วุจฺจเตติ  วาจา  ยา  กถา  ชเนน  ฯ
+<span class="LineNumber"> 015 </span>จสทฺโท  วากฺยารมฺโภ  ฯ  วุจฺจเตติ  วจี  ยา  กถา  ชเนน  ฯ
+<span class="LineNumber"> 016 </span>วจ  วิญฺตฺติยํ  วาจายํ<SUP>๑</SUP>  อิตฺถิ...วาติ  อ  ปุน  อี  ฯ  วาจาย
+<span class="LineNumber"> 017 </span>วิญฺาเปตีติ  วจีวิญฺตฺติ  ฯ  วุจฺจเตติ  วจี  ฯ  ภิชฺชนํ  เภโท  ฯ
+<span class="LineNumber"> 018 </span>วจิยา  เภโท  วจีเภโท  วจีเภทํ  กโรตีติ  วจีเภทกโร  วจี-
+<span class="LineNumber"> 019 </span>เภทกโร  จ  โส  ปโยโค  จาติ  วจี...โยโค  วจีเภท..โยคํ
+<span class="LineNumber"> 020 </span>สมุฏฺ€าเปตีติ  วจี...ปกํ  ยํ  จิตฺตํ  ฯ    วจี...กญฺจ  ตํ  จิตฺตญฺจาติ
+<span class="LineNumber"> 021 </span>วจี...จิตฺตํ  ฯ  สมุฏฺ€าตีติ  สมุฏฺ€านา  ยา  ป€วี  ฯ
+<span class='footnote'>๑.  วจ  วิยตฺติยํ  วาจายนฺติ  สทฺทนีติ  ฯ</span>
+<span class="LineNumber"> 022 </span>					อภิ.๑๖๙

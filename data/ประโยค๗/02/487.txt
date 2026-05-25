@@ -1,0 +1,8 @@
+<span class="LineNumber"> 001 </span>ฉสฺสมุฏฺ€านํ ฯ 
+<span class="LineNumber"> 002 </span>			วสฺสิกสาฏิกสิกฺขาปทํ นวมํ ฯ 
+<span class="LineNumber"> 003 </span>	ทสมสิกฺขาปเท ฯ   จตุรงฺคุโลมโกติ   จตูหิ   องฺคุเลหิ 
+<span class="LineNumber"> 004 </span>อูนกปฺปมาโณ ฯ เสสเมตฺถ อุตฺตานเมว ฯ ฉสฺสมุฏฺ€านํ ฯ 
+<span class="LineNumber"> 005 </span>			นนฺทตฺเถรสิกฺขาปทํ ทสมํ ฯ 
+<span class="LineNumber"> 006 </span>	สมตฺโต   วณฺณนากฺกเมน   ราชวคฺโค   นวโม ฯ 
+<span class="LineNumber"> 007 </span>อุทฺทิฏฺ€า โขติอาทิ วุตฺตนยเมวาติ ฯ 
+<span class="LineNumber"> 008 </span>	สมนฺตปาสาทิกาย วินยสํวณฺณนาย ขุทฺทกกณฺฑวณฺณนา สมตฺตา ฯ 

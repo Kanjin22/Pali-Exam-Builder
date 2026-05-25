@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  550
+
+<span class="LineNumber"> 002 </span>	เอกํสโตติ  อนุภวตีติ  ปเท  ตติยาวิเสสนํ  ฯ  อิสฺสรวตายาติ
+<span class="LineNumber"> 003 </span>อนุภวตีติ  ปเท  ตติยาวิเสสนํ  ฯ  เวทนาวาติ  อนุภวตีติ  ปเท
+<span class="LineNumber"> 004 </span>กตฺตา  ฯ
+<span class="LineNumber"> 005 </span>	[๔๐๘]  วุตฺตมตฺถํ  อฏฺ€กถาวจเนน  สาเธนฺโต  อาห  ตถา-
+<span class="LineNumber"> 006 </span>เหสาตฺยาทึ  ฯ  ตถาหิ  สจฺจํ  เอสา  เวทนา  สุโภ...วิย  อิติ
+<span class="LineNumber"> 007 </span>อฏฺ€กถายํ  อาจริเยน  วุตฺตา  ฯ
+<span class="LineNumber"> 008 </span>	ตถาหีติ  ทฬฺหีกรณตฺเถ  นิปาโต  ฯ  ภุฺชิยเตติ  โภชนํ  ยํ
+<span class="LineNumber"> 009 </span>อนฺนาทิวตฺถุ  ชเนน  ภุฺชิยเต  อิติ  ตสฺมา  ตํ  วตฺถุ  โภชนํ  ฯ
+<span class="LineNumber"> 010 </span>ภุช  ปาลนพฺภฺยวหรเณสุ  นนฺทาทีหิ  ยุ  อนกา  ยุณฺวูนํ  ฯ  สุนฺทรํ
+<span class="LineNumber"> 011 </span>โภชนํ  สุโภชนํ  สุโภชนสฺส  รโส  สุโภชนรโส  สุโภชนรสํ
+<span class="LineNumber"> 012 </span>อนุภวตีติ  สุโภชนรสานุภวนโก  สุโภชนรสานุภวนโก  จ  โส
+<span class="LineNumber"> 013 </span>ราชา  จาติ  สุโภ...ราชา  ฯ
+<span class="LineNumber"> 014 </span>	ตถาหีติ  นิปาโต  ฯ  เอสาติ  วุตฺตาติ  ปเท  กมฺมํ  ฯ
+<span class="LineNumber"> 015 </span>สุโภ...ราชาติ  อุปมา  ฯ  วิยสทฺโท  อุปมาโชตโก  ฯ  อิตีติ
+<span class="LineNumber"> 016 </span>วุตฺตาติ  ปเท  อากาโร  ฯ  วุตฺตาติ  กมฺมวาจกํ  ฯ
+<span class="LineNumber"> 017 </span>	[๔๐๙]  สา  ปน  สภาวเภทโต  ปฺจวิธา  โหติ  อาจริโย
+<span class="LineNumber"> 018 </span>ปน  เวทนาเภทํ  วกฺขิสฺสติ  โส  อิธ  น  วตฺตพฺโพติ  าเปนฺโต
+<span class="LineNumber"> 019 </span>อาห  สุขาตฺยาทึ  ฯ  สุขาทิวเสน  ปน  อสฺสา  เวทนาย  เภทํ
+<span class="LineNumber"> 020 </span>สยเมว  ตติยปริจฺเฉเท  วกฺขติ  วกฺขิสฺสติ  อาจริโย  ฯ
+<span class="LineNumber"> 021 </span>						อภิ.๙๙

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  212
+
+<span class="LineNumber"> 002 </span>เอตฺถาติ  กามภโว  ฯ  ยาคโม  สุอุจฺจารณตฺถํ  ปกฺขิตฺโต  ฯ
+<span class="LineNumber"> 003 </span>เอวสทฺโท  จิตฺตํ  นิวตฺเตติ  ฯ  
+<span class="LineNumber"> 004 </span>	กามภโวเยวาติ  สฺี  ฯ  วาสทฺโท  วิกปฺปตฺโถ  ฯ  กาโมติ
+<span class="LineNumber"> 005 </span>อวจรตีติ  ปเท  กตฺตา  ฯ  เอตฺถาติ  อวจรตีติ  ปเท  อาธาโร  ฯ
+<span class="LineNumber"> 006 </span>อวจรตีติ  กตฺตุวาจกํ  ฯ  อิตีติ  กามาวจโรติ  ปเท  เหตุ  ฯ
+<span class="LineNumber"> 007 </span>กามาวจโรติ  สฺา  ฯ
+<span class="LineNumber"> 008 </span>	[๑๐๗]  อิมสฺมึ  นเย  ภโว  กามาวจโร  นาม  จิตฺตํ  ปน
+<span class="LineNumber"> 009 </span>กถนฺติ  โจทนํ  สนฺธายาห  ตตฺถตฺยาทึ  ฯ  อุทาหรณํ  ทสฺเสนฺโต
+<span class="LineNumber"> 010 </span>อาห  มฺจาตฺยาทึ  ฯ  ตตฺถ  กามาวจรภเว  ปวตฺตมฺปิ  จิตฺตํ
+<span class="LineNumber"> 011 </span>นิสฺสิเต  จิตฺเต  นิสฺสยโวหาเรน  นิสฺสยนามวเสน  กามาวจรํ  นาม
+<span class="LineNumber"> 012 </span>มฺจา...อาทีสุ  ปโยเคสุ  นิสฺสิเตสุ  ชเนสุ  นิสฺสยโวหาเรน  มฺจา
+<span class="LineNumber"> 013 </span>นาม  มฺจฏฺ€า  ชนา  วิยาติ  โยชนา  ฯ
+<span class="LineNumber"> 014 </span>	อปิสทฺโท  น  เกวลํ  กามภโว  กามาวจโร  นามาติ  าเปติ  ฯ
+<span class="LineNumber"> 015 </span>นิสฺสยตีติ  นิสฺสิตํ  ยํ  จิตฺตํ  ภวํ  นิสฺสยติ  อิติ  ตสฺมา
+<span class="LineNumber"> 016 </span>ตํ  จิตฺตํ  นิสฺสิตํ  ฯ  นิปุพฺโพ  สิ  เสวายํ  พุธคมาทิตฺเถ  กตฺตริ
+<span class="LineNumber"> 017 </span>ยถาคมมิกาโร  ปร...€าเน  ฯ  นิสฺสยติ  ตนฺติ  นิสฺสโย  จิตฺตํ
+<span class="LineNumber"> 018 </span>ตํ  ภวํ  นิสฺสยติ  อิติ  ตสฺมา  โส  ภโว  นิสฺสโย  อวุตฺตกตฺตุ-
+<span class="LineNumber"> 019 </span>สาธนํ  ฯ  นิปุพฺโพ  สิ  เสวายํ  สพฺพโต  ณฺวุตฺวาวี  วาติ  อ
+<span class="LineNumber"> 020 </span>อฺเสุ  จ  อิสฺเส  เอ  อย  ฯ  โวหาริยติ  เอเตนาติ  โวหารํ  ภโว
+<span class="LineNumber"> 021 </span>ปณฺฑิเตน  เอเตน  นาเมน  โวหาริยติ  กถิยติ  อิติ  ตสฺมา  ตํ  นามํ
+<span class="LineNumber"> 022 </span>					อภิ.๖๙

@@ -1,0 +1,23 @@
+
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  336
+
+<span class="LineNumber"> 002 </span>	[๔๑๐]  ตตฺถาปีติ  อยํ  สทฺโท  สนฺตีรณตทาลมฺพนานิ
+<span class="LineNumber"> 003 </span>ปจฺจามสตีติ  สงฺกา  สิยา  ตสฺมา  ตนฺนิวตฺตนตฺถํ  ตตฺถาปีติ
+<span class="LineNumber"> 004 </span>ตทาลมฺพเนสุปีติ  วุตฺตํ  ฯ  ตตฺถาปีติ  €ปนํ  ฯ  ตทาลมฺพเนสุปีติ
+<span class="LineNumber"> 005 </span>นิทฺธารณํ  ฯ
+<span class="LineNumber"> 006 </span>	[๔๑๑]  โสมนสฺส...วสาเนติ  เอตฺถ  สุขสหคตกฺริยาปญฺจกเมว
+<span class="LineNumber"> 007 </span>คหิตนฺติ  ญาเปนฺโต  อาห  โสมนสฺสาตฺยาทึ  ฯ
+<span class="LineNumber"> 008 </span>	โสม...สาเนติ  €ปนํ  ฯ  สเห...สาเนติ  ภวนฺตีติ  อาธาโร  ฯ
+<span class="LineNumber"> 009 </span>สห  เหตูหิ  วตฺตนฺตีติ  สเหตุกา  ยา  กฺริยา  ฯ  ยาติ  อเหตุกา
+<span class="LineNumber"> 010 </span>หสิตุปฺปาทกฺริยา  ฯ  สเหตุกา  จ  อเหตุกา  จ  สเหตุกาเหตุกา  ฯ
+<span class="LineNumber"> 011 </span>สุขสหคตา  จ  สา  กฺริยา  จาติ  สุขสหคตกฺริยา  ฯ  สเหตุกาเหตุกา
+<span class="LineNumber"> 012 </span>ว  ตา  สุขสหคตกฺจิยา  จาติ  สเหตุ...กฺริยา  ฯ  ปญฺจนฺนํ  สมุโห
+<span class="LineNumber"> 013 </span>ปญฺจกํ  สเหตุ...กฺริยานํ  ปญฺจกํ  สเห...ปญฺจกํ  สเห...
+<span class="LineNumber"> 014 </span>ปญฺจกสฺส  อวสานํ  สเหตุ...วสานํ  ฯ
+<span class="LineNumber"> 015 </span>	[๔๑๒]  โสมนสฺส...วสาเนติ  อาทิวจนสฺส  วจเน  เหตุํ
+<span class="LineNumber"> 016 </span>าเปนฺโต  อาห  ขีณาสวานนฺตฺยาทึ  ฯ  ขีณา...  อิติ  ตสฺมา
+<span class="LineNumber"> 017 </span>โสม...สาเนติ  อาทิ  วจนํ  อาจริเยน  วุตฺตํ  ฯ
+<span class="LineNumber"> 018 </span>	วิปรีเตน  อสนฺติ  เอเตนาติ  วิปลฺลาโส  สตฺตา  เอเตน
+<span class="LineNumber"> 019 </span>ธมฺเมน  เหตุภูเตน  วิปรีเตน  อสนฺติ  อารมฺมณํ  เปกฺขนฺติ  อิติ
+<span class="LineNumber"> 020 </span>ตสฺมา  โส  ธมฺโม  วิปลฺลาโส  ฯ  จิตฺตเมว  วิปลฺสาโล
+<span class="LineNumber"> 021 </span>					อภิ.๑๔๕

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  450
+
+<span class="LineNumber"> 002 </span>อตฺถีติ  กตฺตา  ฯ  ตสฺมาติ  คเหตพฺพนฺติ  เหตุ  ฯ  นามมตฺตเมวาติ
+<span class="LineNumber"> 003 </span>ลิงฺคตฺโถ  ฯ  เอตนฺติ  คเหตพฺพนฺติ  กมฺมํ  ฯ  ตสฺสาติ  เทวโลกสฺสาติ
+<span class="LineNumber"> 004 </span>วิเสสนํ  ฯ  เทวโลกสฺสาติ  นามาติ  สมฺพนฺโธ  ฯ  อิตีติ  คเหตพฺพนฺติ
+<span class="LineNumber"> 005 </span>อากาโร  ฯ
+<span class="LineNumber"> 006 </span>	[๕๓๓]  ทุกฺขโต...ยาตา  เทวา  อิติ  ตสฺมา  เทวา  ยามา  ฯ
+<span class="LineNumber"> 007 </span>	ทุกฺขโตติ  ยาตาติ  อปาทานํ  ฯ  ยนฺตีติ  ยาตา  เย  เทวา  ฯ
+<span class="LineNumber"> 008 </span>ยา  คติยํ  พุธคมาทิตฺเถ  กตฺตริ  ฯ  ยาตาติ  วิวรณํ  อปยาตาติ  ฯ
+<span class="LineNumber"> 009 </span>อปสทฺโท  ธาตฺวตฺถพาธโก  ฯ  อปยนฺติ  อปคจฺฉนฺตีติ  อปยาตา
+<span class="LineNumber"> 010 </span>เย  เทวา  ฯ  อปปุพฺโพ  ยา  พุธคมาทิตฺเถ  กตฺตริ  ฯ  ยนฺติ
+<span class="LineNumber"> 011 </span>อปคจฺฉตีติ  ยามา  เย  เทวา  ฯ  ยา  คติยํ  ขฺยาทีหิ  มน  ม
+<span class="LineNumber"> 012 </span>จ  โต  วา  มน  กฺวจิ  ธาตุ  นโลโป  โย  สพฺพโยนีนมา  เอ  ฯ
+<span class="LineNumber"> 013 </span>	[๕๓๔]  อตฺตโน...คตา  อิติ  ตสฺมา  ตุสิตา  ฯ
+<span class="LineNumber"> 014 </span>	นิสฺสยนฺตีติ  สิริโย  สรโสภาตฺยาทิ<SUP>๑</SUP>  ยา  ธมฺมชาติโย
+<span class="LineNumber"> 015 </span>กตปุญฺเหิ  ปุคฺคเลหิ    นิสฺสยนฺติ  อิติ  ตสฺมา  ตา  สิริโย  ฯ
+<span class="LineNumber"> 016 </span>กมฺมสาธนํ  ฯ  นิสฺสยตีติ  วา  สิริ  ยา  ธมฺมชาติ  กตปุญฺเหิ  ฯ
+<span class="LineNumber"> 017 </span>สร  นิสฺสเย  มุนาทีหิ  จิ  ธาตุ  อสฺสิ  ฯ  สมฺปชฺชนํ
+<span class="LineNumber"> 018 </span>สมฺปตฺติ  สิริยา  สมฺปตฺติ  สิริสมฺปตฺติ  ฯ  ตุสนํ  ตุสํ  ฯ  ตุส
+<span class="LineNumber"> 019 </span>ตุฏฺ€ิมฺหิ  สพฺพโต  อ  ฯ  ตุสสทฺทสฺส  สทฺทาทิวาจกตฺตา  ปีตินฺติ
+<span class="LineNumber"> 020 </span>วิวรติ  ฯ  เอนฺติ  คจฺฉนฺตีติ  อิตา  ฯ  อิ  คติมฺหิ    พุธคมาทิตฺเถ
+<span class='footnote'>๑.  สิริโสภาตฺยาทีติ  มญฺเ  ฯ</span>
+<span class="LineNumber"> 021 </span>						อภิ.๑๕๘

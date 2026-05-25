@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			ป€มปริจฺเฉทตฺถโยชนา  หน้า  9
+
+<span class="LineNumber"> 002 </span>ทฺวนฺโทฺวเยวาธิปฺเปโต  ฯ  เกจิ  ปน  ยทิ  €านวณฺณนมิจฺเฉยฺย
+<span class="LineNumber"> 003 </span>กรุณา  วิย  าณนฺติ  กมฺมธารโย  กตฺตพฺโพติ  วทนฺติ  ฯ  ตํ
+<span class="LineNumber"> 004 </span>ภควตา  อิมสฺส  อภิธมฺมตฺถสงฺคหสฺส  อวุตฺตตฺตา  น  ยุตฺตํ  ฯ
+<span class="LineNumber"> 005 </span>อฏฺ€สาลินิยนฺตุ  ธมฺมสงฺคณิยา  อนุรูปํ  โถมนา  อาจริเยน  กตา  ฯ
+<span class="LineNumber"> 006 </span>ยทิ  ปน  เกจิ  ตํ  อธิปฺปายํ  คเหตฺวา  ตทนุคเมน  อิธ
+<span class="LineNumber"> 007 </span>กมฺมธารโย  กตฺตพฺโพติ  วทนฺติ  ตํ  วจนํ  กิฺจิ  ยุชฺชติ  ฯ  วิสุทฺธํ
+<span class="LineNumber"> 008 </span>กรุณาาณํ  เอตสฺสาติ  วิสุทฺธกรุณาาโณ  เอตสฺส  ภควโต
+<span class="LineNumber"> 009 </span>กรุณาาณํ  วิสุทฺธํ  อิติ  ตสฺมา  โส  ภควา  วิสุทฺธกรุณาาโณ
+<span class="LineNumber"> 010 </span>ฉฏฺ€ีตคฺคุณสวิฺาณพหุพฺพิหิ  ฯ  กมฺมวจนิจฺฉายนฺตุ  วิสุทฺธกรุณา-
+<span class="LineNumber"> 011 </span>าณนฺติ  วุตฺตํ  ฯ
+<span class="LineNumber"> 012 </span>	ปารมิตาปริภาวิตาย  ปฺาย  สพฺพฺเยฺยํ  อพุชฺฌีติ  พุทฺโธ
+<span class="LineNumber"> 013 </span>โย  ภควา  ปารมิตา.....สพฺพฺเยฺยํ  อพุชฺฌิ  อิติ  ตสฺมา  โส
+<span class="LineNumber"> 014 </span>ภควา  พุทฺโธ  ฯ  พุธ  อวคมเน  อวคมนํ  ชานนํ  ฯ  อถวา  ฯ
+<span class="LineNumber"> 015 </span>สวาสนสมฺโมหนิทฺทาย  อจฺจนฺตํ  อพุชฺฌีติ  พุทฺโธ  โย  ภควา
+<span class="LineNumber"> 016 </span>สวาสน....อพุชฺฌิ  วิคโต  อิติ  ตสฺมา  โส  ภควา  พุทฺโธ  ฯ
+<span class="LineNumber"> 017 </span>พุธ  โพธเน  โพธนํ  นิทฺทกฺขโย  ฯ  พุทฺธิยา  อพุชฺฌีติ  วา
+<span class="LineNumber"> 018 </span>พุทฺโธ  โย  ภควา  พุทฺธิยา  อพุชฺฌิ  วิกสิตวา  อิติ  ตสฺมา
+<span class="LineNumber"> 019 </span>โส  ภควา  พุทฺโธ  ฯ  พุธ  โพธเน  โพธนํ  วิกสนํ  ฯ  โพธน-
+<span class="LineNumber"> 020 </span>สทฺทุทฺธารเณน  ชานนํ  วิกสนํ  นิทฺทกฺขโย  จ  คหิโต  ฯ  ตสฺมา
+<span class="LineNumber"> 021 </span>พุธ  €าเน<SUP>๑</SUP>  พุธ  นิทฺทกฺขเย  พุธ  วิกสเนติ  วุตฺตํ  โหติ  ฯ
+<span class='footnote'>๑.  พุธ  ชานเนติ  มฺเ  ฯ</span>
+<span class="LineNumber"> 022 </span>					อภิ.๖๑

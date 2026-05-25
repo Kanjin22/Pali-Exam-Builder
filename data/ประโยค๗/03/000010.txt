@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			<B>สลฺเลขิเย โนสุลภูปเมหิ
+<span class="LineNumber"> 002 </span>			มหาวิหารสฺส ธชูปเมหิ</B>
+<span class="LineNumber"> 003 </span>ปุพฺพาจริยาสเภหิ อยํ วินโย จิตฺเตหิ นเยหิ สมฺพุทฺธวรนฺวเยติ
+<span class="LineNumber"> 004 </span>กามญฺจ เอกนฺเตน ยทิจฺฉกํ วา สํวณฺณิโต ปน ตถาปิ เอสา
+<span class="LineNumber"> 005 </span>สํวณฺณนา สีหลทีปเกน วากฺเยน สงฺขตตฺตา สีหลทีปโต ทีปนฺตเร
+<span class="LineNumber"> 006 </span>อฺาทีเป ภิกฺขุชนสฺส ภิกฺขุสงฺขาตชนสฺส กญฺจิ อตฺถํ ปโยชนํ
+<span class="LineNumber"> 007 </span>ยสฺมา น อภิสมฺภุณาติ น สาเธติ ตสฺมา อิมํ สํวณฺณนํ
+<span class="LineNumber"> 008 </span>ปาลินยานุรูปํ กตฺวา พุทฺธสิริวฺหยสฺส เถรสฺส อชฺเฌสนํ สมฺมา
+<span class="LineNumber"> 009 </span>สมนุสฺสรนฺโต อหํ อิทานิ สมารภิสฺสนฺติ สมฺพนฺโธ ฯ
+<span class="LineNumber"> 010 </span>	[๒๐] จสทฺโท วากฺยารมฺโภ ฯ ปุพฺพา จ เต อาจริยา จาติ
+<span class="LineNumber"> 011 </span>ปุพฺพาจริยา ปุพฺพาจริยา เอว อาสภา ปุพฺพาจริยาสภา ฯ
+<span class="LineNumber"> 012 </span>	ชานาตีติ าณํ ฯ อมฺพติ สทฺทํ กโรตีติ อมฺพุ อมฺมพ สทฺเท
+<span class="LineNumber"> 013 </span>ภมรตฺยาทิสุตฺเตน อุ อมฺพุ วิยาติ อมฺพุ าณํ เอว อมฺพุ
+<span class="LineNumber"> 014 </span>ณาณมฺพุ ฯ นิสฺเสสโต โธตานิ นิทฺโธตานิ ฯ มลนฺติ สงฺกิลิสฺสนฺติ
+<span class="LineNumber"> 015 </span>สตฺตา เอเตหีติ มลา ฯ อา<SUP>๑</SUP> ภวคฺคโต สวนฺตีติ อาสวา ฯ มลา
+<span class="LineNumber"> 016 </span>จ อาสวา จ มลาสวา ฯ าณมฺพุนา นิทฺโธตา มลาสวา เยหิ
+<span class="LineNumber"> 017 </span>เต าณมฺพุนิทฺโธตมลาสวา ฯ
+<span class="LineNumber"> 018 </span>	วิ อจฺจนฺเตน สุทฺธา วิสุทฺธา ฯ วิชานาตีติ วิชฺชา ฯ ปฏิ
+<span class="LineNumber"> 019 </span>วิสุํ สมฺมา อตฺถาทีสุ ภิชฺชตีติ ปฏิสมฺภิทา ฯ วิชฺชา จ ปฏิสมฺภิทา
+
+<span class='footnote'>๑. อวธฺยตฺโถ เจตฺถ อากาโร ฯ อวธิ จ มริยาทาภิวิธิวเสน ทุวิโธ ฯ</span>
+<span class='footnote'>อิธ ปน อภิวิธิยํ ทฏฺ€พฺโพติ ฯ</span>
+<span class="LineNumber"> 020 </span>						[ส.๒]
+

@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>		     <B>สกํ นิเกตํ อติหีฬยาโน <SUP>๑</SUP>
+<span class="LineNumber"> 002 </span>		     อตฺริจฺฉตาย ชนตํ อคฺฉึ ฯ 
+<span class="LineNumber"> 003 </span>		     ตโต ชนา นิกฺขมิตฺวาน คามา 
+<span class="LineNumber"> 004 </span>		     โกทณฺฑเกน ปริโปถยึสุ มํ ฯ 
+<span class="LineNumber"> 005 </span>		     โส ภินฺนสีโส รุหิรมกฺขิตงฺโค 
+<span class="LineNumber"> 006 </span>		     ปจฺจาคมาสึ วุสิตํ นิเกตํ ฯ 
+<span class="LineNumber"> 007 </span>		     ตสฺมา อหํ อุโปสถํ ปาลยามิ 
+<span class="LineNumber"> 008 </span>		     อตฺริจฺฉตา มา ปุนราคมาสีติ ฯ</B> 
+<span class="LineNumber"> 009 </span>	ตตฺถ   <B>อติหีฬยาโนติ</B>   อติมฺนฺโต   ครหนฺโต  ฯ  <B>โกทณฺฑ-
+<span class="LineNumber"> 010 </span>เกนาติ </B>ธนูนํ ทณฺฑเกหิ เจว มุคฺคเรหิ จาติ ชาตกวณฺณนา <SUP>๒</SUP> ฯ 
+<span class="LineNumber"> 011 </span>	มลตํ อคฺฉินฺติ ขุทฺทกวิภงฺควณฺณนา <SUP>๓</SUP> ฯ 
+<span class="LineNumber"> 012 </span>	<B>อติเหฬยาโนติ</B>   อวมฺมาโน  ฯ   มลตนฺติ   เอวนฺนามํ  ชนปทํ 
+<span class="LineNumber"> 013 </span>อพฺโภกาสํ    วา  ฯ   <B>โกทณฺฑเกนาติ</B>   โกทณฺฑสฺส   ทณฺฑเกน  ฯ 
+<span class="LineNumber"> 014 </span>คทฺธเลนาติ วทนฺติ ฯ <B>รุหิรมกฺขิตงฺโคติ</B> รุหิรสินฺนคตฺโตติ วิภงฺคฏีกา ฯ 
+<span class="LineNumber"> 015 </span>                                       อจฺฉวตฺถุ ฯ 
+<span class="LineNumber"> 016 </span>                             อตฺริจฺฉตาย วตฺถุกถา ฯ 
+<span class="LineNumber"> 017 </span>	[๓๒๐]    <B>มหิจฺฉตาติ</B>   มหาโลโภ   ยํ   สนฺธาย   วุตฺตํ   ตตฺถ 
+<span class="LineNumber"> 018 </span>กตมา     มหิจฺฉตา     อิตรีตรจีวรปิณฺฑปาตเสนาสนคิลานปจฺจยเภสชฺช- 
+<span class="LineNumber"> 019 </span>ปริกฺขาเรหิ    ปฺจหิ   วา   กามคุเณหิ   อสนฺตุฏฺ€สฺส   ภิยฺโยกมฺยตา 
+
+<span class='footnote'>๑. อติเหฬยาโนติปิ ปาลิ ฯ  ๒. ชาตกฏฺ€กถา ๕/๓๒๒.๓๒๓ ฯ  ๓. สมฺโมห- </span>
+<span class='footnote'>วิโนทนี. ๖๑๗ ฯ </span>

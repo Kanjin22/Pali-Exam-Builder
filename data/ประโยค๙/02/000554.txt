@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    554
+
+<span class="LineNumber"> 002 </span>วาติ  โยเชตพฺโพ  ฯ  ภิชฺชนํ  เภโท  ปเรสํ  เภโท  ปรเภโท
+<span class="LineNumber"> 003 </span>ปรเภทํ  กโรตีติ  ปรเภทกโร  โย  ปโยโค  ฯ  วจี  เอว  ปโยโค
+<span class="LineNumber"> 004 </span>วจีปโยโค  ปรเภทกโร  จ  โส  วจีปโยโค  จาติ  ปร...โยโค
+<span class="LineNumber"> 005 </span>ปร...คํ  สมุฏฺ€าเปตีติ  ปร...ปิกา  ยา  เจตนา  ฯ  สงฺกิลิสฺสตีติ
+<span class="LineNumber"> 006 </span>สงฺกิลิฏฺ€า  ยา  เจตนา  ฯ  สํปุพฺโพ  กิลิส  พาธเน  พุธคมาทิตฺเถ
+<span class="LineNumber"> 007 </span>กตฺตริ  สาทิส...ทีหิฏฺโ€  ฯ  สงฺกิลิฏฺ€า  จ  สา  เจตนา  จาติ
+<span class="LineNumber"> 008 </span>สงฺกิ...ตนา  ฯ
+<span class="LineNumber"> 009 </span>	ปร...ปิกาติ  เจตนาติ  วิเสสนํ  ฯ  สงฺกิ...ตนาติ  สญฺี  ฯ
+<span class="LineNumber"> 010 </span>ปิสุณาวาจาติ  สญฺา  ฯ
+<span class="LineNumber"> 011 </span>	[๖๖๔]  สา  ปิสุณาวาจา  ทฺวีสุ  ชเนสุ  ภินฺเนสุเยว  กมฺมปโถ  ฯ
+<span class="LineNumber"> 012 </span>	สาปีติ  ลิงฺคตฺโถ  ฯ  ปิสทฺโท  มุสาวาทํ  อเปกฺขติ  ฯ  ทฺวีสูติ
+<span class="LineNumber"> 013 </span>ลกฺขณวนฺตํ  ฯ  ภินฺเนสุเยวาติ  ลกฺขณกิริยา  ฯ  เอวสทฺโท  อภินฺนํ
+<span class="LineNumber"> 014 </span>นิวตฺเตติ  ฯ  กมฺมปโถติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 015 </span>	[๖๖๕]  ปรสฺส...วาจา  ฯ  ปรสฺสาติ  มมฺมาติ  ปเท  สมฺพนฺโธ  ฯ
+<span class="LineNumber"> 016 </span>มรนฺติ  อเนนาติ  มมฺมํ  สตฺตา  อเนน  €าเนน  มรนฺติ  อิติ
+<span class="LineNumber"> 017 </span>ตสฺมา  ตํ  €านํ  มมฺมํ  ยสฺมึ  ตาลิเต  น  ชีวติ  ตํ  ฯ  มร
+<span class="LineNumber"> 018 </span>ปาณจาเค  ขฺยาทิโต  มน  อทโต  วาติ  มน  กฺวจิ  ธาตูติอาทินา
+<span class="LineNumber"> 019 </span>นการโลโป  ปรเทฺว  ฯ  ฉิทฺทนํ  เฉโท  มมฺมสฺส  เฉโท  มมฺมจฺ-
+<span class="LineNumber"> 020 </span>เฉโท  มมฺมจฺเฉทํ  กโรตีติ  มมฺมจฺเฉทกโร  โย  ปโยโค  ฯ
+<span class="LineNumber"> 021 </span>มมฺมจฺเฉทกโร  จ  โส  วจีปโยโค  จาติ  มมฺม...โยโค  มมฺม...
+<span class="LineNumber"> 022 </span>					อภิ.๑๖๙

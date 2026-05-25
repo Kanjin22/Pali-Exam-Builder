@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>ตีมสฺส วิวรณํ ราควเสน ฯ เป ฯ อาจาโรติ ฯ สฺมเวลํ
+<span class="LineNumber"> 002 </span>อภิภวิตฺวา อาจาโร ปวตฺตนนฺติ อตฺโถ ฯ
+<span class="LineNumber"> 003 </span>	[๖๔๑] เทฺว มคฺเค อาทิสฺสาติอาทิ วจนํ ภควตา วุตฺตํ ฯ
+<span class="LineNumber"> 004 </span>ตตฺถาติ เตสุ ปเทสุ ฯ นิทฺเทเส วาติ<SUP>๑</SUP>  นิทฺเทเส เอว น
+<span class="LineNumber"> 005 </span>อุทฺเทเส ฯ
+<span class="LineNumber"> 006 </span>	นิทฺเทเส ปน วินิจฺฉโย ฯ น ตาว สีสํ เอตีติ สงฺฆาทิเสโส
+<span class="LineNumber"> 007 </span>ตาว มตฺถกํ น คจฺฉติ ฯ วาจาปโตเทนาติ วาจาสงฺขาต-
+<span class="LineNumber"> 008 </span>ปโตเทน<SUP>๒</SUP> ฯ อฆฏิเตติ อวณฺณภณเน อฆฏิเต ฯ เตสูติ เอกาทสสุ
+<span class="LineNumber"> 009 </span>ปเทสุ นิทฺธารณํ ฯ อิเมหิ ปเทหิ อวณฺณภณเน ฆฏิเตเยว ฯ
+<span class="LineNumber"> 010 </span>เทหิ เมติ ยาจนายปีติ ปทํ น เอตีติ ปเท อาธาโร ฯ
+<span class="LineNumber"> 011 </span>เอตฺตเกเนวาติ เทหิ เมติ ยาจเนเนว ฯ อายาจนวจเนสุปีติ
+<span class="LineNumber"> 012 </span>อาธาโร ฯ อาจิกฺขนาย วิชฺชมานสฺส ปุฏฺโ€ อาจิกฺขตีติ<SUP>๓</SUP> ปทสฺส
+<span class="LineNumber"> 013 </span>อตฺโถ ฯ เอตฺถ จาติ อาจิกฺขนาย อาธาโร ฯ
+<span class="LineNumber"> 014 </span>	สุกฺขํ โสตํ ยสฺสา สา สุกฺขโสตา ฯ นิจฺจํ โลหิเตน
+<span class="LineNumber"> 015 </span>กิลินฺนํ นิจฺจโลหิตกิลินฺนํ นิจฺจโลหิตกิลินฺนํ โสตํ ยสฺสา สา
+<span class="LineNumber"> 016 </span>นิจฺจโลหิตกิลินฺนโสตา ฯ นิจฺจํ ปกฺขิตฺตํ  อาณิโจลํ ยสฺสา สา
+<span class="LineNumber"> 017 </span>ินิจฺจปฺปกฺขิตฺตาณิโจลา ฯ
+
+<span class='footnote'>๑. วณฺณนายํ อุทเทเส ตาว อิติ อาคตํ ฯ โยชนาปาโ€ ยุตฺตตโร มฺามิ ฯ</span>
+<span class='footnote'>๒. ...ปโฏเทนาติ วณฺณนาปาโ€ ฯ  ๓. ภณตีติ ปาลิ ฯ</span>
+<span class="LineNumber"> 018 </span>                         [ปา.๒๗๑.๒๗๒ ฯ ส.๔๐.๔๑]

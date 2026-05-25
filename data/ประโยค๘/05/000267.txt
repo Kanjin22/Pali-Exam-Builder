@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>           [ขนาดหนาของน้ำรองแผ่นดิน] 
+<span class="LineNumber"> 002 </span>สิ่งที่รองแผ่นดินนั้นหรือ คือ 
+<span class="LineNumber"> 003 </span>              <B>น้ำอันตั้งอยู่บนลม โดยความหนามีประมาณ
+<span class="LineNumber"> 004 </span>              ถึงเท่านี้ คือ ๔๘๐,๐๐๐โยชน์</B> 
+<span class="LineNumber"> 005 </span>                    [ขนาดความหนาของลมรองน้ำ] 
+<span class="LineNumber"> 006 </span>              <B>ลมอัน ( พัดดัน ) ขึ้นฟ้า<SUP>*</SUP> ( โดยความหนา ) มี
+<span class="LineNumber"> 007 </span>              ประมาณ ๙๖๐,๐๐๐ โยชน์ นี่เป็นความตั้งอยู่
+<span class="LineNumber"> 008 </span>              พร้อมมูลแห่งโลก</B> 
+<span class="LineNumber"> 009 </span>               [ขนาดภูเขาสิเนรุและต้นไม้ประจำทวีป] 
+<span class="LineNumber"> 010 </span>อนึ่ง ในจักรวาลที่ตั้งอยู่พร้อมมูลอย่างนี้นั้น มี 
+<span class="LineNumber"> 011 </span>              <B>ภูเขาสิเนรุอันเป็นภูเขาสูงที่สุด หยั่ง ( ลึก ) ลง
+<span class="LineNumber"> 012 </span>              ไปในมหาสมุทร ๘๔,๐๐๐ โยชน์ สูงขึ้นไป 
+<span class="LineNumber"> 013 </span>              ( ในฟ้า ) ก็ประมาณเท่ากันนั้น 
+<span class="LineNumber"> 014 </span>              ภูเขาใหญ่ทั้งหลาย คือภูเขายุคันธร ภูเขา
+<span class="LineNumber"> 015 </span>              อิสินธร ภูเขากรวีกะ ภูเขาสุทัสสนะ ภูเขา
+<span class="LineNumber"> 016 </span>              เนมินธระ ภูเขาวินตกะ ภูเขาอัสสกัณณะ 
+<span class="LineNumber"> 017 </span>              อันตระการไปด้วยรัตนะหลากๆ ราวกะภูเขา
+<span class="LineNumber"> 018 </span>              ทิพย์ หยั่ง ( ลึก ) ลงไป ( ในมหาสมุทร ) และ
+<span class="LineNumber"> 019 </span>              สูงขึ้นไป ( ในฟ้า ) โดยประมาณกึ่งหนึ่ง ๆ</B>
+
+<span class='footnote'>*  เพราะพัดดันขึ้นข้างบน  จึงธารน้ำไว้ได้</span>
+
+

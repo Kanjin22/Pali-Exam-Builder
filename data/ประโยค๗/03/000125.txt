@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ชาเต ฯ ราชปริวฏฺเฏติ ราชานํ ปฏิปาฏิโย อตีเตติ ปเท
+<span class="LineNumber"> 002 </span>กมฺมํ ฯ วโยติ ปทํ อนุปฺปตฺเตติ ปเท กมฺมํ ฯ โปราเณติ
+<span class="LineNumber"> 003 </span>ปุเร ชาเต ฯ
+<span class="LineNumber"> 004 </span>	จิรกาลํ ปวตฺโต จิรกาลปฺปวตฺโต ฯ กุลสฺส อนฺวโย ปเวณิ
+<span class="LineNumber"> 005 </span>กุลนฺวโย ฯ จิรกาลปฺปวตฺโต กุลนฺวโย ยสฺส โส จิร...
+<span class="LineNumber"> 006 </span>นฺวโย ฯ
+<span class="LineNumber"> 007 </span>	สีลา ...ยุตฺเตติ สีลาจาราทิคุณานํ วุฑฺฒิยา ยุตฺเต ฯ วิภ...
+<span class="LineNumber"> 008 </span>ตายาติ วิภเวน มหนฺตภาเวน ฯ มห... ...โภเคติ วิวรณํ ฯ
+<span class="LineNumber"> 009 </span>วตฺต...ยาทนฺติ วตฺตสฺส จริยาทีนํ มริยาทํ ฯ อวีติกฺกมฺมาติ
+<span class="LineNumber"> 010 </span>อวีติกฺกมิตฺวา ฯ ชาติวุฑฺฒิภาวนฺติ<SUP>๑</SUP> ชาติยา วุฑฺฒิภาวํ ฯ เอตฺถาติ
+<span class="LineNumber"> 011 </span>ชิณฺเณติอาทิปเทสุ ฯ อภิ...ทีนิ ปทานิ เวทิตพฺพานีติ ปเท
+<span class="LineNumber"> 012 </span>กมฺมํ ฯ เอตฺถาติ เอตสฺมึ วจเน วุตฺตานิ ปเท อาธาโร ฯ
+<span class="LineNumber"> 013 </span>เอวนฺติ น วนฺทติ ฯ เป ฯ นิมนฺเตติ อิติ เอวํ อตฺถโต ปณฺฑิเตน
+<span class="LineNumber"> 014 </span>เวทิตพฺพานิ ฯ นาปิ อุปนิมนฺเตตีติ สมฺพนฺโธ ฯ เอตฺถต หีติ
+<span class="LineNumber"> 015 </span>หิ สจฺจํ เอตฺถ อภิวาเทติ วาติอาทิปเท วิชฺชมาโน วาสทฺโท
+<span class="LineNumber"> 016 </span>วิภาวเน นาม อตฺเถ วตฺตติ รูปํ ฯ เป ฯ ทีสุ ปโยเคสุ
+<span class="LineNumber"> 017 </span>วาสทฺโท วิย ฯ วิภาวเน นามาติ โลกปฺปกติยา ปกาสนสงฺขาเต ฯ
+<span class="LineNumber"> 018 </span>เอวํ วตฺวา ทิสฺวา พฺราหฺมโณ อาห ฯ อถาติ อนนฺตรํ อาหาติ
+<span class="LineNumber"> 019 </span>ปเท กาลสตฺตมี ฯ อิติสทฺโท อาหาติ ปเท อากาโร ฯ ยนฺตํ วจนํ
+
+<span class='footnote'>๑. ชาติวุฑฺฒภาวํ อิติ วณฺณนาปาโ€ ฯ</span>
+<span class="LineNumber"> 020 </span>                             [ปา.๒ ฯ ส.๑๓๙]

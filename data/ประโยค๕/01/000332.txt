@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>ปรินิพฺพายิ ฯ 
+<span class="LineNumber"> 002 </span>                               ปธานิยตฺเถรวตฺถุ ฯ 
+<span class="LineNumber"> 003 </span>	[๔๒๕]   มุหุตฺเตน   ขเณน  วาเต  หทยํ  ผาเลตุํ  อารทฺเธเยว 
+<span class="LineNumber"> 004 </span>อนาคามี   หุตฺวา  ฯ   <B>ปรินิพฺพายีติ</B>   อรหตฺตํ   ปตฺวา   ปรินิพฺพายีติ 
+<span class="LineNumber"> 005 </span>ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 006 </span>	ยถาวุตฺตตฺเถรทฺวยวตฺถุ สพฺพาสวสุตฺตวณฺณนายํ <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 007 </span>	ทีฆนิกายมหาวคฺเค         มหาสติปฏฺ€านวณฺณนายฺเจว<SUP>๒</SUP> มูล-
+<span class="LineNumber"> 008 </span>ปณฺณาสเก  สติปฏฺ€านสุตฺตวณฺณนายฺจ<SUP>๓</SUP>  เวทนํ  อธิวาเสตฺวา  สห 
+<span class="LineNumber"> 009 </span>ปฏิสมฺภิทาหิ    อรหตฺตํ    ปตฺวา    สมสีสี    หุตฺวา    ปรินิพฺพายโต 
+<span class="LineNumber"> 010 </span>อฺตรตฺเถรสฺส วตฺถุมฺปิ กเถตพฺพํ ฯ 
+<span class="LineNumber"> 011 </span>	[๔๒๖]   เอวํ   อธิวาสนกฺขนฺติยา   ยุตฺโต   ปุคฺคโล  ยถาวุตฺเต 
+<span class="LineNumber"> 012 </span>คุเณ    อธิคฺฉิ  ฯ   ตสฺมาสฺส   สา   ขนฺติ   ยถาวุตฺตคุณานฺเจว 
+<span class="LineNumber"> 013 </span>ปสํสสฺส<SUP>๔</SUP>   จ   อธิคมเหตุโต   มงฺคลนฺติ  เวทิตพฺพา  ฯ  ตาทิโส 
+<span class="LineNumber"> 014 </span>หิ    ปุคฺคโล   อิสิเทวตาพุทฺเธหิ   ปสํสนีโย   โหติ  ฯ   ตถา   หิ 
+<span class="LineNumber"> 015 </span>สรภงฺคตาปโส  สกฺกสฺส  เทวรฺโ  ธมฺมํ  เทเสนฺโต สรภงฺคชาตเก<SUP>๕</SUP> 
+<span class="LineNumber"> 016 </span>อิมํ คาถมาห 
+<span class="LineNumber"> 017 </span>      			       <B>โกธํ  วธิตฺวา   น กทาจิ โสจติ 
+<span class="LineNumber"> 018 </span>				มกฺขปฺปหานํ อิสโย วณฺณยนฺติ 
+<span class="LineNumber"> 019 </span>				สพฺเพสํ วุตฺตํ ผรุสํ ขเมถ 
+<span class="LineNumber"> 020 </span>				เอตํ ขนฺตึ อุตฺตมมาหุ สนฺโตติ ฯ</B> 
+
+<span class='footnote'>๑. ป. สู. ๑/๘๑ ฯ ๒. สุ. วิ. ๒/๔๕๒ ฯ ๓. ป. สู. ๑/๓๑๐ ฯ </span>
+<span class='footnote'>๔. ปสํสายาติ ยุตฺตตรํ ฯ ๕. ชาตกฏฺ€กถา. ๗/๓๗๙ ฯ </span>

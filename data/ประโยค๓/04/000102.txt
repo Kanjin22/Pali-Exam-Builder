@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>ตุมฺเหหิปิ   ตณฺหาโสตํ   เฉตฺวา   อรหตฺตเมว   ปตฺตุํ  ยุตฺตนฺติ  วตฺวา 
+<span class="LineNumber"> 002 </span>ธมฺมํ เทเสนฺโต อิมํ คาถมาห 
+<span class="LineNumber"> 003 </span>		"ฉินฺท โสตํ ปรกฺกมฺม     กาเม ปนูท พฺราหฺมณ, 
+<span class="LineNumber"> 004 </span>		สงฺขารานํ ขยํ ตฺวา    อกตฺูสิ พฺราหฺมณาติ. 
+<span class="LineNumber"> 005 </span>	ตตฺถ     "ปรกฺกมฺมาติ:     ตณฺหาโสตํ    นาม    อปฺปมตฺตเกน 
+<span class="LineNumber"> 006 </span>วายาเมน   ฉินฺทิตุํ   น   สกฺกา;   ตสฺมา  าณสมฺปยุตฺเตน  มหนฺเตน 
+<span class="LineNumber"> 007 </span>ปรกฺกเมน ปรกฺกมิตฺวา ตํ โสตํ ฉินฺท อุโภปิ กาเม ปนุท นีหร. 
+<span class="LineNumber"> 008 </span>		พฺราหฺมณาติ: ขีณาสวานํ<SUP>๑</SUP> อาลปนเมตํ. 
+<span class="LineNumber"> 009 </span>		สงฺขารานนฺติ: ปฺจนฺนํ ขนฺธานํ ขยํ ชานิตฺวา. 
+<span class="LineNumber"> 010 </span>	อกตฺูติ:   เอวํ   สนฺเต,   ตฺวํ   สุวณฺณาทีสุ   เกนจิ  อกตสฺส 
+<span class="LineNumber"> 011 </span>นิพฺพานสฺส ชานนโต อกตฺู นาม โหสีติ.<SUP>๒</SUP> 
+<span class="LineNumber"> 012 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 013 </span>		  	ปสาทพหุลพฺราหฺมณวตฺถุ. 
+		  
+<span class="LineNumber"> 014 </span>		๒. สมฺพหุลภิกฺขุวตฺถุ. (๒๖๕) 
+<span class="LineNumber"> 015 </span>	"ยทา   ทฺวเยสุ   ธมฺเมสูติ   อิมํ   ธมฺมเทสนํ  สตฺถา  เชตวเน 
+<span class="LineNumber"> 016 </span>วิหรนฺโต สมฺพหุเล ภิกฺขู อารพฺภ กเถสิ. 
+<span class="LineNumber"> 017 </span>	เอกทิวสํ   ตึสมตฺตา   ทิสาวาสิกา   ภิกฺขู   อาคนฺตฺวา   สตฺถารํ 
+<span class="LineNumber"> 018 </span>วนฺทิตฺวา    นิสีทึสุ.   สารีปุตฺตตฺเถโร   เตสํ   อรหตฺตสฺส   อุปนิสฺสยํ 
+<span class='footnote'>๑. คาถายํ ปน เอกวจนํ กตํ.    ๒. สี. ม. โหตีติ. </span>

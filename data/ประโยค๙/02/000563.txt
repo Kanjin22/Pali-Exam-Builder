@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    563
+
+<span class="LineNumber"> 002 </span>วิเสสนํ  ฯ  โทส...น  วาติ  ทฺวยํ  ชายนฺตีติ  สหโยคตติยา  ฯ  นาติ
+<span class="LineNumber"> 003 </span>ปฏิเสโธ  ฯ  โล...หีติ  ชายนฺตีติ  สหโยคตติยา  ฯ  โลภมูลํ  อาทิ
+<span class="LineNumber"> 004 </span>โมหสฺส  ตํ  โลภมูลาทิ  ฯ  ป€มนเย  โทโส  เอว  มูลํ  โทสมูลํ  ฯ
+<span class="LineNumber"> 005 </span>ทุติยนเย  โทโส  มูลํ  ยสฺส  จิตฺตสฺส  ตํ  โทสมูลกํ  ฯ
+<span class="LineNumber"> 006 </span>	[๖๘๒]  กสฺมา  ปาณาติปาโต  โลภมูเลน  ชายติ  นนุ
+<span class="LineNumber"> 007 </span>ราชาโน  โจรํ  ทิสฺวา  หสมานา  คจฺฉถ  นํ  ฆาเตถาติ  วธํ
+<span class="LineNumber"> 008 </span>อาณาเปนฺติ  ตสฺมา  ปาณาติปาโต  โลภมูเลน  ชาเยยฺยาติ  โจทนํ
+<span class="LineNumber"> 009 </span>สนฺธายาห  หสมานาตฺยาทึ  ฯ  หิ  สจฺจํ  หสมานาปิ  ราชา...เปนฺติ  ฯ
+<span class="LineNumber"> 010 </span>	หสนฺตีติ  หสมานา  เย  ราชาโน  ฯ  อปิสทฺโท  โจกทาโภคํ
+<span class="LineNumber"> 011 </span>ญาเปติ  ฯ  โทเสน  สมฺปยุตฺตํ  จิตฺตํ  โทสจิตฺตํ  ฯ  เอวสทฺโท
+<span class="LineNumber"> 012 </span>โลภมูลาทึ  นิวตฺเตติ  ฯ
+<span class="LineNumber"> 013 </span>	หสมานาปีติ  ราชาโนติ  วิเสสนํ  ฯ  ราชาโนติ  อาณาเปนฺตีติ
+<span class="LineNumber"> 014 </span>กตฺตา  ฯ  โทสจิตฺเตเนวาติ  อาณาเปนฺตีติ  กรณํ  ฯ  วธนฺติ
+<span class="LineNumber"> 015 </span>อาณาเปนฺตีติ  กมฺมํ  ฯ
+<span class="LineNumber"> 016 </span>	[๖๘๓]  ทฺวีสุ  นยํ  อติทิสฺสนฺโต  อาห  ตถาตฺยาทึ  ฯ  ตถา...
+<span class="LineNumber"> 017 </span>ยถารหํ  วจนํ  ปณฺฑิเตน  ทฏฺ€พฺพํ  ฯ
+<span class="LineNumber"> 018 </span>	ตถาติ  ยถา  ปาณาติปาเต  อรหวจนํ  ทฏฺ€พฺพํ  ตถา
+<span class="LineNumber"> 019 </span>อรหวจนํ  ทฏฺพฺพนฺติ  อตฺโถ  ฯ  ผรุสวาจา  จ  พฺยาปาโท  จ
+<span class="LineNumber"> 020 </span>ผรุสวาจาพฺยาปาทา  ฯ  ปิสทฺโท  ปาณาติปาตํ  อเปกฺขติ  ฯ  อนุรูปํ
+<span class="LineNumber"> 021 </span>เอว  อรหํ  ยถารหํ  ฯ  ตถาสทฺโท  อุปเมยฺยโชตโก  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๗๐

@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>กันอีกก็ได้<SUP>*</SUP>
+<span class="LineNumber"> 002 </span>	คำว่า  'อุปสมฺปชฺช  วิหรติ-เข้าถึง . . . อยู่'   นี้  มีนัยอันกล่าว
+<span class="LineNumber"> 003 </span>มาแล้วนั่นแล 
+<span class="LineNumber"> 004 </span>                              นี่เป็นกถาอย่างพิสดาร
+<span class="LineNumber"> 005 </span>                  ในเนวสัญญานาสัญญายตนกรรมฐาน
+<span class="LineNumber"> 006 </span>                                    ปกิณณกกถา 
+<span class="LineNumber"> 007 </span> 	<B>พระนาถะเจ้า      ผู้มีพระรูปไม่มีใครเทียมถึง      ตรัส
+<span class="LineNumber"> 008 </span>	อารูป  ๔  ประการอันใจใดไว้  บัณฑิตได้ทราบอารูป  ๔
+<span class="LineNumber"> 009 </span>	นั้นอย่างนี้แล้ว       ควรเข้าใจปกิณณกกถาในอารูป
+<span class="LineNumber"> 010 </span>	นั้นอีกบ้าง</B>
+<span class="LineNumber"> 011 </span>              อารูปเลื่อนชั้นโดยล่วงอารมณ์  มิใช่ล่วงองค์
+<span class="LineNumber"> 012 </span>ก็อารูปสมาบัติทั้งหลาย-
+<span class="LineNumber"> 013 </span>	<B>เหล่านี้แม้เป็น ๔ โดยการก้าวล่วงอารมณ์  (แต่)
+<span class="LineNumber"> 014 </span>	นักปราชญ์ทั้งหลายหาต้องการความก้าวล่วงองค์แห่ง 
+<span class="LineNumber"> 015 </span>	สมาบัติเหล่านั้นไม่</B>
+
+<span class='footnote'><SUP>*</SUP>  มหาฎีกาติดอุปมาได้ขอหนึ่งว่า  พราหมณ์ผู้หนึ่ง  เห็นชายคนหนึ่ง  ถือภาชนะดินน่าชอบใจ</span>
+<span class='footnote'>ยืนอยู่  จึงออกปากขอภาชนะนั้น  ชายคนนั้นมุ่งถึงว่าภาชนะนั้นเปื้อนสุรา  ซึ่งเป็นของไม่ควร</span>
+<span class='footnote'>แก่พราหมณ์  จึงบอกว่า  ถวายไม่ได้  ในภาชนะนี้มีสุรา  ขณะนั้นมีชายผู้หนึ่งยืนอยู่ใกล้ ๆ</span>
+<span class='footnote'>พราหมณ์จึงว่า  ถ้ามีก็ขอให้คนนี้ดื่มบ้าง  ทีนี้  เจ้าของภาชนะมุ่งถึงว่า  สุรานั้นไม่มีพอจะดื่มได้</span>
+<span class='footnote'>จึงบอกว่าสุราไม่มี</span>

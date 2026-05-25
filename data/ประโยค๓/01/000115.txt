@@ -1,0 +1,19 @@
+<span class="LineNumber"> 001 </span>ฉทฺวารานิ นิสฺสาย ตณฺหา เจว นววิธมาโน จ วฑฺฒตีติ อตฺโถ. 
+<span class="LineNumber"> 002 </span>	 เทสนาวสาเน มหาชโน โสตาปตฺติผลาทีนิ ปาปุณีติ. 
+<span class="LineNumber"> 003 </span>	           		 โลฬุทายิตฺเถรวตฺถุ. 
+	             
+<span class="LineNumber"> 004 </span>	          ๘. ป€มโพธิวตฺถุ. (๑๒๕) 
+<span class="LineNumber"> 005 </span>	" อเนกชาติสํสารนฺติ   อิมํ   ธมฺมเทสนํ   สตฺถา   โพธิรุกฺขมูเล 
+<span class="LineNumber"> 006 </span>นิสินฺโน  อุทานวเสน  อุทาเนตฺวา  อปรภาเค อานนฺทตฺเถเรน ปุฏฺโ€<SUP>๑</SUP> 
+<span class="LineNumber"> 007 </span>กเถสิ. 
+<span class="LineNumber"> 008 </span>	โส  หิ  โพธิรุกฺขมูเล  นิสินฺโน,  สุริเย  อนตฺถงฺคเตเยว, มารพลํ 
+<span class="LineNumber"> 009 </span>วิธมิตฺวา    ป€มยาเม    ปุพฺเพนิวาสปฏิจฺฉาทกํ    ตมํ    ปทาเลตฺวา 
+<span class="LineNumber"> 010 </span>มชฺฌิมยาเม   ทิพฺพจกฺขุํ   วิโสเธตฺวา   ปจฺฉิมยาเม  สตฺเตสุ  การุฺตํ 
+<span class="LineNumber"> 011 </span>ปฏิจฺจ   ปจฺจยากาเร   าณํ   โอตาเรตฺวา   ตํ  อนุโลมปฏิโลมวเสน 
+<span class="LineNumber"> 012 </span>สมฺมสนฺโต   อรุณุคฺคมนเวลาย   สห   อจฺฉริเยหิ<SUP>๒</SUP>   สมฺมาสมฺโพธึ 
+<span class="LineNumber"> 013 </span>อภิสมฺพุชฺฌิตฺวา     อเนเกหิ     พุทฺธสตสหสฺเสหิ    อวิชหิตํ    อุทานํ 
+<span class="LineNumber"> 014 </span>อุทาเนนฺโต อิมา คาถา อภาสิ 
+<span class="LineNumber"> 015 </span>		" อเนกชาติสํสารํ          สนฺธาวิสฺสํ อนิพฺพิสํ 
+<span class="LineNumber"> 016 </span>		คหการํ คเวสนฺโต,       ทุกฺขา ชาติ ปุนปฺปุนํ; 
+<span class="LineNumber"> 017 </span>		คหการก ทิฏฺโ€สิ,        ปุน เคหํ น กาหสิ, 
+<span class='footnote'>๑. สี. ยุ. อานนฺทตฺเถรสฺส อุทานคาถาวตฺถุ.  ๒. สี. ยุ. " สห อจฺฉริเยหีติ นตฺถิ. </span>

@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>ทิสฺวา    สตฺถารํ    อุปสงฺกมิตฺวา    €ิตโกว    อิมํ    ปฺหํ   ปุจฺฉิ 
+<span class="LineNumber"> 002 </span>"ภนฺเต   เทฺว   ธมฺมา   เทฺว   ธมฺมาติ  วุจฺจนฺตีติ:  กตเม  นุ  โข 
+<span class="LineNumber"> 003 </span>เทฺว   ธมฺมาติ.   อถ   นํ   สตฺถา   "เทฺว  ธมฺมาติ  โข  สารีปุตฺต 
+<span class="LineNumber"> 004 </span>สมถวิปสฺสนา วุจฺจนฺตีติ วตฺวา อิมํ คาถมาห 
+<span class="LineNumber"> 005 </span>		"ยทา ทฺวเยสุ ธมฺเมสุ     ปารคู โหติ พฺราหฺมโณ, 
+<span class="LineNumber"> 006 </span>		อถสฺส สพฺเพ สํโยคา     อฏฺ€ํ คจฺฉนฺติ ชานโตติ. 
+<span class="LineNumber"> 007 </span>	ตตฺถ   "ยทาติ:   ยสฺมึ   กาเล   ทฺวิธา  €ิเตสุ  สมถวิปสฺสนา- 
+<span class="LineNumber"> 008 </span>ธมฺเมสุ   อภิฺาปารคาทิวเสน<SUP>๑</SUP>   อยํ   ขีณาสโว  ปารคู  โหติ, 
+<span class="LineNumber"> 009 </span>อถสฺส   วฏฺฏสฺมึ   สํโยชนสมตฺถา   สพฺเพ   กามสํโยคาทโย   สํโยคา 
+<span class="LineNumber"> 010 </span>เอวํ ชานนฺตสฺส อฏฺ€ํ ปริกฺขยํ คจฺฉนฺตีติ อตฺโถ. 
+<span class="LineNumber"> 011 </span>	เทสนาวสาเน สพฺเพปิ เต ภิกฺขู อรหตฺเต ปติฏฺ€หึสูติ. 
+<span class="LineNumber"> 012 </span>		    		สมฺพหุลภิกฺขุวตฺถุ. 
+		    
+<span class="LineNumber"> 013 </span>		  ๓. มารวตฺถุ. (๒๖๖) 
+<span class="LineNumber"> 014 </span>	"ยสฺส   ปารํ   อปารํ   วาติ  อิมํ  ธมฺมเทสนํ  สตฺถา  เชตวเน 
+<span class="LineNumber"> 015 </span>วิหรนฺโต มารํ อารพฺภ กเถสิ. 
+<span class="LineNumber"> 016 </span>	โส   กิร   เอกสฺมึ   ทิวเส   อฺตโร   ปุริโส   วิย   หุตฺวา 
+<span class="LineNumber"> 017 </span>สตฺถารํ    อุปสงฺกมิตฺวา   ปุจฺฉิ   "ภนฺเต   ปารํ   ปารนฺติ   วุจฺจติ: 
+<span class="LineNumber"> 018 </span>กินฺนุ  โข  เอตํ  ปารํ  นามาติ.  สตฺถา  "มาโร  อยนฺติ  วิทิตฺวา<SUP>๒</SUP> 
+<span class='footnote'>๑. ม....ปารคตาทิวเสน.   ๒. สี. ย. วิชานิตฺวา. </span>

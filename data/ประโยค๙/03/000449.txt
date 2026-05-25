@@ -1,0 +1,16 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  450
+
+<span class="LineNumber"> 002 </span>	ฆโฏติ  เอตฺถ  ฆ  อิติ  อารพฺภ  ปจฺจุปฺปนฺนารมฺมณา  เอกา
+<span class="LineNumber"> 003 </span>โสตวิญฺาณวีถิ  ตเมวาตีตสทฺทารมฺมณา<SUP>๑</SUP>  เอกา  มโนทฺวารวีถิ
+<span class="LineNumber"> 004 </span>ตถา  โฏติสทฺทารมฺมณาติ  จตสฺโส  วีถิโย  ฯ  ฆโฏติ  นามปญฺตฺติภูตํ
+<span class="LineNumber"> 005 </span>อกฺขราวฬึ  อารพฺภ  อุปฺปนฺนา  เอกา  มโนทฺวารวีถิ  ตโต  ปรํ
+<span class="LineNumber"> 006 </span>กุมฺโภติ  อตฺถชานนา  ฉฏฺ€า  มโนทฺวารวีถีติ  อธิปฺปาโย  ฯ
+<span class="LineNumber"> 007 </span>อเนน  ปนาจริเยน  อภิธมฺมาวตารฏีกายํ  ฆโฏติอาทิสทฺทํ  สุณนฺตสฺส
+<span class="LineNumber"> 008 </span>เอกเมกํ  อารพฺภ  ปจฺจุปฺปนฺนาตีตารมฺมณวเสน  เทฺว  เทฺว  ชวนวารา
+<span class="LineNumber"> 009 </span>โหนฺติ  ตโต  สทฺทมุปาทาย  เอโก  ตโต  นามปญฺตฺติมารพฺภ
+<span class="LineNumber"> 010 </span>เอโกติ  เอวํ  สทฺทมุปาทายารมฺมณาย  ชวนวีถียา  อนนฺตรํ
+<span class="LineNumber"> 011 </span>นามปญฺตฺติ  ปากฏา  โหติ  ตโต  ปรํ  อตฺถาวโพโธ  โหตีติ
+<span class="LineNumber"> 012 </span>อาจริยาติ  วุตฺตํ  ฯ  ปรมตฺถวินิจฺฉยฏีกายํ  ปน  เทฺว  น  วุตฺตา  ฯ
+<span class="LineNumber"> 013 </span>				อฏฺ€า  ปญฺจิกา  นิฏฺ€ิตา  ฯ
+<span class="LineNumber"> 014 </span>						--------
+<span class='footnote'>๑.  ตเทวาตีต...อิติ  ภวิตพฺพํ  ฯ</span>

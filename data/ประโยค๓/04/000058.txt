@@ -1,0 +1,19 @@
+<span class="LineNumber"> 001 </span>ตฺวํ ทุสฺสีโลติอาทีนํ อวทนตาย มุเขน สฺโต. 
+<span class="LineNumber"> 002 </span>	มนฺตภาณีติ: มนฺตา วุจฺจติ ปฺา, ตาย ภณนสีโล. 
+<span class="LineNumber"> 003 </span>	อนุทฺธโตติ: นิพฺพุตจิตฺโต. 
+<span class="LineNumber"> 004 </span>	อตฺถํ    ธมฺมฺจ    ทีเปตีติ:    ภาสิตตฺถฺเจว    เทสนาธมฺมฺจ 
+<span class="LineNumber"> 005 </span>กเถติ. 
+<span class="LineNumber"> 006 </span>	มธุรนฺติ:   เอวรูปสฺส   ภิกฺขุโน   ภาสิตํ  มธุรํ  นาม.  โย  ปน 
+<span class="LineNumber"> 007 </span>อตฺถเมว  สมฺปาเทติ,  น  ปาลึ;  ปาลึเยว<SUP>๑</SUP>  สมฺปาเทติ, น อตฺถํ; 
+<span class="LineNumber"> 008 </span>อุภยํ วา ปน น สมฺปาเทติ, ตสฺส ภาสิตํ มธุรํ นาม น โหตีติ. 
+<span class="LineNumber"> 009 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 010 </span>		     		โกกาลิกวตฺถุ. 
+		    
+<span class="LineNumber"> 011 </span>		๔. ธมฺมารามตฺเถรวตฺถุ. (๒๕๕) 
+<span class="LineNumber"> 012 </span>	"ธมฺมาราโม   ธมฺมรโตติ   อิมํ   ธมฺมเทสนํ   สตฺถา   เชตวเน 
+<span class="LineNumber"> 013 </span>วิหรนฺโต ธมฺมารามตฺเถรํ อารพฺภ กเถสิ. 
+<span class="LineNumber"> 014 </span>	สตฺถารา    กิร    "อิโต   เม   จาตุมฺมาสจฺจเยน   ปรินิพฺพานํ 
+<span class="LineNumber"> 015 </span>ภวิสฺสตีติ  อาโรจิเต,  อเนกสหสฺสภิกฺขู  สตฺถารํ  ปริวาเรตฺวา  วิจรึสุ. 
+<span class="LineNumber"> 016 </span>ตตฺถ  ปุถุชฺชนา  อสฺสูนิ  สนฺธาเรตุํ  นาสกฺขึสุ,  ขีณาสวานํ  ธมฺมสํเวโค 
+<span class="LineNumber"> 017 </span>อุปฺปชฺชิ. สพฺเพปิ "กึ นุ โข กริสฺสามาติ วคฺคพนฺธเนน วิจรนฺติ. 
+<span class='footnote'>๑. อิโต ปรํ วาสทฺเทน ภวิตพฺพํ. </span>

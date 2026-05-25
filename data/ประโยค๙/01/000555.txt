@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ป€มปริจฺเฉทตฺถโยชนา  หน้า  555					
+
+<span class="LineNumber"> 002 </span>สงฺขริยตีติ  สงฺขตํ  ยํ  ธมฺมชาตํ  เจตนาย  สงฺขริยติ  อิติ  ตสฺมา
+<span class="LineNumber"> 003 </span>ตํ  ธมฺมชาตํ  สงฺขตํ  วิปากกมฺมชรูปํ  ฯ  อภิสงฺขริยเต  อภิสงฺขรณํ
+<span class="LineNumber"> 004 </span>สงฺขตสฺส  อภิสงฺขรณํ  สงฺข...รณํ  ฯ  พฺยาปารนฺติ  อุสฺสาหํ  ฯ
+<span class="LineNumber"> 005 </span>เจตนาติ  จิต  เจตนายํ  อิตฺถิยมติยโว  วา  อนกา  ยุณฺวูนํ
+<span class="LineNumber"> 006 </span>อฺเสุ  จ  ฯ
+<span class="LineNumber"> 007 </span>	อตฺตนาติ  สมฺปยุตฺตาติ  ปเท  สหโยคตติยา  ฯ  สมฺป...
+<span class="LineNumber"> 008 </span>ธมฺเมติ  อภิ...หตีติ  ปเท  กมฺมํ  ฯ  อารมฺมเณติ  อภิ...หตีติ
+<span class="LineNumber"> 009 </span>ปเท  อาธาโร  ฯ  อารมฺมณนฺติปิ  ฯ  ตํ  น  ยุตฺตํ  ฯ  สงฺข...รเณติ
+<span class="LineNumber"> 010 </span>พฺยาปารนฺติ  ปเท  อาธาโร  ฯ  พฺยาปารนฺติ  อาปชฺชตีติ  ปเท
+<span class="LineNumber"> 011 </span>กมฺมํ  ฯ
+<span class="LineNumber"> 012 </span>	[๔๑๕]  เจเตติ  อตฺตนา..สนฺทหตีติ  เจตนาติ  อยํ  วจนตฺโถ
+<span class="LineNumber"> 013 </span>สพฺพเจตนํ  สนฺธาย  วุตฺโต  ฯ  ทุติโย  กุสลากุสลเจตนํ  สนฺธาย
+<span class="LineNumber"> 014 </span>วุตฺโต  ฯ  ทุติยตฺถํ  ปาลิยา  สาเธนฺโต  ตถาหีติอาทิมาห  ฯ
+<span class="LineNumber"> 015 </span>ตถาหิ  สจฺจํ  อยเมว  เจตนา  อภิ...วิภชนฺเตน  ภควตา  สงฺขต...อิติ
+<span class="LineNumber"> 016 </span>วตฺวา...ทินา  วจเนน  นิทฺทิฏฺ€าติ  โยชนา  ฯ
+<span class="LineNumber"> 017 </span>	ตถาหีติ  ทฬฺหีกรณตฺเถ  นิปาโต  ฯ  เอวสทฺโท  ผสฺสาทโย
+<span class="LineNumber"> 018 </span>นิวตฺเตติ  ฯ  อภิสงฺขริยเต  อภิสงฺขรณํ  ฯ  ปกฏฺเ€น  ธาเรติ
+<span class="LineNumber"> 019 </span>ปติฏฺ€าตีติ  ปธานา  ยา  เจตนา  ฯ  ปปุพฺโพ  ธา  ปติฏฺ€ายํ
+<span class="LineNumber"> 020 </span>อิตฺถิ...วาติ  ยุ  อน  ฯ  ปธานาย  ภาโว  ปธานตฺตํ  ฯ  ขนฺธาทโย
+<span class="LineNumber"> 021 </span>ภควตา  วิภชิยนฺติ  เอตฺถาติ  วิภงฺโค  ฯ  สุตฺตํ  เอว  สุตฺตนฺตํ  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๐๐

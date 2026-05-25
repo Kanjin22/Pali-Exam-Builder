@@ -1,0 +1,15 @@
+<span class="LineNumber"> 001 </span>อาโรเจสิ.   อถสฺส  วจนํ  สุตฺวา  ภิกฺขู  เตน  สทฺธึ  เกลึ  กโรนฺตา 
+<span class="LineNumber"> 002 </span>"กินฺนุ   โข   อาวุโส  สาฏโก  ทีโฆ  รสฺโส  ถูโล  สณฺโหติ  อาหํสุ. 
+<span class="LineNumber"> 003 </span>"อาวุโส   ทีโฆ   วา   โหตุ   รสฺโส  วา  ถูโล  วา  สณฺโห  วา,
+<span class="LineNumber"> 004 </span>นตฺถิ   มยฺหํ   ตสฺมึ   อาลโย,   ปํสุกูลสฺาย   คณฺหินฺติ.  ตํ  สุตฺวา 
+<span class="LineNumber"> 005 </span>ภิกฺขู   ตถาคตสฺส   อาโรเจสุํ   "เอส   ภนฺเต   ภิกฺขุ  อภูตํ  วตฺวา 
+<span class="LineNumber"> 006 </span>อฺํ   พฺยากโรตีติ.   สตฺถา  "ภูตํ  ภิกฺขเว  เอส  กเถติ,  ขีณาสวา 
+<span class="LineNumber"> 007 </span>นาม ปเรสํ สนฺตกํ น คณฺหนฺตีติ วตฺวา อิมํ คาถมาห 
+<span class="LineNumber"> 008 </span>		"โยธ ทีฆํ วา รสฺสํ วา     อณณ ถูลํ สุภาสุภํ 
+<span class="LineNumber"> 009 </span>		โลเก อทินฺนํ นาทิยติ      ตมหํ พฺรูมิ พฺราหฺมณนฺติ. 
+<span class="LineNumber"> 010 </span>	ตสฺสตฺโถ:   สาฏกาภรณาทีสุ   ทีฆํ   วา  รสฺสํ  วา  มณิมุตฺตาทีสุ 
+<span class="LineNumber"> 011 </span>อณณ   วา   ถูลํ   วา   มหคฺฆอปฺปคฺฆวเสน  สุภํ  วา  อสุภํ  วา  โย 
+<span class="LineNumber"> 012 </span>ปุคฺคโล   อิมสฺมึ   โลเก   ปรปริคฺคหิตํ   นาทิยติ,   ตมหํ   พฺราหฺมณํ 
+<span class="LineNumber"> 013 </span>วทามีติ อตฺโถ. 
+<span class="LineNumber"> 014 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 015 </span>		    		อฺตรภิกฺขุวตฺถุ. 

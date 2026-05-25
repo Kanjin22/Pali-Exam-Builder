@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  108
+
+<span class="LineNumber"> 002 </span>อกุส...เตวีสาติ  ปทํ  ปญฺจปญฺาสาติ  ปทสฺส  สรูปทสฺสนํ  ฯ
+<span class="LineNumber"> 003 </span>อกุสลโตติ  ฉาติ  ปเท  อปาทานํ  ฯ  ฉาติ  ลิงฺคตฺโถ  ฯ  เอวํ
+<span class="LineNumber"> 004 </span>เสเสปิ  นโย  ฯ  ปญฺจ...นิกานีติ  ลิงฺคตฺโถ  ฯ  เตวีสาติ  ปญฺจ...
+<span class="LineNumber"> 005 </span>นิกานีติ  ปทสฺส  วิเสสนํ  ฯ  อิตีติ  ปญฺจปญฺาสาติ  ปทสฺส
+<span class="LineNumber"> 006 </span>สรูปํ  ฯ  สพฺพานิปีติ  ปญฺจปญฺาสาติ  ปทสฺส  วิเสสนํ  ฯ
+<span class="LineNumber"> 007 </span>ปญฺจปญฺาสาติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 008 </span>	[๑๓๘]  เหตุสงฺคหวณฺณนํ  กโรนฺโต  อาห  โลภาทิตฺยาทึ  ฯ
+<span class="LineNumber"> 009 </span>	โลภา...ตูนนฺติ  สงฺคโหติ  ปเท  ฉฏฺ€ีกมฺมํ  ฯ  โลภาทโย  
+<span class="LineNumber"> 010 </span>จ  เต  เหตู  จาติ  โลภาทิเหตู  ฯ  วิภา...วเสนาติ  ปททฺวยํ
+<span class="LineNumber"> 011 </span>สงฺคโหติ  ปเท  ตติยาวิเสสนํ  ฯ  วิภชนํ  วิภาโค  ฯ  วสนํ
+<span class="LineNumber"> 012 </span>สมฺพชฺฌนํ  วโส  วิภาคสฺส  วโส  วิภาควโส  ฯ  ตํส...ทีนนฺติ
+<span class="LineNumber"> 013 </span>วเสนาติ  ปเท  สมฺพนฺโธ  ฯ  เตหิ  เหตูหิ  สมฺปยุตฺตา  ตํสมฺปยุตฺตา  ฯ
+<span class="LineNumber"> 014 </span>จสทฺโท  วิภา...เสน  จ  วเสน  จาติ  โยเชตพฺโพ  ฯ  สงฺค...
+<span class="LineNumber"> 015 </span>คโหติ  ปททฺวยํ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 016 </span>	[๑๓๙]  โลโภ...อโมโห  จาติ  สญฺี  ฯ  เหตุโย  นามาติ
+<span class="LineNumber"> 017 </span>สญฺาติ  คหณํ  ภเวยฺย  ตสฺมา  เหตุ  นามาติ  ปทํ  ฉพฺพิธา
+<span class="LineNumber"> 018 </span>ภวนฺตีติ  ปเทน  สมฺพชฺฌตีติ  าเปนฺโต  อาห  เหตุโยตฺยาทึ  ฯ
+<span class="LineNumber"> 019 </span>	เหตุโย  นามาติ  ภวนฺตีติ  ปเท  ปกติกตฺตา  ฯ  ฉพฺพิธาติ
+<span class="LineNumber"> 020 </span>ภวนฺตีติ  ปเท  วิกติกตฺตา  ฯ  ฉพฺพิธา  ปการา  เยสํ  เหตูนํ  เต
+<span class="LineNumber"> 021 </span>ฉพฺพิธา  ฯ  อิตีติ  สมฺพนฺโธติ  สรูปํ  สมฺพนฺโธติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๑๘

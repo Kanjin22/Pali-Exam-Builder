@@ -1,0 +1,17 @@
+<span class="LineNumber"> 001 </span>วุตฺเต,   "น   กุชฺฌามีติ   อาห.   ตํ   ภิกฺขู  ตถาคตสฺส  อาโรเจสุํ 
+<span class="LineNumber"> 002 </span>"ภนฺเต    อยํ   ภิกฺขุ   อฺํ   พฺยากโรติ,   เทวตาย   อิมํ   นาม 
+<span class="LineNumber"> 003 </span>วุจฺจมาโนปิ   `น   กุชฺฌามีติ   วทตีติ.   สตฺถา   เตสํ   กถํ  สุตฺวา 
+<span class="LineNumber"> 004 </span>"เนว   ภิกฺขเว   มม   ปุตฺโต   กุชฺฌติ,   เอตสฺส   หิ   คิหีหิ  วา 
+<span class="LineNumber"> 005 </span>ปพฺพชิเตหิ   วา   สํสคฺโค   นาม   นตฺถิ,  อสํสฏฺโ€  เอส  อปฺปิจฺโฉ 
+<span class="LineNumber"> 006 </span>สนฺตุฏฺโ€ติ วตฺวา ธมฺมํ เทเสนฺโต อิมํ คาถมาห 
+<span class="LineNumber"> 007 </span>		"อสํสฏฺ€ํ คหฏฺเ€หิ         อนาคาเรหิ จูภยํ 
+<span class="LineNumber"> 008 </span>		อโนกสารึ อปฺปิจฺฉํ        ตมหํ พฺรูมิ พฺราหฺมณนฺติ. 
+<span class="LineNumber"> 009 </span>	ตตฺถ        "อสํสฏฺ€นฺติ:        ทสฺสนสวนสมุลฺลปนปริโภคกาย- 
+<span class="LineNumber"> 010 </span>สํสคฺคานํ อภาเวน อสํสฏฺ€ํ. 
+<span class="LineNumber"> 011 </span>	อุภยนฺติ: "คิหีหิ จ อนาคาเรหิ จาติ อุภเยหิปิ อสํสฏฺ€ํ 
+<span class="LineNumber"> 012 </span>	อโนกสารินฺติ:   อนาลยจารึ<SUP>๑</SUP> .   ตํ  เอวรูปํ  อหํ  พฺราหฺมณํ 
+<span class="LineNumber"> 013 </span>วทามีติ อตฺโถ. 
+<span class="LineNumber"> 014 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 015 </span>		 		ปพฺภารวาสิติสฺสตฺเถรวตฺถุ. 
+		  
+<span class='footnote'>๑. สี. ยุ. อนาลยจารํ. </span>

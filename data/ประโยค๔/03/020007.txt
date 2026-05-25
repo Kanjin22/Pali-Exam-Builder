@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>	<B>บัณฑิตทั้งหลายย่อมสรรเสริญเขาโดยศีล  (แต่)  
+<span class="LineNumber"> 002 </span>	สุตะของเขาหาถึงพร้อมไม่.    ถ้าบุคคลแม้มี
+<span class="LineNumber"> 003 </span>	สุตะมาก   (แต่)  ไม่ตั้งมั่นอยู่ในศีล,   บัณฑิต
+<span class="LineNumber"> 004 </span>	ทั้งหลายย่อมติเตียนเขาโดยศีล  (แต่)  สุตะ
+<span class="LineNumber"> 005 </span>	ของเขาย่อมถึงพร้อม.   ถ้าบุคคลแม้มีสุตะมาก
+<span class="LineNumber"> 006 </span>	(ทั้ง)   ตั้งมั่นอยู่ในศีล   บัณฑิตทั้งหลายย่อม
+<span class="LineNumber"> 007 </span>	สรรเสริญเขาโดยส่วนสอง   คือ   ทั้งโดยศีล
+<span class="LineNumber"> 008 </span>	ทั้งโดยสุตะ.    ใครเล่าควรจะติเตียนบุคคลผู้มี
+<span class="LineNumber"> 009 </span>	สุตะมาก   ผู้ทรงธรรม  มีปัญญา  เป็นพุทธสาวก
+<span class="LineNumber"> 010 </span>	ผู้เป็นดังแท่งทองชมพูนุทนั้นได้,    แม้เหล่า
+<span class="LineNumber"> 011 </span>	เทพเจ้าก็ชมเขา   ถึงพรหมก็สรรเสริญ."</B>
+<span class="LineNumber"> 012 </span> 	อรรถกถา<SUP>๑</SUP>แห่งอัปปัสสุตสูตรนั้น   ว่า  "บรรดาบทเหล่านั้น  บทว่า
+<span class="LineNumber"> 013 </span><B>อนุปฺปนฺโน</B>   แปลว่า  ไม่เข้าถึง."
+<span class="LineNumber"> 014 </span>	ฎีกาแห่งอัปปัสสุตสูตรนั้น  ว่า   " สองบทว่า  <B>อปฺปกํ   สุตํ</B>
+<span class="LineNumber"> 015 </span>ความว่า   บรรดาสัตถุศาสน์มีองค์  ๙  องค์อะไร ๆ  ก็ตาม  จัดเป็นสุตะ
+<span class="LineNumber"> 016 </span>(ทั้งนั้น),  เพื่อทรงแสดงองค์  ๙  นี้นั้น  จึงตรัสว่า  สุตตะ  เคยยะ
+<span class="LineNumber"> 017 </span>เป็นต้น."
+<span class="LineNumber"> 018 </span>	นัยอันมาในอรรถกถาแห่งสูตรนั้นว่า    "หลายบทว่า  <B>อตฺถ-
+<span class="LineNumber"> 019 </span>มฺาย  ธมฺมมาย  ธมฺมานุธมฺมปฏิปนฺโน</B>   มีความว่า  เป็นผู้
+<span class="LineNumber"> 020 </span>รู้อรรถกถาและบาลีแล้ว   ปฏิบัติบุพพภาคปฏิปทาพร้อมทั้งศีลอันเป็น
+
+<span class='footnote'>๑.  มโนรถปูรณี.  ๑/๓๒๘.</span>

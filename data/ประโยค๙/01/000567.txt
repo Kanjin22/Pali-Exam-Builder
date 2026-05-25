@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ป€มปริจฺเฉทตฺถโยชนา  หน้า  567						
+
+<span class="LineNumber"> 002 </span>	โส  อธิโมกฺโข  สนฺนิฏฺานลกฺขโณ  อารมฺมเณ...วิย
+<span class="LineNumber"> 003 </span>อธิโมกฺโข  ทฏฺ€พฺโพ  ฯ
+<span class="LineNumber"> 004 </span>	สนฺนิฏฺ€ิยเต  สนฺนิฏฺ€านํ  อารมฺมณสฺส  สนฺนิฏฺ€านํ  ลกฺขณํ
+<span class="LineNumber"> 005 </span>ยสฺส  อธิโมกฺขสฺส  โส  สนฺนิฏฺ€านลกฺขโณ  ฯ  จลนํ  จโล  นตฺถิ
+<span class="LineNumber"> 006 </span>จลํ  เอตสฺส  อธิโมกฺขสฺสาติ  นิจฺจโล  นิจฺจลสฺส  ภาโว
+<span class="LineNumber"> 007 </span>นิจฺจลภาโว  ฯ  อินฺทติ  เทเวสุ  อิสฺสริยํ  วตฺเตตีติ  อนฺโท  โย
+<span class="LineNumber"> 008 </span>เทโว  ฯ  อิทิ  ปรมิสฺสริเย  กฑฺยาทีหิ  โก  กโลโป  นิคฺคหิตฺจ
+<span class="LineNumber"> 009 </span>วคฺคนฺตํ  ฯ  ขีลติ  ชนานํ  คมนํ  ปฏิฆาเฏตีติ  ขีโล  โย  กณฺฏโก  ฯ
+<span class="LineNumber"> 010 </span>ขิล  ปฏิฆาเฏ  สพฺพ...วาติ  อ  ฯ  อินฺทสฺส  สกฺกสฺส  ขีโล
+<span class="LineNumber"> 011 </span>กณฺฏโก  อินฺทขีโล  ฯ
+<span class="LineNumber"> 012 </span>	อารมฺมเณติ  นิจฺจโลติ  ปเท  อาธาโร  ฯ  นิจฺจ...เวนาติ
+<span class="LineNumber"> 013 </span>ทฏฺ€พฺโตติ  ปเท  ตติยาวิเสสนํ  ฯ  อินฺทขีโลติ  อุปมา  ฯ  วิยาติ
+<span class="LineNumber"> 014 </span>อุปมาโชตโก  ฯ  ทฏฺ€พฺโพติ  กมฺมวาจกํ  ฯ
+<span class="LineNumber"> 015 </span>	[๔๒๖]  วีรานํ  ภาโว  วิริยํ  วา  วีรานํ  กมฺมํ  วิริยํ
+<span class="LineNumber"> 016 </span>วา  ยํ  ธมฺมชาตํ  ปุคฺคเลน  วิธินา  อีรยิตพฺพํ  ปวตฺเตตพฺพํ  อิติ
+<span class="LineNumber"> 017 </span>ตสฺมา  ตํ  ธมฺมชาตํ  วิริยํ  ฯ
+<span class="LineNumber"> 018 </span>	อีรณํ  กมฺปนํ  อีโร  ฯ  อีร  กมฺปเน  ภาเว  จ  ฯ  วิคโต
+<span class="LineNumber"> 019 </span>อีโร  กมฺปนํ  เยหิ  ปุคฺคเลหิ  เต  วีรา  ปฺจมีพหุพฺพิหิ  ฯ  วีราติ
+<span class="LineNumber"> 020 </span>วตฺตพฺเพ  กฺวจาทิสุตฺเตน  รสฺสํ  กตฺวา  วิราติ  วุตฺตํ  ฯ  ภาโวติ
+<span class="LineNumber"> 021 </span>ปุคฺคโล  เยน  ธมฺเมน  วีโร  นาม  โหติ  โส  ธมฺโม  ภาโว
+<span class="LineNumber"> 022 </span>					อภิ.๑๐๑

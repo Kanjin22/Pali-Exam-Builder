@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>              <B>เขมะ  มีปัญญามาก  ทรงจำพระไตรปิฎก  รุ่งเรือง
+<span class="LineNumber"> 002 </span>              อยู่ในเกาะด้วยปัญญา  ดุจพระจันทร์เป็นราชา
+<span class="LineNumber"> 003 </span>              แห่งหมู่ดาวฉะนั้น ๑  พระอุปติสสะผู้มีปัญญา ๑
+<span class="LineNumber"> 004 </span>              พระปุสสเทวะผู้เป็นมหากวี ๑,  ต่อมาอีก
+<span class="LineNumber"> 005 </span>              พระสุมนะผู้มีปัญญา  ๑  พระเถระชื่อปุปผะ
+<span class="LineNumber"> 006 </span>              ( คือพระมหาปทุมเถระ<SUP>๑</SUP> )  ผู้พหูสูต  ๑  พระ
+<span class="LineNumber"> 007 </span>              มหาสีวะ  ผู้เป็นมหากวี  ฉลาดในพระปิฎกทั้ง
+<span class="LineNumber"> 008 </span>              ปวง ๑,  ต่อมาอีก  พระอุบาลี  ผู้มีปัญญา
+<span class="LineNumber"> 009 </span>              เชี่ยวชาญในพระวินัย ๑  พระมหานาค  ผู้มี
+<span class="LineNumber"> 010 </span>              ปัญญามาก  ฉลาดในวงศ์พระสัทธรรม  ๑,
+<span class="LineNumber"> 011 </span>              ต่อมามี  พระอภัยผู้มีปัญญา  ฉลาดในปิฎก
+<span class="LineNumber"> 012 </span>              ทั้งปวง ๑ พระติสสเถระผู้มีปัญญา  เชี่ยวชาญใน
+<span class="LineNumber"> 013 </span>              พระวินัย ๑  ศิษย์ของพระติสสเถระนั้น  ชื่อ
+<span class="LineNumber"> 014 </span>              ปุปผะ  ( คือพระสุมนเถระ<SUP>๒</SUP> )  มีปัญญามาก
+<span class="LineNumber"> 015 </span>              เป็นพหูสูต  ตามรักษาพระศาสนาอยู่  ในชมพู-
+<span class="LineNumber"> 016 </span>              ทวีป ๑ พระจูฬาภยะ  ผู้มีปัญญา  และเชี่ยว
+<span class="LineNumber"> 017 </span>              ชาญในพระวินัย ๑  พระติสสเถระ  ผู้มีปัญญา
+<span class="LineNumber"> 018 </span>              ฉลาดในวงศ์พระสัทธรรม ๑  พระจูฬเทวะ
+<span class="LineNumber"> 019 </span>              ผู้มีปัญญา  และเชี่ยวชาญในพระวินัย  ๑  พระ
+<span class="LineNumber"> 020 </span>              สีวเถระ  ผู้มีปัญญาฉลาดในพระวินัยทั้งมวล ๑,</B>
+
+<span class='footnote'>๑.  สารัตถทีปนี ๑/๒๒๙  ปุปฺผนาโมติ  มหาปทุมตฺเถโร.   ๒.  ปุปฺผนาโมติ  สมนตฺเถโร.</span>

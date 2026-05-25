@@ -1,0 +1,25 @@
+<span class="LineNumber"> 001 </span>พึงทำอัปปนาโกศล ๑๐ ประการให้ถึงพร้อม ( ต่อไป ) เถิด<SUP>*</SUP> 
+<span class="LineNumber"> 002 </span>                        [มาติกาแห่งอัปปนาโกศล] 
+<span class="LineNumber"> 003 </span>นี้เป็นนัยในอัปปนาโกศลนั้น พระโยคาวจรพึงปรารถนาอัปปนา-
+<span class="LineNumber"> 004 </span>โกศล โดยอาการ ๑๐ คือ 
+<span class="LineNumber"> 005 </span>          (๑) โดยทำวัตถุให้สละสลวย 
+<span class="LineNumber"> 006 </span>          (๒) โดยทำอินทรีย์ให้ถึงความเสมอกัน 
+<span class="LineNumber"> 007 </span>          (๓) โดยฉลาดในนิมิต 
+<span class="LineNumber"> 008 </span>          (๔) โดย ยกจิตในสมัยที่ควรยก 
+<span class="LineNumber"> 009 </span>          (๕) โดย ข่มจิตในสมัยที่ควรข่ม 
+<span class="LineNumber"> 010 </span>          (๖)โดย ทำจิตให้ร่าเริงในสมัยที่ควรให้ร่าเริง 
+<span class="LineNumber"> 011 </span>          (๗) โดย เพ่งดูจิตอยู่เฉยๆ ในสมัยที่ควรจะเพ่งดูจิตอยู่
+<span class="LineNumber"> 012 </span>                เฉยๆ 
+<span class="LineNumber"> 013 </span>          (๘) โดยหลีกบุคคลผู้มีจิตไม่เป็นสมาธิเสีย 
+<span class="LineNumber"> 014 </span>          (๙) โดยเสพแต่บุคคลผู้มีจิตเป็นสมาธิ 
+<span class="LineNumber"> 015 </span>          (๑๐) โดยน้อมจิตไปในสมาธินั้น 
+<span class="LineNumber"> 016 </span>ดังนี้แล 
+<span class="LineNumber"> 017 </span>                [ขยายความมาติกาแห่งอัปปนาโกศล] 
+<span class="LineNumber"> 018 </span>                             (๑) การทำวัตถุให้สละสลวย
+<span class="LineNumber"> 019 </span>          ในอาการ ๑๐ นั้น การทำภาวะคือความสดใสแห่งวัตถุทั้งหลาย
+<span class="LineNumber"> 020 </span>ทั้งภายในและภายนอก ชื่อว่า ทำวัตถุให้สละสลวยก็เมื่อใดผม
+
+<span class='footnote'>*  อปฺปนาโกสลฺลํ  มหาฎีกาให้แปลว่า  วิธีทำให้ฉลาดในอัปปนา</span>
+
+ 
+

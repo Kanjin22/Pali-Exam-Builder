@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>กายพเลน เจว อุสฺสาเหน จ สมนฺนาคตตาติ มหาสีหนาทสุตฺตฏีกา ฯ 
+<span class="LineNumber"> 002 </span>	ธีราติ วิธุรํ อาลปติ วรุโณ นาคราชา ฯ 
+<span class="LineNumber"> 003 </span>	[๔๙๖] เตน ปาณิ กามทโท          เตน ปาณิ มธุสฺสโว 
+<span class="LineNumber"> 004 </span>                     เตน เม พฺรหฺมจริเยน        ปุฺํ ปาณิมฺหิ อิชฺฌตีติ 
+<span class="LineNumber"> 005 </span>องฺกุรปฺเปตวตฺถุมฺหิ เวยฺยาวจฺจํ <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 006 </span>	อิมิสฺสา   คาถาย   อตฺโถ   เหฏฺ€า   อนวชฺชกมฺเมสุ  วิตฺถาริโต 
+<span class="LineNumber"> 007 </span>สทฺธึ วตฺถุนา ฯ 
+<span class="LineNumber"> 008 </span>	[๔๙๗]  อิทํ  โข  ตํ  ภิกฺขเว  ติตฺติริยํ  นาม  พฺรหฺมจริยํ อโหสีติ 
+<span class="LineNumber"> 009 </span>ติตฺติรชาตเก ปฺจสีลํ ฯ 
+<span class="LineNumber"> 010 </span>	[๔๙๘]   ตํ   โข   ปน   ปฺจสิข  พฺรหฺมจริยํ  น  นิพฺพิทาย  น 
+<span class="LineNumber"> 011 </span>วิราคาย    น    นิโรธาย <SUP>๒</SUP>    ยาวเทว   พฺรหฺมโลกูปปตฺติยาติ 
+<span class="LineNumber"> 012 </span>ทีฆนิกายมหาวคฺเค มหาโควินฺทสุตฺเต <SUP>๓</SUP> อปฺปมฺาโย ฯ 
+<span class="LineNumber"> 013 </span>	[๔๙๙]     อพฺรหฺมจริยํ    ปหาย    พฺรหฺมจารีติ    ติกงฺคุตฺตเร อุโปสถ-
+<span class="LineNumber"> 014 </span>สุตฺเต <SUP>๔</SUP> พฺรหฺมชาลสุตฺตาทีสุ <SUP>๕</SUP> จ เมถุนวิรติ ฯ 
+<span class="LineNumber"> 015 </span>	ตตฺถ   <B>อพฺรหฺมจริยนฺติ</B>   อเสฏฺ€จริยํ  ฯ  พฺรหฺมํ  เสฏฺ€ํ  อาจารํ 
+<span class="LineNumber"> 016 </span>จรตีติ พฺรหฺมจารีติ ตพฺพณฺณนา <SUP>๖</SUP> ฯ 
+<span class="LineNumber"> 017 </span>	<B>อเสฏฺ€จริยนฺติ   </B>อเสฏฺ€านํ   นิหีนานํ  อเสฏฺ€ํ  วา  ลามกํ  นิหีนํ 
+<span class="LineNumber"> 018 </span>วุตฺตึ  เมถุนนฺติ  อตฺโถ  ฯ  พฺรหฺมํ  เสฏฺ€ํ  อาจารนฺติ เมถุนวิรติมาหาติ 
+<span class="LineNumber"> 019 </span>ตฏฺฏีกา ฯ 
+
+<span class='footnote'>๑. ขุ. เปต. ๒๖/๑๙๐ ฯ ๒. เอตฺถนฺตเร น อุปสมาย...น นิพฺพานาย สํวตฺตตีติ ฯ </span>
+<span class='footnote'>๓. ที. มหา. ๑๐/๒๘๕ ฯ ๔. องฺ. ติก. ๒๐/๒๗๑ ฯ ๕. ที. สี. ๙/๕ ฯ </span>
+<span class='footnote'>๖. มโน. ปู. ๒/๒๖๑ ฯ </span>

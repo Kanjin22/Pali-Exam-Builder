@@ -1,0 +1,24 @@
+
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  14
+
+<span class="LineNumber"> 002 </span>		พุทฺโธปิ  พุทฺธสฺส  ภเณยฺย  วณฺณํ
+<span class="LineNumber"> 003 </span>		กปฺปมฺปิ  เจ  อฺมภาสมาโน
+<span class="LineNumber"> 004 </span>		ขีเยถ  กปฺโป  จิรทีฆมนฺตเร
+<span class="LineNumber"> 005 </span>		วณฺโณ  น  ขีเยถ  ตถาคตสฺสาติ  ฯ
+<span class="LineNumber"> 006 </span>	จิรทีฆมนฺตเรติ  จิรทีฆสฺส  อทฺธุโน  อจฺจเยนาติ  อตฺโถ  ฯ
+<span class="LineNumber"> 007 </span>สพฺพธมฺเม  สยเมว  อพุชฺฌีติ  สมฺพุทฺโธ  โย  ภควา  สพฺพ....
+<span class="LineNumber"> 008 </span>อพุชฺฌิ  อิติ  ตสฺมา  โส  ภควา  สมฺพุทฺโธ  ฯ  สํสทฺโท  สามนฺติ
+<span class="LineNumber"> 009 </span>อตฺถวาจโก  ธาตฺวตฺถวิเสสโก  ฯ  สํสทฺทโต  นา  พุธ  าเณ  ฯ
+<span class="LineNumber"> 010 </span>เสสํ  ปุพฺพํว  ฯ
+<span class="LineNumber"> 011 </span>	ปูชิยเตติ  ปูชิโต  โย  ธมฺโม  ภควตา  สกฺกจฺจํ  สมฺมเทว
+<span class="LineNumber"> 012 </span>อาเสวนา  ภาวนา  พหุลีกิริยาสงฺขาตาย  สมฺมาปฏิปตฺติยา  จ  สตฺต-
+<span class="LineNumber"> 013 </span>สตฺตาหํ  สมาปตฺติสมาปชฺชน  ธมฺมปจฺจเวกฺขณาหิ  จ  สาวเกหิ  ธมฺมสุ-
+<span class="LineNumber"> 014 </span>สวเนน  จ  เตสํ  ปจฺจุคฺคมนาทีหิ  จ  เตสํ  สกฺกจฺจํ  ธมฺมเทสเนน
+<span class="LineNumber"> 015 </span>จ  โถมเนน  จ  ปูชิยเต  อิติ  ตสฺมา  โส  ธมฺโม  ปูชิโต  ฯ
+<span class="LineNumber"> 016 </span>เตน  เนตฺติปกรณฏฺ€กถายํ  ธมฺมปาลาจริเยน  วุตฺตํ  กถํ  ปน  สยํ
+<span class="LineNumber"> 017 </span>ธมฺมสามิ  ภควา  ธมฺมํ  ปูชิยเตติ  นายํ  วิโรโธ  ธมฺมครุโน  หิ
+<span class="LineNumber"> 018 </span>พุทฺธา  ภควนฺโต  เต  สพฺพกาลํ  ธมฺมํ  อปจายมานาว  วิหรนฺตีติ  ฯ
+<span class="LineNumber"> 019 </span>วุตฺตฺเหตํ  ยนฺนูนาหํ  ธมฺมฺเว  สกฺกตฺวา  ครุํ  กตฺวา  ปูเชตฺวา
+<span class="LineNumber"> 020 </span>อุปนิสฺสาย  วิหเรยฺยนฺติ<SUP>๑</SUP>  ฯ  อปิจ  ภควโต  ธมฺมปูชนา  สตฺตสตฺตาหํ
+<span class='footnote'>๑.  องฺ.  จตุกฺก.  ๒๑/๒๖  ฯ</span>
+<span class="LineNumber"> 021 </span>						อภิ.๖๑

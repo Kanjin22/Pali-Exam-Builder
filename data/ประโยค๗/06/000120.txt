@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>	<B>อญฺชลิกรณียํ  สงฺฆ์  ปจฺจกฺขามิ</B>  ข้าพเจ้าบอกคืนพระสงฆ์ผู้ควร
+<span class="LineNumber"> 002 </span>                                                          ทำอัญชลี 
+<span class="LineNumber"> 003 </span>	<B>อนุตฺตรํ  ปุญฺกุเขตฺตํ  สงฺฆํ</B>       ข้าพเจ้าบอกคืนพระสงฆ์ผู้เป็นนา
+<span class="LineNumber"> 004 </span><B>ปจฺจกฺขามิ</B>                                          บุญ  (ของโลก)  ไม่มีนาบุญ
+<span class="LineNumber"> 005 </span>                                                          อื่นยิ่งกว่า.
+<span class="LineNumber"> 006 </span>                      [อรรถาธิบายวิธีบอกลาสิกขาทั่วไป]
+<span class="LineNumber"> 007 </span>	การบอกลาด้วยคำว่า <B>"สิกฺขํ  ปจฺจกฺขามิ"</B> ไม่ใช่เป็นการบอกลา
+<span class="LineNumber"> 008 </span>ด้วยคำไวพจน์.  การบอกลาสิกขา  ย่อมมีได้ด้วยคำไวพจน์แห่งสิกขา
+<span class="LineNumber"> 009 </span>อย่างนี้  คือ :-
+<span class="LineNumber"> 010 </span>	<B>ภิกฺขุสิกฺขํ      ปจฺจกฺขามิ</B>    ข้าพเจ้าบอกคืนสิกขาของภิกษุ
+<span class="LineNumber"> 011 </span>	<B>ภิกฺขุนีสิกฺขํ </B>          "            ข้าพเจ้าบอกคืนสิกขาของภิกษุณี
+<span class="LineNumber"> 012 </span>	<B>อธิสิลสิกฺขํ</B>            "            ข้าพเจ้าบอกคืนอธิสีลสิกขา
+<span class="LineNumber"> 013 </span>	<B>อธิจิตฺตสิกฺขํ</B>          "            ข้าพเจ้าบอกคืนอธิจิตตสิกขา
+<span class="LineNumber"> 014 </span>	<B>อธิปญฺาสิกฺขํ</B>      "            ข้าพเจ้าบอกคืนอธิปัญญาสิกขา
+<span class="LineNumber"> 015 </span>	การบอกลาด้วยคำว่า <B>"วินํย  ปจฺจกฺขามิ"</B>  ไม่ใช่เป็นการบอกลา
+<span class="LineNumber"> 016 </span>ด้วยคำไวพจน์  การบอกลาสิกขา  ย่อมมีได้ด้วยคำไวพจน์แห่งวินัย  มี
+<span class="LineNumber"> 017 </span>อาทิอย่างนี้ คือ :-
+<span class="LineNumber"> 018 </span>	<B>ภิกฺขุวินยํ          ปจฺจกฺขามิ</B>      ข้าพเจ้าบอกคืนวินัยของภิกษุ
+<span class="LineNumber"> 019 </span>	<B>ภิกฺขุนีวินยํ</B>               "             ข้าพเจ้าบอกคืนวินัยของนางภิกษุณี
+<span class="LineNumber"> 020 </span>	<B>ป€มํ ปาราชิกํ</B>           "             ข้าพเจ้าบอกคืนปฐมปาราชิก
+<span class="LineNumber"> 021 </span>	<B>ทุติยํ</B>      "                  "             ข้าพเจ้าบอกคืนทุติยปาราชิก
+  

@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  180
+
+<span class="LineNumber"> 002 </span>ชนา  เอเตน  ธเนน  ภณฺเฑนฺติ  กลหํ  กโรนฺติ  อิติ  ตสฺมา  ตํ
+<span class="LineNumber"> 003 </span>ธนํ  ภณฺฑํ  ฯ  ภทิ  ภณฺฑตฺเถ  กฑฺยาทีหิโก  กฺวจิ  ธาตูติ-
+<span class="LineNumber"> 004 </span>อาทินา  กโลโป  นิคฺคหิตาคโม  จ  วคฺคนฺตํ  ฯ  ภาชิยติ
+<span class="LineNumber"> 005 </span>เอตฺถาติ  ภาชนํ  ธนํ  ชเนน  เอตฺถ  €าเน  ภาชิยติ  อิติ  ตสฺมา
+<span class="LineNumber"> 006 </span>ตํ  €านํ  ภาชนํ  ฯ  ภณฺฑสฺส  ภาชนํ  ภณฺฑภาชนํ  ฯ  ติฏฺ€ติ
+<span class="LineNumber"> 007 </span>เอตฺถาติ  €านํ  ธนํ  เอตฺถ  เทเส  ติฏฺ€ติ  อิติ  โส  เทโส
+<span class="LineNumber"> 008 </span>€านํ  ฯ  ภณฺฑภาชนญฺจ  ตํ  €านญฺจาติ  ภณฺฑภาชนฏฺ€านํ  ฯ
+<span class="LineNumber"> 009 </span>มหนฺโต  จ  โส  สทฺโท  จาติ  มหาสทฺโท  ฯ  เอวํ  ภรฺฑคิชฺฌนํ
+<span class="LineNumber"> 010 </span>รูปํ  สภาโว  ยสฺสา  ตณฺหาย  สา  เอวรูปา  ฯ  ลุพฺภตีติ  ลุปฺปา
+<span class="LineNumber"> 011 </span>ยา  ตณฺหา  อารมฺมเณ  ลุพฺภติ  คิชฺฌติ  อิติ  ตสฺมา  สา
+<span class="LineNumber"> 012 </span>ตณฺหา  ลุปฺปา  ฯ  ลุภ  คิทฺธิยํ  สพฺพโต...วาติ  อ  กฺวจิ
+<span class="LineNumber"> 013 </span>ธาตูติอาทินา  ภสฺส  โป  กฺวจาทิวณฺณานเมกสฺสรานํ  เทฺวภาโวติ
+<span class="LineNumber"> 014 </span>ลุสทฺทสฺส  ทฺวิตฺตํ  เตสุ  วุฑฺฒีติอาทินา  อุสฺโส  ปุน  อา  ฯ
+<span class="LineNumber"> 015 </span>โลลุปฺปาติ  อตีเต  ฉ  ตณฺหา  ฯ  โลลุปฺปา  จ  สา  ตณฺหา  จาติ
+<span class="LineNumber"> 016 </span>โลลุปฺปตณฺหา  ฯ  คนฺธาทีหีติ  ปูชนาติ  ปเท  กรณํ  ฯ  เจติ...
+<span class="LineNumber"> 017 </span>กาเลติ  ตุสฺสนฺตาติ  ปเท  กาลสตฺตมี  ฯ  ตุสฺสนฺตสฺสาติ  ปวตฺตตีติ
+<span class="LineNumber"> 018 </span>ปเท  สมฺปทานํ  ฯ  คนฺธารมฺมเณติ  ปวตฺตตีติ  ปเท  อาธาโร  ฯ
+<span class="LineNumber"> 019 </span>คนฺโธ  อาทิ  เยสํ  มาลาทีนํ  เต  คนฺธาทโย  ฯ  จยิตพฺพนฺติ    เจติยํ
+<span class="LineNumber"> 020 </span>ยํ  €านํ  ชเนน  อิฏฺ€กาทีหิ  จยิตพฺพํ  อิติ  ตสฺมา  ตํ  €านํ
+<span class="LineNumber"> 021 </span>เจติยํ  ฯ  จิต  จยเน<SUP>๑</SUP>  ณฺโย  จ  อสํ...เต  ยถาคมมิกาโร  ฯ
+<span class='footnote'>๑.  จิ  จยเนติ  ภวิตพฺพํ  ฯ  อญฺตฺถ  ปน  ตาทิโสว  ฯ</span>
+<span class="LineNumber"> 022 </span>						อภิ.๑๒๗

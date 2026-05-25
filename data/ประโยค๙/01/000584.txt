@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  584
+
+<span class="LineNumber"> 002 </span>ทิฏฺ€ีติ  คณฺหาตีติ  ปเท  กตฺตา  ฯ  ยถาสภาวนฺติ  วิชหิตฺวาติ
+<span class="LineNumber"> 003 </span>ปเท  กมฺมํ  ฯ  วิชหิตฺวาติ  คณฺหาตีติ  ปเท  ปุพฺพกาลกิริยา  ฯ
+<span class="LineNumber"> 004 </span>อยาถาวโตติ  คณฺหาตีติ  ปเท  ตติยาวิเสสนํ  ฯ  อิตีติ  อยนฺติ
+<span class="LineNumber"> 005 </span>ปทสฺส  สรูปํ  ฯ  อยนฺติ  วิเสโสติ  ปทสฺส  วิเสสนํ  ฯ  เตสนฺติ
+<span class="LineNumber"> 006 </span>วิเสโสติ  ปเท  สมฺพนฺโธ  ฯ  วิเสโสติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 007 </span>	[๔๕๒]  โย  ธมฺโม  เสยฺโย...ทินา  อากาเรน  มฺติ
+<span class="LineNumber"> 008 </span>อภิมฺติ  อิติ  ตสฺมา  โส  ธมฺโม  มาโน  ฯ  เสยฺโยหมสฺมีติ
+<span class="LineNumber"> 009 </span>อาทิ  ยสฺส  อาการสฺส  โส  เสยฺโยหมสฺมีติอาทิ  ฯ  อาทิสทฺเทน
+<span class="LineNumber"> 010 </span>สทิโสหมสฺมิ  หีโนหมสฺมีติ  อาการสฺส  คหณํ  ฯ  มาน  มาเน
+<span class="LineNumber"> 011 </span>สพฺพ...วาติ  อ  ฯ
+<span class="LineNumber"> 012 </span>	โส  มาโน  อุนฺน...ลกฺขโณ  ฯ  อุนฺนมนํ  อุนฺนติ  เสยฺยาทิวเสน
+<span class="LineNumber"> 013 </span>อุทฺธจฺจโต  ทหนนฺติ  อตฺโถ  ฯ  อุปุพฺโพ  นม  นมเน  อิตฺถิยมติยโว  วา
+<span class="LineNumber"> 014 </span>คมขนาทินา  ธาตฺวนฺตโลโป  ทฺวิตฺตํ  ฯ  อุนฺนติ  ลกฺขณํ  ยสฺส
+<span class="LineNumber"> 015 </span>มานสฺส  โส  อุนฺนติลกฺขโณ  ฯ
+<span class="LineNumber"> 016 </span>	[๔๕๓]  ตเมว  ทฬฺหํ  กาตุํ  ตถาเหสตฺยาทิ  วุตฺตํ  ฯ  ตถาหิ
+<span class="LineNumber"> 017 </span>สจฺจํ  เอส  เอโส  มาโน  เกตุ....€าโน  อาจริเยน  อฏฺ€าลินิยํ
+<span class="LineNumber"> 018 </span>วุตฺโต  ฯ
+<span class="LineNumber"> 019 </span>	กิตติ  อุทฺธํ  คจฺฉตีติ  เกตุ  โย  ธโช  ฯ  กิต  วินิโยเค
+<span class="LineNumber"> 020 </span>หนาทีหิ  ณุนุตโวติ  ตุ  อฺเสุ  จ  ฯ  กํ  อุทกํ  เอติ  ชานาติ
+<span class="LineNumber"> 021 </span>เอเตนาติ  วา  เกตุ  ชโน  เอเตน  ธเชน  กํ  อุทกํ  เอติ  ชานาติ
+<span class="LineNumber"> 022 </span>						อภิ.๑๐๓

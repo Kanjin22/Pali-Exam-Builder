@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>ทีฆรชฺชุนา <SUP>๑</SUP>พนฺธํ สกุณํ วิย รชฺชุหตฺโถ ปุริโส เทสนฺตรํ ตณฺหา-
+<span class="LineNumber"> 002 </span>รชฺชุนา <SUP>๒</SUP> พนฺธํ    สตฺตสนฺตานํ    อภิสงฺขาโร    ภวนฺตรํ    เนติ    เอตายาติ 
+<span class="LineNumber"> 003 </span>ภวเนตฺติ ฯ เตนาห ภวรชฺชูติอาทินฺติ ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 004 </span>	[๕๓๕]  ตตฺเถว  ทุติเย  เคยฺยสุตฺเตปิ  <SUP>๓</SUP>  วุตฺตํ  ภควตา ภิกฺขูนํ 
+<span class="LineNumber"> 005 </span>ธมฺมํ เทเสนฺเตน 
+<span class="LineNumber"> 006 </span>	<B>เย ทุกฺขํ นปฺปชานนฺติ             อโถ ทุกฺขสฺส สมฺภวํ 
+<span class="LineNumber"> 007 </span>	ยตฺถ จ สพฺพโส ทุกฺขํ               อเสสํ อุปรุชฺฌติ 
+<span class="LineNumber"> 008 </span>	ตฺจ มคฺคํ น ชานนฺติ              ทุกฺขูปสมคามินํ 
+<span class="LineNumber"> 009 </span>	เจโตวิมุตฺติหีนา เต                   อโถ ปฺาวิมุตฺติยา 
+<span class="LineNumber"> 010 </span>	อภพฺพา เต อนฺตกิริยาย            เต เว ชาติชรูปคา ฯ 
+<span class="LineNumber"> 011 </span>	เย จ ทุกฺขํ ปชานนฺติ                  อโถ ทุกฺขสฺส สมฺภวํ 
+<span class="LineNumber"> 012 </span>	ยตฺถ จ สพฺพโส ทุกฺขํ                  อเสสํ อุปรุชฺฌติ 
+<span class="LineNumber"> 013 </span>	ตฺจ มคฺคํ ปชานนฺติ                 ทุกฺขูปสมคามินํ 
+<span class="LineNumber"> 014 </span>	เจโตวิมุตฺติสมฺปนฺนา                  อโถ ปฺาวิมุตฺติยา 
+<span class="LineNumber"> 015 </span>	ภพฺพา  เต  อนฺตกิริยาย              น  เต  ชาติชรูปคาติ ฯ</B> 
+<span class="LineNumber"> 016 </span>สุตฺตนิปาตสฺส ตติยวคฺเค ทฺวยตานุปสฺสนาสุตฺเตปิ <SUP>๔</SUP> ตเถว วุตฺตํ ฯ 
+<span class="LineNumber"> 017 </span>	[๕๓๖]   ตตฺถ   <B>ยตฺถ  จาติ</B>  นิพฺพานํ  ทสฺเสติ  ฯ  นิพฺพาเน  หิ 
+<span class="LineNumber"> 018 </span>ทุกฺขํ   สพฺพโส   อุปรุชฺฌติ   สพฺพปฺปการํ  อุปรุชฺฌติ  สเหตุกํ  อุปรุชฺฌติ 
+<span class="LineNumber"> 019 </span>อเสสํ   อุปรุชฺฌติ  ฯ   <B>ตฺจ   มคฺคนฺติ </B>  ตฺจ   อฏฺ€งฺคิกํ   มคฺคนฺติ 
+
+<span class='footnote'>๑-๒.... รชฺชุยาติ ภวิตพฺพํ ฯ ๓. สํ. มหาวาร. ๑๙/๕๔๒ ฯ ๔. ขุ. สุ. ๒๕/๔๗๔ ฯ </span>

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  508
+
+<span class="LineNumber"> 002 </span>วตฺตมานาตฺยาทินา  นิปจฺจโย  อฺเสุ  จ  อุสฺโส  ฯ  ติรจฺฉานานํ
+<span class="LineNumber"> 003 </span>โยนิ  ติรจฺฉานโยนิ  ติรจฺฉานโยนิยํ  ปริยาปนฺโน  ติร...ปนฺโน
+<span class="LineNumber"> 004 </span>ติร...นสฺส  ภาโว  ติร...ปนฺนตฺตํ  ฯ  เอวสทฺโท  มนุสฺเสตูติ
+<span class="LineNumber"> 005 </span>าเปติ  ฯ
+<span class="LineNumber"> 006 </span>	ยถาสทฺโท  อุปมา  ฯ  มนุสิตฺถิยาติ  กุจฺฉิสฺมินฺติ  ปเท
+<span class="LineNumber"> 007 </span>สมฺพนฺโธ  ฯ  กุจฺฉิสฺมินฺติ  นิพฺพตฺโตปีติ  ปเท  อาธาโร  ฯ
+<span class="LineNumber"> 008 </span>นิพฺพตฺโตปีติ  ติร...คโตติ  ปทสฺส  วิเสสนํ  ฯ  ติร...คโตติ
+<span class="LineNumber"> 009 </span>สงฺคยฺหตีติ  ปเท  กมฺมํ  ฯ  ติร...นิยาติ  ปริ...นตฺตาติ  ปเท
+<span class="LineNumber"> 010 </span>อาธาโร  ฯ  ปริ...นตฺตาติ  สงฺคยฺหีติ  ปเท  เหตุ  ฯ  ติร...
+<span class="LineNumber"> 011 </span>เสฺววาติ  สงฺคยฺหตีติ  ปเท  อาธาโร  ฯ  สงฺคยฺหตีติ  กมฺมวาจกํ  ฯ
+<span class="LineNumber"> 012 </span>ตถาติ  อุปเมยฺยํ  ฯ
+<span class="LineNumber"> 013 </span>	[๓๖๘]  นนุ  จ  โลกุตฺตรจิตฺตานิ  กตฺถจิ  อปริยาปนฺนานิ
+<span class="LineNumber"> 014 </span>ตานิ  กถํ  อนุตฺตเร  จิตฺตานีติ  ปุจฺฉํ  สนฺธายาห  กตฺถจิตฺยาทึ  ฯ
+<span class="LineNumber"> 015 </span>กตฺถจิ  ภูมิยํ  อป...ภูตานิ  จิตฺตานิ  รุกฺเข...ทีสุ  ปโยเคสุ  วิย
+<span class="LineNumber"> 016 </span>อนุตฺต...นีติ  อาจริเยน  วุตฺตานิ  ฯ
+<span class="LineNumber"> 017 </span>	กตฺถจีติ  อปริ...นานีติ  ปเท  อาธาโร  ฯ  อปริ...ภูตานีติ
+<span class="LineNumber"> 018 </span>ปททฺวยํ  จิตฺตานีติ  ปทสฺส  วิเสสนํ  ฯ  นววิโธ  จ  โส  โลกุตฺตร-
+<span class="LineNumber"> 019 </span>ธมฺโม  จาติ  นว...ธมฺโม  นววิธ...ธมฺมสฺส  สมุโห  นว...
+<span class="LineNumber"> 020 </span>สมุโห  นววิธ...สมุหสฺส  เอกเทสานิ  นว...สานิ  นววิธ...
+<span class="LineNumber"> 021 </span>สานิ  หุตฺวา  ภวนฺตีติ  นววิธ...ภูตานิ  ฯ  รุกฺเข...อาทีสูติ
+<span class="LineNumber"> 022 </span>					อภิ.๙๕

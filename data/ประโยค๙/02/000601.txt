@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    601
+
+<span class="LineNumber"> 002 </span>	[๗๕๐]  กสฺมา  เต  ทสฺสเนน  ปหาตพฺพา  นามาติ  อาห
+<span class="LineNumber"> 003 </span>ป€มนฺตฺยาทึ  ฯ
+<span class="LineNumber"> 004 </span>	นิพฺพานสฺส  ทสฺสนํ  นิพฺพานทสฺสนํ  นิพฺพานทสฺสนสฺส  วสนํ
+<span class="LineNumber"> 005 </span>สมฺพชฺฌนํ  นิพฺพา...วโส  ฯ  ทสฺสนํ  อิติ  ลทฺธํ  นามํ  เยน  มคฺเคน
+<span class="LineNumber"> 006 </span>โส  ทสฺสนนฺติ  ลทฺธนาโม  ฯ  ปหาตพฺพานํ  ภาโว  ปหาตพฺพตฺตํ  ฯ
+<span class="LineNumber"> 007 </span>	ตตฺถาติ  นิทฺธารณํ  ฯ  ทิฏฺ€ิ...ปาทาติ  สญฺี  ฯ  ทสฺส...
+<span class="LineNumber"> 008 </span>นามาติ  สญฺา  ฯ  ป€มนฺติ  ทสฺสนาติ  กิริยาวิเสสนํ  ฯ  นิพฺพา...
+<span class="LineNumber"> 009 </span>นาติ  ลทฺธาติ  ปเท  ตติยาวิเสสนํ  ฯ  ทสฺส...เมนาติ  โสตา...นาติ
+<span class="LineNumber"> 010 </span>วิเสสนํ  ฯ  โสตา...นาติ  ปหาตพฺพตฺตาติ  กตฺตา  ฯ  ปหา...ตาติ
+<span class="LineNumber"> 011 </span>ทสฺส...พาติ  เหตุ  ฯ
+<span class="LineNumber"> 012 </span>	[๗๕๑]  อุทฺธ...นาม  อคฺค...พตฺตา  ฯ  อุทฺธจฺเจน  สหคโต
+<span class="LineNumber"> 013 </span>อุทฺธจฺจสหคโต  อุทฺธจฺจสหคโต  จ  โส  จิตฺตุปฺปาโท  จาติ
+<span class="LineNumber"> 014 </span>อุทฺธ...ปาโท  ฯ  ภาวนาย  ปหาตพฺพา  อิติ  นาม  ภาว...ตพฺพา
+<span class="LineNumber"> 015 </span>นาม  ฯ  กิสฺมิญฺจิ  โปฏฺ€เก  ภาว...ตพฺโพ  นามาติปิ  ฯ  ปุริโมว
+<span class="LineNumber"> 016 </span>ยุตฺตตโร  ฯ  มคฺคตฺตเยนาติ  วุตฺตํ  ฯ  อุปริโกฏิยา  อคฺคมคฺเคนาติ
+<span class="LineNumber"> 017 </span>วุตฺตํ  ฯ  อคฺโค  จ  โส  มคฺโค  จาติ  อคฺคมคฺโค  ฯ  ปหาตพฺพสฺส
+<span class="LineNumber"> 018 </span>ภาโว  ปหาตพฺพตฺตํ  ฯ
+<span class="LineNumber"> 019 </span>	อุทฺธ...โทติ  สญฺี  ฯ  ภาว...ตพฺพา  นามาติ  สญฺา  ฯ
+<span class="LineNumber"> 020 </span>อคฺค...นาติ  ปหาตพฺพาติ  กตฺตา  ฯ  ปหา...ตาติ  ภาว...ตพฺพา
+<span class="LineNumber"> 021 </span>นามาติ  เหตุ  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๗๕

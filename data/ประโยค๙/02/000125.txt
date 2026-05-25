@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ตติยปริจฺเฉทตฺถโยชนา    หน้า  125
+
+<span class="LineNumber"> 002 </span>	[๑๖๒]  ปฏิ...อนฺตรา  €านํ  ภวงฺคฏฺ€านํ  ฯ  ปฏิ...
+<span class="LineNumber"> 003 </span>จุตีนนฺติ  ฉปทํ  อนฺตราติ  ปเท  สมฺพนฺโธ  ฯ  กทาจีติ  ภวงฺคฏ-
+<span class="LineNumber"> 004 </span>€านนฺติ  ปเท  กาลสตฺตมี  ฯ  จสทฺโท  ฉสุ  ปเทสุ  โยเชตพฺโพ  ฯ
+<span class="LineNumber"> 005 </span>	[๑๖๓]  ภวงฺค...รา  €านํ  อาวชฺชนฏฺ€านํ  ฯ  จสทฺโท
+<span class="LineNumber"> 006 </span>สมุจฺจโย  ฯ  ปญฺจ...รา  €านํ  ปญฺจ...€านํ  ฯ  ปญฺจ...รา
+<span class="LineNumber"> 007 </span>€านํ  สมฺป...€านํ  ฯ  สมฺ...ปรา  €านํ  สนฺตี...€านํ  ฯ
+<span class="LineNumber"> 008 </span>สนฺตี...รา  €านํ  โวฏฺ€...€านํ  ฯ  จสทฺโท  สมุจฺจโย  ฯ
+<span class="LineNumber"> 009 </span>โวฏฺ€...อนฺตรา  €านํ  ชวนฏฺ€านํ  ฯ  จสทฺโท  สมุจฺจโย  ฯ
+<span class="LineNumber"> 010 </span>ชวน...รา  €านํ  ตทา...€านํ  ฯ  จสทฺโท  สมุจฺจโย  ฯ  ชว...
+<span class="LineNumber"> 011 </span>อนฺตรา  €านํ  จุติฏฺ€านํ  นาม  ฯ  วาสทฺโท  สมุจฺจโย  ฯ
+<span class="LineNumber"> 012 </span>สญฺาปากฏกรณตฺถํ  ปกฺขิตฺโต  ฯ
+<span class="LineNumber"> 013 </span>	[๑๖๔]  นนุ  จ  ตีณิ  สนฺตีรณานิ  กสฺมา  เทฺว  สนฺตีรณานิ
+<span class="LineNumber"> 014 </span>คหิตานีติ  ปุจฺฉํ  สนฺธายาห  เทฺวตฺยาทึ  ฯ  เทฺว  อุเปกฺขา...
+<span class="LineNumber"> 015 </span>รณานิ  ปฏิสนฺธิภวงฺคจุติกิจฺจานิ  นาม  กสฺมา  สุข...วโต
+<span class="LineNumber"> 016 </span>อิติ  อธิปฺปาโยติ  โยชนา  ฯ
+<span class="LineNumber"> 017 </span>	เทฺว  อุ...รณานีติ  อุทฺธวิตฺวา  ฐปิตํ  ปทํ  ฯ  สุขสนฺตีร...
+<span class="LineNumber"> 018 </span>วโตติ  เหตุ  ปกฺขิตฺโต  ฯ  สุข...ณสฺสาติ  สภาวาติ  ปเท  สมฺพนฺโธ
+<span class="LineNumber"> 019 </span>อภาวโตติ  ปเท  วา  สมฺปทานํ  ฯ  ปฏิ...วโตติ  เทฺวติ  ปเท
+<span class="LineNumber"> 020 </span>าปกเหตุ  ฯ  วสนํ  สมฺพชฺฌนํ  วโส  ปฏิสนฺธิ  วโส  ปฏิสนฺธิวโส
+<span class="LineNumber"> 021 </span>ปฏิสนฺธิวเสน  ปวตฺติ  ปฏิ...วตฺติ  ฯ  ภวนํ  ภาโว  สนฺโต  ภาโว
+<span class="LineNumber"> 022 </span>						อภิ.๑๒๐

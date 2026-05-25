@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  458
+
+<span class="LineNumber"> 002 </span>	[๓๒๒]  ตสฺมึ  อปฺปนา...วุตฺตนฺติ  วุตฺตมตฺถํ  อุปมาย
+<span class="LineNumber"> 003 </span>สาเธนฺโต  อาห  ยถาตฺยาทึ  ฯ  ป€มชฺฌานํ  อุปสมฺปชฺช  วิหรติ
+<span class="LineNumber"> 004 </span>ป€วีกสิณนฺติ  วจเน  กสิณารมฺมณํ  ฌานํ  ป€วีสกิณนฺติ  ภควตา
+<span class="LineNumber"> 005 </span>วุตฺตํ  ยถา  ตถาติ  โยชนา  ฯ
+<span class="LineNumber"> 006 </span>	ป€วี  เอว  กสิณํ  ป€วีกสิณํ  ป€วีมณฺฑลํ  ฯ  ป€วีกสิณํ
+<span class="LineNumber"> 007 </span>อารมฺมณํ  อสฺสาติ  ป€วีกสิณารมฺมณํ  ฯ  ป€วี  เอว  กสิณํ
+<span class="LineNumber"> 008 </span>ป€วีกสิณนฺติ  วิคฺคโห  มุขฺยโต  ป€วีมณฺฑลํ  วทติ  ฯ  ฌาเนน
+<span class="LineNumber"> 009 </span>ป€วีกสิณนฺติ  นามํ  ลภนฺโต  วิคฺคโห  น  กาตพฺโพ  ฯ  กสฺมา  ฯ
+<span class="LineNumber"> 010 </span>อารมฺมณสฺส  นามํ  อารมฺมณิเก  อาโรปนโต  ฯ
+<span class="LineNumber"> 011 </span>	ยถาติ  อุปมา  ฯ  ป€...มณนฺติ  ฌานนฺติ  ปทสฺส  วิเสสนํ  ฯ
+<span class="LineNumber"> 012 </span>ฌานนฺติ  วุตฺตนฺติ  ปเท  กมฺมํ  ฯ  ป€...สิณนฺติ  วุตฺตนฺติ  ปเท
+<span class="LineNumber"> 013 </span>อากาโร  ฯ  ตถาติ  อุปเมยฺยํ  ฯ
+<span class="LineNumber"> 014 </span>	[๓๒๓]  อนุปจารโต  วิกปฺปิตุํ  อถวาติอาทิ  วุตฺตํ  ฯ
+<span class="LineNumber"> 015 </span>อากาสานฺจํ  อสฺส  ฌานสฺส  อายตนํ  อธิฏฺ€านํ  อิติ  ตสฺมา
+<span class="LineNumber"> 016 </span>อากา...ตนํ  อตคฺคุณพหุพฺพิหิ  ฯ
+<span class="LineNumber"> 017 </span>	อากาสานฺจนฺติ  ลิงฺคตฺโถ  ฯ  อายตนนฺติ  อากาสานฺจนฺติ
+<span class="LineNumber"> 018 </span>ปทสฺส  วิเสสนํ  ฯ  อสฺสาติ  อายตนนฺติ  ปเท  สมฺพนฺโธ  ฯ  อิตีติ
+<span class="LineNumber"> 019 </span>เหตุ  ฯ  อากา...ตนนฺติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 020 </span>	ปุริมนเย  อนนฺตากาสสฺส  วาจกตฺตา  อิธ  ฌานนฺติ
+<span class="LineNumber"> 021 </span>วิเสเสติ  ฯ  เตน  อากาสานฺจายตเนน  สมฺปยุตฺตํ...จิตฺตํ  ฯ  เตน
+<span class="LineNumber"> 022 </span>					อภิ.๘๙

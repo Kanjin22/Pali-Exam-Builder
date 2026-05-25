@@ -1,0 +1,17 @@
+<span class="LineNumber"> 001 </span>		     สารตฺถทีปนี นาม วินยฏีกา 
+<span class="LineNumber"> 002 </span>		      สมนฺตปาสาทิกาวณฺณนา 
+		
+<span class="LineNumber"> 003 </span>			        อารมฺภกถา 
+<span class="LineNumber"> 004 </span>			นมตฺถุ รตนตฺตยสฺส 
+<span class="LineNumber"> 005 </span>	[๑] มหาการุณิกํ พุทฺธํ	ธมฺมฺจ วิมลํ วรํ 
+<span class="LineNumber"> 006 </span>	วนฺเท อริยสงฺฆฺจ		ทกฺขิเณยฺยํ นิรงฺคณํ ฯ 
+<span class="LineNumber"> 007 </span>	อุฬารปุฺเตเชน		กตฺวา สตฺตุวิมทฺทนํ 
+<span class="LineNumber"> 008 </span>	ปตฺตรชฺชาภิเสเกน		สาสนชฺโชตนตฺถินา 
+<span class="LineNumber"> 009 </span>	นิสฺสาย สีหลินฺเทน		ยํ ปรกฺกมพาหุนา 
+<span class="LineNumber"> 010 </span>	กตฺวา นิกายสามคฺคึ	สาสนํ สุวิโสธิตํ ฯ 
+<span class="LineNumber"> 011 </span>	กสฺสปนฺตํ มหาเถรํ		สงฺฆสฺส ปริณายกํ 
+<span class="LineNumber"> 012 </span>	ทีปสฺมึ ตมฺพปณฺณิมฺหิ	สาสโนทยการกํ 
+<span class="LineNumber"> 013 </span>	ปฏิปตฺติปราธีนํ		สทารฺนิวาสินํ 
+<span class="LineNumber"> 014 </span>	ปากฏํ คคเน จนฺท-	มณฺฑลํ วิย สาสเน 
+<span class="LineNumber"> 015 </span>	สงฺฆสฺส ปิตรํ วนฺเท		วินเย สุวิสารทํ ฯ 
+<span class="LineNumber"> 016 </span>	ยํ นิสฺสาย วสนฺโตหํ		วุฑฺฒึ ปตฺโตสฺมิ สาสเน 

@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>"น   ตฺวํ   อิมสฺมึ   วิหาเร   วสิตุํ  ยุตฺตรูโปติ  อจฺฉรํ  ปหรึสุ.  โส 
+<span class="LineNumber"> 002 </span>สณฺ€าตุํ    อสกฺโกนฺโต    ตาวเทว   นิกฺขมิตฺวา   ปลายิ.   อถ   นํ 
+<span class="LineNumber"> 003 </span>วีสติ   วสฺส   สหสฺสานิ  กโต  สมณธมฺโม  สนฺธาเรตุํ  นาสกฺขิ.  ตโต 
+<span class="LineNumber"> 004 </span>จวิตฺวา    อวีจิมฺหิ    นิพฺพตฺโต   เอกํ   พุทฺธนฺตรํ   ปจิตฺวา   อิทานิ 
+<span class="LineNumber"> 005 </span>คิชฺฌกูเฏ วุตฺตปฺปกาเรน อตฺตภาเวน ทุกฺขํ อนุโภติ. 
+<span class="LineNumber"> 006 </span>	สตฺถา   อิทํ   ตสฺส   ปุพฺพกมฺมํ   อาหริตฺวา  "ภิกฺขเว  ภิกฺขุนา 
+<span class="LineNumber"> 007 </span>นาม กายาทีหิ อุปสนฺตรูเปน ภวิตพฺพนฺติ วตฺวา อิมํ คาถมาห 
+<span class="LineNumber"> 008 </span>			"วาจานุรกฺขี มนสา สุสํวุโต 
+<span class="LineNumber"> 009 </span>			กาเยน  จ อกุสลํ น กยิรา 
+<span class="LineNumber"> 010 </span>			เอเต ตโย กมฺมปเถ วิโสธเย 
+<span class="LineNumber"> 011 </span>			อาราธเย มคฺคมิสิปฺปเวทิตนฺติ. 
+<span class="LineNumber"> 012 </span>	ตสฺสตฺโถ    "จตุนฺนํ    วจีทุจฺจริตานํ   วชฺชเนน   วาจานุรกฺขี, 
+<span class="LineNumber"> 013 </span>อภิชฺฌาทีนํ   อนุปฺปาทเนน   มนสา   สุฏฺ€ุ   สํวุโต,  ปาณาติปาตาทโย 
+<span class="LineNumber"> 014 </span>ปชหนฺโต  กาเยน  จ  อกุสลํ  น กยิรา, เอวํ<SUP>๑</SUP> เอเต ตโย กมฺมปเถ 
+<span class="LineNumber"> 015 </span>วิโสธเย;   เอวํ   วิโสเธนฺโต  หิ  สีลกฺขนฺธาทีนํ  เอสเกหิ  พุทฺธาทีหิ 
+<span class="LineNumber"> 016 </span>อิสีหิ ปเวทิตํ อฏฺ€งฺคิกํ มคฺคํ อาราเธยฺยาติ. 
+<span class="LineNumber"> 017 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 018 </span>		   	สูกรเปตวตฺถุ. 
+		    
+<span class='footnote'>๑. สี. ยุ.  "เอวนฺติ นตฺถิ. </span>

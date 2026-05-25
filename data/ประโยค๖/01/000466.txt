@@ -1,0 +1,5 @@
+<span class="LineNumber"> 001 </span>ทฺวตฺตึส  วารา  ปาลินเยเนว  เวทิตพฺพา ฯ  น  เหตฺถ  กิฺจิ  ปุพฺเพ 
+<span class="LineNumber"> 002 </span>อวินิจฺฉิตนฺนาม อตฺถิ ฯ 
+<span class="LineNumber"> 003 </span>          มหาวิภงฺเค จ ภิกฺขุนีวิภงฺเค จ โสฬสมหาวารวณฺณนา 
+<span class="LineNumber"> 004 </span>                                              นิฏฺ€ิตา ฯ 
+<span class="LineNumber"> 005 </span>                                                ---------

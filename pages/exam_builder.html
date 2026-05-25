@@ -1,0 +1,3957 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ระบบออกข้อสอบ</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Niramit:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="../js/firebase_config.js"></script>
+    <script>
+        try {
+            if (typeof firebase !== 'undefined' && firebase.auth) {
+                firebase.auth().onAuthStateChanged((u) => {
+                    window.__currentUser = u || null;
+                });
+            }
+        } catch (_) {}
+    </script>
+    <style>
+        body { font-family: "Sarabun", "Niramit", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; background-color: #f4f6f8; margin: 0; }
+        /* Workflow State Styles */
+        .step-required {
+            background-color: #fffde7 !important; /* Yellow-ish */
+            border: 2px solid #d32f2f !important; /* Red border */
+            box-shadow: 0 0 5px rgba(211, 47, 47, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .step-completed {
+            background-color: #f1f8e9 !important; /* Green-ish */
+            border: 2px solid #388e3c !important; /* Green border */
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .step-locked {
+            opacity: 0.5;
+            pointer-events: none;
+            filter: grayscale(100%);
+        }
+
+        .container { max-width: 1100px; margin: 30px auto; background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { padding: 18px 24px; border-bottom: 1px solid #e0e0e0; display:flex; align-items:center; justify-content:space-between; }
+        .header h1 { font-size: 1.25rem; color: #2c3e50; margin:0; }
+        .content { padding: 24px; display: block; }
+        .section { border: 1px solid #eaeaea; border-radius: 10px; padding: 24px; background:#fafafa; margin-bottom: 24px; }
+        .section h2 { font-size: 1rem; color: #37474f; margin: 0 0 16px 0; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .row { display:flex; gap:16px; margin:12px 0; align-items:center; }
+        label { min-width: 100px; color:#607d8b; font-weight: 500; font-size: 0.95rem; }
+        select, input[type="text"], input[type="number"], input[type="date"] { padding:8px 12px; border:1px solid #cfd8dc; border-radius:8px; font-size:0.95rem; width:100%; box-sizing:border-box; }
+        .actions { padding: 16px 24px; border-top: 1px solid #e0e0e0; display:flex; gap:12px; justify-content:flex-end; background:#fcfcfc; }
+        .btn { padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:600; font-size: 0.9rem; }
+        .primary { background:#1976D2; color:#fff; }
+        .secondary { background:#eceff1; color:#37474f; }
+        .preview { padding: 24px; }
+        .preview h3 { color:#2c3e50; margin-top:0; }
+        .badge { display:inline-block; background:#eceff1; padding:6px 10px; border-radius:8px; color:#607d8b; margin-right:8px; }
+        .list { margin-top:16px; border-top:1px dashed #e0e0e0; padding-top:16px; }
+        .item { margin-bottom:12px; padding: 10px; background: #fff; border: 1px solid #eee; border-radius: 8px; display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
+        .item-content { flex: 1; display: flex; align-items: flex-start; gap: 10px; }
+        .item-controls { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+        .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .stats-panel-warning { background:#fff3e0; padding:15px; border-radius:8px; border:1px solid #ffe0b2; }
+        /* Paper (A4-like) */
+        /* DilleniaUPC (Standard) */
+        @font-face {
+            font-family: 'DilleniaUPC';
+            src: local('DilleniaUPC'), url('fonts/DilleniaUPC-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'DilleniaUPC';
+            src: local('DilleniaUPC Bold'), url('fonts/DilleniaUPC-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'DilleniaUPC';
+            src: local('DilleniaUPC Italic'), url('fonts/DilleniaUPC-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+        @font-face {
+            font-family: 'DilleniaUPC';
+            src: local('DilleniaUPC Bold Italic'), url('fonts/DilleniaUPC-BoldItalic.ttf') format('truetype');
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* DilleniaUPC_4Balee (Custom Pali) */
+        @font-face {
+            font-family: 'DilleniaUPC_4Balee';
+            src: local('DilleniaUPC_4Balee'), url('fonts/DilleniaUPC_4Balee-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'DilleniaUPC_4Balee';
+            src: local('DilleniaUPC_4Balee Bold'), url('fonts/DilleniaUPC_4Balee-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'DilleniaUPC_4Balee';
+            src: local('DilleniaUPC_4Balee Italic'), url('fonts/DilleniaUPC_4Balee-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+        @font-face {
+            font-family: 'DilleniaUPC_4Balee';
+            src: local('DilleniaUPC_4Balee Bold Italic'), url('fonts/DilleniaUPC_4Balee-BoldItalic.ttf') format('truetype');
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        /* Buddhadham */
+        @font-face {
+            font-family: 'Buddhadham';
+            src: url('fonts/Buddhadham.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Buddhadham';
+            src: url('fonts/Buddhadham-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* BuddhadhamPali */
+        @font-face {
+            font-family: 'BuddhadhamPali';
+            src: url('fonts/BuddhadhamPali.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'BuddhadhamPali';
+            src: url('fonts/BuddhadhamPali-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* Buddhawajana */
+        @font-face {
+            font-family: 'Buddhawajana';
+            src: url('fonts/Buddhawajana.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Buddhawajana';
+            src: url('fonts/Buddhawajana-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* BuddhawajanaPali */
+        @font-face {
+            font-family: 'BuddhawajanaPali';
+            src: url('fonts/BuddhawajanaPali.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'BuddhawajanaPali';
+            src: url('fonts/BuddhawajanaPali-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* Burapa */
+        @font-face {
+            font-family: 'Burapa';
+            src: url('fonts/Burapa.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Burapa';
+            src: url('fonts/BurapaBold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 18px; }
+        .paper-inner { 
+            --p-top: 2.54cm;
+            --p-bottom: 2.54cm;
+            --p-left: 2.54cm;
+            --p-right: 2.54cm;
+            padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left); 
+        }
+        .paper-center { text-align: center; }
+        .paper-sep { text-align:center; letter-spacing: 2px; color:#000; margin: 8px 0 16px 0; font-weight: bold; }
+        .paper-section-title { font-weight:700; color:#000; margin: 16px 0 12px 0; text-align: center; text-decoration: underline; text-decoration-thickness: 2px; font-size: 1em; white-space: pre-wrap; }
+        .paper-line { margin: 4px 0; font-weight: bold; color: #000; font-size: 1em; white-space: pre-wrap; letter-spacing: var(--paper-letter-spacing, 0); }
+        .paper-list .paper-item { margin: 6px 0; }
+        .paper-content-text { 
+            text-align: justify; 
+            text-align-last: left; /* Ensure last line aligns left */
+            line-height: var(--paper-line-height, 1.6); 
+            font-size: 1em; 
+            color: #000;
+            letter-spacing: var(--paper-letter-spacing, 0);
+            word-break: break-word; /* Prevent overflow */
+            overflow-wrap: break-word;
+            white-space: pre-wrap; /* Preserve spaces but allow wrapping */
+            text-indent: 1.27cm; /* First line indent for question number */
+        }
+        .paper-foot { margin-top: 20px; font-weight: bold; color: #000; font-size: 1em; white-space: pre-wrap; letter-spacing: var(--paper-letter-spacing, 0); }
+        
+        .no-split { white-space: nowrap; }
+        .justify-all .paper-content-text { text-align-last: justify; }
+
+        /* Toolbar for Paper */
+        .toolbar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; background: #eceff1; padding: 10px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #cfd8dc; }
+        .toolbar-group { display: flex; gap: 2px; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid #e0e0e0; }
+        .tool-btn { border: none; background: transparent; padding: 6px 10px; cursor: pointer; border-radius: 4px; color: #455a64; font-size: 0.9rem; }
+        .tool-btn:hover { background: #f5f5f5; color: #000; }
+        .tool-btn.active { background: #cfd8dc; font-weight: bold; color: #000; }
+        .tool-select { border: none; background: transparent; padding: 6px; font-size: 0.9rem; color: #455a64; outline: none; cursor: pointer; }
+        .draft-status {
+            max-width: 820px;
+            margin: 8px auto 10px auto;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #d7e3f4;
+            background: #f5f9ff;
+            color: #2c4a73;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .paper-header[contenteditable="false"] {
+            cursor: not-allowed;
+        }
+        .paper-header.paper-header-locked {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+        }
+        .internal-note {
+            max-width: 820px;
+            margin: 0 auto 12px auto;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid #dfe6ee;
+            background: #ffffff;
+            color: #263238;
+        }
+        .internal-note .title {
+            font-weight: 700;
+            color: #37474f;
+            margin-bottom: 8px;
+        }
+        .internal-note .auto {
+            background: #f7f9fb;
+            border: 1px solid #e6edf5;
+            border-radius: 6px;
+            padding: 10px 12px;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+            color: #455a64;
+            margin-bottom: 10px;
+        }
+        .internal-note textarea {
+            width: 100%;
+            min-height: 90px;
+            resize: vertical;
+            border: 1px solid #cfd8dc;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-family: "Sarabun", sans-serif;
+            font-size: 1rem;
+        }
+        .editor-warning {
+            max-width: 820px;
+            margin: 0 auto 12px auto;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #f0c36d;
+            background: #fff7e6;
+            color: #7a4b00;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        #marginPanel {
+            /* display: none; handled by class d-none */
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 6px;
+            z-index: 1000;
+            width: 280px;
+        }
+        #editHintPanel {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 6px;
+            z-index: 1000;
+            width: 320px;
+            color: #37474f;
+            line-height: 1.6;
+        }
+        #editHintPanel .title {
+            font-weight: 700;
+            color: #1976d2;
+            margin-bottom: 8px;
+        }
+        #editHintPanel .warning {
+            color: #c62828;
+            margin-top: 10px;
+        }
+        #marginPanel .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        #marginPanel label {
+            font-size: 0.9rem;
+            width: 40px;
+        }
+        #marginPanel input[type="number"] {
+            flex: 1;
+            margin: 0 10px;
+            text-align: right;
+        }
+        #marginPanel .unit-label {
+            font-size: 0.8rem;
+            width: 30px;
+            text-align: left;
+        }
+        
+        /* Paper Sizes */
+        .paper.size-a4 { width: 210mm; min-height: 297mm; position: relative; }
+        .paper.size-f4 { width: 216mm; min-height: 356mm; position: relative; } /* Legal/Folio */
+        
+        #overflowWarning {
+            display: none;
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: rgba(255, 235, 238, 0.9);
+            padding: 5px 0;
+            border: 1px solid #ffcdd2;
+            border-radius: 4px;
+        }
+
+        .page-marker { color: #999; font-size: 0.8rem; margin: 15px 0 5px 0; border-bottom: 1px dashed #eee; text-align: right; width: 100%; display: block; }
+
+        @media only screen and (max-width: 768px) {
+            .container { margin: 0; border-radius: 0; box-shadow: none; max-width: 100%; }
+            .header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .header h1 { font-size: 1.1rem; }
+            .badge { display: block; margin: 4px 0; }
+            .content { padding: 16px; }
+            .section { padding: 16px; }
+            .row { flex-direction: column; align-items: flex-start; }
+            label { min-width: 0; margin-bottom: 4px; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .actions { flex-wrap: wrap; justify-content: flex-start; padding: 12px 16px; }
+            .actions .btn { flex: 1 1 100%; text-align: center; }
+            .toolbar { overflow-x: auto; justify-content: flex-start; }
+            .toolbar-group { flex-wrap: wrap; }
+            .item { flex-direction: column; align-items: stretch; }
+            .item-controls { justify-content: flex-start; }
+            .paper { margin: 16px 0 24px 0; border-radius: 0; box-shadow: none; }
+            .paper-inner { padding: 16px; }
+            #marginPanel { right: 8px; width: 90vw; max-width: 320px; }
+        }
+
+        @media print {
+            body { background: #fff; margin: 0; padding: 0; }
+            .header, .content, .actions, .toolbar, .draft-status, .editor-warning, .internal-note, .container > .header, .container > .content, .container > .actions, .container > .toolbar { display: none !important; }
+            .container { box-shadow: none; margin: 0; max-width: none; width: 100%; border: none; }
+            .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; }
+            /* .paper-inner padding is controlled by inline style or default CSS, do not override with !important */
+            .paper-header.paper-header-locked { background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
+            
+            /* Print settings from toolbar state */
+            @page { size: auto; margin: 0; }
+
+            body[data-print-size="A4"] .paper { width: 210mm; min-height: 297mm; }
+            body[data-print-size="F4"] .paper { width: 216mm; min-height: 356mm; }
+            
+            /* Solution Mode Print Overrides - REMOVED to match Exam Mode Layout */
+        }
+
+        /* Utility Classes */
+        .d-flex { display: flex; }
+        .d-inline-flex { display: inline-flex; }
+        .flex-center { display: flex; align-items: center; }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .flex-col { flex-direction: column; }
+        .gap-5 { gap: 5px; }
+        .gap-10 { gap: 10px; }
+        .gap-15 { gap: 15px; }
+        .flex-1 { flex: 1; }
+        .w-full { width: 100%; }
+        .w-100px { width: 100px; }
+        .w-auto { width: auto; }
+        .text-decoration-none { text-decoration: none; }
+        .text-sm { font-size: 0.9rem; }
+        .text-xs { font-size: 0.8rem; }
+        .font-bold { font-weight: bold; }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .mt-0 { margin-top: 0; }
+        .mt-10 { margin-top: 10px; }
+        .mt-20 { margin-top: 20px; }
+        .mb-10 { margin-bottom: 10px; }
+        .pt-10 { padding-top: 10px; }
+        .pt-20 { padding-top: 20px; }
+        .px-12 { padding: 0 12px; }
+        .py-6 { padding: 6px 0; }
+        .p-btn-sm { padding: 6px 12px; }
+        .p-xs { padding: 4px 8px; }
+        .p-15 { padding: 15px; }
+        .rounded-8 { border-radius: 8px; }
+        .border-top-eee { border-top: 1px solid #eee; }
+        .opacity-50 { opacity: 0.5; }
+        .pointer-events-none { pointer-events: none; }
+        .relative { position: relative; }
+        .bg-warning-light { background: #fff3e0; border: 1px solid #ffe0b2; }
+        .text-success { color: #2e7d32; }
+        .text-danger { color: #c62828; }
+        .text-orange { color: #e65100; }
+        .text-blue { color: #1565c0; }
+        .bg-blue-light { background: #e3f2fd; border: 1px solid #bbdefb; }
+        .btn-active-bs { background-color: #e0f7fa !important; color: #006064 !important; border-color: #006064 !important; }
+        .min-w-60 { min-width: 60px; }
+        .min-w-auto { min-width: auto; }
+        .mr-8 { margin-right: 8px; }
+        .mr-10 { margin-right: 10px; }
+        .mx-10 { margin: 0 10px; }
+        .resize-v { resize: vertical; }
+        .h-120 { height: 120px; }
+        .d-none { display: none; }
+        .items-start { align-items: flex-start; }
+        .info-badge { font-size: 0.9em; color: #666; background: #fff3e0; padding: 5px 10px; border-radius: 4px; border: 1px solid #ffe0b2; }
+        .d-block { display: block; }
+        .text-gray { color: #7f8c8d; }
+        .text-red { color: red; }
+        .text-dark-red { color: #c0392b; }
+        .text-lg { font-size: 1.1rem; }
+        .text-md { font-size: 0.9rem; }
+        .mb-5 { margin-bottom: 5px; }
+        .p-20 { padding: 20px; }
+        .ml-auto { margin-left: auto; }
+        .ml-5 { margin-left: 5px; }
+        .btn-stats-detail { padding: 4px 8px; font-size: 0.85rem; }
+        .book-content-area {
+            background: #fff;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            line-height: 1.8;
+            font-family: "Sarabun", sans-serif;
+            height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-size: 1.1rem;
+            color: #333;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .book-line { margin-bottom: 6px; }
+        .page-marker-dynamic {
+            color: #999;
+            font-size: 0.8rem;
+            margin: 15px 0 5px 0;
+            border-bottom: 1px dashed #eee;
+            text-align: right;
+        }
+        
+        /* Utility classes for Exam Builder Refactor */
+        .text-gray-dark { color: #555; }
+        .text-gray-medium { color: #888; }
+        .text-gray-666 { color: #666; }
+        .text-gray-light { color: #7f8c8d; }
+        .w-full { width: 100%; }
+        .border-collapse { border-collapse: collapse; }
+        .bg-light-gray { background: #f8f9fa; }
+        .border-bottom-ddd { border-bottom: 2px solid #ddd; }
+        .border-bottom-eee { border-bottom: 1px solid #eee; }
+        .p-8 { padding: 8px; }
+        .text-left { text-align: left; }
+        .valign-top { vertical-align: top; }
+        .text-blue-dark { color: #2980b9; }
+        .error-msg { color: red; font-weight: bold; text-align: center; padding: 20px; }
+        
+        /* Modal Utilities */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center; }
+        .modal-overlay.d-flex { display: flex; }
+        .modal-content { background: #fff; padding: 20px; border-radius: 8px; width: 90%; max-width: 800px; max-height: 80vh; overflow-y: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .modal-title { margin: 0; color: #2c3e50; }
+        .modal-close-btn { border: none; background: transparent; font-size: 1.5rem; cursor: pointer; color: #7f8c8d; }
+        .modal-footer { text-align: right; margin-top: 15px; }
+
+        /* Print/Display Utilities for Content */
+        .print-container { margin-bottom: 8px; page-break-inside: avoid; text-indent: 0; }
+        .print-pali { font-family: 'DilleniaUPC_4Balee', 'DilleniaUPC', sans-serif; margin-bottom: 0; text-align: justify; text-align-last: left; white-space: pre-wrap; }
+        .print-thai { margin-left: 25px; margin-top: 0; text-align: justify; text-align-last: left; white-space: pre-wrap; }
+        .msg-no-data { text-align: center; padding: 20px; color: #7f8c8d; }
+        .msg-waiting { padding: 20px; text-align: center; color: #888; }
+        .msg-loading { color: #7f8c8d; }
+        .font-pali { font-family: "DilleniaUPC_4Balee", "DilleniaUPC", sans-serif; }
+        .font-thai { font-family: "DilleniaUPC", sans-serif; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="flex-center gap-15">
+                <h1><i class="fa-solid fa-file-lines"></i> ระบบออกข้อสอบ</h1>
+            </div>
+            <div>
+                <span class="badge" id="durationDisplay">เวลา: ๐ ชั่วโมง กับ ๐ นาที.</span>
+                <span class="badge" id="dateDisplay">วันที่: -</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="section">
+                <h2>ตั้งค่าข้อสอบ</h2>
+                <div class="grid-2">
+                    <div>
+                        <div class="text-gray-dark font-bold mb-10">ชุดบังคับเลือก</div>
+                        <div class="row" id="levelRow">
+                            <label>ชั้น</label>
+                            <div class="flex-center gap-10 flex-1">
+                                <select id="levelSelect" class="flex-1" title="เลือกชั้นประโยค">
+                                    <option value="" disabled selected>(กรุณาเลือกชั้นประโยค)</option>
+                                    <option value="p12">ประโยค ๑–๒</option>
+                                    <option value="p3">ประโยค ป.ธ. ๓</option>
+                                    <option value="p4">ประโยค ป.ธ. ๔</option>
+                                    <option value="p5">ประโยค ป.ธ. ๕</option>
+                                    <option value="p6">ประโยค ป.ธ. ๖</option>
+                                    <option value="p7">ประโยค ป.ธ. ๗</option>
+                                    <option value="p8">ประโยค ป.ธ. ๘</option>
+                                    <option value="p9">ประโยค ป.ธ. ๙</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row step-locked" id="subjectRow">
+                            <label>วิชา</label>
+                            <select id="subjectSelect" aria-label="เลือกวิชา">
+                                <option value="" disabled selected>(กรุณาเลือกวิชา)</option>
+                            </select>
+                        </div>
+                        <div class="row" id="dateRow">
+                            <label>วันที่</label>
+                            <input type="date" id="dateInput" title="เลือกวันที่สอบ" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-gray-dark font-bold mb-10">ชุดไม่บังคับ</div>
+                        <div class="row">
+                            <label>สอบครั้งที่</label>
+                            <input type="text" id="attemptInput" placeholder="เช่น ๑" />
+                        </div>
+                        <div class="row">
+                            <label>ให้เวลา</label>
+                            <div class="grid-2 gap-10 flex-1">
+                                <div class="row mt-0">
+                                    <label class="min-w-60">ชั่วโมง</label>
+                                    <input type="number" id="hoursInput" min="0" value="4" placeholder="ชั่วโมง" />
+                                </div>
+                                <div class="row mt-0">
+                                    <label class="min-w-60">นาที</label>
+                                    <input type="number" id="minutesInput" min="0" value="15" placeholder="นาที" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label>ชื่อโครงการ</label>
+                            <input type="text" id="projectNameInput" placeholder="เช่น อบรมบาลีก่อนสอบสนามหลวง" />
+                        </div>
+                        <div class="row">
+                            <label>ผู้ออกข้อสอบ</label>
+                            <input type="text" id="examAuthorInput" placeholder="เช่น พระมหาสามารถ สามญฺญชโย ป.ธ.๙" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section step-locked d-none" id="contentSection">
+                <div class="flex-between">
+                    <h2 id="contentSectionTitle">เลือกช่วงเนื้อหา <span id="bookTitleBadge" class="text-md text-gray-666"></span></h2>
+                </div>
+                <div class="row items-start" id="literalRow">
+                    <label id="literalLabel" class="pt-10">ข้อ ๑</label>
+                    <div class="w-full">
+                        <div class="grid-3 mb-10">
+                            <select id="literalPart" aria-label="เลือกภาคโดยพยัญชนะ"></select>
+                            <select id="literalVagga" aria-label="เลือกวรรคโดยพยัญชนะ"><option value="">(เลือกวรรค)</option></select>
+                            <select id="literalStory" aria-label="เลือกเรื่องโดยพยัญชนะ"><option value="">(เลือกเรื่อง)</option></select>
+                        </div>
+                        <div class="row mt-0">
+                            <span id="literalVolumeWrap" class="flex-center gap-10 d-none">
+                                <label class="min-w-auto mr-10">เล่ม</label>
+                                <select id="literalVolumeSelect" class="w-100px" aria-label="เลือกเล่ม"></select>
+                            </span>
+                            <span class="mx-10 d-none" id="literalVolumeDivider">|</span>
+                            <label class="min-w-auto mr-10">หน้า</label>
+                            <input type="number" id="literalStartPage" placeholder="เริ่มต้น" class="w-100px" />
+                            <span class="mx-10">ถึง</span>
+                            <input type="number" id="literalEndPage" placeholder="สิ้นสุด" class="w-100px" />
+                        </div>
+                        <div id="literalList" class="list"></div>
+                    </div>
+                </div>
+                
+                <div class="row items-start border-top-eee pt-20 mt-20" id="senseRow">
+                    <label id="senseLabel" class="pt-10">ข้อ ๒</label>
+                    <div class="w-full">
+                        <div class="grid-3 mb-10">
+                            <select id="sensePart" aria-label="เลือกภาคโดยอรรถ"></select>
+                            <select id="senseVagga" aria-label="เลือกวรรคโดยอรรถ"><option value="">(เลือกวรรค)</option></select>
+                            <select id="senseStory" aria-label="เลือกเรื่องโดยอรรถ"><option value="">(เลือกเรื่อง)</option></select>
+                        </div>
+                        <div class="row mt-0">
+                            <span id="senseVolumeWrap" class="flex-center gap-10 d-none">
+                                <label class="min-w-auto mr-10">เล่ม</label>
+                                <select id="senseVolumeSelect" class="w-100px" aria-label="เลือกเล่ม"></select>
+                            </span>
+                            <span class="mx-10 d-none" id="senseVolumeDivider">|</span>
+                            <label class="min-w-auto mr-10">หน้า</label>
+                            <input type="number" id="senseStartPage" placeholder="เริ่มต้น" class="w-100px" />
+                            <span class="mx-10">ถึง</span>
+                            <input type="number" id="senseEndPage" placeholder="สิ้นสุด" class="w-100px" />
+                        </div>
+                        <div id="senseList" class="list"></div>
+                    </div>
+                </div>
+
+                <!-- Statistics Section -->
+                <div id="statsSection" class="mt-20 pt-20 border-top-eee d-none">
+                    <h3><i class="fa-solid fa-chart-pie"></i> สถิติการออกข้อสอบ (Exam Statistics)</h3>
+                    <div class="grid-2">
+                        <div class="stats-panel-warning">
+                            <h4 class="mt-0 text-orange"><i class="fa-solid fa-scale-balanced"></i> สถิติสนามหลวง</h4>
+                            <div id="sanluangStatsContent">กำลังโหลด...</div>
+                        </div>
+                        <div class="bg-blue-light p-15 rounded-8">
+                            <h4 class="mt-0 text-blue"><i class="fa-solid fa-users"></i> สถิติการใช้งานในระบบ</h4>
+                            <div id="systemStatsContent">กำลังโหลด...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="btn secondary" id="bsToggleBtn" onclick="toggleBsMode()" title="สลับโหมด บาลีศึกษา (บ.ศ.)"><i class="fa-solid fa-right-left"></i> โหมด: ป.ธ.</button>
+            <button class="btn secondary" id="solutionBtn" onclick="generateSolution()" title="สร้างเฉลย"><i class="fa-solid fa-wand-magic-sparkles"></i> เฉลย</button>
+            <a href="font_download.html" class="btn secondary text-decoration-none d-inline-flex flex-center gap-5" title="หน้าดาวน์โหลดและวิธีติดตั้งฟอนต์"><i class="fa-solid fa-font"></i> ดาวน์โหลดฟอนต์</a>
+            <button class="btn secondary" id="resetBtn"><i class="fa-solid fa-rotate-left"></i> รีเซ็ต</button>
+            <button class="btn secondary" id="copyBtn"><i class="fa-solid fa-copy"></i> คัดลอก</button>
+            <button class="btn secondary" id="saveTemplateBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกแม่แบบ</button>
+            <button class="btn secondary" id="loadTemplateBtn"><i class="fa-solid fa-folder-open"></i> เรียกแม่แบบ</button>
+            <button class="btn secondary" id="printBtn" onclick="window.print()"><i class="fa-solid fa-print"></i> พิมพ์ / PDF</button>
+            <button class="btn primary" id="generateBtn" title="ล้างการแก้ไขข้อสอบและสร้างใหม่จากเนื้อหาที่เลือกอยู่"><i class="fa-solid fa-rotate-right"></i> ล้างการแก้ไขข้อสอบ</button>
+        </div>
+
+        <div class="draft-status" id="draftStatus">งานร่างอัตโนมัติพร้อมใช้งาน</div>
+        
+        <div class="toolbar">
+            <div class="toolbar-group">
+                <button class="tool-btn" onclick="execCmd('bold')" title="ตัวหนา"><i class="fa-solid fa-bold"></i></button>
+                <button class="tool-btn" onclick="execCmd('italic')" title="ตัวเอียง"><i class="fa-solid fa-italic"></i></button>
+                <button class="tool-btn" onclick="execCmd('underline')" title="ขีดเส้นใต้"><i class="fa-solid fa-underline"></i></button>
+                <button class="tool-btn" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i></button>
+            </div>
+            <div class="toolbar-group">
+                <button class="tool-btn" onclick="execCmd('justifyLeft')" title="จัดชิดซ้าย"><i class="fa-solid fa-align-left"></i></button>
+                <button class="tool-btn" onclick="execCmd('justifyCenter')" title="จัดกึ่งกลาง"><i class="fa-solid fa-align-center"></i></button>
+                <button class="tool-btn" onclick="execCmd('justifyRight')" title="จัดชิดขวา"><i class="fa-solid fa-align-right"></i></button>
+                <button class="tool-btn" onclick="execCmd('justifyFull')" title="จัดเต็มบรรทัด"><i class="fa-solid fa-align-justify"></i></button>
+                <button class="tool-btn" onclick="toggleJustifyAll()" title="กระจายทุกบรรทัด (รวมบรรทัดสุดท้าย/Shift+Enter)"><i class="fa-solid fa-arrows-left-right-to-line"></i></button>
+            </div>
+            <div class="toolbar-group">
+                <select class="tool-select" id="fontFamilySelect" onchange="changeFontFamily(this.value)" title="แบบอักษร">
+                    <option value="DilleniaUPC" selected>DilleniaUPC</option>
+                    <option value="DilleniaUPC_4Balee">DilleniaUPC (บาลี)</option>
+                    <option value="Buddhadham">Buddhadham</option>
+                    <option value="BuddhadhamPali">Buddhadham (บาลี)</option>
+                    <option value="Buddhawajana">Buddhawajana</option>
+                    <option value="BuddhawajanaPali">Buddhawajana (บาลี)</option>
+                    <option value="Burapa">Burapa</option>
+                    <option value="TH Sarabun New, Sarabun">TH Sarabun New</option>
+                    <option value="Cordia New">Cordia New</option>
+                    <option value="Niramit">Niramit</option>
+                </select>
+                <button class="tool-btn" onclick="applyPaliWordFont()" title="คลุมเฉพาะคำบาลี แล้วกดเพื่อใช้รูปอักษรบาลี">บาลี</button>
+                <button class="tool-btn" onclick="applyThaiWordFont()" title="คลุมคำที่ต้องการ แล้วกดเพื่อกลับเป็นรูปอักษรไทยปกติ">ไทย</button>
+            </div>
+            <div class="toolbar-group">
+                <select class="tool-select" id="fontSizeSelect" onchange="changeFontSize(this.value)" title="ขนาดตัวอักษร">
+                    <option value="10px">10px</option>
+                    <option value="12px">12px</option>
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                    <option value="20px">20px</option>
+                    <option value="22px" selected>22px</option>
+                    <option value="24px">24px</option>
+                    <option value="26px">26px</option>
+                    <option value="28px">28px</option>
+                </select>
+            </div>
+            <div class="toolbar-group">
+                <select class="tool-select" id="lineHeightSelect" onchange="changeLineHeight(this.value)" title="ระยะห่างระหว่างบรรทัด">
+                    <option value="1.0">1.0</option>
+                    <option value="1.2">1.2</option>
+                    <option value="1.4">1.4</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.6" selected>1.6 (ปกติ)</option>
+                    <option value="1.8">1.8</option>
+                    <option value="2.0">2.0</option>
+                    <option value="2.2">2.2</option>
+                    <option value="2.5">2.5</option>
+                </select>
+            </div>
+            <div class="toolbar-group">
+                <select class="tool-select" id="letterSpacingSelect" onchange="changeLetterSpacing(this.value)" title="ระยะห่างระหว่างตัวอักษร">
+                    <option value="0" selected>ตัวอักษรปกติ</option>
+                    <option value="-0.2px">แน่นเล็กน้อย</option>
+                    <option value="-0.4px">แน่น</option>
+                    <option value="-0.6px">แน่นมาก</option>
+                </select>
+            </div>
+            <div class="toolbar-group">
+                <select class="tool-select" id="paperSizeSelect" onchange="changePaperSize(this.value)" title="ขนาดกระดาษ">
+                    <option value="A4" selected>กระดาษ A4</option>
+                    <option value="F4">กระดาษ F4 (14 นิ้ว / Legal)</option>
+                </select>
+            </div>
+            <div class="toolbar-group relative">
+                <button class="tool-btn" id="marginBtn" onclick="toggleMarginPanel()" title="ตั้งค่าขอบกระดาษ"><i class="fa-solid fa-ruler-combined"></i> ระยะขอบ</button>
+                <div id="marginPanel" class="d-none">
+                    <div class="row">
+                        <label>บน</label>
+                        <input type="number" id="marginTop" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('top', this.value)">
+                        <span class="unit-label">cm</span>
+                    </div>
+                    <div class="row">
+                        <label>ล่าง</label>
+                        <input type="number" id="marginBottom" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('bottom', this.value)">
+                        <span class="unit-label">cm</span>
+                    </div>
+                    <div class="row">
+                        <label>ซ้าย</label>
+                        <input type="number" id="marginLeft" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('left', this.value)">
+                        <span class="unit-label">cm</span>
+                    </div>
+                    <div class="row">
+                        <label>ขวา</label>
+                        <input type="number" id="marginRight" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('right', this.value)">
+                        <span class="unit-label">cm</span>
+                    </div>
+                    <div class="text-center mt-10">
+                        <button class="btn secondary text-xs p-xs" onclick="resetMargins()">ค่ามาตรฐาน (2.54)</button>
+                    </div>
+                </div>
+            </div>
+            <div class="toolbar-group relative">
+                <button class="tool-btn" id="editHintBtn" onclick="toggleEditHintPanel()" title="คำแนะนำการจัดข้อความ"><i class="fa-solid fa-circle-info"></i> คำแนะนำ</button>
+                <div id="editHintPanel" class="d-none">
+                    <div class="title"><i class="fa-solid fa-circle-info"></i> คำแนะนำการจัดข้อความในข้อสอบ</div>
+                    <div>1. ขึ้นย่อหน้าใหม่: กด <b>Enter</b></div>
+                    <div>2. ตัดบรรทัด (เนื้อหาต่อเนื่อง): กด <b>Shift+Enter</b></div>
+                    <div>3. แก้ปัญหาคำฉีก: ใช้ <b>Space bar</b> ดันคำที่ฉีกบนบรรทัดบนให้ตกลงมาข้างล่างทั้งคำ</div>
+                    <div class="warning"><b>ข้อห้าม:</b> ห้ามใช้ <b>Enter</b> หรือ <b>Shift+Enter</b> ในการปัดคำลงเด็ดขาด</div>
+                </div>
+            </div>
+            <div class="toolbar-group">
+                <button class="tool-btn" id="headerLockBtn" onclick="toggleHeaderLock()" title="ล็อกหัวกระดาษไม่ให้แก้ไข">ล็อกหัวกระดาษ</button>
+                <button class="tool-btn" id="internalNoteBtn" onclick="toggleInternalNotePanel()" title="หมายเหตุภายใน (ไม่พิมพ์ออกจริง)">หมายเหตุ</button>
+            </div>
+        </div>
+
+        <div class="internal-note d-none" id="internalNotePanel">
+            <div class="title"><i class="fa-solid fa-note-sticky"></i> หมายเหตุภายใน (ไม่พิมพ์ออกจริง)</div>
+            <div class="auto" id="internalNoteAuto">กำลังคำนวณที่มา...</div>
+            <textarea id="internalNoteText" placeholder="พิมพ์หมายเหตุเพิ่มเติม เช่น ข้อสังเกต/การปรับแก้/คำเตือนภายใน"></textarea>
+        </div>
+
+        <div class="editor-warning">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            กรุณาตรวจสอบความถูกต้องและแก้ไขให้สมบูรณ์ก่อนพิมพ์
+        </div>
+
+        <div class="paper size-a4">
+            <div class="paper-inner" id="paperContent" contenteditable="true">
+                <!-- Assembled exam document will be injected here -->
+            </div>
+            <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกินขอบกระดาษ (Content Overflow)</div>
+        </div>
+    </div>
+
+    <script>
+        let isBsMode = false;
+        let headerLockEnabled = false;
+        let draftSaveTimer = 0;
+        let isApplyingSavedState = false;
+        let draftPendingDecision = false;
+        let pendingDraftState = null;
+        const STORAGE_KEYS = {
+            templates: 'exam_builder_templates_v1',
+            defaults: 'exam_builder_default_templates_v1',
+            draft: 'exam_builder_autosave_v1'
+        };
+
+        function readStorageJson(key, fallbackValue) {
+            try {
+                const raw = localStorage.getItem(key);
+                return raw ? JSON.parse(raw) : fallbackValue;
+            } catch (error) {
+                console.error('Storage read failed', key, error);
+                return fallbackValue;
+            }
+        }
+
+        function writeStorageJson(key, value) {
+            try {
+                localStorage.setItem(key, JSON.stringify(value));
+                return true;
+            } catch (error) {
+                console.error('Storage write failed', key, error);
+                return false;
+            }
+        }
+
+        function formatDraftTimestamp(ts) {
+            if (!ts) return '';
+            try {
+                return new Date(ts).toLocaleString('th-TH', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+            } catch (error) {
+                return '';
+            }
+        }
+
+        function updateDraftStatus(message) {
+            const status = document.getElementById('draftStatus');
+            if (status) status.textContent = message;
+        }
+
+        function updateDraftStatusHtml(html) {
+            const status = document.getElementById('draftStatus');
+            if (status) status.innerHTML = html;
+        }
+
+        function updateBsModeButton() {
+            const btn = document.getElementById('bsToggleBtn');
+            if (!btn) return;
+            if (isBsMode) {
+                btn.classList.add('btn-active-bs');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> โหมด: บ.ศ.';
+            } else {
+                btn.classList.remove('btn-active-bs');
+                btn.innerHTML = '<i class="fa-solid fa-right-left"></i> โหมด: ป.ธ.';
+            }
+        }
+
+        function setBsMode(enabled, options = {}) {
+            const { rebuild = true } = options;
+            isBsMode = !!enabled;
+            updateBsModeButton();
+            if (rebuild) {
+                buildExamPreview();
+            }
+        }
+
+        function toggleBsMode() {
+            setBsMode(!isBsMode);
+            scheduleDraftSave();
+        }
+
+        function updateHeaderLockButton() {
+            const btn = document.getElementById('headerLockBtn');
+            if (!btn) return;
+            btn.classList.toggle('active', headerLockEnabled);
+            btn.innerHTML = headerLockEnabled
+                ? '<i class="fa-solid fa-lock"></i> ปลดล็อกหัวกระดาษ'
+                : '<i class="fa-solid fa-lock-open"></i> ล็อกหัวกระดาษ';
+        }
+
+        function applyHeaderLockState() {
+            const paper = document.getElementById('paperContent');
+            if (!paper) return;
+            paper.querySelectorAll('.paper-header').forEach((header) => {
+                header.setAttribute('contenteditable', headerLockEnabled ? 'false' : 'true');
+                header.classList.toggle('paper-header-locked', headerLockEnabled);
+            });
+        }
+
+        function toggleHeaderLock() {
+            headerLockEnabled = !headerLockEnabled;
+            updateHeaderLockButton();
+            applyHeaderLockState();
+            scheduleDraftSave();
+        }
+
+        function toggleInternalNotePanel() {
+            const panel = document.getElementById('internalNotePanel');
+            const btn = document.getElementById('internalNoteBtn');
+            if (!panel || !btn) return;
+            const isOpen = !panel.classList.contains('d-none');
+            if (isOpen) {
+                panel.classList.add('d-none');
+                btn.classList.remove('active');
+            } else {
+                panel.classList.remove('d-none');
+                btn.classList.add('active');
+                updateInternalNoteAutoSummary();
+                document.getElementById('internalNoteText')?.focus();
+            }
+        }
+
+        function getPartLabelFromMapping(partId) {
+            const levelLabel = getSelectedLevelLabel();
+            const subjectLabel = document.getElementById('subjectSelect')?.value || '';
+            const parts = (CONTENT_MAPPING[levelLabel] && CONTENT_MAPPING[levelLabel][subjectLabel]) ? CONTENT_MAPPING[levelLabel][subjectLabel] : [];
+            const found = (parts || []).find(p => p && p.id === partId);
+            return found ? found.label : partId;
+        }
+
+        function getPartLabelFromMappingByIndex(levelLabel, subjectLabel, index) {
+            const parts = (CONTENT_MAPPING[levelLabel] && CONTENT_MAPPING[levelLabel][subjectLabel]) ? CONTENT_MAPPING[levelLabel][subjectLabel] : [];
+            const i = parseInt(index, 10);
+            if (!Number.isFinite(i) || i < 0) return '';
+            const item = parts[i];
+            return item && item.label ? item.label : '';
+        }
+
+        function resolvePaliPagesPartLabel(partId) {
+            const m = String(partId || '').match(/^pali-pages-(p\d+)-v(\d+)$/);
+            if (!m) return '';
+            const levelCode = m[1];
+            const volIdx = parseInt(m[2], 10) || 0;
+
+            const levelLabel = getSelectedLevelLabel();
+            const subjectLabel = document.getElementById('subjectSelect')?.value || '';
+            const mapped = getPartLabelFromMappingByIndex(levelLabel, subjectLabel, volIdx);
+            if (mapped) return mapped;
+
+            const titles = getBookTitlesForLevel(levelCode);
+            if (levelCode === 'p7') {
+                const base = 'สมนฺตปาสาทิกา นาม วินยฏฺฐกถา';
+                const v = titles[volIdx] || titles[0] || '';
+                return v ? `${base} (${v})` : base;
+            }
+            if (levelCode === 'p8') {
+                const base = 'วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส-';
+                const v = titles[volIdx] || titles[0] || '';
+                return v ? `${base} (${v})` : base;
+            }
+            if (levelCode === 'p9') {
+                return 'อภิธมฺมตฺถวิภาวินี';
+            }
+            return titles[volIdx] || titles[0] || partId;
+        }
+
+        function getRenderCacheInfo(containerId) {
+            if (!window.renderCache) return null;
+            return window.renderCache[containerId] || null;
+        }
+
+        function estimateLineCountFromText(text) {
+            const t = String(text || '').replace(/\r\n/g, '\n').trim();
+            if (!t) return 0;
+            return t.split('\n').filter(line => String(line).trim() !== '').length;
+        }
+
+        function computePageRangeFromItems(items) {
+            const list = Array.isArray(items) ? items : [];
+            const pages = list
+                .map(it => parsePageNumber(it?.page))
+                .filter(n => typeof n === 'number' && n > 0);
+            if (!pages.length) return null;
+            return { from: Math.min(...pages), to: Math.max(...pages) };
+        }
+
+        function buildInternalNoteSection(modeLabel, cacheInfo, freeText, bookLineCount) {
+            const partId = cacheInfo?.part || '';
+            const paliPagesLabel = partId ? resolvePaliPagesPartLabel(partId) : '';
+            const partLabel = partId ? (paliPagesLabel || getPartLabelFromMapping(partId)) : '-';
+            const rangeFromCache = cacheInfo?.startPage && cacheInfo?.endPage
+                ? { from: parsePageNumber(cacheInfo.startPage), to: parsePageNumber(cacheInfo.endPage) }
+                : null;
+            const rangeFromItems = computePageRangeFromItems(cacheInfo?.items);
+            const range = rangeFromCache || rangeFromItems;
+            const rangeText = range ? `${toThaiDigits(range.from)}–${toThaiDigits(range.to)}` : '-';
+
+            const volId = modeLabel.includes('ข้อ ๑') ? 'literalVolumeSelect' : 'senseVolumeSelect';
+            const vol = parseInt(document.getElementById(volId)?.value || '0', 10) || 0;
+            const volText = (partId && String(partId).startsWith('pali-pages-')) ? '' : (vol > 0 ? `เล่ม ${toThaiDigits(vol + 1)}` : (document.getElementById(volId) ? 'เล่ม ๑' : '-'));
+
+            const freeLines = estimateLineCountFromText(freeText);
+            const lines = Number.isFinite(bookLineCount) ? bookLineCount : (freeText ? freeLines : 0);
+            const countText = `จำนวนบรรทัดที่คลุม: ${toThaiDigits(lines)}`;
+
+            return [
+                `${modeLabel}: ${partLabel}`,
+                `หน้า: ${rangeText}${volText ? ` | ${volText}` : ''}`,
+                countText
+            ].join('\n');
+        }
+
+        function updateInternalNoteAutoSummary() {
+            const auto = document.getElementById('internalNoteAuto');
+            if (!auto) return;
+            const levelLabel = getSelectedLevelLabel();
+            const subjectLabel = document.getElementById('subjectSelect')?.value || '';
+            const iso = document.getElementById('dateInput')?.value || '';
+            const dateLabel = formatThaiDate(iso);
+
+            const c1 = getRenderCacheInfo('literalList');
+            const c2 = getRenderCacheInfo('senseList');
+
+            const freeLit = window.examContent?.literal || '';
+            const freeSen = window.examContent?.sense || '';
+            const q1BookLines = estimateLineCountFromText(freeLit);
+            const q2BookLines = estimateLineCountFromText(freeSen);
+            const totalBookLines = q1BookLines + q2BookLines;
+
+            const header = [
+                `ชั้น: ${levelLabel || '-'}`,
+                `วิชา: ${subjectLabel || '-'}`,
+                `วันที่: ${dateLabel || '-'}`
+            ].join('\n');
+
+            const s1 = buildInternalNoteSection('ข้อ ๑', c1, freeLit, q1BookLines);
+            const s2 = buildInternalNoteSection('ข้อ ๒', c2, freeSen, q2BookLines);
+
+            const paperText = document.getElementById('paperContent')?.innerText || '';
+            const approxLines = estimateLineCountFromText(paperText);
+            const footer = `จำนวนบรรทัดในหน้ากระดาษ (ประมาณ): ${toThaiDigits(approxLines)}`;
+            const bookLinesSummary = [
+                `จำนวนบรรทัดในหนังสือจริง รวม ๒ ข้อ (ประมาณ): ${toThaiDigits(totalBookLines)}`
+            ].join('\n');
+
+            auto.textContent = [header, '', s1, '', s2, '', footer, '', bookLinesSummary].join('\n');
+        }
+
+        function getPaperSettingsState() {
+            return {
+                isBsMode,
+                headerLockEnabled,
+                fontFamily: document.getElementById('fontFamilySelect')?.value || 'DilleniaUPC',
+                fontSize: document.getElementById('fontSizeSelect')?.value || '22px',
+                lineHeight: document.getElementById('lineHeightSelect')?.value || '1.6',
+                letterSpacing: document.getElementById('letterSpacingSelect')?.value || '0',
+                paperSize: document.getElementById('paperSizeSelect')?.value || 'A4',
+                justifyAll: document.querySelector('.paper')?.classList.contains('justify-all') || false,
+                margins: {
+                    top: document.getElementById('marginTop')?.value || '2.54',
+                    bottom: document.getElementById('marginBottom')?.value || '2.54',
+                    left: document.getElementById('marginLeft')?.value || '2.54',
+                    right: document.getElementById('marginRight')?.value || '2.54'
+                }
+            };
+        }
+
+        function getTemplateState() {
+            return {
+                level: document.getElementById('levelSelect')?.value || '',
+                subject: document.getElementById('subjectSelect')?.value || '',
+                date: document.getElementById('dateInput')?.value || '',
+                attempt: document.getElementById('attemptInput')?.value || '',
+                hours: document.getElementById('hoursInput')?.value || '4',
+                minutes: document.getElementById('minutesInput')?.value || '15',
+                projectName: document.getElementById('projectNameInput')?.value || '',
+                examAuthor: document.getElementById('examAuthorInput')?.value || '',
+                internalNote: document.getElementById('internalNoteText')?.value || '',
+                settings: getPaperSettingsState()
+            };
+        }
+
+        function getDraftState() {
+            return {
+                ...getTemplateState(),
+                literalPart: document.getElementById('literalPart')?.value || '',
+                literalVagga: document.getElementById('literalVagga')?.value || '',
+                literalStory: document.getElementById('literalStory')?.value || '',
+                literalStartPage: document.getElementById('literalStartPage')?.value || '',
+                literalEndPage: document.getElementById('literalEndPage')?.value || '',
+                literalVolume: document.getElementById('literalVolumeSelect')?.value || '0',
+                sensePart: document.getElementById('sensePart')?.value || '',
+                senseVagga: document.getElementById('senseVagga')?.value || '',
+                senseStory: document.getElementById('senseStory')?.value || '',
+                senseStartPage: document.getElementById('senseStartPage')?.value || '',
+                senseEndPage: document.getElementById('senseEndPage')?.value || '',
+                senseVolume: document.getElementById('senseVolumeSelect')?.value || '0',
+                examContent: {
+                    literal: window.examContent?.literal || '',
+                    sense: window.examContent?.sense || ''
+                },
+                paperHTML: document.getElementById('paperContent')?.innerHTML || '',
+                savedAt: Date.now()
+            };
+        }
+
+        async function applySavedState(state, options = {}) {
+            if (!state) return false;
+            const { restorePaperHtml = false } = options;
+            clearTimeout(draftSaveTimer);
+            isApplyingSavedState = true;
+            try {
+                const levelSelect = document.getElementById('levelSelect');
+                const subjectSelect = document.getElementById('subjectSelect');
+                const setSelectValue = (id, value) => {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    if ([...el.options].some(opt => opt.value === value)) {
+                        el.value = value;
+                    }
+                };
+
+                if (state.level && [...levelSelect.options].some(opt => opt.value === state.level)) {
+                    levelSelect.value = state.level;
+                }
+                populateSubjectSelect();
+                if (state.subject && [...subjectSelect.options].some(opt => opt.value === state.subject)) {
+                    subjectSelect.value = state.subject;
+                }
+                populatePartSelects();
+                updateBookTitleBadge();
+                updateVolumeSelectors();
+
+                document.getElementById('dateInput').value = state.date || '';
+                document.getElementById('attemptInput').value = state.attempt || '';
+                document.getElementById('hoursInput').value = state.hours || '4';
+                document.getElementById('minutesInput').value = state.minutes || '15';
+                document.getElementById('projectNameInput').value = state.projectName || '';
+                document.getElementById('examAuthorInput').value = state.examAuthor || '';
+                document.getElementById('internalNoteText').value = state.internalNote || '';
+
+                setSelectValue('literalPart', state.literalPart || '');
+                updateVaggaSelect('literal');
+                setSelectValue('literalVagga', state.literalVagga || '');
+                updateStorySelect('literal');
+                setSelectValue('literalStory', state.literalStory || '');
+                document.getElementById('literalStartPage').value = state.literalStartPage || '';
+                document.getElementById('literalEndPage').value = state.literalEndPage || '';
+
+                setSelectValue('sensePart', state.sensePart || '');
+                updateVaggaSelect('sense');
+                setSelectValue('senseVagga', state.senseVagga || '');
+                updateStorySelect('sense');
+                setSelectValue('senseStory', state.senseStory || '');
+                document.getElementById('senseStartPage').value = state.senseStartPage || '';
+                document.getElementById('senseEndPage').value = state.senseEndPage || '';
+
+                updateVolumeSelectors();
+                setSelectValue('literalVolumeSelect', state.literalVolume || '0');
+                setSelectValue('senseVolumeSelect', state.senseVolume || '0');
+
+                if (window.examContent) {
+                    window.examContent.literal = state.examContent?.literal || '';
+                    window.examContent.sense = state.examContent?.sense || '';
+                }
+
+                setBsMode(!!state.settings?.isBsMode, { rebuild: false });
+                headerLockEnabled = !!state.settings?.headerLockEnabled;
+                updateHeaderLockButton();
+
+                const fontFamily = state.settings?.fontFamily || 'DilleniaUPC';
+                const fontSize = state.settings?.fontSize || '22px';
+                const lineHeight = state.settings?.lineHeight || '1.6';
+                const letterSpacing = state.settings?.letterSpacing || '0';
+                const paperSize = state.settings?.paperSize || 'A4';
+                document.getElementById('fontFamilySelect').value = fontFamily;
+                document.getElementById('fontSizeSelect').value = fontSize;
+                document.getElementById('lineHeightSelect').value = lineHeight;
+                document.getElementById('letterSpacingSelect').value = letterSpacing;
+                document.getElementById('paperSizeSelect').value = paperSize;
+
+                changeFontFamily(fontFamily);
+                changeFontSize(fontSize);
+                changeLineHeight(lineHeight);
+                changeLetterSpacing(letterSpacing);
+                changePaperSize(paperSize);
+
+                const margins = state.settings?.margins || {};
+                ['top', 'bottom', 'left', 'right'].forEach((side) => {
+                    const capitalized = side.charAt(0).toUpperCase() + side.slice(1);
+                    const value = margins[side] || '2.54';
+                    document.getElementById(`margin${capitalized}`).value = value;
+                    updateMargin(side, value);
+                });
+                document.querySelector('.paper')?.classList.toggle('justify-all', !!state.settings?.justifyAll);
+
+                updateDateDisplay();
+                updateDuration();
+                updateWorkflowState();
+                await generatePreview();
+
+                if (restorePaperHtml && state.paperHTML) {
+                    const paper = document.getElementById('paperContent');
+                    if (paper) {
+                        paper.innerHTML = state.paperHTML;
+                        normalizeEditablePaperContent(false);
+                    }
+                }
+                applyHeaderLockState();
+                updateInternalNoteAutoSummary();
+                updateDraftStatus(state.savedAt
+                    ? `กู้คืนงานร่างล่าสุดแล้ว เมื่อ ${formatDraftTimestamp(state.savedAt)}`
+                    : 'กู้คืนงานร่างล่าสุดแล้ว');
+                return true;
+            } finally {
+                isApplyingSavedState = false;
+            }
+        }
+
+        function scheduleDraftSave() {
+            if (isApplyingSavedState) return;
+            if (draftPendingDecision) return;
+            updateDraftStatus('กำลังบันทึกงานร่างอัตโนมัติ...');
+            clearTimeout(draftSaveTimer);
+            draftSaveTimer = setTimeout(() => {
+                const draft = getDraftState();
+                if (writeStorageJson(STORAGE_KEYS.draft, draft)) {
+                    updateDraftStatus(`บันทึกงานร่างอัตโนมัติล่าสุด เมื่อ ${formatDraftTimestamp(draft.savedAt)}`);
+                } else {
+                    updateDraftStatus('ไม่สามารถบันทึกงานร่างอัตโนมัติได้');
+                }
+            }, 500);
+        }
+
+        async function restoreDraftIfAvailable() {
+            const draft = readStorageJson(STORAGE_KEYS.draft, null);
+            if (!draft) {
+                draftPendingDecision = false;
+                pendingDraftState = null;
+                updateDraftStatus('งานร่างอัตโนมัติพร้อมใช้งาน');
+                await maybeApplyDefaultTemplate();
+                return;
+            }
+            draftPendingDecision = true;
+            pendingDraftState = draft;
+            const ts = formatDraftTimestamp(draft.savedAt);
+            updateDraftStatusHtml(
+                `พบงานร่างล่าสุดเมื่อ ${ts || '-'} ` +
+                `<button class="btn secondary text-xs ml-5" id="restoreDraftBtn">กู้คืน</button>` +
+                `<button class="btn secondary text-xs ml-5" id="discardDraftBtn">ละทิ้ง</button>`
+            );
+            const restoreBtn = document.getElementById('restoreDraftBtn');
+            const discardBtn = document.getElementById('discardDraftBtn');
+            if (restoreBtn) {
+                restoreBtn.addEventListener('click', async () => {
+                    const state = pendingDraftState;
+                    draftPendingDecision = false;
+                    pendingDraftState = null;
+                    updateDraftStatus('กำลังกู้คืนงานร่างล่าสุด...');
+                    const restored = await applySavedState(state, { restorePaperHtml: true });
+                    if (!restored) {
+                        updateDraftStatus('ไม่สามารถกู้คืนงานร่างล่าสุดได้');
+                    }
+                }, { once: true });
+            }
+            if (discardBtn) {
+                discardBtn.addEventListener('click', () => {
+                    localStorage.removeItem(STORAGE_KEYS.draft);
+                    draftPendingDecision = false;
+                    pendingDraftState = null;
+                    updateDraftStatus('ล้างงานร่างล่าสุดแล้ว');
+                    maybeApplyDefaultTemplate();
+                }, { once: true });
+            }
+        }
+
+        function openTemplateModal() {
+            const filter = document.getElementById('templateSetFilter');
+            const currentPaperSize = document.getElementById('paperSizeSelect')?.value || 'A4';
+            if (filter && (filter.value === 'ALL' || !filter.value)) filter.value = currentPaperSize;
+            refreshTemplateListUI(true);
+            const modal = document.getElementById('templateModal');
+            if (modal) modal.classList.add('d-flex');
+        }
+
+        function closeTemplateModal() {
+            const modal = document.getElementById('templateModal');
+            if (modal) modal.classList.remove('d-flex');
+        }
+
+        function getDefaultTemplatesMap() {
+            return readStorageJson(STORAGE_KEYS.defaults, { A4: '', F4: '' });
+        }
+
+        function setDefaultTemplateForSize(paperSize, templateName) {
+            const defaults = getDefaultTemplatesMap();
+            defaults[paperSize] = templateName || '';
+            return writeStorageJson(STORAGE_KEYS.defaults, defaults);
+        }
+
+        function isBlankDraftState() {
+            const level = document.getElementById('levelSelect')?.value || '';
+            const attempt = (document.getElementById('attemptInput')?.value || '').trim();
+            const projectName = (document.getElementById('projectNameInput')?.value || '').trim();
+            const author = (document.getElementById('examAuthorInput')?.value || '').trim();
+            const hasFreeSelection = !!((window.examContent && window.examContent.literal) || (window.examContent && window.examContent.sense));
+            return !level && !attempt && !projectName && !author && !hasFreeSelection;
+        }
+
+        async function maybeApplyDefaultTemplate() {
+            if (!isBlankDraftState()) return false;
+            const currentPaperSize = document.getElementById('paperSizeSelect')?.value || 'A4';
+            const defaults = getDefaultTemplatesMap();
+            const defaultName = defaults[currentPaperSize];
+            if (!defaultName) return false;
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            const template = templates[defaultName];
+            if (!template) return false;
+            updateDraftStatus(`กำลังโหลดแม่แบบเริ่มต้น (${currentPaperSize})...`);
+            const ok = await applySavedState(template, { restorePaperHtml: false });
+            if (ok) {
+                updateDraftStatus(`โหลดแม่แบบเริ่มต้น (${currentPaperSize}) แล้ว`);
+            }
+            return ok;
+        }
+
+        function refreshTemplateListUI(preserveSelection = false) {
+            const select = document.getElementById('templateSelect');
+            const meta = document.getElementById('templateMeta');
+            const filter = document.getElementById('templateSetFilter');
+            const defaultInfo = document.getElementById('templateDefaultInfo');
+            if (!select) return;
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            const defaults = getDefaultTemplatesMap();
+            const filterValue = filter?.value || 'ALL';
+            const currentSelected = preserveSelection ? (select.value || '') : '';
+
+            const names = Object.keys(templates)
+                .filter((name) => {
+                    if (filterValue === 'ALL') return true;
+                    const size = templates[name]?.settings?.paperSize || '';
+                    return size === filterValue;
+                })
+                .sort();
+            select.innerHTML = '';
+            if (!names.length) {
+                const opt = document.createElement('option');
+                opt.value = '';
+                opt.textContent = '(ยังไม่มีแม่แบบในชุดนี้)';
+                select.appendChild(opt);
+                if (meta) meta.textContent = '';
+                if (defaultInfo) {
+                    const size = filterValue === 'ALL' ? (document.getElementById('paperSizeSelect')?.value || 'A4') : filterValue;
+                    defaultInfo.textContent = defaults[size] ? `แม่แบบเริ่มต้น (${size}): ${defaults[size]}` : `แม่แบบเริ่มต้น (${size}): -`;
+                }
+                return;
+            }
+            names.forEach((name) => {
+                const opt = document.createElement('option');
+                opt.value = name;
+                const size = templates[name]?.settings?.paperSize || '';
+                const isDefault = (size && defaults[size] === name);
+                opt.textContent = `${isDefault ? '⭐ ' : ''}${name}${size ? ` (${size})` : ''}`;
+                select.appendChild(opt);
+            });
+            const showMeta = () => {
+                const current = templates[select.value];
+                if (!meta) return;
+                if (!current) {
+                    meta.textContent = '';
+                    return;
+                }
+                const size = current.settings?.paperSize || '-';
+                const isDefault = defaults[size] === current.name;
+                meta.textContent = [
+                    current.savedAt ? `บันทึกล่าสุด: ${formatDraftTimestamp(current.savedAt)}` : '',
+                    `ชุดกระดาษ: ${size}`,
+                    isDefault ? 'สถานะ: แม่แบบเริ่มต้น' : ''
+                ].filter(Boolean).join(' | ');
+                if (defaultInfo) {
+                    defaultInfo.textContent = defaults[size] ? `แม่แบบเริ่มต้น (${size}): ${defaults[size]}` : `แม่แบบเริ่มต้น (${size}): -`;
+                }
+            };
+            select.onchange = showMeta;
+            if (currentSelected && [...select.options].some(o => o.value === currentSelected)) {
+                select.value = currentSelected;
+            }
+            showMeta();
+        }
+
+        function promptTemplateName() {
+            const defaultName = `${getSelectedLevelLabel() || 'แม่แบบข้อสอบ'} ${document.getElementById('subjectSelect')?.value || ''}`.trim();
+            const name = window.prompt('ตั้งชื่อแม่แบบข้อสอบ', defaultName);
+            return name ? name.trim() : '';
+        }
+
+        function saveNewTemplateFromModal() {
+            const name = promptTemplateName();
+            if (!name) return;
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            if (templates[name] && !window.confirm('มีแม่แบบชื่อนี้อยู่แล้ว ต้องการบันทึกทับหรือไม่?')) {
+                return;
+            }
+            templates[name] = { ...getTemplateState(), name, savedAt: Date.now() };
+            if (writeStorageJson(STORAGE_KEYS.templates, templates)) {
+                refreshTemplateListUI(true);
+                const select = document.getElementById('templateSelect');
+                if (select) select.value = name;
+                alert(`บันทึกแม่แบบ "${name}" เรียบร้อยแล้ว`);
+                scheduleDraftSave();
+            } else {
+                alert('ไม่สามารถบันทึกแม่แบบได้');
+            }
+        }
+
+        function overwriteSelectedTemplate() {
+            const select = document.getElementById('templateSelect');
+            const name = select?.value || '';
+            if (!name) return;
+            if (!window.confirm(`ต้องการบันทึกทับแม่แบบ "${name}" หรือไม่?`)) return;
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            templates[name] = { ...getTemplateState(), name, savedAt: Date.now() };
+            if (writeStorageJson(STORAGE_KEYS.templates, templates)) {
+                refreshTemplateListUI(true);
+                if (select) select.value = name;
+                alert(`บันทึกทับแม่แบบ "${name}" เรียบร้อยแล้ว`);
+                scheduleDraftSave();
+            } else {
+                alert('ไม่สามารถบันทึกแม่แบบได้');
+            }
+        }
+
+        function deleteSelectedTemplate() {
+            const select = document.getElementById('templateSelect');
+            const name = select?.value || '';
+            if (!name) return;
+            if (!window.confirm(`ต้องการลบแม่แบบ "${name}" หรือไม่?`)) return;
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            delete templates[name];
+            if (writeStorageJson(STORAGE_KEYS.templates, templates)) {
+                refreshTemplateListUI(true);
+                alert(`ลบแม่แบบ "${name}" เรียบร้อยแล้ว`);
+            } else {
+                alert('ไม่สามารถลบแม่แบบได้');
+            }
+        }
+
+        function setSelectedTemplateAsDefault() {
+            const select = document.getElementById('templateSelect');
+            const name = select?.value || '';
+            if (!name) return;
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            const template = templates[name];
+            const size = template?.settings?.paperSize;
+            if (!size) return;
+            if (!window.confirm(`ตั้ง "${name}" เป็นแม่แบบเริ่มต้นของชุด ${size} หรือไม่?`)) return;
+            if (setDefaultTemplateForSize(size, name)) {
+                refreshTemplateListUI(true);
+                alert(`ตั้งค่าแม่แบบเริ่มต้นของ ${size} เรียบร้อยแล้ว`);
+            } else {
+                alert('ไม่สามารถตั้งค่าแม่แบบเริ่มต้นได้');
+            }
+        }
+
+        function clearDefaultTemplateForSelectedSize() {
+            const select = document.getElementById('templateSelect');
+            const name = select?.value || '';
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            const template = templates[name];
+            const size = template?.settings?.paperSize || (document.getElementById('paperSizeSelect')?.value || 'A4');
+            if (!window.confirm(`ยกเลิกแม่แบบเริ่มต้นของชุด ${size} หรือไม่?`)) return;
+            if (setDefaultTemplateForSize(size, '')) {
+                refreshTemplateListUI(true);
+                alert(`ยกเลิกแม่แบบเริ่มต้นของ ${size} เรียบร้อยแล้ว`);
+            } else {
+                alert('ไม่สามารถยกเลิกแม่แบบเริ่มต้นได้');
+            }
+        }
+
+        async function applySelectedTemplate() {
+            const select = document.getElementById('templateSelect');
+            const name = select?.value || '';
+            if (!name) return;
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            const template = templates[name];
+            if (!template) {
+                alert('ไม่พบแม่แบบข้อสอบตามชื่อที่เลือก');
+                return;
+            }
+            await applySavedState(template, { restorePaperHtml: false });
+            closeTemplateModal();
+            alert(`เรียกแม่แบบ "${name}" เรียบร้อยแล้ว`);
+            scheduleDraftSave();
+        }
+
+        function saveExamTemplate() {
+            openTemplateModal();
+            saveNewTemplateFromModal();
+        }
+
+        async function loadExamTemplate() {
+            openTemplateModal();
+        }
+
+        function saveExamTemplateLegacy() {
+            const defaultName = `${getSelectedLevelLabel() || 'แม่แบบข้อสอบ'} ${document.getElementById('subjectSelect')?.value || ''}`.trim();
+            const name = window.prompt('ตั้งชื่อแม่แบบข้อสอบ', defaultName);
+            if (!name || !name.trim()) return;
+            const trimmedName = name.trim();
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            if (templates[trimmedName] && !window.confirm('มีแม่แบบชื่อนี้อยู่แล้ว ต้องการบันทึกทับหรือไม่?')) {
+                return;
+            }
+            templates[trimmedName] = {
+                ...getTemplateState(),
+                name: trimmedName,
+                savedAt: Date.now()
+            };
+            if (writeStorageJson(STORAGE_KEYS.templates, templates)) {
+                alert(`บันทึกแม่แบบ "${trimmedName}" เรียบร้อยแล้ว`);
+                scheduleDraftSave();
+            } else {
+                alert('ไม่สามารถบันทึกแม่แบบได้');
+            }
+        }
+        async function loadExamTemplateLegacy() {
+            const templates = readStorageJson(STORAGE_KEYS.templates, {});
+            const names = Object.keys(templates);
+            if (!names.length) {
+                alert('ยังไม่มีแม่แบบข้อสอบที่บันทึกไว้');
+                return;
+            }
+            names.sort();
+            const selectedName = window.prompt(`พิมพ์ชื่อแม่แบบที่ต้องการเรียกใช้:\n- ${names.join('\n- ')}`, names[0]);
+            if (!selectedName || !selectedName.trim()) return;
+            const template = templates[selectedName.trim()];
+            if (!template) {
+                alert('ไม่พบแม่แบบข้อสอบตามชื่อที่ระบุ');
+                return;
+            }
+            await applySavedState(template, { restorePaperHtml: false });
+            alert(`เรียกแม่แบบ "${selectedName.trim()}" เรียบร้อยแล้ว`);
+            scheduleDraftSave();
+        }
+
+        function execCmd(command) {
+            document.execCommand(command, false, null);
+            document.getElementById('paperContent').focus();
+            scheduleDraftSave();
+        }
+
+        function toggleNoSplit() {
+            const sel = window.getSelection();
+            if (!sel.rangeCount) return;
+            
+            const range = sel.getRangeAt(0);
+            if (range.collapsed) {
+                alert('กรุณาคลุมดำข้อความที่ต้องการห้ามตัดคำก่อนครับ');
+                return;
+            }
+
+            // Check if inside .no-split
+            let node = sel.anchorNode;
+            if (node.nodeType === 3) node = node.parentNode; // Text node -> Element
+
+            if (node.classList.contains('no-split')) {
+                // Unwrap: Simple approach - replace outerHTML with innerHTML
+                // But node might be part of selection. 
+                // Better: Just execute remove format or manual unwrap
+                const content = node.innerHTML;
+                node.outerHTML = content;
+            } else {
+                // Wrap
+                try {
+                    const span = document.createElement('span');
+                    span.className = 'no-split';
+                    range.surroundContents(span);
+                } catch (e) {
+                    alert('ไม่สามารถห้ามตัดคำได้ในส่วนนี้ (อาจมีการจัดรูปแบบที่ซับซ้อนเกินไป)');
+                }
+            }
+            document.getElementById('paperContent').focus();
+            scheduleDraftSave();
+        }
+
+        function toggleJustifyAll() {
+            const paper = document.querySelector('.paper');
+            paper.classList.toggle('justify-all');
+            scheduleDraftSave();
+        }
+
+        function getPaperSelectionInfo() {
+            const selection = window.getSelection();
+            const paper = document.getElementById('paperContent');
+            let isInside = false;
+            if (selection.rangeCount > 0) {
+                let curr = selection.anchorNode;
+                while (curr) {
+                    if (curr === paper) {
+                        isInside = true;
+                        break;
+                    }
+                    curr = curr.parentNode;
+                }
+            }
+            return { selection, paper, isInside };
+        }
+
+        function applyFontToSelection(font, emptySelectionMessage) {
+            const { selection, isInside } = getPaperSelectionInfo();
+            if (!isInside || !selection.rangeCount || selection.isCollapsed) {
+                alert(emptySelectionMessage);
+                return;
+            }
+            const fontStack = `"${font.split(',')[0]}", ${font}, sans-serif`;
+            document.execCommand('styleWithCSS', false, true);
+            document.execCommand('fontName', false, fontStack);
+            document.getElementById('paperContent').focus();
+            updateToolbarState();
+            scheduleDraftSave();
+        }
+
+        function applyPaliWordFont() {
+            applyFontToSelection('DilleniaUPC_4Balee', 'กรุณาคลุมเฉพาะคำบาลีที่ต้องการเปลี่ยนรูปอักษรก่อนครับ');
+        }
+
+        function applyThaiWordFont() {
+            applyFontToSelection('DilleniaUPC', 'กรุณาคลุมคำที่ต้องการเปลี่ยนกลับเป็นฟอนต์ไทยก่อนครับ');
+        }
+
+        function changeFontFamily(font) {
+            const { selection, isInside } = getPaperSelectionInfo();
+            const fontStack = `"${font.split(',')[0]}", ${font}, sans-serif`;
+
+            if (isInside && !selection.isCollapsed) {
+                // Apply to selection
+                document.execCommand('styleWithCSS', false, true);
+                document.execCommand('fontName', false, fontStack);
+            } else {
+                // Apply globally
+                document.querySelector('.paper').style.fontFamily = fontStack;
+            }
+            scheduleDraftSave();
+        }
+        function changeFontSize(size) {
+            document.querySelector('.paper').style.fontSize = size;
+            scheduleDraftSave();
+        }
+        function changeLineHeight(height) {
+            document.querySelector('.paper').style.setProperty('--paper-line-height', height);
+            scheduleDraftSave();
+        }
+        function changeLetterSpacing(value) {
+            document.querySelector('.paper').style.setProperty('--paper-letter-spacing', value || '0');
+            scheduleDraftSave();
+        }
+        function changePaperSize(size) {
+            const p = document.querySelector('.paper');
+            p.classList.remove('size-a4', 'size-f4');
+            if (size === 'A4') p.classList.add('size-a4');
+            if (size === 'F4') p.classList.add('size-f4');
+            
+            // Set for print media query hook
+            document.body.setAttribute('data-print-size', size);
+
+            // Dynamic @page size for print
+            let style = document.getElementById('page-size-style');
+            if (!style) {
+                style = document.createElement('style');
+                style.id = 'page-size-style';
+                document.head.appendChild(style);
+            }
+            if (size === 'A4') {
+                style.innerHTML = '@media print { @page { size: A4 portrait; margin: 0; } }';
+            } else if (size === 'F4') {
+                // F4 is 216mm x 356mm (Legal is 216x356)
+                style.innerHTML = '@media print { @page { size: 216mm 356mm; margin: 0; } }';
+            }
+            scheduleDraftSave();
+        }
+        function toggleMarginPanel() {
+            const p = document.getElementById('marginPanel');
+            if (p.classList.contains('d-block')) {
+                p.classList.remove('d-block');
+                p.classList.add('d-none');
+            } else {
+                p.classList.remove('d-none');
+                p.classList.add('d-block');
+            }
+        }
+        function toggleEditHintPanel() {
+            const p = document.getElementById('editHintPanel');
+            if (p.classList.contains('d-block')) {
+                p.classList.remove('d-block');
+                p.classList.add('d-none');
+            } else {
+                p.classList.remove('d-none');
+                p.classList.add('d-block');
+            }
+        }
+        function updateMargin(side, val) {
+            const inner = document.querySelector('.paper-inner');
+            // document.getElementById(`margin${side.charAt(0).toUpperCase() + side.slice(1)}Val`).innerText = val + ' cm';
+            inner.style.setProperty(`--p-${side}`, val + 'cm');
+            scheduleDraftSave();
+        }
+        function resetMargins() {
+            ['Top', 'Bottom', 'Left', 'Right'].forEach(s => {
+                document.getElementById(`margin${s}`).value = 2.54;
+                updateMargin(s.toLowerCase(), 2.54);
+            });
+        }
+        function changeMargin(val) {
+            let v = val;
+            if (v === undefined || v === null) v = 2.54;
+            if (typeof v === 'string') {
+                if (v === 'default') v = 2.54;
+                else {
+                    const n = parseFloat(v);
+                    v = isNaN(n) ? 2.54 : n;
+                }
+            }
+            ['top','bottom','left','right'].forEach(side => updateMargin(side, v));
+            scheduleDraftSave();
+        }
+        // Close panel when clicking outside
+        document.addEventListener('click', function(e) {
+            const p = document.getElementById('marginPanel');
+            const btn = document.getElementById('marginBtn');
+            if (p.classList.contains('d-block') && !p.contains(e.target) && !btn.contains(e.target)) {
+                p.classList.remove('d-block');
+                p.classList.add('d-none');
+            }
+            const hintPanel = document.getElementById('editHintPanel');
+            const hintBtn = document.getElementById('editHintBtn');
+            if (hintPanel.classList.contains('d-block') && !hintPanel.contains(e.target) && !hintBtn.contains(e.target)) {
+                hintPanel.classList.remove('d-block');
+                hintPanel.classList.add('d-none');
+            }
+        });
+
+        const partsMap = {};
+        function toThaiDigits(str) {
+            const m = { '0':'๐','1':'๑','2':'๒','3':'๓','4':'๔','5':'๕','6':'๖','7':'๗','8':'๘','9':'๙' };
+            return String(str).replace(/[0-9]/g, d => m[d]);
+        }
+        function thaiToArabic(str) {
+            const m = { '๐':'0','๑':'1','๒':'2','๓':'3','๔':'4','๕':'5','๖':'6','๗':'7','๘':'8','๙':'9' };
+            return String(str).replace(/[๐-๙]/g, d => m[d]);
+        }
+        function parsePageNumber(page) {
+            if (typeof page === 'number') return page;
+            if (!page) return 0;
+            const str = thaiToArabic(String(page));
+            // Extract first sequence of digits
+            const match = str.match(/\d+/);
+            return match ? parseInt(match[0], 10) : 0;
+        }
+
+        const PALI_PAGE_DATA_BY_LEVEL = {
+            p12: { volumes: [
+                { filesDir: '../data/ประโยค๒/01', maxPage: 148, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธป. ๑ (บาลี)', rawVolumeNo: 1 },
+                { filesDir: '../data/ประโยค๒/02', maxPage: 158, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธป. ๒ (บาลี)', rawVolumeNo: 2 },
+                { filesDir: '../data/ประโยค๒/03', maxPage: 190, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธป. ๓ (บาลี)', rawVolumeNo: 3 },
+                { filesDir: '../data/ประโยค๒/04', maxPage: 149, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธป. ๔ (บาลี)', rawVolumeNo: 4 }
+            ] },
+            p3: { volumes: [{ filesDir: '../data/ประโยค๓/01', maxPage: 120 }, { filesDir: '../data/ประโยค๓/02', maxPage: 189 }, { filesDir: '../data/ประโยค๓/03', maxPage: 162 }, { filesDir: '../data/ประโยค๓/04', maxPage: 194 }] },
+            p4: { filesDir: '../data/ประโยค๔/01', maxPage: 376 },
+            p5: { filesDir: '../data/ประโยค๕/01', maxPage: 482 },
+            p6: { filesDir: '../data/ประโยค๖/01', maxPage: 636 },
+            p7: { volumes: [{ filesDir: '../data/ประโยค๗/01', maxPage: 630 }, { filesDir: '../data/ประโยค๗/02', maxPage: 285 }] },
+            p8: { volumes: [{ filesDir: '../data/ประโยค๘/01', maxPage: 291 }, { filesDir: '../data/ประโยค๘/02', maxPage: 288 }, { filesDir: '../data/ประโยค๘/03', maxPage: 386 }] },
+            p9: { filesDir: '../data/ประโยค๙/04', maxPage: 278 }
+        };
+        const THAI_SOURCE_PAGE_DATA_BY_LEVEL = {
+            p4: { filesDir: '../data/ประโยค๒/05', maxPage: 215, partId: 'p4-thai-raw', label: 'ธรรมบท ภาคที่ ๕ (ภาษาไทย)' },
+            p5: {
+                title: 'พระธัมมปทัฏฐกถา',
+                parts: [
+                    { partId: 'p5-thai-2', label: 'ภาค ๒', filesDir: '../data/ประโยค๒/06', maxPage: 241, filePrefix: '02' },
+                    { partId: 'p5-thai-3', label: 'ภาค ๓', filesDir: '../data/ประโยค๒/07', maxPage: 286, filePrefix: '03' },
+                    { partId: 'p5-thai-4', label: 'ภาค ๔', filesDir: '../data/ประโยค๒/08', maxPage: 225, filePrefix: '04' }
+                ]
+            },
+            p6: {
+                title: 'พระธัมมปทัฏฐกถา',
+                parts: [
+                    { partId: 'p6-thai-5', label: 'ภาค ๕', filesDir: '../data/ประโยค๓/05', maxPage: 187 },
+                    { partId: 'p6-thai-6', label: 'ภาค ๖', filesDir: '../data/ประโยค๓/06', maxPage: 295 },
+                    { partId: 'p6-thai-7', label: 'ภาค ๗', filesDir: '../data/ประโยค๓/07', maxPage: 252 },
+                    { partId: 'p6-thai-8', label: 'ภาค ๘', filesDir: '../data/ประโยค๓/08', maxPage: 302, filePrefix: '08' }
+                ]
+            },
+            p7: {
+                title: 'มังคลัตถทีปนี ภาค ๑',
+                partId: 'p7-thai-raw',
+                volumes: [
+                    { filesDir: '../data/ประโยค๔/02', maxPage: 195, label: 'เล่ม ๑' },
+                    { filesDir: '../data/ประโยค๔/03', maxPage: 356, filePrefix: '02', label: 'เล่ม ๒' }
+                ]
+            },
+            p8: {
+                title: 'สมันตปาสาทิกา ภาค ๑',
+                partId: 'p8-thai-raw',
+                volumes: [
+                    { filesDir: '../data/ประโยค๗/05', maxPage: 404, label: 'เล่ม ๑' },
+                    { filesDir: '../data/ประโยค๗/06', maxPage: 404, label: 'เล่ม ๒' },
+                    { filesDir: '../data/ประโยค๗/07', maxPage: 216, label: 'เล่ม ๓' }
+                ]
+            },
+            p9: {
+                title: 'วิสุทธิมรรค',
+                parts: [
+                    { partId: 'p9-thai-v1-1', label: 'ภาค ๑ ตอน ๑', filesDir: '../data/ประโยค๘/04', maxPage: 180, filePrefix: '01' },
+                    { partId: 'p9-thai-v1-2', label: 'ภาค ๑ ตอน ๒', filesDir: '../data/ประโยค๘/05', maxPage: 322 },
+                    { partId: 'p9-thai-v2-1', label: 'ภาค ๒ ตอน ๑', filesDir: '../data/ประโยค๘/06', maxPage: 265, filePrefix: '01' },
+                    { partId: 'p9-thai-v2-2', label: 'ภาค ๒ ตอน ๒', filesDir: '../data/ประโยค๘/07', maxPage: 243 }
+                ]
+            }
+        };
+        const mangalaFileCache = new Map();
+        const rawChunkPageCache = new Map();
+        const BOOK_TITLES_BY_LEVEL = {
+            p12: ['ปฐโม ภาโค', 'ทุติโย ภาโค', 'ตติโย ภาโค', 'จตุตฺโถ ภาโค'],
+            p3: ['ปญฺจโม ภาโค', 'ฉฏฺโฐ ภาโค', 'สตฺตโม ภาโค', 'อฏฺฐโม ภาโค'],
+            p4: ['มงฺคลตฺถทีปนิยา ปฐโม ภาโค'],
+            p5: ['มงฺคลตฺถทีปนิยา ทุติโย ภาโค'],
+            p6: ['สมนฺตปาสาทิกา นาม วินยฏฺฐกถา ตติโย ภาโค'],
+            p7: ['ปฐโม ภาโค', 'ทุติโย ภาโค'],
+            p8: ['ปฐโม ภาโค', 'ทุติโย ภาโค', 'ตติโย ภาโค'],
+            p9: ['อภิธมฺมตฺถวิภาวินี']
+        };
+        function getBookTitlesForLevel(levelCode) {
+            const titles = BOOK_TITLES_BY_LEVEL[levelCode];
+            return Array.isArray(titles) ? titles : [];
+        }
+        function updateBookTitleBadge() {
+            const titleEl = document.getElementById('contentSectionTitle');
+            const subjectLabel = document.getElementById('subjectSelect').value || '';
+            const levelCode = document.getElementById('levelSelect').value || '';
+            if (titleEl) titleEl.innerHTML = 'เลือกช่วงเนื้อหา <span id="bookTitleBadge" class="text-md text-gray-666"></span>';
+            const el = document.getElementById('bookTitleBadge');
+            if (!el) return;
+            const thaiSourceCfg = subjectLabel.includes('ไทยเป็นมคธ') ? (THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] || null) : null;
+            if (['p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && thaiSourceCfg) {
+                if (titleEl) titleEl.textContent = `เลือกช่วงเนื้อหา (${thaiSourceCfg.title || 'พระธัมมปทัฏฐกถา'})`;
+                return;
+            }
+            const isPt4To9ThaiToMagadha = ['p4','p5','p6','p7','p8','p9'].includes(levelCode) && subjectLabel.includes('ไทยเป็นมคธ');
+            if (isPt4To9ThaiToMagadha) {
+                if (titleEl) titleEl.textContent = 'เลือกช่วงเนื้อหา (พระธัมมปทัฏฐกถา ภาค  ๑)';
+                return;
+            }
+            const isDhammapadaHeading = levelCode === 'p12' || (levelCode === 'p3' && (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์ไทย')));
+            if (isDhammapadaHeading) {
+                if (titleEl) titleEl.textContent = 'เลือกช่วงเนื้อหา (ธมฺมปทฏฺฐกถา)';
+                return;
+            }
+            if (!subjectLabel.includes('มคธเป็นไทย')) {
+                el.textContent = '';
+                return;
+            }
+            const titles = getBookTitlesForLevel(levelCode);
+            if (levelCode === 'p7') {
+                el.textContent = '(สมนฺตปาสาทิกา นาม วินยฏฺฐกถา)';
+                return;
+            }
+            if (levelCode === 'p8') {
+                el.textContent = '(วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส-)';
+                return;
+            }
+            if (levelCode === 'p9') {
+                el.textContent = '(อภิธมฺมตฺถวิภาวินี)';
+                return;
+            }
+            el.textContent = titles.length ? `(${titles.join(', ')})` : '';
+        }
+        function getPaliPageDataConfig() {
+            const levelCode = document.getElementById('levelSelect').value;
+            return PALI_PAGE_DATA_BY_LEVEL[levelCode] || PALI_PAGE_DATA_BY_LEVEL.p4;
+        }
+        function getThaiSourcePageDataConfig(partId = '') {
+            const levelCode = document.getElementById('levelSelect').value;
+            const cfg = THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] || null;
+            if (!cfg) return null;
+            if (Array.isArray(cfg.parts) && cfg.parts.length) {
+                if (partId) {
+                    const matched = cfg.parts.find(part => part.partId === partId);
+                    if (matched) return matched;
+                }
+                return cfg.parts[0];
+            }
+            return cfg;
+        }
+        function getThaiVolumes(cfg) {
+            if (cfg && Array.isArray(cfg.volumes) && cfg.volumes.length) return cfg.volumes;
+            return cfg ? [{ filesDir: cfg.filesDir, maxPage: cfg.maxPage, filePrefix: cfg.filePrefix, label: cfg.label }] : [];
+        }
+        function getPaliVolumes(cfg) {
+            if (cfg && Array.isArray(cfg.volumes) && cfg.volumes.length) return cfg.volumes;
+            return [{ filesDir: cfg.filesDir, maxPage: cfg.maxPage }];
+        }
+        function clampVolumeIndex(volumes, idx) {
+            const i = parseInt(idx, 10);
+            if (!Number.isFinite(i)) return 0;
+            return Math.max(0, Math.min(volumes.length - 1, i));
+        }
+        function updateVolumeSelectors() {
+            const levelCode = document.getElementById('levelSelect').value || '';
+            const subjectLabel = document.getElementById('subjectSelect').value || '';
+            const isThaiSource = subjectLabel.includes('ไทยเป็นมคธ');
+            const thaiCfg = isThaiSource ? getThaiSourcePageDataConfig(document.getElementById('literalPart')?.value || '') : null;
+            const isThaiVolumeMode = isThaiSourcePageMode() && thaiCfg && Array.isArray(thaiCfg.volumes) && thaiCfg.volumes.length > 1;
+            const cfg = isThaiVolumeMode ? thaiCfg : getPaliPageDataConfig();
+            const volumes = isThaiVolumeMode ? getThaiVolumes(cfg) : getPaliVolumes(cfg);
+            const shouldShow = (isMangala01PageMode() || isThaiVolumeMode) && volumes.length > 1;
+            const bookTitles = getBookTitlesForLevel(levelCode);
+
+            const literalWrap = document.getElementById('literalVolumeWrap');
+            const literalDivider = document.getElementById('literalVolumeDivider');
+            const literalSelect = document.getElementById('literalVolumeSelect');
+            const senseWrap = document.getElementById('senseVolumeWrap');
+            const senseDivider = document.getElementById('senseVolumeDivider');
+            const senseSelect = document.getElementById('senseVolumeSelect');
+
+            const ensureOptions = (sel) => {
+                if (!sel) return;
+                const current = sel.value;
+                sel.innerHTML = '';
+                volumes.forEach((_, idx) => {
+                    const opt = document.createElement('option');
+                    opt.value = String(idx);
+                    opt.textContent = isThaiVolumeMode
+                        ? (volumes[idx].label || `เล่ม ${toThaiDigits(idx + 1)}`)
+                        : (bookTitles[idx] ? bookTitles[idx] : `เล่ม ${toThaiDigits(idx + 1)}`);
+                    sel.appendChild(opt);
+                });
+                sel.value = current && Number.isFinite(parseInt(current, 10)) ? current : '0';
+            };
+
+            ensureOptions(literalSelect);
+            ensureOptions(senseSelect);
+
+            const setVisible = (el, on) => {
+                if (!el) return;
+                el.classList.toggle('d-none', !on);
+            };
+            setVisible(literalWrap, shouldShow);
+            setVisible(literalDivider, shouldShow);
+            setVisible(senseWrap, shouldShow);
+            setVisible(senseDivider, shouldShow);
+
+            if (!shouldShow) {
+                if (literalSelect) literalSelect.value = '0';
+                if (senseSelect) senseSelect.value = '0';
+            }
+        }
+
+        function decodeThaiText(bytes) {
+            const encodings = ['utf-8', 'windows-874', 'tis-620', 'iso-8859-11'];
+            for (const enc of encodings) {
+                try {
+                    const t = new TextDecoder(enc, { fatal: false }).decode(bytes);
+                    if (t && !t.includes('�')) return t;
+                } catch (_) {}
+            }
+            return new TextDecoder('utf-8', { fatal: false }).decode(bytes);
+        }
+
+        function applyTextFixes(text) {
+            if (!text) return '';
+            let out = String(text);
+            out = out.replace(/€/g, 'ฐ');
+            out = out.replace(//g, 'ญ');
+            return out;
+        }
+
+        function stripInlineMarkup(line) {
+            let out = String(line || '');
+            out = out.replace(/<\s*sup\b[^>]*>[\s\S]*?<\/\s*sup\s*>/gi, '');
+            out = out.replace(/<\s*span\b[^>]*class\s*=\s*['"]footnote['"][^>]*>[\s\S]*?<\/\s*span\s*>/gi, '');
+            out = out.replace(/<[^>]*>/g, '');
+            return out;
+        }
+
+        function stripP12RawFootnoteMarkers(text) {
+            return String(text || '').replace(/(^|[ \t])(?:\[[๐-๙0-9]{1,3}\]|[๐-๙0-9]{1,3})\s*-\s*/g, '$1');
+        }
+
+        function padPageNumber(num) {
+            const n = parseInt(num, 10) || 0;
+            return String(n).padStart(6, '0');
+        }
+
+        function padChunkPageNumber(num) {
+            const n = parseInt(num, 10) || 0;
+            return String(n).padStart(3, '0');
+        }
+
+        function getP12RawChunkFilename(volume, pageNumber) {
+            const maxPage = parseInt(volume?.maxPage, 10) || 0;
+            const rawVolumeNo = parseInt(volume?.rawVolumeNo, 10) || 0;
+            if (!volume?.rawFilesDir || !rawVolumeNo || !maxPage) return '';
+
+            const localPage = Math.max(1, Math.min(maxPage, parseInt(pageNumber, 10) || 1));
+            const chunkStart = Math.floor((localPage - 1) / 10) * 10 + 1;
+            const chunkEnd = Math.min(maxPage, chunkStart + 9);
+            const range = `${padChunkPageNumber(chunkStart)}-${padChunkPageNumber(chunkEnd)}`;
+            const suffix = chunkEnd >= maxPage ? ' (จบ)' : '';
+
+            if (rawVolumeNo === 1) {
+                return `ธมฺมปทฏฺฐกถา (๑) ${range}${suffix}.txt`;
+            }
+
+            return `ธมฺมปทฏฺฐกถา (${toThaiDigits(rawVolumeNo)}) - หน้า ${range}${suffix}.txt`;
+        }
+
+        function extractRawSingleFilePageText(text, pageNumber) {
+            const targetPage = parseInt(pageNumber, 10) || 1;
+            const lines = String(text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+            const markers = [];
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = String(lines[i] || '').trim();
+                const match = line.match(/^หน้า\s*([๐-๙0-9]+)\s*$/);
+                if (!match) continue;
+                markers.push({ lineIndex: i, pageNumber: parsePageNumber(match[1]) });
+            }
+
+            const markerIndex = markers.findIndex(m => m.pageNumber === targetPage);
+            const startLine = targetPage === 1
+                ? 0
+                : (markerIndex >= 0 ? Math.min(lines.length, markers[markerIndex].lineIndex + 1) : 0);
+
+            let endLine = lines.length;
+            if (targetPage === 1) {
+                const nextMarker = markers.find(m => m.pageNumber > 1);
+                if (nextMarker) endLine = nextMarker.lineIndex;
+            } else if (markerIndex >= 0) {
+                const nextMarker = markers[markerIndex + 1];
+                if (nextMarker) endLine = nextMarker.lineIndex;
+            }
+
+            const pageLines = lines.slice(startLine, endLine);
+            while (pageLines.length && !String(pageLines[0] || '').trim()) pageLines.shift();
+            while (pageLines.length && !String(pageLines[pageLines.length - 1] || '').trim()) pageLines.pop();
+            return pageLines.join('\n');
+        }
+
+        function extractRawChunkPageText(text, pageNumber) {
+            const targetPage = parseInt(pageNumber, 10) || 1;
+            const lines = String(text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+            const markers = [];
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = String(lines[i] || '').trim();
+                const match = line.match(/หน้า\s*([๐-๙0-9]+)\s*$/);
+                if (!match) continue;
+                markers.push({ lineIndex: i, pageNumber: parsePageNumber(match[1]) });
+            }
+
+            const markerIndex = markers.findIndex(m => m.pageNumber === targetPage);
+            if (markerIndex < 0) return String(text || '');
+
+            const startLine = Math.min(lines.length, markers[markerIndex].lineIndex + 2);
+            const nextMarker = markers[markerIndex + 1];
+            const endLine = nextMarker ? Math.max(startLine, nextMarker.lineIndex - 2) : lines.length;
+            const pageLines = lines.slice(startLine, endLine);
+
+            while (pageLines.length && /^\s*=+\s*$/.test(String(pageLines[pageLines.length - 1] || ''))) {
+                pageLines.pop();
+            }
+
+            while (pageLines.length && !String(pageLines[0] || '').trim()) {
+                pageLines.shift();
+            }
+            while (pageLines.length && !String(pageLines[pageLines.length - 1] || '').trim()) {
+                pageLines.pop();
+            }
+
+            return pageLines.join('\n');
+        }
+
+        async function loadRawChunkPage(volume, pageNumber) {
+            const fileName = getP12RawChunkFilename(volume, pageNumber);
+            if (!fileName) return '';
+
+            const url = new URL(`${volume.rawFilesDir}/${fileName}`, window.location.href).toString();
+            const cacheKey = `${url}#${parseInt(pageNumber, 10) || 1}`;
+            if (rawChunkPageCache.has(cacheKey)) return rawChunkPageCache.get(cacheKey);
+
+            const chunkText = await fetchTextFile(url);
+            const pageText = extractRawChunkPageText(chunkText, pageNumber);
+            rawChunkPageCache.set(cacheKey, pageText);
+            return pageText;
+        }
+
+        async function loadRawSingleFilePage(volume, pageNumber) {
+            const fileName = String(volume?.rawSingleFile || '');
+            if (!volume?.rawFilesDir || !fileName) return '';
+
+            const url = new URL(`${volume.rawFilesDir}/${fileName}`, window.location.href).toString();
+            const cacheKey = `${url}#${parseInt(pageNumber, 10) || 1}`;
+            if (rawChunkPageCache.has(cacheKey)) return rawChunkPageCache.get(cacheKey);
+
+            const fullText = await fetchTextFile(url);
+            const pageText = extractRawSingleFilePageText(fullText, pageNumber);
+            rawChunkPageCache.set(cacheKey, pageText);
+            return pageText;
+        }
+
+        async function fetchTextFile(url) {
+            if (mangalaFileCache.has(url)) return mangalaFileCache.get(url);
+            const p = fetch(url, { cache: 'no-store' }).then(async (r) => {
+                if (!r.ok) throw new Error(`HTTP ${r.status}`);
+                const buf = await r.arrayBuffer();
+                const decoded = decodeThaiText(new Uint8Array(buf));
+                return applyTextFixes(decoded);
+            });
+            mangalaFileCache.set(url, p);
+            return p;
+        }
+
+        async function loadMangala01Page(pageNumber, volumeIndex = 0) {
+            const cfg = getPaliPageDataConfig();
+            const volumes = getPaliVolumes(cfg);
+            const vIdx = clampVolumeIndex(volumes, volumeIndex);
+            const v = volumes[vIdx];
+            const maxPage = parseInt(v.maxPage, 10) || 0;
+            const localPage = Math.max(1, Math.min(maxPage, parseInt(pageNumber, 10) || 1));
+
+            if (document.getElementById('levelSelect')?.value === 'p12' && v.rawFilesDir) {
+                try {
+                    if (v.rawSingleFile) {
+                        return await loadRawSingleFilePage(v, localPage);
+                    }
+                    return await loadRawChunkPage(v, localPage);
+                } catch (_) {}
+            }
+
+            const base = padPageNumber(localPage);
+            const primary = new URL(`${v.filesDir}/${base}.txt`, window.location.href).toString();
+            try {
+                return await fetchTextFile(primary);
+            } catch (e) {
+                const legacy = new URL(`${v.filesDir}/${base}..txt`, window.location.href).toString();
+                return await fetchTextFile(legacy);
+            }
+        }
+
+        async function loadThaiSourcePage(pageNumber, partId = '', volumeIndex = 0) {
+            const cfg = getThaiSourcePageDataConfig(partId);
+            const volumes = getThaiVolumes(cfg);
+            const vIdx = clampVolumeIndex(volumes, volumeIndex);
+            const v = volumes[vIdx];
+            if (!v?.filesDir) return '';
+            const maxPage = parseInt(v.maxPage, 10) || 0;
+            const localPage = Math.max(1, Math.min(maxPage, parseInt(pageNumber, 10) || 1));
+            const base = v.filePrefix
+                ? `${String(v.filePrefix)}${String(localPage).padStart(4, '0')}`
+                : padPageNumber(localPage);
+            const primary = new URL(`${v.filesDir}/${base}.txt`, window.location.href).toString();
+            try {
+                return await fetchTextFile(primary);
+            } catch (e) {
+                const legacy = new URL(`${v.filesDir}/${base}..txt`, window.location.href).toString();
+                return await fetchTextFile(legacy);
+            }
+        }
+
+        function getPageTextLines(pageNumber, text, levelCode = (document.getElementById('levelSelect')?.value || '')) {
+            const rawLines = String(text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+            let cleaned = rawLines
+                .filter(line => !/class\s*=\s*['"]footnote['"]/i.test(String(line || '')))
+                .filter(line => !(levelCode === 'p12' && /^\s*@/.test(String(line || ''))))
+                .map(line => stripInlineMarkup(line))
+                .map(line => line.replace(/\u00a0/g, ' '))
+                .map(line => line.replace(/\s+$/g, ''));
+            
+            if (['p8', 'p9'].includes(levelCode) && parseInt(pageNumber, 10) >= 2) {
+                const idx = cleaned.findIndex(line => /^\s*001\s+(?=\S)/.test(String(line || '')));
+                if (idx >= 0 && idx <= 2) cleaned.splice(idx, 1);
+            }
+            if (levelCode === 'p3') {
+                cleaned = cleaned.map((line) => {
+                    let out = String(line || '');
+                    out = out.replace(/\.(?=[ \t]|$)/g, ' ฯ');
+                    return out.replace(/[ \t]+$/g, '');
+                });
+            }
+            return cleaned;
+        }
+
+        function pageLinesToItems(pageNumber, lines) {
+            return (Array.isArray(lines) ? lines : []).map(line => ({
+                part: 'มังคลัถทีปนี ภาค ๑',
+                page: `หน้า ${pageNumber}`,
+                vagga: '',
+                story: '',
+                episode: '',
+                pali: line,
+                thai: '',
+                thai_sense: '',
+                context: '',
+                akhyata: '',
+                kitaka: '',
+                vocab_list: '',
+                sandhi: {}
+            }));
+        }
+
+        function pageTextToItems(pageNumber, text) {
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            const cleaned = getPageTextLines(pageNumber, text, levelCode);
+            return pageLinesToItems(pageNumber, cleaned);
+        }
+
+        function pageTextToThaiSourceItems(pageNumber, text) {
+            const cleaned = getPageTextLines(pageNumber, text, '');
+            return cleaned
+                .filter(line => String(line || '').trim())
+                .map(line => ({
+                    page: `หน้า ${pageNumber}`,
+                    thai: line
+                }));
+        }
+
+        async function loadMangala01Range(startPage, endPage, volumeIndex = 0) {
+            const cfg = getPaliPageDataConfig();
+            const volumes = getPaliVolumes(cfg);
+            const vIdx = clampVolumeIndex(volumes, volumeIndex);
+            const v = volumes[vIdx];
+            const maxPage = parseInt(v.maxPage, 10) || 0;
+            let s = parseInt(startPage, 10);
+            let e = parseInt(endPage, 10);
+            if (!s && !e) return { items: [], ok: false };
+            if (s && !e) e = s;
+            if (!s && e) s = e;
+            s = Math.max(1, Math.min(maxPage, s));
+            e = Math.max(1, Math.min(maxPage, e));
+            const from = Math.min(s, e);
+            const to = Math.max(s, e);
+
+            const pages = [];
+            for (let p = from; p <= to; p++) pages.push(p);
+
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            const texts = await Promise.all(pages.map(p => loadMangala01Page(p, vIdx)));
+            const pageLineSets = texts.map((text, idx) => getPageTextLines(pages[idx], text, levelCode));
+
+            const items = [];
+            for (let i = 0; i < pages.length; i++) {
+                items.push(...pageLinesToItems(pages[i], pageLineSets[i]));
+            }
+            return { items, ok: true, from, to, volumeIndex: vIdx };
+        }
+
+        async function loadThaiSourceRange(startPage, endPage, partId = '', volumeIndex = 0) {
+            const cfg = getThaiSourcePageDataConfig(partId);
+            const volumes = getThaiVolumes(cfg);
+            const vIdx = clampVolumeIndex(volumes, volumeIndex);
+            const v = volumes[vIdx];
+            const maxPage = parseInt(v?.maxPage, 10) || 0;
+            let s = parseInt(startPage, 10);
+            let e = parseInt(endPage, 10);
+            if (!s && !e) return { items: [], ok: false };
+            if (s && !e) e = s;
+            if (!s && e) s = e;
+            s = Math.max(1, Math.min(maxPage, s));
+            e = Math.max(1, Math.min(maxPage, e));
+            const from = Math.min(s, e);
+            const to = Math.max(s, e);
+
+            const pages = [];
+            for (let p = from; p <= to; p++) pages.push(p);
+
+            const texts = await Promise.all(pages.map(p => loadThaiSourcePage(p, partId, vIdx)));
+            const items = [];
+            for (let i = 0; i < pages.length; i++) {
+                items.push(...pageTextToThaiSourceItems(pages[i], texts[i]));
+            }
+            return { items, ok: true, from, to, volumeIndex: vIdx };
+        }
+
+        function isMangala01PageMode() {
+            const levelCode = document.getElementById('levelSelect').value;
+            const subjectLabel = document.getElementById('subjectSelect').value || '';
+            if (levelCode === 'p3' && (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์ไทย'))) {
+                return true;
+            }
+            return ['p12', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && subjectLabel.includes('มคธเป็นไทย');
+        }
+        function isThaiSourcePageMode() {
+            const levelCode = document.getElementById('levelSelect').value || '';
+            const subjectLabel = document.getElementById('subjectSelect').value || '';
+            return !!THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] && subjectLabel.includes('ไทยเป็นมคธ');
+        }
+        function getSelectedLevelLabel() {
+            const sel = document.getElementById('levelSelect');
+            const opt = sel && sel.selectedOptions && sel.selectedOptions[0] ? sel.selectedOptions[0] : null;
+            return opt ? opt.textContent.trim() : '';
+        }
+        const SUBJECTS_BY_LEVEL = {
+            'ประโยค ๑–๒': ['แปล  มคธเป็นไทย'],
+            'ประโยค ป.ธ. ๓': ['แปล  มคธเป็นไทย','สัมพันธ์ไทย'],
+            'ประโยค ป.ธ. ๔': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
+            'ประโยค ป.ธ. ๕': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
+            'ประโยค ป.ธ. ๖': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
+            'ประโยค ป.ธ. ๗': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
+            'ประโยค ป.ธ. ๘': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
+            'ประโยค ป.ธ. ๙': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย']
+        };
+        function populateSubjectSelect() {
+            const label = getSelectedLevelLabel();
+            const subjects = SUBJECTS_BY_LEVEL[label] || ['แปล  มคธเป็นไทย'];
+            const sel = document.getElementById('subjectSelect');
+            sel.innerHTML = '';
+            subjects.forEach(s => {
+                const o = document.createElement('option');
+                o.value = s;
+                o.text = s;
+                sel.appendChild(o);
+            });
+            // Ensure the first option is selected and value is set
+            if (subjects.length > 0) {
+                sel.value = subjects[0];
+            }
+        }
+        function formatThaiDate(iso) {
+            if (!iso) return '-';
+            const d = new Date(iso);
+            const months = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+            const day = toThaiDigits(d.getDate());
+            const month = months[d.getMonth()];
+            const year = toThaiDigits(d.getFullYear() + 543);
+            return `วันที่ ${day} ${month} ${year}`;
+        }
+        function updateDuration() {
+            const h = document.getElementById('hoursInput').value || 0;
+            const m = document.getElementById('minutesInput').value || 0;
+            document.getElementById('durationDisplay').innerText = `เวลา: ${toThaiDigits(h)} ชั่วโมง ${toThaiDigits(m)} นาที`;
+        }
+        function updateDateDisplay() {
+            const iso = document.getElementById('dateInput').value;
+            document.getElementById('dateDisplay').innerText = formatThaiDate(iso);
+        }
+        function normalizeThaiNumerals(input) {
+            const m = { '0':'๐','1':'๑','2':'๒','3':'๓','4':'๔','5':'๕','6':'๖','7':'๗','8':'๘','9':'๙' };
+            input.value = String(input.value).replace(/[0-9]/g, d => m[d]).replace(/\s+/g,'').trim();
+        }
+        function allowedPartsForLevel() {
+            // Deprecated by CONTENT_MAPPING logic, keeping for safety if called elsewhere, but we will replace usages.
+            return [];
+        }
+        
+        const CONTENT_MAPPING = {
+            'ประโยค ๑–๒': {
+                'แปล  มคธเป็นไทย': [
+                    { id: 'dhamma-1', label: 'ธรรมบท ภาคที่ ๑' },
+                    { id: 'dhamma-2', label: 'ธรรมบท ภาคที่ ๒' },
+                    { id: 'dhamma-3', label: 'ธรรมบท ภาคที่ ๓' },
+                    { id: 'dhamma-4', label: 'ธรรมบท ภาคที่ ๔' }
+                ]
+            },
+            'ประโยค ป.ธ. ๓': {
+                'แปล  มคธเป็นไทย': [
+                    { id: 'dhamma-5', label: 'ธรรมบท ภาคที่ ๕' },
+                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' },
+                    { id: 'dhamma-7', label: 'ธรรมบท ภาคที่ ๗' },
+                    { id: 'dhamma-8', label: 'ธรรมบท ภาคที่ ๘' }
+                ],
+                'สัมพันธ์ไทย': [
+                    { id: 'dhamma-5', label: 'ธรรมบท ภาคที่ ๕' },
+                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' },
+                    { id: 'dhamma-7', label: 'ธรรมบท ภาคที่ ๗' },
+                    { id: 'dhamma-8', label: 'ธรรมบท ภาคที่ ๘' }
+                ]
+            },
+            'ประโยค ป.ธ. ๔': {
+                'แปล  ไทยเป็นมคธ': [
+                    { id: 'p4-thai-raw', label: 'ธรรมบท ภาคที่ ๕ (ภาษาไทย)' }
+                ],
+                'แปล  มคธเป็นไทย': [
+                    { id: 'mangala-1', label: 'มังคลัตถทีปนี ภาคที่ ๑' }
+                ]
+            },
+            'ประโยค ป.ธ. ๕': {
+                'แปล  ไทยเป็นมคธ': [
+                    { id: 'p5-thai-2', label: 'ภาค ๒' },
+                    { id: 'p5-thai-3', label: 'ภาค ๓' },
+                    { id: 'p5-thai-4', label: 'ภาค ๔' }
+                ],
+                'แปล  มคธเป็นไทย': [
+                    { id: 'mangala-2', label: 'มังคลัตถทีปนี ภาคที่ ๒' }
+                ]
+            },
+            'ประโยค ป.ธ. ๖': {
+                'แปล  ไทยเป็นมคธ': [
+                    { id: 'p6-thai-5', label: 'ภาค ๕' },
+                    { id: 'p6-thai-6', label: 'ภาค ๖' },
+                    { id: 'p6-thai-7', label: 'ภาค ๗' },
+                    { id: 'p6-thai-8', label: 'ภาค ๘' }
+                ],
+                'แปล  มคธเป็นไทย': [
+                    { id: 'samanta-3', label: 'สมันตปาสาทิกา ภาคที่ ๓' }
+                ]
+            },
+            'ประโยค ป.ธ. ๗': {
+                'แปล  ไทยเป็นมคธ': [
+                    { id: 'p7-thai-raw', label: 'มังคลัตถทีปนี ภาค ๑ (ภาษาไทย)' }
+                ],
+                'แปล  มคธเป็นไทย': [
+                    { id: 'samanta-1', label: 'สมันตปาสาทิกา ภาคที่ ๑' },
+                    { id: 'samanta-2', label: 'สมันตปาสาทิกา ภาคที่ ๒' }
+                ]
+            },
+            'ประโยค ป.ธ. ๘': {
+                'แต่งฉันท์ภาษามคธ': [
+                    { id: 'waiting', label: 'รอเนื้อหา' }
+                ],
+                'แปล  ไทยเป็นมคธ': [
+                    { id: 'p8-thai-raw', label: 'สมันตปาสาทิกา ภาค ๑ (ภาษาไทย)' }
+                ],
+                'แปล  มคธเป็นไทย': [
+                    { id: 'visuddhi-1', label: 'วิสุทธิมรรค ภาคที่ ๑' },
+                    { id: 'visuddhi-2', label: 'วิสุทธิมรรค ภาคที่ ๒' }
+                ]
+            },
+            'ประโยค ป.ธ. ๙': {
+                'แต่ง  ไทยเป็นมคธ': [
+                     { id: 'waiting', label: 'รอเนื้อหา' }
+                ],
+                'แปล  ไทยเป็นมคธ': [
+                    { id: 'p9-thai-v1-1', label: 'ภาค ๑ ตอน ๑' },
+                    { id: 'p9-thai-v1-2', label: 'ภาค ๑ ตอน ๒' },
+                    { id: 'p9-thai-v2-1', label: 'ภาค ๒ ตอน ๑' },
+                    { id: 'p9-thai-v2-2', label: 'ภาค ๒ ตอน ๒' }
+                ],
+                'แปล  มคธเป็นไทย': [
+                    { id: 'abhidhamma-1', label: 'อภิธรรมฯ' }
+                ]
+            }
+        };
+
+        function populatePartSelects() {
+            const levelLabel = getSelectedLevelLabel();
+            const subjectLabel = document.getElementById('subjectSelect').value;
+            const levelConfig = CONTENT_MAPPING[levelLabel] || {};
+            const parts = levelConfig[subjectLabel] || [];
+
+            // Fallback for unspecified levels
+            if (parts.length === 0 && !levelLabel.includes('ป.ธ.')) {
+                 parts.push({id:'dhamma-1', label:'ธรรมบท ภาคที่ ๑'}, {id:'dhamma-2', label:'ธรรมบท ภาคที่ ๒'}, {id:'dhamma-3', label:'ธรรมบท ภาคที่ ๓'}, {id:'dhamma-4', label:'ธรรมบท ภาคที่ ๔'});
+            }
+
+            const literalSel = document.getElementById('literalPart');
+            const senseSel = document.getElementById('sensePart');
+            literalSel.innerHTML = '';
+            senseSel.innerHTML = '';
+            
+            parts.forEach(p => {
+                const o1 = document.createElement('option'); o1.value = p.id; o1.text = p.label; literalSel.appendChild(o1);
+                const o2 = document.createElement('option'); o2.value = p.id; o2.text = p.label; senseSel.appendChild(o2);
+            });
+
+            const literalHierarchy = literalSel ? literalSel.parentElement : null;
+            const senseHierarchy = senseSel ? senseSel.parentElement : null;
+            if (parts.length === 1) {
+                literalSel.value = parts[0].id;
+                senseSel.value = parts[0].id;
+                if (literalHierarchy) literalHierarchy.classList.add('d-none');
+                if (senseHierarchy) senseHierarchy.classList.add('d-none');
+                document.getElementById('literalVagga').value = '';
+                document.getElementById('senseVagga').value = '';
+                document.getElementById('literalStory').value = '';
+                document.getElementById('senseStory').value = '';
+            } else {
+                if (literalHierarchy) literalHierarchy.classList.remove('d-none');
+                if (senseHierarchy) senseHierarchy.classList.remove('d-none');
+            }
+            
+            const isThaiSource = subjectLabel.includes('ไทยเป็นมคธ');
+            const isRelationThai = subjectLabel.includes('สัมพันธ์ไทย');
+            const literalRow = document.getElementById('literalRow');
+            const senseRow = document.getElementById('senseRow');
+            const litLabel = document.getElementById('literalLabel');
+            const senseLabel = document.getElementById('senseLabel');
+            const literalVaggaSel = document.getElementById('literalVagga');
+            const literalStorySel = document.getElementById('literalStory');
+            const senseVaggaSel = document.getElementById('senseVagga');
+            const senseStorySel = document.getElementById('senseStory');
+            const isMangalaPageMode = isMangala01PageMode();
+            const isThaiPageMode = isThaiSourcePageMode();
+            const literalGrid = literalRow ? literalRow.querySelector('.grid-3') : null;
+            const senseGrid = senseRow ? senseRow.querySelector('.grid-3') : null;
+            if (isMangalaPageMode || isThaiPageMode) {
+                if (literalGrid) literalGrid.classList.add('d-none');
+                if (senseGrid) senseGrid.classList.add('d-none');
+                const keepThaiPartSelectors = isThaiPageMode && isThaiSource && parts.length > 1;
+                if (literalHierarchy) literalHierarchy.classList.toggle('d-none', !keepThaiPartSelectors);
+                if (senseHierarchy) senseHierarchy.classList.toggle('d-none', !keepThaiPartSelectors);
+                if (literalVaggaSel) literalVaggaSel.classList.toggle('d-none', keepThaiPartSelectors);
+                if (literalStorySel) literalStorySel.classList.toggle('d-none', keepThaiPartSelectors);
+                if (senseVaggaSel) senseVaggaSel.classList.toggle('d-none', keepThaiPartSelectors);
+                if (senseStorySel) senseStorySel.classList.toggle('d-none', keepThaiPartSelectors);
+                if (literalGrid) literalGrid.style.gridTemplateColumns = keepThaiPartSelectors ? '1fr' : '';
+                if (senseGrid) senseGrid.style.gridTemplateColumns = keepThaiPartSelectors ? '1fr' : '';
+                document.getElementById('literalVagga').value = '';
+                document.getElementById('literalStory').value = '';
+                document.getElementById('senseVagga').value = '';
+                document.getElementById('senseStory').value = '';
+            } else {
+                if (literalGrid) literalGrid.classList.remove('d-none');
+                if (senseGrid) senseGrid.classList.remove('d-none');
+                if (literalVaggaSel) literalVaggaSel.classList.remove('d-none');
+                if (literalStorySel) literalStorySel.classList.remove('d-none');
+                if (senseVaggaSel) senseVaggaSel.classList.remove('d-none');
+                if (senseStorySel) senseStorySel.classList.remove('d-none');
+                if (literalGrid) literalGrid.style.gridTemplateColumns = '';
+                if (senseGrid) senseGrid.style.gridTemplateColumns = '';
+            }
+
+            if (isThaiSource) {
+                if (senseRow) senseRow.classList.remove('d-none');
+                if (literalRow) literalRow.classList.remove('d-none');
+                if (litLabel) litLabel.innerText = 'ข้อ ๑)';
+                if (senseLabel) senseLabel.innerText = 'ข้อ ๒)';
+            } else if (isRelationThai) {
+                if (senseRow) senseRow.classList.add('d-none');
+                if (literalRow) literalRow.classList.remove('d-none');
+                if (litLabel) litLabel.innerText = 'เลือกช่วงเนื้อหา';
+            } else {
+                if (senseRow) senseRow.classList.remove('d-none');
+                if (literalRow) literalRow.classList.remove('d-none');
+                const levelCode = document.getElementById('levelSelect')?.value || '';
+                if (litLabel) litLabel.innerText = ['p12','p3'].includes(levelCode) ? 'แปล โดยพยัญชนะ' : 'ข้อ ๑';
+                if (senseLabel) senseLabel.innerText = ['p12','p3'].includes(levelCode) ? 'แปล โดยอรรถ' : 'ข้อ ๒';
+            }
+            
+            // Trigger Vagga update for both
+            updateVaggaSelect('literal');
+            updateVaggaSelect('sense');
+        }
+
+        function updateVaggaSelect(mode) {
+            const partId = document.getElementById(mode + 'Part').value;
+            const vaggas = deriveVaggas(partId);
+            const sel = document.getElementById(mode + 'Vagga');
+            sel.innerHTML = '<option value="">(เลือกวรรค)</option>';
+            vaggas.forEach(v => {
+                const o = document.createElement('option');
+                o.value = v;
+                o.text = v;
+                sel.appendChild(o);
+            });
+            // Reset Story and Pages
+            updateStorySelect(mode);
+        }
+
+        function updateStorySelect(mode) {
+            const partId = document.getElementById(mode + 'Part').value;
+            const vagga = document.getElementById(mode + 'Vagga').value;
+            const stories = deriveStories(partId, vagga);
+            const sel = document.getElementById(mode + 'Story');
+            sel.innerHTML = '<option value="">(เลือกเรื่อง)</option>';
+            stories.forEach(s => {
+                const o = document.createElement('option');
+                o.value = s;
+                o.text = s;
+                sel.appendChild(o);
+            });
+            // Reset Pages
+            updatePageRange(mode);
+        }
+
+        // --- Stats Logic ---
+        let db = null;
+        try {
+            if (typeof firebase !== 'undefined' && firebase.firestore && firebase.apps && firebase.apps.length) {
+                db = firebase.firestore();
+            }
+        } catch (_) {}
+
+        async function fetchStats() {
+            if (!db || typeof firebase === 'undefined' || !firebase.auth) return;
+            const user = firebase.auth().currentUser;
+            if (!user) return;
+
+            const statsSection = document.getElementById('statsSection');
+            const slContent = document.getElementById('sanluangStatsContent');
+            const sysContent = document.getElementById('systemStatsContent');
+            
+            // Determine active story/book
+            const litStory = document.getElementById('literalStory').value;
+            const senseStory = document.getElementById('senseStory').value;
+            const story = litStory || senseStory;
+            
+            if (!story) {
+                statsSection.classList.add('d-none');
+                statsSection.classList.remove('d-block');
+                return;
+            }
+
+            statsSection.classList.remove('d-none');
+            statsSection.classList.add('d-block');
+            slContent.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังตรวจสอบ...';
+            sysContent.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังตรวจสอบ...';
+
+            // 1. Sanluang Stats
+            try {
+                // Query by story name (NO ORDER BY to avoid index issues)
+                const slSnap = await db.collection('sanluang_exams')
+                    .where('story', '==', story)
+                    .get();
+
+                if (slSnap.empty) {
+                    slContent.innerHTML = '<span class="text-gray">ยังไม่เคยออกข้อสอบสนามหลวง (หรือไม่มีข้อมูล)</span>';
+                } else {
+                    // Client-side Sort
+                    const docs = [];
+                    slSnap.forEach(doc => docs.push(doc.data()));
+                    docs.sort((a,b) => b.year - a.year); // Descending
+
+                    let html = `<div class="mb-5 text-dark-red font-bold">
+                        <i class="fa-solid fa-bell"></i> เนื้อหานี้เคยออกข้อสอบสนามหลวง ${slSnap.size} ครั้ง
+                    </div>`;
+                    
+                    // Store data globally for modal
+                    window.currentExamStats = docs;
+                    
+                    html += `<button class="btn secondary btn-stats-detail" onclick="showExamStatsModal(window.currentExamStats)">
+                        <i class="fa-solid fa-table-list"></i> ดูรายละเอียด
+                    </button>`;
+                    
+                    slContent.innerHTML = html;
+                }
+            } catch (e) {
+                console.error(e);
+                slContent.innerHTML = '<span class="text-red">โหลดข้อมูลผิดพลาด (โปรดตรวจสอบการเชื่อมต่อ)</span>';
+            }
+
+            // 2. System Usage Stats
+            try {
+                // Query by story name
+                const sysSnap = await db.collection('exam_logs')
+                    .where('story', '==', story)
+                    .get();
+
+                if (sysSnap.empty) {
+                    sysContent.innerHTML = '<span class="text-gray">ยังไม่เคยมีผู้นำไปออกข้อสอบในระบบนี้</span>';
+                } else {
+                    const count = sysSnap.size;
+                    const users = new Set();
+                    sysSnap.forEach(d => {
+                        const data = d.data();
+                        if (data.teacherName) users.add(data.teacherName);
+                    });
+
+                    sysContent.innerHTML = `
+                        <div class="text-lg font-bold">ถูกใช้งานแล้ว ${count} ครั้ง</div>
+                        <div class="text-md text-gray-dark">โดยอาจารย์: ${Array.from(users).join(', ')}</div>
+                    `;
+                }
+            } catch (e) {
+                console.error(e);
+                sysContent.innerHTML = '<span class="text-red">โหลดข้อมูลผิดพลาด</span>';
+            }
+        }
+
+        async function saveExamLog() {
+            if (!db || typeof firebase === 'undefined' || !firebase.auth) return;
+            const user = firebase.auth().currentUser;
+            if (!user) return;
+
+            const litStory = document.getElementById('literalStory').value;
+            const senseStory = document.getElementById('senseStory').value;
+            const story = litStory || senseStory;
+            
+            if (!story) return;
+
+            try {
+                // Check if recently logged (debounce)
+                const lastLog = sessionStorage.getItem('lastExamLog');
+                if (lastLog === story) return; // Prevent double logging for same story in session
+
+                await db.collection('exam_logs').add({
+                    uid: user.uid,
+                    teacherName: user.displayName || user.email,
+                    level: document.getElementById('levelSelect').value,
+                    subject: document.getElementById('subjectSelect').value,
+                    book: document.getElementById('literalPart').value || document.getElementById('sensePart').value, // Approx
+                    story: story,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+                sessionStorage.setItem('lastExamLog', story);
+                console.log('Exam log saved');
+                fetchStats(); // Refresh stats to show new count
+            } catch (e) {
+                console.error('Failed to save log', e);
+            }
+        }
+
+        function printExam() {
+            saveExamLog();
+            window.print();
+        }
+
+        function updatePageRange(mode) {
+            const partId = document.getElementById(mode + 'Part').value;
+            const vagga = document.getElementById(mode + 'Vagga').value;
+            const story = document.getElementById(mode + 'Story').value;
+            
+            if (story) {
+                const pages = derivePages(partId, vagga, story);
+                if (pages.length > 0) {
+                    const min = Math.min(...pages);
+                    const max = Math.max(...pages);
+                    document.getElementById(mode + 'StartPage').value = min;
+                    document.getElementById(mode + 'EndPage').value = max;
+                    
+                    generatePreview(); // Auto-generate when story selected
+                    
+                    // Fetch Stats
+                    fetchStats();
+
+                } else {
+                    document.getElementById(mode + 'StartPage').value = '';
+                    document.getElementById(mode + 'EndPage').value = '';
+                }
+            }
+        }
+
+        // Hierarchy selectors (vagga, story, page) derived from slides
+        function unique(arr) { return [...new Set(arr.filter(Boolean))]; }
+        function deriveVaggas(part) {
+            const obj = partsMap[part] || {};
+            let slides = [];
+            Object.keys(obj).forEach(k => { const a = obj[k]; if (Array.isArray(a)) slides = slides.concat(a); });
+            return unique(slides.map(s => s.vagga));
+        }
+        function deriveStories(part, vagga) {
+            const obj = partsMap[part] || {};
+            let slides = [];
+            Object.keys(obj).forEach(k => { const a = obj[k]; if (Array.isArray(a)) slides = slides.concat(a); });
+            return unique(slides.filter(s => (vagga ? s.vagga === vagga : true)).map(s => s.story || s.section));
+        }
+        function derivePages(part, vagga, story) {
+            const obj = partsMap[part] || {};
+            let slides = [];
+            Object.keys(obj).forEach(k => { const a = obj[k]; if (Array.isArray(a)) slides = slides.concat(a); });
+            const nums = slides.filter(s => {
+                const okV = vagga ? s.vagga === vagga : true;
+                const okS = story ? ((s.story || s.section) === story) : true;
+                return okV && okS;
+            }).map(s => parsePageNumber(s.page));
+            return unique(nums).filter(n => n > 0).sort((a,b) => a-b);
+        }
+        // Cache for stable indexing
+        const partSlidesCache = new Map();
+        function getPartSlides(part) {
+            if (partSlidesCache.has(part)) return partSlidesCache.get(part);
+            const obj = partsMap[part] || {};
+            let slides = [];
+            // Iterate keys in stable order if possible, but object keys are unordered.
+            // We assume the file structure defines order by key insertion, usually works.
+            Object.keys(obj).forEach(k => {
+                const arr = obj[k];
+                if (Array.isArray(arr)) slides = slides.concat(arr);
+            });
+            partSlidesCache.set(part, slides);
+            return slides;
+        }
+
+        function collectSlides(part, startPage, endPage, vagga, story) {
+            // We use the cached full list to ensure we have the original objects
+            const allSlides = getPartSlides(part);
+            
+            // Map to include original index for Key generation
+            const indexedSlides = allSlides.map((s, i) => ({ ...s, _origIndex: i }));
+            
+            // Filter
+            let slides = indexedSlides.filter(s => typeof s.page !== 'undefined');
+            
+            // Filter by vagga/story
+            slides = slides.filter(s => {
+                const okV = vagga ? (s.vagga === vagga) : true;
+                const okS = story ? (((s.story || s.section) === story)) : true;
+                return okV && okS;
+            });
+            
+            // Sort by page (though usually already sorted)
+            slides.sort((a,b) => {
+                const pa = parsePageNumber(a.page);
+                const pb = parsePageNumber(b.page);
+                return pa - pb;
+            });
+            
+            const sNum = parseInt(startPage) || 0;
+            const eNum = parseInt(endPage) || 0;
+            return slides.filter(s => {
+                const p = parsePageNumber(s.page);
+                if (sNum && eNum) return p >= sNum && p <= eNum;
+                if (sNum && !eNum) return p >= sNum;
+                if (!sNum && eNum) return p <= eNum;
+                return true;
+            });
+        }
+        // Global content storage for "Book Mode"
+        window.examContent = { literal: '', sense: '' };
+        window.renderCache = {};
+        window.selectedLiteral = window.selectedLiteral || new Set();
+        window.selectedSense = window.selectedSense || new Set();
+
+        function updateSolutionButtonState() {
+            const btn = document.getElementById('solutionBtn');
+            if (!btn) return;
+            btn.disabled = true;
+            btn.classList.add('opacity-50', 'pointer-events-none');
+            btn.title = 'โหมดเฉลยถูกปิดชั่วคราว (โปรเจคนี้ใช้การคลุมข้อความจากหนังสือเป็นหลัก)';
+        }
+
+        function isThaiSourceRenderMode(mode) {
+            return String(mode || '').startsWith('thai_source');
+        }
+
+        function getTargetModeFromRenderMode(mode) {
+            const normalized = String(mode || '');
+            if (normalized === 'sense' || normalized.endsWith('_sense')) return 'sense';
+            return 'literal';
+        }
+
+
+        function stripExamPageAndLineMarkers(text) {
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            let out = String(text || '');
+            out = out.replace(/\r\n/g, '\n');
+            if (levelCode === 'p12') {
+                out = out.replace(/หน้า\s*[๐-๙0-9]+/g, '');
+                // เชื่อมคำที่ถูกฉีกบรรทัด (มี - บรรทัดบน และ * บรรทัดล่าง) ก่อน
+                out = out.replace(/-\s*\n\s*\*/g, '');
+                
+                // ลบเลขบรรทัดนำหน้า แต่ยังคงเว้นบรรทัดไว้ตามเดิมเพื่อให้โครงสร้างไม่เพี้ยน
+                const lines = out.split('\n').map(line => String(line || '').replace(/^\s*[๐-๙0-9]{1,4}\s+(?=\S)/, ''));
+                out = lines.join('\n');
+                return out;
+            }
+            out = out.replace(/หน้า\s*[๐-๙0-9]+/g, '');
+            out = out.replace(/[¹²³⁴⁵⁶⁷⁸⁹⁰]+/g, '');
+            out = out.replace(/\[\s*[๐-๙0-9]+\s*\]/g, '');
+            out = out.replace(/[\-‐‑]\s*\n\s*\*?\s*/g, '');
+            out = out.replace(/([^\s0-9๐-๙])[ \t]*([๐-๙0-9]{1,4})[ \t]+(?=\S)/g, '$1');
+
+            const lines = out.split('\n');
+            const cleaned = [];
+            for (const line of lines) {
+                const trimmed = String(line || '').trim();
+                if (/^หน้า\s*[๐-๙0-9]+$/.test(trimmed)) continue;
+                if (levelCode === 'p12' && /^@/.test(trimmed)) continue;
+                let next = String(line || '');
+                next = next.replace(/^\s*[๐-๙0-9]{1,4}\s+(?=\S)/, '');
+                cleaned.push(next);
+            }
+            out = cleaned.join('\n');
+            out = out.replace(/^\s*[๐-๙0-9]{1,4}\s+(?=\S)/, '');
+            return out;
+        }
+
+        function stripThaiSourceInlineMarkers(text) {
+            let out = String(text || '');
+            out = out.replace(/[ \t]*\[[^\]\r\n]+\][ \t]*/g, ' ');
+            out = out.replace(/[ \t]{2,}/g, ' ');
+            return out;
+        }
+
+        function normalizeDigitLetterSpacing(text) {
+            let out = String(text || '');
+            out = out.replace(/([0-9๐-๙])(?=[A-Za-zก-ฮะ-์ๆๅ])/g, '$1 ');
+            out = out.replace(/([A-Za-zก-ฮะ-์ๆๅ])(?=[0-9๐-๙])/g, '$1 ');
+            return out;
+        }
+
+        function normalizeExamSymbolSpacing(text) {
+            let out = normalizeDigitLetterSpacing(text);
+            out = out.replace(/\s*[;,:'"“”‘’]+\s*/g, ' ');
+            out = out.replace(/ฯเปฯ/g, '\uE101');
+            out = out.replace(/ฯลฯ/g, '\uE102');
+            out = out.replace(/([0-9๐-๙A-Za-zก-ฮะ-์ๆๅ])(?=ฯ)/g, '$1 ');
+            out = out.replace(/ฯ(?=[0-9๐-๙A-Za-zก-ฮะ-์ๆๅ])/g, 'ฯ ');
+            out = out.replace(/([0-9๐-๙A-Za-zก-ฮะ-์ๆๅ])(?=\?)/g, '$1 ');
+            out = out.replace(/\?(?=[0-9๐-๙A-Za-zก-ฮะ-์ๆๅ])/g, '? ');
+            out = out.replace(/([0-9๐-๙A-Za-zก-ฮะ-์ๆๅ])(?=!)/g, '$1 ');
+            out = out.replace(/!(?=[0-9๐-๙A-Za-zก-ฮะ-์ๆๅ])/g, '! ');
+            out = out.replace(/\uE101/g, 'ฯเปฯ');
+            out = out.replace(/\uE102/g, 'ฯลฯ');
+            return out;
+        }
+
+        function getPaperSelectionOffsets(root) {
+            const selection = window.getSelection();
+            if (!selection || !selection.rangeCount) return null;
+            const range = selection.getRangeAt(0);
+            if (!root.contains(range.startContainer) || !root.contains(range.endContainer)) return null;
+
+            const startRange = range.cloneRange();
+            startRange.selectNodeContents(root);
+            startRange.setEnd(range.startContainer, range.startOffset);
+
+            const endRange = range.cloneRange();
+            endRange.selectNodeContents(root);
+            endRange.setEnd(range.endContainer, range.endOffset);
+
+            return {
+                start: startRange.toString().length,
+                end: endRange.toString().length
+            };
+        }
+
+        function restorePaperSelectionOffsets(root, offsets) {
+            if (!offsets) return;
+            const selection = window.getSelection();
+            if (!selection) return;
+
+            const range = document.createRange();
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+            let node;
+            let seen = 0;
+            let startSet = false;
+            let endSet = false;
+            const startOffset = Math.max(0, offsets.start || 0);
+            const endOffset = Math.max(startOffset, offsets.end ?? startOffset);
+
+            while ((node = walker.nextNode())) {
+                const value = node.nodeValue || '';
+                const nextSeen = seen + value.length;
+
+                if (!startSet && startOffset <= nextSeen) {
+                    range.setStart(node, Math.max(0, startOffset - seen));
+                    startSet = true;
+                }
+                if (!endSet && endOffset <= nextSeen) {
+                    range.setEnd(node, Math.max(0, endOffset - seen));
+                    endSet = true;
+                    break;
+                }
+
+                seen = nextSeen;
+            }
+
+            if (!startSet) {
+                range.selectNodeContents(root);
+                range.collapse(false);
+            } else if (!endSet) {
+                range.setEnd(range.startContainer, range.startOffset);
+            }
+
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+
+        function shouldInsertPaperBoundarySpace(leftText, rightText) {
+            const left = String(leftText || '');
+            const right = String(rightText || '');
+            if (!left || !right) return false;
+
+            const leftChar = left.slice(-1);
+            const rightChar = right.charAt(0);
+            if (!leftChar || !rightChar || /\s/.test(leftChar) || /\s/.test(rightChar)) return false;
+
+            const isDigit = (ch) => /[0-9๐-๙]/.test(ch);
+            const isLetter = (ch) => /[A-Za-zก-ฮะ-์ๆๅ]/.test(ch);
+            const isAlphaNum = (ch) => /[0-9๐-๙A-Za-zก-ฮะ-์ๆๅ]/.test(ch);
+
+            if ((isDigit(leftChar) && isLetter(rightChar)) || (isLetter(leftChar) && isDigit(rightChar))) {
+                return true;
+            }
+            if (isAlphaNum(leftChar) && rightChar === 'ฯ') {
+                return !(right.startsWith('ฯเปฯ') || right.startsWith('ฯลฯ'));
+            }
+            if (leftChar === 'ฯ' && isAlphaNum(rightChar)) {
+                return !(left.endsWith('ฯเปฯ') || left.endsWith('ฯลฯ'));
+            }
+            if (isAlphaNum(leftChar) && rightChar === '?') {
+                return true;
+            }
+            if (leftChar === '?' && isAlphaNum(rightChar)) {
+                return true;
+            }
+            if (isAlphaNum(leftChar) && rightChar === '!') {
+                return true;
+            }
+            if (leftChar === '!' && isAlphaNum(rightChar)) {
+                return true;
+            }
+            return false;
+        }
+
+        let paperNormalizeFrame = 0;
+        let isNormalizingPaperContent = false;
+
+        function normalizeEditablePaperContent(preserveSelection = true) {
+            const paper = document.getElementById('paperContent');
+            if (!paper || isNormalizingPaperContent) return;
+
+            isNormalizingPaperContent = true;
+            const savedSelection = preserveSelection ? getPaperSelectionOffsets(paper) : null;
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            const subjectLabel = document.getElementById('subjectSelect')?.value || '';
+            const shouldNormalizeSymbols = !(levelCode === 'p12' && subjectLabel.includes('มคธเป็นไทย'));
+
+            try {
+                const walker = document.createTreeWalker(paper, NodeFilter.SHOW_TEXT, null);
+                const textNodes = [];
+                let node;
+
+                while ((node = walker.nextNode())) {
+                    textNodes.push(node);
+                }
+
+                if (shouldNormalizeSymbols) {
+                    textNodes.forEach((textNode) => {
+                        const normalized = normalizeExamSymbolSpacing(textNode.nodeValue || '');
+                        if (normalized !== textNode.nodeValue) {
+                            textNode.nodeValue = normalized;
+                        }
+                    });
+                }
+
+                for (let i = 0; i < textNodes.length - 1; i++) {
+                    const leftNode = textNodes[i];
+                    const rightNode = textNodes[i + 1];
+                    if (shouldInsertPaperBoundarySpace(leftNode.nodeValue, rightNode.nodeValue)) {
+                        rightNode.nodeValue = ` ${rightNode.nodeValue || ''}`;
+                    }
+                }
+            } finally {
+                if (savedSelection) {
+                    restorePaperSelectionOffsets(paper, savedSelection);
+                }
+                isNormalizingPaperContent = false;
+            }
+        }
+
+        function scheduleNormalizeEditablePaperContent() {
+            if (paperNormalizeFrame) {
+                cancelAnimationFrame(paperNormalizeFrame);
+            }
+            paperNormalizeFrame = requestAnimationFrame(() => {
+                paperNormalizeFrame = 0;
+                normalizeEditablePaperContent(true);
+            });
+        }
+
+        function stripSelectionMetadataForExam(text, mode) {
+            let out = String(text || '').replace(/\r\n/g, '\n');
+
+            out = out.replace(/^\s*[๐-๙0-9]{1,4}\s+(?=\S)/gm, '');
+
+            if (isThaiSourceRenderMode(mode)) {
+                out = out
+                    .split('\n')
+                    .filter(line => !/^\s*\[[^\]]+\]\s*$/.test(String(line || '').trim()))
+                    .join('\n');
+                out = stripThaiSourceInlineMarkers(out);
+            }
+
+            out = out.replace(/\n{3,}/g, '\n\n');
+            return out.trim();
+        }
+
+        function useSelectionForExam(mode) {
+            const sel = window.getSelection();
+            let text = sel.toString();
+
+            text = text.replace(/หน้า\s*[๐-๙0-9]+/g, '');
+            if (isMangala01PageMode()) text = stripExamPageAndLineMarkers(text);
+            text = stripSelectionMetadataForExam(text, mode);
+
+            if (!text.trim()) {
+                alert('กรุณาคลุมดำข้อความที่ต้องการเลือกก่อนครับ');
+                return;
+            }
+
+            // Determine target slot
+            const target = getTargetModeFromRenderMode(mode);
+            window.examContent[target] = text;
+
+            // Generate Preview
+            buildExamPreview();
+
+            // Visual Feedback
+            const btn = document.getElementById('btn-use-' + mode);
+            if (btn) {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> เรียบร้อย';
+                btn.classList.remove('primary');
+                btn.classList.add('step-completed'); // Greenish
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.add('primary');
+                    btn.classList.remove('step-completed');
+                }, 1500);
+            }
+        }
+
+        function renderList(containerId, items, mode, part, startPage, endPage) {
+            const box = document.getElementById(containerId);
+            if (box) box.innerHTML = '';
+
+            // Cache params
+            if (!window.renderCache) window.renderCache = {};
+            window.renderCache[containerId] = { items, mode, part, startPage, endPage };
+
+            if (part === 'waiting') {
+                if (box) box.innerHTML = '<div class="msg-waiting">กำลังรอเนื้อหา...</div>';
+                return;
+            }
+
+            // Book Mode Render (ไม่มีโหมดเลือกทีละประโยคแล้ว)
+            const wrapper = document.createElement('div');
+                
+            // Toolbar
+            const toolbar = document.createElement('div');
+            toolbar.className = 'd-flex items-center gap-10 mb-10';
+            toolbar.innerHTML = `
+                <button id="btn-use-${mode}" class="btn primary" onclick="useSelectionForExam('${mode}')">
+                    <i class="fa-solid fa-file-import"></i> นำข้อความที่คลุมดำไปออกข้อสอบ
+                </button>
+                <span class="text-sm text-gray-666">
+                    <i class="fa-solid fa-circle-info"></i> ลากคลุมดำข้อความในกล่องด้านล่าง แล้วกดปุ่มนี้
+                </span>
+                <button class="btn secondary ml-auto text-xs" onclick="window.examContent['${getTargetModeFromRenderMode(mode)}'] = ''; buildExamPreview(); alert('ล้างค่าแล้ว');">
+                    <i class="fa-solid fa-trash"></i> ล้างค่า
+                </button>
+            `;
+            wrapper.appendChild(toolbar);
+
+            // Text Area (Read-only but selectable)
+            const textArea = document.createElement('div');
+            textArea.className = 'book-content-area';
+                
+            let lastPage = 0;
+
+            items.forEach((s) => {
+                let textToUse = s.pali;
+                if (!isThaiSourceRenderMode(mode) && s.gatha && s.gatha.type && Array.isArray(s.gatha.lines)) {
+                    if (s.gatha.type === 'couplet') {
+                        textToUse = s.gatha.lines.map(l => `${(l.left||'').trim()}    ${(l.right||'').trim()}`).join('\n');
+                    } else if (s.gatha.type === 'quatrain') {
+                        textToUse = s.gatha.lines.map(l => (l||'').trim()).join('\n');
+                    }
+                } else if (isThaiSourceRenderMode(mode)) {
+                    textToUse = s.thai_desana || s.thai_sense || s.thai || '';
+                }
+
+                // Append Page Marker if changed
+                const pageVal = parsePageNumber(s.page);
+                if (pageVal > 0 && pageVal !== lastPage) {
+                    const marker = document.createElement('div');
+                    marker.className = 'page-marker-dynamic';
+                    marker.textContent = `หน้า ${toThaiDigits(pageVal)}`;
+                    textArea.appendChild(marker);
+                    lastPage = pageVal;
+                }
+
+                const line = document.createElement('div');
+                line.className = 'book-line';
+                line.textContent = textToUse;
+                textArea.appendChild(line);
+            });
+
+            wrapper.appendChild(textArea);
+            box.appendChild(wrapper);
+        }
+        function buildExamPreview() {
+            updateSolutionButtonState();
+            const paper = document.getElementById('paperContent');
+            if (!paper) return;
+            const levelLabel = getSelectedLevelLabel();
+            const subjectLabel = document.getElementById('subjectSelect').value || 'แปล  มคธเป็นไทย';
+            const attempt = document.getElementById('attemptInput').value;
+            const projectName = (document.getElementById('projectNameInput')?.value || '').trim();
+            const examAuthor = (document.getElementById('examAuthorInput')?.value || '').trim();
+            const iso = document.getElementById('dateInput').value;
+            const dateLabel = formatThaiDate(iso);
+            const hours = document.getElementById('hoursInput').value || 0;
+            const minutes = document.getElementById('minutesInput').value || 0;
+            const isThaiSource = subjectLabel.includes('ไทยเป็นมคธ');
+            
+
+            
+            // Determine context based on Subject
+            // Translate Pali -> Thai (Subject: แปล มคธเป็นไทย) => Content is Pali => Use 2 spaces, Pali Font
+            // Translate Thai -> Pali (Subject: แปล ไทยเป็นมคธ) => Content is Thai => Use 1 space, Thai Font
+            // Relation (Subject: สัมพันธ์ไทย) => Content is Pali => Use 2 spaces, Pali Font
+            
+            // Logic:
+            // If subject contains "มคธเป็นไทย" or "สัมพันธ์" => Pali Content
+            // If subject contains "ไทยเป็นมคธ" => Thai Content
+            
+            let isPaliContent = false;
+            if (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์')) {
+                isPaliContent = true;
+            } else if (subjectLabel.includes('ไทยเป็นมคธ')) {
+                isPaliContent = false;
+            } else {
+                // Default fallback
+                isPaliContent = false; 
+            }
+
+            // Function to clean punctuation for P.T.3-9
+            const cleanPunctuation = (text) => {
+                if (!text) return '';
+                // Strategy: Keep Thai chars, Pali chars, Numbers, Space, ฯ, ฯลฯ
+                // Remove other punctuation marks
+                
+                // First replace ฯลฯ to temporary placeholder to protect it
+                let processed = text.replace(/ฯลฯ/g, 'PALITOKENP2');
+                // Replace ฯ to temporary placeholder
+                processed = processed.replace(/ฯ/g, 'PALITOKENP1');
+                
+                // Remove punctuation:
+                // Standard ASCII Punctuation: ! " # $ % & ' * + , - . / : ; < = > @ [ \ ] ^ _ ` { | } ~
+                // Exclude ( ) from removal as requested
+                processed = processed.replace(/[!"#$%&'*+,\-./:;<=>@[\]^_`{|}~]/g, ' ');
+                
+                // Remove Special Punctuation (Smart Quotes, Dashes, Ellipsis, etc.)
+                // \u2010-\u201F (Dashes, Quotes)
+                // \u2026 (Ellipsis)
+                processed = processed.replace(/[\u2010-\u201F\u2026]/g, ' ');
+
+                // Restore placeholders
+                processed = processed.replace(/PALITOKENP1/g, 'ฯ');
+                processed = processed.replace(/PALITOKENP2/g, 'ฯลฯ');
+                processed = processed.replace(/\bP1\b/g, 'ฯ');
+                processed = processed.replace(/\bP2\b/g, 'ฯลฯ');
+                
+                return processed;
+            };
+            
+            // Check if we need to clean punctuation (Level P.T.4-9)
+            // Level codes: p4 to p9
+            const levelCode = document.getElementById('levelSelect').value;
+            const needsCleaning = ['p4','p5','p6','p7','p8','p9'].includes(levelCode);
+
+            // Determine Header Label (Convert to B.S. if checked)
+            // const isBSMode = document.getElementById('bsMode').checked; // Removed checkbox
+            // Use global variable isBsMode
+            let displayLevelLabel = levelLabel;
+            
+            if (isBsMode) {
+                if (levelLabel.includes('ประโยค ๑–๒')) {
+                    displayLevelLabel = 'ประโยค บ.ศ. ๑–๒';
+                } else if (levelLabel.includes('ประโยค ป.ธ.')) {
+                    // Replace ป.ธ. with บ.ศ.
+                    displayLevelLabel = levelLabel.replace('ป.ธ.', 'บ.ศ.');
+                }
+            }
+
+            // Helper for spacing
+            const addDoubleSpacing = (text) => {
+                if (!text) return '';
+                let processed = String(text);
+                
+                // Normalization
+                const normalized = processed.replace(/\s+/g, ' ').trim();
+                
+                // Use 2 spaces
+                return normalized.replace(/ /g, '  '); 
+            };
+
+            // Helper for spacing
+            const formatSpacing = (text) => {
+                if (!text) return '';
+                let processed = String(text);
+                const isThaiContent = subjectLabel.includes('ไทยเป็นมคธ');
+                const isPt4To9ThaiToMagadha = ['p4','p5','p6','p7','p8','p9'].includes(levelCode) && subjectLabel.includes('ไทยเป็นมคธ');
+
+                if (isThaiContent) {
+                    processed = stripThaiSourceInlineMarkers(processed);
+                    processed = processed.replace(/[\-‐‑]\s*\r?\n\s*\*?\s*/g, '');
+                    // Book line wraps in Thai source should join directly, not turn into spaces.
+                    processed = processed.replace(/[ \t]*\r?\n[ \t]*/g, '');
+                }
+                
+                // สำหรับ ป.๑-๒ (แปล มคธเป็นไทย) ใช้เฉพาะ: เชื่อมคำที่ถูกฉีกบรรทัด + แปลง . -> ฯ
+                if (isPaliContent && levelCode === 'p12') {
+                    processed = stripP12RawFootnoteMarkers(processed);
+                    processed = processed.replace(/-\s*\r?\n\s*\*/g, '');
+                    processed = processed.replace(/\./g, ' ฯ');
+                }
+                if (isPaliContent && levelCode === 'p3') {
+                    processed = processed.replace(/\s*["“”]\s*/g, '\uE000');
+                    processed = processed.replace(/\.(?=\s|$)/g, 'ฯ');
+                    processed = processed.replace(/[!#$%&'()*+,\-./:;<=>@\[\\\]^_`{|}~]/g, ' ');
+                    processed = processed.replace(/[\u2010-\u201F\u2026]/g, ' ');
+                }
+                if (isThaiContent) {
+                    if (isPt4To9ThaiToMagadha) {
+                        processed = processed.replace(/\.(?=(?:["“”‘’]\s*)*(?:$|\s|["“”‘’]))/g, ' ฯ');
+                    } else {
+                        processed = processed.replace(/\.(?=(?:["“”]\s*)?(?:\s|$))/g, ' ฯ');
+                    }
+                }
+
+                // สำหรับ ป.๑-๒ เราจะไม่ cleanPunctuation ทิ้ง เพื่อรักษาเครื่องหมายเดิมไว้ทั้งหมด
+                if (needsCleaning && levelCode !== 'p12') {
+                    processed = cleanPunctuation(processed);
+                }
+                if (isThaiContent) {
+                    processed = normalizeExamSymbolSpacing(processed);
+                }
+
+                const spaceCount = isThaiContent ? 1 : 2;
+                const normalized = processed.replace(/\s+/g, ' ').trim();
+                
+                if (isPaliContent && levelCode === 'p3') {
+                    const normalizedQuoteGap = normalized.replace(/\s*\uE000\s*/g, '\uE001');
+                    const spaced = spaceCount === 1 ? normalizedQuoteGap : normalizedQuoteGap.replace(/ /g, '  ');
+                    return spaced.split('\uE001').join('    ');
+                }
+                
+                let spaced = spaceCount === 1 ? normalized : normalized.replace(/ /g, '  ');
+                // For p12, we leave it as 2 spaces for all words including ' ฯ'
+                return spaced.split('\uE000').join('    ');
+            };
+
+            // Set Content Font Class
+            const contentClass = isPaliContent ? 'font-pali' : 'font-thai';
+            const needsStripMarkers = isMangala01PageMode() && !(levelCode === 'p12' && subjectLabel.includes('มคธเป็นไทย'));
+            const prepareContent = (t) => {
+                const raw = String(t || '');
+                return needsStripMarkers ? stripExamPageAndLineMarkers(raw) : raw;
+            };
+
+            let litContent = '';
+            litContent = formatSpacing(prepareContent(window.examContent?.literal || ''));
+
+            let senContent = '';
+            senContent = formatSpacing(prepareContent(window.examContent?.sense || ''));
+
+            const rawTimeLine = minutes && parseInt(minutes) > 0
+                ? `ให้เวลา ${toThaiDigits(hours)} ชั่วโมง กับ ${toThaiDigits(minutes)} นาที.`
+                : `ให้เวลา ${toThaiDigits(hours)} ชั่วโมง.`;
+            const timeLine = addDoubleSpacing(rawTimeLine);
+            const authorLine = examAuthor ? addDoubleSpacing(`ผู้ออกข้อสอบ : ${examAuthor}`) : '';
+
+            const headerLevel = addDoubleSpacing(displayLevelLabel);
+            const headerSubject = addDoubleSpacing(subjectLabel);
+            
+            let dateText = '';
+            if (attempt && attempt.trim() !== '') {
+                dateText = `สอบ ครั้งที่ ${attempt} ${dateLabel}`;
+            } else {
+                dateText = `สอบ ${dateLabel}`;
+            }
+            const headerDate = addDoubleSpacing(dateText);
+            const headerProject = projectName ? addDoubleSpacing(projectName) : '';
+            
+            let contentHTML = '';
+            if (isThaiSource) {
+                if (['p4','p5','p6','p7','p8','p9'].includes(levelCode)) {
+                    contentHTML = `
+                    <div class="paper-section">
+                        <div class="paper-content-text ${contentClass}"><span>๑. </span>${litContent || '...'}</div>
+                        <div class="paper-content-text ${contentClass}"><span>๒. </span>${senContent || '...'}</div>
+                    </div>`;
+                } else {
+                    contentHTML = `
+                    <div class="paper-section">
+                        <div class="paper-section-title">${headerSubject}</div>
+                        <div class="paper-content-text ${contentClass}"><span>๑. </span>${litContent || '...'}</div>
+                        <div class="paper-content-text ${contentClass}"><span>๒. </span>${senContent || '...'}</div>
+                    </div>`;
+                }
+            } else {
+                if (subjectLabel.includes('สัมพันธ์ไทย')) {
+                    contentHTML = `
+                    <div class="paper-section">
+                        <div class="paper-content-text ${contentClass}">${litContent || '...'}</div>
+                    </div>`;
+                } else {
+                    if (['p12','p3'].includes(levelCode)) {
+                        const q1Title = 'แปล โดยพยัญชนะ';
+                        const q2Title = 'แปล โดยอรรถ';
+                        contentHTML = `
+                        <div class="paper-section">
+                        <div class="paper-section-title">${addDoubleSpacing(q1Title)}</div>
+                            <div class="paper-content-text ${contentClass}"><span>๑. </span>${litContent || '...'}</div>
+                        </div>
+                        <div class="paper-section">
+                        <div class="paper-section-title">${addDoubleSpacing(q2Title)}</div>
+                            <div class="paper-content-text ${contentClass}"><span>๒. </span>${senContent || '...'}</div>
+                        </div>`;
+                    } else {
+                        contentHTML = `
+                        <div class="paper-section">
+                            <div class="paper-content-text ${contentClass}"><span>๑. </span>${litContent || '...'}</div>
+                            <div class="paper-content-text ${contentClass}"><span>๒. </span>${senContent || '...'}</div>
+                        </div>`;
+                    }
+                }
+            }
+            
+            paper.innerHTML = `
+                <div class="paper-center paper-header">
+                    <div class="paper-line font-thai">${headerLevel}</div>
+                    <div class="paper-line font-thai">${headerSubject}</div>
+                    <div class="paper-line font-thai">${headerDate}</div>
+                    ${headerProject ? `<div class="paper-line font-thai">${headerProject}</div>` : ''}
+                </div>
+                <div class="paper-sep">------------</div>
+                ${contentHTML}
+                <div class="paper-sep">------------</div>
+                <div class="paper-foot paper-center font-thai">${timeLine}</div>
+                ${authorLine ? `<div class="paper-foot paper-center font-thai">${authorLine}</div>` : ''}
+            `;
+            normalizeEditablePaperContent(false);
+            applyHeaderLockState();
+            updateInternalNoteAutoSummary();
+            scheduleDraftSave();
+        }
+        function generateSolution() {
+            updateSolutionButtonState();
+            alert('โหมดเฉลยถูกปิดชั่วคราว (โปรเจคนี้ใช้การคลุมข้อความจากหนังสือเป็นหลัก)');
+            return;
+        }
+
+        function copyToClipboard() {
+            const paper = document.getElementById('paperContent');
+            if (!paper) return;
+            const range = document.createRange();
+            range.selectNodeContents(paper);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    alert('คัดลอกเนื้อหาเรียบร้อยแล้ว');
+                    selection.removeAllRanges();
+                } else {
+                    alert('ไม่สามารถคัดลอกได้โดยอัตโนมัติ กรุณาเลือกเนื้อหาที่ต้องการแล้วกด Ctrl+C เพื่อคัดลอก');
+                }
+            } catch (err) {
+                console.error('Copy failed', err);
+                alert('เกิดข้อผิดพลาดในการคัดลอก กรุณาเลือกเนื้อหาที่ต้องการแล้วกด Ctrl+C เพื่อคัดลอก');
+            }
+        }
+        async function generatePreview() {
+            document.body.classList.remove('mode-solution');
+            // NOTE: We do NOT clear selection buffers here anymore.
+            // This allows users to change stories/parts without losing their previous selections.
+            // Users can manually clear selections using the UI if needed.
+            
+            // NOTE: We do NOT clear Book Mode content here anymore.
+            // This fixes the issue where selecting a new story wipes out the manually selected text.
+
+            const level = document.getElementById('levelSelect').value;
+            const attempt = document.getElementById('attemptInput').value;
+            const iso = document.getElementById('dateInput').value;
+            const subjectLabel = document.getElementById('subjectSelect').value || '';
+            const isThaiSource = subjectLabel.includes('ไทยเป็นมคธ');
+            
+            const literalPart = document.getElementById('literalPart').value;
+            const literalVagga = document.getElementById('literalVagga').value;
+            const literalStory = document.getElementById('literalStory').value;
+            const literalStart = document.getElementById('literalStartPage').value;
+            const literalEnd = document.getElementById('literalEndPage').value;
+            
+            const sensePart = document.getElementById('sensePart').value;
+            const senseVagga = document.getElementById('senseVagga').value;
+            const senseStory = document.getElementById('senseStory').value;
+            const senseStart = document.getElementById('senseStartPage').value;
+            const senseEnd = document.getElementById('senseEndPage').value;
+            updateVolumeSelectors();
+            const literalVol = parseInt(document.getElementById('literalVolumeSelect')?.value || '0', 10) || 0;
+            const senseVol = parseInt(document.getElementById('senseVolumeSelect')?.value || '0', 10) || 0;
+            const literalThaiPageCfg = getThaiSourcePageDataConfig(literalPart);
+            const senseThaiPageCfg = getThaiSourcePageDataConfig(sensePart);
+            
+            if (isMangala01PageMode() && !isThaiSource) {
+                 if (!literalStart && !literalEnd) {
+                    renderList('literalList', [], 'literal', 'waiting', '', '');
+                 } else {
+                    const r1 = await loadMangala01Range(literalStart, literalEnd, literalVol);
+                    renderList('literalList', r1.items, 'literal', `pali-pages-${level}-v${literalVol}`, literalStart, literalEnd);
+                 }
+                 if (!senseStart && !senseEnd) {
+                    renderList('senseList', [], 'sense', 'waiting', '', '');
+                 } else {
+                    const r2 = await loadMangala01Range(senseStart, senseEnd, senseVol);
+                    renderList('senseList', r2.items, 'sense', `pali-pages-${level}-v${senseVol}`, senseStart, senseEnd);
+                 }
+                 buildExamPreview();
+                 applyFontLockForSubject();
+                 return;
+            }
+
+            if (isThaiSource) {
+                 if (isThaiSourcePageMode() && (literalThaiPageCfg || senseThaiPageCfg)) {
+                     if (!literalStart && !literalEnd) {
+                        renderList('literalList', [], 'thai_source_literal', 'waiting', '', '');
+                     } else {
+                        const literalResult = await loadThaiSourceRange(literalStart, literalEnd, literalPart, literalVol);
+                        renderList('literalList', literalResult.items, 'thai_source_literal', (literalThaiPageCfg && literalThaiPageCfg.partId) || literalPart, literalStart, literalEnd);
+                     }
+                     if (!senseStart && !senseEnd) {
+                        renderList('senseList', [], 'thai_source_sense', 'waiting', '', '');
+                     } else {
+                        const senseResult = await loadThaiSourceRange(senseStart, senseEnd, sensePart, senseVol);
+                        renderList('senseList', senseResult.items, 'thai_source_sense', (senseThaiPageCfg && senseThaiPageCfg.partId) || sensePart, senseStart, senseEnd);
+                     }
+                 } else {
+                     const literalSlides = collectSlides(literalPart, literalStart, literalEnd, literalVagga, literalStory);
+                     const senseSlides = collectSlides(sensePart, senseStart, senseEnd, senseVagga, senseStory);
+                     renderList('literalList', literalSlides, 'thai_source_literal', literalPart, literalStart, literalEnd);
+                     renderList('senseList', senseSlides, 'thai_source_sense', sensePart, senseStart, senseEnd);
+                 }
+            } else {
+                 const literalSlides = collectSlides(literalPart, literalStart, literalEnd, literalVagga, literalStory);
+                 const senseSlides = collectSlides(sensePart, senseStart, senseEnd, senseVagga, senseStory);
+                 renderList('literalList', literalSlides, 'literal', literalPart, literalStart, literalEnd);
+                 renderList('senseList', senseSlides, 'sense', sensePart, senseStart, senseEnd);
+            }
+            buildExamPreview();
+            applyFontLockForSubject();
+        }
+        function resetSelection(mode) {
+            if (mode === 'literal') { 
+                if (window.examContent) window.examContent.literal = '';
+            }
+            if (mode === 'sense') { 
+                if (window.examContent) window.examContent.sense = '';
+            }
+        }
+        function resetForm() {
+            resetSelection('literal');
+            resetSelection('sense');
+            document.getElementById('attemptInput').value = '';
+            document.getElementById('projectNameInput').value = '';
+            document.getElementById('examAuthorInput').value = '';
+            document.getElementById('dateInput').value = '';
+            document.getElementById('literalStartPage').value = '';
+            document.getElementById('literalEndPage').value = '';
+            document.getElementById('senseStartPage').value = '';
+            document.getElementById('senseEndPage').value = '';
+            
+            // Reset hierarchical selects
+            document.getElementById('literalVagga').value = '';
+            document.getElementById('literalStory').innerHTML = '<option value="">(เลือกเรื่อง)</option>';
+            document.getElementById('senseVagga').value = '';
+            document.getElementById('senseStory').innerHTML = '<option value="">(เลือกเรื่อง)</option>';
+            
+            updateDateDisplay();
+            updateDuration();
+            generatePreview();
+            scheduleDraftSave();
+        }
+
+        function shouldForcePaliFont() {
+            const subjectLabel = document.getElementById('subjectSelect').value || '';
+            return subjectLabel.includes('มคธเป็นไทย');
+        }
+
+        function applyFontLockForSubject() {
+            const fontSelect = document.getElementById('fontFamilySelect');
+            if (!fontSelect) return;
+            const forcePali = shouldForcePaliFont();
+            if (forcePali) {
+                if (fontSelect.value !== 'DilleniaUPC_4Balee') {
+                    fontSelect.value = 'DilleniaUPC_4Balee';
+                }
+            } else {
+                if (fontSelect.value === 'DilleniaUPC_4Balee') {
+                    fontSelect.value = 'DilleniaUPC';
+                }
+            }
+        }
+        function updateToolbarState() {
+            const paper = document.getElementById('paperContent');
+            const selection = window.getSelection();
+            if (!selection.rangeCount) return;
+            
+            // Ensure selection is inside paper
+            let node = selection.anchorNode;
+            let isInside = false;
+            while(node) {
+                if (node === paper) {
+                    isInside = true;
+                    break;
+                }
+                node = node.parentNode;
+            }
+            if (!isInside) return;
+
+            // Detect Font Family
+            // Use document.queryCommandValue if possible, or computed style
+            // Note: queryCommandValue('fontName') returns the font name string
+            let currentFont = document.queryCommandValue('fontName');
+            
+            // Sometimes queryCommandValue returns empty or weird values in some browsers/contexts
+            // Fallback to computed style of the parent element of the selection
+            if (!currentFont) {
+                const parent = selection.anchorNode.nodeType === 3 ? selection.anchorNode.parentNode : selection.anchorNode;
+                const computed = window.getComputedStyle(parent);
+                currentFont = computed.fontFamily;
+            }
+
+            // Clean up font string (remove quotes)
+            currentFont = currentFont.replace(/['"]/g, '');
+            
+            // Match with dropdown options
+            // Our options values: DilleniaUPC, DilleniaUPC_4Balee, etc.
+            // The computed font might be "DilleniaUPC, sans-serif" or just "DilleniaUPC"
+            const fontSelect = document.getElementById('fontFamilySelect');
+            const options = Array.from(fontSelect.options);
+            
+            // Try exact match first
+            let matched = false;
+            for (let opt of options) {
+                if (currentFont.includes(opt.value)) {
+                    fontSelect.value = opt.value;
+                    matched = true;
+                    break;
+                }
+            }
+            
+            // If not matched (e.g. global style), check paper style
+            if (!matched) {
+                 const paperStyle = window.getComputedStyle(document.querySelector('.paper')).fontFamily.replace(/['"]/g, '');
+                 for (let opt of options) {
+                    if (paperStyle.includes(opt.value)) {
+                        fontSelect.value = opt.value;
+                        break;
+                    }
+                }
+            }
+        }
+
+        function updateWorkflowState() {
+            const levelSelect = document.getElementById('levelSelect');
+            const levelRow = document.getElementById('levelRow');
+            const subjectSelect = document.getElementById('subjectSelect');
+            const subjectRow = document.getElementById('subjectRow');
+            const dateInput = document.getElementById('dateInput');
+            const dateRow = document.getElementById('dateRow');
+            const contentSection = document.getElementById('contentSection');
+
+            // Step 1: Level
+            const isLevelSelected = levelSelect.value && levelSelect.value !== "";
+            if (isLevelSelected) {
+                levelRow.classList.remove('step-required');
+                levelRow.classList.add('step-completed');
+                contentSection.classList.remove('d-none');
+                
+                // Unlock Step 2
+                subjectRow.classList.remove('step-locked');
+                subjectRow.classList.remove('pointer-events-none');
+                subjectRow.classList.remove('opacity-50');
+                subjectSelect.disabled = false;
+            } else {
+                levelRow.classList.add('step-required');
+                levelRow.classList.remove('step-completed');
+                
+                // Lock Step 2 & 3 & Content
+                subjectRow.classList.add('step-locked');
+                subjectRow.classList.add('pointer-events-none');
+                subjectRow.classList.add('opacity-50');
+                subjectSelect.disabled = true;
+                subjectSelect.value = ""; 
+                
+                // Cascade lock
+                dateRow.classList.add('step-locked');
+                
+                contentSection.classList.add('step-locked');
+                contentSection.classList.add('d-none');
+                return; // Stop processing
+            }
+
+            // Step 2: Subject
+            const isSubjectSelected = subjectSelect.value && subjectSelect.value !== "";
+            if (isSubjectSelected) {
+                subjectRow.classList.remove('step-required');
+                subjectRow.classList.add('step-completed');
+                
+                // Unlock Step 3
+                dateRow.classList.remove('step-locked');
+            } else {
+                subjectRow.classList.add('step-required');
+                subjectRow.classList.remove('step-completed');
+                
+                // Lock Step 3 & Content
+                dateRow.classList.add('step-locked');
+                
+                contentSection.classList.add('step-locked');
+                return; // Stop processing
+            }
+
+            // Step 3: Date
+            const isDateSelected = dateInput.value && dateInput.value !== "";
+            if (isDateSelected) {
+                dateRow.classList.remove('step-required');
+                dateRow.classList.add('step-completed');
+                
+                // Unlock Content
+                contentSection.classList.remove('step-locked');
+            } else {
+                dateRow.classList.add('step-required');
+                dateRow.classList.remove('step-completed');
+                
+                // Lock Content
+                contentSection.classList.add('step-locked');
+            }
+        }
+
+        document.getElementById('levelSelect').addEventListener('change', () => { 
+            populateSubjectSelect(); 
+            populatePartSelects(); 
+            generatePreview(); 
+            updateWorkflowState();
+            updateBookTitleBadge();
+            updateVolumeSelectors();
+        });
+        document.getElementById('subjectSelect').addEventListener('change', () => { 
+            resetSelection('literal'); 
+            resetSelection('sense'); 
+            populatePartSelects(); 
+            generatePreview(); 
+            updateWorkflowState();
+            updateBookTitleBadge();
+            updateVolumeSelectors();
+        });
+        document.getElementById('hoursInput').addEventListener('input', () => {
+            updateDuration();
+            buildExamPreview();
+        });
+        document.getElementById('minutesInput').addEventListener('input', () => {
+            updateDuration();
+            buildExamPreview();
+        });
+        document.getElementById('dateInput').addEventListener('change', () => {
+            updateDateDisplay();
+            updateWorkflowState();
+            buildExamPreview();
+        });
+        document.getElementById('attemptInput').addEventListener('input', function() {
+            normalizeThaiNumerals(this);
+            buildExamPreview();
+        });
+        document.getElementById('projectNameInput').addEventListener('input', buildExamPreview);
+        document.getElementById('examAuthorInput').addEventListener('input', buildExamPreview);
+        document.getElementById('saveTemplateBtn').addEventListener('click', openTemplateModal);
+        document.getElementById('loadTemplateBtn').addEventListener('click', openTemplateModal);
+        document.getElementById('generateBtn').addEventListener('click', generatePreview);
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            resetForm();
+            updateWorkflowState();
+        });
+        document.getElementById('copyBtn').addEventListener('click', copyToClipboard);
+        // document.getElementById('printBtn').addEventListener('click', () => window.print());
+        
+        // Toolbar state listeners
+        document.getElementById('paperContent').addEventListener('mouseup', updateToolbarState);
+        document.getElementById('paperContent').addEventListener('keyup', updateToolbarState);
+        document.getElementById('paperContent').addEventListener('click', updateToolbarState);
+        document.getElementById('paperContent').addEventListener('input', () => {
+            scheduleNormalizeEditablePaperContent();
+            scheduleDraftSave();
+        });
+        document.getElementById('paperContent').addEventListener('paste', () => {
+            setTimeout(() => {
+                normalizeEditablePaperContent(true);
+                scheduleDraftSave();
+            }, 0);
+        });
+        document.getElementById('internalNoteText')?.addEventListener('input', scheduleDraftSave);
+        
+        // Hierarchical Select Listeners
+        document.getElementById('literalPart').addEventListener('change', () => { updateVaggaSelect('literal'); generatePreview(); });
+        document.getElementById('literalVagga').addEventListener('change', () => { updateStorySelect('literal'); });
+        document.getElementById('literalStory').addEventListener('change', () => { updatePageRange('literal'); });
+        
+        document.getElementById('sensePart').addEventListener('change', () => { updateVaggaSelect('sense'); generatePreview(); });
+        document.getElementById('senseVagga').addEventListener('change', () => { updateStorySelect('sense'); });
+        document.getElementById('senseStory').addEventListener('change', () => { updatePageRange('sense'); });
+
+        // Direct page input updates
+        document.getElementById('literalStartPage').addEventListener('input', generatePreview);
+        document.getElementById('literalEndPage').addEventListener('input', generatePreview);
+        document.getElementById('senseStartPage').addEventListener('input', generatePreview);
+        document.getElementById('senseEndPage').addEventListener('input', generatePreview);
+        document.getElementById('literalVolumeSelect').addEventListener('change', generatePreview);
+        document.getElementById('senseVolumeSelect').addEventListener('change', generatePreview);
+        
+        populateSubjectSelect();
+        populatePartSelects();
+        updateDuration();
+        updateDateDisplay();
+        applyFontLockForSubject();
+        updateVolumeSelectors();
+        updateBookTitleBadge();
+        generatePreview();
+        updateWorkflowState();
+        updateBsModeButton();
+        updateHeaderLockButton();
+        changePaperSize(document.getElementById('paperSizeSelect').value);
+        const marginSelect = document.getElementById('marginSelect');
+        if (marginSelect) {
+            changeMargin(marginSelect.value);
+        } else {
+            changeMargin('default');
+        }
+        document.getElementById('templateModalCloseBtn')?.addEventListener('click', closeTemplateModal);
+        document.getElementById('templateSaveNewBtn')?.addEventListener('click', saveNewTemplateFromModal);
+        document.getElementById('templateOverwriteBtn')?.addEventListener('click', overwriteSelectedTemplate);
+        document.getElementById('templateDeleteBtn')?.addEventListener('click', deleteSelectedTemplate);
+        document.getElementById('templateApplyBtn')?.addEventListener('click', applySelectedTemplate);
+        document.getElementById('templateSetFilter')?.addEventListener('change', () => refreshTemplateListUI(true));
+        document.getElementById('templateSetDefaultBtn')?.addEventListener('click', setSelectedTemplateAsDefault);
+        document.getElementById('templateClearDefaultBtn')?.addEventListener('click', clearDefaultTemplateForSelectedSize);
+        restoreDraftIfAvailable();
+    </script>
+
+    <script>
+        // Modal for Exam Stats
+        function showExamStatsModal(data) {
+            const body = document.getElementById('examStatsModalBody');
+            if (!data || data.length === 0) {
+                body.innerHTML = '<div class="msg-no-data">ไม่พบข้อมูล</div>';
+                return;
+            }
+
+            const levelMap = {
+                'p12': 'ประโยค ๑–๒',
+                'p3': 'ประโยค ป.ธ. ๓',
+                'p4': 'ประโยค ป.ธ. ๔',
+                'p5': 'ประโยค ป.ธ. ๕',
+                'p6': 'ประโยค ป.ธ. ๖',
+                'p7': 'ประโยค ป.ธ. ๗',
+                'p8': 'ประโยค ป.ธ. ๘',
+                'p9': 'ประโยค ป.ธ. ๙'
+            };
+
+            let html = `
+                <table class="w-full border-collapse text-md">
+                    <thead>
+                        <tr class="bg-light-gray border-bottom-ddd">
+                            <th class="p-8 text-left">พ.ศ.</th>
+                            <th class="p-8 text-left">ชั้น</th>
+                            <th class="p-8 text-left">วิชา (ข้อ)</th>
+                            <th class="p-8 text-left">เนื้อหา</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            data.forEach(d => {
+                const levelLabel = levelMap[d.level] || d.level;
+                html += `
+                    <tr class="border-bottom-eee">
+                        <td class="p-8 valign-top">${d.year} ${d.round ? '(ครั้งที่ '+d.round+')' : ''}</td>
+                        <td class="p-8 valign-top">${levelLabel}</td>
+                        <td class="p-8 valign-top">${d.subject} ${d.question ? '(ข้อ '+d.question+')' : ''}</td>
+                        <td class="p-8 valign-top">
+                            <div class="font-bold text-blue-dark">${d.contentSnippet || '-'}</div>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            body.innerHTML = html;
+            
+            // Show Modal
+            const modal = document.getElementById('examStatsModal');
+            modal.classList.add('d-flex');
+        }
+    </script>
+    
+    <!-- Modal for Exam Stats -->
+    <div id="examStatsModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-history"></i> ประวัติการออกข้อสอบสนามหลวง</h3>
+                <button onclick="document.getElementById('examStatsModal').classList.remove('d-flex')" class="modal-close-btn">&times;</button>
+            </div>
+            <div id="examStatsModalBody">
+                <!-- Table will go here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" onclick="document.getElementById('examStatsModal').classList.remove('d-flex')">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="templateModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-bookmark"></i> แม่แบบข้อสอบ</h3>
+                <button id="templateModalCloseBtn" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="row">
+                <label>ชุดแม่แบบ</label>
+                <select id="templateSetFilter" class="w-full">
+                    <option value="ALL">ทั้งหมด</option>
+                    <option value="A4">ชุด A4</option>
+                    <option value="F4">ชุด F4 (14 นิ้ว)</option>
+                </select>
+            </div>
+            <div class="row">
+                <label>เลือกแม่แบบ</label>
+                <select id="templateSelect" class="w-full"></select>
+            </div>
+            <div id="templateMeta" class="text-gray-666 text-sm mt-5"></div>
+            <div id="templateDefaultInfo" class="text-gray-666 text-sm mt-5"></div>
+            <div class="modal-footer">
+                <button class="btn secondary" id="templateSaveNewBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกใหม่</button>
+                <button class="btn secondary" id="templateOverwriteBtn"><i class="fa-solid fa-rotate-right"></i> บันทึกทับ</button>
+                <button class="btn secondary" id="templateDeleteBtn"><i class="fa-solid fa-trash"></i> ลบ</button>
+                <button class="btn secondary" id="templateSetDefaultBtn"><i class="fa-solid fa-star"></i> ตั้งเป็นเริ่มต้น</button>
+                <button class="btn secondary" id="templateClearDefaultBtn"><i class="fa-solid fa-star-half-stroke"></i> ยกเลิกเริ่มต้น</button>
+                <button class="btn primary" id="templateApplyBtn"><i class="fa-solid fa-check"></i> เรียกใช้</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

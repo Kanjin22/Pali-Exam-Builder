@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>		  <B>ยมฺหิ นิรุชฺฌนฺติ ภวานิ สพฺพโส 
+<span class="LineNumber"> 002 </span>		  เย เอตทฺาย ปทํ อสงฺขตํ 
+<span class="LineNumber"> 003 </span>		  วิมุตฺตจิตฺตา ภวเนตฺติสงฺขยา 
+<span class="LineNumber"> 004 </span>		  เต ธมฺมสาราธิคมา ขเย <SUP>๑</SUP>รตา 
+<span class="LineNumber"> 005 </span>		  ปหํสุ โว <SUP>๒</SUP> สพฺพภวานิ ตาทิโนติ ฯ</B> 
+<span class="LineNumber"> 006 </span>	                               ปาลิ ฯ 
+<span class="LineNumber"> 007 </span>	[๕๓๙]  <B>เทฺวมาติ</B>  เทฺว  อิมา  ฯ  วานํ  วุจฺจติ  ตณฺหา  นิกฺขนฺตํ 
+<span class="LineNumber"> 008 </span>วานโต   นตฺถิ   วา   เอตฺถ   วานํ   อิมสฺมึ  วา  อธิคเต  วานสฺส 
+<span class="LineNumber"> 009 </span>อภาโวติ   นิพฺพานํ  ฯ   ตเทว  นิสฺสตฺตนิชฺชีวตฺเถน  สภาวธารณตฺเถน 
+<span class="LineNumber"> 010 </span>จ   ธาตูติ   นิพฺพานธาตุ  ฯ  นิพฺพานธาตุยา  ปรมตฺถโต  เภโท  นตฺถิ 
+<span class="LineNumber"> 011 </span>ปริยาเยน    ปน   ปฺายตีติ   ตํ   ปริยายเภทํ   สนฺธาย   เทฺวมา 
+<span class="LineNumber"> 012 </span>ภิกฺขเว    นิพฺพานธาตุโยติ    วตฺวา   ยถาธิปฺเปตํ   ปเภทํ   ทสฺเสตุํ 
+<span class="LineNumber"> 013 </span>สอุปาทิเสสาติอาทิ   วุตฺตํ  ฯ  ตตฺถ  ตณฺหาทีหิ  ผลภาเวน  อุปาทิยตีติ 
+<span class="LineNumber"> 014 </span>อุปาทิ   ขนฺธปฺจกํ  ฯ   อุปาทิเยว   เสโส   อุปาทิเสโส  ฯ  สห 
+<span class="LineNumber"> 015 </span>อุปาทิเสเสนาติ    สอุปาทิเสโส  ฯ    ตทภาวโต    อนุปาทิเสโสติ 
+<span class="LineNumber"> 016 </span>อิติวุตฺตกวณฺณนา<SUP>๓</SUP> ฯ 
+<span class="LineNumber"> 017 </span>	[๕๔๐]   อรหนฺติ   อารกกฺกิเลโส   ทูรกฺกิเลโส   ปหีนกฺกิเลโสติ 
+<span class="LineNumber"> 018 </span>อตฺโถ  ฯ   ขีณาสโวติ   จตฺตาโร   อาสวา   อรหโต  ขีณา  ปหีนา 
+<span class="LineNumber"> 019 </span>สมุจฺฉินฺนา     ปฏิปฺปสฺสทฺธา    อภพฺพุปฺปตฺติกา    าณคฺคินา    ทฑฺฒา 
+<span class="LineNumber"> 020 </span>เตน   วุจฺจติ   ขีณาสโวติ  ฯ   วุสิตวาติ   ครุสํวาเสปิ  อริยมคฺเคปิ 
+
+<span class='footnote'>๑. ปาลิยํ ธมฺมสาราธิคมกฺขเยติ ปาโ€ ฯ ๒. เตติ ฯ ๓. ป. ที. อิติ. ๒๑๕ ฯ </span>

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  6
+
+<span class="LineNumber"> 002 </span>	สา  ตตฺรมชฺฌตฺตตา  จิตฺต...อสฺสานํ  อชฺฌุเปกฺขโน  สารถิ
+<span class="LineNumber"> 003 </span>วิย  ฯ  จิตฺตญฺจ  เจตสิกา  จ  จิตฺตเจตสิกา  ฯ  อุเปกฺขิยเต
+<span class="LineNumber"> 004 </span>อุเปกฺขนํ  ฯ  อธิกํ  อุเปกฺขนํ  อชฺฌุเปกฺขนํ  กมฺมธารโย  ฯ
+<span class="LineNumber"> 005 </span>อชฺฌุเปกฺขนํ  ลกฺขณํ  ยสฺสา  สา  อชฺฌุ...ขณา  ฯ  ยสฺส
+<span class="LineNumber"> 006 </span>ตตฺรมชฺฌตฺตตาย  ฯ
+<span class="LineNumber"> 007 </span>	สาติ  ลิงฺคตฺโถ  ฯ  จิตฺต...กานนฺติ  อชฺฌุเปกฺขนาติ  ปเท
+<span class="LineNumber"> 008 </span>กมฺมํ  ฯ  อชฺฌุ...ขณาติ  สาติ  ปทสฺส  วิเสสนํ  ฯ
+<span class="LineNumber"> 009 </span>	[๑๐]  สมํ  ปวตฺตนฺตีติ  สมปฺปวตฺตา  เย  อสฺสา  ฯ  อสนฺติ
+<span class="LineNumber"> 010 </span>ภกฺขนฺตีติ  อสฺสา  เย  หยา  ฯ  อส  ภกฺขเน  สพฺพ...วาติ
+<span class="LineNumber"> 011 </span>อ  ฯ  อสฺสทมาทโย  สาเรตีติ  สารถิ  โย  ชโน  อสฺส...โย
+<span class="LineNumber"> 012 </span>สาเรติ  คเมติ  อิติ  โส  ชโน  สารถิ  รถวาโห  ฯ  สร
+<span class="LineNumber"> 013 </span>คติจินฺตายํ  ตสฺสีลาทีสุ  ณีตฺวาวี  วาติ  ณี  อสํโยคานฺตสฺส  วุฑฺฒิ
+<span class="LineNumber"> 014 </span>การิเต  กาเล  วตฺตมานาตีเต  ณฺวาทโยติ  รถิ  กฺวจิ  ธาตูติอาทินา
+<span class="LineNumber"> 015 </span>รณีนํ  โลโป  ฯ  สทฺทนีติยมฺปิ  อสฺสทมาทโย  สารสีโลติ
+<span class="LineNumber"> 016 </span>สารถี  กิญฺจาปิ  กตฺถจิ  สารถิ  อิติ  รสฺสตฺตปาโ€  ทิสฺสติ
+<span class="LineNumber"> 017 </span>ตถาปิ  โส  สภาเวน  รสฺสตฺตปาโ€  น  โหติ  ทีฆสฺส  รสฺสตฺต-
+<span class="LineNumber"> 018 </span>กรณปาโ€ติ  เวทิตพฺโพติ  วุตฺตํ  ฯ  โมคฺคลฺลาเนปิ  รสฺสตฺตปาโ€ปิ
+<span class="LineNumber"> 019 </span>ทิสฺสติ  ฯ
+<span class="LineNumber"> 020 </span>	สม...ตานนฺติ  อสฺสานนฺติ  ปทสฺส  วิเสสนํ  ฯ  อสฺสานนฺติ
+<span class="LineNumber"> 021 </span>อชฺฌุเปกฺขโนติ  ปเท  กมฺมํ  ฯ  สารถีติ  อุปมา  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๐๕

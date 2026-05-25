@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  196
+
+<span class="LineNumber"> 002 </span>อนุคฺคาหกา  ฯ  พฺรหฺมานํ  หิ  อุตุชรูปํ  อกฺขายติ  ฯ  ปนสทฺโท
+<span class="LineNumber"> 003 </span>วิเสสาภิธานารมฺโภ  ฯ  เตสํ  อนุคฺคาหกานํ  วโส  ปฏิพทฺโธ  ตํวโส
+<span class="LineNumber"> 004 </span>ปุพฺเพ  นิคฺคหิตาคโม  ฯ
+<span class="LineNumber"> 005 </span>	กิฺจาปีติ  นตฺถีติ  ปเท  อุปคมนิปาโต  ฯ  อุปฆาตกาติ
+<span class="LineNumber"> 006 </span>นตฺถีติ  ปเท  กตฺตา  ฯ  นตฺถีติ  กตฺตุวาจกํ  นิปาตปทํ  ฯ  อนุคฺคาห-
+<span class="LineNumber"> 007 </span>กาติ  อตฺถีติ  ปเท  กตฺตา  ฯ  อตฺถีติ  กตฺตุวาจกํ  นิปาตปทํ  ฯ
+<span class="LineNumber"> 008 </span>ตสฺมาติ  สมฺภวตีติ  ปเท  เหตุ  ฯ  ตํวเสนาติ  สมฺภวตีติ  ปเท
+<span class="LineNumber"> 009 </span>ตติยาวิเสสนํ  ฯ  เอตฺถาติ  สมฺภวตีติ  ปเท  อาธาโร  ฯ  รุปฺปนนฺติ
+<span class="LineNumber"> 010 </span>สมฺภวตีติ  ปเท  กตฺตา  ฯ  สมฺภวตีติ  กตฺตุวาจกํ  ฯ  อิติสทฺโท
+<span class="LineNumber"> 011 </span>สมาปนฺโน  ฯ
+<span class="LineNumber"> 012 </span>	[๙๓]  อปรมฺปิ  ยุตฺตํ  วิสชฺชนนยํ  าเปนฺโต  อถวาติ-
+<span class="LineNumber"> 013 </span>อาทิมาห  ฯ  อถวา  ฯ  ตํส...นโต  อรุปฺปนสฺสปิ  ตสฺส  รุปฺปน-
+<span class="LineNumber"> 014 </span>สภาวสฺส  อนติวตฺตนโต  ตตฺถ  พฺรหฺมโลเก  รูปโวหาโร
+<span class="LineNumber"> 015 </span>รูปสมฺา  โหติ  ฯ
+<span class="LineNumber"> 016 </span>	อถวาติ  อภินฺนนิปาโต  ฯ  ภวนํ  ภาโว  รุปฺปนกิริยา  ฯ
+<span class="LineNumber"> 017 </span>อตฺตโน  ภาโว  สภาโว  รุปฺปนสงฺขาโต  อตฺตโน  ภาโว  ฯ  โส
+<span class="LineNumber"> 018 </span>สภาโว  ตํสภาโว  ปุพฺเพ  พินฺทาคโม  ฯ  ตํสภาวสฺส  อนติวตฺตนํ
+<span class="LineNumber"> 019 </span>ตํส...วตฺตนํ  ฯ  รูปํ  อิติ  โวหาโร  รูปโวหาโร  ฯ
+<span class="LineNumber"> 020 </span>	ตํสภา...ตนโตติ  โหตีติ  ปเท  าปกเหตุ  ฯ  ตตฺถาติ  โหตีติ
+<span class="LineNumber"> 021 </span>ปเท  อาธาโร  ฯ  รูปโวหาโรติ  โหตีติ  ปเท  กตฺตา  ฯ  อิติสทฺโท
+<span class="LineNumber"> 022 </span>สมาปนฺโน  ฯ
+<span class="LineNumber"> 023 </span>					อภิ.๖๘

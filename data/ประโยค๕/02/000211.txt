@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>              <B>"ชน (สัตว์)  ผู้งมงาย  ๔ จำพวกเหล่านี้  คือ
+<span class="LineNumber"> 002 </span>              ไส้เดือน ๑  นางนกต้อยติวิด ๑ นกกะเรียน ๑
+<span class="LineNumber"> 003 </span>              พราหมณ์ผู้หนักในธรรมเนียม ๑ ย่อมกลัวสิ่งที่ไม่ 
+<span class="LineNumber"> 004 </span>              ควรกลัว."</B>
+<span class="LineNumber"> 005 </span>           [๒๐๐]  เพราะฉะนั้น  อันบุคคลพึงเป็นผู้ไม่งมงาย  ละเวรแล้ว
+<span class="LineNumber"> 006 </span>สมาทานเจตนาผู้ขับไล่เวร.  เพราะว่าบุคคลผู้ทำอยู่อย่างนั้น  ชื่อว่า
+<span class="LineNumber"> 007 </span>ผู้มีศีล.  ด้วยเหตุนั้น  พระผู้มีพระภาค  เมื่อทรงแสดงธรรมแก่ท่าน
+<span class="LineNumber"> 008 </span>อนาถปิณฑิกะ  จึงตรัสไว้ในเวร*สูตร  ในปัญจกนิบาต  อังคุตตรนิกายว่า
+<span class="LineNumber"> 009 </span>              <B>"นระใด  ย่อมทำสัตว์มีปราณ  ให้ตกล่วงไป ๑
+<span class="LineNumber"> 010 </span>              กล่าวมุสาวาท ๑  ถือเอาสิ่งของที่เขาไม่ให้แล้ว
+<span class="LineNumber"> 011 </span>              ในโลก ๑ ถึงทาระของชายอื่น ๑,  อนึ่ง  นระใด
+<span class="LineNumber"> 012 </span>              ย่อมประกอบเนือง ๆ  ซึ่งการดื่มสุราและเมรัย,
+<span class="LineNumber"> 013 </span>              นระนั้นไม่ละเวรทั้ง ๕ แล้ว  บัณฑิตเรียกว่า 'ผู้
+<span class="LineNumber"> 014 </span>              ทุศีล'  เขามีปัญญาทราม  ย่อมเข้าถึงนรก  เพราะ
+<span class="LineNumber"> 015 </span>              ความแตกแห่งกาย,  นระใด  ไม่ทำสัตว์มีปราณ
+<span class="LineNumber"> 016 </span>              ให้ตกล่วงไป  ไม่กล่าวมุสาวาท  ไม่ถึงเอาสิ่ง
+<span class="LineNumber"> 017 </span>              ของที่เขาไม่ให้แล้วในโลก  ไม่ถึงทาระของชาย
+<span class="LineNumber"> 018 </span>              อื่น,  อนึ่ง  นระใด  ไม่ประกอบเนือง ๆ  ซึ่งการ
+<span class="LineNumber"> 019 </span>              ดื่มสุราและเมรัย,  นระนั้น  ละเวรทั้ง ๕ แล้ว
+<span class="LineNumber"> 020 </span>              บัณฑิตเรียกว่า ' ผู้มีศีล,'  เขามีปัญญา ย่อม</B>
+
+<span class='footnote'>*  องฺ.  ปญฺจก.  ๒๒/๒๒๙.</span>

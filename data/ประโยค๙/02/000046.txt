@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  50
+
+<span class="LineNumber"> 002 </span>อภินิวิสนฺตสฺส  ทฬฺหํ  คณฺหนฺตสฺส  ปุคฺคลสฺส  ตตฺถ  สกฺกายาทีสุ
+<span class="LineNumber"> 003 </span>มมา...ลพฺภติ  ฯ  มาโนปิ...ปวตฺตติ  อิติ  ตสฺมา  ทิฏฺ€ิยา...
+<span class="LineNumber"> 004 </span>นปฺปวตฺตติ  มาโน  ตถาวิเธน  อปเรน  สีเหน  สห  เอกคุหาย
+<span class="LineNumber"> 005 </span>เกสรสีโห  นปฺปวตฺตติ  วิย  ฯ  มาโน  ทูสมูลาทีสุ  น  จาปิ
+<span class="LineNumber"> 006 </span>อุปฺปชฺชติ  อตฺต...€านโต  อิติ  ตสฺมา  โส  มาโน  ทิฏฺ€ิ...
+<span class="LineNumber"> 007 </span>ลพฺภติ  ฯ  ตถา  ปรสมฺปตฺตึ...อนุโสจนฺตสฺส  ปุคฺคลสฺส  ตตฺถ
+<span class="LineNumber"> 008 </span>ตตฺถ  อารมฺมเณ  ปฏิ...เสฺวว  ลพฺภนฺติ  ฯ  อกมฺม...กสฺส
+<span class="LineNumber"> 009 </span>ถีนมิทฺธสฺส  ตถา...ลพฺภตีติ  โยชนา  ฯ
+<span class="LineNumber"> 010 </span>	สนฺโต  กาโย  สกฺกาโย  กมฺมธารโย  ฯ  อตฺตโน  ฯ
+<span class="LineNumber"> 011 </span>กาโย  สกฺกาโย  ฉฏฺ€ีตปฺปุริโส  ฯ  ปญฺจกฺขนฺธา  สกฺกาโย  ฯ
+<span class="LineNumber"> 012 </span>สกฺกาโย  อาทิ  เยสํ  อตฺตนิยาทีนํ  เต  สกฺกายาทโย  ฯ  หิสทฺโท
+<span class="LineNumber"> 013 </span>ทฬฺหี  ฯ  อภินิวิสติ  ทฬฺหํ  คณฺหตีติ  อภินิวิสนฺโต  ปุคฺคโล  ฯ
+<span class="LineNumber"> 014 </span>อภินิปุพฺโพ  วิส  ปเวสเน  อนฺตปจฺจโย  ฯ  อยนํ  ปวตฺตนํ  อยนํ  ฯ
+<span class="LineNumber"> 015 </span>มม  อิติ  อยนํ  มมายนํ  ฯ  อิทํ  มม  สนฺตกํ  อิติ  อยนํ  
+<span class="LineNumber"> 016 </span>ปวตฺตนนฺติ  อตฺโถ  ฯ  มมายนสฺส  สมฺภวนํ  ปวตฺตนํ  มมายนสมฺภโว  ฯ
+<span class="LineNumber"> 017 </span>	สกฺกายาทีสูติ  อภิ...ตสฺสาติ  ปเท  อาธาโร  ฯ  อภิ...
+<span class="LineNumber"> 018 </span>ตสฺสาติ  มมายนาติ  ปเท  สมฺพนฺโธ  ฯ  ตตฺถาติ  มมายนาติ  ปเท
+<span class="LineNumber"> 019 </span>อาธาโร  ฯ  มมา...วโตติ  ลพฺภตีติ  ปเท  เหตุ  ฯ  ทิฏฺ€ีติ
+<span class="LineNumber"> 020 </span>ลพฺภตีติ  ปเท  กมฺมํ  ฯ  โลภ...เสฺววาติ  ลพฺภตีติ  ปเท
+<span class="LineNumber"> 021 </span>อาธาโร  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๐๙

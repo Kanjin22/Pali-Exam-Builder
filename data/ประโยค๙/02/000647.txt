@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    647
+
+<span class="LineNumber"> 002 </span>	อภิญฺาภาวํ  ปาปุณาตีติ  อภิญฺาภาวปฺปตฺตํ  ยํ  ฌานํ  ฯ
+<span class="LineNumber"> 003 </span>ปนสทฺโท  วิเสสตฺโถ  ฯ  นตฺถิ  วิปาโก  ยสฺส  ตํ  อวิปากํ  อวิปากสฺส
+<span class="LineNumber"> 004 </span>ภาโว  อวิปากภาโว  ฯ  อลทฺธา...อิติ  อาทิ  ยสฺส  วจนสฺส  ตํ
+<span class="LineNumber"> 005 </span>อล...อาทิ  ฯ  อาจริเยนาติ  อนุรุทฺธาจริเยน  ฯ
+<span class="LineNumber"> 006 </span>	อภิ...สาติ  ภาโวติ  สมฺพนฺโธ  ฯ  อวิปากภาโวติ  สาธิโตติ
+<span class="LineNumber"> 007 </span>กมฺมํ  ฯ  อล...ทินาติ  สาธิโตติ  กรณํ  ฯ  อาจริเยนาติ  สาธิโตติ
+<span class="LineNumber"> 008 </span>กตฺตา  ฯ
+<span class="LineNumber"> 009 </span>	[๘๐๗]  อญฺเ  ปน  อญฺถา  ตํ  วทนฺตีติ  าเปนฺโต  อาห
+<span class="LineNumber"> 010 </span>มูลตฺยาทึ  ฯ  มูล...ปน  อาจริยา  อญฺถาปิ  ปกาเรน  ตํ
+<span class="LineNumber"> 011 </span>อภิญฺาภาวปฺปตฺตสฺส  อวิปากภาวํ  สาเธนฺติ  ฯ
+<span class="LineNumber"> 012 </span>	มูลยนฺติ  เอตายาติ  มูลา  อฏฺ€กถา  เอตาย  ฏีกาย  มูลยติ
+<span class="LineNumber"> 013 </span>ปติฏฺ€าติ  อิติ  ตสฺมา  สา  ฏีกา  มูลา  ฯ  มูล  ปติฏฺ€ายํ
+<span class="LineNumber"> 014 </span>สพฺพโต  ณฺวุตฺวาวี  วาติ  อ  ฯ  ฏิกิยติ  ชานิยติ  สํวณฺณนาย  อตฺโถ
+<span class="LineNumber"> 015 </span>เอตาย  สทฺทชาติยาติ  ฏีกา  ฯ  ฏิก  คติยํ  อิตฺถิยมติยโว  วาติ
+<span class="LineNumber"> 016 </span>อ  กฺวจาทิมชฺฌุตฺยาทินา  ทีโฆ    ฯ  มูลา  จ  สา  ฏีกา  จาติ  มูลฏีกา
+<span class="LineNumber"> 017 </span>อภิธมฺมฏีกา  ฯ  มูลฏีกํ  กโรตีติ  มูลฏีกากาโร  โย  อาจริโย  
+<span class="LineNumber"> 018 </span>อานนฺทาจริโย  ฯ  มูลฏีกากาโร  อาทิ  เยสํ  อาจริยานํ  เต  มูล...
+<span class="LineNumber"> 019 </span>ทโย  ฯ  อาทิสทฺเทน  ตสฺส  สิสฺสานํ  คหณํ  ฯ  ปนสทฺโท  วิเสสตฺโถ  ฯ
+<span class="LineNumber"> 020 </span>อญฺถาปีติ  อาเสวนาลาภโต  อญฺเน  ปกาเรน  ฯ  อปิสทฺโท
+<span class="LineNumber"> 021 </span>อาเสวนาลาภสงฺขาตํ  เหตุํ  อเปกฺขติ  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๘๑

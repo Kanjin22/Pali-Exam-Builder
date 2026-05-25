@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ตติยปริจฺเฉทตฺถโยชนา    หน้า  165
+
+<span class="LineNumber"> 002 </span>อนนฺตรภโว  จาติ  อตีตา...ภโว  ฯ  อตีตา...ภเวติ  คหิตนฺติ
+<span class="LineNumber"> 003 </span>ปเท  อาธาโร  ฯ
+<span class="LineNumber"> 004 </span>	ฉทฺวารคฺคหิตนฺติ  เอตฺถ  มรณาสนฺนปฺปวตฺตฉทฺวารชวนํ  คหิตํ
+<span class="LineNumber"> 005 </span>น  ทฺวารเมวาติ  อาห  มร...เนหีติ  ฯ  มร...วเนหีติ  คหิตนฺติ
+<span class="LineNumber"> 006 </span>ปเท  กตฺตา  ฯ  มรณสฺส  อาสนฺโน  กาโล  มรณาสนฺโน
+<span class="LineNumber"> 007 </span>มรณาสนฺเน  ปวตฺตานิ  มร...ปวตฺตานิ  ฯ  ฉทฺวาเรสุ  ปวตฺตานิ
+<span class="LineNumber"> 008 </span>ฉทฺวาริกานิ  ฉทฺวาริกานิ  จ  ตานิ  ชวนานิ  จาติ  ฉทฺวาริกชวนานิ  ฯ
+<span class="LineNumber"> 009 </span>มรณาสนฺนปฺปวตฺตานิ  จ  ตานิ  ฉทฺวาริกชวนานิ  จาติ  มร...
+<span class="LineNumber"> 010 </span>วนานิ  ฯ
+<span class="LineNumber"> 011 </span>	[๒๑๖]  เตสํ  ปน  จุตานํ  สตฺตานํ  ปฏิสนฺธิอารมฺมณํ
+<span class="LineNumber"> 012 </span>ทฺวาเรน  คหิตมตฺตนฺติ  ปุจฺฉํ  มนสิกตฺวา  พาหุลฺเลน  ชวเนหิ
+<span class="LineNumber"> 013 </span>คหิตนฺติ  วจนํ  สมตฺเถนฺโต  อาห  อสญฺิภวโตติอาทึ  ฯ  หิ
+<span class="LineNumber"> 014 </span>สจฺจํ  อสญฺิภวโต  จุตานํ  ปฏิ...หณํ  น  อตฺถิ  อิติ  ตสฺมา
+<span class="LineNumber"> 015 </span>ตํ  ปฏิสนฺธิวิสยํ  เอตฺถ  เยภุยฺเยน  ฉทฺวารคฺคหิตนฺติ  วจเน
+<span class="LineNumber"> 016 </span>เยภุยฺยคฺคหเณน  พฺยภิจาริตํ  วิราธิตนฺติ  โยชนา  ฯ
+<span class="LineNumber"> 017 </span>	สญฺา  เอเตสํ  สตฺตานมตฺถีติ  สญฺิโน  น  สญฺิโน
+<span class="LineNumber"> 018 </span>อสญฺิโน  ฯ  ภวนฺติ  เอตฺถ  เทเส  สตฺตาติ  ภโว  ฯ  อสญฺีนํ
+<span class="LineNumber"> 019 </span>ภโว  อสญฺิภโว  ฯ  จวนฺตีติ  จุตา  สตฺตา  ฯ  หิสทฺโท  ทฬฺหี  ฯ
+<span class="LineNumber"> 020 </span>วิสิโนติ  อารมฺมณิกํ  พนฺธตีติ  วิสโย  ฯ  ปฏิสนฺธิยา  วิสโย
+<span class="LineNumber"> 021 </span>ปฏิสนฺธิวิสโย  ฯ  อนนฺตโร  จ  โส  อตีตภโว  จาติ  อน...
+<span class="LineNumber"> 022 </span>					อภิ.๑๒๕

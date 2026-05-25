@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>เอวํ  ตุมฺเหปิ  ฉทฺวาริเกสุ อารมฺมเณสุ<SUP>๑</SUP> เสสานิ ปฺจ ทฺวารานิ ปิธาย 
+<span class="LineNumber"> 002 </span>มโนทฺวาเร   กมฺมํ   ปฏฺ€เปถาติ.   พหุสฺสุตสฺส  ภิกฺขุโน  เอตฺตเกเนว 
+<span class="LineNumber"> 003 </span>ปทีปุชฺชลนํ    วิย   อโหสิ.   โส   "เอตฺตกเมว   โหตุ   สปฺปุริสาติ 
+<span class="LineNumber"> 004 </span>กรชกาเย าณํ โอตาเรตฺวา สมณธมฺมํ อารภิ. 
+<span class="LineNumber"> 005 </span>	สตฺถา   วีสโยชนสต  มตฺถเก  นิสินฺโนว  ตํ  ภิกฺขุํ  โอโลเกตฺวา 
+<span class="LineNumber"> 006 </span>"ยเถวายํ   ภิกฺขุ   ภูริปฺโ;   เอวเมว  เตน  อตฺตานํ  ปติฏฺ€าเปตุํ 
+<span class="LineNumber"> 007 </span>วฏฺฏตีติ   จินฺเตตฺวา   เตน   สทฺธึ   กเถนฺโต  วิย  โอภาสํ  ผริตฺวา 
+<span class="LineNumber"> 008 </span>อิมํ คาถมาห 
+<span class="LineNumber"> 009 </span>	"โยคา เว ชายเต ภูริ,   อโยคา ภูริสงฺขโย,' 
+<span class="LineNumber"> 010 </span>		เอตํ เทฺวธาปถํ ตฺวา    ภวาย วิภวาย จ 
+<span class="LineNumber"> 011 </span>		ตถตฺตานํ นิเวเสยฺย;     ยถา ภูริ ปวฑฺฒตีติ. 
+<span class="LineNumber"> 012 </span>	ตตฺถ  "โยคาติ:  อฏฺ€ตฺตึสาย  อารมฺมเณสุ  โยนิโส  มนสิการา. 
+<span class="LineNumber"> 013 </span>ภูรีติ:   ป€วีสมาย  วิตฺถตาย  ปฺาเยตํ  นามํ.  สงฺขโยติ:  วินาโส. 
+<span class="LineNumber"> 014 </span>เอตํ   เทฺวธาปถนฺติ:   เอตํ   โยคฺจ   อโยคฺจ.   ภวาย  วิภวาย 
+<span class="LineNumber"> 015 </span>จาติ:    วฑฺฒิยา   จ   อวฑฺฒิยา   จ.   ตถตฺตานนฺติ:   ยถา   อยํ 
+<span class="LineNumber"> 016 </span>ภูริสงฺขาตา ปฺา ปวฑฺฒติ; เอวํ อตฺตานํ นิเวเสยฺยาติ อตฺโถ. 
+<span class="LineNumber"> 017 </span>		คาถาวสาเน โป€ิลตฺเถโร อรหตฺเต ปติฏฺ€หีติ. 
+<span class="LineNumber"> 018 </span>		  		โป€ิลตฺเถรวตฺถุ. 
+		  
+<span class='footnote'>๑. "ฉสุ ทฺวาเรสูติ ภวิตพฺพํ. </span>

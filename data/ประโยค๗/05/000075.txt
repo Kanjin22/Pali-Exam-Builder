@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>                 [ พระเจ้าอโศกมหาราชตรัสถามข้อธรรม ]
+<span class="LineNumber"> 002 </span>           ในที่สุดภัตกิจ  พระราชา  ตรัสถามว่า  " พ่อเณรรู้พระโอวาทที่
+<span class="LineNumber"> 003 </span>พระศาสดาทรงประทาน  แก่พวกพ่อเณรหรือ ? "
+<span class="LineNumber"> 004 </span>           สามเณร  ถวายพระพรว่า  " มหาบพิตร !  อาตมภาพ ย่อมรู้
+<span class="LineNumber"> 005 </span>โดยเอกเทศ  ( เท่านั้น ). "
+<span class="LineNumber"> 006 </span>           พระราชา  ทรงรับสั่งว่า  " พ่อเณร !  ขอจงแสดงโอวาทที่
+<span class="LineNumber"> 007 </span>พ่อเณรรู้นั้น  แก่โยมบ้าง. "
+<span class="LineNumber"> 008 </span>           สามเณร  ทูลรับว่า  " ได้  มหาบพิตร ! "  ดังนี้แล้ว  ได้กล่าว
+<span class="LineNumber"> 009 </span>อัปปมาทวรรค  ในธรรมบท  ตามสมควรแด่พระราชา  เพื่อประโยชน์
+<span class="LineNumber"> 010 </span>แก่การอนุโมทนา.
+<span class="LineNumber"> 011 </span>           พระราชาพอได้ทรงสดับว่า   
+<span class="LineNumber"> 012 </span>              <B>" ความไม่ประมาท  เป็นทางไม่ตาย,
+<span class="LineNumber"> 013 </span>              ความประมาท  เป็นทางแห่งความตาย<SUP>๑</SUP> "</B>
+<span class="LineNumber"> 014 </span>ดังนี้เป็นต้น.
+<span class="LineNumber"> 015 </span>           ก็ทรงรับสั่งว่า  " พ่อเณร !  จงยังธรรมเทศนาที่ข้าพเจ้าได้รู้แล้ว
+<span class="LineNumber"> 016 </span>ให้จบไว้ก่อน " ดังนี้.
+<span class="LineNumber"> 017 </span>         [ พระเจ้าอโศกมหาราชถวายนิตยภัตสามเณรเป็นทวีคูณ ]
+<span class="LineNumber"> 018 </span>           ในอวสานแห่งการอนุโมทนา  พระราชาทรงรับสั่งว่า  " พ่อเณร !
+<span class="LineNumber"> 019 </span>โยมจะถวายธุวภัต  แก่พ่อเณร ๘ ที่. "
+<span class="LineNumber"> 020 </span>           สามเณร  ถวายพระพรว่า  " มหาบพิตร !  อาตมภาพ  จะ
+<span class="LineNumber"> 021 </span>ถวายธุวภัตเหล่านั้น  แก่พระอุปัชฌายะ  ( ของอาตมภาพ ). "
+
+<span class='footnote'>๑.  ขุ. ธ. ๒๕/๑๘.</span>

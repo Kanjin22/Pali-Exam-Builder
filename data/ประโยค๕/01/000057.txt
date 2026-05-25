@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>	[๖๔]       อภิชฺฌาลูติ       ปรภณฺฑานิ       อภิชฺฌายนสีลาติ ภยเภรว-
+<span class="LineNumber"> 002 </span>สุตฺตวณฺณนา <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 003 </span>	อภิชฺฌาตา   โหตีติ   อภิชฺฌาย   โอโลเกตา   โหติ  ฯ   <B>อโห 
+<span class="LineNumber"> 004 </span>วตาติ </B> ปเนตฺถ  <SUP>๒</SUP>  นิปาโต  ฯ  อภิชฺฌาย <SUP>๓</SUP> โอโลกิตมตฺตเกน เจตฺถ 
+<span class="LineNumber"> 005 </span>กมฺมปถเภโท  น  โหติ  ฯ  ยทา  ปน  อโห  วเตทํ  <SUP>๔</SUP>  มม  สนฺตกํ 
+<span class="LineNumber"> 006 </span>อสฺส   อหํ   เอตฺถ   วสํ   วตฺเตยฺยนฺติ   อตฺตโน   ปริณาเมติ  ตทา 
+<span class="LineNumber"> 007 </span>กมฺมปถเภโท   โหติ  ฯ   อยมิธ   อธิปฺเปโต  ฯ   <B>พฺยาปนฺนจิตฺโตติ</B> 
+<span class="LineNumber"> 008 </span>วิปนฺนจิตฺโต    ปูติภูตจิตฺโต  <SUP>๕</SUP>  ฯ   <B>ปทุฏฺ€มนสงฺกปฺโปติ</B>   โทเสน 
+<span class="LineNumber"> 009 </span>ทุฏฺ€จิตฺตสงฺกปฺโปติ สาเลยฺยกวณฺณนา <SUP>๖</SUP> ฯ 
+<span class="LineNumber"> 010 </span>	[๖๕]    <B>พฺยาปนฺนจิตฺตาติ</B>    ปกติภาววิชหเนน   วิปนฺนจิตฺตา  ฯ 
+<span class="LineNumber"> 011 </span>กิเลสานุคตฺหิ    จิตฺตํ    ปกติภาวํ   วิชหติ   ปุราณภตฺตพฺยฺชนํ   วิย 
+<span class="LineNumber"> 012 </span>ปูติกํ   โหติ  ฯ   <B>ปทุฏฺ€มนสงฺกปฺปาติ</B>   ปทุฏฺ€จิตฺตสงฺกปฺปา  อภทฺทเกน 
+<span class="LineNumber"> 013 </span>ปเรสํ        อนตฺถชนเกน       จิตฺตสงฺกปฺเปน       สมนฺนาคตาติ ภยเภรวสุตฺต-
+<span class="LineNumber"> 014 </span>วณฺณนา <SUP>๗</SUP> ฯ 
+<span class="LineNumber"> 015 </span>	<B>อนภิชฺฌาลูติอาทิ</B> วุตฺตปฺปฏิปกฺขนเยน คเหตพฺพํ ฯ 
+<span class="LineNumber"> 016 </span>	ปฏิสมฺภิทามคฺควณฺณนายนฺตุ   <B>อเวราติ</B>  เวรรหิตา  ฯ  <B>อพฺยา-
+<span class="LineNumber"> 017 </span>ปชฺฌาติ</B> พฺยาปาทรหิตา  ฯ     <B>อนีติกาติ</B>     นิทฺทุกฺขา  ฯ    อนีฆาติปิ 
+<span class="LineNumber"> 018 </span>ปาโ€  ฯ    <B>สุขี   อตฺตานํ   ปริหรนฺตูติ </B>  สุขี   หุตฺวา   อตฺตภาวํ 
+<span class="LineNumber"> 019 </span>วตฺตยนฺตุ  ฯ  อเวราติ  จ  สกสนฺตาเน  จ  ปเร ปฏิจฺจ ปรสนฺตาเน จ 
+
+<span class='footnote'>๑. ป. สู. ๑/๑๕๙.   ๒. ปฏฺ€นตฺเถ.  ๓. อภิชฺฌายปิ.   ๔. วติทํ.. ๕. ปูติจิตฺโต. . ว.  </span>
+<span class='footnote'>๖. ป. สู. ๒/๔๔๘.   ๗. ป. สู. ๑/๑๕๙. </span>

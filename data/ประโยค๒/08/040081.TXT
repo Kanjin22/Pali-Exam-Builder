@@ -1,0 +1,19 @@
+<span class="LineNumber"> 001 </span>                                ๗.  อรหันตวรรค  วรรณนา
+<span class="LineNumber"> 002 </span>                                 ๑.  เรื่องหมอชีวก<SUP>*</SUP>  [ ๗๑ ]
+<span class="LineNumber"> 003 </span>                                      [ ข้อความเบื้องต้น ]
+<span class="LineNumber"> 004 </span>	พระศาสดาเมื่อประทับอยู่ในสวนมะม่วงของหมอชีวก   ทรง
+<span class="LineNumber"> 005 </span>ปรารภปัญหาอันหมอชีวกทูลถามแล้ว    ตรัสพระธรรมเทศนานี้ว่า
+<span class="LineNumber"> 006 </span><B>" คตทฺธิโน "</B>   เป็นต้น.
+<span class="LineNumber"> 007 </span>                            [ พระเทวทัตทำโลหิตุปบาทกรรม ]
+<span class="LineNumber"> 008 </span>	เรื่องหมอชีวก   ท่านให้พิสดารในขันธกะแล้วแล.
+<span class="LineNumber"> 009 </span>	ความพิสดารว่า   ในสมัยหนึ่ง   พระเทวทัตเป็นผู้ร่วมคิดกับ
+<span class="LineNumber"> 010 </span>พระเจ้าอชาตศัตรูขึ้นสู่เขาคิชฌกูฏ  มีจิตคิดร้าย  คิดว่า  " เราจักปลง-
+<span class="LineNumber"> 011 </span>พระชนม์พระศาสดา "  จึงกลิ้งหินลง.   ยอดเขา ๒ ยอดรับหินนั้นไว้.
+<span class="LineNumber"> 012 </span>สะเก็ดซึ่งแตกออกจากหินนั้น  กระเด็นไป  กระทบพระบาทของพระผู้มี
+<span class="LineNumber"> 013 </span>พระภาค  ยังพระโลหิตให้ห้อแล้ว.  เวทนากล้าเป็นไปแล้ว.
+<span class="LineNumber"> 014 </span>                        [ หมอชีวกทำการพยาบาลแผล ]
+<span class="LineNumber"> 015 </span>	ภิกษุทั้งหลายนำพระศาสดาไปยังสวนมัททกุจฉิ.    พระศาสดา
+<span class="LineNumber"> 016 </span>มีพระประสงค์จะเสด็จ    แม้จากสวนมัททกุจฉินั้นไปยังสวนมะม่วงของ
+<span class="LineNumber"> 017 </span>หมอชีวก   จึงตรัสว่า   " เธอทั้งหลาย   จงนำเราไปในสวนมะม่วง
+
+<span class='footnote'>*  พระมหาอู  ป.ธ.  ๗  วัดบวรนิเวศวิหาร  แปล.</span>

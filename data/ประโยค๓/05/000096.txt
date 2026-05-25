@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>           ถ้อยคำ    (เล่าลือ)    แม้นี้ว่า   " ข่าวว่า   พวกโจรฆ่าพระเถระเสีย
+<span class="LineNumber"> 002 </span>แล้ว "   ดังนี้    ได้กระฉ่อนไปทั่วชมพูทวีป.
+<span class="LineNumber"> 003 </span>                          [ พวกโจรถูกจารบุรุษจับได้ ]
+<span class="LineNumber"> 004 </span>           พระเจ้าอชาตศัตรู       ทรงแต่งจารบุรุษ<SUP>๑</SUP>ไปเพื่อต้องการสืบเสาะ
+<span class="LineNumber"> 005 </span>หาพวกโจร.      เมื่อโจรแม้เหล่านั้น     ซึ่งกำลังดื่มสุราอยู่ในโรงดื่มสุรา,
+<span class="LineNumber"> 006 </span>โรคนหนึ่ง    ก็ถองหลังโจรคนหนึ่งให้ล้มลง.        โจรที่ถูกถองนั้น     ขู่
+<span class="LineNumber"> 007 </span>ตะคอกโจรนั้นแล้ว  พูดว่า   " เฮ้ย  อ้ายหัวดื้อ  ทำไมจึงถองหลังกูเล่า."
+<span class="LineNumber"> 008 </span>           โจรผู้หนึ่ง.    เฮ้ย  อ้ายโจรชั่วร้าย   ก็พระมหาโมคคัลลานะ   มึง
+<span class="LineNumber"> 009 </span>(ลงมือ)   ตีก่อนหรือ ?
+<span class="LineNumber"> 010 </span>           โจรอีกผู้หนึ่ง.       ก็มึงไม่รู้ว่าพระโมคคัลลานะถูกกูตีดอกหรือ ?
+<span class="LineNumber"> 011 </span>           เมื่อพวกโจรเหล่านั้น    พากันกล่าว   (อวดอ้าง)   อยู่ว่า   " พระ
+<span class="LineNumber"> 012 </span>โมคคัลลานะ   กูเองตีแล้ว  ๆ."
+<span class="LineNumber"> 013 </span>           จารบุรุษเหล่านั้น   ได้ยินแล้ว   จึงจับโจรเหล่านั้นไว้ทั้งหมดแล้ว
+<span class="LineNumber"> 014 </span>กราบทูลแด่พระราชา.
+<span class="LineNumber"> 015 </span>           พระราชา       ทรงรับสั่งให้เรียกพวกโจรมาแล้ว      ตรัสถามว่า
+<span class="LineNumber"> 016 </span>" พวกเจ้าฆ่าพระเถระหรือ ? "
+<span class="LineNumber"> 017 </span>           พวกโจร.    เป็นอย่างนั้น   พระเจ้าข้า.
+<span class="LineNumber"> 018 </span>           พระราชา.   ใครใช้พวกเจ้าเล่า ?
+<span class="LineNumber"> 019 </span>           พวกโจร.   พวกสมณะเปลือย    พระเจ้าข้า.
+
+<span class='footnote'>๑.  บุรุษสอดแนม   น่าจะได้แก่พวกตำรวจลับ.</span>

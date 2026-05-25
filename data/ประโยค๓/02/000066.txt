@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>	ทุติยคาถายํ   ตณฺหา   นาเมสา   สํสิพฺพิตปริสิพฺพิตปริโยนทฺธตฺเถน 
+<span class="LineNumber"> 002 </span>ชาลมสฺสา   อตฺถีติปิ   ชาลการิกาติปิ   ชาลูปมาติปิ   ชาลินี,  รูปาทีสุ 
+<span class="LineNumber"> 003 </span>อารมฺมเณสุ   วิสตฺตตาย   วิสาหารตาย   วิสปุปฺผตาย   วิสผลตาย 
+<span class="LineNumber"> 004 </span>วิสปริโภคตาย   วิสตฺติกา;   สา   เอวรูปา   ตณฺหา   ยสฺส   กุหิฺจิ 
+<span class="LineNumber"> 005 </span>ภเว   เนตุํ  นตฺถิ,  ตํ  ตุมฺเห  อปทํ  พุทฺธํ  เกน  ปเทน  เนสฺสถาติ 
+<span class="LineNumber"> 006 </span>อตฺโถ. 
+<span class="LineNumber"> 007 </span>	เทสนาวสาเน   พหูนํ   เทวตานํ   ธมฺมาภิสมโย   อโหสิ. 
+<span class="LineNumber"> 008 </span>มารธีตโรปิ ตตฺเถว อนฺตรธายึสุ. 
+<span class="LineNumber"> 009 </span>	สตฺถา   อิมํ   ธมฺมเทสนํ   อาหริตฺวา   "มาคนฺทิย  อหํ  ปุพฺเพ 
+<span class="LineNumber"> 010 </span>อิมา   ติสฺโส   มารธีตโร   อทฺทสํ   เสมฺหาทีหิ   อปลิพุทฺเธน 
+<span class="LineNumber"> 011 </span>สุวณฺณกฺขนฺธสทิเสน   อตฺตภาเวน   สมนฺนาคตา,  ตทาปิ  เม  เมถุนสฺมึ 
+<span class="LineNumber"> 012 </span>ฉนฺโท   นาโหสิ,   ตว   ปน  ธีตุ  สรีรํ  ทฺวตฺตึสาการกุณปปริปูรํ  พหิ 
+<span class="LineNumber"> 013 </span>จิตฺโต   วิย   อสุจิฆโฏ,   สเจปิ  มม  ปาโท  อสุจิมกฺขิโต  ภเวยฺย, 
+<span class="LineNumber"> 014 </span>อยฺจ  อุมฺมารฏฺ€าเน  ติฏฺเ€ยฺย;  ตถาปิสฺสา  สรีรํ  อหํ  ปาทํ<SUP>๑</SUP> น 
+<span class="LineNumber"> 015 </span>ผุเสยฺยนฺติ วตฺวา อิมํ คาถมาห 
+<span class="LineNumber"> 016 </span>			"ทิสฺวาน ตณฺหํ อรติฺจ ราคํ 
+<span class="LineNumber"> 017 </span>			นาโหสิ ฉนฺโท อปิ เมถุนสฺมึ, 
+<span class="LineNumber"> 018 </span>			กิเมวิทํ มุตฺตกรีสปุณฺณํ, 
+<span class="LineNumber"> 019 </span>			ปาทาปิ นํ สมฺผุสิตุํ น อิจฺเฉติ. 
+<span class="LineNumber"> 020 </span>	เทสนาวสาเน อุโภปิ ชายปติกา อนาคามิผเล ปติฏฺ€หึสูติ. 
+<span class="LineNumber"> 021 </span>		  		 มารธีตาวตฺถุ. 
+		  
+<span class='footnote'>๑. ยุ. ปาเทน. </span>

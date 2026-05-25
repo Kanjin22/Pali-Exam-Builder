@@ -1,0 +1,26 @@
+<span class="LineNumber"> 001 </span>	<B>กุรุตา เม อิมํ ปตฺตํ               ยํ ปุฺํ สุขทายกํ 
+<span class="LineNumber"> 002 </span>	เตน ปุฺเน เม สิทฺธา        ปชาสา ภวตํ สุภา ฯ 
+<span class="LineNumber"> 003 </span>	จกฺกวาเฬสุนนฺเตสุ                สมนฺตานนฺตเทหิโน 
+<span class="LineNumber"> 004 </span>	สทา ภทฺรานิ ปสฺสนฺตุ            สุขิโน ทีฆมายุกา ฯ 
+<span class="LineNumber"> 005 </span>			 พุทฺเธ ปสนฺนา จ ปสนฺนธมฺมา 
+<span class="LineNumber"> 006 </span>			 สงฺเฆ <SUP>๑</SUP>ปสนฺนา จถ ปุฺกามา 
+<span class="LineNumber"> 007 </span>			 เอวํปการาหิ จ เต ลภนฺตํ 
+<span class="LineNumber"> 008 </span>			 อาสาย สิทฺธํ อถ ทุกฺขโมกฺขํ ฯ 
+<span class="LineNumber"> 009 </span>			อหนฺตุ (๒) อุตฺตมํ ผลํ          อรหตฺตนฺติ สฺิตํ-</B> 
+		
+<span class='footnote'>       กุรุตา เม อิมํ ลทฺธํ                  ยํ ปุฺํ สุขทายกํ </span>
+<span class='footnote'>       เตน ปุฺเน สพฺพาย          ปชาย ภวตํ สุภํ. </span>
+<span class='footnote'>       จกฺกวาเฬสฺวนฺเตสุ                สมนฺตานนฺตเทหิโน </span>
+<span class='footnote'> ๑. สี. สงฺเฆ ปสนฺนา ปุถุ ปุฺกามา </span>
+<span class='footnote'>         เอวํปกาเรหิ จ เต ลภนฺตุ </span>
+<span class='footnote'>         อาสายสิทฺธํ อถ ทุกฺขโมกฺขํ. </span>
+<span class='footnote'> ๒. สี. อหนฺตุ อุตฺตมผลํ              อรหตฺตนฺติ สฺิตํ </span>
+<span class='footnote'>        อลงฺกตํ สุคุเณหิ                   ลเภยฺยํ ภวอนฺติเม. </span>
+<span class='footnote'>        ยทา โขริยเมตฺเตยฺโย           อุปฺปนฺโน โลกนายโก </span>
+<span class='footnote'>        ตทาหํ สมฺมุขี เหสฺสํ             ตสฺส ธมฺมํ สุเณยฺยหํ </span>
+<span class='footnote'>        ตสฺส ธมฺมํ สุณิตฺวาน            คจฺเฉยฺยํ ปุริมํ ผลํ </span>
+<span class='footnote'>        ตทา อลงฺกโต เหสฺสํ             คุเณหิ สกเลหิปิ </span>
+<span class='footnote'>        สเจ เหตฺถ ผลํ คจฺเฉ               สํสรนฺโต ภวาภเว </span>
+<span class='footnote'>        ปาปมิตฺเต น เสเวยฺยํ               เสเวยฺยํ ปุริสุตฺตเม. </span>
+<span class='footnote'>        กุทิฏฺ€ิยา น สํยุฺเช                สํยุฺเชหํ สุทิฏฺ€ิยา </span>
+<span class='footnote'>        ทานาทิสํยุโต โหมิ                  ปสนฺโน โลกสมฺมโต. </span>

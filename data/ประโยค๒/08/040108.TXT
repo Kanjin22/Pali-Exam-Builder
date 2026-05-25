@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>              ๗.  เรื่องพระติสสเถระชาวกรุงโกสัมพี*   [ ๗๗ ]
+<span class="LineNumber"> 002 </span>                               [ ข้อความเบื้องต้น ]
+<span class="LineNumber"> 003 </span>	พระศาสดาเมื่อประทับอยู่ในพระเชตวัน   ทรงปรารภสามเณร
+<span class="LineNumber"> 004 </span>ของพระติสสเถระ   ตรัสพระธรรมเทศนานี้ว่า   <B>" สนฺตนฺตสฺส   มนํ
+<span class="LineNumber"> 005 </span>โหติ "</B>  เป็นต้น.
+<span class="LineNumber"> 006 </span>                  [ ศิษย์บรรลุพระอรหัตก่อนพระอาจารย์ ]
+<span class="LineNumber"> 007 </span>	ดังได้สดับมา   กุลบุตรชาวกรุงโกสัมพีผู้หนึ่ง  บวชในพระศาสนา
+<span class="LineNumber"> 008 </span>ได้อุปสมบทแล้วปรากฏว่า  " พระโกสัมพีวาสิติสสเถระ. "  เมื่อพระเถระ
+<span class="LineNumber"> 009 </span>นั้นจำพรรษาอยู่ในกรุงโกสัมพี  อุปัฏฐากนำไตรจีวร  เนยใสและน้ำอ้อย
+<span class="LineNumber"> 010 </span>มาวางไว้ใกล้เท้า.  ครั้งนั้นพระเถระกล่าวกะอุปัฏฐากนั้นว่า  " นี้อะไร ?
+<span class="LineNumber"> 011 </span>อุบาสก. "
+<span class="LineNumber"> 012 </span>	อุปัฏฐาก.  กระผมนิมนต์ท่านให้อยู่จำพรรษามิใช่หรือ ?  ขอรับ.
+<span class="LineNumber"> 013 </span>ก็พวกภิกษุผู้จำพรรษาอยู่ในวิหารของพวกกระผม  ย่อมได้ลาภนี้,
+<span class="LineNumber"> 014 </span>นิมนต์เถิด  ขอรับ.
+<span class="LineNumber"> 015 </span>	พระเถระ.   ช่างเถิด  อุบาสก,   ความต้องการด้วยวัตถุนี้  ของ
+<span class="LineNumber"> 016 </span>เราไม่มี.
+<span class="LineNumber"> 017 </span>	อุปัฏฐาก.   เพราะเหตุอะไร ?  ขอรับ.
+<span class="LineNumber"> 018 </span>	พระเถระ.   แม้สามเณรผู้เป็นกัปปิยการกในสำนักของเราก็ไม่มี
+<span class="LineNumber"> 019 </span>ผู้มีอายุ.
+
+<span class='footnote'>* พระมหาทองสา  ป.ธ.  ๖  (พระสุทธิสารสุธี)  วัดบุปผาราม  แปล.</span>

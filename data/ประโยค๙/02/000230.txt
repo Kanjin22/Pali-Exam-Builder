@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  230
+
+<span class="LineNumber"> 002 </span>วิคมนํ  วโย  ฯ  วิปุพฺโพ  อย  คติยํ  สพฺพโต  ณฺวุตฺวาวี  วาติ
+<span class="LineNumber"> 003 </span>อ  ฯ  €ิตสฺส  ธมฺมสฺส  อญฺถตฺตํ  อญฺถาภาโว  ฯ  ติฏฺ€ตีติ
+<span class="LineNumber"> 004 </span>ฐิโต  โย  ธมฺโม  ฯ  อุปฺปาทวยโต  อญฺโ  ปกาโร  อญฺถา  ฯ
+<span class="LineNumber"> 005 </span>สพฺพนาเมหิ  ปการวจเน  ตุ  ถา  ฯ  อญฺถา  เอว  อญฺถตฺตํ  ฯ
+<span class="LineNumber"> 006 </span>อญฺเน  ปกาเรนาตฺยตฺโถ  ฯ  ณฺยตฺตตา  ภาเว  ตูติ  ตุสทฺเทน
+<span class="LineNumber"> 007 </span>สกตฺเถ  ต  กฺวจาทิมชฺฌุตฺยาทินา  มชฺเฌ  รสฺโส  ฯ  อตฺเถ
+<span class="LineNumber"> 008 </span>สูเจตีติ  สุตฺตํ  ยํ  วจนํ  ฯ  สุตฺตํ  เอว  สุตฺตนฺตํ  ฯ  ป€ิยเตติ
+<span class="LineNumber"> 009 </span>ปาโ€  ยา  ปาลิ  ปณฺฑิเตน  ป€ิยเต  อิติ  ตสฺมา  สา  ปาลิ
+<span class="LineNumber"> 010 </span>ปาโ€  ฯ  ป€  วิญฺตฺติยํ  วาจายํ<SUP>๑</SUP>  วิสรุชปทาทิโต  ณ  ฯ
+<span class="LineNumber"> 011 </span>สุตฺตนฺตํ  เอว  ปาโ€  สุตฺตนฺตปาโ€  ฯ  ตตฺถาปีติ  ปิสทฺโท  น
+<span class="LineNumber"> 012 </span>เกวลํ  เอวมาทิปทานํ...€ิติกฺขโณ  น  วุตฺโตติ  สมฺปิณฺเฑติ  ฯ
+<span class="LineNumber"> 013 </span>ปญฺายเต  ขายเต  ปญฺาณํ  ฯ  เกจิวาเท  ปสทฺโท  ธาตฺวตฺถ-
+<span class="LineNumber"> 014 </span>วาจโก  ฯ  า  อุปฏฺ€าเน  นนฺทาทีหิ  ยุ  ฯ    วจิยเต  วจนํ
+<span class="LineNumber"> 015 </span>ภาวสาธนํ  ฯ  ปญฺาณสฺส  อตฺโถ  ฯ  จสทฺโท  อุปฺปชฺชนโต  จ
+<span class="LineNumber"> 016 </span>ปญฺาณวจนโต  จาติ  โยเชตพฺโพ  ฯ  ปพนฺธนํ  €ิตธมฺมสฺส
+<span class="LineNumber"> 017 </span>สนฺตาโน  ปพนฺโธ  ฯ  €ิยเต  €ิติ  ฯ  ปพนฺเธน  €ิติ  ปพนฺธฏฺ€ิติ  ฯ
+<span class="LineNumber"> 018 </span>น  จ  ขณฏฺ€ิตีติ  เอวสทฺทสฺส  ผลํ  ฯ  น  จาติ  จสทฺโท
+<span class="LineNumber"> 019 </span>เอวสทฺทตฺเถ  วตฺตติ  ฯ  เนวาติ  อตฺโถ  ฯ  ขณฏฺ€ิติ  อภิธมฺเม
+<span class="LineNumber"> 020 </span>อวุตฺตตฺตาปิ  ลพฺภตีติ  โจทนํ  สนฺธายาห  น  จาติอาทึ  ฯ
+<span class='footnote'>๑.  ป€  วิยตฺติยํ  วาจายนฺติ  สทฺทนีติ  ฯ</span>
+<span class="LineNumber"> 021 </span>						อภิ.๑๓๓
