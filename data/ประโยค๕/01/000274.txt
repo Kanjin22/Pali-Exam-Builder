@@ -1,8 +1,0 @@
-<span class="LineNumber"> 001 </span>นิทฺธเมยฺย   นีหเรยฺย   ยถา   หิ   สุวณฺณกาโร  เอกวารเมว  สุวณฺณํ 
-<span class="LineNumber"> 002 </span>ตาเปตฺวา  โกฏฺเฏตฺวา  มลํ  นีหริตฺวา  ปิลนฺธนวิกตึ  กาตุํ  น  สกฺโกติ 
-<span class="LineNumber"> 003 </span>ปุนปฺปุนํ   ปจนฺโต   โกฏฺเฏนฺโต   ปน   มลํ   นีหรติ  ตโต  อเนกวิธํ 
-<span class="LineNumber"> 004 </span>ปิลนฺธนวิกตึ   กโรติ   เอวเมว   ปุนปฺปุนํ   กุสลํ   กโรนฺโต  ปณฺฑิโต 
-<span class="LineNumber"> 005 </span>อตฺตโน มลํ นีหริตฺวา นิทฺธนฺตมโล นิกฺกิเลโส โหตีติ ฯ 
-<span class="LineNumber"> 006 </span>             คาถาวสาเน โส พฺราหฺมโณ โสตาปนฺโน ฯ 
-<span class="LineNumber"> 007 </span>                        อฺตรพฺราหฺมณวตฺถุ ฯ 
-<span class="LineNumber"> 008 </span>                             สนฺตุฏฺ€ีติปทกถา ฯ 

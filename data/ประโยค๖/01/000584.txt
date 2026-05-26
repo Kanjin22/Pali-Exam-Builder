@@ -1,5 +1,0 @@
-<span class="LineNumber"> 001 </span>	<B>จตฺตาโร   ปาราชิกา  ตีหิ  สมุฏฺ€าเนหีติ</B>อาทีสุ  อุกฺกฏฺ€-
-<span class="LineNumber"> 002 </span>ปริจฺเฉทโต ยํ     ยํ     สมุฏฺ€านํ     ยสฺส     ยสฺส    ลพฺภติ    ตํ    สพฺพํ 
-<span class="LineNumber"> 003 </span>วุตฺตเมว โหติ ฯ 
-<span class="LineNumber"> 004 </span>                             สมุฏฺ€านวณฺณนา นิฏฺ€ิตา ฯ 
-<span class="LineNumber"> 005 </span>                                           ------------

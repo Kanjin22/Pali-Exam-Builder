@@ -1,5 +1,0 @@
-<span class="LineNumber"> 001 </span>              <B>เที่ยง  เป็นของลามก  ก้าวล่วงได้โดยยาก
-<span class="LineNumber"> 002 </span>              อย่างนี้แล้ว  ก็ควรพากเพียร  เพื่อบรรลุอมตบท
-<span class="LineNumber"> 003 </span>              ที่เป็นบทยั่งยืน  ดังนี้แล.</B>
-<span class="LineNumber"> 004 </span>พรรณนาทุติยสังคีติ  เป็นอันจบลงแล้วโดยอาการทั้งปวง  ด้วยลำดับ
-<span class="LineNumber"> 005 </span>คำเพียงเท่านี้.

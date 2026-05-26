@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>     อุโปสถาทิปุจฺฉาวิสฺสชฺชนวณฺณนาย อตฺถโยชนา
-<span class="LineNumber"> 002 </span>	[๘๘๐] วิสฺสชฺชเน วินิจฺฉโย ฯ กายสามคฺคีติ กาเยน
-<span class="LineNumber"> 003 </span>สมคฺคภาโว ฯ
-<span class="LineNumber"> 004 </span>        อุโปสถาทิปุจฺฉาวิสฺสชฺชนวณฺณนา นิฏฺ€ิตา ฯ
-<span class="LineNumber"> 005 </span>                                        -----------
-<span class="LineNumber"> 006 </span>                          [ปา.๓๕๔.๓๕๕ ส.๕๓๐]

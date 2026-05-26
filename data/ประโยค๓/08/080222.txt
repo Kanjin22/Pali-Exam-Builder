@@ -1,5 +1,0 @@
-<span class="LineNumber"> 001 </span>วัตถุอันมีค่ามากและมีค่าน้อย  อันบุคคลอื่นหวงแหนแล้วในโลกนี้,  เรา 
-<span class="LineNumber"> 002 </span>เรียกผู้นั้นว่า  เป็นพราหมณ์.
-<span class="LineNumber"> 003 </span>	ในกาลจบเทศนา  ชนเป็นอันมาก  บรรลุอริยผลทั้งหลาย  มีโสดา-
-<span class="LineNumber"> 004 </span>ปัตติผลเป็นต้น  ดังนี้แล.
-<span class="LineNumber"> 005 </span>                              เรื่องภิกษุรูปใดรูปหนึ่ง  จบ.

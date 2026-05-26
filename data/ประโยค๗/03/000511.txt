@@ -1,8 +1,0 @@
-<span class="LineNumber"> 001 </span>วิวรตุํ โลกุตฺตราติอาทิ วุตฺตํ ฯ อนุคตาติ ปทํ อนุสาสนีติ
-<span class="LineNumber"> 002 </span>ปทสฺส วิเสสนํ ฯ อนุสาสนีติ ปทํ สามีจิธมฺมตาติ ปทสฺส
-<span class="LineNumber"> 003 </span>สรูปวิเสสนํ ฯ โอวาโท เอว อนุสาสนี โอ...สนี ฯ สามีจิ
-<span class="LineNumber"> 004 </span>เอว ธมฺมตา ปกติ สามีจิธมฺมตา สามีจิกมฺมนฺติ อธิปฺปาโย ฯ
-<span class="LineNumber"> 005 </span>เอตฺถาติ อุทฺทิฏฺ€า โขติอาทิวจเน ฯ
-<span class="LineNumber"> 006 </span>                        เตรสกณฺฑปทโยชนา นิฏฺ€ิตา ฯ
-		
-<span class="LineNumber"> 007 </span>                                [ปา.๔๒๖ ฯ ส.๑๔๘]

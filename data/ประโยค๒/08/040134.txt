@@ -1,8 +1,0 @@
-<span class="LineNumber"> 001 </span>ผู้มีปกติแสวงหากาม  (จึงยินดีในป่าทั้งหลาย).
-<span class="LineNumber"> 002 </span>	ในกาลจบเทศนา   พระเถระนั้นนั่งแล้วตามปกตินั่นแล   บรรลุ
-<span class="LineNumber"> 003 </span>พระอรหัตพร้อมด้วยปฏิสัมภิทาทั้งหลาย   มาโดยอากาศ   ทำความ
-<span class="LineNumber"> 004 </span>ชมเชย   ถวายบังคมพระบาททั้ง  ๒  ของพระตถาคต   ได้ไปแล้ว
-<span class="LineNumber"> 005 </span>ดังนี้แล.
-<span class="LineNumber"> 006 </span>                            เรื่องหญิงคนใดคนหนึ่ง   จบ.
-<span class="LineNumber"> 007 </span>                              อรหันตวรรค วรรณนา จบ.
-<span class="LineNumber"> 008 </span>                                       วรรคที่  ๗  จบ.

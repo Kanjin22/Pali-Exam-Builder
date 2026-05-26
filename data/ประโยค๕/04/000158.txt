@@ -1,9 +1,0 @@
-<span class="LineNumber"> 001 </span>มิได้บรรลุไม่."
-<span class="LineNumber"> 002 </span>       บัณฑิตพึงตรวจดูความนี้     แม้ในอรรถกถาปริตตารัมมณัตติกะ
-<span class="LineNumber"> 003 </span>ในอรรถกถากัณฑ์.
-<span class="LineNumber"> 004 </span>                                 กถาว่าด้วยจิตเกษม  จบ.
-<span class="LineNumber"> 005 </span>       พระผู้มีพระภาคตรัสหมวด  ๔ แห่งมงคล     คือ   จิตไม่หวั่นไหว
-<span class="LineNumber"> 006 </span>จิตไม่เศร้าโศก   จิตปราศจากกิเลสเพียงดังธุลี  จิตเกษม  ด้วยคาถาแม้นี้
-<span class="LineNumber"> 007 </span>ด้วยประการฉะนี้.
-<span class="LineNumber"> 008 </span>       คำเป็นคาถาแม้นี้  เป็นปัฐยาวัตร  ดังนี้แล.
-<span class="LineNumber"> 009 </span>                        พรรณนาความแห่งคาถาที่     ๑๐  จบ.

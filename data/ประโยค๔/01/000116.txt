@@ -1,9 +1,0 @@
-<span class="LineNumber"> 001 </span>อธิวจนํ   ยทิทํ   ปุฺานีติอาทีหิ   สตฺตกงฺคุตฺตเร<SUP>๑</SUP>   จ   วุตฺเตหิ 
-<span class="LineNumber"> 002 </span>วจเนหิ   วณฺณยนฺติ  ฯ   กตปุฺตนฺติ   ปุพฺเพกตปุฺภาวนฺติ 
-<span class="LineNumber"> 003 </span>นิธิกณฺฑวณฺณนานโย<SUP>๒</SUP> ฯ 
-<span class="LineNumber"> 004 </span>	ยสฺมา   ปนิมา   สตฺต   คาถา  ขุทฺทกปาเ€  นิธิกณฺฑสุตฺเต  ปาลึ 
-<span class="LineNumber"> 005 </span>อารุฬฺหา       ตสฺมา     สิรีโจรชาตเก     ปาลึ นารุฬฺหา       อฏฺ€กถา-
-<span class="LineNumber"> 006 </span>ปา€เมวารุฬฺหาติ ฯ 
-<span class="LineNumber"> 007 </span>		   ปุพฺเพกตปุฺตากถา ฯ 
-		    
-<span class='footnote'>๑. องฺ. สตฺตก. ๒๓/๙๐.  ๒. ป. โช. ขุ. ขุ. ๒๕๑. </span>

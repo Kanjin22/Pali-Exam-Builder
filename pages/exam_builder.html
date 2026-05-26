@@ -24,7 +24,25 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-    <script src="../js/firebase_config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+    <script>
+        (function () {
+            const firebaseConfig = {
+                apiKey: "AIzaSyDs7jNX-eO67NrrsMmnykOU77GWel7GFZs",
+                authDomain: "pali-exam-builder-250ac.firebaseapp.com",
+                projectId: "pali-exam-builder-250ac",
+                storageBucket: "pali-exam-builder-250ac.firebasestorage.app",
+                messagingSenderId: "250371814811",
+                appId: "1:250371814811:web:ce01d919ed656fbe889d3e",
+                measurementId: "G-4M2MB4JSYT"
+            };
+            try {
+                if (typeof firebase === 'undefined' || !firebase.initializeApp) return;
+                if (firebase.apps && firebase.apps.length) return;
+                firebase.initializeApp(firebaseConfig);
+            } catch (_) {}
+        })();
+    </script>
     <script>
         try {
             if (typeof firebase !== 'undefined' && firebase.auth) {
@@ -2401,11 +2419,11 @@
             const fileName = getP12RawChunkFilename(volume, pageNumber);
             if (!fileName) return '';
 
-            const url = new URL(`${volume.rawFilesDir}/${fileName}`, window.location.href).toString();
-            const cacheKey = `${url}#${parseInt(pageNumber, 10) || 1}`;
+            const path = `${volume.rawFilesDir}/${fileName}`;
+            const cacheKey = `${path}#${parseInt(pageNumber, 10) || 1}`;
             if (rawChunkPageCache.has(cacheKey)) return rawChunkPageCache.get(cacheKey);
 
-            const chunkText = await fetchTextFile(url);
+            const chunkText = await fetchTextFileByPath(path);
             const pageText = extractRawChunkPageText(chunkText, pageNumber);
             rawChunkPageCache.set(cacheKey, pageText);
             return pageText;
@@ -2415,11 +2433,11 @@
             const fileName = String(volume?.rawSingleFile || '');
             if (!volume?.rawFilesDir || !fileName) return '';
 
-            const url = new URL(`${volume.rawFilesDir}/${fileName}`, window.location.href).toString();
-            const cacheKey = `${url}#${parseInt(pageNumber, 10) || 1}`;
+            const path = `${volume.rawFilesDir}/${fileName}`;
+            const cacheKey = `${path}#${parseInt(pageNumber, 10) || 1}`;
             if (rawChunkPageCache.has(cacheKey)) return rawChunkPageCache.get(cacheKey);
 
-            const fullText = await fetchTextFile(url);
+            const fullText = await fetchTextFileByPath(path);
             const pageText = extractRawSingleFilePageText(fullText, pageNumber);
             rawChunkPageCache.set(cacheKey, pageText);
             return pageText;
@@ -2455,12 +2473,12 @@
             }
 
             const base = padPageNumber(localPage);
-            const primary = new URL(`${v.filesDir}/${base}.txt`, window.location.href).toString();
+            const primary = `${v.filesDir}/${base}.txt`;
             try {
-                return await fetchTextFile(primary);
+                return await fetchTextFileByPath(primary);
             } catch (e) {
-                const legacy = new URL(`${v.filesDir}/${base}..txt`, window.location.href).toString();
-                return await fetchTextFile(legacy);
+                const legacy = `${v.filesDir}/${base}..txt`;
+                return await fetchTextFileByPath(legacy);
             }
         }
 
@@ -2475,12 +2493,12 @@
             const base = v.filePrefix
                 ? `${String(v.filePrefix)}${String(localPage).padStart(4, '0')}`
                 : padPageNumber(localPage);
-            const primary = new URL(`${v.filesDir}/${base}.txt`, window.location.href).toString();
+            const primary = `${v.filesDir}/${base}.txt`;
             try {
-                return await fetchTextFile(primary);
+                return await fetchTextFileByPath(primary);
             } catch (e) {
-                const legacy = new URL(`${v.filesDir}/${base}..txt`, window.location.href).toString();
-                return await fetchTextFile(legacy);
+                const legacy = `${v.filesDir}/${base}..txt`;
+                return await fetchTextFileByPath(legacy);
             }
         }
 
@@ -2891,11 +2909,70 @@
 
         // --- Stats Logic ---
         let db = null;
+        let storage = null;
         try {
             if (typeof firebase !== 'undefined' && firebase.firestore && firebase.apps && firebase.apps.length) {
                 db = firebase.firestore();
             }
         } catch (_) {}
+        try {
+            if (typeof firebase !== 'undefined' && firebase.storage && firebase.apps && firebase.apps.length) {
+                storage = firebase.storage();
+            }
+        } catch (_) {}
+
+        const firebaseStorageUrlCache = new Map();
+        async function getFirebaseStorageDownloadUrl(objectPath) {
+            const key = String(objectPath || '').replace(/^\/+/, '');
+            if (!key) throw new Error('Missing storage path');
+            if (firebaseStorageUrlCache.has(key)) return firebaseStorageUrlCache.get(key);
+            const p = (async () => {
+                if (!storage) throw new Error('Firebase Storage not available');
+                if (!storage.ref) throw new Error('Storage ref not available');
+                await ensureAnonymousAuthForAnalytics();
+                return await storage.ref(key).getDownloadURL();
+            })();
+            firebaseStorageUrlCache.set(key, p);
+            return p;
+        }
+
+        function normalizeDataObjectPath(pathOrDir) {
+            const raw = String(pathOrDir || '');
+            const cleaned = raw.replace(/\\/g, '/').replace(/^\.\/+/, '').replace(/^\/+/, '');
+            if (cleaned.startsWith('../')) {
+                return cleaned.replace(/^(\.\.\/)+/, '');
+            }
+            return cleaned;
+        }
+
+        async function fetchTextFileByPath(pathOrUrl) {
+            const raw = String(pathOrUrl || '');
+            if (!raw) throw new Error('Missing path');
+
+            const looksLikeHttp = /^https?:\/\//i.test(raw);
+            if (looksLikeHttp) return await fetchTextFile(raw);
+
+            const localUrl = new URL(raw, window.location.href).toString();
+            const objectPath = normalizeDataObjectPath(raw);
+            const canTryStorage = objectPath.startsWith('data/') && !!storage;
+            const isGithubPages = /\.github\.io$/i.test(String(location.hostname || ''));
+            const preferStorage = canTryStorage && (String(localStorage.getItem('preferFirebaseStorageData') || '') === '1' || isGithubPages);
+
+            if (preferStorage) {
+                try {
+                    const downloadUrl = await getFirebaseStorageDownloadUrl(objectPath);
+                    return await fetchTextFile(downloadUrl);
+                } catch (_) {}
+            }
+
+            try {
+                return await fetchTextFile(localUrl);
+            } catch (e) {
+                if (!canTryStorage) throw e;
+                const downloadUrl = await getFirebaseStorageDownloadUrl(objectPath);
+                return await fetchTextFile(downloadUrl);
+            }
+        }
 
         function getBangkokDayKey() {
             try {
@@ -4014,19 +4091,40 @@
             const senseVol = parseInt(document.getElementById('senseVolumeSelect')?.value || '0', 10) || 0;
             const literalThaiPageCfg = getThaiSourcePageDataConfig(literalPart);
             const senseThaiPageCfg = getThaiSourcePageDataConfig(sensePart);
+
+            const showDataLoadErrorOnce = (() => {
+                let shown = false;
+                return (e) => {
+                    if (shown) return;
+                    shown = true;
+                    const msg = (e && e.message) ? String(e.message) : '';
+                    const tail = msg ? `\n\nรายละเอียด: ${msg}` : '';
+                    alert(`ไม่สามารถโหลดไฟล์ข้อมูลได้\n\nโปรดตรวจสอบว่า:\n- อัปโหลดโฟลเดอร์ data/ ไปที่ Firebase Storage แล้ว (path ต้องขึ้นต้นด้วย data/)\n- เปิด Authentication: Anonymous\n- ตั้งค่า Storage Rules ให้อนุญาตอ่านเมื่อมีการลงชื่อเข้าใช้${tail}`);
+                };
+            })();
             
             if (isMangala01PageMode() && !isThaiSource) {
                  if (!literalStart && !literalEnd) {
                     renderList('literalList', [], 'literal', 'waiting', '', '');
                  } else {
-                    const r1 = await loadMangala01Range(literalStart, literalEnd, literalVol);
-                    renderList('literalList', r1.items, 'literal', `pali-pages-${level}-v${literalVol}`, literalStart, literalEnd);
+                    try {
+                        const r1 = await loadMangala01Range(literalStart, literalEnd, literalVol);
+                        renderList('literalList', r1.items, 'literal', `pali-pages-${level}-v${literalVol}`, literalStart, literalEnd);
+                    } catch (e) {
+                        showDataLoadErrorOnce(e);
+                        renderList('literalList', [], 'literal', `pali-pages-${level}-v${literalVol}`, literalStart, literalEnd);
+                    }
                  }
                  if (!senseStart && !senseEnd) {
                     renderList('senseList', [], 'sense', 'waiting', '', '');
                  } else {
-                    const r2 = await loadMangala01Range(senseStart, senseEnd, senseVol);
-                    renderList('senseList', r2.items, 'sense', `pali-pages-${level}-v${senseVol}`, senseStart, senseEnd);
+                    try {
+                        const r2 = await loadMangala01Range(senseStart, senseEnd, senseVol);
+                        renderList('senseList', r2.items, 'sense', `pali-pages-${level}-v${senseVol}`, senseStart, senseEnd);
+                    } catch (e) {
+                        showDataLoadErrorOnce(e);
+                        renderList('senseList', [], 'sense', `pali-pages-${level}-v${senseVol}`, senseStart, senseEnd);
+                    }
                  }
                  buildExamPreview();
                  applyFontLockForSubject();
@@ -4038,14 +4136,24 @@
                      if (!literalStart && !literalEnd) {
                         renderList('literalList', [], 'thai_source_literal', 'waiting', '', '');
                      } else {
-                        const literalResult = await loadThaiSourceRange(literalStart, literalEnd, literalPart, literalVol);
-                        renderList('literalList', literalResult.items, 'thai_source_literal', (literalThaiPageCfg && literalThaiPageCfg.partId) || literalPart, literalStart, literalEnd);
+                        try {
+                            const literalResult = await loadThaiSourceRange(literalStart, literalEnd, literalPart, literalVol);
+                            renderList('literalList', literalResult.items, 'thai_source_literal', (literalThaiPageCfg && literalThaiPageCfg.partId) || literalPart, literalStart, literalEnd);
+                        } catch (e) {
+                            showDataLoadErrorOnce(e);
+                            renderList('literalList', [], 'thai_source_literal', (literalThaiPageCfg && literalThaiPageCfg.partId) || literalPart, literalStart, literalEnd);
+                        }
                      }
                      if (!senseStart && !senseEnd) {
                         renderList('senseList', [], 'thai_source_sense', 'waiting', '', '');
                      } else {
-                        const senseResult = await loadThaiSourceRange(senseStart, senseEnd, sensePart, senseVol);
-                        renderList('senseList', senseResult.items, 'thai_source_sense', (senseThaiPageCfg && senseThaiPageCfg.partId) || sensePart, senseStart, senseEnd);
+                        try {
+                            const senseResult = await loadThaiSourceRange(senseStart, senseEnd, sensePart, senseVol);
+                            renderList('senseList', senseResult.items, 'thai_source_sense', (senseThaiPageCfg && senseThaiPageCfg.partId) || sensePart, senseStart, senseEnd);
+                        } catch (e) {
+                            showDataLoadErrorOnce(e);
+                            renderList('senseList', [], 'thai_source_sense', (senseThaiPageCfg && senseThaiPageCfg.partId) || sensePart, senseStart, senseEnd);
+                        }
                      }
                  } else {
                      const literalSlides = collectSlides(literalPart, literalStart, literalEnd, literalVagga, literalStory);

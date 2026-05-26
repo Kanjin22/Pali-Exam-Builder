@@ -1,9 +1,0 @@
-<span class="LineNumber"> 001 </span>	[๒๖๐]     เอวมิมายปิ     คาถาย    ปาปวิรติ    ปานสฺโม 
-<span class="LineNumber"> 002 </span>อปฺปมาโทติ    มงฺคลตฺตยํ   วุตฺตํ  ฯ   อาธุนิกา   ปน   รติวิ   อิติ 
-<span class="LineNumber"> 003 </span>นคณวเสน ปายโต ป€นฺติ ฯ 
-<span class="LineNumber"> 004 </span>	<B>นาฏฺ€กฺขเรสุ ปาเทสุ สฺนาทิมฺหา โยณฺณวา วตนฺติ</B> 
-<span class="LineNumber"> 005 </span>	เอตฺถ   น   สฺนาทิมฺหาติ   ปฏิกฺขิตฺตตฺตา  ปน  นคโณ  น  ยุชฺชติ 
-<span class="LineNumber"> 006 </span>รตีวิ   อิติ   ชคโณ   ว   ยุชฺชติ   อปฺปฏิกฺขิตฺตตฺตา  ฯ   โยณฺณวาติ 
-<span class="LineNumber"> 007 </span>วจนโต   รตีปา   อิติ   ยคโณปิ  ยุชฺชติ  ฯ  จ  ธมฺเม  อิติ  ยคเณน 
-<span class="LineNumber"> 008 </span>สเมติ จ ฯ อิทมฺปิ ป€ฺยาวตฺตนฺติ ฯ 
-<span class="LineNumber"> 009 </span>                              ฉฏฺ€คาถายตฺถวณฺณนา ฯ 

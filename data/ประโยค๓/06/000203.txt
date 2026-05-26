@@ -1,5 +1,0 @@
-<span class="LineNumber"> 001 </span>           อนึ่ง  ชื่อว่าความสุข  เหมือนพระนิพพาน  ไม่มี,  เหตุนั้น  พระ
-<span class="LineNumber"> 002 </span>ผู้มีพระภาคจึงตรัสว่า   " นิพฺพานํ  ปรมํ  สุขํ. "
-<span class="LineNumber"> 003 </span>           ในกาลจบเทศนา  ชนเป็นอันมาก  บรรลุอริยผลทั้งหลาย  มี
-<span class="LineNumber"> 004 </span>โสดาปัตติผลเป็นต้น  ดังนี้แล. 
-<span class="LineNumber"> 005 </span>                          เรื่องพระเจ้าปเสนทิโกศล  จบ.

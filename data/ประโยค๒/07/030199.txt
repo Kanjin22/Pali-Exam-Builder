@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>	บทว่า   <B>ทุมฺเมธา</B>   คือมีปัญญาเขลา.   บทว่า  <B>อมิตฺเตเนว</B>
-<span class="LineNumber"> 002 </span>ความว่า  เป็นราวกะว่าคนมีเวรผู้มิใช่มิตร.  บทว่า  <B>กฏุกปฺผลํ</B>  ความ
-<span class="LineNumber"> 003 </span>ว่า  มีผลเข้มแข็ง  คือมีทุกข์เป็นผล. 
-<span class="LineNumber"> 004 </span>	ในเวลาจบเทศนา  ชนเป็นอันมาก  บรรลุอริยผลทั้งหลาย  มี
-<span class="LineNumber"> 005 </span>โสดาปัตติผลเป็นต้น  ดังนี้แล.
-<span class="LineNumber"> 006 </span>                                เรื่องสุปปพุทธกุฏฐิ  จบ.

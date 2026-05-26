@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>แล้ว "  ได้ตรัสพระคาถานี้  ในพราหมณวรรค ว่า :-
-<span class="LineNumber"> 002 </span>	     <B>" บุคคลใดในโลกนี้  ล่วงเครื่องข้อง ๒ อย่าง
-<span class="LineNumber"> 003 </span>	     คือบุญและบาป,  เราเรียกบุคคลนั้น  ผู้ไม่
-<span class="LineNumber"> 004 </span>	     โศก  ปราศจากกิเลสเพียงดังธุลี  ผู้หมดจด
-<span class="LineNumber"> 005 </span>	     ว่า  เป็นพราหมณ์. "</B>
-<span class="LineNumber"> 006 </span>                เรื่องพระขทิรวนิยเรวตเถระ   จบ.

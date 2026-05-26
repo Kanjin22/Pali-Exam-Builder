@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>              <B>พระเถระผู้ประเสริฐมีปัญญามากเหล่านี้  รู้พระ
-<span class="LineNumber"> 002 </span>              วินัย  ฉลาดในมรรคา  ( คือฉลาดในทางสวรรค์
-<span class="LineNumber"> 003 </span>              และทางพระนิพพาน )  ได้ประกาศพระวินัย-
-<span class="LineNumber"> 004 </span>              ปิฎกไว้  ในเกาะตัมพปัณณิแล้ว.<SUP>๑</SUP> "</B>
-
-<span class='footnote'>๑.  วิ. ปริวาร. ๘/๓-๕.</span>

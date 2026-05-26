@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>นักษัตรฤกษ์  อันไม่มัวหมองฉะนัน.
-<span class="LineNumber"> 002 </span>           ในกาลจบเทศนา  คนเป็นอันมาก  บรรลุอริยผลทั้หลาย  มี
-<span class="LineNumber"> 003 </span>โสดาปัตติผลเป็นต้นแล้ว  ดังนี้แล.
-<span class="LineNumber"> 004 </span>                                 เรื่องท้าวสักกะ  จบ.
-<span class="LineNumber"> 005 </span>                              สุขวรรค  วรรณนา  จบ.
-<span class="LineNumber"> 006 </span>                                  วรรคที่  ๑๕  จบ.

@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>			สตฺตมปริจฺเฉทตฺถโยชนา  หน้า  287
-
-<span class="LineNumber"> 002 </span>	อิติ  ลกราชนามกสฺส  สิรีติภูวนาทิจฺจธมฺมราชสฺส  ครุนา  ญาณ-
-<span class="LineNumber"> 003 </span>กิตฺตีติ  นามเธยฺเยน  เถเรน  กตา  สตฺตมา  ปญฺจิกา  นิฏฺ€ิตา  ฯ
-<span class="LineNumber"> 004 </span>					------------
-<span class="LineNumber"> 005 </span>					    อภิ.๒๓๒

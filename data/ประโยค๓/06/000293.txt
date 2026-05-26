@@ -1,8 +1,0 @@
-<span class="LineNumber"> 001 </span>           บทว่า   <B>เทวาปิ </B>  เป็นต้น  ได้แก่  เทพดาก็ดี  มนุษย์ผู้เป็นบัณฑิต
-<span class="LineNumber"> 002 </span>ก็ดี  ย่อมลุกขึ้นชมเชย  สรรเสริญ ซึ่งภิกษุนั้น.
-<span class="LineNumber"> 003 </span>           บทว่า <B> พฺรหฺมุนาปิ </B>  ความว่า  ไม่ใช่เทพดาและมนุษย์อย่าง 
-<span class="LineNumber"> 004 </span>เดียว  ( ย่อมสรรเสริญ ),  ถึงมหาพรหมในหมื่นจักรวาล  ก็สรรเสริญ
-<span class="LineNumber"> 005 </span>บุคคลนั่นเหมือนกัน.
-<span class="LineNumber"> 006 </span>           ในกาลจบเทศนา  อุบาสกเหล่านั้นทั้ง  ๕๐๐  ดำรงอยู่แล้ว  ใน
-<span class="LineNumber"> 007 </span>โสดาปัตติผล  ดังนี้แล.
-<span class="LineNumber"> 008 </span>                                เรื่องอตุลอุบาสก  จบ.

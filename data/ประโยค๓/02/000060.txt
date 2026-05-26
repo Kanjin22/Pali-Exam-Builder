@@ -1,5 +1,0 @@
-<span class="LineNumber"> 001 </span>ตสฺมา โสตาปตฺติผลเมว วรํ อุตฺตมนฺติ อตฺโถ. 
-<span class="LineNumber"> 002 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
-<span class="LineNumber"> 003 </span>			อนาถปิณฺฑิกปุตฺตกาลวตฺถุ. 
-<span class="LineNumber"> 004 </span>			 โลกวคฺควณฺณนา นิฏฺ€ิตา. 
-<span class="LineNumber"> 005 </span>			        เตรสโม วคฺโค. 

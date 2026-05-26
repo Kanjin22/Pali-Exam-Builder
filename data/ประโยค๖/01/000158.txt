@@ -1,7 +1,0 @@
-<span class="LineNumber"> 001 </span>โกสมฺพิกภิกฺขูนํ   วิย  ภินฺเน  สงฺเฆ  ปุน  สงฺฆสามคฺคี  กยิรติ  ตถารูปึ 
-<span class="LineNumber"> 002 </span>สงฺฆสามคฺคึ   €เปตฺวา ฯ   ตทา   จ   สุณาตุ  เม  ภนฺเต  สงฺโฆ 
-<span class="LineNumber"> 003 </span>อชฺชุโปสโถ   สามคฺคีติ   วตฺวา   กาตพฺโพ ฯ  เย  ปน  กิสฺมิฺจิเทว 
-<span class="LineNumber"> 004 </span>อปฺปมตฺตเก   สติ   อุโปสถํ   €เปตฺวา   ปุน   สมคฺคา  โหนฺติ  เตหิ 
-<span class="LineNumber"> 005 </span>อุโปสโถเยว กาตพฺโพติ ฯ 
-<span class="LineNumber"> 006 </span>                         อุโปสถกฺขนฺธกวณฺณนา นิฏฺ€ิตา ฯ 
-<span class="LineNumber"> 007 </span>                                          -------------

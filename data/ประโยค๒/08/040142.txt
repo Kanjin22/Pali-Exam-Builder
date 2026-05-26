@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>บทนั้น    สำเร็จประโยชน์  ประกอบด้วยนิพพาน  คือแสดงขันธ์  ธาตุ
-<span class="LineNumber"> 002 </span>อายตนะ  อินทรีย์  พละ  โพชฌงค์  และสติปัฏฐาน  แม้บทเดียว  ยัง
-<span class="LineNumber"> 003 </span>ประเสริฐกว่าโดยแท้.
-<span class="LineNumber"> 004 </span>	ในกาลจบเทศนา  ชนเป็นอันมาก  บรรลุอริยผลทั้งหลายมี
-<span class="LineNumber"> 005 </span>โสดาปัตติผลเป็นต้น  ดังนี้แล.
-<span class="LineNumber"> 006 </span>                          เรื่องบุรุษผู้ฆ่าโจรมีเคราแดง   จบ.

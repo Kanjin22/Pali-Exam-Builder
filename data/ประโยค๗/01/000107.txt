@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>กรณีโยติ ฯ  
-<span class="LineNumber"> 002 </span>	เอตฺตาวตา ยา สา วินยสํวณฺณนตฺถํ มาติกา €ปิตา ตตฺถ  
-<span class="LineNumber"> 003 </span>		  วุตฺตํ เยน ยทา ยสฺมา   ธาริตํ เยน จาภฏํ  
-<span class="LineNumber"> 004 </span>		  ยตฺถ ปติฏฺ€ิตฺเจต-   เมตํ วตฺวา วิธินฺตโตติ  
-<span class="LineNumber"> 005 </span>อิมิสฺสา   ตาว   คาถาย   อตฺโถ   ปกาสิโต  ฯ   วินยสฺส   จ  พาหิร-
-<span class="LineNumber"> 006 </span>นิทานสํวณฺณนา ยถาธิปฺปายํ สํวณฺณิตา โหตีติ ฯ  

@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>	[๑๑๔]   เอวมิมายปิ   คาถาย  ปฏิรูปเทสวาโส  ปุพฺเพกต-
-<span class="LineNumber"> 002 </span>ปุฺตา อตฺตสมฺมาปณิธีติ   มงฺคลตฺตยํ   วุตฺตํ  ฯ   อิธ  ป€มปาโท  
-<span class="LineNumber"> 003 </span>นวกฺขริโก ทานฺจ   ธมฺมจริยา   จ   ตโป   จ   พฺรหฺมจริยฺจาติ  
-<span class="LineNumber"> 004 </span>จ  ยถา  ฯ ทุติยปาโท ป€ฺยาวตฺตสฺส ทุติยปาทลกฺขณยุตฺโต ฯ 
-<span class="LineNumber"> 005 </span>ทุติยฑฺฒํ ป€ฺยาวตฺตนฺติ ฯ 
-<span class="LineNumber"> 006 </span>		   ทุติยคาถายตฺถวณฺณนา ฯ 

@@ -1,8 +1,0 @@
-<span class="LineNumber"> 001 </span>                                           [ แก้อรรถ ]
-<span class="LineNumber"> 002 </span>	บรรดาบทเหล่านั้น   บทว่า  <B>ทุปฺปญฺโ</B>  ความว่า  ผู้ไร้ปัญญา.
-<span class="LineNumber"> 003 </span>	บทว่า   <B>ปญฺวนฺตสฺส</B>  ความว่า  ผู้เป็นไปกับด้วยปัญญา.
-<span class="LineNumber"> 004 </span>คำที่เหลือเช่นเดียวกับคำมีในก่อนนั่นแล.
-<span class="LineNumber"> 005 </span>	ในกาลจบเทสนา  ภิกษุแม้  ๕๐๐ รูป  บรรลุพระอรหัต  พร้อม
-<span class="LineNumber"> 006 </span>ด้วยปฏิสัมภิทาแล้ว,   พระธรรมเทศนาได้มีประโยชน์แม้แก่มหาชน
-<span class="LineNumber"> 007 </span>ผู้ประชุมกัน  ดังนี้แล.
-<span class="LineNumber"> 008 </span>                      เรื่องพระขานุโกณฑัญญะเถระ  จบ.

@@ -1,7 +1,0 @@
-<span class="LineNumber"> 001 </span>ปริวาเร ฯ จสทฺโท อตฺถสตญฺจ ธมฺมสตญฺจาติ โยเชตพฺโพ ฯ
-<span class="LineNumber"> 002 </span>อิมานิ เทฺว นิรุตฺติสตานิ เวทิตพฺพานีติ สมฺพนฺโธ ฯ ...ปกรเณติ
-<span class="LineNumber"> 003 </span>อิติ หิ ยนฺติ หิ สจฺจํ ...ปกรเณ อิติ เอวํ ยํ วจนํ ภควตา
-<span class="LineNumber"> 004 </span>วุตฺตํ อิทํ วจนํ เอตํ อตฺถาทึ ปฏิจฺจ วุตฺตํ ฯ
-<span class="LineNumber"> 005 </span>                  อตฺถวเสปกรณวณฺณนา นิฏฺ€ิตา ฯ
-<span class="LineNumber"> 006 </span>                                   -------------
-<span class="LineNumber"> 007 </span>                           [ปา.๓๕๙ ส.๕๓๒]

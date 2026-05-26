@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>พระเจดีย์ศิลาใหญ่  ได้มีขึ้นแล้วในที่นั้นนั่นแล.
-<span class="LineNumber"> 002 </span>           ประชาสัตว์  ๘๔,๐๐๐   ได้บรรลุธรรมาภิสมัย  ( คือตรัสรู้ธรรม )
-<span class="LineNumber"> 003 </span>แล้ว  ในสมาคมนั้น.
-<span class="LineNumber"> 004 </span>                   เรื่องพระเจดีย์ทองของพระกัสสปทสพล  จบ.
-<span class="LineNumber"> 005 </span>                                พุทธวรรค  วรรณนา  จบ.
-<span class="LineNumber"> 006 </span>                                      วรรคที่  ๑๔  จบ. 

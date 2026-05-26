@@ -1,7 +1,0 @@
-<span class="LineNumber"> 001 </span>             		[ ท้าวเธอถูกแผ่นดินสูบไปเกิดในอเวจีนรก ] 
-<span class="LineNumber"> 002 </span>           ขณะนั้น     มหาปฐพีแตกแยกออกคอยรับเจ้าสุปปพุทธะนั้นผู้ถึง
-<span class="LineNumber"> 003 </span>ที่ใกล้เชิงบันไดที่ภายใต้ปราสาทนั่นเอง,   ท้าวเธอไปบังเกิดในอเวจีนรก
-<span class="LineNumber"> 004 </span>แล้วแล.
-<span class="LineNumber"> 005 </span>                                  เรื่องสุปปพุทธศากยะ  จบ.
-<span class="LineNumber"> 006 </span>                                   บาปวรรค  วรรณนา  จบ
-<span class="LineNumber"> 007 </span>                                           วรรคที่  ๙  จบ.

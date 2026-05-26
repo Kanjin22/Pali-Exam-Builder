@@ -1,8 +1,0 @@
-<span class="LineNumber"> 001 </span>ทิสฺวา   สตฺถา   อาคโตติ   อาห  ฯ   พาวรี  อุฏฺ€ายาสนา  อฺชลึ 
-<span class="LineNumber"> 002 </span>ปคฺคยฺห   อฏฺ€าสิ  ฯ   สตฺถา   โอภาสํ  ผริตฺวา  พาวริสฺส  อตฺตานํ 
-<span class="LineNumber"> 003 </span>ทสฺเสตฺวา  เตสํ  ทฺวินฺนํ  สปฺปายํ  ธมฺมานํ  เทเสสิ  ฯ  เทสนาวสาเน 
-<span class="LineNumber"> 004 </span>ปิงฺคิโย อรหา พาวรี อนาคามีติ ฯ 
-<span class="LineNumber"> 005 </span>	  ปารายนวคฺควณฺณนายํ.<SUP>๑</SUP> กฏฺ€วาหนวตฺถุ ฯ 
-<span class="LineNumber"> 006 </span>		   สิปฺปกถา ฯ 
-		  
-<span class='footnote'>๑. สุ. ขุ. ๒๕/๕๒๔. ป. โช. ๒๕/๒๙. </span>

@@ -1,8 +1,0 @@
-<span class="LineNumber"> 001 </span>ในเวลาจบเทศนา  พระปิงคิยะเป็นพระอรหันต์,  พาวรีพราหมณ์เป็น 
-<span class="LineNumber"> 002 </span>พระอนาคามี  แล.
-<span class="LineNumber"> 003 </span>	เรื่องพระเจ้ากัฏฐวาหนะ  มาในอรรถกถาปารายนวรรค<SUP>๑</SUP>.
-<span class="LineNumber"> 004 </span>                                      กถาว่าด้วยศิลปะ  จบ. 
-
-
-
-<span class='footnote'>๑.  สุ.  ขุ.  ๒๕/๕๒๔.  ป. โช.  ๒/๕๒๙.</span>
