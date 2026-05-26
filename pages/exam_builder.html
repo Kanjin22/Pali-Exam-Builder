@@ -4082,7 +4082,32 @@
                     shown = true;
                     const msg = (e && e.message) ? String(e.message) : '';
                     const tail = msg ? `\n\nรายละเอียด: ${msg}` : '';
-                    alert(`ไม่สามารถโหลดไฟล์ข้อมูลได้\n\nโปรดตรวจสอบว่า:\n- อัปโหลดโฟลเดอร์ data/ ไปที่ Firebase Storage แล้ว (path ต้องขึ้นต้นด้วย data/)\n- เปิด Authentication: Anonymous\n- ตั้งค่า Storage Rules ให้อนุญาตอ่านเมื่อมีการลงชื่อเข้าใช้${tail}`);
+                    const looksLikeCors = /CORS|blocked by CORS|Failed to fetch|NetworkError/i.test(msg);
+                    let corsHint = '';
+                    if (looksLikeCors) {
+                        let bucket = '';
+                        try {
+                            bucket = String(firebase?.apps?.[0]?.options?.storageBucket || '');
+                        } catch (_) {
+                            bucket = '';
+                        }
+                        const b = bucket ? `gs://${bucket}` : 'gs://<YOUR_BUCKET>';
+                        corsHint =
+                            `\n\nพบอาการคล้าย CORS (เบราว์เซอร์บล็อกการอ่านไฟล์จาก Firebase Storage)\n` +
+                            `ให้ตั้งค่า CORS ของ bucket ให้อนุญาต Origin: https://kanjin22.github.io\n` +
+                            `ตัวอย่างคำสั่ง:\n` +
+                            `gcloud storage buckets update ${b} --cors-file=cors.json\n` +
+                            `cors.json (ตัวอย่าง):\n` +
+                            `[{"origin":["https://kanjin22.github.io","null"],"method":["GET","HEAD"],"responseHeader":["Content-Type","Content-Length","Content-Encoding","Cache-Control","Content-Disposition"],"maxAgeSeconds":3600}]`;
+                    }
+                    alert(
+                        `ไม่สามารถโหลดไฟล์ข้อมูลได้\n\nโปรดตรวจสอบว่า:\n` +
+                        `- อัปโหลดโฟลเดอร์ data/ ไปที่ Firebase Storage แล้ว (path ต้องขึ้นต้นด้วย data/)\n` +
+                        `- เปิด Authentication: Anonymous\n` +
+                        `- ตั้งค่า Storage Rules ให้อนุญาตอ่านเมื่อมีการลงชื่อเข้าใช้` +
+                        `${corsHint}` +
+                        `${tail}`
+                    );
                 };
             })();
             
