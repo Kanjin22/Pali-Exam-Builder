@@ -4582,6 +4582,16 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('templateModalCloseBtn')?.addEventListener('click', closeTemplateModal);
+        document.getElementById('templateSaveNewBtn')?.addEventListener('click', saveNewTemplateFromModal);
+        document.getElementById('templateOverwriteBtn')?.addEventListener('click', overwriteSelectedTemplate);
+        document.getElementById('templateDeleteBtn')?.addEventListener('click', deleteSelectedTemplate);
+        document.getElementById('templateApplyBtn')?.addEventListener('click', applySelectedTemplate);
+        document.getElementById('templateSetFilter')?.addEventListener('change', () => refreshTemplateListUI(true));
+        document.getElementById('templateSetDefaultBtn')?.addEventListener('click', setSelectedTemplateAsDefault);
+        document.getElementById('templateClearDefaultBtn')?.addEventListener('click', clearDefaultTemplateForSelectedSize);
+    </script>
 </body>
 </html>
 
