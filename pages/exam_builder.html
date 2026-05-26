@@ -198,6 +198,7 @@
             --p-right: 2.54cm;
             padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left); 
         }
+        .margin-guides { position: absolute; border: 1px dashed #4fc3f7; pointer-events: none; z-index: 5; border-radius: 2px; display: none; }
         .paper-center { text-align: center; }
         .paper-sep { text-align:center; letter-spacing: 2px; color:#000; margin: 8px 0 16px 0; font-weight: bold; }
         .paper-section-title { font-weight:700; color:#000; margin: 16px 0 12px 0; text-align: center; text-decoration: underline; text-decoration-thickness: 2px; font-size: 1em; white-space: pre-wrap; }
@@ -401,6 +402,8 @@
             .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; }
             /* .paper-inner padding is controlled by inline style or default CSS, do not override with !important */
             .paper-header.paper-header-locked { background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
+            .paper { zoom: 1 !important; }
+            .margin-guides { display: none !important; }
             
             /* Print settings from toolbar state */
             @page { size: auto; margin: 0; }
@@ -751,12 +754,21 @@
                     <option value="-0.4px">แน่น</option>
                     <option value="-0.6px">แน่นมาก</option>
                 </select>
+                <button class="tool-btn" id="letterSqueezeBtn" onclick="cycleLetterSqueeze()" title="บีบตัวอักษร (ปรับความแน่นแบบวนระดับ)"><i class="fa-solid fa-compress"></i> บีบ</button>
             </div>
             <div class="toolbar-group">
                 <select class="tool-select" id="paperSizeSelect" onchange="changePaperSize(this.value)" title="ขนาดกระดาษ">
                     <option value="A4" selected>กระดาษ A4</option>
                     <option value="F4">กระดาษ F4 (14 นิ้ว / Legal)</option>
                 </select>
+            </div>
+            <div class="toolbar-group">
+                <button class="tool-btn" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                <button class="tool-btn" id="zoomResetBtn" onclick="setPaperZoom(1)" title="ขนาดปกติ">100%</button>
+                <button class="tool-btn" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+            </div>
+            <div class="toolbar-group">
+                <button class="tool-btn" id="marginGuidesBtn" onclick="toggleMarginGuides()" title="เส้นระยะขอบ (สีฟ้า)"><i class="fa-solid fa-border-all"></i> เส้นขอบ</button>
             </div>
             <div class="toolbar-group relative">
                 <button class="tool-btn" id="marginBtn" onclick="toggleMarginPanel()" title="ตั้งค่าขอบกระดาษ"><i class="fa-solid fa-ruler-combined"></i> ระยะขอบ</button>
@@ -817,6 +829,7 @@
             <div class="paper-inner" id="paperContent" contenteditable="true">
                 <!-- Assembled exam document will be injected here -->
             </div>
+            <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
             <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกินขอบกระดาษ (Content Overflow)</div>
         </div>
     </div>
@@ -824,6 +837,8 @@
     <script>
         let isBsMode = false;
         let headerLockEnabled = false;
+        let paperZoom = 1;
+        let marginGuidesEnabled = false;
         let draftSaveTimer = 0;
         let isApplyingSavedState = false;
         let draftPendingDecision = false;
@@ -1077,6 +1092,8 @@
             return {
                 isBsMode,
                 headerLockEnabled,
+                paperZoom,
+                marginGuidesEnabled,
                 fontFamily: document.getElementById('fontFamilySelect')?.value || 'DilleniaUPC',
                 fontSize: document.getElementById('fontSizeSelect')?.value || '22px',
                 lineHeight: document.getElementById('lineHeightSelect')?.value || '1.6',
@@ -1211,6 +1228,8 @@
                 changeLineHeight(lineHeight);
                 changeLetterSpacing(letterSpacing);
                 changePaperSize(paperSize);
+                setPaperZoom(state.settings?.paperZoom ?? 1);
+                setMarginGuidesEnabled(!!state.settings?.marginGuidesEnabled);
 
                 const margins = state.settings?.margins || {};
                 ['top', 'bottom', 'left', 'right'].forEach((side) => {
@@ -1220,6 +1239,7 @@
                     updateMargin(side, value);
                 });
                 document.querySelector('.paper')?.classList.toggle('justify-all', !!state.settings?.justifyAll);
+                updateLetterSqueezeButton();
 
                 updateDateDisplay();
                 updateDuration();
@@ -1679,6 +1699,68 @@
         }
         function changeLetterSpacing(value) {
             document.querySelector('.paper').style.setProperty('--paper-letter-spacing', value || '0');
+            updateLetterSqueezeButton();
+            scheduleDraftSave();
+        }
+        function updateLetterSqueezeButton() {
+            const btn = document.getElementById('letterSqueezeBtn');
+            const sel = document.getElementById('letterSpacingSelect');
+            if (!btn || !sel) return;
+            const active = (sel.value || '0') !== '0';
+            btn.classList.toggle('active', active);
+        }
+        function cycleLetterSqueeze() {
+            const sel = document.getElementById('letterSpacingSelect');
+            if (!sel) return;
+            const levels = ['0', '-0.2px', '-0.4px', '-0.6px'];
+            const current = sel.value || '0';
+            const idx = levels.indexOf(current);
+            const next = levels[(idx >= 0 ? idx + 1 : 0) % levels.length];
+            sel.value = next;
+            changeLetterSpacing(next);
+        }
+        function setPaperZoom(value) {
+            const paper = document.querySelector('.paper');
+            if (!paper) return;
+            const parsed = typeof value === 'string' ? parseFloat(value) : Number(value);
+            const next = Math.max(0.6, Math.min(1.6, isFinite(parsed) && parsed > 0 ? parsed : 1));
+            paperZoom = next;
+            paper.style.zoom = String(next);
+            const btn = document.getElementById('zoomResetBtn');
+            if (btn) btn.textContent = `${Math.round(next * 100)}%`;
+            scheduleDraftSave();
+        }
+        function adjustPaperZoom(delta) {
+            const d = typeof delta === 'string' ? parseFloat(delta) : Number(delta);
+            setPaperZoom((paperZoom || 1) + (isFinite(d) ? d : 0));
+        }
+        function updateMarginGuides() {
+            const guides = document.getElementById('marginGuides');
+            if (!guides || !marginGuidesEnabled) return;
+            const read = (id) => {
+                const el = document.getElementById(id);
+                const n = parseFloat(el?.value || '');
+                return isFinite(n) && n >= 0 ? n : 2.54;
+            };
+            const top = read('marginTop');
+            const bottom = read('marginBottom');
+            const left = read('marginLeft');
+            const right = read('marginRight');
+            guides.style.top = `${top}cm`;
+            guides.style.bottom = `${bottom}cm`;
+            guides.style.left = `${left}cm`;
+            guides.style.right = `${right}cm`;
+        }
+        function setMarginGuidesEnabled(enabled) {
+            marginGuidesEnabled = !!enabled;
+            const guides = document.getElementById('marginGuides');
+            const btn = document.getElementById('marginGuidesBtn');
+            if (guides) guides.style.display = marginGuidesEnabled ? 'block' : 'none';
+            if (btn) btn.classList.toggle('active', marginGuidesEnabled);
+            updateMarginGuides();
+        }
+        function toggleMarginGuides() {
+            setMarginGuidesEnabled(!marginGuidesEnabled);
             scheduleDraftSave();
         }
         function changePaperSize(size) {
@@ -1729,6 +1811,7 @@
             const inner = document.querySelector('.paper-inner');
             // document.getElementById(`margin${side.charAt(0).toUpperCase() + side.slice(1)}Val`).innerText = val + ' cm';
             inner.style.setProperty(`--p-${side}`, val + 'cm');
+            updateMarginGuides();
             scheduleDraftSave();
         }
         function resetMargins() {
@@ -2864,10 +2947,7 @@
             out = out.replace(/\r\n/g, '\n');
             if (levelCode === 'p12') {
                 out = out.replace(/หน้า\s*[๐-๙0-9]+/g, '');
-                // เชื่อมคำที่ถูกฉีกบรรทัด (มี - บรรทัดบน และ * บรรทัดล่าง) ก่อน
                 out = out.replace(/-\s*\n\s*\*/g, '');
-                
-                // ลบเลขบรรทัดนำหน้า แต่ยังคงเว้นบรรทัดไว้ตามเดิมเพื่อให้โครงสร้างไม่เพี้ยน
                 const lines = out.split('\n').map(line => String(line || '').replace(/^\s*[๐-๙0-9]{1,4}\s+(?=\S)/, ''));
                 out = lines.join('\n');
                 return out;
@@ -3306,11 +3386,9 @@
                 if (isThaiContent) {
                     processed = stripThaiSourceInlineMarkers(processed);
                     processed = processed.replace(/[\-‐‑]\s*\r?\n\s*\*?\s*/g, '');
-                    // Book line wraps in Thai source should join directly, not turn into spaces.
                     processed = processed.replace(/[ \t]*\r?\n[ \t]*/g, '');
                 }
                 
-                // สำหรับ ป.๑-๒ (แปล มคธเป็นไทย) ใช้เฉพาะ: เชื่อมคำที่ถูกฉีกบรรทัด + แปลง . -> ฯ
                 if (isPaliContent && levelCode === 'p12') {
                     processed = stripP12RawFootnoteMarkers(processed);
                     processed = processed.replace(/-\s*\r?\n\s*\*/g, '');
@@ -3330,7 +3408,6 @@
                     }
                 }
 
-                // สำหรับ ป.๑-๒ เราจะไม่ cleanPunctuation ทิ้ง เพื่อรักษาเครื่องหมายเดิมไว้ทั้งหมด
                 if (needsCleaning && levelCode !== 'p12') {
                     processed = cleanPunctuation(processed);
                 }
@@ -3348,7 +3425,6 @@
                 }
                 
                 let spaced = spaceCount === 1 ? normalized : normalized.replace(/ /g, '  ');
-                // For p12, we leave it as 2 spaces for all words including ' ฯ'
                 return spaced.split('\uE000').join('    ');
             };
 
