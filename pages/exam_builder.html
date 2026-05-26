@@ -514,6 +514,13 @@
             user-select: text;
             -webkit-user-select: text;
         }
+        .book-line.tap-selected {
+            background: rgba(255, 245, 204, 0.9);
+            border-radius: 3px;
+            padding: 2px 4px;
+            margin-left: -4px;
+            margin-right: -4px;
+        }
         .book-line { margin-bottom: 6px; }
         .page-marker-dynamic {
             color: #999;
@@ -3284,6 +3291,85 @@
         let paperNormalizeFrame = 0;
         let isNormalizingPaperContent = false;
 
+        const tapSelectMode = { literal: false, sense: false };
+        const tapSelectRange = {
+            literal: { start: -1, end: -1 },
+            sense: { start: -1, end: -1 }
+        };
+
+        function isIosDevice() {
+            const ua = navigator.userAgent || '';
+            if (/iPad|iPhone|iPod/i.test(ua)) return true;
+            return (navigator.platform === 'MacIntel' && (navigator.maxTouchPoints || 0) > 1);
+        }
+
+        function updateTapSelectButton(mode) {
+            const btn = document.getElementById(`btn-tap-${mode}`);
+            if (!btn) return;
+            const on = !!tapSelectMode[mode];
+            btn.classList.toggle('primary', on);
+            btn.classList.toggle('secondary', !on);
+            btn.textContent = on ? 'แตะเลือก: เปิด' : 'แตะเลือก: ปิด';
+        }
+
+        function clearTapSelection(mode) {
+            const range = tapSelectRange[mode];
+            if (range) {
+                range.start = -1;
+                range.end = -1;
+            }
+            document.querySelectorAll(`.book-content-area[data-mode="${mode}"] .book-line.tap-selected`).forEach((el) => {
+                el.classList.remove('tap-selected');
+            });
+        }
+
+        function setTapSelectionRange(mode, idx) {
+            const range = tapSelectRange[mode];
+            if (!range) return;
+            if (range.start < 0 || (range.start >= 0 && range.end >= 0)) {
+                range.start = idx;
+                range.end = -1;
+            } else {
+                range.end = idx;
+            }
+
+            const a = range.start;
+            const b = range.end >= 0 ? range.end : range.start;
+            const start = Math.min(a, b);
+            const end = Math.max(a, b);
+
+            document.querySelectorAll(`.book-content-area[data-mode="${mode}"] .book-line`).forEach((el) => {
+                const i = parseInt(el.dataset.lineIndex || '-1', 10);
+                el.classList.toggle('tap-selected', Number.isFinite(i) && i >= start && i <= end);
+            });
+        }
+
+        function toggleTapSelectMode(mode) {
+            tapSelectMode[mode] = !tapSelectMode[mode];
+            if (!tapSelectMode[mode]) {
+                clearTapSelection(mode);
+            }
+            updateTapSelectButton(mode);
+        }
+
+        function getTapSelectedText(mode) {
+            const range = tapSelectRange[mode];
+            if (!range || range.start < 0) return '';
+            const a = range.start;
+            const b = range.end >= 0 ? range.end : range.start;
+            const start = Math.min(a, b);
+            const end = Math.max(a, b);
+
+            const lines = [];
+            document.querySelectorAll(`.book-content-area[data-mode="${mode}"] .book-line`).forEach((el) => {
+                const i = parseInt(el.dataset.lineIndex || '-1', 10);
+                if (Number.isFinite(i) && i >= start && i <= end) {
+                    lines.push(el.textContent || '');
+                }
+            });
+            return lines.join('\n');
+        }
+
         function normalizeEditablePaperContent(preserveSelection = true) {
             const paper = document.getElementById('paperEditable');
             if (!paper || isNormalizingPaperContent) return;
@@ -3359,6 +3445,10 @@
             const sel = window.getSelection();
             let text = sel.toString();
 
+            if (!text.trim()) {
+                text = getTapSelectedText(mode);
+            }
+
             text = text.replace(/หน้า\s*[๐-๙0-9]+/g, '');
             if (isMangala01PageMode()) text = stripExamPageAndLineMarkers(text);
             text = stripSelectionMetadataForExam(text, mode);
@@ -3409,13 +3499,19 @@
             // Toolbar
             const toolbar = document.createElement('div');
             toolbar.className = 'd-flex items-center gap-10 mb-10';
+            const ios = isIosDevice();
+            if (ios) {
+                tapSelectMode[mode] = true;
+            }
             toolbar.innerHTML = `
                 <button id="btn-use-${mode}" class="btn primary" onclick="useSelectionForExam('${mode}')">
                     <i class="fa-solid fa-file-import"></i> นำข้อความที่คลุมดำไปออกข้อสอบ
                 </button>
                 <span class="text-sm text-gray-666">
-                    <i class="fa-solid fa-circle-info"></i> ลากคลุมดำข้อความในกล่องด้านล่าง (iPad: แตะค้างเพื่อเริ่มเลือก) แล้วกดปุ่มนี้
+                    <i class="fa-solid fa-circle-info"></i> ${ios ? 'แตะเลือกได้ (แตะ 1 ครั้ง=เริ่ม, แตะอีกครั้ง=จบ) แล้วกดปุ่มนี้' : 'ลากคลุมดำข้อความในกล่องด้านล่าง แล้วกดปุ่มนี้'}
                 </span>
+                <button class="btn ${ios ? 'primary' : 'secondary'} text-xs" id="btn-tap-${mode}" onclick="toggleTapSelectMode('${mode}')" title="โหมดแตะเลือก (เหมาะกับ iPad)">แตะเลือก: ${ios ? 'เปิด' : 'ปิด'}</button>
+                <button class="btn secondary text-xs" onclick="clearTapSelection('${mode}')" title="ล้างช่วงที่แตะเลือก">ล้างช่วง</button>
                 <button class="btn secondary ml-auto text-xs" onclick="window.examContent['${getTargetModeFromRenderMode(mode)}'] = ''; buildExamPreview(); alert('ล้างค่าแล้ว');">
                     <i class="fa-solid fa-trash"></i> ล้างค่า
                 </button>
@@ -3426,8 +3522,10 @@
             const textArea = document.createElement('div');
             textArea.className = 'book-content-area';
             textArea.tabIndex = 0;
+            textArea.dataset.mode = mode;
                 
             let lastPage = 0;
+            let contentLineIndex = 0;
 
             items.forEach((s) => {
                 let textToUse = s.pali;
@@ -3454,11 +3552,23 @@
                 const line = document.createElement('div');
                 line.className = 'book-line';
                 line.textContent = textToUse;
+                line.dataset.lineIndex = String(contentLineIndex++);
                 textArea.appendChild(line);
             });
 
+            textArea.onclick = (event) => {
+                if (!tapSelectMode[mode]) return;
+                const target = event.target && event.target.closest ? event.target.closest('.book-line') : null;
+                if (!target) return;
+                const idx = parseInt(target.dataset.lineIndex || '-1', 10);
+                if (!Number.isFinite(idx) || idx < 0) return;
+                setTapSelectionRange(mode, idx);
+            };
+
             wrapper.appendChild(textArea);
             box.appendChild(wrapper);
+
+            updateTapSelectButton(mode);
         }
         function buildExamPreview() {
             updateSolutionButtonState();
