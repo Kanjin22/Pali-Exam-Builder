@@ -13,6 +13,13 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-8HV8B03THV', { anonymize_ip: true });
+        function trackGaEvent(name, params) {
+            try {
+                if (typeof gtag !== 'function') return;
+                const payload = params && typeof params === 'object' ? params : {};
+                gtag('event', String(name || ''), payload);
+            } catch (_) {}
+        }
     </script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -724,7 +731,7 @@
             <button class="btn secondary" id="copyBtn"><i class="fa-solid fa-copy"></i> คัดลอก</button>
             <button class="btn secondary" id="saveTemplateBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกเป็นแม่แบบ</button>
             <button class="btn secondary" id="loadTemplateBtn"><i class="fa-solid fa-folder-open"></i> เรียกใช้แม่แบบ</button>
-            <button class="btn secondary" id="printBtn" onclick="window.print()"><i class="fa-solid fa-print"></i> พิมพ์ / บันทึก PDF</button>
+            <button class="btn secondary" id="printBtn" onclick="printExam()"><i class="fa-solid fa-print"></i> พิมพ์ / บันทึก PDF</button>
             <button class="btn primary" id="generateBtn" title="ล้างการแก้ไขข้อสอบและสร้างใหม่จากเนื้อหาที่เลือกอยู่"><i class="fa-solid fa-rotate-right"></i> ล้างการแก้ไขข้อสอบ</button>
         </div>
 
@@ -973,6 +980,7 @@
 
         function toggleBsMode() {
             setBsMode(!isBsMode);
+            trackGaEvent('toggle_mode', { mode: isBsMode ? 'bs' : 'pt' });
             scheduleDraftSave();
         }
 
@@ -1513,6 +1521,7 @@
                 refreshTemplateListUI(true);
                 const select = document.getElementById('templateSelect');
                 if (select) select.value = name;
+                trackGaEvent('template_save', { action: 'new' });
                 alert(`บันทึกเป็นแม่แบบ "${name}" เรียบร้อยแล้ว`);
                 scheduleDraftSave();
             } else {
@@ -1530,6 +1539,7 @@
             if (writeStorageJson(STORAGE_KEYS.templates, templates)) {
                 refreshTemplateListUI(true);
                 if (select) select.value = name;
+                trackGaEvent('template_save', { action: 'overwrite' });
                 alert(`บันทึกทับแม่แบบ "${name}" เรียบร้อยแล้ว`);
                 scheduleDraftSave();
             } else {
@@ -1596,6 +1606,7 @@
             }
             await applySavedState(template, { restorePaperHtml: false });
             closeTemplateModal();
+            trackGaEvent('template_apply', {});
             alert(`เรียกใช้แม่แบบ "${name}" เรียบร้อยแล้ว`);
             scheduleDraftSave();
         }
@@ -3123,6 +3134,7 @@
         }
 
         function printExam() {
+            trackGaEvent('print', {});
             saveExamLog();
             window.print();
         }
@@ -3586,6 +3598,7 @@
             // Determine target slot
             const target = getTargetModeFromRenderMode(mode);
             window.examContent[target] = text;
+            trackGaEvent('import_text', { source: mode, target });
 
             // Generate Preview
             buildExamPreview();
@@ -3942,6 +3955,7 @@
         }
         function generateSolution() {
             updateSolutionButtonState();
+            trackGaEvent('open_solution', {});
             alert('โหมดเฉลยถูกปิดชั่วคราว (โปรเจคนี้ใช้การคลุมข้อความจากหนังสือเป็นหลัก)');
             return;
         }
@@ -3958,6 +3972,7 @@
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
+                    trackGaEvent('copy_paper', {});
                     alert('คัดลอกเนื้อหาเรียบร้อยแล้ว');
                     selection.removeAllRanges();
                 } else {
@@ -4056,6 +4071,7 @@
             }
         }
         function resetForm() {
+            trackGaEvent('reset_form', {});
             resetSelection('literal');
             resetSelection('sense');
             document.getElementById('attemptInput').value = '';
@@ -4271,9 +4287,18 @@
         });
         document.getElementById('projectNameInput').addEventListener('input', buildExamPreview);
         document.getElementById('examAuthorInput').addEventListener('input', buildExamPreview);
-        document.getElementById('saveTemplateBtn').addEventListener('click', openTemplateModal);
-        document.getElementById('loadTemplateBtn').addEventListener('click', openTemplateModal);
-        document.getElementById('generateBtn').addEventListener('click', generatePreview);
+        document.getElementById('saveTemplateBtn').addEventListener('click', () => {
+            trackGaEvent('template_open', { source: 'save_button' });
+            openTemplateModal();
+        });
+        document.getElementById('loadTemplateBtn').addEventListener('click', () => {
+            trackGaEvent('template_open', { source: 'load_button' });
+            openTemplateModal();
+        });
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            trackGaEvent('rebuild_paper', {});
+            generatePreview();
+        });
         document.getElementById('resetBtn').addEventListener('click', () => {
             resetForm();
             updateWorkflowState();
