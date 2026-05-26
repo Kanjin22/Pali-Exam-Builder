@@ -431,7 +431,7 @@
             body { background: #fff; margin: 0; padding: 0; }
             .header, .content, .actions, .toolbar, .draft-status, .editor-warning, .internal-note, .container > .header, .container > .content, .container > .actions, .container > .toolbar { display: none !important; }
             .container { box-shadow: none; margin: 0; max-width: none; width: 100%; border: none; }
-            .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; width: 100% !important; min-height: auto !important; }
+            .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; width: 100% !important; }
             .paper-inner { padding: 0 !important; }
             .paper-header.paper-header-locked { background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
             .paper { zoom: 1 !important; }
@@ -522,14 +522,14 @@
             font-size: 1.1rem;
             color: #333;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-            user-select: text;
             -webkit-user-select: text;
+            user-select: text;
             -webkit-touch-callout: default;
             cursor: text;
         }
         .book-content-area * {
-            user-select: text;
             -webkit-user-select: text;
+            user-select: text;
         }
         .book-line.tap-selected {
             background: rgba(255, 245, 204, 0.9);
