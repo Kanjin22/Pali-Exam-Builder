@@ -4535,15 +4535,15 @@
         </div>
     </div>
 
-    <div id="templateModal" class="modal-overlay">
+    <div id="templateModal" class="modal-overlay" onclick="if (event && event.target === this) closeTemplateModal()">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title"><i class="fa-solid fa-bookmark"></i> แม่แบบข้อสอบ</h3>
-                <button id="templateModalCloseBtn" class="modal-close-btn">&times;</button>
+                <button id="templateModalCloseBtn" class="modal-close-btn" type="button" onclick="closeTemplateModal()">&times;</button>
             </div>
             <div class="row">
                 <label>ชุดแม่แบบ</label>
-                <select id="templateSetFilter" class="w-full">
+                <select id="templateSetFilter" class="w-full" onchange="refreshTemplateListUI(true)">
                     <option value="ALL">ทั้งหมด</option>
                     <option value="A4">ชุด A4</option>
                     <option value="F4">ชุด F4 (14 นิ้ว)</option>
@@ -4556,25 +4556,15 @@
             <div id="templateMeta" class="text-gray-666 text-sm mt-5"></div>
             <div id="templateDefaultInfo" class="text-gray-666 text-sm mt-5"></div>
             <div class="modal-footer">
-                <button class="btn secondary" id="templateSaveNewBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกใหม่</button>
-                <button class="btn secondary" id="templateOverwriteBtn"><i class="fa-solid fa-rotate-right"></i> บันทึกทับ</button>
-                <button class="btn secondary" id="templateDeleteBtn"><i class="fa-solid fa-trash"></i> ลบ</button>
-                <button class="btn secondary" id="templateSetDefaultBtn"><i class="fa-solid fa-star"></i> ตั้งเป็นเริ่มต้น</button>
-                <button class="btn secondary" id="templateClearDefaultBtn"><i class="fa-solid fa-star-half-stroke"></i> ยกเลิกเริ่มต้น</button>
-                <button class="btn primary" id="templateApplyBtn"><i class="fa-solid fa-check"></i> เรียกใช้</button>
+                <button class="btn secondary" id="templateSaveNewBtn" type="button" onclick="saveNewTemplateFromModal()"><i class="fa-solid fa-floppy-disk"></i> บันทึกใหม่</button>
+                <button class="btn secondary" id="templateOverwriteBtn" type="button" onclick="overwriteSelectedTemplate()"><i class="fa-solid fa-rotate-right"></i> บันทึกทับ</button>
+                <button class="btn secondary" id="templateDeleteBtn" type="button" onclick="deleteSelectedTemplate()"><i class="fa-solid fa-trash"></i> ลบ</button>
+                <button class="btn secondary" id="templateSetDefaultBtn" type="button" onclick="setSelectedTemplateAsDefault()"><i class="fa-solid fa-star"></i> ตั้งเป็นเริ่มต้น</button>
+                <button class="btn secondary" id="templateClearDefaultBtn" type="button" onclick="clearDefaultTemplateForSelectedSize()"><i class="fa-solid fa-star-half-stroke"></i> ยกเลิกเริ่มต้น</button>
+                <button class="btn primary" id="templateApplyBtn" type="button" onclick="applySelectedTemplate()"><i class="fa-solid fa-check"></i> เรียกใช้</button>
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('templateModalCloseBtn')?.addEventListener('click', closeTemplateModal);
-        document.getElementById('templateSaveNewBtn')?.addEventListener('click', saveNewTemplateFromModal);
-        document.getElementById('templateOverwriteBtn')?.addEventListener('click', overwriteSelectedTemplate);
-        document.getElementById('templateDeleteBtn')?.addEventListener('click', deleteSelectedTemplate);
-        document.getElementById('templateApplyBtn')?.addEventListener('click', applySelectedTemplate);
-        document.getElementById('templateSetFilter')?.addEventListener('change', () => refreshTemplateListUI(true));
-        document.getElementById('templateSetDefaultBtn')?.addEventListener('click', setSelectedTemplateAsDefault);
-        document.getElementById('templateClearDefaultBtn')?.addEventListener('click', clearDefaultTemplateForSelectedSize);
-    </script>
 </body>
 </html>
 
