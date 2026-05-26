@@ -190,7 +190,7 @@
             font-style: normal;
         }
 
-        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 18px; font-stretch: var(--paper-font-stretch, 100%); font-weight: var(--paper-font-weight, 400); }
+        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 18px; }
         .paper-inner { 
             --p-top: 2.54cm;
             --p-bottom: 2.54cm;
@@ -767,21 +767,14 @@
                 <button class="tool-btn" id="letterSqueezeBtn" onclick="cycleLetterSqueeze()" title="บีบตัวอักษร (ปรับความแน่นแบบวนระดับ)"><i class="fa-solid fa-compress"></i> บีบ</button>
             </div>
             <div class="toolbar-group">
-                <select class="tool-select" id="fontWeightSelect" onchange="changeFontWeight(this.value)" title="ความหนาตัวอักษร">
-                    <option value="400" selected>ปกติ</option>
-                    <option value="500">หนาขึ้น</option>
-                    <option value="600">อ้วน</option>
-                    <option value="700">อ้วนมาก</option>
+                <select class="tool-select" id="horizontalScaleSelect" onchange="changeHorizontalScale(this.value)" title="Horizontal Scale (ความกว้างตัวอักษร)">
+                    <option value="0.9">90%</option>
+                    <option value="0.95">95%</option>
+                    <option value="1" selected>100% (ปกติ)</option>
+                    <option value="1.05">105%</option>
+                    <option value="1.1">110%</option>
                 </select>
-                <button class="tool-btn" id="fontWeightBtn" onclick="cycleFontWeight()" title="ผอม/อ้วน (ปรับความหนาแบบวนระดับ)"><i class="fa-solid fa-weight-hanging"></i> หนา</button>
-            </div>
-            <div class="toolbar-group">
-                <select class="tool-select" id="fontStretchSelect" onchange="changeFontStretch(this.value)" title="ความกว้างตัวอักษร">
-                    <option value="90%" >แคบ</option>
-                    <option value="100%" selected>ปกติ</option>
-                    <option value="110%">กว้าง</option>
-                </select>
-                <button class="tool-btn" id="fontStretchBtn" onclick="cycleFontStretch()" title="ยืด/หดตัวอักษร (ปรับความกว้างแบบวนระดับ)"><i class="fa-solid fa-left-right"></i> กว้าง</button>
+                <button class="tool-btn" id="horizontalScaleBtn" onclick="cycleHorizontalScale()" title="ยืด/หดตัวอักษร (Horizontal Scale)"><i class="fa-solid fa-left-right"></i> กว้าง</button>
             </div>
             <div class="toolbar-group">
                 <select class="tool-select" id="paperSizeSelect" onchange="changePaperSize(this.value)" title="ขนาดกระดาษ">
@@ -872,6 +865,7 @@
         let headerLockEnabled = false;
         let paperZoom = 1;
         let marginGuidesEnabled = false;
+        let paperHorizontalScale = 1;
         let draftSaveTimer = 0;
         let isApplyingSavedState = false;
         let draftPendingDecision = false;
@@ -1127,12 +1121,11 @@
                 headerLockEnabled,
                 paperZoom,
                 marginGuidesEnabled,
+                paperHorizontalScale,
                 fontFamily: document.getElementById('fontFamilySelect')?.value || 'DilleniaUPC',
                 fontSize: document.getElementById('fontSizeSelect')?.value || '22px',
                 lineHeight: document.getElementById('lineHeightSelect')?.value || '1.6',
                 letterSpacing: document.getElementById('letterSpacingSelect')?.value || '0',
-                fontWeight: document.getElementById('fontWeightSelect')?.value || '400',
-                fontStretch: document.getElementById('fontStretchSelect')?.value || '100%',
                 paperSize: document.getElementById('paperSizeSelect')?.value || 'A4',
                 justifyAll: document.querySelector('.paper')?.classList.contains('justify-all') || false,
                 margins: {
@@ -1251,23 +1244,19 @@
                 const fontSize = state.settings?.fontSize || '22px';
                 const lineHeight = state.settings?.lineHeight || '1.6';
                 const letterSpacing = state.settings?.letterSpacing || '0';
-                const fontWeight = state.settings?.fontWeight || '400';
-                const fontStretch = state.settings?.fontStretch || '100%';
                 const paperSize = state.settings?.paperSize || 'A4';
                 document.getElementById('fontFamilySelect').value = fontFamily;
                 document.getElementById('fontSizeSelect').value = fontSize;
                 document.getElementById('lineHeightSelect').value = lineHeight;
                 document.getElementById('letterSpacingSelect').value = letterSpacing;
-                document.getElementById('fontWeightSelect').value = fontWeight;
-                document.getElementById('fontStretchSelect').value = fontStretch;
                 document.getElementById('paperSizeSelect').value = paperSize;
+                document.getElementById('horizontalScaleSelect').value = String(state.settings?.paperHorizontalScale ?? 1);
 
                 changeFontFamily(fontFamily);
                 changeFontSize(fontSize);
                 changeLineHeight(lineHeight);
                 changeLetterSpacing(letterSpacing);
-                changeFontWeight(fontWeight);
-                changeFontStretch(fontStretch);
+                changeHorizontalScale(state.settings?.paperHorizontalScale ?? 1);
                 changePaperSize(paperSize);
                 setPaperZoom(state.settings?.paperZoom ?? 1);
                 setMarginGuidesEnabled(!!state.settings?.marginGuidesEnabled);
@@ -1281,8 +1270,7 @@
                 });
                 document.querySelector('.paper')?.classList.toggle('justify-all', !!state.settings?.justifyAll);
                 updateLetterSqueezeButton();
-                updateFontWeightButton();
-                updateFontStretchButton();
+                updateHorizontalScaleButton();
 
                 updateDateDisplay();
                 updateDuration();
@@ -1750,24 +1738,6 @@
             schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
-        function changeFontWeight(value) {
-            const paper = document.querySelector('.paper');
-            if (!paper) return;
-            const v = String(value || '400').trim();
-            paper.style.setProperty('--paper-font-weight', v || '400');
-            updateFontWeightButton();
-            schedulePrintOverflowCheck();
-            scheduleDraftSave();
-        }
-        function changeFontStretch(value) {
-            const paper = document.querySelector('.paper');
-            if (!paper) return;
-            const v = String(value || '100%').trim();
-            paper.style.setProperty('--paper-font-stretch', v || '100%');
-            updateFontStretchButton();
-            schedulePrintOverflowCheck();
-            scheduleDraftSave();
-        }
         function updateLetterSqueezeButton() {
             const btn = document.getElementById('letterSqueezeBtn');
             const sel = document.getElementById('letterSpacingSelect');
@@ -1775,17 +1745,11 @@
             const active = (sel.value || '0') !== '0';
             btn.classList.toggle('active', active);
         }
-        function updateFontWeightButton() {
-            const btn = document.getElementById('fontWeightBtn');
-            const sel = document.getElementById('fontWeightSelect');
+        function updateHorizontalScaleButton() {
+            const btn = document.getElementById('horizontalScaleBtn');
+            const sel = document.getElementById('horizontalScaleSelect');
             if (!btn || !sel) return;
-            btn.classList.toggle('active', (sel.value || '400') !== '400');
-        }
-        function updateFontStretchButton() {
-            const btn = document.getElementById('fontStretchBtn');
-            const sel = document.getElementById('fontStretchSelect');
-            if (!btn || !sel) return;
-            btn.classList.toggle('active', (sel.value || '100%') !== '100%');
+            btn.classList.toggle('active', String(sel.value || '1') !== '1');
         }
         function cycleLetterSqueeze() {
             const sel = document.getElementById('letterSpacingSelect');
@@ -1797,25 +1761,25 @@
             sel.value = next;
             changeLetterSpacing(next);
         }
-        function cycleFontWeight() {
-            const sel = document.getElementById('fontWeightSelect');
-            if (!sel) return;
-            const levels = ['400', '500', '600', '700'];
-            const current = String(sel.value || '400');
-            const idx = levels.indexOf(current);
-            const next = levels[(idx >= 0 ? idx + 1 : 0) % levels.length];
-            sel.value = next;
-            changeFontWeight(next);
+        function changeHorizontalScale(value) {
+            const v = typeof value === 'string' ? parseFloat(value) : Number(value);
+            const next = Math.max(0.8, Math.min(1.2, isFinite(v) && v > 0 ? v : 1));
+            paperHorizontalScale = next;
+            const inner = document.getElementById('paperContent');
+            if (inner) inner.style.transform = `scaleX(${next})`;
+            updateHorizontalScaleButton();
+            schedulePrintOverflowCheck();
+            scheduleDraftSave();
         }
-        function cycleFontStretch() {
-            const sel = document.getElementById('fontStretchSelect');
+        function cycleHorizontalScale() {
+            const sel = document.getElementById('horizontalScaleSelect');
             if (!sel) return;
-            const levels = ['90%', '100%', '110%'];
-            const current = String(sel.value || '100%');
+            const levels = ['0.9', '0.95', '1', '1.05', '1.1'];
+            const current = String(sel.value || '1');
             const idx = levels.indexOf(current);
             const next = levels[(idx >= 0 ? idx + 1 : 0) % levels.length];
             sel.value = next;
-            changeFontStretch(next);
+            changeHorizontalScale(next);
         }
         function setPaperZoom(value) {
             const paper = document.querySelector('.paper');
@@ -1950,8 +1914,6 @@
             const computedPaper = getComputedStyle(paper);
             mirrorPaper.style.fontFamily = computedPaper.fontFamily;
             mirrorPaper.style.fontSize = computedPaper.fontSize;
-            mirrorPaper.style.fontWeight = computedPaper.fontWeight;
-            mirrorPaper.style.fontStretch = computedPaper.fontStretch;
             mirrorPaper.style.setProperty('--paper-line-height', computedPaper.getPropertyValue('--paper-line-height') || '1.6');
             mirrorPaper.style.setProperty('--paper-letter-spacing', computedPaper.getPropertyValue('--paper-letter-spacing') || '0');
 
@@ -1960,6 +1922,7 @@
             mirrorInner.style.setProperty('--p-bottom', computedInner.getPropertyValue('--p-bottom') || '2.54cm');
             mirrorInner.style.setProperty('--p-left', computedInner.getPropertyValue('--p-left') || '2.54cm');
             mirrorInner.style.setProperty('--p-right', computedInner.getPropertyValue('--p-right') || '2.54cm');
+            mirrorInner.style.transform = `scaleX(${paperHorizontalScale || 1})`;
 
             mirrorInner.innerHTML = inner.innerHTML;
         }
