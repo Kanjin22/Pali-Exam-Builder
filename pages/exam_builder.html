@@ -190,7 +190,7 @@
             font-style: normal;
         }
 
-        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 18px; }
+        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 20px; }
         .paper-inner { 
             --p-top: 2.54cm;
             --p-bottom: 2.54cm;
@@ -198,7 +198,12 @@
             --p-right: 2.54cm;
             padding: var(--p-top) var(--p-right) var(--p-bottom) var(--p-left); 
         }
-        .margin-guides { position: absolute; border: 1px dashed #4fc3f7; pointer-events: none; z-index: 5; border-radius: 2px; display: none; }
+        .paper-editable {
+            width: 100%;
+            min-height: 100%;
+            outline: none;
+        }
+        .margin-guides { position: absolute; border: 1px dashed #4fc3f7; pointer-events: none; z-index: 5; border-radius: 2px; display: block; }
         .paper-center { text-align: center; }
         .paper-sep { text-align:center; letter-spacing: 2px; color:#000; margin: 8px 0 16px 0; font-weight: bold; }
         .paper-section-title { font-weight:700; color:#000; margin: 16px 0 12px 0; text-align: center; text-decoration: underline; text-decoration-thickness: 2px; font-size: 1em; white-space: pre-wrap; }
@@ -559,10 +564,10 @@
         </div>
         <div class="content">
             <div class="section">
-                <h2>ตั้งค่าข้อสอบ</h2>
+                <h2>กำหนดข้อสอบ</h2>
                 <div class="grid-2">
                     <div>
-                        <div class="text-gray-dark font-bold mb-10">ชุดบังคับเลือก</div>
+                        <div class="text-gray-dark font-bold mb-10">บังคับเลือก</div>
                         <div class="row" id="levelRow">
                             <label>ชั้น</label>
                             <div class="flex-center gap-10 flex-1">
@@ -591,7 +596,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="text-gray-dark font-bold mb-10">ชุดไม่บังคับ</div>
+                        <div class="text-gray-dark font-bold mb-10">ไม่บังคับกรอก</div>
                         <div class="row">
                             <label>สอบครั้งที่</label>
                             <input type="text" id="attemptInput" placeholder="เช่น ๑" />
@@ -622,7 +627,7 @@
             </div>
             <div class="section step-locked d-none" id="contentSection">
                 <div class="flex-between">
-                    <h2 id="contentSectionTitle">เลือกช่วงเนื้อหา <span id="bookTitleBadge" class="text-md text-gray-666"></span></h2>
+                    <h2 id="contentSectionTitle">เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span></h2>
                 </div>
                 <div class="row items-start" id="literalRow">
                     <label id="literalLabel" class="pt-10">ข้อ ๑</label>
@@ -692,9 +697,9 @@
             <a href="font_download.html" class="btn secondary text-decoration-none d-inline-flex flex-center gap-5" title="หน้าดาวน์โหลดและวิธีติดตั้งฟอนต์"><i class="fa-solid fa-font"></i> ดาวน์โหลดฟอนต์</a>
             <button class="btn secondary" id="resetBtn"><i class="fa-solid fa-rotate-left"></i> รีเซ็ต</button>
             <button class="btn secondary" id="copyBtn"><i class="fa-solid fa-copy"></i> คัดลอก</button>
-            <button class="btn secondary" id="saveTemplateBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกแม่แบบ</button>
-            <button class="btn secondary" id="loadTemplateBtn"><i class="fa-solid fa-folder-open"></i> เรียกแม่แบบ</button>
-            <button class="btn secondary" id="printBtn" onclick="window.print()"><i class="fa-solid fa-print"></i> พิมพ์ / PDF</button>
+            <button class="btn secondary" id="saveTemplateBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกเป็นแม่แบบ</button>
+            <button class="btn secondary" id="loadTemplateBtn"><i class="fa-solid fa-folder-open"></i> เรียกใช้แม่แบบ</button>
+            <button class="btn secondary" id="printBtn" onclick="window.print()"><i class="fa-solid fa-print"></i> พิมพ์ / บันทึก PDF</button>
             <button class="btn primary" id="generateBtn" title="ล้างการแก้ไขข้อสอบและสร้างใหม่จากเนื้อหาที่เลือกอยู่"><i class="fa-solid fa-rotate-right"></i> ล้างการแก้ไขข้อสอบ</button>
         </div>
 
@@ -737,8 +742,8 @@
                     <option value="14px">14px</option>
                     <option value="16px">16px</option>
                     <option value="18px">18px</option>
-                    <option value="20px">20px</option>
-                    <option value="22px" selected>22px</option>
+                    <option value="20px" selected>20px</option>
+                    <option value="22px">22px</option>
                     <option value="24px">24px</option>
                     <option value="26px">26px</option>
                     <option value="28px">28px</option>
@@ -787,9 +792,6 @@
                 <button class="tool-btn" id="zoomResetBtn" onclick="setPaperZoom(1)" title="ขนาดปกติ">100%</button>
                 <button class="tool-btn" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
             </div>
-            <div class="toolbar-group">
-                <button class="tool-btn" id="marginGuidesBtn" onclick="toggleMarginGuides()" title="เส้นระยะขอบ (สีฟ้า)"><i class="fa-solid fa-border-all"></i> เส้นขอบ</button>
-            </div>
             <div class="toolbar-group relative">
                 <button class="tool-btn" id="marginBtn" onclick="toggleMarginPanel()" title="ตั้งค่าขอบกระดาษ"><i class="fa-solid fa-ruler-combined"></i> ระยะขอบ</button>
                 <div id="marginPanel" class="d-none">
@@ -819,9 +821,9 @@
                 </div>
             </div>
             <div class="toolbar-group relative">
-                <button class="tool-btn" id="editHintBtn" onclick="toggleEditHintPanel()" title="คำแนะนำการจัดข้อความ"><i class="fa-solid fa-circle-info"></i> คำแนะนำ</button>
+                <button class="tool-btn" id="editHintBtn" onclick="toggleEditHintPanel()" title="วิธีจัดข้อความ"><i class="fa-solid fa-circle-info"></i> วิธีจัดข้อความ</button>
                 <div id="editHintPanel" class="d-none">
-                    <div class="title"><i class="fa-solid fa-circle-info"></i> คำแนะนำการจัดข้อความในข้อสอบ</div>
+                    <div class="title"><i class="fa-solid fa-circle-info"></i> วิธีจัดข้อความในข้อสอบ</div>
                     <div>1. ขึ้นย่อหน้าใหม่: กด <b>Enter</b></div>
                     <div>2. ตัดบรรทัด (เนื้อหาต่อเนื่อง): กด <b>Shift+Enter</b></div>
                     <div>3. แก้ปัญหาคำฉีก: ใช้ <b>Space bar</b> ดันคำที่ฉีกบนบรรทัดบนให้ตกลงมาข้างล่างทั้งคำ</div>
@@ -846,8 +848,8 @@
         </div>
 
         <div class="paper size-a4">
-            <div class="paper-inner" id="paperContent" contenteditable="true">
-                <!-- Assembled exam document will be injected here -->
+            <div class="paper-inner" id="paperContent">
+                <div id="paperEditable" class="paper-editable" contenteditable="true"></div>
             </div>
             <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
             <div id="pageMarkers" class="page-markers" aria-hidden="true"></div>
@@ -855,7 +857,9 @@
         </div>
         <div class="print-mirror-host" aria-hidden="true">
             <div class="paper size-a4" id="printMirrorPaper">
-                <div class="paper-inner" id="printMirrorInner"></div>
+                <div class="paper-inner" id="printMirrorInner">
+                    <div id="printMirrorEditable" class="paper-editable"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -864,7 +868,7 @@
         let isBsMode = false;
         let headerLockEnabled = false;
         let paperZoom = 1;
-        let marginGuidesEnabled = false;
+        let marginGuidesEnabled = true;
         let paperHorizontalScale = 1;
         let draftSaveTimer = 0;
         let isApplyingSavedState = false;
@@ -958,7 +962,7 @@
         }
 
         function applyHeaderLockState() {
-            const paper = document.getElementById('paperContent');
+            const paper = document.getElementById('paperEditable');
             if (!paper) return;
             paper.querySelectorAll('.paper-header').forEach((header) => {
                 header.setAttribute('contenteditable', headerLockEnabled ? 'false' : 'true');
@@ -1105,7 +1109,7 @@
             const s1 = buildInternalNoteSection('ข้อ ๑', c1, freeLit, q1BookLines);
             const s2 = buildInternalNoteSection('ข้อ ๒', c2, freeSen, q2BookLines);
 
-            const paperText = document.getElementById('paperContent')?.innerText || '';
+            const paperText = document.getElementById('paperEditable')?.innerText || '';
             const approxLines = estimateLineCountFromText(paperText);
             const footer = `จำนวนบรรทัดในหน้ากระดาษ (ประมาณ): ${toThaiDigits(approxLines)}`;
             const bookLinesSummary = [
@@ -1123,7 +1127,7 @@
                 marginGuidesEnabled,
                 paperHorizontalScale,
                 fontFamily: document.getElementById('fontFamilySelect')?.value || 'DilleniaUPC',
-                fontSize: document.getElementById('fontSizeSelect')?.value || '22px',
+                fontSize: document.getElementById('fontSizeSelect')?.value || '20px',
                 lineHeight: document.getElementById('lineHeightSelect')?.value || '1.6',
                 letterSpacing: document.getElementById('letterSpacingSelect')?.value || '0',
                 paperSize: document.getElementById('paperSizeSelect')?.value || 'A4',
@@ -1171,7 +1175,7 @@
                     literal: window.examContent?.literal || '',
                     sense: window.examContent?.sense || ''
                 },
-                paperHTML: document.getElementById('paperContent')?.innerHTML || '',
+                paperHTML: document.getElementById('paperEditable')?.innerHTML || '',
                 savedAt: Date.now()
             };
         }
@@ -1241,7 +1245,7 @@
                 updateHeaderLockButton();
 
                 const fontFamily = state.settings?.fontFamily || 'DilleniaUPC';
-                const fontSize = state.settings?.fontSize || '22px';
+                const fontSize = state.settings?.fontSize || '20px';
                 const lineHeight = state.settings?.lineHeight || '1.6';
                 const letterSpacing = state.settings?.letterSpacing || '0';
                 const paperSize = state.settings?.paperSize || 'A4';
@@ -1259,7 +1263,7 @@
                 changeHorizontalScale(state.settings?.paperHorizontalScale ?? 1);
                 changePaperSize(paperSize);
                 setPaperZoom(state.settings?.paperZoom ?? 1);
-                setMarginGuidesEnabled(!!state.settings?.marginGuidesEnabled);
+                setMarginGuidesEnabled(true);
 
                 const margins = state.settings?.margins || {};
                 ['top', 'bottom', 'left', 'right'].forEach((side) => {
@@ -1278,7 +1282,7 @@
                 await generatePreview();
 
                 if (restorePaperHtml && state.paperHTML) {
-                    const paper = document.getElementById('paperContent');
+                    const paper = document.getElementById('paperEditable');
                     if (paper) {
                         paper.innerHTML = state.paperHTML;
                         normalizeEditablePaperContent(false);
@@ -1485,10 +1489,10 @@
                 refreshTemplateListUI(true);
                 const select = document.getElementById('templateSelect');
                 if (select) select.value = name;
-                alert(`บันทึกแม่แบบ "${name}" เรียบร้อยแล้ว`);
+                alert(`บันทึกเป็นแม่แบบ "${name}" เรียบร้อยแล้ว`);
                 scheduleDraftSave();
             } else {
-                alert('ไม่สามารถบันทึกแม่แบบได้');
+                alert('ไม่สามารถบันทึกเป็นแม่แบบได้');
             }
         }
 
@@ -1505,7 +1509,7 @@
                 alert(`บันทึกทับแม่แบบ "${name}" เรียบร้อยแล้ว`);
                 scheduleDraftSave();
             } else {
-                alert('ไม่สามารถบันทึกแม่แบบได้');
+                alert('ไม่สามารถบันทึกเป็นแม่แบบได้');
             }
         }
 
@@ -1568,7 +1572,7 @@
             }
             await applySavedState(template, { restorePaperHtml: false });
             closeTemplateModal();
-            alert(`เรียกแม่แบบ "${name}" เรียบร้อยแล้ว`);
+            alert(`เรียกใช้แม่แบบ "${name}" เรียบร้อยแล้ว`);
             scheduleDraftSave();
         }
 
@@ -1596,10 +1600,10 @@
                 savedAt: Date.now()
             };
             if (writeStorageJson(STORAGE_KEYS.templates, templates)) {
-                alert(`บันทึกแม่แบบ "${trimmedName}" เรียบร้อยแล้ว`);
+                alert(`บันทึกเป็นแม่แบบ "${trimmedName}" เรียบร้อยแล้ว`);
                 scheduleDraftSave();
             } else {
-                alert('ไม่สามารถบันทึกแม่แบบได้');
+                alert('ไม่สามารถบันทึกเป็นแม่แบบได้');
             }
         }
         async function loadExamTemplateLegacy() {
@@ -1618,13 +1622,13 @@
                 return;
             }
             await applySavedState(template, { restorePaperHtml: false });
-            alert(`เรียกแม่แบบ "${selectedName.trim()}" เรียบร้อยแล้ว`);
+            alert(`เรียกใช้แม่แบบ "${selectedName.trim()}" เรียบร้อยแล้ว`);
             scheduleDraftSave();
         }
 
         function execCmd(command) {
             document.execCommand(command, false, null);
-            document.getElementById('paperContent').focus();
+            document.getElementById('paperEditable')?.focus();
             scheduleDraftSave();
         }
 
@@ -1658,7 +1662,7 @@
                     alert('ไม่สามารถห้ามตัดคำได้ในส่วนนี้ (อาจมีการจัดรูปแบบที่ซับซ้อนเกินไป)');
                 }
             }
-            document.getElementById('paperContent').focus();
+            document.getElementById('paperEditable')?.focus();
             scheduleDraftSave();
         }
 
@@ -1670,7 +1674,7 @@
 
         function getPaperSelectionInfo() {
             const selection = window.getSelection();
-            const paper = document.getElementById('paperContent');
+            const paper = document.getElementById('paperEditable');
             let isInside = false;
             if (selection.rangeCount > 0) {
                 let curr = selection.anchorNode;
@@ -1694,7 +1698,7 @@
             const fontStack = `"${font.split(',')[0]}", ${font}, sans-serif`;
             document.execCommand('styleWithCSS', false, true);
             document.execCommand('fontName', false, fontStack);
-            document.getElementById('paperContent').focus();
+            document.getElementById('paperEditable')?.focus();
             updateToolbarState();
             scheduleDraftSave();
         }
@@ -1765,8 +1769,18 @@
             const v = typeof value === 'string' ? parseFloat(value) : Number(value);
             const next = Math.max(0.8, Math.min(1.2, isFinite(v) && v > 0 ? v : 1));
             paperHorizontalScale = next;
-            const inner = document.getElementById('paperContent');
-            if (inner) inner.style.transform = `scaleX(${next})`;
+            const inner = document.getElementById('paperEditable');
+            if (inner) {
+                if (next === 1) {
+                    inner.style.transform = '';
+                    inner.style.transformOrigin = '';
+                    inner.style.width = '';
+                } else {
+                    inner.style.transform = `scaleX(${next})`;
+                    inner.style.transformOrigin = 'top left';
+                    inner.style.width = `calc(100% / ${next})`;
+                }
+            }
             updateHorizontalScaleButton();
             schedulePrintOverflowCheck();
             scheduleDraftSave();
@@ -1799,7 +1813,7 @@
         }
         function updateMarginGuides() {
             const guides = document.getElementById('marginGuides');
-            if (!guides || !marginGuidesEnabled) return;
+            if (!guides) return;
             const read = (id) => {
                 const el = document.getElementById(id);
                 const n = parseFloat(el?.value || '');
@@ -1817,9 +1831,7 @@
         function setMarginGuidesEnabled(enabled) {
             marginGuidesEnabled = !!enabled;
             const guides = document.getElementById('marginGuides');
-            const btn = document.getElementById('marginGuidesBtn');
             if (guides) guides.style.display = marginGuidesEnabled ? 'block' : 'none';
-            if (btn) btn.classList.toggle('active', marginGuidesEnabled);
             updateMarginGuides();
         }
         function toggleMarginGuides() {
@@ -1881,7 +1893,7 @@
             }
         }
         function updateMargin(side, val) {
-            const inner = document.querySelector('.paper-inner');
+            const inner = document.getElementById('paperContent');
             // document.getElementById(`margin${side.charAt(0).toUpperCase() + side.slice(1)}Val`).innerText = val + ' cm';
             inner.style.setProperty(`--p-${side}`, val + 'cm');
             updateMarginGuides();
@@ -1906,9 +1918,11 @@
         function syncPrintMirrorStyles() {
             const paper = document.querySelector('.paper');
             const inner = document.getElementById('paperContent');
+            const editable = document.getElementById('paperEditable');
             const mirrorPaper = document.getElementById('printMirrorPaper');
             const mirrorInner = document.getElementById('printMirrorInner');
-            if (!paper || !inner || !mirrorPaper || !mirrorInner) return;
+            const mirrorEditable = document.getElementById('printMirrorEditable');
+            if (!paper || !inner || !editable || !mirrorPaper || !mirrorInner || !mirrorEditable) return;
 
             mirrorPaper.className = paper.className;
             const computedPaper = getComputedStyle(paper);
@@ -1922,9 +1936,18 @@
             mirrorInner.style.setProperty('--p-bottom', computedInner.getPropertyValue('--p-bottom') || '2.54cm');
             mirrorInner.style.setProperty('--p-left', computedInner.getPropertyValue('--p-left') || '2.54cm');
             mirrorInner.style.setProperty('--p-right', computedInner.getPropertyValue('--p-right') || '2.54cm');
-            mirrorInner.style.transform = `scaleX(${paperHorizontalScale || 1})`;
+            const next = paperHorizontalScale || 1;
+            if (next === 1) {
+                mirrorEditable.style.transform = '';
+                mirrorEditable.style.transformOrigin = '';
+                mirrorEditable.style.width = '';
+            } else {
+                mirrorEditable.style.transform = `scaleX(${next})`;
+                mirrorEditable.style.transformOrigin = 'top left';
+                mirrorEditable.style.width = `calc(100% / ${next})`;
+            }
 
-            mirrorInner.innerHTML = inner.innerHTML;
+            mirrorEditable.innerHTML = editable.innerHTML;
         }
         function updatePageMarkers(pageCount) {
             const layer = document.getElementById('pageMarkers');
@@ -2096,22 +2119,22 @@
             const titleEl = document.getElementById('contentSectionTitle');
             const subjectLabel = document.getElementById('subjectSelect').value || '';
             const levelCode = document.getElementById('levelSelect').value || '';
-            if (titleEl) titleEl.innerHTML = 'เลือกช่วงเนื้อหา <span id="bookTitleBadge" class="text-md text-gray-666"></span>';
+            if (titleEl) titleEl.innerHTML = 'เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span>';
             const el = document.getElementById('bookTitleBadge');
             if (!el) return;
             const thaiSourceCfg = subjectLabel.includes('ไทยเป็นมคธ') ? (THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] || null) : null;
             if (['p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && thaiSourceCfg) {
-                if (titleEl) titleEl.textContent = `เลือกช่วงเนื้อหา (${thaiSourceCfg.title || 'พระธัมมปทัฏฐกถา'})`;
+                if (titleEl) titleEl.textContent = `เลือกช่วงหน้า (${thaiSourceCfg.title || 'พระธัมมปทัฏฐกถา'})`;
                 return;
             }
             const isPt4To9ThaiToMagadha = ['p4','p5','p6','p7','p8','p9'].includes(levelCode) && subjectLabel.includes('ไทยเป็นมคธ');
             if (isPt4To9ThaiToMagadha) {
-                if (titleEl) titleEl.textContent = 'เลือกช่วงเนื้อหา (พระธัมมปทัฏฐกถา ภาค  ๑)';
+                if (titleEl) titleEl.textContent = 'เลือกช่วงหน้า (พระธัมมปทัฏฐกถา ภาค  ๑)';
                 return;
             }
             const isDhammapadaHeading = levelCode === 'p12' || (levelCode === 'p3' && (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์ไทย')));
             if (isDhammapadaHeading) {
-                if (titleEl) titleEl.textContent = 'เลือกช่วงเนื้อหา (ธมฺมปทฏฺฐกถา)';
+                if (titleEl) titleEl.textContent = 'เลือกช่วงหน้า (ธมฺมปทฏฺฐกถา)';
                 return;
             }
             if (!subjectLabel.includes('มคธเป็นไทย')) {
@@ -2786,7 +2809,7 @@
             } else if (isRelationThai) {
                 if (senseRow) senseRow.classList.add('d-none');
                 if (literalRow) literalRow.classList.remove('d-none');
-                if (litLabel) litLabel.innerText = 'เลือกช่วงเนื้อหา';
+                if (litLabel) litLabel.innerText = 'เลือกช่วงหน้า';
             } else {
                 if (senseRow) senseRow.classList.remove('d-none');
                 if (literalRow) literalRow.classList.remove('d-none');
@@ -3254,7 +3277,7 @@
         let isNormalizingPaperContent = false;
 
         function normalizeEditablePaperContent(preserveSelection = true) {
-            const paper = document.getElementById('paperContent');
+            const paper = document.getElementById('paperEditable');
             if (!paper || isNormalizingPaperContent) return;
 
             isNormalizingPaperContent = true;
@@ -3430,7 +3453,7 @@
         }
         function buildExamPreview() {
             updateSolutionButtonState();
-            const paper = document.getElementById('paperContent');
+            const paper = document.getElementById('paperEditable');
             if (!paper) return;
             const levelLabel = getSelectedLevelLabel();
             const subjectLabel = document.getElementById('subjectSelect').value || 'แปล  มคธเป็นไทย';
@@ -3680,7 +3703,7 @@
         }
 
         function copyToClipboard() {
-            const paper = document.getElementById('paperContent');
+            const paper = document.getElementById('paperEditable');
             if (!paper) return;
             const range = document.createRange();
             range.selectNodeContents(paper);
@@ -3832,7 +3855,7 @@
             }
         }
         function updateToolbarState() {
-            const paper = document.getElementById('paperContent');
+            const paper = document.getElementById('paperEditable');
             const selection = window.getSelection();
             if (!selection.rangeCount) return;
             
@@ -4015,15 +4038,15 @@
         // document.getElementById('printBtn').addEventListener('click', () => window.print());
         
         // Toolbar state listeners
-        document.getElementById('paperContent').addEventListener('mouseup', updateToolbarState);
-        document.getElementById('paperContent').addEventListener('keyup', updateToolbarState);
-        document.getElementById('paperContent').addEventListener('click', updateToolbarState);
-        document.getElementById('paperContent').addEventListener('input', () => {
+        document.getElementById('paperEditable').addEventListener('mouseup', updateToolbarState);
+        document.getElementById('paperEditable').addEventListener('keyup', updateToolbarState);
+        document.getElementById('paperEditable').addEventListener('click', updateToolbarState);
+        document.getElementById('paperEditable').addEventListener('input', () => {
             scheduleNormalizeEditablePaperContent();
             schedulePrintOverflowCheck();
             scheduleDraftSave();
         });
-        document.getElementById('paperContent').addEventListener('paste', () => {
+        document.getElementById('paperEditable').addEventListener('paste', () => {
             setTimeout(() => {
                 normalizeEditablePaperContent(true);
                 schedulePrintOverflowCheck();
@@ -4054,6 +4077,7 @@
         updateDuration();
         updateDateDisplay();
         applyFontLockForSubject();
+        changeFontSize(document.getElementById('fontSizeSelect').value);
         updateVolumeSelectors();
         updateBookTitleBadge();
         generatePreview();
