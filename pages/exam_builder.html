@@ -577,6 +577,7 @@
             <div>
                 <span class="badge" id="durationDisplay">เวลา: ๐ ชั่วโมง กับ ๐ นาที.</span>
                 <span class="badge" id="dateDisplay">วันที่: -</span>
+                <span class="badge" id="webUsageBadge">เข้าใช้วันนี้: -</span>
             </div>
         </div>
         <div class="content">
@@ -2878,6 +2879,122 @@
             }
         } catch (_) {}
 
+        function getBangkokDayKey() {
+            try {
+                const fmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Bangkok', year: 'numeric', month: '2-digit', day: '2-digit' });
+                return fmt.format(new Date());
+            } catch (_) {
+                return new Date().toISOString().slice(0, 10);
+            }
+        }
+
+        function detectDeviceBucket() {
+            const ua = String(navigator.userAgent || '');
+            const platform = String(navigator.platform || '');
+            const touchPoints = Number(navigator.maxTouchPoints || 0);
+
+            const isIpad = /iPad/i.test(ua) || (platform === 'MacIntel' && touchPoints > 1);
+            if (isIpad) return 'ipad';
+            if (/iPhone|iPod/i.test(ua)) return 'iphone';
+            if (/Android/i.test(ua)) return 'android';
+            return 'desktop';
+        }
+
+        async function ensureAnonymousAuthForAnalytics() {
+            if (typeof firebase === 'undefined' || !firebase.auth) return null;
+            try {
+                const auth = firebase.auth();
+                if (auth.currentUser) return auth.currentUser;
+                const canSignInAnon = typeof auth.signInAnonymously === 'function';
+                if (!canSignInAnon) return null;
+                const cred = await auth.signInAnonymously();
+                return cred?.user || auth.currentUser || null;
+            } catch (_) {
+                return null;
+            }
+        }
+
+        function getReferrerKey() {
+            try {
+                const ref = String(document.referrer || '');
+                if (!ref) return '';
+                const u = new URL(ref);
+                const host = String(u.hostname || '').toLowerCase();
+                if (!host) return '';
+                const same = host === String(location.hostname || '').toLowerCase();
+                if (same) return '';
+                return host.replace(/[^a-z0-9_-]/g, '_').slice(0, 60);
+            } catch (_) {
+                return '';
+            }
+        }
+
+        function isNewSessionForAnalytics() {
+            try {
+                const now = Date.now();
+                const key = 'exam_builder_web_analytics_session_last_v1';
+                const last = parseInt(localStorage.getItem(key) || '0', 10) || 0;
+                const newSession = !last || (now - last) > (30 * 60 * 1000);
+                localStorage.setItem(key, String(now));
+                return newSession;
+            } catch (_) {
+                return true;
+            }
+        }
+
+        async function logWebAnalytics() {
+            if (!db || typeof firebase === 'undefined' || !firebase.firestore) return;
+            await ensureAnonymousAuthForAnalytics();
+
+            const day = getBangkokDayKey();
+            const bucket = detectDeviceBucket();
+            const newSession = isNewSessionForAnalytics();
+            const refKey = getReferrerKey();
+
+            const inc = firebase.firestore.FieldValue.increment(1);
+            const payload = {
+                day,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                views: inc,
+                [`devices.${bucket}`]: inc,
+                [`pages.exam_builder`]: inc
+            };
+            if (newSession) payload.sessions = inc;
+            if (refKey) payload[`referrers.${refKey}`] = inc;
+
+            await db.collection('web_analytics_daily').doc(day).set(payload, { merge: true });
+        }
+
+        async function refreshWebUsageBadge() {
+            const badge = document.getElementById('webUsageBadge');
+            if (!badge) return;
+            if (!db) return;
+            try {
+                const day = getBangkokDayKey();
+                const snap = await db.collection('web_analytics_daily').doc(day).get();
+                if (!snap.exists) {
+                    badge.textContent = 'เข้าใช้วันนี้: -';
+                    return;
+                }
+                const data = snap.data() || {};
+                const views = Number(data.views || 0) || 0;
+                const sessions = Number(data.sessions || 0) || 0;
+                badge.textContent = `เข้าใช้วันนี้: ${toThaiDigits(views)} | เซสชัน: ${toThaiDigits(sessions)}`;
+            } catch (_) {
+                badge.textContent = 'เข้าใช้วันนี้: -';
+            }
+        }
+
+        function startWebAnalytics() {
+            if (!db) return;
+            setTimeout(async () => {
+                try {
+                    await logWebAnalytics();
+                } catch (_) {}
+                await refreshWebUsageBadge();
+            }, 0);
+        }
+
         async function fetchStats() {
             if (!db || typeof firebase === 'undefined' || !firebase.auth) return;
             const user = firebase.auth().currentUser;
@@ -4219,6 +4336,7 @@
         document.getElementById('templateSetFilter')?.addEventListener('change', () => refreshTemplateListUI(true));
         document.getElementById('templateSetDefaultBtn')?.addEventListener('click', setSelectedTemplateAsDefault);
         document.getElementById('templateClearDefaultBtn')?.addEventListener('click', clearDefaultTemplateForSelectedSize);
+        startWebAnalytics();
         restoreDraftIfAvailable();
     </script>
 
