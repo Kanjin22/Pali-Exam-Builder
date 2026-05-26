@@ -409,8 +409,8 @@
             body { background: #fff; margin: 0; padding: 0; }
             .header, .content, .actions, .toolbar, .draft-status, .editor-warning, .internal-note, .container > .header, .container > .content, .container > .actions, .container > .toolbar { display: none !important; }
             .container { box-shadow: none; margin: 0; max-width: none; width: 100%; border: none; }
-            .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; }
-            /* .paper-inner padding is controlled by inline style or default CSS, do not override with !important */
+            .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; width: 100% !important; min-height: auto !important; }
+            .paper-inner { padding: 0 !important; }
             .paper-header.paper-header-locked { background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
             .paper { zoom: 1 !important; }
             .margin-guides { display: none !important; }
@@ -418,9 +418,6 @@
             
             /* Print settings from toolbar state */
             @page { size: auto; margin: 0; }
-
-            body[data-print-size="A4"] .paper { width: 210mm; min-height: 297mm; }
-            body[data-print-size="F4"] .paper { width: 216mm; min-height: 356mm; }
             
             /* Solution Mode Print Overrides - REMOVED to match Exam Mode Layout */
         }
@@ -841,7 +838,7 @@
                 <!-- Assembled exam document will be injected here -->
             </div>
             <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
-            <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกินขอบกระดาษ — แนะนำ: ลดขนาดตัวอักษร / ลดระยะบรรทัด / ลดระยะขอบ / เปลี่ยนเป็น F4</div>
+            <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒ (ระยะขอบเท่าเดิม) • ปรับได้: ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ F4</div>
         </div>
         <div class="print-mirror-host" aria-hidden="true">
             <div class="paper size-a4" id="printMirrorPaper">
@@ -1785,6 +1782,27 @@
             setMarginGuidesEnabled(!marginGuidesEnabled);
             scheduleDraftSave();
         }
+        function updatePrintPageStyle() {
+            const size = document.getElementById('paperSizeSelect')?.value || 'A4';
+            const read = (id, fallback) => {
+                const n = parseFloat(document.getElementById(id)?.value || '');
+                return isFinite(n) && n >= 0 ? n : fallback;
+            };
+            const top = read('marginTop', 2.54);
+            const right = read('marginRight', 2.54);
+            const bottom = read('marginBottom', 2.54);
+            const left = read('marginLeft', 2.54);
+
+            let style = document.getElementById('page-size-style');
+            if (!style) {
+                style = document.createElement('style');
+                style.id = 'page-size-style';
+                document.head.appendChild(style);
+            }
+
+            const pageSize = size === 'F4' ? '216mm 356mm' : 'A4 portrait';
+            style.innerHTML = `@media print { @page { size: ${pageSize}; margin: ${top}cm ${right}cm ${bottom}cm ${left}cm; } }`;
+        }
         function changePaperSize(size) {
             const p = document.querySelector('.paper');
             p.classList.remove('size-a4', 'size-f4');
@@ -1793,20 +1811,7 @@
             
             // Set for print media query hook
             document.body.setAttribute('data-print-size', size);
-
-            // Dynamic @page size for print
-            let style = document.getElementById('page-size-style');
-            if (!style) {
-                style = document.createElement('style');
-                style.id = 'page-size-style';
-                document.head.appendChild(style);
-            }
-            if (size === 'A4') {
-                style.innerHTML = '@media print { @page { size: A4 portrait; margin: 0; } }';
-            } else if (size === 'F4') {
-                // F4 is 216mm x 356mm (Legal is 216x356)
-                style.innerHTML = '@media print { @page { size: 216mm 356mm; margin: 0; } }';
-            }
+            updatePrintPageStyle();
             syncPrintMirrorPaperSize();
             schedulePrintOverflowCheck();
             scheduleDraftSave();
@@ -1836,6 +1841,7 @@
             // document.getElementById(`margin${side.charAt(0).toUpperCase() + side.slice(1)}Val`).innerText = val + ' cm';
             inner.style.setProperty(`--p-${side}`, val + 'cm');
             updateMarginGuides();
+            updatePrintPageStyle();
             schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
