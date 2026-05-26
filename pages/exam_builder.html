@@ -53,7 +53,7 @@
         .row { display:flex; gap:16px; margin:12px 0; align-items:center; }
         label { min-width: 100px; color:#607d8b; font-weight: 500; font-size: 0.95rem; }
         select, input[type="text"], input[type="number"], input[type="date"] { padding:8px 12px; border:1px solid #cfd8dc; border-radius:8px; font-size:0.95rem; width:100%; box-sizing:border-box; }
-        .actions { padding: 16px 24px; border-top: 1px solid #e0e0e0; display:flex; gap:10px; justify-content:flex-end; align-items:center; flex-wrap: wrap; background:#fcfcfc; }
+        .actions { padding: 16px 24px; border-top: 1px solid #e0e0e0; display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap: wrap; background:#fcfcfc; }
         .btn { padding:8px 14px; border:none; border-radius:8px; cursor:pointer; font-weight:600; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; line-height: 1.1; white-space: nowrap; }
         .btn > i { line-height: 1; }
         .primary { background:#1976D2; color:#fff; }
@@ -401,7 +401,7 @@
             .row { flex-direction: column; align-items: flex-start; }
             label { min-width: 0; margin-bottom: 4px; }
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
-            .actions { flex-wrap: wrap; justify-content: flex-start; padding: 12px 16px; }
+            .actions { flex-wrap: wrap; justify-content: center; padding: 12px 16px; }
             .actions .btn { flex: 1 1 100%; text-align: center; }
             .toolbar { overflow-x: auto; justify-content: flex-start; }
             .toolbar-group { flex-wrap: wrap; }
@@ -749,8 +749,7 @@
                     <option value="Cordia New">Cordia New</option>
                     <option value="Niramit">Niramit</option>
                 </select>
-                <button class="tool-btn" onclick="applyPaliWordFont()" title="คลุมเฉพาะคำบาลี แล้วกดเพื่อใช้รูปอักษรบาลี">บาลี</button>
-                <button class="tool-btn" onclick="applyThaiWordFont()" title="คลุมคำที่ต้องการ แล้วกดเพื่อกลับเป็นรูปอักษรไทยปกติ">ไทย</button>
+                <button class="tool-btn" onclick="applyPaliWordFont()" title="คลุมเฉพาะอักษร “ญ/ฐ” ที่ต้องการ แล้วกดเพื่อเปลี่ยนเป็นรูปอักษรบาลี">ญฐ→บาลี</button>
             </div>
             <div class="toolbar-group">
                 <select class="tool-select" id="fontSizeSelect" onchange="changeFontSize(this.value)" title="ขนาดตัวอักษร">
