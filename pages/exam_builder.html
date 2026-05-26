@@ -505,6 +505,14 @@
             font-size: 1.1rem;
             color: #333;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+            user-select: text;
+            -webkit-user-select: text;
+            -webkit-touch-callout: default;
+            cursor: text;
+        }
+        .book-content-area * {
+            user-select: text;
+            -webkit-user-select: text;
         }
         .book-line { margin-bottom: 6px; }
         .page-marker-dynamic {
@@ -3406,7 +3414,7 @@
                     <i class="fa-solid fa-file-import"></i> นำข้อความที่คลุมดำไปออกข้อสอบ
                 </button>
                 <span class="text-sm text-gray-666">
-                    <i class="fa-solid fa-circle-info"></i> ลากคลุมดำข้อความในกล่องด้านล่าง แล้วกดปุ่มนี้
+                    <i class="fa-solid fa-circle-info"></i> ลากคลุมดำข้อความในกล่องด้านล่าง (iPad: แตะค้างเพื่อเริ่มเลือก) แล้วกดปุ่มนี้
                 </span>
                 <button class="btn secondary ml-auto text-xs" onclick="window.examContent['${getTargetModeFromRenderMode(mode)}'] = ''; buildExamPreview(); alert('ล้างค่าแล้ว');">
                     <i class="fa-solid fa-trash"></i> ล้างค่า
@@ -3417,6 +3425,7 @@
             // Text Area (Read-only but selectable)
             const textArea = document.createElement('div');
             textArea.className = 'book-content-area';
+            textArea.tabIndex = 0;
                 
             let lastPage = 0;
 
