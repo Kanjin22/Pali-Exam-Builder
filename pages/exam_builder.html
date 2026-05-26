@@ -191,12 +191,6 @@
         }
 
         .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 18px; }
-        @media screen {
-            .paper {
-                transform: scale(var(--paper-zoom, 1));
-                transform-origin: top center;
-            }
-        }
         .paper-inner { 
             --p-top: 2.54cm;
             --p-bottom: 2.54cm;
@@ -361,6 +355,16 @@
         /* Paper Sizes */
         .paper.size-a4 { width: 210mm; min-height: 297mm; position: relative; }
         .paper.size-f4 { width: 216mm; min-height: 356mm; position: relative; } /* Legal/Folio */
+        @media screen {
+            .paper.size-a4 { height: 297mm; overflow: visible; }
+            .paper.size-f4 { height: 356mm; overflow: visible; }
+        }
+
+        .print-mirror-host { position: fixed; left: -12000px; top: 0; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
+        #printMirrorPaper { margin: 0; border: none; box-shadow: none; max-width: none; zoom: 1; }
+        #printMirrorPaper.size-a4 { width: 210mm; height: 297mm; }
+        #printMirrorPaper.size-f4 { width: 216mm; height: 356mm; }
+        #printMirrorInner { height: 100%; overflow: hidden; box-sizing: border-box; }
         
         #overflowWarning {
             display: none;
@@ -408,8 +412,9 @@
             .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; }
             /* .paper-inner padding is controlled by inline style or default CSS, do not override with !important */
             .paper-header.paper-header-locked { background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
-            .paper { transform: none !important; }
+            .paper { zoom: 1 !important; }
             .margin-guides { display: none !important; }
+            .print-mirror-host { display: none !important; }
             
             /* Print settings from toolbar state */
             @page { size: auto; margin: 0; }
@@ -838,6 +843,11 @@
             <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
             <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกินขอบกระดาษ (Content Overflow)</div>
         </div>
+        <div class="print-mirror-host" aria-hidden="true">
+            <div class="paper size-a4" id="printMirrorPaper">
+                <div class="paper-inner" id="printMirrorInner"></div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1257,6 +1267,7 @@
                     if (paper) {
                         paper.innerHTML = state.paperHTML;
                         normalizeEditablePaperContent(false);
+                        schedulePrintOverflowCheck();
                     }
                 }
                 applyHeaderLockState();
@@ -1693,19 +1704,23 @@
                 // Apply globally
                 document.querySelector('.paper').style.fontFamily = fontStack;
             }
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
         function changeFontSize(size) {
             document.querySelector('.paper').style.fontSize = size;
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
         function changeLineHeight(height) {
             document.querySelector('.paper').style.setProperty('--paper-line-height', height);
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
         function changeLetterSpacing(value) {
             document.querySelector('.paper').style.setProperty('--paper-letter-spacing', value || '0');
             updateLetterSqueezeButton();
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
         function updateLetterSqueezeButton() {
@@ -1731,9 +1746,10 @@
             const parsed = typeof value === 'string' ? parseFloat(value) : Number(value);
             const next = Math.max(0.6, Math.min(1.6, isFinite(parsed) && parsed > 0 ? parsed : 1));
             paperZoom = next;
-            paper.style.setProperty('--paper-zoom', String(next));
+            paper.style.zoom = String(next);
             const btn = document.getElementById('zoomResetBtn');
             if (btn) btn.textContent = `${Math.round(next * 100)}%`;
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
         function adjustPaperZoom(delta) {
@@ -1791,6 +1807,8 @@
                 // F4 is 216mm x 356mm (Legal is 216x356)
                 style.innerHTML = '@media print { @page { size: 216mm 356mm; margin: 0; } }';
             }
+            syncPrintMirrorPaperSize();
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
         function toggleMarginPanel() {
@@ -1818,12 +1836,58 @@
             // document.getElementById(`margin${side.charAt(0).toUpperCase() + side.slice(1)}Val`).innerText = val + ' cm';
             inner.style.setProperty(`--p-${side}`, val + 'cm');
             updateMarginGuides();
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
         function resetMargins() {
             ['Top', 'Bottom', 'Left', 'Right'].forEach(s => {
                 document.getElementById(`margin${s}`).value = 2.54;
                 updateMargin(s.toLowerCase(), 2.54);
+            });
+        }
+
+        let printOverflowFrame = 0;
+        function syncPrintMirrorPaperSize() {
+            const mirrorPaper = document.getElementById('printMirrorPaper');
+            const paper = document.querySelector('.paper');
+            if (!mirrorPaper || !paper) return;
+            mirrorPaper.className = paper.className;
+        }
+        function syncPrintMirrorStyles() {
+            const paper = document.querySelector('.paper');
+            const inner = document.getElementById('paperContent');
+            const mirrorPaper = document.getElementById('printMirrorPaper');
+            const mirrorInner = document.getElementById('printMirrorInner');
+            if (!paper || !inner || !mirrorPaper || !mirrorInner) return;
+
+            mirrorPaper.className = paper.className;
+            const computedPaper = getComputedStyle(paper);
+            mirrorPaper.style.fontFamily = computedPaper.fontFamily;
+            mirrorPaper.style.fontSize = computedPaper.fontSize;
+            mirrorPaper.style.setProperty('--paper-line-height', computedPaper.getPropertyValue('--paper-line-height') || '1.6');
+            mirrorPaper.style.setProperty('--paper-letter-spacing', computedPaper.getPropertyValue('--paper-letter-spacing') || '0');
+
+            const computedInner = getComputedStyle(inner);
+            mirrorInner.style.setProperty('--p-top', computedInner.getPropertyValue('--p-top') || '2.54cm');
+            mirrorInner.style.setProperty('--p-bottom', computedInner.getPropertyValue('--p-bottom') || '2.54cm');
+            mirrorInner.style.setProperty('--p-left', computedInner.getPropertyValue('--p-left') || '2.54cm');
+            mirrorInner.style.setProperty('--p-right', computedInner.getPropertyValue('--p-right') || '2.54cm');
+
+            mirrorInner.innerHTML = inner.innerHTML;
+        }
+        function checkPrintOverflowNow() {
+            syncPrintMirrorStyles();
+            const mirrorInner = document.getElementById('printMirrorInner');
+            const warn = document.getElementById('overflowWarning');
+            if (!mirrorInner || !warn) return;
+            const overflow = mirrorInner.scrollHeight > mirrorInner.clientHeight + 1;
+            warn.style.display = overflow ? 'block' : 'none';
+        }
+        function schedulePrintOverflowCheck() {
+            if (printOverflowFrame) cancelAnimationFrame(printOverflowFrame);
+            printOverflowFrame = requestAnimationFrame(() => {
+                printOverflowFrame = 0;
+                checkPrintOverflowNow();
             });
         }
         function changeMargin(val) {
@@ -3151,6 +3215,7 @@
                     restorePaperSelectionOffsets(paper, savedSelection);
                 }
                 isNormalizingPaperContent = false;
+                schedulePrintOverflowCheck();
             }
         }
 
@@ -3527,6 +3592,7 @@
             normalizeEditablePaperContent(false);
             applyHeaderLockState();
             updateInternalNoteAutoSummary();
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
         function generateSolution() {
@@ -3876,11 +3942,13 @@
         document.getElementById('paperContent').addEventListener('click', updateToolbarState);
         document.getElementById('paperContent').addEventListener('input', () => {
             scheduleNormalizeEditablePaperContent();
+            schedulePrintOverflowCheck();
             scheduleDraftSave();
         });
         document.getElementById('paperContent').addEventListener('paste', () => {
             setTimeout(() => {
                 normalizeEditablePaperContent(true);
+                schedulePrintOverflowCheck();
                 scheduleDraftSave();
             }, 0);
         });
