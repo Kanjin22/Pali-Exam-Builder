@@ -1887,16 +1887,19 @@
         function updatePageMarkers(pageCount) {
             const layer = document.getElementById('pageMarkers');
             const mirrorPaper = document.getElementById('printMirrorPaper');
-            if (!layer || !mirrorPaper) return;
+            const visibleInner = document.getElementById('paperContent');
+            if (!layer || !mirrorPaper || !visibleInner) return;
             layer.innerHTML = '';
             const pages = Math.max(1, parseInt(pageCount, 10) || 1);
             if (pages <= 1) return;
             const pageHeight = mirrorPaper.getBoundingClientRect().height || 0;
             if (!pageHeight) return;
+            const computedVisibleInner = getComputedStyle(visibleInner);
+            const padBottom = parseFloat(computedVisibleInner.paddingBottom || '0') || 0;
             for (let i = 1; i < pages; i++) {
                 const line = document.createElement('div');
                 line.className = 'page-marker-line';
-                line.style.top = `${Math.round(pageHeight * i)}px`;
+                line.style.top = `${Math.round(pageHeight * i - padBottom)}px`;
                 const label = document.createElement('div');
                 label.className = 'page-marker-label';
                 label.textContent = `หน้า ${toThaiDigits(i + 1)}`;
