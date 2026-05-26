@@ -365,6 +365,10 @@
         #printMirrorPaper.size-a4 { width: 210mm; height: 297mm; }
         #printMirrorPaper.size-f4 { width: 216mm; height: 356mm; }
         #printMirrorInner { height: 100%; overflow: hidden; box-sizing: border-box; }
+
+        .page-markers { position: absolute; inset: 0; pointer-events: none; z-index: 6; }
+        .page-marker-line { position: absolute; left: 0; right: 0; border-top: 2px dashed rgba(229, 57, 53, 0.55); }
+        .page-marker-label { position: absolute; right: 10px; top: -14px; background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(229, 57, 53, 0.25); color: #c62828; padding: 2px 8px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; }
         
         #overflowWarning {
             display: none;
@@ -414,7 +418,9 @@
             .paper-header.paper-header-locked { background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
             .paper { zoom: 1 !important; }
             .margin-guides { display: none !important; }
+            .page-markers { display: none !important; }
             .print-mirror-host { display: none !important; }
+            #overflowWarning { display: none !important; }
             
             /* Print settings from toolbar state */
             @page { size: auto; margin: 0; }
@@ -838,6 +844,7 @@
                 <!-- Assembled exam document will be injected here -->
             </div>
             <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
+            <div id="pageMarkers" class="page-markers" aria-hidden="true"></div>
             <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒ (ระยะขอบเท่าเดิม) • ปรับได้: ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ F4</div>
         </div>
         <div class="print-mirror-host" aria-hidden="true">
@@ -1881,12 +1888,36 @@
 
             mirrorInner.innerHTML = inner.innerHTML;
         }
+        function updatePageMarkers(pageCount) {
+            const layer = document.getElementById('pageMarkers');
+            const mirrorPaper = document.getElementById('printMirrorPaper');
+            if (!layer || !mirrorPaper) return;
+            layer.innerHTML = '';
+            const pages = Math.max(1, parseInt(pageCount, 10) || 1);
+            if (pages <= 1) return;
+            const pageHeight = mirrorPaper.getBoundingClientRect().height || 0;
+            if (!pageHeight) return;
+            for (let i = 1; i < pages; i++) {
+                const line = document.createElement('div');
+                line.className = 'page-marker-line';
+                line.style.top = `${Math.round(pageHeight * i)}px`;
+                const label = document.createElement('div');
+                label.className = 'page-marker-label';
+                label.textContent = `หน้า ${toThaiDigits(i + 1)}`;
+                line.appendChild(label);
+                layer.appendChild(line);
+            }
+        }
         function checkPrintOverflowNow() {
             syncPrintMirrorStyles();
             const mirrorInner = document.getElementById('printMirrorInner');
             const warn = document.getElementById('overflowWarning');
             if (!mirrorInner || !warn) return;
-            const overflow = mirrorInner.scrollHeight > mirrorInner.clientHeight + 1;
+            const pageHeight = mirrorInner.clientHeight || 0;
+            const totalHeight = mirrorInner.scrollHeight || 0;
+            const pages = pageHeight ? Math.max(1, Math.ceil(totalHeight / pageHeight)) : 1;
+            updatePageMarkers(pages);
+            const overflow = pages > 1;
             warn.style.display = overflow ? 'block' : 'none';
         }
         function schedulePrintOverflowCheck() {
