@@ -25,24 +25,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
-    <script>
-        (function () {
-            const firebaseConfig = {
-                apiKey: "AIzaSyDs7jNX-eO67NrrsMmnykOU77GWel7GFZs",
-                authDomain: "pali-exam-builder-250ac.firebaseapp.com",
-                projectId: "pali-exam-builder-250ac",
-                storageBucket: "pali-exam-builder-250ac.firebasestorage.app",
-                messagingSenderId: "250371814811",
-                appId: "1:250371814811:web:ce01d919ed656fbe889d3e",
-                measurementId: "G-4M2MB4JSYT"
-            };
-            try {
-                if (typeof firebase === 'undefined' || !firebase.initializeApp) return;
-                if (firebase.apps && firebase.apps.length) return;
-                firebase.initializeApp(firebaseConfig);
-            } catch (_) {}
-        })();
-    </script>
+    <script src="./js/firebase_config.js"></script>
     <script>
         try {
             if (typeof firebase !== 'undefined' && firebase.auth) {
