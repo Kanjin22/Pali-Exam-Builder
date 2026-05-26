@@ -4081,8 +4081,13 @@
                     if (shown) return;
                     shown = true;
                     const msg = (e && e.message) ? String(e.message) : '';
-                    const tail = msg ? `\n\nรายละเอียด: ${msg}` : '';
-                    const looksLikeCors = /CORS|blocked by CORS|Failed to fetch|NetworkError/i.test(msg);
+                    const eName = (e && e.name) ? String(e.name) : '';
+                    const eText = (() => {
+                        try { return String(e || ''); } catch (_) { return ''; }
+                    })();
+                    const detectText = [msg, eName, eText].filter(Boolean).join(' | ');
+                    const tail = detectText ? `\n\nรายละเอียด: ${detectText}` : '';
+                    const looksLikeCors = /CORS|blocked by CORS|Failed to fetch|NetworkError|ERR_FAILED|net::ERR_FAILED/i.test(detectText);
                     let corsHint = '';
                     if (looksLikeCors) {
                         let bucket = '';
