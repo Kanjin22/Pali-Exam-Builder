@@ -392,8 +392,9 @@
             display: none;
             position: absolute;
             bottom: -30px;
-            left: 0;
-            width: 100%;
+            left: var(--ow-left, 0);
+            right: var(--ow-right, 0);
+            width: auto;
             text-align: center;
             color: #d32f2f;
             font-weight: bold;
@@ -402,6 +403,7 @@
             padding: 6px 8px;
             border: 1px solid #ffcdd2;
             border-radius: 4px;
+            box-sizing: border-box;
         }
 
         .page-marker { color: #999; font-size: 0.8rem; margin: 15px 0 5px 0; border-bottom: 1px dashed #eee; text-align: right; width: 100%; display: block; }
@@ -1864,11 +1866,24 @@
             guides.style.left = `${left}cm`;
             guides.style.right = `${right}cm`;
         }
+        function updateOverflowWarningInset() {
+            const paper = document.querySelector('.paper');
+            if (!paper) return;
+            const read = (id, fallback) => {
+                const n = parseFloat(document.getElementById(id)?.value || '');
+                return isFinite(n) && n >= 0 ? n : fallback;
+            };
+            const left = read('marginLeft', 2.54);
+            const right = read('marginRight', 2.54);
+            paper.style.setProperty('--ow-left', `${left}cm`);
+            paper.style.setProperty('--ow-right', `${right}cm`);
+        }
         function setMarginGuidesEnabled(enabled) {
             marginGuidesEnabled = !!enabled;
             const guides = document.getElementById('marginGuides');
             if (guides) guides.style.display = marginGuidesEnabled ? 'block' : 'none';
             updateMarginGuides();
+            updateOverflowWarningInset();
         }
         function toggleMarginGuides() {
             setMarginGuidesEnabled(!marginGuidesEnabled);
@@ -1933,6 +1948,7 @@
             // document.getElementById(`margin${side.charAt(0).toUpperCase() + side.slice(1)}Val`).innerText = val + ' cm';
             inner.style.setProperty(`--p-${side}`, val + 'cm');
             updateMarginGuides();
+            updateOverflowWarningInset();
             updatePrintPageStyle();
             schedulePrintOverflowCheck();
             scheduleDraftSave();
@@ -2010,6 +2026,7 @@
         }
         function checkPrintOverflowNow() {
             syncPrintMirrorStyles();
+            updateOverflowWarningInset();
             const mirrorInner = document.getElementById('printMirrorInner');
             const warn = document.getElementById('overflowWarning');
             if (!mirrorInner || !warn) return;
