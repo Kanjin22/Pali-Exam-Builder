@@ -254,18 +254,19 @@
         .paper-content-text { 
             text-align: justify; 
             text-align-last: left; /* Ensure last line aligns left */
+            text-justify: inter-word;
             line-height: var(--paper-line-height, 1.6); 
             font-size: 1em; 
             color: #000;
             letter-spacing: var(--paper-letter-spacing, 0);
-            word-break: break-word; /* Prevent overflow */
+            word-break: normal;
             overflow-wrap: break-word;
             white-space: pre-wrap; /* Preserve spaces but allow wrapping */
             text-indent: 1.27cm; /* First line indent for question number */
         }
         .paper-foot { margin-top: 20px; font-weight: bold; color: #000; font-size: 1em; white-space: pre-wrap; letter-spacing: var(--paper-letter-spacing, 0); }
         
-        .no-split { white-space: nowrap; }
+        .no-split { white-space: nowrap; word-break: normal; overflow-wrap: normal; }
         .justify-all .paper-content-text { text-align-last: justify; }
 
         /* Toolbar for Paper */
@@ -878,7 +879,7 @@
                                     <button class="tool-btn" onclick="execCmd('bold')" title="ตัวหนา"><i class="fa-solid fa-bold"></i></button>
                                     <button class="tool-btn" onclick="execCmd('italic')" title="ตัวเอียง"><i class="fa-solid fa-italic"></i></button>
                                     <button class="tool-btn" onclick="execCmd('underline')" title="ขีดเส้นใต้"><i class="fa-solid fa-underline"></i></button>
-                                    <button class="tool-btn" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i></button>
+                                    <button class="tool-btn" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i> ห้ามตัดคำ</button>
                                 </div>
                             </div>
                         </div>
