@@ -606,6 +606,7 @@
         .msg-loading { color: #7f8c8d; }
         .font-pali { font-family: "DilleniaUPC_4Balee", "DilleniaUPC", sans-serif; }
         .font-thai { font-family: "DilleniaUPC", sans-serif; }
+        .paper-header-font { font-family: "TH Sarabun New", "Sarabun", sans-serif; }
 
         .layout-root { padding: 18px 24px 24px 24px; --tool-panel-width: 420px; }
         .layout-top { display: flex; align-items: flex-start; gap: 18px; }
@@ -961,16 +962,6 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">ซูม:</div>
-                            <div class="tool-row-controls">
-                                <div class="toolbar-group">
-                                    <button class="tool-btn" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
-                                    <button class="tool-btn" id="zoomResetBtn" onclick="setPaperZoom(1)" title="ขนาดปกติ">100%</button>
-                                    <button class="tool-btn" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tool-row">
                             <div class="tool-row-label">ระยะขอบ:</div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group relative">
@@ -1000,6 +991,16 @@
                                             <button class="btn secondary text-xs p-xs" onclick="resetMargins()">ค่ามาตรฐาน (2.54)</button>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">ซูม:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <button class="tool-btn" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                                    <button class="tool-btn" id="zoomResetBtn" onclick="setPaperZoom(1)" title="ขนาดปกติ">100%</button>
+                                    <button class="tool-btn" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -4241,17 +4242,17 @@
             }
             
             paper.innerHTML = `
-                <div class="paper-center paper-header">
-                    <div class="paper-line font-thai">${headerLevel}</div>
-                    <div class="paper-line font-thai">${headerSubject}</div>
-                    <div class="paper-line font-thai">${headerDate}</div>
-                    ${headerProject ? `<div class="paper-line font-thai">${headerProject}</div>` : ''}
+                <div class="paper-center paper-header paper-header-font">
+                    <div class="paper-line">${headerLevel}</div>
+                    <div class="paper-line">${headerSubject}</div>
+                    <div class="paper-line">${headerDate}</div>
+                    ${headerProject ? `<div class="paper-line">${headerProject}</div>` : ''}
                 </div>
-                <div class="paper-sep">------------</div>
+                <div class="paper-sep paper-header-font">------------</div>
                 ${contentHTML}
-                <div class="paper-sep">------------</div>
-                <div class="paper-foot paper-center font-thai">${timeLine}</div>
-                ${authorLine ? `<div class="paper-foot paper-center font-thai">${authorLine}</div>` : ''}
+                <div class="paper-sep paper-header-font">------------</div>
+                <div class="paper-foot paper-center paper-header-font">${timeLine}</div>
+                ${authorLine ? `<div class="paper-foot paper-center paper-header-font">${authorLine}</div>` : ''}
             `;
             normalizeEditablePaperContent(false);
             applyHeaderLockState();
