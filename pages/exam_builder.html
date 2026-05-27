@@ -397,9 +397,9 @@
             text-align: center;
             color: #d32f2f;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 1.05rem;
             background: rgba(255, 235, 238, 0.9);
-            padding: 5px 0;
+            padding: 6px 8px;
             border: 1px solid #ffcdd2;
             border-radius: 4px;
         }
@@ -885,7 +885,7 @@
             </div>
             <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
             <div id="pageMarkers" class="page-markers" aria-hidden="true"></div>
-            <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒ (ระยะขอบเท่าเดิม) • หากต้องการให้อยู่ใน ๑ หน้า: ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ F4</div>
+            <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒ (ระยะขอบเท่าเดิม) • หากต้องการให้อยู่ใน ๑ หน้า: ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ ใช้กระดาษ F4</div>
         </div>
         <div class="print-mirror-host" aria-hidden="true">
             <div class="paper size-a4" id="printMirrorPaper">
@@ -1160,7 +1160,7 @@
                 marginGuidesEnabled,
                 paperHorizontalScale,
                 fontFamily: document.getElementById('fontFamilySelect')?.value || 'DilleniaUPC',
-                fontSize: document.getElementById('fontSizeSelect')?.value || '20px',
+                fontSize: document.getElementById('fontSizeSelect')?.value || '22px',
                 lineHeight: document.getElementById('lineHeightSelect')?.value || '1.6',
                 letterSpacing: document.getElementById('letterSpacingSelect')?.value || '0',
                 paperSize: document.getElementById('paperSizeSelect')?.value || 'A4',
@@ -3041,6 +3041,15 @@
             if (refKey) payload[`referrers.${refKey}`] = inc;
 
             await db.collection('web_analytics_daily').doc(day).set(payload, { merge: true });
+
+            const totalPayload = {
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                views: inc,
+                [`devices.${bucket}`]: inc,
+                [`pages.exam_builder`]: inc
+            };
+            if (newSession) totalPayload.sessions = inc;
+            await db.collection('web_analytics_totals').doc('ALL').set(totalPayload, { merge: true });
         }
 
         async function refreshWebUsageBadge() {
@@ -3049,15 +3058,15 @@
             if (!db) return;
             try {
                 const day = getBangkokDayKey();
-                const snap = await db.collection('web_analytics_daily').doc(day).get();
-                if (!snap.exists) {
-                    badge.textContent = 'เข้าใช้วันนี้: -';
-                    return;
-                }
-                const data = snap.data() || {};
-                const views = Number(data.views || 0) || 0;
-                const sessions = Number(data.sessions || 0) || 0;
-                badge.textContent = `เข้าใช้วันนี้: ${toThaiDigits(views)} | เซสชัน: ${toThaiDigits(sessions)}`;
+                const [daySnap, totalSnap] = await Promise.all([
+                    db.collection('web_analytics_daily').doc(day).get(),
+                    db.collection('web_analytics_totals').doc('ALL').get()
+                ]);
+                const dayData = daySnap.exists ? (daySnap.data() || {}) : {};
+                const totalData = totalSnap.exists ? (totalSnap.data() || {}) : {};
+                const viewsToday = Number(dayData.views || 0) || 0;
+                const viewsTotal = Number(totalData.views || 0) || 0;
+                badge.textContent = `เข้าใช้วันนี้: ${toThaiDigits(viewsToday)} | เข้าใช้รวม: ${toThaiDigits(viewsTotal)}`;
             } catch (_) {
                 badge.textContent = 'เข้าใช้วันนี้: -';
             }
