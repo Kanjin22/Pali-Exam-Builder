@@ -3916,7 +3916,30 @@
             return out.trim();
         }
 
-        function useSelectionForExam(mode) {
+        let importMergeResolver = null;
+        function openImportMergeModal(target) {
+            const modal = document.getElementById('importMergeModal');
+            const label = document.getElementById('importMergeQuestionLabel');
+            if (!modal) return Promise.resolve('replace');
+
+            const targetKey = String(target || '');
+            const questionLabel = targetKey === 'literal' ? 'ข้อ ๑' : (targetKey === 'sense' ? 'ข้อ ๒' : targetKey);
+            if (label) label.textContent = questionLabel;
+
+            modal.classList.add('d-flex');
+            return new Promise((resolve) => {
+                importMergeResolver = resolve;
+            });
+        }
+        function resolveImportMerge(choice) {
+            const modal = document.getElementById('importMergeModal');
+            if (modal) modal.classList.remove('d-flex');
+            const resolve = importMergeResolver;
+            importMergeResolver = null;
+            if (typeof resolve === 'function') resolve(choice || 'cancel');
+        }
+
+        async function useSelectionForExam(mode) {
             const sel = window.getSelection();
             let text = sel.toString();
 
@@ -3935,7 +3958,19 @@
 
             // Determine target slot
             const target = getTargetModeFromRenderMode(mode);
-            window.examContent[target] = text;
+            const prev = String(window.examContent?.[target] || '');
+            if (prev.trim()) {
+                const choice = await openImportMergeModal(target);
+                if (choice === 'cancel') return;
+                if (choice === 'append') {
+                    const merged = `${prev.trim()}\n\n${text.trim()}`.trim();
+                    window.examContent[target] = merged;
+                } else {
+                    window.examContent[target] = text;
+                }
+            } else {
+                window.examContent[target] = text;
+            }
             trackGaEvent('import_text', { source: mode, target });
 
             // Generate Preview
@@ -4896,6 +4931,23 @@
                 <button class="btn secondary" id="templateSetDefaultBtn" type="button" onclick="setSelectedTemplateAsDefault()"><i class="fa-solid fa-star"></i> ตั้งเป็นเริ่มต้น</button>
                 <button class="btn secondary" id="templateClearDefaultBtn" type="button" onclick="clearDefaultTemplateForSelectedSize()"><i class="fa-solid fa-star-half-stroke"></i> ยกเลิกเริ่มต้น</button>
                 <button class="btn primary" id="templateApplyBtn" type="button" onclick="applySelectedTemplate()"><i class="fa-solid fa-check"></i> เรียกใช้</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="importMergeModal" class="modal-overlay" onclick="if (event && event.target === this) resolveImportMerge('cancel')">
+        <div class="modal-content" style="max-width: 560px;">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-layer-group"></i> เพิ่ม/แทนที่ข้อความ</h3>
+                <button class="modal-close-btn" type="button" onclick="resolveImportMerge('cancel')">&times;</button>
+            </div>
+            <div class="text-md text-gray-dark">
+                พบว่ามีข้อความใน <span class="font-bold" id="importMergeQuestionLabel">ข้อ</span> อยู่แล้ว ต้องการทำอย่างไร?
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" type="button" onclick="resolveImportMerge('replace')"><i class="fa-solid fa-repeat"></i> แทนที่</button>
+                <button class="btn primary" type="button" onclick="resolveImportMerge('append')"><i class="fa-solid fa-plus"></i> เพิ่มต่อ</button>
+                <button class="btn secondary" type="button" onclick="resolveImportMerge('cancel')">ยกเลิก</button>
             </div>
         </div>
     </div>
