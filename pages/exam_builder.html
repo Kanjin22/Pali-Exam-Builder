@@ -36,6 +36,7 @@
         } catch (_) {}
     </script>
     <style>
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         body { font-family: "Sarabun", "Niramit", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; background-color: #f4f6f8; margin: 0; }
         /* Workflow State Styles */
         .step-required {
@@ -106,6 +107,31 @@
         @font-face {
             font-family: 'DilleniaUPC';
             src: local('DilleniaUPC Bold Italic'), url('fonts/DilleniaUPC-BoldItalic.ttf') format('truetype');
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'TH Sarabun New';
+            src: local('TH Sarabun New'), local('THSarabunNew'), url('fonts/THSarabunNew-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'TH Sarabun New';
+            src: local('TH Sarabun New Bold'), local('THSarabunNew Bold'), url('fonts/THSarabunNew-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'TH Sarabun New';
+            src: local('TH Sarabun New Italic'), local('THSarabunNew Italic'), url('fonts/THSarabunNew-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+        @font-face {
+            font-family: 'TH Sarabun New';
+            src: local('TH Sarabun New Bold Italic'), local('THSarabunNew BoldItalic'), url('fonts/THSarabunNew-BoldItalic.ttf') format('truetype');
             font-weight: bold;
             font-style: italic;
         }
@@ -206,7 +232,7 @@
             font-style: normal;
         }
 
-        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 22px; }
+        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 22px; transform-origin: top center; }
         .paper-inner { 
             --p-top: 2.54cm;
             --p-bottom: 2.54cm;
@@ -317,19 +343,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        #marginPanel {
-            /* display: none; handled by class d-none */
-            position: absolute;
-            top: 40px;
-            right: 0;
-            background: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            padding: 15px;
-            border-radius: 6px;
-            z-index: 1000;
-            width: 280px;
-        }
         #editHintPanel {
             width: 100%;
             max-width: 100%;
@@ -355,25 +368,40 @@
             margin-top: 10px;
             font-size: 0.9rem;
         }
-        #marginPanel .row {
+        .margin-inline {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .margin-inline-grid {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 6px 10px;
+        }
+        .margin-inline-item {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
+            gap: 6px;
         }
-        #marginPanel label {
+        .margin-inline-label {
+            font-size: 0.85rem;
+            color: #607d8b;
+            font-weight: 700;
+        }
+        .margin-inline-item input[type="number"] {
+            width: 76px;
+            min-width: 76px;
+            padding: 6px 10px;
             font-size: 0.9rem;
-            width: 40px;
-        }
-        #marginPanel input[type="number"] {
-            flex: 1;
-            margin: 0 10px;
+            border-radius: 10px;
             text-align: right;
+            box-sizing: border-box;
         }
-        #marginPanel .unit-label {
+        .margin-inline .unit-label {
             font-size: 0.8rem;
-            width: 30px;
-            text-align: left;
+            color: #607d8b;
+            width: auto;
         }
         
         /* Paper Sizes */
@@ -428,7 +456,6 @@
             .item-controls { justify-content: flex-start; }
             .paper { margin: 16px 0 24px 0; border-radius: 0; box-shadow: none; }
             .paper-inner { padding: 16px; }
-            #marginPanel { right: 8px; width: 90vw; max-width: 320px; }
             .layout-root { padding: 0 16px 16px 16px; }
             .layout-top, .step3-main { flex-direction: column; }
             .top-left, .top-right, .bottom-left, .bottom-right { width: 100%; min-width: 0; flex: 1 1 auto; }
@@ -444,7 +471,7 @@
             .layout-bottom { display: block !important; }
             .bottom-right { width: 100% !important; }
             .container { box-shadow: none; margin: 0; max-width: none; width: 100%; border: none; }
-            .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; width: 100% !important; }
+            .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; width: 100% !important; transform: none !important; }
             .paper-inner { padding: 0 !important; }
             .paper-header.paper-header-locked { background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
             .paper { zoom: 1 !important; }
@@ -607,6 +634,9 @@
         .font-pali { font-family: "DilleniaUPC_4Balee", "DilleniaUPC", sans-serif; }
         .font-thai { font-family: "DilleniaUPC", sans-serif; }
         .paper-header-font { font-family: "TH Sarabun New", "Sarabun", sans-serif; }
+        .paper-header-font .paper-line { margin: 2px 0; line-height: 1.25; }
+        .paper-sep.paper-header-font { margin: 6px 0 12px 0; line-height: 1.2; }
+        .paper-foot.paper-header-font { margin-top: 12px; line-height: 1.25; }
 
         .layout-root { padding: 18px 24px 24px 24px; --tool-panel-width: 420px; }
         .layout-top { display: flex; align-items: flex-start; gap: 18px; }
@@ -964,33 +994,30 @@
                         <div class="tool-row">
                             <div class="tool-row-label">ระยะขอบ:</div>
                             <div class="tool-row-controls">
-                                <div class="toolbar-group relative">
-                                    <button class="tool-btn" id="marginBtn" onclick="toggleMarginPanel()" title="ตั้งค่าขอบกระดาษ"><i class="fa-solid fa-ruler-combined"></i> ระยะขอบ</button>
-                                    <div id="marginPanel" class="d-none">
-                                        <div class="row">
-                                            <label>บน</label>
+                                <div class="margin-inline">
+                                    <div class="margin-inline-grid" aria-label="ตั้งค่าระยะขอบ (cm)">
+                                        <div class="margin-inline-item">
+                                            <span class="margin-inline-label">บน</span>
                                             <input type="number" id="marginTop" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('top', this.value)">
                                             <span class="unit-label">cm</span>
                                         </div>
-                                        <div class="row">
-                                            <label>ล่าง</label>
+                                        <div class="margin-inline-item">
+                                            <span class="margin-inline-label">ล่าง</span>
                                             <input type="number" id="marginBottom" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('bottom', this.value)">
                                             <span class="unit-label">cm</span>
                                         </div>
-                                        <div class="row">
-                                            <label>ซ้าย</label>
+                                        <div class="margin-inline-item">
+                                            <span class="margin-inline-label">ซ้าย</span>
                                             <input type="number" id="marginLeft" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('left', this.value)">
                                             <span class="unit-label">cm</span>
                                         </div>
-                                        <div class="row">
-                                            <label>ขวา</label>
+                                        <div class="margin-inline-item">
+                                            <span class="margin-inline-label">ขวา</span>
                                             <input type="number" id="marginRight" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('right', this.value)">
                                             <span class="unit-label">cm</span>
                                         </div>
-                                        <div class="text-center mt-10">
-                                            <button class="btn secondary text-xs p-xs" onclick="resetMargins()">ค่ามาตรฐาน (2.54)</button>
-                                        </div>
                                     </div>
+                                    <button class="btn secondary text-xs p-xs" type="button" onclick="resetMargins()">ค่ามาตรฐาน (2.54)</button>
                                 </div>
                             </div>
                         </div>
@@ -1981,12 +2008,17 @@
             changeHorizontalScale(next);
         }
         function setPaperZoom(value) {
-            const paper = document.querySelector('.paper');
+            const paper = document.querySelector('.bottom-right .paper') || document.querySelector('.paper');
             if (!paper) return;
             const parsed = typeof value === 'string' ? parseFloat(value) : Number(value);
             const next = Math.max(0.6, Math.min(1.6, isFinite(parsed) && parsed > 0 ? parsed : 1));
             paperZoom = next;
-            paper.style.zoom = String(next);
+            paper.style.zoom = '';
+            if (next === 1) {
+                paper.style.transform = '';
+            } else {
+                paper.style.transform = `scale(${next})`;
+            }
             const btn = document.getElementById('zoomResetBtn');
             if (btn) btn.textContent = `${Math.round(next * 100)}%`;
             schedulePrintOverflowCheck();
@@ -2084,16 +2116,6 @@
             syncPrintMirrorPaperSize();
             schedulePrintOverflowCheck();
             scheduleDraftSave();
-        }
-        function toggleMarginPanel() {
-            const p = document.getElementById('marginPanel');
-            if (p.classList.contains('d-block')) {
-                p.classList.remove('d-block');
-                p.classList.add('d-none');
-            } else {
-                p.classList.remove('d-none');
-                p.classList.add('d-block');
-            }
         }
         function toggleEditHintPanel() {
             const p = document.getElementById('editHintPanel');
@@ -2215,16 +2237,6 @@
             ['top','bottom','left','right'].forEach(side => updateMargin(side, v));
             scheduleDraftSave();
         }
-        // Close panel when clicking outside
-        document.addEventListener('click', function(e) {
-            const p = document.getElementById('marginPanel');
-            const btn = document.getElementById('marginBtn');
-            if (p.classList.contains('d-block') && !p.contains(e.target) && !btn.contains(e.target)) {
-                p.classList.remove('d-block');
-                p.classList.add('d-none');
-            }
-        });
-
         const partsMap = {};
         function toThaiDigits(str) {
             const m = { '0':'๐','1':'๑','2':'๒','3':'๓','4':'๔','5':'๕','6':'๖','7':'๗','8':'๘','9':'๙' };
