@@ -206,7 +206,7 @@
             font-style: normal;
         }
 
-        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 20px; }
+        .paper { width: 100%; max-width: 820px; margin: 24px auto; background:#fff; border:1px solid #e0e0e0; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); font-family: "DilleniaUPC", "Cordia New", "TH Sarabun New", sans-serif; font-size: 22px; }
         .paper-inner { 
             --p-top: 2.54cm;
             --p-bottom: 2.54cm;
@@ -331,27 +331,29 @@
             width: 280px;
         }
         #editHintPanel {
-            position: absolute;
-            top: 40px;
-            right: 0;
-            background: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            padding: 15px;
-            border-radius: 6px;
-            z-index: 1000;
-            width: 320px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            background: #ffffff;
+            border: 1px solid #dfe6ee;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            padding: 12px 14px;
+            border-radius: 12px;
             color: #37474f;
+            font-size: 0.9rem;
             line-height: 1.6;
+            overflow-wrap: anywhere;
         }
         #editHintPanel .title {
             font-weight: 700;
             color: #1976d2;
             margin-bottom: 8px;
+            font-size: 0.9rem;
         }
         #editHintPanel .warning {
             color: #c62828;
             margin-top: 10px;
+            font-size: 0.9rem;
         }
         #marginPanel .row {
             display: flex;
@@ -427,11 +429,20 @@
             .paper { margin: 16px 0 24px 0; border-radius: 0; box-shadow: none; }
             .paper-inner { padding: 16px; }
             #marginPanel { right: 8px; width: 90vw; max-width: 320px; }
+            .layout-root { padding: 0 16px 16px 16px; }
+            .layout-top, .step3-main { flex-direction: column; }
+            .top-left, .top-right, .bottom-left, .bottom-right { width: 100%; min-width: 0; flex: 1 1 auto; }
+            .layout-sep { margin: 12px 0; }
+            .step3-head { flex-direction: column; }
         }
 
         @media print {
             body { background: #fff; margin: 0; padding: 0; }
-            .header, .content, .actions, .toolbar, .draft-status, .editor-warning, .internal-note, .container > .header, .container > .content, .container > .actions, .container > .toolbar { display: none !important; }
+            .header, .content, .actions, .toolbar, .draft-status, .editor-warning, .internal-note, .non-print, .container > .header, .container > .content, .container > .actions, .container > .toolbar { display: none !important; }
+            .layout-root { padding: 0 !important; }
+            .layout-top, .layout-sep, .bottom-left { display: none !important; }
+            .layout-bottom { display: block !important; }
+            .bottom-right { width: 100% !important; }
             .container { box-shadow: none; margin: 0; max-width: none; width: 100%; border: none; }
             .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; width: 100% !important; }
             .paper-inner { padding: 0 !important; }
@@ -521,7 +532,7 @@
             height: 400px;
             overflow-y: auto;
             white-space: pre-wrap;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: #333;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
             -webkit-user-select: text;
@@ -548,6 +559,18 @@
             border-bottom: 1px dashed #eee;
             text-align: right;
         }
+        .import-block { display: flex; flex-direction: column; gap: 6px; }
+        .import-hint { max-width: 520px; line-height: 1.4; }
+        .selection-counter { max-width: 520px; line-height: 1.4; color: #1565c0; font-weight: 700; display: none; }
+        .step2-range-lines { display: flex; flex-direction: column; gap: 8px; }
+        .step2-range-line { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .step2-range-line.volume-line { flex-wrap: nowrap; }
+        .step2-range-line.volume-line #literalVolumeWrap,
+        .step2-range-line.volume-line #senseVolumeWrap { width: 100%; }
+        .step2-range-line.volume-line select { width: 100%; }
+        .step2-range-line.page-line { flex-wrap: nowrap; }
+        .step2-range-line.page-line .page-input { flex: 1 1 180px; min-width: 140px; }
+        #contentSection.step2-p12 .grid-3 { display: none; }
         
         /* Utility classes for Exam Builder Refactor */
         .text-gray-dark { color: #555; }
@@ -583,6 +606,68 @@
         .msg-loading { color: #7f8c8d; }
         .font-pali { font-family: "DilleniaUPC_4Balee", "DilleniaUPC", sans-serif; }
         .font-thai { font-family: "DilleniaUPC", sans-serif; }
+
+        .layout-root { padding: 18px 24px 24px 24px; --tool-panel-width: 420px; }
+        .layout-top { display: flex; align-items: flex-start; gap: 18px; }
+        .top-left { flex: 0 0 420px; width: 420px; min-width: 320px; }
+        .top-right { flex: 1 1 auto; min-width: 0; }
+        .layout-sep { border-top: 1px solid #e0e0e0; margin: 18px 0; }
+        .layout-bottom { display: flex; flex-direction: column; gap: 12px; }
+        .step3-main { display: flex; align-items: flex-start; gap: 18px; }
+        .bottom-left { flex: 0 0 var(--tool-panel-width); width: var(--tool-panel-width); min-width: 320px; }
+        .bottom-right { flex: 1 1 auto; min-width: 0; }
+        .layout-bottom .section.non-print > h2 { text-align: center; }
+        .step3-head { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .step3-head .editor-warning { width: 100%; max-width: none; margin: 0; }
+        .step3-head .draft-status { width: 100%; max-width: none; margin: 0; }
+        .step3-actions { width: 100%; }
+        .layout-root.step3-stacked .step3-main { flex-direction: column; }
+        .layout-root.step3-stacked .bottom-left { flex: 1 1 auto; width: 100%; min-width: 0; }
+        .layout-root.step3-stacked .bottom-right { width: 100%; }
+        .layout-root.step3-stacked .bottom-left .toolbar { flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; overflow-x: auto; overflow-y: visible; padding: 10px; }
+        .layout-root.step3-stacked .bottom-left .tool-row { flex: 0 0 auto; border-top: 0; padding-top: 0; align-items: center; flex-wrap: nowrap; gap: 8px; background: #ffffff; border: 1px solid #eaeaea; border-radius: 12px; padding: 6px 10px; }
+        .layout-root.step3-stacked .bottom-left .tool-row-label { min-width: 0; padding-top: 0; white-space: nowrap; }
+        .layout-root.step3-stacked .bottom-left .tool-row-controls { flex-wrap: nowrap; white-space: nowrap; }
+        .layout-root.step3-stacked .bottom-left .toolbar-group { flex-wrap: nowrap; }
+
+        .form-compact .row { margin: 10px 0; }
+        .form-compact label { min-width: 92px; font-size: 0.9rem; }
+        .form-compact select,
+        .form-compact input[type="text"],
+        .form-compact input[type="number"],
+        .form-compact input[type="date"] { padding: 6px 10px; font-size: 0.9rem; border-radius: 10px; }
+        .form-compact .time-row { align-items: flex-start; }
+        .form-compact .time-fields { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+        .form-compact .time-field { display: flex; align-items: center; gap: 10px; }
+        .form-compact .time-field input[type="number"] { width: 160px; min-width: 140px; }
+        .form-compact .time-unit { min-width: 60px; color: #607d8b; font-weight: 500; font-size: 0.9rem; }
+
+        .step3-head .actions { padding: 0; border: 0; background: transparent; justify-content: center; gap: 8px; }
+        .step3-head .actions.step3-actions {
+            border: 1px solid #dfe6ee;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 10px 12px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        .step3-head .actions .btn { padding: 6px 10px; font-size: 0.85rem; border-radius: 10px; }
+        .step3-head .actions .btn > i { font-size: 0.9em; }
+        .step3-head .actions .btn.primary { padding: 7px 12px; }
+        .bottom-left .toolbar { margin-bottom: 10px; border: 1px solid #eaeaea; border-radius: 12px; background: #fafafa; padding: 8px; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 8px; }
+        .bottom-left .toolbar-group { padding: 3px; }
+        .bottom-left .tool-btn { padding: 5px 8px; font-size: 0.85rem; }
+        .bottom-left .tool-select { padding: 5px 6px; font-size: 0.85rem; }
+        .bottom-left .internal-note { max-width: none; margin: 14px 0 0 0; }
+        .bottom-left .tool-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; padding-top: 8px; border-top: 1px dashed #e0e0e0; }
+        .bottom-left .tool-row:first-child { padding-top: 0; border-top: 0; }
+        .bottom-left .tool-row-label { min-width: 88px; font-size: 0.85rem; color: #546e7a; font-weight: 700; padding-top: 6px; }
+        .bottom-left .tool-row-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; flex: 1 1 auto; min-width: 0; }
+        .bottom-left .print-cta-btn { width: 100%; justify-content: center; padding: 12px 14px; font-size: 1rem; border-radius: 12px; }
+        .bottom-right .paper { margin: 0 auto 24px auto; }
+
+        @media only screen and (min-width: 1200px) {
+            .container { max-width: 1400px; }
+        }
     </style>
 </head>
 <body>
@@ -597,12 +682,11 @@
                 <span class="badge" id="webUsageBadge">เข้าใช้วันนี้: -</span>
             </div>
         </div>
-        <div class="content">
-            <div class="section">
-                <h2>กำหนดข้อสอบ</h2>
-                <div class="grid-2">
-                    <div>
-                        <div class="text-gray-dark font-bold mb-10">บังคับเลือก</div>
+        <div class="layout-root">
+            <div class="layout-top">
+                <div class="top-left">
+                    <div class="section form-compact">
+                        <h2>ขั้นตอนที่ ๑ : กำหนดข้อสอบ</h2>
                         <div class="row" id="levelRow">
                             <label>ชั้น</label>
                             <div class="flex-center gap-10 flex-1">
@@ -629,23 +713,20 @@
                             <label>วันที่</label>
                             <input type="date" id="dateInput" title="เลือกวันที่สอบ" />
                         </div>
-                    </div>
-                    <div>
-                        <div class="text-gray-dark font-bold mb-10">ไม่บังคับกรอก</div>
                         <div class="row">
                             <label>สอบครั้งที่</label>
                             <input type="text" id="attemptInput" placeholder="เช่น ๑" />
                         </div>
-                        <div class="row">
+                        <div class="row time-row">
                             <label>ให้เวลา</label>
-                            <div class="grid-2 gap-10 flex-1">
-                                <div class="row mt-0">
-                                    <label class="min-w-60">ชั่วโมง</label>
-                                    <input type="number" id="hoursInput" min="0" value="4" placeholder="ชั่วโมง" />
+                            <div class="time-fields">
+                                <div class="time-field">
+                                    <input type="number" id="hoursInput" min="0" value="4" title="ชั่วโมง" aria-label="ชั่วโมง" />
+                                    <span class="time-unit">ชั่วโมง</span>
                                 </div>
-                                <div class="row mt-0">
-                                    <label class="min-w-60">นาที</label>
-                                    <input type="number" id="minutesInput" min="0" value="15" placeholder="นาที" />
+                                <div class="time-field">
+                                    <input type="number" id="minutesInput" min="0" value="15" title="นาที" aria-label="นาที" />
+                                    <span class="time-unit">นาที</span>
                                 </div>
                             </div>
                         </div>
@@ -659,240 +740,315 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="section step-locked d-none" id="contentSection">
-                <div class="flex-between">
-                    <h2 id="contentSectionTitle">เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span></h2>
-                </div>
-                <div class="row items-start" id="literalRow">
-                    <label id="literalLabel" class="pt-10">ข้อ ๑</label>
-                    <div class="w-full">
-                        <div class="grid-3 mb-10">
-                            <select id="literalPart" aria-label="เลือกภาคโดยพยัญชนะ"></select>
-                            <select id="literalVagga" aria-label="เลือกวรรคโดยพยัญชนะ"><option value="">(เลือกวรรค)</option></select>
-                            <select id="literalStory" aria-label="เลือกเรื่องโดยพยัญชนะ"><option value="">(เลือกเรื่อง)</option></select>
+                <div class="top-right">
+                    <div class="section step-locked d-none" id="contentSection">
+                        <div class="flex-between">
+                            <h2 id="contentSectionTitle">ขั้นตอนที่ ๒ : เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span></h2>
                         </div>
-                        <div class="row mt-0">
-                            <span id="literalVolumeWrap" class="flex-center gap-10 d-none">
-                                <label class="min-w-auto mr-10">เล่ม</label>
-                                <select id="literalVolumeSelect" class="w-100px" aria-label="เลือกเล่ม"></select>
-                            </span>
-                            <span class="mx-10 d-none" id="literalVolumeDivider">|</span>
-                            <label class="min-w-auto mr-10">หน้า</label>
-                            <input type="number" id="literalStartPage" placeholder="เริ่มต้น" class="w-100px" />
-                            <span class="mx-10">ถึง</span>
-                            <input type="number" id="literalEndPage" placeholder="สิ้นสุด" class="w-100px" />
+                        <div class="row items-start" id="literalRow">
+                            <label id="literalLabel" class="pt-10">แปล โดยพยัญชนะ</label>
+                            <div class="w-full">
+                                <div class="grid-3 mb-10">
+                                    <select id="literalPart" aria-label="เลือกภาคโดยพยัญชนะ"></select>
+                                    <select id="literalVagga" aria-label="เลือกวรรคโดยพยัญชนะ"><option value="">(เลือกวรรค)</option></select>
+                                    <select id="literalStory" aria-label="เลือกเรื่องโดยพยัญชนะ"><option value="">(เลือกเรื่อง)</option></select>
+                                </div>
+                                <div class="step2-range-lines">
+                                    <div class="step2-range-line volume-line">
+                                        <span id="literalVolumeWrap" class="flex-center gap-10 d-none">
+                                            <label class="min-w-auto mr-10">เล่ม</label>
+                                            <select id="literalVolumeSelect" class="w-full" aria-label="เลือกเล่ม"></select>
+                                        </span>
+                                    </div>
+                                    <div class="step2-range-line page-line">
+                                        <label class="min-w-auto mr-10">หน้า</label>
+                                        <input type="number" id="literalStartPage" placeholder="เริ่มต้น" class="page-input" />
+                                        <span class="mx-10">ถึง</span>
+                                        <input type="number" id="literalEndPage" placeholder="สิ้นสุด" class="page-input" />
+                                    </div>
+                                </div>
+                                <div id="literalList" class="list"></div>
+                            </div>
                         </div>
-                        <div id="literalList" class="list"></div>
+                        
+                        <div class="row items-start border-top-eee pt-20 mt-20" id="senseRow">
+                            <label id="senseLabel" class="pt-10">แปล โดยอรรถ</label>
+                            <div class="w-full">
+                                <div class="grid-3 mb-10">
+                                    <select id="sensePart" aria-label="เลือกภาคโดยอรรถ"></select>
+                                    <select id="senseVagga" aria-label="เลือกวรรคโดยอรรถ"><option value="">(เลือกวรรค)</option></select>
+                                    <select id="senseStory" aria-label="เลือกเรื่องโดยอรรถ"><option value="">(เลือกเรื่อง)</option></select>
+                                </div>
+                                <div class="step2-range-lines">
+                                    <div class="step2-range-line volume-line">
+                                        <span id="senseVolumeWrap" class="flex-center gap-10 d-none">
+                                            <label class="min-w-auto mr-10">เล่ม</label>
+                                            <select id="senseVolumeSelect" class="w-full" aria-label="เลือกเล่ม"></select>
+                                        </span>
+                                    </div>
+                                    <div class="step2-range-line page-line">
+                                        <label class="min-w-auto mr-10">หน้า</label>
+                                        <input type="number" id="senseStartPage" placeholder="เริ่มต้น" class="page-input" />
+                                        <span class="mx-10">ถึง</span>
+                                        <input type="number" id="senseEndPage" placeholder="สิ้นสุด" class="page-input" />
+                                    </div>
+                                </div>
+                                <div id="senseList" class="list"></div>
+                            </div>
+                        </div>
+
+                        <div id="statsSection" class="mt-20 pt-20 border-top-eee d-none">
+                            <h3><i class="fa-solid fa-chart-pie"></i> สถิติการออกข้อสอบ (Exam Statistics)</h3>
+                            <div class="grid-2">
+                                <div class="stats-panel-warning">
+                                    <h4 class="mt-0 text-orange"><i class="fa-solid fa-scale-balanced"></i> สถิติสนามหลวง</h4>
+                                    <div id="sanluangStatsContent">กำลังโหลด...</div>
+                                </div>
+                                <div class="bg-blue-light p-15 rounded-8">
+                                    <h4 class="mt-0 text-blue"><i class="fa-solid fa-users"></i> สถิติการใช้งานในระบบ</h4>
+                                    <div id="systemStatsContent">กำลังโหลด...</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="row items-start border-top-eee pt-20 mt-20" id="senseRow">
-                    <label id="senseLabel" class="pt-10">ข้อ ๒</label>
-                    <div class="w-full">
-                        <div class="grid-3 mb-10">
-                            <select id="sensePart" aria-label="เลือกภาคโดยอรรถ"></select>
-                            <select id="senseVagga" aria-label="เลือกวรรคโดยอรรถ"><option value="">(เลือกวรรค)</option></select>
-                            <select id="senseStory" aria-label="เลือกเรื่องโดยอรรถ"><option value="">(เลือกเรื่อง)</option></select>
+            </div>
+
+            <div class="layout-sep"></div>
+
+            <div class="layout-bottom">
+                <div class="section non-print">
+                    <h2>ขั้นตอนที่ ๓ : ปรับ/แก้ไข เนื้อหาในข้อสอบ</h2>
+                    <div class="step3-head">
+                        <div class="editor-warning">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            กรุณาตรวจสอบความถูกต้องและแก้ไขให้สมบูรณ์ก่อนพิมพ์
                         </div>
-                        <div class="row mt-0">
-                            <span id="senseVolumeWrap" class="flex-center gap-10 d-none">
-                                <label class="min-w-auto mr-10">เล่ม</label>
-                                <select id="senseVolumeSelect" class="w-100px" aria-label="เลือกเล่ม"></select>
-                            </span>
-                            <span class="mx-10 d-none" id="senseVolumeDivider">|</span>
-                            <label class="min-w-auto mr-10">หน้า</label>
-                            <input type="number" id="senseStartPage" placeholder="เริ่มต้น" class="w-100px" />
-                            <span class="mx-10">ถึง</span>
-                            <input type="number" id="senseEndPage" placeholder="สิ้นสุด" class="w-100px" />
+                        <div class="draft-status" id="draftStatus">งานร่างอัตโนมัติพร้อมใช้งาน</div>
+                        <div class="actions step3-actions">
+                            <button class="btn secondary" id="bsToggleBtn" onclick="toggleBsMode()" title="สลับโหมด บาลีศึกษา (บ.ศ.)"><i class="fa-solid fa-right-left"></i> โหมด: ป.ธ.</button>
+                            <button class="btn secondary" id="solutionBtn" onclick="generateSolution()" title="สร้างเฉลย"><i class="fa-solid fa-wand-magic-sparkles"></i> เฉลย</button>
+                            <a href="font_download.html" class="btn secondary text-decoration-none d-inline-flex flex-center gap-5" title="หน้าดาวน์โหลดและวิธีติดตั้งฟอนต์"><i class="fa-solid fa-font"></i> ดาวน์โหลดฟอนต์</a>
+                            <button class="btn secondary" id="resetBtn"><i class="fa-solid fa-rotate-left"></i> รีเซ็ต</button>
+                            <button class="btn secondary" id="copyBtn"><i class="fa-solid fa-copy"></i> คัดลอก</button>
+                            <button class="btn secondary" id="saveTemplateBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกเป็นแม่แบบ</button>
+                            <button class="btn secondary" id="loadTemplateBtn"><i class="fa-solid fa-folder-open"></i> เรียกใช้แม่แบบ</button>
+                            <button class="btn primary" id="generateBtn" title="ล้างการแก้ไขข้อสอบและสร้างใหม่จากเนื้อหาที่เลือกอยู่"><i class="fa-solid fa-rotate-right"></i> ล้างการแก้ไขข้อสอบ</button>
                         </div>
-                        <div id="senseList" class="list"></div>
+                    </div>
+                </div>
+                <div class="step3-main">
+                <div class="bottom-left">
+                    <div class="toolbar">
+                        <div class="tool-row">
+                            <div class="tool-row-label">รูปแบบอักษร:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <button class="tool-btn" onclick="execCmd('bold')" title="ตัวหนา"><i class="fa-solid fa-bold"></i></button>
+                                    <button class="tool-btn" onclick="execCmd('italic')" title="ตัวเอียง"><i class="fa-solid fa-italic"></i></button>
+                                    <button class="tool-btn" onclick="execCmd('underline')" title="ขีดเส้นใต้"><i class="fa-solid fa-underline"></i></button>
+                                    <button class="tool-btn" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">รูปแบบย่อหน้า:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <button class="tool-btn" onclick="execCmd('justifyLeft')" title="จัดชิดซ้าย"><i class="fa-solid fa-align-left"></i></button>
+                                    <button class="tool-btn" onclick="execCmd('justifyCenter')" title="จัดกึ่งกลาง"><i class="fa-solid fa-align-center"></i></button>
+                                    <button class="tool-btn" onclick="execCmd('justifyRight')" title="จัดชิดขวา"><i class="fa-solid fa-align-right"></i></button>
+                                    <button class="tool-btn" onclick="execCmd('justifyFull')" title="จัดเต็มบรรทัด"><i class="fa-solid fa-align-justify"></i></button>
+                                    <button class="tool-btn" onclick="toggleJustifyAll()" title="กระจายทุกบรรทัด (รวมบรรทัดสุดท้าย/Shift+Enter)"><i class="fa-solid fa-arrows-left-right-to-line"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">ฟอนต์:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <select class="tool-select" id="fontFamilySelect" onchange="changeFontFamily(this.value)" title="แบบอักษร">
+                                        <option value="DilleniaUPC" selected>DilleniaUPC</option>
+                                        <option value="DilleniaUPC_4Balee">DilleniaUPC (บาลี)</option>
+                                        <option value="Buddhadham">Buddhadham</option>
+                                        <option value="BuddhadhamPali">Buddhadham (บาลี)</option>
+                                        <option value="Buddhawajana">Buddhawajana</option>
+                                        <option value="BuddhawajanaPali">Buddhawajana (บาลี)</option>
+                                        <option value="Burapa">Burapa</option>
+                                        <option value="TH Sarabun New, Sarabun">TH Sarabun New</option>
+                                        <option value="Cordia New">Cordia New</option>
+                                        <option value="Niramit">Niramit</option>
+                                    </select>
+                                    <button class="tool-btn" onclick="applyPaliWordFont()" title="คลุมเฉพาะอักษร “ญ/ฐ” ที่ต้องการ แล้วกดเพื่อเปลี่ยนเป็นรูปอักษรบาลี">ญฐ→บาลี</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">ขนาดฟอนต์:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <select class="tool-select" id="fontSizeSelect" onchange="changeFontSize(this.value)" title="ขนาดตัวอักษร">
+                                        <option value="10px">10px</option>
+                                        <option value="12px">12px</option>
+                                        <option value="14px">14px</option>
+                                        <option value="16px">16px</option>
+                                        <option value="18px">18px</option>
+                                        <option value="20px">20px</option>
+                                        <option value="22px" selected>22px</option>
+                                        <option value="24px">24px</option>
+                                        <option value="26px">26px</option>
+                                        <option value="28px">28px</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">ระยะบรรทัด:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <select class="tool-select" id="lineHeightSelect" onchange="changeLineHeight(this.value)" title="ระยะห่างระหว่างบรรทัด">
+                                        <option value="1.0">1.0</option>
+                                        <option value="1.2">1.2</option>
+                                        <option value="1.4">1.4</option>
+                                        <option value="1.5">1.5</option>
+                                        <option value="1.6" selected>1.6 (ปกติ)</option>
+                                        <option value="1.8">1.8</option>
+                                        <option value="2.0">2.0</option>
+                                        <option value="2.2">2.2</option>
+                                        <option value="2.5">2.5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">ระยะอักษร:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <select class="tool-select" id="letterSpacingSelect" onchange="changeLetterSpacing(this.value)" title="ระยะห่างระหว่างตัวอักษร">
+                                        <option value="0" selected>ตัวอักษรปกติ</option>
+                                        <option value="-0.2px">แน่นเล็กน้อย</option>
+                                        <option value="-0.4px">แน่น</option>
+                                        <option value="-0.6px">แน่นมาก</option>
+                                    </select>
+                                    <button class="tool-btn" id="letterSqueezeBtn" onclick="cycleLetterSqueeze()" title="บีบตัวอักษร (ปรับความแน่นแบบวนระดับ)"><i class="fa-solid fa-compress"></i> บีบ</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">ความกว้าง:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <select class="tool-select" id="horizontalScaleSelect" onchange="changeHorizontalScale(this.value)" title="Horizontal Scale (ความกว้างตัวอักษร)">
+                                        <option value="0.9">90%</option>
+                                        <option value="0.95">95%</option>
+                                        <option value="1" selected>100% (ปกติ)</option>
+                                        <option value="1.05">105%</option>
+                                        <option value="1.1">110%</option>
+                                    </select>
+                                    <button class="tool-btn" id="horizontalScaleBtn" onclick="cycleHorizontalScale()" title="ยืด/หดตัวอักษร (Horizontal Scale)"><i class="fa-solid fa-left-right"></i> กว้าง</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">กระดาษ:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <select class="tool-select" id="paperSizeSelect" onchange="changePaperSize(this.value)" title="ขนาดกระดาษ">
+                                        <option value="A4" selected>กระดาษ A4</option>
+                                        <option value="F4">กระดาษ F4 (14 นิ้ว / Legal)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">ซูม:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <button class="tool-btn" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                                    <button class="tool-btn" id="zoomResetBtn" onclick="setPaperZoom(1)" title="ขนาดปกติ">100%</button>
+                                    <button class="tool-btn" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">ระยะขอบ:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group relative">
+                                    <button class="tool-btn" id="marginBtn" onclick="toggleMarginPanel()" title="ตั้งค่าขอบกระดาษ"><i class="fa-solid fa-ruler-combined"></i> ระยะขอบ</button>
+                                    <div id="marginPanel" class="d-none">
+                                        <div class="row">
+                                            <label>บน</label>
+                                            <input type="number" id="marginTop" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('top', this.value)">
+                                            <span class="unit-label">cm</span>
+                                        </div>
+                                        <div class="row">
+                                            <label>ล่าง</label>
+                                            <input type="number" id="marginBottom" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('bottom', this.value)">
+                                            <span class="unit-label">cm</span>
+                                        </div>
+                                        <div class="row">
+                                            <label>ซ้าย</label>
+                                            <input type="number" id="marginLeft" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('left', this.value)">
+                                            <span class="unit-label">cm</span>
+                                        </div>
+                                        <div class="row">
+                                            <label>ขวา</label>
+                                            <input type="number" id="marginRight" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('right', this.value)">
+                                            <span class="unit-label">cm</span>
+                                        </div>
+                                        <div class="text-center mt-10">
+                                            <button class="btn secondary text-xs p-xs" onclick="resetMargins()">ค่ามาตรฐาน (2.54)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">คำแนะนำ:</div>
+                            <div class="tool-row-controls">
+                                <div id="editHintPanel">
+                                    <div class="title"><i class="fa-solid fa-circle-info"></i> วิธีจัดข้อความในข้อสอบ</div>
+                                    <div>1. ขึ้นย่อหน้าใหม่: กด <b>Enter</b></div>
+                                    <div>2. ตัดบรรทัด (เนื้อหาต่อเนื่อง): กด <b>Shift+Enter</b></div>
+                                    <div>3. แก้ปัญหาคำฉีก: ใช้ <b>Space bar</b> ดันคำที่ฉีกบนบรรทัดบนให้ตกลงมาข้างล่างทั้งคำ</div>
+                                    <div class="warning"><b>ข้อห้าม:</b> ห้ามใช้ <b>Enter</b> หรือ <b>Shift+Enter</b> ในการปัดคำลงเด็ดขาด</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-row">
+                            <div class="tool-row-label">อื่นๆ:</div>
+                            <div class="tool-row-controls">
+                                <div class="toolbar-group">
+                                    <button class="tool-btn" id="headerLockBtn" onclick="toggleHeaderLock()" title="ล็อกหัวกระดาษไม่ให้แก้ไข">ล็อกหัวกระดาษ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary print-cta-btn" id="printBtn" onclick="printExam()"><i class="fa-solid fa-print"></i> พิมพ์ / บันทึก PDF</button>
+
+                    <div class="internal-note" id="internalNotePanel">
+                        <div class="title"><i class="fa-solid fa-note-sticky"></i> หมายเหตุภายใน (ไม่พิมพ์ออกจริง)</div>
+                        <div class="auto" id="internalNoteAuto">กำลังคำนวณที่มา...</div>
                     </div>
                 </div>
 
-                <!-- Statistics Section -->
-                <div id="statsSection" class="mt-20 pt-20 border-top-eee d-none">
-                    <h3><i class="fa-solid fa-chart-pie"></i> สถิติการออกข้อสอบ (Exam Statistics)</h3>
-                    <div class="grid-2">
-                        <div class="stats-panel-warning">
-                            <h4 class="mt-0 text-orange"><i class="fa-solid fa-scale-balanced"></i> สถิติสนามหลวง</h4>
-                            <div id="sanluangStatsContent">กำลังโหลด...</div>
+                <div class="bottom-right">
+                    <div class="paper size-a4">
+                        <div class="paper-inner" id="paperContent">
+                            <div id="paperEditable" class="paper-editable" contenteditable="true"></div>
                         </div>
-                        <div class="bg-blue-light p-15 rounded-8">
-                            <h4 class="mt-0 text-blue"><i class="fa-solid fa-users"></i> สถิติการใช้งานในระบบ</h4>
-                            <div id="systemStatsContent">กำลังโหลด...</div>
+                        <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
+                        <div id="pageMarkers" class="page-markers" aria-hidden="true"></div>
+                        <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒ • หากต้องการให้อยู่ใน ๑ หน้า: ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ ใช้กระดาษ F4</div>
+                    </div>
+                    <div class="print-mirror-host" aria-hidden="true">
+                        <div class="paper size-a4" id="printMirrorPaper">
+                            <div class="paper-inner" id="printMirrorInner">
+                                <div id="printMirrorEditable" class="paper-editable"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="actions">
-            <button class="btn secondary" id="bsToggleBtn" onclick="toggleBsMode()" title="สลับโหมด บาลีศึกษา (บ.ศ.)"><i class="fa-solid fa-right-left"></i> โหมด: ป.ธ.</button>
-            <button class="btn secondary" id="solutionBtn" onclick="generateSolution()" title="สร้างเฉลย"><i class="fa-solid fa-wand-magic-sparkles"></i> เฉลย</button>
-            <a href="font_download.html" class="btn secondary text-decoration-none d-inline-flex flex-center gap-5" title="หน้าดาวน์โหลดและวิธีติดตั้งฟอนต์"><i class="fa-solid fa-font"></i> ดาวน์โหลดฟอนต์</a>
-            <button class="btn secondary" id="resetBtn"><i class="fa-solid fa-rotate-left"></i> รีเซ็ต</button>
-            <button class="btn secondary" id="copyBtn"><i class="fa-solid fa-copy"></i> คัดลอก</button>
-            <button class="btn secondary" id="saveTemplateBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกเป็นแม่แบบ</button>
-            <button class="btn secondary" id="loadTemplateBtn"><i class="fa-solid fa-folder-open"></i> เรียกใช้แม่แบบ</button>
-            <button class="btn secondary" id="printBtn" onclick="printExam()"><i class="fa-solid fa-print"></i> พิมพ์ / บันทึก PDF</button>
-            <button class="btn primary" id="generateBtn" title="ล้างการแก้ไขข้อสอบและสร้างใหม่จากเนื้อหาที่เลือกอยู่"><i class="fa-solid fa-rotate-right"></i> ล้างการแก้ไขข้อสอบ</button>
-        </div>
-
-        <div class="draft-status" id="draftStatus">งานร่างอัตโนมัติพร้อมใช้งาน</div>
-        
-        <div class="toolbar">
-            <div class="toolbar-group">
-                <button class="tool-btn" onclick="execCmd('bold')" title="ตัวหนา"><i class="fa-solid fa-bold"></i></button>
-                <button class="tool-btn" onclick="execCmd('italic')" title="ตัวเอียง"><i class="fa-solid fa-italic"></i></button>
-                <button class="tool-btn" onclick="execCmd('underline')" title="ขีดเส้นใต้"><i class="fa-solid fa-underline"></i></button>
-                <button class="tool-btn" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i></button>
-            </div>
-            <div class="toolbar-group">
-                <button class="tool-btn" onclick="execCmd('justifyLeft')" title="จัดชิดซ้าย"><i class="fa-solid fa-align-left"></i></button>
-                <button class="tool-btn" onclick="execCmd('justifyCenter')" title="จัดกึ่งกลาง"><i class="fa-solid fa-align-center"></i></button>
-                <button class="tool-btn" onclick="execCmd('justifyRight')" title="จัดชิดขวา"><i class="fa-solid fa-align-right"></i></button>
-                <button class="tool-btn" onclick="execCmd('justifyFull')" title="จัดเต็มบรรทัด"><i class="fa-solid fa-align-justify"></i></button>
-                <button class="tool-btn" onclick="toggleJustifyAll()" title="กระจายทุกบรรทัด (รวมบรรทัดสุดท้าย/Shift+Enter)"><i class="fa-solid fa-arrows-left-right-to-line"></i></button>
-            </div>
-            <div class="toolbar-group">
-                <select class="tool-select" id="fontFamilySelect" onchange="changeFontFamily(this.value)" title="แบบอักษร">
-                    <option value="DilleniaUPC" selected>DilleniaUPC</option>
-                    <option value="DilleniaUPC_4Balee">DilleniaUPC (บาลี)</option>
-                    <option value="Buddhadham">Buddhadham</option>
-                    <option value="BuddhadhamPali">Buddhadham (บาลี)</option>
-                    <option value="Buddhawajana">Buddhawajana</option>
-                    <option value="BuddhawajanaPali">Buddhawajana (บาลี)</option>
-                    <option value="Burapa">Burapa</option>
-                    <option value="TH Sarabun New, Sarabun">TH Sarabun New</option>
-                    <option value="Cordia New">Cordia New</option>
-                    <option value="Niramit">Niramit</option>
-                </select>
-                <button class="tool-btn" onclick="applyPaliWordFont()" title="คลุมเฉพาะอักษร “ญ/ฐ” ที่ต้องการ แล้วกดเพื่อเปลี่ยนเป็นรูปอักษรบาลี">ญฐ→บาลี</button>
-            </div>
-            <div class="toolbar-group">
-                <select class="tool-select" id="fontSizeSelect" onchange="changeFontSize(this.value)" title="ขนาดตัวอักษร">
-                    <option value="10px">10px</option>
-                    <option value="12px">12px</option>
-                    <option value="14px">14px</option>
-                    <option value="16px">16px</option>
-                    <option value="18px">18px</option>
-                    <option value="20px" selected>20px</option>
-                    <option value="22px">22px</option>
-                    <option value="24px">24px</option>
-                    <option value="26px">26px</option>
-                    <option value="28px">28px</option>
-                </select>
-            </div>
-            <div class="toolbar-group">
-                <select class="tool-select" id="lineHeightSelect" onchange="changeLineHeight(this.value)" title="ระยะห่างระหว่างบรรทัด">
-                    <option value="1.0">1.0</option>
-                    <option value="1.2">1.2</option>
-                    <option value="1.4">1.4</option>
-                    <option value="1.5">1.5</option>
-                    <option value="1.6" selected>1.6 (ปกติ)</option>
-                    <option value="1.8">1.8</option>
-                    <option value="2.0">2.0</option>
-                    <option value="2.2">2.2</option>
-                    <option value="2.5">2.5</option>
-                </select>
-            </div>
-            <div class="toolbar-group">
-                <select class="tool-select" id="letterSpacingSelect" onchange="changeLetterSpacing(this.value)" title="ระยะห่างระหว่างตัวอักษร">
-                    <option value="0" selected>ตัวอักษรปกติ</option>
-                    <option value="-0.2px">แน่นเล็กน้อย</option>
-                    <option value="-0.4px">แน่น</option>
-                    <option value="-0.6px">แน่นมาก</option>
-                </select>
-                <button class="tool-btn" id="letterSqueezeBtn" onclick="cycleLetterSqueeze()" title="บีบตัวอักษร (ปรับความแน่นแบบวนระดับ)"><i class="fa-solid fa-compress"></i> บีบ</button>
-            </div>
-            <div class="toolbar-group">
-                <select class="tool-select" id="horizontalScaleSelect" onchange="changeHorizontalScale(this.value)" title="Horizontal Scale (ความกว้างตัวอักษร)">
-                    <option value="0.9">90%</option>
-                    <option value="0.95">95%</option>
-                    <option value="1" selected>100% (ปกติ)</option>
-                    <option value="1.05">105%</option>
-                    <option value="1.1">110%</option>
-                </select>
-                <button class="tool-btn" id="horizontalScaleBtn" onclick="cycleHorizontalScale()" title="ยืด/หดตัวอักษร (Horizontal Scale)"><i class="fa-solid fa-left-right"></i> กว้าง</button>
-            </div>
-            <div class="toolbar-group">
-                <select class="tool-select" id="paperSizeSelect" onchange="changePaperSize(this.value)" title="ขนาดกระดาษ">
-                    <option value="A4" selected>กระดาษ A4</option>
-                    <option value="F4">กระดาษ F4 (14 นิ้ว / Legal)</option>
-                </select>
-            </div>
-            <div class="toolbar-group">
-                <button class="tool-btn" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
-                <button class="tool-btn" id="zoomResetBtn" onclick="setPaperZoom(1)" title="ขนาดปกติ">100%</button>
-                <button class="tool-btn" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
-            </div>
-            <div class="toolbar-group relative">
-                <button class="tool-btn" id="marginBtn" onclick="toggleMarginPanel()" title="ตั้งค่าขอบกระดาษ"><i class="fa-solid fa-ruler-combined"></i> ระยะขอบ</button>
-                <div id="marginPanel" class="d-none">
-                    <div class="row">
-                        <label>บน</label>
-                        <input type="number" id="marginTop" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('top', this.value)">
-                        <span class="unit-label">cm</span>
-                    </div>
-                    <div class="row">
-                        <label>ล่าง</label>
-                        <input type="number" id="marginBottom" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('bottom', this.value)">
-                        <span class="unit-label">cm</span>
-                    </div>
-                    <div class="row">
-                        <label>ซ้าย</label>
-                        <input type="number" id="marginLeft" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('left', this.value)">
-                        <span class="unit-label">cm</span>
-                    </div>
-                    <div class="row">
-                        <label>ขวา</label>
-                        <input type="number" id="marginRight" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('right', this.value)">
-                        <span class="unit-label">cm</span>
-                    </div>
-                    <div class="text-center mt-10">
-                        <button class="btn secondary text-xs p-xs" onclick="resetMargins()">ค่ามาตรฐาน (2.54)</button>
-                    </div>
-                </div>
-            </div>
-            <div class="toolbar-group relative">
-                <button class="tool-btn" id="editHintBtn" onclick="toggleEditHintPanel()" title="วิธีจัดข้อความ"><i class="fa-solid fa-circle-info"></i> วิธีจัดข้อความ</button>
-                <div id="editHintPanel" class="d-none">
-                    <div class="title"><i class="fa-solid fa-circle-info"></i> วิธีจัดข้อความในข้อสอบ</div>
-                    <div>1. ขึ้นย่อหน้าใหม่: กด <b>Enter</b></div>
-                    <div>2. ตัดบรรทัด (เนื้อหาต่อเนื่อง): กด <b>Shift+Enter</b></div>
-                    <div>3. แก้ปัญหาคำฉีก: ใช้ <b>Space bar</b> ดันคำที่ฉีกบนบรรทัดบนให้ตกลงมาข้างล่างทั้งคำ</div>
-                    <div class="warning"><b>ข้อห้าม:</b> ห้ามใช้ <b>Enter</b> หรือ <b>Shift+Enter</b> ในการปัดคำลงเด็ดขาด</div>
-                </div>
-            </div>
-            <div class="toolbar-group">
-                <button class="tool-btn" id="headerLockBtn" onclick="toggleHeaderLock()" title="ล็อกหัวกระดาษไม่ให้แก้ไข">ล็อกหัวกระดาษ</button>
-                <button class="tool-btn" id="internalNoteBtn" onclick="toggleInternalNotePanel()" title="หมายเหตุภายใน (ไม่พิมพ์ออกจริง)">หมายเหตุ</button>
-            </div>
-        </div>
-
-        <div class="internal-note d-none" id="internalNotePanel">
-            <div class="title"><i class="fa-solid fa-note-sticky"></i> หมายเหตุภายใน (ไม่พิมพ์ออกจริง)</div>
-            <div class="auto" id="internalNoteAuto">กำลังคำนวณที่มา...</div>
-            <textarea id="internalNoteText" placeholder="พิมพ์หมายเหตุเพิ่มเติม เช่น ข้อสังเกต/การปรับแก้/คำเตือนภายใน"></textarea>
-        </div>
-
-        <div class="editor-warning">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            กรุณาตรวจสอบความถูกต้องและแก้ไขให้สมบูรณ์ก่อนพิมพ์
-        </div>
-
-        <div class="paper size-a4">
-            <div class="paper-inner" id="paperContent">
-                <div id="paperEditable" class="paper-editable" contenteditable="true"></div>
-            </div>
-            <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
-            <div id="pageMarkers" class="page-markers" aria-hidden="true"></div>
-            <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒ • หากต้องการให้อยู่ใน ๑ หน้า: ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ ใช้กระดาษ F4</div>
-        </div>
-        <div class="print-mirror-host" aria-hidden="true">
-            <div class="paper size-a4" id="printMirrorPaper">
-                <div class="paper-inner" id="printMirrorInner">
-                    <div id="printMirrorEditable" class="paper-editable"></div>
                 </div>
             </div>
         </div>
@@ -1014,18 +1170,9 @@
 
         function toggleInternalNotePanel() {
             const panel = document.getElementById('internalNotePanel');
-            const btn = document.getElementById('internalNoteBtn');
-            if (!panel || !btn) return;
-            const isOpen = !panel.classList.contains('d-none');
-            if (isOpen) {
-                panel.classList.add('d-none');
-                btn.classList.remove('active');
-            } else {
-                panel.classList.remove('d-none');
-                btn.classList.add('active');
-                updateInternalNoteAutoSummary();
-                document.getElementById('internalNoteText')?.focus();
-            }
+            if (!panel) return;
+            panel.classList.remove('d-none');
+            updateInternalNoteAutoSummary();
         }
 
         function getPartLabelFromMapping(partId) {
@@ -1144,14 +1291,11 @@
             const s1 = buildInternalNoteSection('ข้อ ๑', c1, freeLit, q1BookLines);
             const s2 = buildInternalNoteSection('ข้อ ๒', c2, freeSen, q2BookLines);
 
-            const paperText = document.getElementById('paperEditable')?.innerText || '';
-            const approxLines = estimateLineCountFromText(paperText);
-            const footer = `จำนวนบรรทัดในหน้ากระดาษ (ประมาณ): ${toThaiDigits(approxLines)}`;
             const bookLinesSummary = [
                 `จำนวนบรรทัดในหนังสือจริง รวม ๒ ข้อ (ประมาณ): ${toThaiDigits(totalBookLines)}`
             ].join('\n');
 
-            auto.textContent = [header, '', s1, '', s2, '', footer, '', bookLinesSummary].join('\n');
+            auto.textContent = [header, '', s1, '', s2, '', bookLinesSummary].join('\n');
         }
 
         function getPaperSettingsState() {
@@ -1248,7 +1392,8 @@
                 document.getElementById('minutesInput').value = state.minutes || '15';
                 document.getElementById('projectNameInput').value = state.projectName || '';
                 document.getElementById('examAuthorInput').value = state.examAuthor || '';
-                document.getElementById('internalNoteText').value = state.internalNote || '';
+                const internalNoteText = document.getElementById('internalNoteText');
+                if (internalNoteText) internalNoteText.value = state.internalNote || '';
 
                 setSelectValue('literalPart', state.literalPart || '');
                 updateVaggaSelect('literal');
@@ -1280,7 +1425,7 @@
                 updateHeaderLockButton();
 
                 const fontFamily = state.settings?.fontFamily || 'DilleniaUPC';
-                const fontSize = state.settings?.fontSize || '20px';
+                const fontSize = state.settings?.fontSize || '22px';
                 const lineHeight = state.settings?.lineHeight || '1.6';
                 const letterSpacing = state.settings?.letterSpacing || '0';
                 const paperSize = state.settings?.paperSize || 'A4';
@@ -1821,6 +1966,7 @@
             }
             updateHorizontalScaleButton();
             schedulePrintOverflowCheck();
+            requestAnimationFrame(updateStep3StackedMode);
             scheduleDraftSave();
         }
         function cycleHorizontalScale() {
@@ -1843,7 +1989,22 @@
             const btn = document.getElementById('zoomResetBtn');
             if (btn) btn.textContent = `${Math.round(next * 100)}%`;
             schedulePrintOverflowCheck();
+            requestAnimationFrame(updateStep3StackedMode);
             scheduleDraftSave();
+        }
+        function updateStep3StackedMode() {
+            const root = document.querySelector('.layout-root');
+            const step3Main = root?.querySelector('.step3-main');
+            const paper = root?.querySelector('.bottom-right .paper');
+            if (!root || !step3Main || !paper) return;
+
+            const toolWidthStr = getComputedStyle(root).getPropertyValue('--tool-panel-width') || '';
+            const toolWidth = parseFloat(toolWidthStr) || 420;
+            const gap = parseFloat(getComputedStyle(step3Main).gap || '0') || 0;
+            const available = step3Main.clientWidth - toolWidth - gap;
+            const paperWidth = paper.getBoundingClientRect().width;
+
+            root.classList.toggle('step3-stacked', paperWidth > (available - 8));
         }
         function adjustPaperZoom(delta) {
             const d = typeof delta === 'string' ? parseFloat(delta) : Number(delta);
@@ -1935,13 +2096,9 @@
         }
         function toggleEditHintPanel() {
             const p = document.getElementById('editHintPanel');
-            if (p.classList.contains('d-block')) {
-                p.classList.remove('d-block');
-                p.classList.add('d-none');
-            } else {
-                p.classList.remove('d-none');
-                p.classList.add('d-block');
-            }
+            if (!p) return;
+            p.classList.remove('d-none');
+            p.classList.add('d-block');
         }
         function updateMargin(side, val) {
             const inner = document.getElementById('paperContent');
@@ -2065,12 +2222,6 @@
                 p.classList.remove('d-block');
                 p.classList.add('d-none');
             }
-            const hintPanel = document.getElementById('editHintPanel');
-            const hintBtn = document.getElementById('editHintBtn');
-            if (hintPanel.classList.contains('d-block') && !hintPanel.contains(e.target) && !hintBtn.contains(e.target)) {
-                hintPanel.classList.remove('d-block');
-                hintPanel.classList.add('d-none');
-            }
         });
 
         const partsMap = {};
@@ -2172,22 +2323,28 @@
             const titleEl = document.getElementById('contentSectionTitle');
             const subjectLabel = document.getElementById('subjectSelect').value || '';
             const levelCode = document.getElementById('levelSelect').value || '';
-            if (titleEl) titleEl.innerHTML = 'เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span>';
+            const contentSection = document.getElementById('contentSection');
+            if (contentSection) contentSection.classList.toggle('step2-p12', levelCode === 'p12');
+            if (titleEl) titleEl.innerHTML = 'ขั้นตอนที่ ๒ : เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span>';
             const el = document.getElementById('bookTitleBadge');
             if (!el) return;
+            let badgeText = '';
             const thaiSourceCfg = subjectLabel.includes('ไทยเป็นมคธ') ? (THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] || null) : null;
             if (['p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && thaiSourceCfg) {
-                if (titleEl) titleEl.textContent = `เลือกช่วงหน้า (${thaiSourceCfg.title || 'พระธัมมปทัฏฐกถา'})`;
+                badgeText = `(${thaiSourceCfg.title || 'พระธัมมปทัฏฐกถา'})`;
+                el.textContent = badgeText;
                 return;
             }
             const isPt4To9ThaiToMagadha = ['p4','p5','p6','p7','p8','p9'].includes(levelCode) && subjectLabel.includes('ไทยเป็นมคธ');
             if (isPt4To9ThaiToMagadha) {
-                if (titleEl) titleEl.textContent = 'เลือกช่วงหน้า (พระธัมมปทัฏฐกถา ภาค  ๑)';
+                badgeText = '(พระธัมมปทัฏฐกถา ภาค  ๑)';
+                el.textContent = badgeText;
                 return;
             }
             const isDhammapadaHeading = levelCode === 'p12' || (levelCode === 'p3' && (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์ไทย')));
             if (isDhammapadaHeading) {
-                if (titleEl) titleEl.textContent = 'เลือกช่วงหน้า (ธมฺมปทฏฺฐกถา)';
+                badgeText = '(ธมฺมปทฏฺฐกถา)';
+                el.textContent = badgeText;
                 return;
             }
             if (!subjectLabel.includes('มคธเป็นไทย')) {
@@ -2196,18 +2353,22 @@
             }
             const titles = getBookTitlesForLevel(levelCode);
             if (levelCode === 'p7') {
-                el.textContent = '(สมนฺตปาสาทิกา นาม วินยฏฺฐกถา)';
+                badgeText = '(สมนฺตปาสาทิกา นาม วินยฏฺฐกถา)';
+                el.textContent = badgeText;
                 return;
             }
             if (levelCode === 'p8') {
-                el.textContent = '(วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส-)';
+                badgeText = '(วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส-)';
+                el.textContent = badgeText;
                 return;
             }
             if (levelCode === 'p9') {
-                el.textContent = '(อภิธมฺมตฺถวิภาวินี)';
+                badgeText = '(อภิธมฺมตฺถวิภาวินี)';
+                el.textContent = badgeText;
                 return;
             }
-            el.textContent = titles.length ? `(${titles.join(', ')})` : '';
+            badgeText = titles.length ? `(${titles.join(', ')})` : '';
+            el.textContent = badgeText;
         }
         function getPaliPageDataConfig() {
             const levelCode = document.getElementById('levelSelect').value;
@@ -2247,7 +2408,7 @@
             const isThaiVolumeMode = isThaiSourcePageMode() && thaiCfg && Array.isArray(thaiCfg.volumes) && thaiCfg.volumes.length > 1;
             const cfg = isThaiVolumeMode ? thaiCfg : getPaliPageDataConfig();
             const volumes = isThaiVolumeMode ? getThaiVolumes(cfg) : getPaliVolumes(cfg);
-            const shouldShow = (isMangala01PageMode() || isThaiVolumeMode) && volumes.length > 1;
+            const shouldShow = volumes.length > 1;
             const bookTitles = getBookTitlesForLevel(levelCode);
 
             const literalWrap = document.getElementById('literalVolumeWrap');
@@ -3544,6 +3705,7 @@
             document.querySelectorAll(`.book-content-area[data-mode="${mode}"] .book-line.tap-selected`).forEach((el) => {
                 el.classList.remove('tap-selected');
             });
+            scheduleSelectionCounterUpdate();
         }
 
         function setTapSelectionRange(mode, idx) {
@@ -3565,6 +3727,7 @@
                 const i = parseInt(el.dataset.lineIndex || '-1', 10);
                 el.classList.toggle('tap-selected', Number.isFinite(i) && i >= start && i <= end);
             });
+            scheduleSelectionCounterUpdate();
         }
 
         function toggleTapSelectMode(mode) {
@@ -3591,6 +3754,56 @@
                 }
             });
             return lines.join('\n');
+        }
+
+        let selectionCounterFrame = 0;
+        function scheduleSelectionCounterUpdate() {
+            if (selectionCounterFrame) cancelAnimationFrame(selectionCounterFrame);
+            selectionCounterFrame = requestAnimationFrame(updateSelectionCounters);
+        }
+        function updateSelectionCounters() {
+            selectionCounterFrame = 0;
+            updateSelectionCounterForMode('literal');
+            updateSelectionCounterForMode('sense');
+        }
+        function updateSelectionCounterForMode(mode) {
+            const el = document.getElementById(`selectionCounter-${mode}`);
+            if (!el) return;
+            const count = getSelectedLineCountForMode(mode);
+            if (count > 0) {
+                el.style.display = 'block';
+                el.textContent = `เลือกแล้ว: ${toThaiDigits(count)} บรรทัด`;
+            } else {
+                el.style.display = 'none';
+                el.textContent = '';
+            }
+        }
+        function getSelectedLineCountForMode(mode) {
+            if (tapSelectMode[mode]) {
+                const range = tapSelectRange[mode];
+                if (range && range.start >= 0) {
+                    const a = range.start;
+                    const b = range.end >= 0 ? range.end : range.start;
+                    return Math.abs(a - b) + 1;
+                }
+            }
+
+            const area = document.querySelector(`.book-content-area[data-mode="${mode}"]`);
+            if (!area) return 0;
+            const sel = window.getSelection?.();
+            if (!sel || sel.rangeCount < 1) return 0;
+            if (sel.isCollapsed) return 0;
+            if (!area.contains(sel.anchorNode) && !area.contains(sel.focusNode)) return 0;
+
+            const range = sel.getRangeAt(0);
+            let count = 0;
+            area.querySelectorAll('.book-line').forEach((line) => {
+                try {
+                    if (range.intersectsNode(line)) count += 1;
+                } catch (e) {
+                }
+            });
+            return count;
         }
 
         function normalizeEditablePaperContent(preserveSelection = true) {
@@ -3722,18 +3935,21 @@
                 
             // Toolbar
             const toolbar = document.createElement('div');
-            toolbar.className = 'd-flex items-center gap-10 mb-10';
+            toolbar.className = 'd-flex items-start gap-10 mb-10';
             const ios = isIosDevice();
             if (ios) {
                 tapSelectMode[mode] = true;
             }
             toolbar.innerHTML = `
-                <button id="btn-use-${mode}" class="btn primary" onclick="useSelectionForExam('${mode}')">
-                    <i class="fa-solid fa-file-import"></i> นำข้อความที่คลุมดำไปออกข้อสอบ
-                </button>
-                <span class="text-sm text-gray-666">
-                    <i class="fa-solid fa-circle-info"></i> ${ios ? 'แตะเลือกได้ (แตะ 1 ครั้ง=เริ่ม, แตะอีกครั้ง=จบ) แล้วกดปุ่มนี้' : 'ลากคลุมดำข้อความในกล่องด้านล่าง แล้วกดปุ่มนี้'}
-                </span>
+                <div class="import-block">
+                    <button id="btn-use-${mode}" class="btn primary" onclick="useSelectionForExam('${mode}')">
+                        <i class="fa-solid fa-file-import"></i> นำข้อความที่คลุมดำไปออกข้อสอบ
+                    </button>
+                    <div class="text-sm text-gray-666 import-hint">
+                        <i class="fa-solid fa-circle-info"></i> ${ios ? 'แตะเลือกได้ (แตะ 1 ครั้ง=เริ่ม, แตะอีกครั้ง=จบ) แล้วกดปุ่มนี้' : 'ลากคลุมดำข้อความในกล่องด้านล่าง แล้วกดปุ่มนี้'}
+                    </div>
+                    <div class="text-sm selection-counter" id="selectionCounter-${mode}"></div>
+                </div>
                 <button class="btn ${ios ? 'primary' : 'secondary'} text-xs" id="btn-tap-${mode}" onclick="toggleTapSelectMode('${mode}')" title="โหมดแตะเลือก (เหมาะกับ iPad)">แตะเลือก: ${ios ? 'เปิด' : 'ปิด'}</button>
                 <button class="btn secondary text-xs" onclick="clearTapSelection('${mode}')" title="ล้างช่วงที่แตะเลือก">ล้างช่วง</button>
                 <button class="btn secondary ml-auto text-xs" onclick="window.examContent['${getTargetModeFromRenderMode(mode)}'] = ''; buildExamPreview(); alert('ล้างค่าแล้ว');">
@@ -3788,11 +4004,15 @@
                 if (!Number.isFinite(idx) || idx < 0) return;
                 setTapSelectionRange(mode, idx);
             };
+            textArea.addEventListener('mouseup', scheduleSelectionCounterUpdate);
+            textArea.addEventListener('keyup', scheduleSelectionCounterUpdate);
+            textArea.addEventListener('touchend', scheduleSelectionCounterUpdate);
 
             wrapper.appendChild(textArea);
             box.appendChild(wrapper);
 
             updateTapSelectButton(mode);
+            scheduleSelectionCounterUpdate();
         }
         function buildExamPreview() {
             updateSolutionButtonState();
@@ -4487,6 +4707,9 @@
         document.getElementById('senseEndPage').addEventListener('input', generatePreview);
         document.getElementById('literalVolumeSelect').addEventListener('change', generatePreview);
         document.getElementById('senseVolumeSelect').addEventListener('change', generatePreview);
+        document.addEventListener('selectionchange', scheduleSelectionCounterUpdate);
+        window.addEventListener('resize', () => requestAnimationFrame(updateStep3StackedMode));
+        requestAnimationFrame(updateStep3StackedMode);
         
         populateSubjectSelect();
         populatePartSelects();
