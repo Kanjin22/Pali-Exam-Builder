@@ -3570,6 +3570,13 @@
             return out;
         }
 
+        function normalizeUnicodeWhitespaceForPaper(text) {
+            let out = String(text ?? '');
+            out = out.replace(/[\u200B\u200C\u200D\u2060\uFEFF\u00AD]/g, '');
+            out = out.replace(/[\u00A0\u1680\u2000-\u200A\u202F\u205F\u3000]/g, ' ');
+            return out;
+        }
+
         function normalizeExamSymbolSpacing(text) {
             let out = normalizeDigitLetterSpacing(text);
             out = out.replace(/\s*[;,:'"“”‘’]+\s*/g, ' ');
@@ -3838,14 +3845,15 @@
                     textNodes.push(node);
                 }
 
-                if (shouldNormalizeSymbols) {
-                    textNodes.forEach((textNode) => {
-                        const normalized = normalizeExamSymbolSpacing(textNode.nodeValue || '');
-                        if (normalized !== textNode.nodeValue) {
-                            textNode.nodeValue = normalized;
-                        }
-                    });
-                }
+                textNodes.forEach((textNode) => {
+                    let next = normalizeUnicodeWhitespaceForPaper(textNode.nodeValue || '');
+                    if (shouldNormalizeSymbols) {
+                        next = normalizeExamSymbolSpacing(next);
+                    }
+                    if (next !== textNode.nodeValue) {
+                        textNode.nodeValue = next;
+                    }
+                });
 
                 for (let i = 0; i < textNodes.length - 1; i++) {
                     const leftNode = textNodes[i];
@@ -4127,7 +4135,7 @@
             // Helper for spacing
             const formatSpacing = (text) => {
                 if (!text) return '';
-                let processed = String(text);
+                    let processed = normalizeUnicodeWhitespaceForPaper(String(text));
                 const isThaiContent = subjectLabel.includes('ไทยเป็นมคธ');
                 const isPt4To9ThaiToMagadha = ['p4','p5','p6','p7','p8','p9'].includes(levelCode) && subjectLabel.includes('ไทยเป็นมคธ');
 
