@@ -662,7 +662,7 @@
         .bottom-left .tool-row:first-child { padding-top: 0; border-top: 0; }
         .bottom-left .tool-row-label { min-width: 88px; font-size: 0.85rem; color: #546e7a; font-weight: 700; padding-top: 6px; }
         .bottom-left .tool-row-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; flex: 1 1 auto; min-width: 0; }
-        .bottom-left .print-cta-btn { width: 100%; justify-content: center; padding: 12px 14px; font-size: 1rem; border-radius: 12px; }
+        .bottom-left .print-cta-btn { width: 100%; justify-content: center; padding: 12px 14px; font-size: 1rem; border-radius: 12px; position: relative; z-index: 20; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
         .bottom-right .paper { margin: 0 auto 24px auto; }
 
         @media only screen and (min-width: 1200px) {
@@ -1024,7 +1024,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn primary print-cta-btn" id="printBtn" onclick="printExam()"><i class="fa-solid fa-print"></i> พิมพ์ / บันทึก PDF</button>
+                    <button class="btn primary print-cta-btn" id="printBtn" type="button"><i class="fa-solid fa-print"></i> พิมพ์ / บันทึก PDF</button>
 
                     <div class="internal-note" id="internalNotePanel">
                         <div class="title"><i class="fa-solid fa-note-sticky"></i> หมายเหตุภายใน (ไม่พิมพ์ออกจริง)</div>
@@ -4671,7 +4671,23 @@
             updateWorkflowState();
         });
         document.getElementById('copyBtn').addEventListener('click', copyToClipboard);
-        // document.getElementById('printBtn').addEventListener('click', () => window.print());
+        let lastPrintTriggerAt = 0;
+        function triggerPrintFromUserGesture(e) {
+            try {
+                const now = Date.now();
+                if (now - lastPrintTriggerAt < 700) return;
+                lastPrintTriggerAt = now;
+                if (e && typeof e.preventDefault === 'function') e.preventDefault();
+                if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+                printExam();
+            } catch (_) {}
+        }
+        const printBtn = document.getElementById('printBtn');
+        if (printBtn) {
+            printBtn.addEventListener('click', triggerPrintFromUserGesture);
+            printBtn.addEventListener('pointerup', triggerPrintFromUserGesture);
+            printBtn.addEventListener('touchend', triggerPrintFromUserGesture, { passive: false });
+        }
         
         // Toolbar state listeners
         document.getElementById('paperEditable').addEventListener('mouseup', updateToolbarState);
