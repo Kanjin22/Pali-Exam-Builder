@@ -711,7 +711,7 @@
             <div>
                 <span class="badge" id="durationDisplay">เวลา: ๐ ชั่วโมง กับ ๐ นาที.</span>
                 <span class="badge" id="dateDisplay">วันที่: -</span>
-                <span class="badge" id="webUsageBadge">เข้าใช้วันนี้: -</span>
+                <span class="badge" id="webUsageBadge">ผู้เข้าใช้งานวันนี้: -</span>
             </div>
         </div>
         <div class="layout-root">
@@ -3256,11 +3256,11 @@
                 ]);
                 const dayData = daySnap.exists ? (daySnap.data() || {}) : {};
                 const totalData = totalSnap.exists ? (totalSnap.data() || {}) : {};
-                const viewsToday = Number(dayData.views || 0) || 0;
-                const viewsTotal = Number(totalData.views || 0) || 0;
-                badge.textContent = `เข้าใช้วันนี้: ${toThaiDigits(viewsToday)} | เข้าใช้รวม: ${toThaiDigits(viewsTotal)}`;
+                const todayCount = Number(dayData.sessions || 0) || Number(dayData.views || 0) || 0;
+                const totalCount = Number(totalData.sessions || 0) || Number(totalData.views || 0) || 0;
+                badge.textContent = `ผู้เข้าใช้งานวันนี้: ${toThaiDigits(todayCount)} | รวมทั้งหมด: ${toThaiDigits(totalCount)}`;
             } catch (_) {
-                badge.textContent = 'เข้าใช้วันนี้: -';
+                badge.textContent = 'ผู้เข้าใช้งานวันนี้: -';
             }
         }
 
@@ -3334,13 +3334,29 @@
 
             // 2. System Usage Stats
             try {
+                let webUsageHtml = '';
+                try {
+                    const day = getBangkokDayKey();
+                    const [daySnap, totalSnap] = await Promise.all([
+                        db.collection('web_analytics_daily').doc(day).get(),
+                        db.collection('web_analytics_totals').doc('ALL').get()
+                    ]);
+                    const dayData = daySnap.exists ? (daySnap.data() || {}) : {};
+                    const totalData = totalSnap.exists ? (totalSnap.data() || {}) : {};
+                    const todayCount = Number(dayData.sessions || 0) || Number(dayData.views || 0) || 0;
+                    const totalCount = Number(totalData.sessions || 0) || Number(totalData.views || 0) || 0;
+                    webUsageHtml = `<div class="text-sm text-gray-dark mb-10">ผู้เข้าใช้งานวันนี้: ${toThaiDigits(todayCount)} | รวมทั้งหมด: ${toThaiDigits(totalCount)}</div>`;
+                } catch (_) {
+                    webUsageHtml = `<div class="text-sm text-gray-dark mb-10">ผู้เข้าใช้งานวันนี้: -</div>`;
+                }
+
                 // Query by story name
                 const sysSnap = await db.collection('exam_logs')
                     .where('story', '==', story)
                     .get();
 
                 if (sysSnap.empty) {
-                    sysContent.innerHTML = '<span class="text-gray">ยังไม่เคยมีผู้นำไปออกข้อสอบในระบบนี้</span>';
+                    sysContent.innerHTML = `${webUsageHtml}<span class="text-gray">ยังไม่เคยมีผู้นำไปออกข้อสอบในระบบนี้</span>`;
                 } else {
                     const count = sysSnap.size;
                     const users = new Set();
@@ -3350,6 +3366,7 @@
                     });
 
                     sysContent.innerHTML = `
+                        ${webUsageHtml}
                         <div class="text-lg font-bold">ถูกใช้งานแล้ว ${count} ครั้ง</div>
                         <div class="text-md text-gray-dark">โดยอาจารย์: ${Array.from(users).join(', ')}</div>
                     `;
