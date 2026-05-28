@@ -299,10 +299,14 @@
             font-size: 0.95rem;
             text-align: center;
         }
-        .paper-header[contenteditable="false"] {
+        .paper-header[contenteditable="false"],
+        .paper-sep[contenteditable="false"],
+        .paper-foot[contenteditable="false"] {
             cursor: not-allowed;
         }
-        .paper-header.paper-header-locked {
+        .paper-header.paper-header-locked,
+        .paper-sep.paper-header-locked,
+        .paper-foot.paper-header-locked {
             background: transparent;
             border-radius: 0;
             padding: 0;
@@ -661,7 +665,7 @@
         }
         .import-block { display: flex; flex-direction: column; gap: 6px; }
         .import-hint { max-width: 520px; line-height: 1.4; }
-        .selection-counter { max-width: 520px; line-height: 1.4; color: #1565c0; font-weight: 700; display: none; }
+        .selection-counter { max-width: 520px; line-height: 1.4; color: #1565c0; font-weight: 700; display: block; }
         .step2-range-lines { display: flex; flex-direction: column; gap: 8px; }
         .step2-range-line { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
         .step2-range-line.volume-line { flex-wrap: nowrap; }
@@ -1145,7 +1149,7 @@
                             <div class="tool-row-label" title="อื่นๆ"><i class="fa-solid fa-gear"></i><span class="label-text">อื่นๆ:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
-                                    <button class="tool-btn" id="headerLockBtn" onclick="toggleHeaderLock()" title="ล็อกหัวกระดาษไม่ให้แก้ไข">ล็อกหัวกระดาษ</button>
+                                    <button class="tool-btn" id="headerLockBtn" onclick="toggleHeaderLock()" title="ล็อกหัว/ท้ายกระดาษไม่ให้แก้ไข">ล็อกหัว/ท้ายกระดาษ</button>
                                 </div>
                             </div>
                         </div>
@@ -1153,12 +1157,14 @@
                 </div>
 
                 <div class="bottom-right">
-                    <div class="paper size-a4">
-                        <div class="paper-inner" id="paperContent">
-                            <div id="paperEditable" class="paper-editable" contenteditable="true"></div>
+                    <div class="paper-zoom-wrap" id="paperZoomWrap">
+                        <div class="paper size-a4">
+                            <div class="paper-inner" id="paperContent">
+                                <div id="paperEditable" class="paper-editable" contenteditable="true"></div>
+                            </div>
+                            <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
+                            <div id="pageMarkers" class="page-markers" aria-hidden="true"></div>
                         </div>
-                        <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
-                        <div id="pageMarkers" class="page-markers" aria-hidden="true"></div>
                     </div>
                     <div class="paper-below-panels non-print">
                         <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> หากเนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒<br>ต้องการให้อยู่ใน ๑ หน้า: ให้ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ ใช้กระดาษ F14</div>
@@ -1206,7 +1212,7 @@
 
     <script>
         let isBsMode = false;
-        let headerLockEnabled = false;
+        let headerLockEnabled = true;
         let paperZoom = 1;
         let marginGuidesEnabled = true;
         let paperHorizontalScale = 1;
@@ -1297,17 +1303,15 @@
             const btn = document.getElementById('headerLockBtn');
             if (!btn) return;
             btn.classList.toggle('active', headerLockEnabled);
-            btn.innerHTML = headerLockEnabled
-                ? '<i class="fa-solid fa-lock"></i> ปลดล็อกหัวกระดาษ'
-                : '<i class="fa-solid fa-lock-open"></i> ล็อกหัวกระดาษ';
+            btn.innerHTML = headerLockEnabled ? '<i class="fa-solid fa-lock"></i> ปลดล็อกหัว/ท้าย' : '<i class="fa-solid fa-lock-open"></i> ล็อกหัว/ท้ายกระดาษ';
         }
 
         function applyHeaderLockState() {
             const paper = document.getElementById('paperEditable');
             if (!paper) return;
-            paper.querySelectorAll('.paper-header').forEach((header) => {
-                header.setAttribute('contenteditable', headerLockEnabled ? 'false' : 'true');
-                header.classList.toggle('paper-header-locked', headerLockEnabled);
+            paper.querySelectorAll('.paper-header, .paper-sep, .paper-foot').forEach((el) => {
+                el.setAttribute('contenteditable', headerLockEnabled ? 'false' : 'true');
+                el.classList.toggle('paper-header-locked', headerLockEnabled);
             });
         }
 
@@ -1571,7 +1575,7 @@
                 }
 
                 setBsMode(!!state.settings?.isBsMode, { rebuild: false });
-                headerLockEnabled = !!state.settings?.headerLockEnabled;
+                headerLockEnabled = state.settings?.headerLockEnabled !== undefined ? !!state.settings.headerLockEnabled : true;
                 updateHeaderLockButton();
 
                 const fontFamily = state.settings?.fontFamily || 'DilleniaUPC';
@@ -2144,7 +2148,10 @@
             const btn = document.getElementById('zoomResetBtn');
             if (btn) btn.textContent = `${Math.round(next * 100)}%`;
             schedulePrintOverflowCheck();
-            requestAnimationFrame(updateStep3StackedMode);
+            requestAnimationFrame(() => {
+                syncPaperZoomWrap();
+                updateStep3StackedMode();
+            });
             scheduleDraftSave();
         }
         function updateStep3StackedMode() {
@@ -2167,6 +2174,17 @@
             const paperWidth = paper.getBoundingClientRect().width;
 
             root.classList.toggle('step3-stacked', paperWidth > (available - 8));
+        }
+        function syncPaperZoomWrap() {
+            const wrap = document.getElementById('paperZoomWrap');
+            const paper = document.querySelector('.bottom-right .paper');
+            if (!wrap || !paper) return;
+            const rect = paper.getBoundingClientRect();
+            if (rect.height) {
+                wrap.style.minHeight = `${Math.ceil(rect.height)}px`;
+            } else {
+                wrap.style.minHeight = '';
+            }
         }
         function adjustPaperZoom(delta) {
             const d = typeof delta === 'string' ? parseFloat(delta) : Number(delta);
@@ -2243,6 +2261,10 @@
             document.body.setAttribute('data-print-size', size);
             updatePrintPageStyle();
             syncPrintMirrorPaperSize();
+            requestAnimationFrame(() => {
+                syncPaperZoomWrap();
+                updateStep3StackedMode();
+            });
             schedulePrintOverflowCheck();
             scheduleDraftSave();
         }
@@ -3986,13 +4008,8 @@
             const el = document.getElementById(`selectionCounter-${mode}`);
             if (!el) return;
             const count = getSelectedLineCountForMode(mode);
-            if (count > 0) {
-                el.style.display = 'block';
-                el.textContent = `เลือกแล้ว: ${toThaiDigits(count)} บรรทัด`;
-            } else {
-                el.style.display = 'none';
-                el.textContent = '';
-            }
+            el.style.display = 'block';
+            el.textContent = `เลือกแล้ว: ${toThaiDigits(count)} บรรทัด`;
         }
         function isBookPageLabelLine(text) {
             const t = String(text || '').trim();
@@ -4279,6 +4296,7 @@
             box.appendChild(wrapper);
 
             updateTapSelectButton(mode);
+            updateSelectionCounterForMode(mode); // Initial display
             scheduleSelectionCounterUpdate();
         }
         function buildExamPreview() {
