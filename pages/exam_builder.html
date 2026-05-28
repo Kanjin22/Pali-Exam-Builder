@@ -814,7 +814,6 @@
             <div>
                 <span class="badge" id="durationDisplay">เวลา: ๐ ชั่วโมง กับ ๐ นาที.</span>
                 <span class="badge" id="dateDisplay">วันที่: -</span>
-                <span class="badge" id="webUsageBadge">ผู้เข้าใช้งานวันนี้: -</span>
             </div>
         </div>
         <div class="layout-root">
@@ -3394,34 +3393,12 @@
             await db.collection('web_analytics_totals').doc('ALL').set(totalPayload, { merge: true });
         }
 
-        async function refreshWebUsageBadge() {
-            const badge = document.getElementById('webUsageBadge');
-            if (!badge) return;
-            if (!db) return;
-            try {
-                const day = getBangkokDayKey();
-                const [daySnap, totalSnap] = await Promise.all([
-                    db.collection('web_analytics_daily').doc(day).get(),
-                    db.collection('web_analytics_totals').doc('ALL').get()
-                ]);
-                const dayData = daySnap.exists ? (daySnap.data() || {}) : {};
-                const totalData = totalSnap.exists ? (totalSnap.data() || {}) : {};
-                const todayCount = Number(dayData.sessions || 0) || Number(dayData.views || 0) || 0;
-                const totalCount = Number(totalData.sessions || 0) || Number(totalData.views || 0) || 0;
-                badge.textContent = `ผู้เข้าใช้งานวันนี้: ${toThaiDigits(todayCount)} | รวมทั้งหมด: ${toThaiDigits(totalCount)}`;
-            } catch (_) {
-                badge.textContent = 'ผู้เข้าใช้งานวันนี้: -';
-            }
+        function refreshWebUsageBadge() {
+            // Removed
         }
 
         function startWebAnalytics() {
-            if (!db) return;
-            setTimeout(async () => {
-                try {
-                    await logWebAnalytics();
-                } catch (_) {}
-                await refreshWebUsageBadge();
-            }, 0);
+            // Removed
         }
 
         async function fetchStats() {
