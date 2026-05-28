@@ -548,13 +548,27 @@
             .layout-bottom { display: block !important; }
             .bottom-right { width: 100% !important; }
             .container { box-shadow: none; margin: 0; max-width: none; width: 100%; border: none; }
-            .paper { margin: 0 !important; border: none !important; box-shadow: none !important; page-break-after: always; width: 100% !important; transform: none !important; }
-            .paper-inner { padding: 0 !important; }
-            .paper-header.paper-header-locked { background: transparent !important; padding: 0 !important; border-radius: 0 !important; }
-            .paper { zoom: 1 !important; }
+
+            .paper-zoom-wrap { display: none !important; }
+            .tablet-action-bar { display: none !important; }
             .margin-guides { display: none !important; }
             .page-markers { display: none !important; }
-            .print-mirror-host { display: none !important; }
+
+            .print-mirror-host {
+                display: block !important;
+                position: static !important;
+                left: auto !important;
+                top: auto !important;
+                width: auto !important;
+                height: auto !important;
+                overflow: visible !important;
+                pointer-events: none !important;
+            }
+            #printMirrorPaper { margin: 0 !important; border: none !important; box-shadow: none !important; }
+            #printMirrorPaper.size-a4 { width: 210mm !important; min-height: 297mm !important; height: auto !important; }
+            #printMirrorPaper.size-f4 { width: 216mm !important; min-height: 356mm !important; height: auto !important; }
+            #printMirrorInner { height: auto !important; overflow: visible !important; }
+            #printMirrorEditable, #printMirrorEditable * { -webkit-user-select: none !important; user-select: none !important; }
             #overflowWarning { display: none !important; }
             
             /* Print settings from toolbar state */
@@ -2235,10 +2249,10 @@
                 const n = parseFloat(document.getElementById(id)?.value || '');
                 return isFinite(n) && n >= 0 ? n : fallback;
             };
-            const top = read('marginTop', 2.54);
-            const right = read('marginRight', 2.54);
-            const bottom = read('marginBottom', 2.54);
-            const left = read('marginLeft', 2.54);
+            read('marginTop', 2.54);
+            read('marginRight', 2.54);
+            read('marginBottom', 2.54);
+            read('marginLeft', 2.54);
 
             let style = document.getElementById('page-size-style');
             if (!style) {
@@ -2248,7 +2262,7 @@
             }
 
             const pageSize = size === 'F4' ? '216mm 356mm' : 'A4 portrait';
-            style.innerHTML = `@media print { @page { size: ${pageSize}; margin: ${top}cm ${right}cm ${bottom}cm ${left}cm; } }`;
+            style.innerHTML = `@media print { @page { size: ${pageSize}; margin: 0; } }`;
         }
         function changePaperSize(size) {
             const p = document.querySelector('.paper');
@@ -3538,9 +3552,16 @@
             }
         }
 
-        function printExam() {
+        async function printExam() {
             trackGaEvent('print', {});
             saveExamLog();
+            syncPrintMirrorStyles();
+            updatePrintPageStyle();
+            try {
+                if (document.fonts && document.fonts.ready) {
+                    await document.fonts.ready;
+                }
+            } catch (_) {}
             window.print();
         }
 
