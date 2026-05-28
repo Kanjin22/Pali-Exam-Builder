@@ -564,15 +564,12 @@
                 overflow: visible !important;
                 pointer-events: none !important;
             }
-            #printMirrorPaper { margin: 0 !important; border: none !important; box-shadow: none !important; }
-            #printMirrorPaper.size-a4 { width: 210mm !important; min-height: 297mm !important; height: auto !important; }
-            #printMirrorPaper.size-f4 { width: 216mm !important; min-height: 356mm !important; height: auto !important; }
-            #printMirrorInner { height: auto !important; overflow: visible !important; }
+            #printMirrorPaper { margin: 0 !important; border: none !important; box-shadow: none !important; width: 100% !important; max-width: none !important; height: auto !important; }
+            #printMirrorPaper.size-a4 { width: 100% !important; min-height: 0 !important; height: auto !important; }
+            #printMirrorPaper.size-f4 { width: 100% !important; min-height: 0 !important; height: auto !important; }
+            #printMirrorInner { height: auto !important; overflow: visible !important; padding: 0 !important; box-sizing: border-box !important; }
             #printMirrorEditable, #printMirrorEditable * { -webkit-user-select: none !important; user-select: none !important; }
             #overflowWarning { display: none !important; }
-            
-            /* Print settings from toolbar state */
-            @page { size: auto; margin: 0; }
             
             /* Solution Mode Print Overrides - REMOVED to match Exam Mode Layout */
         }
@@ -1188,7 +1185,8 @@
                                     <div class="title"><i class="fa-solid fa-circle-info"></i> วิธีจัดข้อความในข้อสอบ</div>
                                     <div>1. ขึ้นย่อหน้าใหม่: กด <b>Enter</b></div>
                                     <div>2. ตัดบรรทัด (เนื้อหาต่อเนื่อง): กด <b>Shift+Enter</b></div>
-                                    <div>3. แก้ปัญหาคำฉีก: ใช้ <b>Space bar</b> ดันคำที่ฉีกบนบรรทัดบนให้ตกลงมาข้างล่างทั้งคำ</div>
+                                    <div>3. แก้ปัญหาคำฉีก (แนะนำ): คลุมคำที่ถูกฉีกแล้วกดปุ่ม <b>ห้ามตัดคำ</b> เพื่อให้ตอนพิมพ์ไม่เด้งกลับ</div>
+                                    <div>4. ถ้าใช้ <b>Space bar</b> ดันคำ: อาจคลาดเคลื่อนตอนพิมพ์ได้ (ควรตรวจหน้า Print Preview ทุกครั้ง)</div>
                                     <div class="warning"><b>ข้อห้าม:</b> ห้ามใช้ <b>Enter</b> หรือ <b>Shift+Enter</b> ในการปัดคำลงเด็ดขาด</div>
                                     <div class="divider ipad-only"></div>
                                     <div class="ipad-only">
@@ -2249,10 +2247,10 @@
                 const n = parseFloat(document.getElementById(id)?.value || '');
                 return isFinite(n) && n >= 0 ? n : fallback;
             };
-            read('marginTop', 2.54);
-            read('marginRight', 2.54);
-            read('marginBottom', 2.54);
-            read('marginLeft', 2.54);
+            const top = read('marginTop', 2.54);
+            const right = read('marginRight', 2.54);
+            const bottom = read('marginBottom', 2.54);
+            const left = read('marginLeft', 2.54);
 
             let style = document.getElementById('page-size-style');
             if (!style) {
@@ -2262,7 +2260,7 @@
             }
 
             const pageSize = size === 'F4' ? '216mm 356mm' : 'A4 portrait';
-            style.innerHTML = `@media print { @page { size: ${pageSize}; margin: 0; } }`;
+            style.innerHTML = `@media print { @page { size: ${pageSize}; margin: ${top}cm ${right}cm ${bottom}cm ${left}cm; } }`;
         }
         function changePaperSize(size) {
             const p = document.querySelector('.paper');
@@ -3552,9 +3550,211 @@
             }
         }
 
+        function collectAllStyleText() {
+            const styles = Array.from(document.querySelectorAll('style')).map(s => String(s.textContent || ''));
+            return styles.join('\n');
+        }
+
+        function absolutizeCssUrls(cssText) {
+            return String(cssText || '').replace(/url\(\s*(['"]?)([^'")]+)\1\s*\)/g, (m, q, raw) => {
+                const value = String(raw || '').trim();
+                if (!value) return m;
+                if (/^(data:|https?:|blob:|about:|file:|#)/i.test(value)) return `url(${q || ''}${value}${q || ''})`;
+                try {
+                    const abs = new URL(value, window.location.href).href;
+                    return `url(${q || ''}${abs}${q || ''})`;
+                } catch (_) {
+                    return m;
+                }
+            });
+        }
+
+        async function renderElementToCanvas(el, scale) {
+            const rect = el.getBoundingClientRect();
+            const w = Math.max(1, Math.ceil(rect.width || 0));
+            const h = Math.max(1, Math.ceil(Math.max(rect.height || 0, el.scrollHeight || 0, el.offsetHeight || 0)));
+
+            const css = absolutizeCssUrls(collectAllStyleText());
+            const html = `<div xmlns="http://www.w3.org/1999/xhtml"><style>${css}</style>${el.outerHTML}</div>`;
+            const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+  <foreignObject width="100%" height="100%">${html}</foreignObject>
+</svg>`;
+
+            const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            try {
+                const img = new Image();
+                img.decoding = 'async';
+                await new Promise((resolve, reject) => {
+                    img.onload = () => resolve();
+                    img.onerror = () => reject(new Error('image load failed'));
+                    img.src = url;
+                });
+
+                const canvas = document.createElement('canvas');
+                canvas.width = Math.round(w * scale);
+                canvas.height = Math.round(h * scale);
+                const ctx = canvas.getContext('2d');
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
+                ctx.setTransform(scale, 0, 0, scale, 0, 0);
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, w, h);
+                ctx.drawImage(img, 0, 0);
+                return { canvas, width: w, height: h };
+            } finally {
+                URL.revokeObjectURL(url);
+            }
+        }
+
+        function getPaperSizeMmFromElement(paperEl) {
+            const isF4 = paperEl && paperEl.classList && paperEl.classList.contains('size-f4');
+            return isF4 ? { w: 216, h: 356 } : { w: 210, h: 297 };
+        }
+
+        function canvasToPngDataUrl(canvas) {
+            try {
+                return canvas.toDataURL('image/png');
+            } catch (_) {
+                return '';
+            }
+        }
+
+        async function printExamAsImages(printWin) {
+            syncPrintMirrorStyles();
+            updatePrintPageStyle();
+            try {
+                if (document.fonts && document.fonts.ready) {
+                    await document.fonts.ready;
+                }
+            } catch (_) {}
+
+            const paper = document.getElementById('printMirrorPaper');
+            if (!paper) throw new Error('missing printMirrorPaper');
+            const inner = document.getElementById('printMirrorInner');
+            if (!inner) throw new Error('missing printMirrorInner');
+
+            const prevPaperHeight = paper.style.height;
+            const prevInnerHeight = inner.style.height;
+            const prevInnerOverflow = inner.style.overflow;
+            paper.style.height = 'auto';
+            inner.style.height = 'auto';
+            inner.style.overflow = 'visible';
+
+            const { w: pageWmm, h: pageHmm } = getPaperSizeMmFromElement(paper);
+            const scale = 2;
+            const computedInner = getComputedStyle(inner);
+            const padTopCssPx = parseFloat(computedInner.paddingTop || '0') || 0;
+            const padBottomCssPx = parseFloat(computedInner.paddingBottom || '0') || 0;
+
+            const totalScrollHeight = Math.max(0, inner.scrollHeight || 0);
+            const totalContentHeightCssPx = Math.max(1, totalScrollHeight - padTopCssPx - padBottomCssPx);
+
+            const host = document.createElement('div');
+            host.style.position = 'fixed';
+            host.style.left = '-12000px';
+            host.style.top = '0';
+            host.style.width = '1px';
+            host.style.height = '1px';
+            host.style.overflow = 'hidden';
+            host.style.pointerEvents = 'none';
+            document.body.appendChild(host);
+
+            const pagePaper = paper.cloneNode(true);
+            pagePaper.removeAttribute('id');
+            host.appendChild(pagePaper);
+
+            const pageInner = pagePaper.querySelector('#printMirrorInner') || pagePaper.querySelector('.paper-inner');
+            const pageEditable = pagePaper.querySelector('#printMirrorEditable') || pagePaper.querySelector('.paper-editable');
+            if (!pageInner || !pageEditable) {
+                host.remove();
+                throw new Error('missing mirror structure');
+            }
+            pageInner.style.height = '100%';
+            pageInner.style.overflow = 'hidden';
+
+            const pageRect = pagePaper.getBoundingClientRect();
+            const pageWidthCssPx = Math.max(1, pageRect.width || 0);
+            const pageHeightCssPx = Math.max(1, pageRect.height || 0);
+            const contentHeightCssPx = Math.max(1, pageHeightCssPx - padTopCssPx - padBottomCssPx);
+            const pageCount = Math.max(1, Math.ceil(totalContentHeightCssPx / contentHeightCssPx));
+
+            const dataUrls = [];
+            for (let i = 0; i < pageCount; i++) {
+                pageEditable.style.transform = `translateY(${-i * contentHeightCssPx}px)`;
+                pageEditable.style.transformOrigin = 'top left';
+                const rendered = await renderElementToCanvas(pagePaper, scale);
+                const url = canvasToPngDataUrl(rendered.canvas);
+                if (url) dataUrls.push(url);
+            }
+
+            host.remove();
+            if (!dataUrls.length) throw new Error('render failed');
+
+            paper.style.height = prevPaperHeight;
+            inner.style.height = prevInnerHeight;
+            inner.style.overflow = prevInnerOverflow;
+
+            const pagesHtml = dataUrls.map(u => `<div class="page"><img alt="" src="${u}"></div>`).join('');
+            const html = `
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>พิมพ์ข้อสอบ</title>
+  <style>
+    @page { size: ${pageWmm}mm ${pageHmm}mm; margin: 0; }
+    html, body { margin: 0; padding: 0; background: #fff; }
+    .page { width: ${pageWmm}mm; height: ${pageHmm}mm; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    img { width: 100%; height: 100%; display: block; }
+  </style>
+</head>
+<body>${pagesHtml}</body>
+</html>`;
+
+            printWin.document.open();
+            printWin.document.write(html);
+            printWin.document.close();
+
+            await new Promise((resolve) => {
+                const done = () => resolve();
+                if (printWin.document.readyState === 'complete') return done();
+                printWin.addEventListener('load', done, { once: true });
+                setTimeout(done, 1200);
+            });
+        }
+
+        function maybeWarnAboutSpaceFixBeforePrint() {
+            const key = 'exam_builder_warn_space_fix_v1';
+            try {
+                if (sessionStorage.getItem(key) === '1') return true;
+            } catch (_) {}
+
+            const el = document.getElementById('paperEditable');
+            if (!el) return true;
+            const html = String(el.innerHTML || '');
+            const hasLongSpaces = / {3,}/.test(html) || /&nbsp;{2,}/i.test(html) || /(&nbsp;|\u00a0){2,}/i.test(html);
+            if (!hasLongSpaces) return true;
+
+            const ok = window.confirm(
+                'พบการใช้ช่องว่างยาวๆ เพื่อแก้คำฉีก\n\n' +
+                'ตอนพิมพ์ (A4/F14) อาจจัดบรรทัดต่างจากหน้าจอ ทำให้คำที่ดันด้วย Space เด้งกลับได้\n\n' +
+                'แนะนำ: คลุมคำที่ถูกฉีกแล้วกดปุ่ม "ห้ามตัดคำ"\n\n' +
+                'ต้องการพิมพ์ต่อเลยหรือไม่?'
+            );
+            try {
+                sessionStorage.setItem(key, '1');
+            } catch (_) {}
+            return ok;
+        }
+
         async function printExam() {
             trackGaEvent('print', {});
             saveExamLog();
+            if (!maybeWarnAboutSpaceFixBeforePrint()) return;
             syncPrintMirrorStyles();
             updatePrintPageStyle();
             try {
