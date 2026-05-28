@@ -84,6 +84,17 @@
         .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .grid-3 { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
         .stats-panel-warning { background:#fff3e0; padding:15px; border-radius:8px; border:1px solid #ffe0b2; }
+        .step2-placeholder {
+            border: 1px dashed #cfd8dc;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            color: #546e7a;
+            text-align: center;
+            line-height: 1.6;
+        }
+        #contentSection.step2-empty #step2Body { display: none; }
+        #contentSection:not(.step2-empty) #step2Placeholder { display: none; }
         /* Paper (A4-like) */
         /* DilleniaUPC (Standard) */
         @font-face {
@@ -369,6 +380,45 @@
             margin-top: 10px;
             font-size: 0.9rem;
         }
+        .ipad-only { display: block; }
+        #editHintPanel .divider { border-top: 1px solid #e6edf5; margin: 10px 0; }
+        .collapsible-panel { width: 100%; }
+        .collapsible-panel summary {
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 12px;
+            border: 1px solid #dfe6ee;
+            background: #ffffff;
+            color: #37474f;
+            font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 1.1;
+        }
+        .collapsible-panel summary::-webkit-details-marker { display: none; }
+        .collapsible-panel .collapsible-body { margin-top: 10px; }
+        @media (pointer: coarse) {
+            .collapsible-panel summary { padding: 10px 14px; font-size: 1rem; }
+        }
+
+        .toolbox-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid #dfe6ee;
+            background: #ffffff;
+            color: #37474f;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .toolbox-head i { color: #1976d2; }
+        .paper-below-panels { width: 100%; max-width: 820px; margin: 10px auto 0 auto; display: flex; flex-direction: column; gap: 10px; }
         .margin-inline {
             display: flex;
             align-items: flex-start;
@@ -407,7 +457,7 @@
         
         /* Paper Sizes */
         .paper.size-a4 { width: 210mm; min-height: 297mm; position: relative; }
-        .paper.size-f4 { width: 216mm; min-height: 356mm; position: relative; } /* Legal/Folio */
+        .paper.size-f4 { width: 216mm; min-height: 356mm; position: relative; } /* Legal (F14) */
 
         .print-mirror-host { position: fixed; left: -12000px; top: 0; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
         #printMirrorPaper { margin: 0; border: none; box-shadow: none; max-width: none; zoom: 1; }
@@ -421,11 +471,6 @@
         
         #overflowWarning {
             display: none;
-            position: absolute;
-            bottom: -30px;
-            left: var(--ow-left, 0);
-            right: var(--ow-right, 0);
-            width: auto;
             text-align: center;
             color: #d32f2f;
             font-weight: bold;
@@ -457,12 +502,39 @@
             .item-controls { justify-content: flex-start; }
             .paper { margin: 16px 0 24px 0; border-radius: 0; box-shadow: none; }
             .paper-inner { padding: 16px; }
-            .layout-root { padding: 0 16px 16px 16px; }
+            .layout-root { padding: 0 16px calc(16px + 92px + env(safe-area-inset-bottom)) 16px; }
             .layout-top, .step3-main { flex-direction: column; }
             .top-left, .top-right, .bottom-left, .bottom-right { width: 100%; min-width: 0; flex: 1 1 auto; }
             .layout-sep { margin: 12px 0; }
             .step3-head { flex-direction: column; }
         }
+        
+        @media only screen and (max-width: 1024px) {
+            .container { margin: 0; border-radius: 0; box-shadow: none; max-width: 100%; }
+            .header { flex-wrap: wrap; gap: 10px; }
+            .layout-root { padding: 12px 16px calc(18px + 92px + env(safe-area-inset-bottom)) 16px; --tool-panel-width: 360px; }
+            .top-left { min-width: 280px; }
+            .bottom-left { min-width: 280px; }
+        }
+
+        @media only screen and (max-width: 1024px) and (orientation: portrait) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .layout-top { flex-direction: column; }
+            .top-left, .top-right { width: 100%; min-width: 0; flex: 1 1 auto; }
+        }
+
+        @media (pointer: coarse) {
+            .btn { padding: 10px 14px; font-size: 1rem; border-radius: 12px; }
+            .step3-head .actions .btn { padding: 8px 12px; font-size: 0.95rem; border-radius: 12px; }
+            .bottom-left .tool-btn { padding: 8px 10px; font-size: 0.95rem; }
+            .bottom-left .tool-select { padding: 8px 10px; font-size: 0.95rem; }
+            .bottom-left .tool-row-label { padding-top: 10px; }
+        }
+        body.device-ipad .layout-root.step3-stacked .bottom-left .toolbar { position: sticky; top: 8px; z-index: 60; }
+        body.device-ipad .bottom-left .tool-row { align-items: center; }
+        body.device-ipad .bottom-left .tool-row-label { min-width: 0; padding-top: 0; }
+        body.device-ipad .bottom-left .tool-row-label .label-text { display: none; }
+        body.device-ipad .bottom-left .tool-row-label i { font-size: 1.05rem; color: #546e7a; }
 
         @media print {
             body { background: #fff; margin: 0; padding: 0; }
@@ -625,6 +697,32 @@
         .modal-close-btn { border: none; background: transparent; font-size: 1.5rem; cursor: pointer; color: #7f8c8d; }
         .modal-footer { text-align: right; margin-top: 15px; }
 
+        .tablet-action-bar {
+            display: block;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1900;
+            background: rgba(255,255,255,0.96);
+            border-top: 1px solid #dfe6ee;
+            padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+            backdrop-filter: blur(10px);
+        }
+        .tablet-action-bar .bar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .tablet-action-bar .bar-group { display: flex; gap: 10px; align-items: center; }
+        .tablet-action-bar .bar-btn { border: none; border-radius: 14px; padding: 10px 14px; font-weight: 800; cursor: pointer; white-space: nowrap; line-height: 1.1; }
+        .tablet-action-bar .bar-btn.primary { background: #1976D2; color: #fff; }
+        .tablet-action-bar .bar-btn.secondary { background: #eceff1; color: #37474f; }
+        .tablet-action-bar .bar-btn > i { margin-right: 8px; }
+
         /* Print/Display Utilities for Content */
         .print-container { margin-bottom: 8px; page-break-inside: avoid; text-indent: 0; }
         .print-pali { font-family: 'DilleniaUPC_4Balee', 'DilleniaUPC', sans-serif; margin-bottom: 0; text-align: justify; text-align-last: left; white-space: pre-wrap; }
@@ -639,9 +737,9 @@
         .paper-sep.paper-header-font { margin: 6px 0 12px 0; line-height: 1.2; }
         .paper-foot.paper-header-font { margin-top: 12px; line-height: 1.25; }
 
-        .layout-root { padding: 18px 24px 24px 24px; --tool-panel-width: 420px; }
+        .layout-root { padding: 18px 24px calc(24px + 92px + env(safe-area-inset-bottom)) 24px; --tool-panel-width: 420px; }
         .layout-top { display: flex; align-items: flex-start; gap: 18px; }
-        .top-left { flex: 0 0 420px; width: 420px; min-width: 320px; }
+        .top-left { flex: 0 0 var(--tool-panel-width); width: var(--tool-panel-width); min-width: 320px; }
         .top-right { flex: 1 1 auto; min-width: 0; }
         .layout-sep { border-top: 1px solid #e0e0e0; margin: 18px 0; }
         .layout-bottom { display: flex; flex-direction: column; gap: 12px; }
@@ -692,7 +790,8 @@
         .bottom-left .internal-note { max-width: none; margin: 14px 0 0 0; }
         .bottom-left .tool-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; padding-top: 8px; border-top: 1px dashed #e0e0e0; }
         .bottom-left .tool-row:first-child { padding-top: 0; border-top: 0; }
-        .bottom-left .tool-row-label { min-width: 88px; font-size: 0.85rem; color: #546e7a; font-weight: 700; padding-top: 6px; }
+        .bottom-left .tool-row-label { min-width: 88px; font-size: 0.85rem; color: #546e7a; font-weight: 700; padding-top: 6px; display: inline-flex; align-items: center; gap: 6px; }
+        .bottom-left .tool-row-label i { font-size: 0.95rem; color: #546e7a; }
         .bottom-left .tool-row-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; flex: 1 1 auto; min-width: 0; }
         .bottom-left .print-cta-btn { width: 100%; justify-content: center; padding: 12px 14px; font-size: 1rem; border-radius: 12px; position: relative; z-index: 20; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
         .bottom-right .paper { margin: 0 auto 24px auto; }
@@ -773,10 +872,14 @@
                     </div>
                 </div>
                 <div class="top-right">
-                    <div class="section step-locked d-none" id="contentSection">
+                    <div class="section step-locked" id="contentSection">
                         <div class="flex-between">
                             <h2 id="contentSectionTitle">ขั้นตอนที่ ๒ : เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span></h2>
                         </div>
+                        <div class="step2-placeholder" id="step2Placeholder">
+                            เลือกชั้น วิชา และวันที่แล้ว จะมีเนื้อหาขึ้นมาให้เลือก
+                        </div>
+                        <div id="step2Body">
                         <div class="row items-start" id="literalRow">
                             <label id="literalLabel" class="pt-10">แปล โดยพยัญชนะ</label>
                             <div class="w-full">
@@ -842,6 +945,7 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -873,7 +977,7 @@
                 <div class="bottom-left">
                     <div class="toolbar">
                         <div class="tool-row">
-                            <div class="tool-row-label">รูปแบบอักษร:</div>
+                            <div class="tool-row-label" title="รูปแบบอักษร"><i class="fa-solid fa-font"></i><span class="label-text">รูปแบบอักษร:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <button class="tool-btn" onclick="execCmd('bold')" title="ตัวหนา"><i class="fa-solid fa-bold"></i></button>
@@ -884,7 +988,7 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">รูปแบบย่อหน้า:</div>
+                            <div class="tool-row-label" title="รูปแบบย่อหน้า"><i class="fa-solid fa-align-left"></i><span class="label-text">รูปแบบย่อหน้า:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <button class="tool-btn" onclick="execCmd('justifyLeft')" title="จัดชิดซ้าย"><i class="fa-solid fa-align-left"></i></button>
@@ -896,7 +1000,7 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">ฟอนต์:</div>
+                            <div class="tool-row-label" title="ฟอนต์"><i class="fa-solid fa-font"></i><span class="label-text">ฟอนต์:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <select class="tool-select" id="fontFamilySelect" onchange="changeFontFamily(this.value)" title="แบบอักษร">
@@ -916,7 +1020,7 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">ขนาดฟอนต์:</div>
+                            <div class="tool-row-label" title="ขนาดฟอนต์"><i class="fa-solid fa-text-height"></i><span class="label-text">ขนาดฟอนต์:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <select class="tool-select" id="fontSizeSelect" onchange="changeFontSize(this.value)" title="ขนาดตัวอักษร">
@@ -935,7 +1039,7 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">ระยะบรรทัด:</div>
+                            <div class="tool-row-label" title="ระยะบรรทัด"><i class="fa-solid fa-arrows-up-down"></i><span class="label-text">ระยะบรรทัด:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <select class="tool-select" id="lineHeightSelect" onchange="changeLineHeight(this.value)" title="ระยะห่างระหว่างบรรทัด">
@@ -953,7 +1057,7 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">ระยะอักษร:</div>
+                            <div class="tool-row-label" title="ระยะอักษร"><i class="fa-solid fa-text-width"></i><span class="label-text">ระยะอักษร:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <select class="tool-select" id="letterSpacingSelect" onchange="changeLetterSpacing(this.value)" title="ระยะห่างระหว่างตัวอักษร">
@@ -967,7 +1071,7 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">ความกว้าง:</div>
+                            <div class="tool-row-label" title="ความกว้าง"><i class="fa-solid fa-left-right"></i><span class="label-text">ความกว้าง:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <select class="tool-select" id="horizontalScaleSelect" onchange="changeHorizontalScale(this.value)" title="Horizontal Scale (ความกว้างตัวอักษร)">
@@ -982,48 +1086,53 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">กระดาษ:</div>
+                            <div class="tool-row-label" title="กระดาษ"><i class="fa-solid fa-file-lines"></i><span class="label-text">กระดาษ:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <select class="tool-select" id="paperSizeSelect" onchange="changePaperSize(this.value)" title="ขนาดกระดาษ">
                                         <option value="A4" selected>กระดาษ A4</option>
-                                        <option value="F4">กระดาษ F4 (14 นิ้ว / Legal)</option>
+                                        <option value="F4">กระดาษ F14 (14 นิ้ว / Legal)</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">ระยะขอบ:</div>
+                            <div class="tool-row-label" title="ระยะขอบ"><i class="fa-solid fa-ruler-combined"></i><span class="label-text">ระยะขอบ:</span></div>
                             <div class="tool-row-controls">
-                                <div class="margin-inline">
-                                    <div class="margin-inline-grid" aria-label="ตั้งค่าระยะขอบ (cm)">
-                                        <div class="margin-inline-item">
-                                            <span class="margin-inline-label">บน</span>
-                                            <input type="number" id="marginTop" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('top', this.value)">
-                                            <span class="unit-label">cm</span>
-                                        </div>
-                                        <div class="margin-inline-item">
-                                            <span class="margin-inline-label">ล่าง</span>
-                                            <input type="number" id="marginBottom" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('bottom', this.value)">
-                                            <span class="unit-label">cm</span>
-                                        </div>
-                                        <div class="margin-inline-item">
-                                            <span class="margin-inline-label">ซ้าย</span>
-                                            <input type="number" id="marginLeft" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('left', this.value)">
-                                            <span class="unit-label">cm</span>
-                                        </div>
-                                        <div class="margin-inline-item">
-                                            <span class="margin-inline-label">ขวา</span>
-                                            <input type="number" id="marginRight" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('right', this.value)">
-                                            <span class="unit-label">cm</span>
+                                <details class="collapsible-panel" id="marginDetails" open>
+                                    <summary> แสดง/ซ่อน</summary>
+                                    <div class="collapsible-body">
+                                        <div class="margin-inline">
+                                            <div class="margin-inline-grid" aria-label="ตั้งค่าระยะขอบ (cm)">
+                                                <div class="margin-inline-item">
+                                                    <span class="margin-inline-label">บน</span>
+                                                    <input type="number" id="marginTop" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('top', this.value)">
+                                                    <span class="unit-label">cm</span>
+                                                </div>
+                                                <div class="margin-inline-item">
+                                                    <span class="margin-inline-label">ล่าง</span>
+                                                    <input type="number" id="marginBottom" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('bottom', this.value)">
+                                                    <span class="unit-label">cm</span>
+                                                </div>
+                                                <div class="margin-inline-item">
+                                                    <span class="margin-inline-label">ซ้าย</span>
+                                                    <input type="number" id="marginLeft" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('left', this.value)">
+                                                    <span class="unit-label">cm</span>
+                                                </div>
+                                                <div class="margin-inline-item">
+                                                    <span class="margin-inline-label">ขวา</span>
+                                                    <input type="number" id="marginRight" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('right', this.value)">
+                                                    <span class="unit-label">cm</span>
+                                                </div>
+                                            </div>
+                                            <button class="btn secondary text-xs p-xs" type="button" onclick="resetMargins()">ค่ามาตรฐาน (2.54)</button>
                                         </div>
                                     </div>
-                                    <button class="btn secondary text-xs p-xs" type="button" onclick="resetMargins()">ค่ามาตรฐาน (2.54)</button>
-                                </div>
+                                </details>
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">ซูม:</div>
+                            <div class="tool-row-label" title="ซูม"><i class="fa-solid fa-magnifying-glass"></i><span class="label-text">ซูม:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <button class="tool-btn" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
@@ -1033,31 +1142,13 @@
                             </div>
                         </div>
                         <div class="tool-row">
-                            <div class="tool-row-label">อื่นๆ:</div>
+                            <div class="tool-row-label" title="อื่นๆ"><i class="fa-solid fa-gear"></i><span class="label-text">อื่นๆ:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
                                     <button class="tool-btn" id="headerLockBtn" onclick="toggleHeaderLock()" title="ล็อกหัวกระดาษไม่ให้แก้ไข">ล็อกหัวกระดาษ</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="tool-row">
-                            <div class="tool-row-label">คำแนะนำ:</div>
-                            <div class="tool-row-controls">
-                                <div id="editHintPanel">
-                                    <div class="title"><i class="fa-solid fa-circle-info"></i> วิธีจัดข้อความในข้อสอบ</div>
-                                    <div>1. ขึ้นย่อหน้าใหม่: กด <b>Enter</b></div>
-                                    <div>2. ตัดบรรทัด (เนื้อหาต่อเนื่อง): กด <b>Shift+Enter</b></div>
-                                    <div>3. แก้ปัญหาคำฉีก: ใช้ <b>Space bar</b> ดันคำที่ฉีกบนบรรทัดบนให้ตกลงมาข้างล่างทั้งคำ</div>
-                                    <div class="warning"><b>ข้อห้าม:</b> ห้ามใช้ <b>Enter</b> หรือ <b>Shift+Enter</b> ในการปัดคำลงเด็ดขาด</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn primary print-cta-btn" id="printBtn" type="button"><i class="fa-solid fa-print"></i> พิมพ์ / บันทึก PDF</button>
-
-                    <div class="internal-note" id="internalNotePanel">
-                        <div class="title"><i class="fa-solid fa-note-sticky"></i> หมายเหตุภายใน (ไม่พิมพ์ออกจริง)</div>
-                        <div class="auto" id="internalNoteAuto">กำลังคำนวณที่มา...</div>
                     </div>
                 </div>
 
@@ -1068,7 +1159,37 @@
                         </div>
                         <div id="marginGuides" class="margin-guides" aria-hidden="true"></div>
                         <div id="pageMarkers" class="page-markers" aria-hidden="true"></div>
-                        <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> เนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒ • หากต้องการให้อยู่ใน ๑ หน้า: ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ ใช้กระดาษ F4</div>
+                    </div>
+                    <div class="paper-below-panels non-print">
+                        <div id="overflowWarning"><i class="fa-solid fa-triangle-exclamation"></i> หากเนื้อหาเกิน ๑ หน้า — จะพิมพ์ต่อหน้า ๒<br>ต้องการให้อยู่ใน ๑ หน้า: ให้ลดฟอนต์/ระยะบรรทัด/ขอบ หรือ ใช้กระดาษ F14</div>
+                        <details class="collapsible-panel" id="editHintDetails" open>
+                            <summary><i class="fa-solid fa-circle-info"></i> คำแนะนำการจัดข้อความ</summary>
+                            <div class="collapsible-body">
+                                <div id="editHintPanel">
+                                    <div class="title"><i class="fa-solid fa-circle-info"></i> วิธีจัดข้อความในข้อสอบ</div>
+                                    <div>1. ขึ้นย่อหน้าใหม่: กด <b>Enter</b></div>
+                                    <div>2. ตัดบรรทัด (เนื้อหาต่อเนื่อง): กด <b>Shift+Enter</b></div>
+                                    <div>3. แก้ปัญหาคำฉีก: ใช้ <b>Space bar</b> ดันคำที่ฉีกบนบรรทัดบนให้ตกลงมาข้างล่างทั้งคำ</div>
+                                    <div class="warning"><b>ข้อห้าม:</b> ห้ามใช้ <b>Enter</b> หรือ <b>Shift+Enter</b> ในการปัดคำลงเด็ดขาด</div>
+                                    <div class="divider ipad-only"></div>
+                                    <div class="ipad-only">
+                                        <div class="title"><i class="fa-solid fa-tablet-screen-button"></i> สำหรับ iPad</div>
+                                        <div>1. ซูม/พิมพ์: ใช้แถบด้านล่างของจอ (ย่อ/100%/ขยาย/พิมพ์-PDF)</div>
+                                        <div>2. เลือกข้อความจากหนังสือ: เปิดโหมด <b>แตะเลือก</b> แล้วแตะ 1 ครั้ง=เริ่ม, แตะอีกครั้ง=จบ</div>
+                                        <div>3. แก้ปัญหาคำฉีก: แนะนำใช้ปุ่ม <b>ห้ามตัดคำ</b> (แทนการใส่ช่องว่างยาวๆ)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <details class="collapsible-panel" id="internalNoteDetails" open>
+                            <summary><i class="fa-solid fa-note-sticky"></i> หมายเหตุภายใน (ไม่พิมพ์ออกจริง)</summary>
+                            <div class="collapsible-body">
+                                <div class="internal-note" id="internalNotePanel">
+                                    <div class="auto" id="internalNoteAuto">กำลังคำนวณที่มา...</div>
+                                </div>
+                            </div>
+                        </details>
                     </div>
                     <div class="print-mirror-host" aria-hidden="true">
                         <div class="paper size-a4" id="printMirrorPaper">
@@ -2031,6 +2152,13 @@
             const step3Main = root?.querySelector('.step3-main');
             const paper = root?.querySelector('.bottom-right .paper');
             if (!root || !step3Main || !paper) return;
+
+            try {
+                if (typeof detectDeviceBucket === 'function' && detectDeviceBucket() === 'ipad') {
+                    root.classList.add('step3-stacked');
+                    return;
+                }
+            } catch (_) {}
 
             const toolWidthStr = getComputedStyle(root).getPropertyValue('--tool-panel-width') || '';
             const toolWidth = parseFloat(toolWidthStr) || 420;
@@ -3718,11 +3846,61 @@
             literal: { start: -1, end: -1 },
             sense: { start: -1, end: -1 }
         };
+        let ensureCaretFrame = 0;
 
         function isIosDevice() {
             const ua = navigator.userAgent || '';
             if (/iPad|iPhone|iPod/i.test(ua)) return true;
             return (navigator.platform === 'MacIntel' && (navigator.maxTouchPoints || 0) > 1);
+        }
+
+        function scheduleEnsureCaretVisible() {
+            if (!isIosDevice()) return;
+            if (ensureCaretFrame) cancelAnimationFrame(ensureCaretFrame);
+            ensureCaretFrame = requestAnimationFrame(() => {
+                ensureCaretFrame = 0;
+                ensureCaretVisible();
+            });
+        }
+
+        function ensureCaretVisible() {
+            const editable = document.getElementById('paperEditable');
+            if (!editable) return;
+            const active = document.activeElement;
+            if (active !== editable && !(editable.contains(active))) return;
+
+            const selection = window.getSelection?.();
+            if (!selection || !selection.rangeCount) return;
+            const base = selection.getRangeAt(0);
+            if (!editable.contains(base.startContainer)) return;
+
+            const r = base.cloneRange();
+            try { r.collapse(false); } catch (_) {}
+            let rect;
+            try { rect = r.getBoundingClientRect(); } catch (_) { rect = null; }
+            if (!rect || (!rect.height && !rect.width)) {
+                try { rect = editable.getBoundingClientRect(); } catch (_) { rect = null; }
+            }
+            if (!rect) return;
+
+            const vv = window.visualViewport;
+            const pageTop = vv ? (vv.pageTop || 0) : (window.scrollY || 0);
+            const visibleTop = pageTop + 10;
+            const bar = document.querySelector('.tablet-action-bar');
+            const barH = bar ? Math.ceil(bar.getBoundingClientRect().height || 0) : 0;
+            const viewHeight = vv ? vv.height : window.innerHeight;
+            const visibleBottom = pageTop + viewHeight - barH - 12;
+
+            const caretTop = rect.top + pageTop;
+            const caretBottom = rect.bottom + pageTop;
+
+            if (caretBottom > visibleBottom) {
+                const dy = caretBottom - visibleBottom;
+                window.scrollBy(0, dy);
+            } else if (caretTop < visibleTop) {
+                const dy = caretTop - visibleTop;
+                window.scrollBy(0, dy);
+            }
         }
 
         function updateTapSelectButton(mode) {
@@ -3816,13 +3994,27 @@
                 el.textContent = '';
             }
         }
+        function isBookPageLabelLine(text) {
+            const t = String(text || '').trim();
+            if (!t) return false;
+            return /^หน้า\s*[๐-๙0-9]+(?:\s*[-–—]\s*[๐-๙0-9]+)?$/.test(t);
+        }
         function getSelectedLineCountForMode(mode) {
             if (tapSelectMode[mode]) {
                 const range = tapSelectRange[mode];
                 if (range && range.start >= 0) {
                     const a = range.start;
                     const b = range.end >= 0 ? range.end : range.start;
-                    return Math.abs(a - b) + 1;
+                    const start = Math.min(a, b);
+                    const end = Math.max(a, b);
+                    let count = 0;
+                    document.querySelectorAll(`.book-content-area[data-mode="${mode}"] .book-line`).forEach((el) => {
+                        const i = parseInt(el.dataset.lineIndex || '-1', 10);
+                        if (!Number.isFinite(i) || i < start || i > end) return;
+                        if (isBookPageLabelLine(el.textContent || '')) return;
+                        count += 1;
+                    });
+                    return count;
                 }
             }
 
@@ -3837,6 +4029,7 @@
             let count = 0;
             area.querySelectorAll('.book-line').forEach((line) => {
                 try {
+                    if (isBookPageLabelLine(line.textContent || '')) return;
                     if (range.intersectsNode(line)) count += 1;
                 } catch (e) {
                 }
@@ -4652,7 +4845,7 @@
                 dateRow.classList.add('step-locked');
                 
                 contentSection.classList.add('step-locked');
-                contentSection.classList.add('d-none');
+                contentSection.classList.add('step2-empty');
                 return; // Stop processing
             }
 
@@ -4664,6 +4857,8 @@
                 
                 // Unlock Step 3
                 dateRow.classList.remove('step-locked');
+                contentSection.classList.remove('step-locked');
+                contentSection.classList.remove('step2-empty');
             } else {
                 subjectRow.classList.add('step-required');
                 subjectRow.classList.remove('step-completed');
@@ -4672,6 +4867,7 @@
                 dateRow.classList.add('step-locked');
                 
                 contentSection.classList.add('step-locked');
+                contentSection.classList.add('step2-empty');
                 return; // Stop processing
             }
 
@@ -4680,15 +4876,9 @@
             if (isDateSelected) {
                 dateRow.classList.remove('step-required');
                 dateRow.classList.add('step-completed');
-                
-                // Unlock Content
-                contentSection.classList.remove('step-locked');
             } else {
                 dateRow.classList.add('step-required');
                 dateRow.classList.remove('step-completed');
-                
-                // Lock Content
-                contentSection.classList.add('step-locked');
             }
         }
 
@@ -4798,11 +4988,34 @@
         document.getElementById('literalVolumeSelect').addEventListener('change', generatePreview);
         document.getElementById('senseVolumeSelect').addEventListener('change', generatePreview);
         document.addEventListener('selectionchange', scheduleSelectionCounterUpdate);
+        document.getElementById('paperEditable').addEventListener('focusin', scheduleEnsureCaretVisible);
+        document.getElementById('paperEditable').addEventListener('keyup', scheduleEnsureCaretVisible);
+        document.getElementById('paperEditable').addEventListener('click', scheduleEnsureCaretVisible);
+        document.addEventListener('selectionchange', scheduleEnsureCaretVisible);
+        try {
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', scheduleEnsureCaretVisible);
+                window.visualViewport.addEventListener('scroll', scheduleEnsureCaretVisible);
+            }
+        } catch (_) {}
         window.addEventListener('resize', () => requestAnimationFrame(updateStep3StackedMode));
         requestAnimationFrame(updateStep3StackedMode);
         
         populateSubjectSelect();
         populatePartSelects();
+        try {
+            const bucket = typeof detectDeviceBucket === 'function' ? detectDeviceBucket() : '';
+            if (bucket === 'ipad') document.body.classList.add('device-ipad');
+        } catch (_) {}
+        try {
+            const isIpad = typeof detectDeviceBucket === 'function' && detectDeviceBucket() === 'ipad';
+            const hint = document.getElementById('editHintDetails');
+            const note = document.getElementById('internalNoteDetails');
+            const margin = document.getElementById('marginDetails');
+            if (hint) hint.open = !isIpad;
+            if (note) note.open = !isIpad;
+            if (margin) margin.open = !isIpad;
+        } catch (_) {}
         updateDuration();
         updateDateDisplay();
         applyFontLockForSubject();
@@ -4915,7 +5128,7 @@
                 <select id="templateSetFilter" class="w-full" onchange="refreshTemplateListUI(true)">
                     <option value="ALL">ทั้งหมด</option>
                     <option value="A4">ชุด A4</option>
-                    <option value="F4">ชุด F4 (14 นิ้ว)</option>
+                    <option value="F4">ชุด F14 (14 นิ้ว)</option>
                 </select>
             </div>
             <div class="row">
@@ -4948,6 +5161,19 @@
                 <button class="btn secondary" type="button" onclick="resolveImportMerge('replace')"><i class="fa-solid fa-repeat"></i> แทนที่</button>
                 <button class="btn primary" type="button" onclick="resolveImportMerge('append')"><i class="fa-solid fa-plus"></i> เพิ่มต่อ</button>
                 <button class="btn secondary" type="button" onclick="resolveImportMerge('cancel')">ยกเลิก</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tablet-action-bar non-print" aria-hidden="false">
+        <div class="bar-inner">
+            <div class="bar-group">
+                <button class="bar-btn secondary" type="button" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i> ย่อ</button>
+                <button class="bar-btn secondary" type="button" onclick="setPaperZoom(1)" title="ขนาดปกติ"><i class="fa-solid fa-expand"></i> 100%</button>
+                <button class="bar-btn secondary" type="button" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i> ขยาย</button>
+            </div>
+            <div class="bar-group">
+                <button class="bar-btn primary" type="button" onclick="triggerPrintFromUserGesture()"><i class="fa-solid fa-print"></i> พิมพ์/PDF</button>
             </div>
         </div>
     </div>
