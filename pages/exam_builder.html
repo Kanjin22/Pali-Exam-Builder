@@ -3574,17 +3574,41 @@
             return styles.join('\n');
         }
 
-        function absolutizeCssUrls(cssText) {
-            return String(cssText || '').replace(/url\(\s*(['"]?)([^'")]+)\1\s*\)/g, (m, q, raw) => {
-                const value = String(raw || '').trim();
-                if (!value) return m;
-                if (/^(data:|https?:|blob:|about:|file:|#)/i.test(value)) return `url(${q || ''}${value}${q || ''})`;
-                try {
-                    const abs = new URL(value, window.location.href).href;
-                    return `url(${q || ''}${abs}${q || ''})`;
-                } catch (_) {
-                    return m;
+        async function inlineCssUrls(cssText) {
+            const regex = /url\(\s*(['"]?)([^'")]+)\1\s*\)/g;
+            const urls = new Set();
+            let match;
+            while ((match = regex.exec(cssText)) !== null) {
+                const url = match[2].trim();
+                if (!url.startsWith('data:') && !url.startsWith('#')) {
+                    urls.add(url);
                 }
+            }
+
+            const urlMap = {};
+            for (const url of urls) {
+                try {
+                    const absUrl = new URL(url, window.location.href).href;
+                    const res = await fetch(absUrl);
+                    if (!res.ok) continue;
+                    const blob = await res.blob();
+                    const base64 = await new Promise(r => {
+                        const reader = new FileReader();
+                        reader.onload = () => r(reader.result);
+                        reader.readAsDataURL(blob);
+                    });
+                    urlMap[url] = base64;
+                } catch (e) {
+                    console.warn('Failed to inline', url);
+                }
+            }
+
+            return String(cssText || '').replace(regex, (m, q, raw) => {
+                const url = String(raw || '').trim();
+                if (urlMap[url]) {
+                    return `url(${q || ''}${urlMap[url]}${q || ''})`;
+                }
+                return m;
             });
         }
 
@@ -3593,7 +3617,8 @@
             const w = Math.max(1, Math.ceil(rect.width || 0));
             const h = Math.max(1, Math.ceil(Math.max(rect.height || 0, el.scrollHeight || 0, el.offsetHeight || 0)));
 
-            const css = absolutizeCssUrls(collectAllStyleText());
+            const rawCss = collectAllStyleText();
+            const css = await inlineCssUrls(rawCss);
             const html = `<div xmlns="http://www.w3.org/1999/xhtml"><style>${css}</style>${el.outerHTML}</div>`;
             const svg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
@@ -3714,6 +3739,8 @@
             }
             pageInner.style.height = '100%';
             pageInner.style.overflow = 'hidden';
+            const baseTransform = String(pageEditable.style.transform || '').trim();
+            const baseTransformOrigin = String(pageEditable.style.transformOrigin || '').trim();
 
             const computedPageInner = getComputedStyle(pageInner);
             const padTopCssPx = parseFloat(computedPageInner.paddingTop || '0') || 0;
@@ -3728,8 +3755,13 @@
 
             const dataUrls = [];
             for (let i = 0; i < pageCount; i++) {
-                pageEditable.style.transform = `translateY(${-i * contentHeightCssPx}px)`;
-                pageEditable.style.transformOrigin = 'top left';
+                const t = `translateY(${-i * contentHeightCssPx}px)`;
+                if (baseTransform && baseTransform !== 'none') {
+                    pageEditable.style.transform = `${baseTransform} ${t}`;
+                } else {
+                    pageEditable.style.transform = t;
+                }
+                pageEditable.style.transformOrigin = baseTransformOrigin || 'top left';
                 const rendered = await renderElementToCanvas(pagePaper, scale);
                 const url = canvasToPngDataUrl(rendered.canvas);
                 if (url) dataUrls.push(url);
