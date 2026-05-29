@@ -2376,9 +2376,14 @@
         function checkPrintOverflowNow() {
             syncPrintMirrorStyles();
             updateOverflowWarningInset();
+            const mirrorPaper = document.getElementById('printMirrorPaper');
             const mirrorInner = document.getElementById('printMirrorInner');
             const warn = document.getElementById('overflowWarning');
-            if (!mirrorInner || !warn) return;
+            if (!mirrorPaper || !mirrorInner || !warn) return;
+            mirrorPaper.style.height = '';
+            mirrorPaper.style.width = '';
+            mirrorInner.style.height = '';
+            mirrorInner.style.overflow = '';
             const pageHeight = mirrorInner.clientHeight || 0;
             const totalHeight = mirrorInner.scrollHeight || 0;
             const pages = pageHeight ? Math.max(1, Math.ceil(totalHeight / pageHeight)) : 1;
@@ -3706,81 +3711,83 @@
             const prevInnerOverflow = inner.style.overflow;
             const prevEditableTransform = document.getElementById('printMirrorEditable')?.style?.transform || '';
             const prevEditableTransformOrigin = document.getElementById('printMirrorEditable')?.style?.transformOrigin || '';
-            paper.style.height = 'auto';
-            paper.style.width = '';
-            inner.style.height = 'auto';
-            inner.style.overflow = 'visible';
+            let host = null;
+            try {
+                paper.style.height = 'auto';
+                paper.style.width = '';
+                inner.style.height = 'auto';
+                inner.style.overflow = 'visible';
 
-            const { w: pageWmm, h: pageHmm } = getPaperSizeMmFromElement(paper);
-            const scale = 2;
-            const totalScrollHeight = Math.max(0, inner.scrollHeight || 0);
+                const { w: pageWmm, h: pageHmm } = getPaperSizeMmFromElement(paper);
+                const scale = 2;
+                const totalScrollHeight = Math.max(0, inner.scrollHeight || 0);
 
-            const host = document.createElement('div');
-            host.style.position = 'fixed';
-            host.style.left = '-12000px';
-            host.style.top = '0';
-            host.style.width = '1px';
-            host.style.height = '1px';
-            host.style.overflow = 'hidden';
-            host.style.pointerEvents = 'none';
-            document.body.appendChild(host);
+                host = document.createElement('div');
+                host.style.position = 'fixed';
+                host.style.left = '-12000px';
+                host.style.top = '0';
+                host.style.width = '1px';
+                host.style.height = '1px';
+                host.style.overflow = 'hidden';
+                host.style.pointerEvents = 'none';
+                document.body.appendChild(host);
 
-            const pagePaper = paper.cloneNode(true);
-            pagePaper.removeAttribute('id');
-            pagePaper.style.height = '';
-            pagePaper.style.width = '';
-            host.appendChild(pagePaper);
+                const pagePaper = paper.cloneNode(true);
+                pagePaper.removeAttribute('id');
+                pagePaper.style.height = '';
+                pagePaper.style.width = '';
+                host.appendChild(pagePaper);
 
-            const pageInner = pagePaper.querySelector('#printMirrorInner') || pagePaper.querySelector('.paper-inner');
-            const pageEditable = pagePaper.querySelector('#printMirrorEditable') || pagePaper.querySelector('.paper-editable');
-            if (!pageInner || !pageEditable) {
-                host.remove();
-                throw new Error('missing mirror structure');
-            }
-            pageInner.style.height = '100%';
-            pageInner.style.overflow = 'hidden';
-            const baseTransform = String(pageEditable.style.transform || '').trim();
-            const baseTransformOrigin = String(pageEditable.style.transformOrigin || '').trim();
-
-            const computedPageInner = getComputedStyle(pageInner);
-            const padTopCssPx = parseFloat(computedPageInner.paddingTop || '0') || 0;
-            const padBottomCssPx = parseFloat(computedPageInner.paddingBottom || '0') || 0;
-            const totalContentHeightCssPx = Math.max(1, totalScrollHeight - padTopCssPx - padBottomCssPx);
-
-            const pageRect = pagePaper.getBoundingClientRect();
-            const pageWidthCssPx = Math.max(1, pageRect.width || 0);
-            const pageHeightCssPx = Math.max(1, pageRect.height || 0);
-            const contentHeightCssPx = Math.max(1, pageHeightCssPx - padTopCssPx - padBottomCssPx);
-            const pageCount = Math.max(1, Math.ceil(totalContentHeightCssPx / contentHeightCssPx));
-
-            const dataUrls = [];
-            for (let i = 0; i < pageCount; i++) {
-                const t = `translateY(${-i * contentHeightCssPx}px)`;
-                if (baseTransform && baseTransform !== 'none') {
-                    pageEditable.style.transform = `${baseTransform} ${t}`;
-                } else {
-                    pageEditable.style.transform = t;
+                const pageInner = pagePaper.querySelector('#printMirrorInner') || pagePaper.querySelector('.paper-inner');
+                const pageEditable = pagePaper.querySelector('#printMirrorEditable') || pagePaper.querySelector('.paper-editable');
+                if (!pageInner || !pageEditable) {
+                    throw new Error('missing mirror structure');
                 }
-                pageEditable.style.transformOrigin = baseTransformOrigin || 'top left';
-                const rendered = await renderElementToCanvas(pagePaper, scale);
-                const url = canvasToPngDataUrl(rendered.canvas);
-                if (url) dataUrls.push(url);
+                pageInner.style.height = '100%';
+                pageInner.style.overflow = 'hidden';
+                const baseTransform = String(pageEditable.style.transform || '').trim();
+                const baseTransformOrigin = String(pageEditable.style.transformOrigin || '').trim();
+
+                const computedPageInner = getComputedStyle(pageInner);
+                const padTopCssPx = parseFloat(computedPageInner.paddingTop || '0') || 0;
+                const padBottomCssPx = parseFloat(computedPageInner.paddingBottom || '0') || 0;
+                const totalContentHeightCssPx = Math.max(1, totalScrollHeight - padTopCssPx - padBottomCssPx);
+
+                const pageRect = pagePaper.getBoundingClientRect();
+                const pageHeightCssPx = Math.max(1, pageRect.height || 0);
+                const contentHeightCssPx = Math.max(1, pageHeightCssPx - padTopCssPx - padBottomCssPx);
+                const pageCount = Math.max(1, Math.ceil(totalContentHeightCssPx / contentHeightCssPx));
+
+                const dataUrls = [];
+                for (let i = 0; i < pageCount; i++) {
+                    const t = `translateY(${-i * contentHeightCssPx}px)`;
+                    if (baseTransform && baseTransform !== 'none') {
+                        pageEditable.style.transform = `${baseTransform} ${t}`;
+                    } else {
+                        pageEditable.style.transform = t;
+                    }
+                    pageEditable.style.transformOrigin = baseTransformOrigin || 'top left';
+                    const rendered = await renderElementToCanvas(pagePaper, scale);
+                    const url = canvasToPngDataUrl(rendered.canvas);
+                    if (url) dataUrls.push(url);
+                }
+
+                if (!dataUrls.length) throw new Error('render failed');
+                return buildPrintImagesHtml(pageWmm, pageHmm, dataUrls);
+            } finally {
+                if (host) {
+                    try { host.remove(); } catch (_) {}
+                }
+                paper.style.height = prevPaperHeight;
+                paper.style.width = prevPaperWidth;
+                inner.style.height = prevInnerHeight;
+                inner.style.overflow = prevInnerOverflow;
+                const originalEditable = document.getElementById('printMirrorEditable');
+                if (originalEditable) {
+                    originalEditable.style.transform = prevEditableTransform;
+                    originalEditable.style.transformOrigin = prevEditableTransformOrigin;
+                }
             }
-
-            host.remove();
-            if (!dataUrls.length) throw new Error('render failed');
-
-            paper.style.height = prevPaperHeight;
-            paper.style.width = prevPaperWidth;
-            inner.style.height = prevInnerHeight;
-            inner.style.overflow = prevInnerOverflow;
-            const originalEditable = document.getElementById('printMirrorEditable');
-            if (originalEditable) {
-                originalEditable.style.transform = prevEditableTransform;
-                originalEditable.style.transformOrigin = prevEditableTransformOrigin;
-            }
-
-            return buildPrintImagesHtml(pageWmm, pageHmm, dataUrls);
         }
 
         function maybeWarnAboutSpaceFixBeforePrint() {
