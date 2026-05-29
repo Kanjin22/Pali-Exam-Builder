@@ -748,7 +748,7 @@
         .msg-loading { color: #7f8c8d; }
         .font-pali { font-family: "DilleniaUPC_4Balee", "DilleniaUPC", sans-serif; }
         .font-thai { font-family: "DilleniaUPC", sans-serif; }
-        .paper-header-font { font-family: "TH Sarabun New", "Sarabun", sans-serif; }
+        .paper-header-font { font-family: "TH Sarabun New", "Sarabun", sans-serif; font-size: calc(1em + 2px); }
         .paper-header-font .paper-line { margin: 2px 0; line-height: 1.25; }
         .paper-sep.paper-header-font { margin: 6px 0 12px 0; line-height: 1.2; }
         .paper-foot.paper-header-font { margin-top: 12px; line-height: 1.25; }
@@ -3640,7 +3640,28 @@
             }
         }
 
-        async function printExamAsImages(printWin) {
+        function buildPrintImagesHtml(pageWmm, pageHmm, dataUrls) {
+            const pagesHtml = (dataUrls || []).map(u => `<div class="page"><img alt="" src="${u}"></div>`).join('');
+            return `
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>พิมพ์ข้อสอบ</title>
+  <style>
+    @page { size: ${pageWmm}mm ${pageHmm}mm; margin: 0; }
+    html, body { margin: 0; padding: 0; background: #fff; }
+    .page { width: ${pageWmm}mm; height: ${pageHmm}mm; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    img { width: 100%; height: 100%; display: block; }
+  </style>
+</head>
+<body>${pagesHtml}</body>
+</html>`;
+        }
+
+        async function printExamAsImages() {
             syncPrintMirrorStyles();
             updatePrintPageStyle();
             try {
@@ -3727,35 +3748,7 @@
                 originalEditable.style.transformOrigin = prevEditableTransformOrigin;
             }
 
-            const pagesHtml = dataUrls.map(u => `<div class="page"><img alt="" src="${u}"></div>`).join('');
-            const html = `
-<!doctype html>
-<html lang="th">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>พิมพ์ข้อสอบ</title>
-  <style>
-    @page { size: ${pageWmm}mm ${pageHmm}mm; margin: 0; }
-    html, body { margin: 0; padding: 0; background: #fff; }
-    .page { width: ${pageWmm}mm; height: ${pageHmm}mm; page-break-after: always; }
-    .page:last-child { page-break-after: auto; }
-    img { width: 100%; height: 100%; display: block; }
-  </style>
-</head>
-<body>${pagesHtml}</body>
-</html>`;
-
-            printWin.document.open();
-            printWin.document.write(html);
-            printWin.document.close();
-
-            await new Promise((resolve) => {
-                const done = () => resolve();
-                if (printWin.document.readyState === 'complete') return done();
-                printWin.addEventListener('load', done, { once: true });
-                setTimeout(done, 1200);
-            });
+            return buildPrintImagesHtml(pageWmm, pageHmm, dataUrls);
         }
 
         function maybeWarnAboutSpaceFixBeforePrint() {
@@ -3786,26 +3779,52 @@
             trackGaEvent('print', {});
             saveExamLog();
             if (!maybeWarnAboutSpaceFixBeforePrint()) return;
-            const printWin = window.open('', '_blank', 'noopener,noreferrer');
-            if (!printWin) {
-                syncPrintMirrorStyles();
-                updatePrintPageStyle();
-                try {
-                    if (document.fonts && document.fonts.ready) {
-                        await document.fonts.ready;
-                    }
-                } catch (_) {}
-                window.print();
-                return;
-            }
             try {
-                await printExamAsImages(printWin);
-                await new Promise((resolve) => setTimeout(resolve, 0));
-                try { printWin.focus(); } catch (_) {}
-                printWin.print();
-                try { printWin.onafterprint = () => { try { printWin.close(); } catch (_) {} }; } catch (_) {}
+                const html = await printExamAsImages();
+                const iframe = document.createElement('iframe');
+                iframe.style.position = 'fixed';
+                iframe.style.right = '0';
+                iframe.style.bottom = '0';
+                iframe.style.width = '0';
+                iframe.style.height = '0';
+                iframe.style.border = '0';
+                iframe.style.opacity = '0';
+                iframe.style.pointerEvents = 'none';
+                iframe.setAttribute('aria-hidden', 'true');
+                document.body.appendChild(iframe);
+
+                const doc = iframe.contentDocument;
+                const win = iframe.contentWindow;
+                if (!doc || !win) throw new Error('missing print iframe');
+
+                doc.open();
+                doc.write(html);
+                doc.close();
+
+                await new Promise((resolve) => {
+                    const done = () => resolve();
+                    if (doc.readyState === 'complete') return done();
+                    iframe.addEventListener('load', done, { once: true });
+                    setTimeout(done, 1200);
+                });
+
+                try {
+                    const imgs = Array.from(doc.images || []);
+                    await Promise.all(imgs.map(img => new Promise((resolve) => {
+                        if (img.complete) return resolve();
+                        img.addEventListener('load', resolve, { once: true });
+                        img.addEventListener('error', resolve, { once: true });
+                    })));
+                } catch (_) {}
+
+                const cleanup = () => {
+                    try { iframe.remove(); } catch (_) {}
+                };
+                try { win.onafterprint = cleanup; } catch (_) {}
+                setTimeout(cleanup, 15000);
+                try { win.focus(); } catch (_) {}
+                win.print();
             } catch (_) {
-                try { printWin.close(); } catch (_) {}
                 syncPrintMirrorStyles();
                 updatePrintPageStyle();
                 try {
