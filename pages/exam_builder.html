@@ -3699,6 +3699,7 @@
                     await document.fonts.ready;
                 }
             } catch (_) {}
+            await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
 
             const paper = document.getElementById('printMirrorPaper');
             if (!paper) throw new Error('missing printMirrorPaper');
@@ -3768,7 +3769,12 @@
                     }
                     pageEditable.style.transformOrigin = baseTransformOrigin || 'top left';
                     const rendered = await renderElementToCanvas(pagePaper, scale);
-                    const url = canvasToPngDataUrl(rendered.canvas);
+                    let url = '';
+                    try {
+                        url = rendered.canvas.toDataURL('image/png');
+                    } catch (e) {
+                        throw new Error('canvas_to_dataurl_failed');
+                    }
                     if (url) dataUrls.push(url);
                 }
 
@@ -3818,6 +3824,10 @@
             trackGaEvent('print', {});
             saveExamLog();
             if (!maybeWarnAboutSpaceFixBeforePrint()) return;
+            if (String(window.location?.protocol || '') === 'file:') {
+                alert('โหมด “ถ่ายรูปแล้วพิมพ์” ต้องเปิดผ่าน http:// (เช่น http://localhost:8000/) ไม่รองรับการเปิดแบบ file:// เพราะเบราว์เซอร์จะกันการโหลดฟอนต์/ไฟล์ ทำให้ภาพพิมพ์เพี้ยนได้');
+                return;
+            }
             try {
                 const html = await printExamAsImages();
                 const iframe = document.createElement('iframe');
@@ -3863,15 +3873,9 @@
                 setTimeout(cleanup, 15000);
                 try { win.focus(); } catch (_) {}
                 win.print();
-            } catch (_) {
-                syncPrintMirrorStyles();
-                updatePrintPageStyle();
-                try {
-                    if (document.fonts && document.fonts.ready) {
-                        await document.fonts.ready;
-                    }
-                } catch (_) {}
-                window.print();
+            } catch (e) {
+                console.error(e);
+                alert('พิมพ์แบบ “ถ่ายรูปแล้วพิมพ์” ไม่สำเร็จ ระบบจะไม่สลับไปพิมพ์แบบ HTML อัตโนมัติแล้ว (เพราะจะทำให้เลย์เอาต์ไม่ตรงหน้า) กรุณารีเฟรชแล้วลองใหม่');
             }
         }
 
