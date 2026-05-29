@@ -81,6 +81,7 @@
         .item { margin-bottom:12px; padding: 10px; background: #fff; border: 1px solid #eee; border-radius: 8px; display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
         .item-content { flex: 1; display: flex; align-items: flex-start; gap: 10px; }
         .item-controls { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+        .search-hl { background: #ffeb3b; color: inherit; border-radius: 3px; padding: 0 2px; }
         .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .grid-3 { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
         .stats-panel-warning { background:#fff3e0; padding:15px; border-radius:8px; border:1px solid #ffe0b2; }
@@ -889,11 +890,17 @@
                     <div class="section step-locked" id="contentSection">
                         <div class="flex-between">
                             <h2 id="contentSectionTitle">ขั้นตอนที่ ๒ : เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span></h2>
+                            <div class="actions">
+                                <button class="btn secondary" type="button" onclick="openBookTextSearchModal()"><i class="fa-solid fa-book-open"></i> ค้นหาในหนังสือ</button>
+                            </div>
                         </div>
                         <div class="step2-placeholder" id="step2Placeholder">
                             เลือกชั้น วิชา และวันที่แล้ว จะมีเนื้อหาขึ้นมาให้เลือก
                         </div>
                         <div id="step2Body">
+                        <div class="text-sm text-gray-666 mb-10">
+                            <i class="fa-solid fa-circle-info"></i> หากจำเลขหน้าไม่ได้ ให้กด “ค้นหาในหนังสือ” แล้วพิมพ์คำ/ประโยคที่จำได้ จากนั้นกด “ใช้หน้านี้” เพื่อโหลดหน้ามาเลือกข้อความ
+                        </div>
                         <div class="row items-start" id="literalRow">
                             <label id="literalLabel" class="pt-10">แปล โดยพยัญชนะ</label>
                             <div class="w-full">
@@ -3305,6 +3312,18 @@
                 return await fetchTextFile(localUrl);
             } catch (e) {
                 if (!canTryStorage) throw e;
+                const tryLegacyLocal = async () => {
+                    if (!/\.txt$/i.test(raw) || /\.\.txt$/i.test(raw)) return null;
+                    const legacyRaw = raw.replace(/\.txt$/i, '..txt');
+                    const legacyLocalUrl = new URL(legacyRaw, window.location.href).toString();
+                    try {
+                        return await fetchTextFile(legacyLocalUrl);
+                    } catch (_) {
+                        return null;
+                    }
+                };
+                const legacyLocal = await tryLegacyLocal();
+                if (legacyLocal !== null) return legacyLocal;
                 const downloadUrl = await getFirebaseStorageDownloadUrl(objectPath);
                 return await fetchTextFile(downloadUrl);
             }
@@ -3636,20 +3655,19 @@
             if (!inner) throw new Error('missing printMirrorInner');
 
             const prevPaperHeight = paper.style.height;
+            const prevPaperWidth = paper.style.width;
             const prevInnerHeight = inner.style.height;
             const prevInnerOverflow = inner.style.overflow;
+            const prevEditableTransform = document.getElementById('printMirrorEditable')?.style?.transform || '';
+            const prevEditableTransformOrigin = document.getElementById('printMirrorEditable')?.style?.transformOrigin || '';
             paper.style.height = 'auto';
+            paper.style.width = '';
             inner.style.height = 'auto';
             inner.style.overflow = 'visible';
 
             const { w: pageWmm, h: pageHmm } = getPaperSizeMmFromElement(paper);
             const scale = 2;
-            const computedInner = getComputedStyle(inner);
-            const padTopCssPx = parseFloat(computedInner.paddingTop || '0') || 0;
-            const padBottomCssPx = parseFloat(computedInner.paddingBottom || '0') || 0;
-
             const totalScrollHeight = Math.max(0, inner.scrollHeight || 0);
-            const totalContentHeightCssPx = Math.max(1, totalScrollHeight - padTopCssPx - padBottomCssPx);
 
             const host = document.createElement('div');
             host.style.position = 'fixed';
@@ -3663,6 +3681,8 @@
 
             const pagePaper = paper.cloneNode(true);
             pagePaper.removeAttribute('id');
+            pagePaper.style.height = '';
+            pagePaper.style.width = '';
             host.appendChild(pagePaper);
 
             const pageInner = pagePaper.querySelector('#printMirrorInner') || pagePaper.querySelector('.paper-inner');
@@ -3673,6 +3693,11 @@
             }
             pageInner.style.height = '100%';
             pageInner.style.overflow = 'hidden';
+
+            const computedPageInner = getComputedStyle(pageInner);
+            const padTopCssPx = parseFloat(computedPageInner.paddingTop || '0') || 0;
+            const padBottomCssPx = parseFloat(computedPageInner.paddingBottom || '0') || 0;
+            const totalContentHeightCssPx = Math.max(1, totalScrollHeight - padTopCssPx - padBottomCssPx);
 
             const pageRect = pagePaper.getBoundingClientRect();
             const pageWidthCssPx = Math.max(1, pageRect.width || 0);
@@ -3693,8 +3718,14 @@
             if (!dataUrls.length) throw new Error('render failed');
 
             paper.style.height = prevPaperHeight;
+            paper.style.width = prevPaperWidth;
             inner.style.height = prevInnerHeight;
             inner.style.overflow = prevInnerOverflow;
+            const originalEditable = document.getElementById('printMirrorEditable');
+            if (originalEditable) {
+                originalEditable.style.transform = prevEditableTransform;
+                originalEditable.style.transformOrigin = prevEditableTransformOrigin;
+            }
 
             const pagesHtml = dataUrls.map(u => `<div class="page"><img alt="" src="${u}"></div>`).join('');
             const html = `
@@ -3755,14 +3786,35 @@
             trackGaEvent('print', {});
             saveExamLog();
             if (!maybeWarnAboutSpaceFixBeforePrint()) return;
-            syncPrintMirrorStyles();
-            updatePrintPageStyle();
+            const printWin = window.open('', '_blank', 'noopener,noreferrer');
+            if (!printWin) {
+                syncPrintMirrorStyles();
+                updatePrintPageStyle();
+                try {
+                    if (document.fonts && document.fonts.ready) {
+                        await document.fonts.ready;
+                    }
+                } catch (_) {}
+                window.print();
+                return;
+            }
             try {
-                if (document.fonts && document.fonts.ready) {
-                    await document.fonts.ready;
-                }
-            } catch (_) {}
-            window.print();
+                await printExamAsImages(printWin);
+                await new Promise((resolve) => setTimeout(resolve, 0));
+                try { printWin.focus(); } catch (_) {}
+                printWin.print();
+                try { printWin.onafterprint = () => { try { printWin.close(); } catch (_) {} }; } catch (_) {}
+            } catch (_) {
+                try { printWin.close(); } catch (_) {}
+                syncPrintMirrorStyles();
+                updatePrintPageStyle();
+                try {
+                    if (document.fonts && document.fonts.ready) {
+                        await document.fonts.ready;
+                    }
+                } catch (_) {}
+                window.print();
+            }
         }
 
         function updatePageRange(mode) {
@@ -5315,6 +5367,547 @@
             const modal = document.getElementById('examStatsModal');
             modal.classList.add('d-flex');
         }
+
+        function normalizeSearchText(text) {
+            let out = String(text || '');
+            out = out.replace(/\r\n/g, '\n');
+            out = out.replace(/[\u200B\u200C\u200D\u2060\uFEFF\u00AD]/g, '');
+            out = out.replace(/[ \t\n\r]+/g, '');
+            out = out.replace(/[’'“”"(),.·•\-–—…:;!?]/g, '');
+            out = out.replace(/[ฯ๚]/g, '');
+            return out;
+        }
+
+        let bookTextSearchAbortToken = 0;
+
+        function getLevelFullLabel(levelCode) {
+            const code = String(levelCode || '');
+            if (code === 'p12') return 'ประโยค ๑–๒';
+            const m = code.match(/^p([0-9]+)$/);
+            if (m) return `ประโยค ป.ธ.${toThaiDigits(parseInt(m[1], 10) || 0)}`;
+            return code || '-';
+        }
+
+        function getBookTitleBadgeText(levelCode, subjectLabel) {
+            const subject = String(subjectLabel || '');
+            const level = String(levelCode || '');
+            let badgeText = '';
+            const thaiSourceCfg = subject.includes('ไทยเป็นมคธ') ? (THAI_SOURCE_PAGE_DATA_BY_LEVEL[level] || null) : null;
+            if (['p5', 'p6', 'p7', 'p8', 'p9'].includes(level) && thaiSourceCfg) {
+                badgeText = `(${thaiSourceCfg.title || 'พระธัมมปทัฏฐกถา'})`;
+                return badgeText;
+            }
+            const isPt4To9ThaiToMagadha = ['p4','p5','p6','p7','p8','p9'].includes(level) && subject.includes('ไทยเป็นมคธ');
+            if (isPt4To9ThaiToMagadha) return '(พระธัมมปทัฏฐกถา ภาค  ๑)';
+            const isDhammapadaHeading = level === 'p12' || (level === 'p3' && (subject.includes('มคธเป็นไทย') || subject.includes('สัมพันธ์ไทย')));
+            if (isDhammapadaHeading) return '(ธมฺมปทฏฺฐกถา)';
+            if (!subject.includes('มคธเป็นไทย')) return '';
+            if (level === 'p7') return '(สมนฺตปาสาทิกา นาม วินยฏฺฐกถา)';
+            if (level === 'p8') return '(วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส-)';
+            if (level === 'p9') return '(อภิธมฺมตฺถวิภาวินี)';
+            const titles = getBookTitlesForLevel(level);
+            return titles.length ? `(${titles.join(', ')})` : '';
+        }
+
+        function getBookTextSearchTargetMode() {
+            return document.getElementById('bookTextSearchTarget')?.value || 'literal';
+        }
+
+        function getSourceVolumeSelectForBookTextSearch(targetMode) {
+            const mode = String(targetMode || getBookTextSearchTargetMode());
+            return document.getElementById(mode === 'sense' ? 'senseVolumeSelect' : 'literalVolumeSelect');
+        }
+
+        function getThaiSourceBaseConfigForCurrentLevel() {
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            try {
+                return THAI_SOURCE_PAGE_DATA_BY_LEVEL && THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] ? THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] : null;
+            } catch (_) {
+                return null;
+            }
+        }
+
+        function shouldUseThaiSourcePartSelection() {
+            const subject = document.getElementById('subjectSelect')?.value || '';
+            if (!subject.includes('ไทยเป็นมคธ')) return false;
+            const base = getThaiSourceBaseConfigForCurrentLevel();
+            return !!(base && Array.isArray(base.parts) && base.parts.length > 1);
+        }
+
+        function syncBookTextSearchPagePlaceholders() {
+            const startInput = document.getElementById('bookTextSearchStartPage');
+            const endInput = document.getElementById('bookTextSearchEndPage');
+            const volSelect = document.getElementById('bookTextSearchVolume');
+            const volValue = volSelect?.value || '0';
+
+            if (volValue === 'ALL') {
+                if (startInput) startInput.placeholder = 'เว้นว่าง = ค้นหาทุกเล่ม';
+                if (endInput) endInput.placeholder = 'เว้นว่าง = ค้นหาทุกเล่ม';
+                return;
+            }
+
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            const subject = document.getElementById('subjectSelect')?.value || '';
+            const isThaiSource = subject.includes('ไทยเป็นมคธ');
+            const cfg = isThaiSource ? getThaiSourcePageDataConfig(document.getElementById('literalPart')?.value || '') : getPaliPageDataConfig();
+            const volumes = isThaiSource ? getThaiVolumes(cfg) : getPaliVolumes(cfg);
+            const volIdx = clampVolumeIndex(volumes, volValue);
+            const maxPage = parseInt(volumes?.[volIdx]?.maxPage, 10) || 0;
+            if (startInput) startInput.placeholder = maxPage ? `1 - ${String(maxPage)}` : 'เริ่มต้น';
+            if (endInput) endInput.placeholder = maxPage ? `1 - ${String(maxPage)}` : 'สิ้นสุด';
+        }
+
+        function syncBookTextSearchPartPlaceholders() {
+            const startInput = document.getElementById('bookTextSearchStartPage');
+            const endInput = document.getElementById('bookTextSearchEndPage');
+            const partSelect = document.getElementById('bookTextSearchPart');
+            const partId = partSelect?.value || 'ALL';
+            if (partId === 'ALL') {
+                if (startInput) startInput.placeholder = 'เว้นว่าง = ค้นหาทุกภาค';
+                if (endInput) endInput.placeholder = 'เว้นว่าง = ค้นหาทุกภาค';
+                return;
+            }
+            const cfg = getThaiSourcePageDataConfig(partId);
+            const maxPage = parseInt(cfg?.maxPage, 10) || 0;
+            if (startInput) startInput.placeholder = maxPage ? `1 - ${String(maxPage)}` : 'เริ่มต้น';
+            if (endInput) endInput.placeholder = maxPage ? `1 - ${String(maxPage)}` : 'สิ้นสุด';
+        }
+
+        function syncBookTextSearchPartOptions() {
+            const partRow = document.getElementById('bookTextSearchPartRow');
+            const partSelect = document.getElementById('bookTextSearchPart');
+            const shouldShow = shouldUseThaiSourcePartSelection();
+            if (partRow) partRow.classList.toggle('d-none', !shouldShow);
+            if (!partSelect) return;
+            if (!shouldShow) {
+                partSelect.innerHTML = '';
+                return;
+            }
+
+            const base = getThaiSourceBaseConfigForCurrentLevel();
+            const parts = Array.isArray(base?.parts) ? base.parts : [];
+            const current = partSelect.value || 'ALL';
+            partSelect.innerHTML = '';
+
+            const optAll = document.createElement('option');
+            optAll.value = 'ALL';
+            optAll.textContent = 'ทุกภาค';
+            partSelect.appendChild(optAll);
+
+            parts.forEach((p) => {
+                const opt = document.createElement('option');
+                opt.value = String(p.partId || '');
+                opt.textContent = String(p.label || p.partId || '').trim();
+                partSelect.appendChild(opt);
+            });
+
+            const allowed = new Set(Array.from(partSelect.options).map(o => o.value));
+            partSelect.value = allowed.has(current) ? current : 'ALL';
+            syncBookTextSearchPartPlaceholders();
+        }
+
+        function syncBookTextSearchVolumeOptions() {
+            const volumeRow = document.getElementById('bookTextSearchVolumeRow');
+            const volSelect = document.getElementById('bookTextSearchVolume');
+            const sourceSelect = getSourceVolumeSelectForBookTextSearch(getBookTextSearchTargetMode());
+            const sourceOptions = sourceSelect ? Array.from(sourceSelect.options || []) : [];
+            const hasMultiple = sourceOptions.length > 1;
+
+            if (shouldUseThaiSourcePartSelection()) {
+                if (volumeRow) volumeRow.classList.add('d-none');
+                if (volSelect) volSelect.innerHTML = '';
+                return;
+            }
+
+            if (volumeRow) volumeRow.classList.toggle('d-none', !hasMultiple);
+            if (!volSelect) return;
+
+            const current = volSelect.value || 'ALL';
+            volSelect.innerHTML = '';
+
+            if (hasMultiple) {
+                const optAll = document.createElement('option');
+                optAll.value = 'ALL';
+                optAll.textContent = 'ทุกเล่ม';
+                volSelect.appendChild(optAll);
+            }
+
+            sourceOptions.forEach((o) => {
+                const opt = document.createElement('option');
+                opt.value = String(o.value || '');
+                opt.textContent = String(o.textContent || '').trim();
+                volSelect.appendChild(opt);
+            });
+
+            if (!hasMultiple) {
+                volSelect.value = sourceOptions[0]?.value ? String(sourceOptions[0].value) : '0';
+            } else {
+                const allowed = new Set(Array.from(volSelect.options).map(o => o.value));
+                volSelect.value = allowed.has(current) ? current : 'ALL';
+            }
+
+            syncBookTextSearchPagePlaceholders();
+        }
+
+        function openBookTextSearchModal() {
+            const modal = document.getElementById('bookTextSearchModal');
+            const levelLabel = document.getElementById('bookTextSearchLevel');
+            const subjectLabel = document.getElementById('bookTextSearchSubject');
+            const bookTitleLabel = document.getElementById('bookTextSearchBookTitle');
+            const queryInput = document.getElementById('bookTextSearchQuery');
+            const result = document.getElementById('bookTextSearchResult');
+            const meta = document.getElementById('bookTextSearchMeta');
+
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            const subject = document.getElementById('subjectSelect')?.value || '';
+            if (levelLabel) levelLabel.textContent = getLevelFullLabel(levelCode);
+            if (subjectLabel) subjectLabel.textContent = subject ? subject : '-';
+            if (bookTitleLabel) bookTitleLabel.textContent = getBookTitleBadgeText(levelCode, subject);
+
+            if (queryInput) queryInput.value = '';
+            if (result) result.innerHTML = '';
+            if (meta) meta.textContent = '';
+            syncBookTextSearchPartOptions();
+            syncBookTextSearchVolumeOptions();
+            bookTextSearchAbortToken++;
+            if (modal) modal.classList.add('d-flex');
+        }
+
+        function closeBookTextSearchModal() {
+            const modal = document.getElementById('bookTextSearchModal');
+            if (modal) modal.classList.remove('d-flex');
+            bookTextSearchAbortToken++;
+        }
+
+        function cancelBookTextSearch() {
+            bookTextSearchAbortToken++;
+            const meta = document.getElementById('bookTextSearchMeta');
+            if (meta) meta.textContent = 'ยกเลิกการค้นหาแล้ว';
+        }
+
+        function makeSnippetFromPageText(text, limit = 180) {
+            const cleaned = (() => {
+                let t = String(text || '');
+                t = t.replace(/<\s*span\b[^>]*class\s*=\s*["']?LineNumber["']?[^>]*>[\s\S]*?<\/\s*span\s*>/gi, ' ');
+                t = t.replace(/<\s*sup\b[^>]*>([\s\S]*?)<\/\s*sup\s*>/gi, '$1');
+                t = t.replace(/<\s*br\s*\/?\s*>/gi, '\n');
+                t = t.replace(/<\/?[^>]+>/g, ' ');
+                return t;
+            })();
+            const oneLine = cleaned.replace(/\s+/g, ' ').trim();
+            if (oneLine.length <= limit) return oneLine;
+            return `${oneLine.slice(0, limit).trim()}…`;
+        }
+
+        function escapeHtml(text) {
+            return String(text || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function highlightSearchInSnippet(snippet, rawQuery) {
+            const plain = String(snippet || '');
+            const query = String(rawQuery || '').trim();
+            if (!plain || !query) return escapeHtml(plain);
+
+            const normalizedQuery = query.replace(/\s+/g, ' ').trim();
+            const terms = normalizedQuery.split(' ').filter(Boolean).sort((a, b) => b.length - a.length);
+            if (!terms.length) return escapeHtml(plain);
+
+            const lower = plain.toLowerCase();
+            const ranges = [];
+            for (const t of terms) {
+                const tl = t.toLowerCase();
+                if (!tl) continue;
+                let from = 0;
+                while (from < lower.length) {
+                    const idx = lower.indexOf(tl, from);
+                    if (idx < 0) break;
+                    ranges.push([idx, idx + tl.length]);
+                    from = idx + tl.length;
+                    if (ranges.length > 300) break;
+                }
+                if (ranges.length > 300) break;
+            }
+            if (!ranges.length) return escapeHtml(plain);
+
+            ranges.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+            const merged = [];
+            for (const r of ranges) {
+                const last = merged[merged.length - 1];
+                if (!last || r[0] > last[1]) merged.push([r[0], r[1]]);
+                else last[1] = Math.max(last[1], r[1]);
+            }
+
+            let out = '';
+            let cursor = 0;
+            for (const [s, e] of merged) {
+                out += escapeHtml(plain.slice(cursor, s));
+                out += `<mark class="search-hl">${escapeHtml(plain.slice(s, e))}</mark>`;
+                cursor = e;
+            }
+            out += escapeHtml(plain.slice(cursor));
+            return out;
+        }
+
+        async function loadBookPageTextForSearch(pageNumber, volumeIndex, partIdOverride = '') {
+            const subject = document.getElementById('subjectSelect')?.value || '';
+            const isThaiSource = subject.includes('ไทยเป็นมคธ');
+            if (isThaiSource) {
+                const target = getBookTextSearchTargetMode();
+                const partId = String(partIdOverride || document.getElementById(target === 'sense' ? 'sensePart' : 'literalPart')?.value || '');
+                return await loadThaiSourcePage(pageNumber, partId, volumeIndex);
+            }
+            return await loadMangala01Page(pageNumber, volumeIndex);
+        }
+
+        async function runBookTextSearch() {
+            const token = ++bookTextSearchAbortToken;
+            const result = document.getElementById('bookTextSearchResult');
+            const meta = document.getElementById('bookTextSearchMeta');
+            const queryRaw = document.getElementById('bookTextSearchQuery')?.value || '';
+            const startRaw = document.getElementById('bookTextSearchStartPage')?.value || '';
+            const endRaw = document.getElementById('bookTextSearchEndPage')?.value || '';
+            const volSel = document.getElementById('bookTextSearchVolume');
+            const targetSel = document.getElementById('bookTextSearchTarget');
+
+            const needle = normalizeSearchText(queryRaw);
+            if (!needle) {
+                if (result) result.innerHTML = '<div class="msg-no-data">กรุณาใส่คำ/ประโยคที่ต้องการค้นหา</div>';
+                return;
+            }
+
+            const subject = document.getElementById('subjectSelect')?.value || '';
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            const isThaiSource = subject.includes('ไทยเป็นมคธ');
+            const cfg = isThaiSource ? getThaiSourcePageDataConfig(document.getElementById('literalPart')?.value || '') : getPaliPageDataConfig();
+            const volumes = isThaiSource ? getThaiVolumes(cfg) : getPaliVolumes(cfg);
+            const bookTitles = getBookTitlesForLevel(levelCode);
+            const volValue = volSel?.value || '0';
+            const shouldSearchAllVolumes = volValue === 'ALL' && volumes.length > 1;
+            const shouldSearchByParts = shouldUseThaiSourcePartSelection();
+            const partSel = document.getElementById('bookTextSearchPart');
+            const partValue = partSel?.value || 'ALL';
+
+            let startPage = parseInt(thaiToArabic(String(startRaw || '').trim()), 10);
+            let endPage = parseInt(thaiToArabic(String(endRaw || '').trim()), 10);
+            const hasStart = Number.isFinite(startPage) && startPage >= 1;
+            const hasEnd = Number.isFinite(endPage) && endPage >= 1;
+            if (!hasStart) startPage = 1;
+            if (!hasEnd) endPage = 0;
+            if (hasEnd && endPage < startPage) [startPage, endPage] = [endPage, startPage];
+
+            const maxResults = 50;
+            let scanned = 0;
+            let found = 0;
+            const matches = [];
+            if (result) result.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังค้นหา...';
+
+            let totalPages = 0;
+
+            if (shouldSearchByParts) {
+                const base = getThaiSourceBaseConfigForCurrentLevel();
+                const parts = Array.isArray(base?.parts) ? base.parts : [];
+                const selectedParts = partValue === 'ALL'
+                    ? parts
+                    : parts.filter(p => String(p.partId || '') === String(partValue || ''));
+
+                const partRanges = selectedParts.map((p) => {
+                    const partId = String(p.partId || '');
+                    const cfg = getThaiSourcePageDataConfig(partId);
+                    const maxPage = parseInt(cfg?.maxPage, 10) || 0;
+                    if (!partId || !maxPage) return null;
+                    const localStart = Math.max(1, Math.min(maxPage, startPage));
+                    const localEnd = hasEnd ? Math.max(1, Math.min(maxPage, endPage)) : maxPage;
+                    return {
+                        partId,
+                        partLabel: String(p.label || partId),
+                        start: Math.min(localStart, localEnd),
+                        end: Math.max(localStart, localEnd)
+                    };
+                }).filter(Boolean);
+
+                totalPages = partRanges.reduce((sum, r) => sum + (r.end - r.start + 1), 0);
+
+                for (let pi = 0; pi < partRanges.length; pi++) {
+                    const { partId, partLabel, start, end } = partRanges[pi];
+                    for (let p = start; p <= end; p++) {
+                        if (bookTextSearchAbortToken !== token) return;
+                        scanned++;
+
+                        let text = '';
+                        try {
+                            text = await loadBookPageTextForSearch(p, 0, partId);
+                        } catch (_) {
+                            text = '';
+                        }
+                        const blob = normalizeSearchText(text);
+                        if (blob.includes(needle)) {
+                            found++;
+                            matches.push({
+                                partId,
+                                partLabel,
+                                volumeIndex: 0,
+                                volumeLabel: '',
+                                page: p,
+                                snippet: makeSnippetFromPageText(text)
+                            });
+                            if (matches.length >= maxResults) break;
+                        }
+
+                        if (meta) {
+                            const partProg = partRanges.length > 1 ? `ภาค ${String(pi + 1)}/${String(partRanges.length)} | ` : '';
+                            meta.textContent = `กำลังค้นหา: ${partProg}สแกน ${String(scanned)}/${String(Math.max(1, totalPages))} หน้า | พบ ${String(found)} หน้า`;
+                        }
+                        if (scanned % 8 === 0) await new Promise(r => setTimeout(r, 0));
+                    }
+                    if (matches.length >= maxResults) break;
+                }
+            } else {
+                const searchVolumeIndices = shouldSearchAllVolumes
+                    ? volumes.map((_, idx) => idx)
+                    : [clampVolumeIndex(volumes, volValue)];
+
+                const volumeRanges = searchVolumeIndices.map((vIdx) => {
+                    const maxPage = parseInt(volumes?.[vIdx]?.maxPage, 10) || 0;
+                    if (!maxPage) return { vIdx, start: 1, end: 0, maxPage: 0 };
+                    const localStart = Math.max(1, Math.min(maxPage, startPage));
+                    const localEnd = hasEnd ? Math.max(1, Math.min(maxPage, endPage)) : maxPage;
+                    return { vIdx, start: Math.min(localStart, localEnd), end: Math.max(localStart, localEnd), maxPage };
+                }).filter(r => r.end >= r.start && r.maxPage > 0);
+
+                totalPages = volumeRanges.reduce((sum, r) => sum + (r.end - r.start + 1), 0);
+
+                for (let vi = 0; vi < volumeRanges.length; vi++) {
+                    const { vIdx, start, end } = volumeRanges[vi];
+                    for (let p = start; p <= end; p++) {
+                        if (bookTextSearchAbortToken !== token) return;
+                        scanned++;
+
+                        let text = '';
+                        try {
+                            text = await loadBookPageTextForSearch(p, vIdx);
+                        } catch (_) {
+                            text = '';
+                        }
+                        const blob = normalizeSearchText(text);
+                        if (blob.includes(needle)) {
+                            found++;
+                            matches.push({
+                                volumeIndex: vIdx,
+                                volumeLabel: volumes?.[vIdx]?.label || bookTitles[vIdx] || `เล่ม ${String(vIdx + 1)}`,
+                                page: p,
+                                snippet: makeSnippetFromPageText(text)
+                            });
+                            if (matches.length >= maxResults) break;
+                        }
+
+                        if (meta) {
+                            const volPart = shouldSearchAllVolumes ? `เล่ม ${String(vi + 1)}/${String(volumeRanges.length)} | ` : '';
+                            meta.textContent = `กำลังค้นหา: ${volPart}สแกน ${String(scanned)}/${String(Math.max(1, totalPages))} หน้า | พบ ${String(found)} หน้า`;
+                        }
+                        if (scanned % 8 === 0) await new Promise(r => setTimeout(r, 0));
+                    }
+                    if (matches.length >= maxResults) break;
+                }
+            }
+
+            if (bookTextSearchAbortToken !== token) return;
+
+            if (meta) {
+                const limited = matches.length >= maxResults ? ' (แสดงสูงสุด 50 รายการ)' : '';
+                meta.textContent = `สแกน ${String(scanned)}/${String(Math.max(1, totalPages))} หน้า | พบ ${String(found)} หน้า${limited}`;
+            }
+
+            if (!result) return;
+            if (!matches.length) {
+                result.innerHTML = '<div class="msg-no-data">ไม่พบข้อความที่ตรงกับคำค้น</div>';
+                return;
+            }
+
+            const showPartColumn = shouldSearchByParts;
+            const showVolumeColumn = !showPartColumn && (shouldSearchAllVolumes && volumes.length > 1);
+            const rows = matches.map(m => {
+                const page = String(m.page);
+                const snippetHtml = highlightSearchInSnippet(m.snippet || '', queryRaw);
+                const vIdx = Number.isFinite(parseInt(m.volumeIndex, 10)) ? parseInt(m.volumeIndex, 10) : 0;
+                const vLabel = m.volumeLabel || volumes?.[vIdx]?.label || bookTitles[vIdx] || `เล่ม ${String(vIdx + 1)}`;
+                const partId = String(m.partId || '');
+                const partLabel = String(m.partLabel || '');
+                const partIdJsArg = partId
+                    ? `'${partId.replace(/\\/g, '\\\\').replace(/'/g, '\\\'')}'`
+                    : "''";
+                return `
+                    <tr class="border-bottom-eee">
+                        ${showPartColumn ? `<td class="p-8 valign-top" style="width: 160px;">${escapeHtml(partLabel || '-')}</td>` : ''}
+                        ${showVolumeColumn ? `<td class="p-8 valign-top" style="width: 160px;">${vLabel}</td>` : ''}
+                        <td class="p-8 valign-top" style="width: 110px;">หน้า ${page}</td>
+                        <td class="p-8 valign-top">${snippetHtml}</td>
+                        <td class="p-8 valign-top" style="width: 150px;">
+                            <button class="btn secondary text-xs" type="button" onclick="applyBookSearchResult(${m.page}, ${vIdx}, ${partIdJsArg})">
+                                ใช้หน้านี้
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            result.innerHTML = `
+                <table class="w-full border-collapse text-md">
+                    <thead>
+                        <tr class="bg-light-gray border-bottom-ddd">
+                            ${showPartColumn ? '<th class="p-8 text-left">ภาค</th>' : ''}
+                            ${showVolumeColumn ? '<th class="p-8 text-left">เล่ม</th>' : ''}
+                            <th class="p-8 text-left">หน้า</th>
+                            <th class="p-8 text-left">ตัวอย่างข้อความ</th>
+                            <th class="p-8 text-left">เลือก</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            `;
+        }
+
+        function applyBookSearchResult(pageNumber, volumeIndex = 0, partId = '') {
+            const target = getBookTextSearchTargetMode();
+            applyBookSearchPageToRange(target, pageNumber, volumeIndex, partId);
+        }
+
+        function applyBookSearchPageToRange(target, pageNumber, volumeIndex = 0, partId = '') {
+            const p = parseInt(pageNumber, 10) || 1;
+            const vIdx = Math.max(0, parseInt(volumeIndex, 10) || 0);
+            const chosenPartId = String(partId || '');
+            if (target === 'sense') {
+                const partSel = document.getElementById('sensePart');
+                if (chosenPartId && partSel) {
+                    partSel.value = chosenPartId;
+                    updateVaggaSelect('sense');
+                }
+                const s = document.getElementById('senseStartPage');
+                const e = document.getElementById('senseEndPage');
+                const v = document.getElementById('senseVolumeSelect');
+                if (v) v.value = String(vIdx);
+                if (s) s.value = String(p);
+                if (e) e.value = String(p);
+            } else {
+                const partSel = document.getElementById('literalPart');
+                if (chosenPartId && partSel) {
+                    partSel.value = chosenPartId;
+                    updateVaggaSelect('literal');
+                }
+                const s = document.getElementById('literalStartPage');
+                const e = document.getElementById('literalEndPage');
+                const v = document.getElementById('literalVolumeSelect');
+                if (v) v.value = String(vIdx);
+                if (s) s.value = String(p);
+                if (e) e.value = String(p);
+            }
+            closeBookTextSearchModal();
+            generatePreview();
+        }
     </script>
     
     <!-- Modal for Exam Stats -->
@@ -5329,6 +5922,63 @@
             </div>
             <div class="modal-footer">
                 <button class="btn secondary" onclick="document.getElementById('examStatsModal').classList.remove('d-flex')">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bookTextSearchModal" class="modal-overlay" onclick="if (event && event.target === this) closeBookTextSearchModal()">
+        <div class="modal-content" style="max-width: 760px;">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-book-open"></i> ค้นหาในหนังสือ (จากคำ/ประโยคที่จำได้)</h3>
+                <button class="modal-close-btn" type="button" onclick="closeBookTextSearchModal()">&times;</button>
+            </div>
+
+            <div class="row">
+                <label>ชั้น</label>
+                <div class="w-full"><span class="info-badge" id="bookTextSearchLevel">-</span></div>
+            </div>
+            <div class="row">
+                <label>วิชา</label>
+                <div class="w-full"><span class="info-badge" id="bookTextSearchSubject">-</span></div>
+            </div>
+            <div class="row">
+                <label>หนังสือ</label>
+                <div class="w-full"><span class="text-gray-666" id="bookTextSearchBookTitle"></span></div>
+            </div>
+            <div class="row d-none" id="bookTextSearchPartRow">
+                <label>ภาค (ถ้าจำได้)</label>
+                <select id="bookTextSearchPart" class="w-full" onchange="syncBookTextSearchPartPlaceholders()"></select>
+            </div>
+            <div class="row" id="bookTextSearchVolumeRow">
+                <label>เล่ม (ถ้าจำได้)</label>
+                <select id="bookTextSearchVolume" class="w-full" onchange="syncBookTextSearchPagePlaceholders()"></select>
+            </div>
+            <div class="row">
+                <label>ผลการค้นหาใส่ไปที่</label>
+                <select id="bookTextSearchTarget" class="w-full" onchange="syncBookTextSearchPartOptions(); syncBookTextSearchVolumeOptions()">
+                    <option value="literal">ข้อ ๑</option>
+                    <option value="sense">ข้อ ๒</option>
+                </select>
+            </div>
+            <div class="row">
+                <label>ช่วงหน้า (เว้นว่าง = ค้นหาทั้งเล่ม)</label>
+                <div class="d-flex gap-10 w-full">
+                    <input id="bookTextSearchStartPage" type="number" class="page-input" placeholder="เริ่มต้น" />
+                    <input id="bookTextSearchEndPage" type="number" class="page-input" placeholder="สิ้นสุด" />
+                </div>
+            </div>
+            <div class="row">
+                <label>คำ/ประโยคที่จำได้</label>
+                <textarea id="bookTextSearchQuery" class="w-full resize-v h-120" placeholder="พิมพ์/วางคำที่จำได้ เช่น “กสิณุคฺฆาฏิ” หรือ “อากาสํเยว เปกฺขมาโน”"></textarea>
+            </div>
+
+            <div id="bookTextSearchMeta" class="text-gray-666 text-sm mt-5"></div>
+            <div id="bookTextSearchResult" class="mt-10"></div>
+
+            <div class="modal-footer">
+                <button class="btn secondary" type="button" onclick="closeBookTextSearchModal()">ปิด</button>
+                <button class="btn secondary" type="button" onclick="cancelBookTextSearch()">ยกเลิกการค้นหา</button>
+                <button class="btn primary" type="button" onclick="runBookTextSearch()"><i class="fa-solid fa-magnifying-glass"></i> ค้นหา</button>
             </div>
         </div>
     </div>
