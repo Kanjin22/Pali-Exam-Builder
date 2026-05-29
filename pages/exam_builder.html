@@ -3619,8 +3619,8 @@
 
         async function renderElementToCanvas(el, scale) {
             const rect = el.getBoundingClientRect();
-            const w = Math.max(1, Math.ceil(rect.width || 0));
-            const h = Math.max(1, Math.ceil(Math.max(rect.height || 0, el.scrollHeight || 0, el.offsetHeight || 0)));
+            const w = Math.max(1, rect.width || 0);
+            const h = Math.max(1, Math.max(rect.height || 0, el.scrollHeight || 0, el.offsetHeight || 0));
 
             const rawCss = collectAllStyleText();
             const css = await inlineCssUrls(rawCss);
@@ -3642,15 +3642,15 @@
                 });
 
                 const canvas = document.createElement('canvas');
-                canvas.width = Math.round(w * scale);
-                canvas.height = Math.round(h * scale);
+                canvas.width = Math.max(1, Math.round(w * scale));
+                canvas.height = Math.max(1, Math.round(h * scale));
                 const ctx = canvas.getContext('2d');
                 ctx.imageSmoothingEnabled = true;
                 ctx.imageSmoothingQuality = 'high';
                 ctx.setTransform(scale, 0, 0, scale, 0, 0);
                 ctx.fillStyle = '#ffffff';
                 ctx.fillRect(0, 0, w, h);
-                ctx.drawImage(img, 0, 0);
+                ctx.drawImage(img, 0, 0, w, h);
                 return { canvas, width: w, height: h };
             } finally {
                 URL.revokeObjectURL(url);
