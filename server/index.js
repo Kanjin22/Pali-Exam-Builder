@@ -4,12 +4,21 @@ const puppeteer = require('puppeteer');
 
 const app = express();
 app.disable('x-powered-by');
+app.set('trust proxy', 1);
 
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: false, limit: '20mb' }));
 
 const rootDir = path.resolve(__dirname, '..');
 app.use(express.static(rootDir, { etag: true, maxAge: '1h' }));
+
+app.get('/', (_req, res) => {
+  res.status(200).type('text/plain; charset=utf-8').send('Pali-Exam-Builder PDF server');
+});
+
+app.get('/healthz', (_req, res) => {
+  res.status(200).json({ ok: true });
+});
 
 app.post('/api/render-pdf', async (req, res) => {
   let draft = null;
@@ -30,7 +39,8 @@ app.post('/api/render-pdf', async (req, res) => {
 
   let browser;
   try {
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const port = parseInt(process.env.PORT, 10) || 3000;
+    const baseUrl = `http://127.0.0.1:${port}`;
 
     browser = await puppeteer.launch({
       headless: 'new',

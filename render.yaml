@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: pali-exam-builder-pdf
+    env: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /healthz
