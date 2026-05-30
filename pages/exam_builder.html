@@ -5128,7 +5128,9 @@
                 alert('เกิดข้อผิดพลาดในการคัดลอก กรุณาเลือกเนื้อหาที่ต้องการแล้วกด Ctrl+C เพื่อคัดลอก');
             }
         }
+        let generatePreviewAbortToken = 0;
         async function generatePreview() {
+            const token = ++generatePreviewAbortToken;
             document.body.classList.remove('mode-solution');
             // NOTE: We do NOT clear selection buffers here anymore.
             // This allows users to change stories/parts without losing their previous selections.
@@ -5165,6 +5167,7 @@
                 return (e) => {
                     if (shown) return;
                     shown = true;
+                    if (generatePreviewAbortToken !== token) return;
                     const msg = (e && e.message) ? String(e.message) : '';
                     const eName = (e && e.name) ? String(e.name) : '';
                     const eText = (() => {
@@ -5207,6 +5210,7 @@
                  } else {
                     try {
                         const r1 = await loadMangala01Range(literalStart, literalEnd, literalVol);
+                        if (generatePreviewAbortToken !== token) return;
                         renderList('literalList', r1.items, 'literal', `pali-pages-${level}-v${literalVol}`, literalStart, literalEnd);
                     } catch (e) {
                         showDataLoadErrorOnce(e);
@@ -5218,12 +5222,14 @@
                  } else {
                     try {
                         const r2 = await loadMangala01Range(senseStart, senseEnd, senseVol);
+                        if (generatePreviewAbortToken !== token) return;
                         renderList('senseList', r2.items, 'sense', `pali-pages-${level}-v${senseVol}`, senseStart, senseEnd);
                     } catch (e) {
                         showDataLoadErrorOnce(e);
                         renderList('senseList', [], 'sense', `pali-pages-${level}-v${senseVol}`, senseStart, senseEnd);
                     }
                  }
+                 if (generatePreviewAbortToken !== token) return;
                  buildExamPreview();
                  applyFontLockForSubject();
                  return;
@@ -5236,6 +5242,7 @@
                      } else {
                         try {
                             const literalResult = await loadThaiSourceRange(literalStart, literalEnd, literalPart, literalVol);
+                            if (generatePreviewAbortToken !== token) return;
                             renderList('literalList', literalResult.items, 'thai_source_literal', (literalThaiPageCfg && literalThaiPageCfg.partId) || literalPart, literalStart, literalEnd);
                         } catch (e) {
                             showDataLoadErrorOnce(e);
@@ -5247,6 +5254,7 @@
                      } else {
                         try {
                             const senseResult = await loadThaiSourceRange(senseStart, senseEnd, sensePart, senseVol);
+                            if (generatePreviewAbortToken !== token) return;
                             renderList('senseList', senseResult.items, 'thai_source_sense', (senseThaiPageCfg && senseThaiPageCfg.partId) || sensePart, senseStart, senseEnd);
                         } catch (e) {
                             showDataLoadErrorOnce(e);
@@ -5265,6 +5273,7 @@
                  renderList('literalList', literalSlides, 'literal', literalPart, literalStart, literalEnd);
                  renderList('senseList', senseSlides, 'sense', sensePart, senseStart, senseEnd);
             }
+            if (generatePreviewAbortToken !== token) return;
             buildExamPreview();
             applyFontLockForSubject();
         }
@@ -5275,6 +5284,42 @@
             if (mode === 'sense') { 
                 if (window.examContent) window.examContent.sense = '';
             }
+        }
+        function resetStep2ForNewContext() {
+            resetSelection('literal');
+            resetSelection('sense');
+            try { clearTapSelection('literal'); } catch (_) {}
+            try { clearTapSelection('sense'); } catch (_) {}
+            const idsToClear = ['literalStartPage', 'literalEndPage', 'senseStartPage', 'senseEndPage'];
+            idsToClear.forEach((id) => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            const volIds = ['literalVolumeSelect', 'senseVolumeSelect'];
+            volIds.forEach((id) => {
+                const el = document.getElementById(id);
+                if (el) el.value = '0';
+            });
+            const vaggaIds = ['literalVagga', 'senseVagga'];
+            vaggaIds.forEach((id) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.value = '';
+            });
+            const storyPairs = [
+                ['literalStory', '(เลือกเรื่อง)'],
+                ['senseStory', '(เลือกเรื่อง)']
+            ];
+            storyPairs.forEach(([id, label]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.innerHTML = `<option value="">${label}</option>`;
+                el.value = '';
+            });
+            renderList('literalList', [], 'literal', 'waiting', '', '');
+            renderList('senseList', [], 'sense', 'waiting', '', '');
+            buildExamPreview();
+            updateInternalNoteAutoSummary();
         }
         function resetForm() {
             trackGaEvent('reset_form', {});
@@ -5455,6 +5500,7 @@
         }
 
         document.getElementById('levelSelect').addEventListener('change', () => { 
+            resetStep2ForNewContext();
             populateSubjectSelect(); 
             populatePartSelects(); 
             generatePreview(); 
@@ -5463,8 +5509,7 @@
             updateVolumeSelectors();
         });
         document.getElementById('subjectSelect').addEventListener('change', () => { 
-            resetSelection('literal'); 
-            resetSelection('sense'); 
+            resetStep2ForNewContext();
             populatePartSelects(); 
             generatePreview(); 
             updateWorkflowState();
@@ -5553,10 +5598,42 @@
         document.getElementById('senseStory').addEventListener('change', () => { updatePageRange('sense'); });
 
         // Direct page input updates
-        document.getElementById('literalStartPage').addEventListener('input', generatePreview);
-        document.getElementById('literalEndPage').addEventListener('input', generatePreview);
-        document.getElementById('senseStartPage').addEventListener('input', generatePreview);
-        document.getElementById('senseEndPage').addEventListener('input', generatePreview);
+        let pageInputPreviewTimer = 0;
+        function scheduleGeneratePreviewFromPageInput() {
+            try {
+                if (pageInputPreviewTimer) clearTimeout(pageInputPreviewTimer);
+                pageInputPreviewTimer = setTimeout(() => {
+                    pageInputPreviewTimer = 0;
+                    generatePreview();
+                }, 450);
+            } catch (_) {
+                generatePreview();
+            }
+        }
+        function flushGeneratePreviewFromPageInput() {
+            try {
+                if (pageInputPreviewTimer) clearTimeout(pageInputPreviewTimer);
+            } catch (_) {}
+            pageInputPreviewTimer = 0;
+            generatePreview();
+        }
+        function bindPageInput(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener('input', scheduleGeneratePreviewFromPageInput);
+            el.addEventListener('change', flushGeneratePreviewFromPageInput);
+            el.addEventListener('blur', flushGeneratePreviewFromPageInput);
+            el.addEventListener('keydown', (e) => {
+                if (e && (e.key === 'Enter' || e.keyCode === 13)) {
+                    if (typeof e.preventDefault === 'function') e.preventDefault();
+                    flushGeneratePreviewFromPageInput();
+                }
+            });
+        }
+        bindPageInput('literalStartPage');
+        bindPageInput('literalEndPage');
+        bindPageInput('senseStartPage');
+        bindPageInput('senseEndPage');
         document.getElementById('literalVolumeSelect').addEventListener('change', generatePreview);
         document.getElementById('senseVolumeSelect').addEventListener('change', generatePreview);
         document.addEventListener('selectionchange', scheduleSelectionCounterUpdate);
