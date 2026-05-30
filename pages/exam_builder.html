@@ -5285,6 +5285,42 @@
                 if (window.examContent) window.examContent.sense = '';
             }
         }
+        function resetStep2ForNewContext() {
+            resetSelection('literal');
+            resetSelection('sense');
+            try { clearTapSelection('literal'); } catch (_) {}
+            try { clearTapSelection('sense'); } catch (_) {}
+            const idsToClear = ['literalStartPage', 'literalEndPage', 'senseStartPage', 'senseEndPage'];
+            idsToClear.forEach((id) => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            const volIds = ['literalVolumeSelect', 'senseVolumeSelect'];
+            volIds.forEach((id) => {
+                const el = document.getElementById(id);
+                if (el) el.value = '0';
+            });
+            const vaggaIds = ['literalVagga', 'senseVagga'];
+            vaggaIds.forEach((id) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.value = '';
+            });
+            const storyPairs = [
+                ['literalStory', '(เลือกเรื่อง)'],
+                ['senseStory', '(เลือกเรื่อง)']
+            ];
+            storyPairs.forEach(([id, label]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.innerHTML = `<option value="">${label}</option>`;
+                el.value = '';
+            });
+            renderList('literalList', [], 'literal', 'waiting', '', '');
+            renderList('senseList', [], 'sense', 'waiting', '', '');
+            buildExamPreview();
+            updateInternalNoteAutoSummary();
+        }
         function resetForm() {
             trackGaEvent('reset_form', {});
             resetSelection('literal');
@@ -5464,6 +5500,7 @@
         }
 
         document.getElementById('levelSelect').addEventListener('change', () => { 
+            resetStep2ForNewContext();
             populateSubjectSelect(); 
             populatePartSelects(); 
             generatePreview(); 
@@ -5472,8 +5509,7 @@
             updateVolumeSelectors();
         });
         document.getElementById('subjectSelect').addEventListener('change', () => { 
-            resetSelection('literal'); 
-            resetSelection('sense'); 
+            resetStep2ForNewContext();
             populatePartSelects(); 
             generatePreview(); 
             updateWorkflowState();
