@@ -788,9 +788,9 @@
         .font-pali { font-family: "DilleniaUPC_4Balee", "DilleniaUPC", sans-serif; }
         .font-thai { font-family: "DilleniaUPC", sans-serif; }
         .paper-header-font { font-family: "TH Sarabun New", "Sarabun", sans-serif; font-size: calc(1em + 2px); }
-        .paper-header-font .paper-line { margin: 2px 0; line-height: 1.25; white-space: normal; }
+        .paper-header-font .paper-line { margin: 2px 0; line-height: 1.25; white-space: pre-wrap; }
         .paper-sep.paper-header-font { margin: 6px 0 12px 0; line-height: 1.2; }
-        .paper-foot.paper-header-font { margin-top: 12px; line-height: 1.25; white-space: normal; }
+        .paper-foot.paper-header-font { margin-top: 12px; line-height: 1.25; white-space: pre-wrap; }
 
         .layout-root { padding: 18px 24px calc(24px + 92px + env(safe-area-inset-bottom)) 24px; --tool-panel-width: 420px; }
         .layout-top { display: flex; align-items: flex-start; gap: 18px; }
@@ -3451,12 +3451,30 @@
             const canTryStorage = objectPath.startsWith('data/') && !!storage;
             const isGithubPages = /\.github\.io$/i.test(String(location.hostname || ''));
             const preferStorage = canTryStorage && (String(localStorage.getItem('preferFirebaseStorageData') || '') === '1' || isGithubPages);
+            const getLegacyPath = (p) => {
+                if (!/\.txt$/i.test(p) || /\.\.txt$/i.test(p)) return '';
+                return p.replace(/\.txt$/i, '..txt');
+            };
+            const tryLegacyStorage = async () => {
+                if (!canTryStorage) return null;
+                const legacyObjectPath = getLegacyPath(objectPath);
+                if (!legacyObjectPath) return null;
+                try {
+                    const downloadUrl = await getFirebaseStorageDownloadUrl(legacyObjectPath);
+                    return await fetchTextFile(downloadUrl);
+                } catch (_) {
+                    return null;
+                }
+            };
 
             if (preferStorage) {
                 try {
                     const downloadUrl = await getFirebaseStorageDownloadUrl(objectPath);
                     return await fetchTextFile(downloadUrl);
-                } catch (_) {}
+                } catch (_) {
+                    const legacyStorage = await tryLegacyStorage();
+                    if (legacyStorage !== null) return legacyStorage;
+                }
             }
 
             try {
@@ -3475,6 +3493,8 @@
                 };
                 const legacyLocal = await tryLegacyLocal();
                 if (legacyLocal !== null) return legacyLocal;
+                const legacyStorage = await tryLegacyStorage();
+                if (legacyStorage !== null) return legacyStorage;
                 const downloadUrl = await getFirebaseStorageDownloadUrl(objectPath);
                 return await fetchTextFile(downloadUrl);
             }
@@ -4003,7 +4023,10 @@
         }
 
         function submitPdfRender(targetName) {
-            const draft = getDraftState();
+            const draft = {
+                settings: getPaperSettingsState(),
+                paperHTML: document.getElementById('paperEditable')?.innerHTML || ''
+            };
             const form = document.getElementById('pdfRenderForm');
             const input = document.getElementById('pdfDraftJson');
             if (!form || !input) {

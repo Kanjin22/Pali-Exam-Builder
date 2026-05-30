@@ -56,28 +56,45 @@ app.post('/api/render-pdf', async (req, res) => {
     await page.evaluate(async (payload) => {
       const paper = document.getElementById('paperEditable');
       if (!paper) throw new Error('missing paperEditable');
+      const printMirrorEditable = document.getElementById('printMirrorEditable');
+      const printMirrorPaper = document.getElementById('printMirrorPaper');
+      const printMirrorInner = document.getElementById('printMirrorInner');
 
       const settings = payload && payload.settings ? payload.settings : {};
       const margins = settings.margins || {};
       const safe = (v, fallback) => (v === undefined || v === null || v === '') ? fallback : v;
+      const ensureNumber = (v, fallback) => {
+        const n = typeof v === 'number' ? v : parseFloat(v);
+        return Number.isFinite(n) ? n : fallback;
+      };
 
       try {
         const v = safe(settings.paperSize, 'A4');
         const sel = document.getElementById('paperSizeSelect');
         if (sel) sel.value = v;
         if (typeof changePaperSize === 'function') changePaperSize(v);
+        if (printMirrorPaper) {
+          printMirrorPaper.classList.toggle('size-a4', String(v).toUpperCase() === 'A4');
+          printMirrorPaper.classList.toggle('size-f4', String(v).toUpperCase() !== 'A4');
+        }
       } catch (_) {}
 
       try {
-        const top = parseFloat(safe(margins.top, 2.54));
-        const bottom = parseFloat(safe(margins.bottom, 2.54));
-        const left = parseFloat(safe(margins.left, 2.54));
-        const right = parseFloat(safe(margins.right, 2.54));
+        const top = ensureNumber(safe(margins.top, 2.54), 2.54);
+        const bottom = ensureNumber(safe(margins.bottom, 2.54), 2.54);
+        const left = ensureNumber(safe(margins.left, 2.54), 2.54);
+        const right = ensureNumber(safe(margins.right, 2.54), 2.54);
         if (typeof updateMargin === 'function') {
           updateMargin('top', isFinite(top) ? top : 2.54);
           updateMargin('bottom', isFinite(bottom) ? bottom : 2.54);
           updateMargin('left', isFinite(left) ? left : 2.54);
           updateMargin('right', isFinite(right) ? right : 2.54);
+        }
+        if (printMirrorInner) {
+          printMirrorInner.style.setProperty('--p-top', `${top}cm`);
+          printMirrorInner.style.setProperty('--p-bottom', `${bottom}cm`);
+          printMirrorInner.style.setProperty('--p-left', `${left}cm`);
+          printMirrorInner.style.setProperty('--p-right', `${right}cm`);
         }
       } catch (_) {}
 
@@ -123,7 +140,9 @@ app.post('/api/render-pdf', async (req, res) => {
         if (p) p.classList.toggle('justify-all', justifyAll);
       } catch (_) {}
 
-      paper.innerHTML = String(payload && payload.paperHTML ? payload.paperHTML : '');
+      const html = String(payload && payload.paperHTML ? payload.paperHTML : '');
+      paper.innerHTML = html;
+      if (printMirrorEditable) printMirrorEditable.innerHTML = html;
 
       try {
         if (typeof applyHeaderLockState === 'function') applyHeaderLockState();
