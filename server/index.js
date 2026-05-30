@@ -68,6 +68,10 @@ app.post('/api/render-pdf', async (req, res) => {
     const frontendUrl = (!isRenderEnv() && fs.existsSync(localExamPath))
       ? `${baseUrl}/pages/exam_builder.html`
       : String(process.env.FRONTEND_URL || defaultFrontendUrl);
+    const hasFrontendUrl = /^https?:\/\//i.test(frontendUrl) || frontendUrl.startsWith('/');
+    if (!hasFrontendUrl) {
+      return res.status(500).json({ error: 'render_failed', message: 'invalid FRONTEND_URL' });
+    }
     const frontendOrigin = (() => {
       try {
         return new URL(frontendUrl).origin;
@@ -78,11 +82,29 @@ app.post('/api/render-pdf', async (req, res) => {
 
     browser = await puppeteer.launch({
       headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--no-zygote',
+        '--single-process'
+      ]
     });
 
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 2 });
+
+    page.on('pageerror', (err) => {
+      try {
+        process.stderr.write(`[pageerror] ${String(err && err.message ? err.message : err)}\n`);
+      } catch (_) {}
+    });
+    page.on('console', (msg) => {
+      try {
+        const text = msg.text();
+        if (text) process.stderr.write(`[console:${msg.type()}] ${text}\n`);
+      } catch (_) {}
+    });
 
     await page.setRequestInterception(true);
     page.on('request', (r) => {
@@ -96,13 +118,17 @@ app.post('/api/render-pdf', async (req, res) => {
         if (/^https:\/\/fonts\.gstatic\.com\//i.test(url)) return r.continue();
         if (/^https:\/\/cdnjs\.cloudflare\.com\//i.test(url)) return r.continue();
         if (/^https:\/\/www\.gstatic\.com\//i.test(url)) return r.continue();
+        if (/^https:\/\/firebasestorage\.googleapis\.com\//i.test(url)) return r.continue();
+        if (/^https:\/\/identitytoolkit\.googleapis\.com\//i.test(url)) return r.continue();
+        if (/^https:\/\/securetoken\.googleapis\.com\//i.test(url)) return r.continue();
+        if (/^https:\/\/www\.google-analytics\.com\//i.test(url)) return r.continue();
         return r.abort();
       } catch (_) {
         return r.abort();
       }
     });
 
-    await page.goto(frontendUrl, { waitUntil: 'domcontentloaded' });
+    await page.goto(frontendUrl, { waitUntil: 'domcontentloaded', timeout: 120000 });
 
     await page.evaluate(async (payload) => {
       const paper = document.getElementById('paperEditable');
@@ -225,7 +251,13 @@ app.post('/api/render-pdf', async (req, res) => {
     res.setHeader('Content-Disposition', 'inline; filename="exam.pdf"');
     return res.status(200).send(pdfBuffer);
   } catch (e) {
-    return res.status(500).json({ error: 'render_failed' });
+    try {
+      process.stderr.write(`[render_failed] ${e && e.stack ? e.stack : String(e)}\n`);
+    } catch (_) {}
+    return res.status(500).json({
+      error: 'render_failed',
+      message: e && e.message ? String(e.message) : String(e)
+    });
   } finally {
     try {
       if (browser) await browser.close();
