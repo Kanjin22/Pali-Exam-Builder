@@ -60,6 +60,29 @@ app.post('/api/render-pdf', async (req, res) => {
   const settings = (draft.settings && typeof draft.settings === 'object') ? draft.settings : {};
   const paperHtml = typeof draft.paperHTML === 'string' ? draft.paperHTML : '';
 
+  const wantsHtml = () => {
+    const accept = String(req.headers.accept || '');
+    return /\btext\/html\b/i.test(accept);
+  };
+  const sendRenderError = (statusCode, message) => {
+    const msg = String(message || 'render_failed');
+    if (wantsHtml()) {
+      res
+        .status(statusCode)
+        .type('text/html; charset=utf-8')
+        .send(
+          `<!doctype html><meta charset="utf-8"><title>PDF Render Error</title>` +
+          `<div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:24px auto;padding:16px;">` +
+          `<h2 style="margin:0 0 12px 0;">สร้าง PDF ไม่สำเร็จ</h2>` +
+          `<pre style="white-space:pre-wrap;word-break:break-word;background:#f7f7f7;border:1px solid #ddd;border-radius:8px;padding:12px;margin:0;">${escapeHtml(msg)}</pre>` +
+          `<div style="margin-top:12px;color:#444;font-size:14px;">เปิด Render Logs เพื่อดูรายละเอียดเพิ่มเติม</div>` +
+          `</div>`
+        );
+      return;
+    }
+    res.status(statusCode).json({ error: 'render_failed', message: msg });
+  };
+
   let browser;
   try {
     const port = parseInt(process.env.PORT, 10) || 3000;
@@ -80,7 +103,7 @@ app.post('/api/render-pdf', async (req, res) => {
       }
     })();
 
-    browser = await puppeteer.launch({
+    const launchOptions = {
       headless: 'new',
       args: [
         '--no-sandbox',
@@ -89,7 +112,11 @@ app.post('/api/render-pdf', async (req, res) => {
         '--no-zygote',
         '--single-process'
       ]
-    });
+    };
+    if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+      launchOptions.executablePath = String(process.env.PUPPETEER_EXECUTABLE_PATH);
+    }
+    browser = await puppeteer.launch(launchOptions);
 
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 2 });
@@ -247,17 +274,20 @@ app.post('/api/render-pdf', async (req, res) => {
       margin: { top: '0', right: '0', bottom: '0', left: '0' }
     });
 
+    const asBuf = Buffer.isBuffer(pdfBuffer) ? pdfBuffer : Buffer.from(pdfBuffer);
+    const head = asBuf.subarray(0, 8).toString('utf8');
+    if (!head.startsWith('%PDF-') || asBuf.length < 1000) {
+      throw new Error(`invalid_pdf_output (len=${String(asBuf.length)}, head=${JSON.stringify(head)})`);
+    }
+
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', 'inline; filename="exam.pdf"');
-    return res.status(200).send(pdfBuffer);
+    return res.status(200).send(asBuf);
   } catch (e) {
     try {
       process.stderr.write(`[render_failed] ${e && e.stack ? e.stack : String(e)}\n`);
     } catch (_) {}
-    return res.status(500).json({
-      error: 'render_failed',
-      message: e && e.message ? String(e.message) : String(e)
-    });
+    return sendRenderError(500, e && e.message ? String(e.message) : String(e));
   } finally {
     try {
       if (browser) await browser.close();
