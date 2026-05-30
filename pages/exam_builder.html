@@ -4040,17 +4040,9 @@
             }
             if (isGithubPagesHost()) {
                 try {
-                    const input = window.prompt('กรอก URL เซิร์ฟเวอร์ PDF (เช่น https://your-app.onrender.com)') || '';
-                    const trimmed = String(input).trim();
-                    if (!trimmed) return '';
-                    localStorage.setItem('pdfRenderEndpoint', trimmed);
-                    const normalized = String(localStorage.getItem('pdfRenderEndpoint') || '').trim();
-                    if (!normalized) return '';
-                    if (/^https?:\/\//i.test(normalized)) {
-                        if (/\/api\/render-pdf\/?$/i.test(normalized)) return normalized;
-                        return normalized.replace(/\/+$/g, '') + '/api/render-pdf';
-                    }
-                    return normalized;
+                    const defaultServer = 'https://pali-exam-builder-pdf.onrender.com';
+                    localStorage.setItem('pdfRenderEndpoint', defaultServer);
+                    return defaultServer.replace(/\/+$/g, '') + '/api/render-pdf';
                 } catch (_) {
                     return '';
                 }
