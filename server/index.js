@@ -11,23 +11,37 @@ app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: false, limit: '20mb' }));
 
 const rootDir = path.resolve(__dirname, '..');
-app.use(express.static(rootDir, { etag: true, maxAge: '1h' }));
+const defaultFrontendUrl = 'https://kanjin22.github.io/Pali-Exam-Builder/pages/exam_builder.html';
+const isRenderEnv = () => {
+  return !!(
+    process.env.RENDER ||
+    process.env.RENDER_SERVICE_ID ||
+    process.env.RENDER_EXTERNAL_URL ||
+    process.env.RENDER_GIT_COMMIT
+  );
+};
 
 app.get('/', (_req, res) => {
   res.status(200).type('text/plain; charset=utf-8').send('Pali-Exam-Builder PDF server');
 });
 
 app.get('/pages/exam_builder.html', (req, res, next) => {
-  const localFile = path.join(rootDir, 'pages', 'exam_builder.html');
-  if (fs.existsSync(localFile)) return next();
-  const target = String(process.env.FRONTEND_URL || 'https://kanjin22.github.io/Pali-Exam-Builder/pages/exam_builder.html');
+  const target = String(process.env.FRONTEND_URL || defaultFrontendUrl);
   if (!/^https?:\/\//i.test(target)) return res.status(404).type('text/plain; charset=utf-8').send('Not Found');
-  res.redirect(302, target);
+
+  const host = String(req.headers.host || '');
+  const hostname = String(req.hostname || '');
+  const looksLikeRenderHost = /\.onrender\.com(?::\d+)?$/i.test(host) || /\.onrender\.com$/i.test(hostname);
+  if (isRenderEnv() || looksLikeRenderHost) return res.redirect(302, target);
+
+  return next();
 });
 
 app.get('/healthz', (_req, res) => {
   res.status(200).json({ ok: true });
 });
+
+app.use(express.static(rootDir, { etag: true, maxAge: '1h' }));
 
 app.post('/api/render-pdf', async (req, res) => {
   let draft = null;
@@ -51,9 +65,9 @@ app.post('/api/render-pdf', async (req, res) => {
     const port = parseInt(process.env.PORT, 10) || 3000;
     const baseUrl = `http://127.0.0.1:${port}`;
     const localExamPath = path.join(rootDir, 'pages', 'exam_builder.html');
-    const frontendUrl = fs.existsSync(localExamPath)
+    const frontendUrl = (!isRenderEnv() && fs.existsSync(localExamPath))
       ? `${baseUrl}/pages/exam_builder.html`
-      : String(process.env.FRONTEND_URL || 'https://kanjin22.github.io/Pali-Exam-Builder/pages/exam_builder.html');
+      : String(process.env.FRONTEND_URL || defaultFrontendUrl);
     const frontendOrigin = (() => {
       try {
         return new URL(frontendUrl).origin;
