@@ -744,6 +744,35 @@
         .tablet-action-bar .bar-btn.secondary { background: #eceff1; color: #37474f; }
         .tablet-action-bar .bar-btn > i { margin-right: 8px; }
 
+        :root { --no-split-fab-bottom: 16px; }
+        @media (pointer: coarse) {
+            :root { --no-split-fab-bottom: calc(16px + 74px + env(safe-area-inset-bottom)); }
+        }
+        .no-split-fab {
+            position: fixed;
+            right: 14px;
+            bottom: var(--no-split-fab-bottom);
+            z-index: 1950;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            border-radius: 999px;
+            padding: 12px 14px;
+            font-weight: 900;
+            cursor: pointer;
+            background: #c62828;
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+            line-height: 1.1;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .no-split-fab.show { display: inline-flex; }
+        .no-split-fab:active { transform: translateY(1px); }
+        .no-split-fab > i { line-height: 1; }
+
         /* Print/Display Utilities for Content */
         .print-container { margin-bottom: 8px; page-break-inside: avoid; text-indent: 0; }
         .print-pali { font-family: 'DilleniaUPC_4Balee', 'DilleniaUPC', sans-serif; margin-bottom: 0; text-align: justify; text-align-last: left; white-space: pre-wrap; }
@@ -2099,6 +2128,24 @@
             }
             document.getElementById('paperEditable')?.focus();
             scheduleDraftSave();
+        }
+
+        let noSplitFabFrame = 0;
+        function updateNoSplitFabVisibility() {
+            const btn = document.getElementById('noSplitFab');
+            const paper = document.getElementById('paperEditable');
+            if (!btn || !paper) return;
+            const rect = paper.getBoundingClientRect();
+            const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+            const scrolled = (window.scrollY || 0) > 140;
+            btn.classList.toggle('show', inView && scrolled);
+        }
+        function scheduleNoSplitFabUpdate() {
+            if (noSplitFabFrame) cancelAnimationFrame(noSplitFabFrame);
+            noSplitFabFrame = requestAnimationFrame(() => {
+                noSplitFabFrame = 0;
+                updateNoSplitFabVisibility();
+            });
         }
 
         function toggleJustifyAll() {
@@ -5408,12 +5455,15 @@
         document.getElementById('paperEditable').addEventListener('keyup', scheduleEnsureCaretVisible);
         document.getElementById('paperEditable').addEventListener('click', scheduleEnsureCaretVisible);
         document.addEventListener('selectionchange', scheduleEnsureCaretVisible);
+        document.addEventListener('selectionchange', scheduleNoSplitFabUpdate);
         try {
             if (window.visualViewport) {
                 window.visualViewport.addEventListener('resize', scheduleEnsureCaretVisible);
                 window.visualViewport.addEventListener('scroll', scheduleEnsureCaretVisible);
             }
         } catch (_) {}
+        window.addEventListener('scroll', scheduleNoSplitFabUpdate, { passive: true });
+        window.addEventListener('resize', scheduleNoSplitFabUpdate);
         window.addEventListener('resize', () => requestAnimationFrame(updateStep3StackedMode));
         requestAnimationFrame(updateStep3StackedMode);
         
@@ -5443,6 +5493,7 @@
         updateBsModeButton();
         updateHeaderLockButton();
         changePaperSize(document.getElementById('paperSizeSelect').value);
+        scheduleNoSplitFabUpdate();
         const marginSelect = document.getElementById('marginSelect');
         if (marginSelect) {
             changeMargin(marginSelect.value);
@@ -6194,6 +6245,7 @@
         </div>
     </div>
     
+    <button id="noSplitFab" class="no-split-fab non-print" type="button" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i> ห้ามตัดคำ</button>
     <div class="tablet-action-bar non-print" aria-hidden="false">
         <div class="bar-inner">
             <div class="bar-group">
@@ -6202,6 +6254,7 @@
                 <button class="bar-btn secondary" type="button" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i> ขยาย</button>
             </div>
             <div class="bar-group">
+                <button class="bar-btn secondary" type="button" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i> ห้ามตัดคำ</button>
                 <button class="bar-btn secondary" type="button" onclick="exportDraftStateToFile()"><i class="fa-solid fa-file-arrow-down"></i> ส่งออกงานร่าง</button>
                 <button class="bar-btn secondary" type="button" onclick="openDraftImportPicker()"><i class="fa-solid fa-file-arrow-up"></i> นำเข้างานร่าง</button>
                 <button class="bar-btn primary" type="button" onclick="triggerPrintFromUserGesture()"><i class="fa-solid fa-print"></i> พิมพ์/PDF</button>
