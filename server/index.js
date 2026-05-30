@@ -268,9 +268,83 @@ app.post('/api/render-pdf', async (req, res) => {
 
     await page.emulateMediaType('print');
 
+    const pdfScale = await page.evaluate((payload) => {
+      const settings = (payload && payload.settings) ? payload.settings : {};
+      const margins = settings.margins || {};
+      const ensureNumber = (v, fallback) => {
+        const n = typeof v === 'number' ? v : parseFloat(String(v));
+        return Number.isFinite(n) ? n : fallback;
+      };
+      const topCm = ensureNumber(margins.top, 2.54);
+      const bottomCm = ensureNumber(margins.bottom, 2.54);
+      const leftCm = ensureNumber(margins.left, 2.54);
+      const rightCm = ensureNumber(margins.right, 2.54);
+
+      const paperSize = String(settings.paperSize || 'A4').toUpperCase();
+      const pageMm = paperSize === 'A4'
+        ? { w: 210, h: 297 }
+        : { w: 215.9, h: 355.6 };
+
+      const mmToPx = (mm) => (mm * 96) / 25.4;
+      const cmToPx = (cm) => (cm * 96) / 2.54;
+
+      const paper = document.createElement('div');
+      paper.style.position = 'fixed';
+      paper.style.left = '-10000px';
+      paper.style.top = '0';
+      paper.style.width = `${pageMm.w}mm`;
+      paper.style.paddingTop = `${topCm}cm`;
+      paper.style.paddingBottom = `${bottomCm}cm`;
+      paper.style.paddingLeft = `${leftCm}cm`;
+      paper.style.paddingRight = `${rightCm}cm`;
+      paper.style.boxSizing = 'border-box';
+      paper.style.visibility = 'hidden';
+      paper.style.background = '#fff';
+
+      const mirrorPaper = document.getElementById('printMirrorPaper');
+      const mirrorEditable = document.getElementById('printMirrorEditable');
+      if (mirrorPaper) {
+        const cs = getComputedStyle(mirrorPaper);
+        paper.style.fontFamily = cs.fontFamily;
+        paper.style.fontSize = cs.fontSize;
+        paper.style.setProperty('--paper-line-height', cs.getPropertyValue('--paper-line-height') || '1.6');
+        paper.style.setProperty('--paper-letter-spacing', cs.getPropertyValue('--paper-letter-spacing') || '0');
+      }
+
+      const content = document.createElement('div');
+      content.style.boxSizing = 'border-box';
+      paper.appendChild(content);
+
+      if (mirrorEditable) {
+        const clone = mirrorEditable.cloneNode(true);
+        clone.removeAttribute('id');
+        content.appendChild(clone);
+      }
+
+      document.body.appendChild(paper);
+      const padTopPx = cmToPx(topCm);
+      const padBottomPx = cmToPx(bottomCm);
+      const printableHeightPx = mmToPx(pageMm.h) - padTopPx - padBottomPx;
+      const contentHeightPx = Math.max(0, paper.scrollHeight - padTopPx - padBottomPx);
+      document.body.removeChild(paper);
+
+      if (!Number.isFinite(printableHeightPx) || printableHeightPx <= 0) return 1;
+      if (!Number.isFinite(contentHeightPx) || contentHeightPx <= 0) return 1;
+
+      const ratio = contentHeightPx / printableHeightPx;
+      if (ratio <= 1) return 1;
+
+      const suggested = printableHeightPx / contentHeightPx;
+      const minScale = 0.97;
+      const maxAutoRatio = 1.03;
+      if (ratio <= maxAutoRatio && suggested >= minScale) return suggested;
+      return 1;
+    }, { settings });
+
     const pdfBuffer = await page.pdf({
       printBackground: true,
       preferCSSPageSize: true,
+      scale: (Number.isFinite(pdfScale) && pdfScale > 0 ? pdfScale : 1),
       margin: { top: '0', right: '0', bottom: '0', left: '0' }
     });
 
