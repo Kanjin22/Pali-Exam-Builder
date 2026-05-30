@@ -4022,6 +4022,42 @@
             }
         }
 
+        function isGithubPagesHost() {
+            return /\.github\.io$/i.test(String(location.hostname || ''));
+        }
+
+        function getPdfRenderEndpoint() {
+            const stored = String(localStorage.getItem('pdfRenderEndpoint') || '').trim();
+            if (stored) {
+                if (/^https?:\/\//i.test(stored)) {
+                    if (/\/api\/render-pdf\/?$/i.test(stored)) return stored;
+                    return stored.replace(/\/+$/g, '') + '/api/render-pdf';
+                }
+                if (/^\/api\/render-pdf\/?$/i.test(stored)) return stored;
+                if (/^\/$/i.test(stored)) return '/api/render-pdf';
+                if (/^\/[^?]*/.test(stored)) return stored;
+                return '/api/render-pdf';
+            }
+            if (isGithubPagesHost()) {
+                try {
+                    const input = window.prompt('กรอก URL เซิร์ฟเวอร์ PDF (เช่น https://your-app.onrender.com)') || '';
+                    const trimmed = String(input).trim();
+                    if (!trimmed) return '';
+                    localStorage.setItem('pdfRenderEndpoint', trimmed);
+                    const normalized = String(localStorage.getItem('pdfRenderEndpoint') || '').trim();
+                    if (!normalized) return '';
+                    if (/^https?:\/\//i.test(normalized)) {
+                        if (/\/api\/render-pdf\/?$/i.test(normalized)) return normalized;
+                        return normalized.replace(/\/+$/g, '') + '/api/render-pdf';
+                    }
+                    return normalized;
+                } catch (_) {
+                    return '';
+                }
+            }
+            return '/api/render-pdf';
+        }
+
         function submitPdfRender(targetName) {
             const draft = {
                 settings: getPaperSettingsState(),
@@ -4033,6 +4069,16 @@
                 alert('สร้าง PDF ไม่สำเร็จ\n\nไม่พบฟอร์มส่งข้อมูล PDF');
                 return false;
             }
+            const endpoint = getPdfRenderEndpoint();
+            if (!endpoint) {
+                alert(
+                    'โหมด PDF ใช้งานไม่ได้บน GitHub Pages\n\n' +
+                    'ให้เปิดผ่านเซิร์ฟเวอร์ PDF เช่น http://127.0.0.1:3000/pages/exam_builder.html\n' +
+                    'หรือกำหนดปลายทาง PDF ที่ localStorage key: pdfRenderEndpoint'
+                );
+                return false;
+            }
+            form.action = endpoint;
             input.value = JSON.stringify(draft);
             form.target = targetName;
             form.submit();
