@@ -3,6 +3,9 @@ services:
     name: pali-exam-builder-pdf
     env: node
     plan: free
-    buildCommand: npm ci && npx puppeteer browsers install chrome
+    envVars:
+      - key: PUPPETEER_CACHE_DIR
+        value: /opt/render/project/src/.cache/puppeteer
+    buildCommand: npm ci && npx puppeteer browsers install chrome --path /opt/render/project/src/.cache/puppeteer
     startCommand: npm start
     healthCheckPath: /healthz
