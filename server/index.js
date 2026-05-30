@@ -3,6 +3,16 @@ const fs = require('fs');
 const express = require('express');
 const puppeteer = require('puppeteer');
 
+function escapeHtml(input) {
+  const s = String(input ?? '');
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 const app = express();
 app.disable('x-powered-by');
 app.set('trust proxy', 1);
@@ -268,83 +278,43 @@ app.post('/api/render-pdf', async (req, res) => {
 
     await page.emulateMediaType('print');
 
-    const pdfScale = await page.evaluate((payload) => {
-      const settings = (payload && payload.settings) ? payload.settings : {};
-      const margins = settings.margins || {};
-      const ensureNumber = (v, fallback) => {
-        const n = typeof v === 'number' ? v : parseFloat(String(v));
-        return Number.isFinite(n) ? n : fallback;
-      };
-      const topCm = ensureNumber(margins.top, 2.54);
-      const bottomCm = ensureNumber(margins.bottom, 2.54);
-      const leftCm = ensureNumber(margins.left, 2.54);
-      const rightCm = ensureNumber(margins.right, 2.54);
+    const pdfFit = await page.evaluate(() => {
+      const paper = document.getElementById('printMirrorPaper');
+      const inner = document.getElementById('printMirrorInner');
+      if (!paper || !inner) return { ratio: 1, pages: 1, scale: 1 };
 
-      const paperSize = String(settings.paperSize || 'A4').toUpperCase();
-      const pageMm = paperSize === 'A4'
-        ? { w: 210, h: 297 }
-        : { w: 215.9, h: 355.6 };
+      try {
+        paper.style.height = '';
+        paper.style.width = '';
+        inner.style.height = '';
+        inner.style.overflow = '';
+      } catch (_) {}
 
-      const mmToPx = (mm) => (mm * 96) / 25.4;
-      const cmToPx = (cm) => (cm * 96) / 2.54;
+      const pageHeight = inner.clientHeight || 0;
+      const totalHeight = inner.scrollHeight || 0;
+      if (!pageHeight || !totalHeight) return { ratio: 1, pages: 1, scale: 1 };
 
-      const paper = document.createElement('div');
-      paper.style.position = 'fixed';
-      paper.style.left = '-10000px';
-      paper.style.top = '0';
-      paper.style.width = `${pageMm.w}mm`;
-      paper.style.paddingTop = `${topCm}cm`;
-      paper.style.paddingBottom = `${bottomCm}cm`;
-      paper.style.paddingLeft = `${leftCm}cm`;
-      paper.style.paddingRight = `${rightCm}cm`;
-      paper.style.boxSizing = 'border-box';
-      paper.style.visibility = 'hidden';
-      paper.style.background = '#fff';
+      const ratio = totalHeight / pageHeight;
+      const pages = Math.max(1, Math.ceil(ratio));
+      if (pages <= 1) return { ratio, pages, scale: 1 };
 
-      const mirrorPaper = document.getElementById('printMirrorPaper');
-      const mirrorEditable = document.getElementById('printMirrorEditable');
-      if (mirrorPaper) {
-        const cs = getComputedStyle(mirrorPaper);
-        paper.style.fontFamily = cs.fontFamily;
-        paper.style.fontSize = cs.fontSize;
-        paper.style.setProperty('--paper-line-height', cs.getPropertyValue('--paper-line-height') || '1.6');
-        paper.style.setProperty('--paper-letter-spacing', cs.getPropertyValue('--paper-letter-spacing') || '0');
+      const maxAutoRatio = 1.12;
+      if (ratio <= maxAutoRatio) {
+        const raw = (1 / ratio) * 0.995;
+        const scale = Math.max(0.88, Math.min(1, raw));
+        return { ratio, pages, scale };
       }
 
-      const content = document.createElement('div');
-      content.style.boxSizing = 'border-box';
-      paper.appendChild(content);
-
-      if (mirrorEditable) {
-        const clone = mirrorEditable.cloneNode(true);
-        clone.removeAttribute('id');
-        content.appendChild(clone);
-      }
-
-      document.body.appendChild(paper);
-      const padTopPx = cmToPx(topCm);
-      const padBottomPx = cmToPx(bottomCm);
-      const printableHeightPx = mmToPx(pageMm.h) - padTopPx - padBottomPx;
-      const contentHeightPx = Math.max(0, paper.scrollHeight - padTopPx - padBottomPx);
-      document.body.removeChild(paper);
-
-      if (!Number.isFinite(printableHeightPx) || printableHeightPx <= 0) return 1;
-      if (!Number.isFinite(contentHeightPx) || contentHeightPx <= 0) return 1;
-
-      const ratio = contentHeightPx / printableHeightPx;
-      if (ratio <= 1) return 1;
-
-      const suggested = printableHeightPx / contentHeightPx;
-      const minScale = 0.97;
-      const maxAutoRatio = 1.03;
-      if (ratio <= maxAutoRatio && suggested >= minScale) return suggested;
-      return 1;
-    }, { settings });
+      return { ratio, pages, scale: 1 };
+    });
+    res.setHeader('X-Pdf-Scale', String(pdfFit?.scale ?? 1));
+    res.setHeader('X-Pdf-Ratio', String(pdfFit?.ratio ?? 1));
+    res.setHeader('X-Pdf-Pages', String(pdfFit?.pages ?? 1));
 
     const pdfBuffer = await page.pdf({
       printBackground: true,
       preferCSSPageSize: true,
-      scale: (Number.isFinite(pdfScale) && pdfScale > 0 ? pdfScale : 1),
+      scale: (Number.isFinite(pdfFit?.scale) && pdfFit.scale > 0 ? pdfFit.scale : 1),
       margin: { top: '0', right: '0', bottom: '0', left: '0' }
     });
 
