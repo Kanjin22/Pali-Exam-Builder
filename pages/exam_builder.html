@@ -257,6 +257,7 @@
             min-height: 100%;
             outline: none;
         }
+        .paper-editable p { margin: 0; }
         .margin-guides { position: absolute; border: 1px dashed #4fc3f7; pointer-events: none; z-index: 5; border-radius: 2px; display: block; }
         .paper-center { text-align: center; }
         .paper-sep { text-align:center; letter-spacing: 2px; color:#000; margin: 8px 0 16px 0; font-weight: bold; }
@@ -424,6 +425,8 @@
         }
         .toolbox-head i { color: #1976d2; }
         .paper-below-panels { width: 100%; max-width: 820px; margin: 10px auto 0 auto; display: flex; flex-direction: column; gap: 10px; }
+        .pdf-preview-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        #pdfPreviewFrame { width: 100%; height: 70vh; border: 1px solid #dfe6ee; border-radius: 12px; background: #fff; }
         .margin-inline {
             display: flex;
             align-items: flex-start;
@@ -550,21 +553,29 @@
             .bottom-right { width: 100% !important; }
             .container { box-shadow: none; margin: 0; max-width: none; width: 100%; border: none; }
 
-            .paper-zoom-wrap { display: block !important; }
+            .paper-zoom-wrap { display: none !important; }
             .tablet-action-bar { display: none !important; }
             .margin-guides { display: none !important; }
             .page-markers { display: none !important; }
 
-            .print-mirror-host { display: none !important; }
-            .bottom-right .paper {
-                margin: 0 !important;
-                border: none !important;
-                box-shadow: none !important;
-                max-width: none !important;
-                transform: none !important;
-                zoom: 1 !important;
+            .print-mirror-host {
+                display: block !important;
+                position: static !important;
+                left: auto !important;
+                top: auto !important;
+                width: auto !important;
+                height: auto !important;
+                overflow: visible !important;
+                pointer-events: none !important;
             }
-            .paper-content-text, #paperEditable {
+            #printMirrorPaper { margin: 0 !important; border: none !important; box-shadow: none !important; width: 100% !important; max-width: none !important; height: auto !important; }
+            #printMirrorPaper.size-a4 { width: 100% !important; min-height: 0 !important; height: auto !important; }
+            #printMirrorPaper.size-f4 { width: 100% !important; min-height: 0 !important; height: auto !important; }
+            #printMirrorInner { height: auto !important; overflow: visible !important; padding: 0 !important; box-sizing: border-box !important; }
+            #printMirrorEditable, #printMirrorEditable * { -webkit-user-select: none !important; user-select: none !important; }
+            #printMirrorEditable p { margin: 0 !important; }
+            #printMirrorEditable { white-space: normal !important; }
+            .paper-content-text {
                 white-space: pre-wrap !important;
                 word-break: keep-all !important;
                 overflow-wrap: normal !important;
@@ -777,9 +788,9 @@
         .font-pali { font-family: "DilleniaUPC_4Balee", "DilleniaUPC", sans-serif; }
         .font-thai { font-family: "DilleniaUPC", sans-serif; }
         .paper-header-font { font-family: "TH Sarabun New", "Sarabun", sans-serif; font-size: calc(1em + 2px); }
-        .paper-header-font .paper-line { margin: 2px 0; line-height: 1.25; }
+        .paper-header-font .paper-line { margin: 2px 0; line-height: 1.25; white-space: normal; }
         .paper-sep.paper-header-font { margin: 6px 0 12px 0; line-height: 1.2; }
-        .paper-foot.paper-header-font { margin-top: 12px; line-height: 1.25; }
+        .paper-foot.paper-header-font { margin-top: 12px; line-height: 1.25; white-space: normal; }
 
         .layout-root { padding: 18px 24px calc(24px + 92px + env(safe-area-inset-bottom)) 24px; --tool-panel-width: 420px; }
         .layout-top { display: flex; align-items: flex-start; gap: 18px; }
@@ -1221,7 +1232,7 @@
                                     <div>1. ขึ้นย่อหน้าใหม่: กด <b>Enter</b></div>
                                     <div>2. ตัดบรรทัด (เนื้อหาต่อเนื่อง): กด <b>Shift+Enter</b></div>
                                     <div>3. แก้ปัญหาคำฉีก (แนะนำ): คลุมคำที่ถูกฉีกแล้วกดปุ่ม <b>ห้ามตัดคำ</b> เพื่อให้ตอนพิมพ์ไม่เด้งกลับ</div>
-                                    <div>4. ถ้าใช้ <b>Space bar</b> ดันคำ: อาจคลาดเคลื่อนตอนพิมพ์ได้ (ควรตรวจหน้า Print Preview ทุกครั้ง)</div>
+                                    <div>4. แก้ปัญหาคำฉีก: ถ้าใช้ <b>Space bar</b> ดันคำ อาจคลาดเคลื่อนตอนพิมพ์ได้ (ควรตรวจหน้า Print Preview ทุกครั้ง)</div>
                                     <div class="warning"><b>ข้อห้าม:</b> ห้ามใช้ <b>Enter</b> หรือ <b>Shift+Enter</b> ในการปัดคำลงเด็ดขาด</div>
                                     <div class="divider ipad-only"></div>
                                     <div class="ipad-only">
@@ -1240,6 +1251,20 @@
                                 <div class="internal-note" id="internalNotePanel">
                                     <div class="auto" id="internalNoteAuto">กำลังคำนวณที่มา...</div>
                                 </div>
+                            </div>
+                        </details>
+
+                        <details class="collapsible-panel" id="pdfPreviewDetails">
+                            <summary><i class="fa-solid fa-file-pdf"></i> ตัวอย่าง PDF (เป๊ะ/แนะนำ)</summary>
+                            <div class="collapsible-body">
+                                <div class="pdf-preview-actions">
+                                    <button class="btn primary" type="button" onclick="openPdfInNewTab()"><i class="fa-solid fa-file-pdf"></i> ดาวน์โหลด PDF</button>
+                                    <button class="btn secondary" type="button" onclick="openPdfPreviewInFrame()"><i class="fa-solid fa-eye"></i> ดูตัวอย่างในหน้า</button>
+                                </div>
+                                <form id="pdfRenderForm" action="/api/render-pdf" method="post" target="pdfPreviewFrame" class="non-print" style="display:none">
+                                    <input type="hidden" id="pdfDraftJson" name="draftJson" value="">
+                                </form>
+                                <iframe id="pdfPreviewFrame" name="pdfPreviewFrame" title="ตัวอย่าง PDF"></iframe>
                             </div>
                         </details>
                     </div>
@@ -3941,11 +3966,86 @@
             return ok;
         }
 
+        let pdfPreviewObjectUrl = '';
+        function isLikelyIOS() {
+            try {
+                const ua = String(navigator.userAgent || '');
+                const isIOS = /iPad|iPhone|iPod/i.test(ua);
+                const isIPadOS = /Macintosh/i.test(ua) && (navigator.maxTouchPoints || 0) > 1;
+                return isIOS || isIPadOS;
+            } catch (_) {
+                return false;
+            }
+        }
+        function buildPdfFileName() {
+            const level = (document.getElementById('levelSelect')?.value || '').trim();
+            const subject = (document.getElementById('subjectSelect')?.value || '').trim();
+            const attempt = (document.getElementById('attemptInput')?.value || '').trim();
+            const rawDate = (document.getElementById('dateInput')?.value || '').trim();
+            const parts = [level, subject, attempt ? `ครั้งที่ ${attempt}` : '', rawDate].filter(Boolean);
+            const name = parts.join(' - ').replace(/[\\/:*?"<>|]+/g, '_').replace(/\s+/g, ' ').trim();
+            return (name ? name : 'exam') + '.pdf';
+        }
+
+        function updatePdfPreviewUi(url) {
+            const details = document.getElementById('pdfPreviewDetails');
+            if (details) details.open = true;
+            const frame = document.getElementById('pdfPreviewFrame');
+            if (frame) {
+                if (isLikelyIOS()) {
+                    frame.src = 'about:blank';
+                    frame.style.display = 'none';
+                } else {
+                    frame.style.display = '';
+                    frame.src = url;
+                }
+            }
+        }
+
+        function submitPdfRender(targetName) {
+            const draft = getDraftState();
+            const form = document.getElementById('pdfRenderForm');
+            const input = document.getElementById('pdfDraftJson');
+            if (!form || !input) {
+                alert('สร้าง PDF ไม่สำเร็จ\n\nไม่พบฟอร์มส่งข้อมูล PDF');
+                return false;
+            }
+            input.value = JSON.stringify(draft);
+            form.target = targetName;
+            form.submit();
+            return true;
+        }
+
+        function openPdfInNewTab() {
+            trackGaEvent('download_pdf', { mode: 'server_post' });
+            saveExamLog();
+            if (!maybeWarnAboutSpaceFixBeforePrint()) return;
+            submitPdfRender('_blank');
+        }
+
+        function openPdfPreviewInFrame() {
+            trackGaEvent('preview_pdf', { mode: 'server_post' });
+            saveExamLog();
+            if (!maybeWarnAboutSpaceFixBeforePrint()) return;
+            const ok = submitPdfRender('pdfPreviewFrame');
+            if (ok) {
+                const details = document.getElementById('pdfPreviewDetails');
+                if (details) details.open = true;
+                const frame = document.getElementById('pdfPreviewFrame');
+                if (frame) frame.style.display = isLikelyIOS() ? 'none' : '';
+            }
+        }
+
+        function downloadPdfRecommended() {
+            openPdfInNewTab();
+        }
+
         async function printExam() {
             trackGaEvent('print', {});
             saveExamLog();
             if (!maybeWarnAboutSpaceFixBeforePrint()) return;
             try {
+                syncPrintMirrorStyles();
                 updatePrintPageStyle();
                 try {
                     if (document.fonts && document.fonts.ready) {
@@ -6203,7 +6303,8 @@
             </div>
             <div class="bar-group">
                 <button class="bar-btn secondary" type="button" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i> ห้ามตัดคำ</button>
-                <button class="bar-btn primary" type="button" onclick="triggerPrintFromUserGesture()"><i class="fa-solid fa-print"></i> พิมพ์/PDF</button>
+                <button class="bar-btn primary" type="button" onclick="downloadPdfRecommended()"><i class="fa-solid fa-file-pdf"></i> PDF (แนะนำ)</button>
+                <button class="bar-btn secondary" type="button" onclick="triggerPrintFromUserGesture()"><i class="fa-solid fa-print"></i> พิมพ์ (เร็ว)</button>
             </div>
         </div>
     </div>
