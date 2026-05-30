@@ -3,6 +3,6 @@ services:
     name: pali-exam-builder-pdf
     env: node
     plan: free
-    buildCommand: npm ci
+    buildCommand: npm ci && npx puppeteer browsers install chrome
     startCommand: npm start
     healthCheckPath: /healthz
