@@ -570,6 +570,11 @@
             #printMirrorPaper.size-f4 { width: 100% !important; min-height: 0 !important; height: auto !important; }
             #printMirrorInner { height: auto !important; overflow: visible !important; padding: 0 !important; box-sizing: border-box !important; }
             #printMirrorEditable, #printMirrorEditable * { -webkit-user-select: none !important; user-select: none !important; }
+            .paper-content-text, #printMirrorEditable {
+                white-space: pre-wrap !important;
+                word-break: keep-all !important;
+                overflow-wrap: normal !important;
+            }
             #overflowWarning { display: none !important; }
             
             /* Solution Mode Print Overrides - REMOVED to match Exam Mode Layout */
