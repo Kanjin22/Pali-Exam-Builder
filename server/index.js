@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const puppeteer = require('puppeteer');
 
@@ -14,6 +15,14 @@ app.use(express.static(rootDir, { etag: true, maxAge: '1h' }));
 
 app.get('/', (_req, res) => {
   res.status(200).type('text/plain; charset=utf-8').send('Pali-Exam-Builder PDF server');
+});
+
+app.get('/pages/exam_builder.html', (req, res, next) => {
+  const localFile = path.join(rootDir, 'pages', 'exam_builder.html');
+  if (fs.existsSync(localFile)) return next();
+  const target = String(process.env.FRONTEND_URL || 'https://kanjin22.github.io/Pali-Exam-Builder/pages/exam_builder.html');
+  if (!/^https?:\/\//i.test(target)) return res.status(404).type('text/plain; charset=utf-8').send('Not Found');
+  res.redirect(302, target);
 });
 
 app.get('/healthz', (_req, res) => {
@@ -41,6 +50,17 @@ app.post('/api/render-pdf', async (req, res) => {
   try {
     const port = parseInt(process.env.PORT, 10) || 3000;
     const baseUrl = `http://127.0.0.1:${port}`;
+    const localExamPath = path.join(rootDir, 'pages', 'exam_builder.html');
+    const frontendUrl = fs.existsSync(localExamPath)
+      ? `${baseUrl}/pages/exam_builder.html`
+      : String(process.env.FRONTEND_URL || 'https://kanjin22.github.io/Pali-Exam-Builder/pages/exam_builder.html');
+    const frontendOrigin = (() => {
+      try {
+        return new URL(frontendUrl).origin;
+      } catch (_) {
+        return '';
+      }
+    })();
 
     browser = await puppeteer.launch({
       headless: 'new',
@@ -54,14 +74,21 @@ app.post('/api/render-pdf', async (req, res) => {
     page.on('request', (r) => {
       try {
         const url = r.url() || '';
+        if (/^(data|blob):/i.test(url)) return r.continue();
         if (url.startsWith(baseUrl)) return r.continue();
+        if (frontendOrigin && url.startsWith(frontendOrigin)) return r.continue();
+        if (/^https:\/\/kanjin22\.github\.io\//i.test(url)) return r.continue();
+        if (/^https:\/\/fonts\.googleapis\.com\//i.test(url)) return r.continue();
+        if (/^https:\/\/fonts\.gstatic\.com\//i.test(url)) return r.continue();
+        if (/^https:\/\/cdnjs\.cloudflare\.com\//i.test(url)) return r.continue();
+        if (/^https:\/\/www\.gstatic\.com\//i.test(url)) return r.continue();
         return r.abort();
       } catch (_) {
         return r.abort();
       }
     });
 
-    await page.goto(`${baseUrl}/pages/exam_builder.html`, { waitUntil: 'domcontentloaded' });
+    await page.goto(frontendUrl, { waitUntil: 'domcontentloaded' });
 
     await page.evaluate(async (payload) => {
       const paper = document.getElementById('paperEditable');
