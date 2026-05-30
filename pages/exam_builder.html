@@ -1531,6 +1531,81 @@
             };
         }
 
+        let svgForeignObjectSupport = null;
+        async function supportsSvgForeignObjectToCanvas() {
+            if (svgForeignObjectSupport !== null) return !!svgForeignObjectSupport;
+            try {
+                const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="width:8px;height:8px;background:#000"></div>
+  </foreignObject>
+</svg>`;
+                const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                try {
+                    const img = new Image();
+                    await new Promise((resolve, reject) => {
+                        img.onload = resolve;
+                        img.onerror = reject;
+                        img.src = url;
+                    });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 8;
+                    canvas.height = 8;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    const px = ctx.getImageData(0, 0, 1, 1).data;
+                    svgForeignObjectSupport = !!(px && px.length >= 3);
+                } finally {
+                    URL.revokeObjectURL(url);
+                }
+            } catch (_) {
+                svgForeignObjectSupport = false;
+            }
+            return !!svgForeignObjectSupport;
+        }
+
+        function exportDraftStateToFile() {
+            const state = getDraftState();
+            const nameSafe = (s) => String(s || '').replace(/[^\w\-]+/g, '_').slice(0, 40);
+            const level = nameSafe(state.level);
+            const subject = nameSafe(state.subject);
+            const ts = new Date(state.savedAt || Date.now());
+            const stamp = `${ts.getFullYear()}-${String(ts.getMonth() + 1).padStart(2, '0')}-${String(ts.getDate()).padStart(2, '0')}_${String(ts.getHours()).padStart(2, '0')}${String(ts.getMinutes()).padStart(2, '0')}${String(ts.getSeconds()).padStart(2, '0')}`;
+            const fileName = `exam_draft_${stamp}${level ? '_' + level : ''}${subject ? '_' + subject : ''}.json`;
+            const blob = new Blob([JSON.stringify(state)], { type: 'application/json;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            try {
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+            } finally {
+                setTimeout(() => URL.revokeObjectURL(url), 2000);
+            }
+        }
+
+        function openDraftImportPicker() {
+            const input = document.getElementById('draftImportInput');
+            if (!input) return;
+            input.value = '';
+            input.click();
+        }
+
+        async function importDraftFromFile(file) {
+            if (!file) return;
+            const text = await file.text();
+            const data = JSON.parse(text);
+            await applySavedState(data, { restorePaperHtml: true });
+            updateWorkflowState();
+            generatePreview();
+            schedulePrintOverflowCheck();
+            scheduleDraftSave();
+        }
+
         async function applySavedState(state, options = {}) {
             if (!state) return false;
             const { restorePaperHtml = false } = options;
@@ -3828,6 +3903,12 @@
                 alert('โหมด “ถ่ายรูปแล้วพิมพ์” ต้องเปิดผ่าน http:// (เช่น http://localhost:8000/) ไม่รองรับการเปิดแบบ file:// เพราะเบราว์เซอร์จะกันการโหลดฟอนต์/ไฟล์ ทำให้ภาพพิมพ์เพี้ยนได้');
                 return;
             }
+            const foOk = await supportsSvgForeignObjectToCanvas();
+            if (!foOk) {
+                alert('อุปกรณ์/เบราว์เซอร์นี้ไม่รองรับการ “ถ่ายรูปแล้วพิมพ์” (SVG foreignObject → Canvas)\n\nทางออกที่ใช้งานได้จริง:\n1) กด “ส่งออกงานร่าง”\n2) ไปเปิดไฟล์นี้บนคอม/โน้ตบุ๊ก (Chrome/Edge)\n3) กดพิมพ์อีกครั้ง');
+                try { exportDraftStateToFile(); } catch (_) {}
+                return;
+            }
             try {
                 const html = await printExamAsImages();
                 const iframe = document.createElement('iframe');
@@ -5371,6 +5452,21 @@
         document.getElementById('templateSetFilter')?.addEventListener('change', () => refreshTemplateListUI(true));
         document.getElementById('templateSetDefaultBtn')?.addEventListener('click', setSelectedTemplateAsDefault);
         document.getElementById('templateClearDefaultBtn')?.addEventListener('click', clearDefaultTemplateForSelectedSize);
+        const draftImportInput = document.getElementById('draftImportInput');
+        if (draftImportInput) {
+            draftImportInput.addEventListener('change', () => {
+                const file = draftImportInput.files && draftImportInput.files[0];
+                if (!file) return;
+                (async () => {
+                    try {
+                        await importDraftFromFile(file);
+                    } catch (e) {
+                        console.error(e);
+                        alert('นำเข้างานร่างไม่สำเร็จ (ไฟล์ไม่ถูกต้อง หรือมาจากเวอร์ชันที่ต่างกันมาก)');
+                    }
+                })();
+            });
+        }
         startWebAnalytics();
         restoreDraftIfAvailable();
     </script>
@@ -6101,10 +6197,13 @@
                 <button class="bar-btn secondary" type="button" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i> ขยาย</button>
             </div>
             <div class="bar-group">
+                <button class="bar-btn secondary" type="button" onclick="exportDraftStateToFile()"><i class="fa-solid fa-file-arrow-down"></i> ส่งออกงานร่าง</button>
+                <button class="bar-btn secondary" type="button" onclick="openDraftImportPicker()"><i class="fa-solid fa-file-arrow-up"></i> นำเข้างานร่าง</button>
                 <button class="bar-btn primary" type="button" onclick="triggerPrintFromUserGesture()"><i class="fa-solid fa-print"></i> พิมพ์/PDF</button>
             </div>
         </div>
     </div>
+    <input id="draftImportInput" class="d-none" type="file" accept="application/json">
 </body>
 </html>
 
