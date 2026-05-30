@@ -348,8 +348,7 @@ app.post('/api/render-pdf', async (req, res) => {
     const pdfBuffer = await page.pdf({
       printBackground: true,
       preferCSSPageSize: true,
-      scale: (Number.isFinite(pdfFit?.scale) && pdfFit.scale > 0 ? pdfFit.scale : 1),
-      margin: { top: '0', right: '0', bottom: '0', left: '0' }
+      scale: (Number.isFinite(pdfFit?.scale) && pdfFit.scale > 0 ? pdfFit.scale : 1)
     });
 
     const asBuf = Buffer.isBuffer(pdfBuffer) ? pdfBuffer : Buffer.from(pdfBuffer);

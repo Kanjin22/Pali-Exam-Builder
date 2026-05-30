@@ -2554,6 +2554,17 @@
                     v = isNaN(n) ? 2.54 : n;
                 }
             }
+            try {
+                const norm = String(Number.isFinite(v) ? v : 2.54);
+                const top = document.getElementById('marginTop');
+                const bottom = document.getElementById('marginBottom');
+                const left = document.getElementById('marginLeft');
+                const right = document.getElementById('marginRight');
+                if (top) top.value = norm;
+                if (bottom) bottom.value = norm;
+                if (left) left.value = norm;
+                if (right) right.value = norm;
+            } catch (_) {}
             ['top','bottom','left','right'].forEach(side => updateMargin(side, v));
             scheduleDraftSave();
         }
