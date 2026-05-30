@@ -550,27 +550,21 @@
             .bottom-right { width: 100% !important; }
             .container { box-shadow: none; margin: 0; max-width: none; width: 100%; border: none; }
 
-            .paper-zoom-wrap { display: none !important; }
+            .paper-zoom-wrap { display: block !important; }
             .tablet-action-bar { display: none !important; }
             .margin-guides { display: none !important; }
             .page-markers { display: none !important; }
 
-            .print-mirror-host {
-                display: block !important;
-                position: static !important;
-                left: auto !important;
-                top: auto !important;
-                width: auto !important;
-                height: auto !important;
-                overflow: visible !important;
-                pointer-events: none !important;
+            .print-mirror-host { display: none !important; }
+            .bottom-right .paper {
+                margin: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+                max-width: none !important;
+                transform: none !important;
+                zoom: 1 !important;
             }
-            #printMirrorPaper { margin: 0 !important; border: none !important; box-shadow: none !important; width: 100% !important; max-width: none !important; height: auto !important; }
-            #printMirrorPaper.size-a4 { width: 100% !important; min-height: 0 !important; height: auto !important; }
-            #printMirrorPaper.size-f4 { width: 100% !important; min-height: 0 !important; height: auto !important; }
-            #printMirrorInner { height: auto !important; overflow: visible !important; padding: 0 !important; box-sizing: border-box !important; }
-            #printMirrorEditable, #printMirrorEditable * { -webkit-user-select: none !important; user-select: none !important; }
-            .paper-content-text, #printMirrorEditable {
+            .paper-content-text, #paperEditable {
                 white-space: pre-wrap !important;
                 word-break: keep-all !important;
                 overflow-wrap: normal !important;
@@ -3951,64 +3945,18 @@
             trackGaEvent('print', {});
             saveExamLog();
             if (!maybeWarnAboutSpaceFixBeforePrint()) return;
-            if (String(window.location?.protocol || '') === 'file:') {
-                alert('โหมด “ถ่ายรูปแล้วพิมพ์” ต้องเปิดผ่าน http:// (เช่น http://localhost:8000/) ไม่รองรับการเปิดแบบ file:// เพราะเบราว์เซอร์จะกันการโหลดฟอนต์/ไฟล์ ทำให้ภาพพิมพ์เพี้ยนได้');
-                return;
-            }
-            const foOk = await supportsSvgForeignObjectToCanvas();
-            if (!foOk) {
-                alert('อุปกรณ์/เบราว์เซอร์นี้ไม่รองรับการ “ถ่ายรูปแล้วพิมพ์” (SVG foreignObject → Canvas)\n\nทางออกที่ใช้งานได้จริง:\n1) กด “ส่งออกงานร่าง”\n2) ไปเปิดไฟล์นี้บนคอม/โน้ตบุ๊ก (Chrome/Edge)\n3) กดพิมพ์อีกครั้ง');
-                try { exportDraftStateToFile(); } catch (_) {}
-                return;
-            }
             try {
-                const html = await printExamAsImages();
-                const iframe = document.createElement('iframe');
-                iframe.style.position = 'fixed';
-                iframe.style.right = '0';
-                iframe.style.bottom = '0';
-                iframe.style.width = '0';
-                iframe.style.height = '0';
-                iframe.style.border = '0';
-                iframe.style.opacity = '0';
-                iframe.style.pointerEvents = 'none';
-                iframe.setAttribute('aria-hidden', 'true');
-                document.body.appendChild(iframe);
-
-                const doc = iframe.contentDocument;
-                const win = iframe.contentWindow;
-                if (!doc || !win) throw new Error('missing print iframe');
-
-                doc.open();
-                doc.write(html);
-                doc.close();
-
-                await new Promise((resolve) => {
-                    const done = () => resolve();
-                    if (doc.readyState === 'complete') return done();
-                    iframe.addEventListener('load', done, { once: true });
-                    setTimeout(done, 1200);
-                });
-
+                updatePrintPageStyle();
                 try {
-                    const imgs = Array.from(doc.images || []);
-                    await Promise.all(imgs.map(img => new Promise((resolve) => {
-                        if (img.complete) return resolve();
-                        img.addEventListener('load', resolve, { once: true });
-                        img.addEventListener('error', resolve, { once: true });
-                    })));
+                    if (document.fonts && document.fonts.ready) {
+                        await document.fonts.ready;
+                    }
                 } catch (_) {}
-
-                const cleanup = () => {
-                    try { iframe.remove(); } catch (_) {}
-                };
-                try { win.onafterprint = cleanup; } catch (_) {}
-                setTimeout(cleanup, 15000);
-                try { win.focus(); } catch (_) {}
-                win.print();
+                await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+                window.print();
             } catch (e) {
                 console.error(e);
-                alert('พิมพ์แบบ “ถ่ายรูปแล้วพิมพ์” ไม่สำเร็จ ระบบจะไม่สลับไปพิมพ์แบบ HTML อัตโนมัติแล้ว (เพราะจะทำให้เลย์เอาต์ไม่ตรงหน้า) กรุณารีเฟรชแล้วลองใหม่');
+                alert('พิมพ์ไม่สำเร็จ กรุณารีเฟรชแล้วลองใหม่');
             }
         }
 
@@ -6255,13 +6203,10 @@
             </div>
             <div class="bar-group">
                 <button class="bar-btn secondary" type="button" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i> ห้ามตัดคำ</button>
-                <button class="bar-btn secondary" type="button" onclick="exportDraftStateToFile()"><i class="fa-solid fa-file-arrow-down"></i> ส่งออกงานร่าง</button>
-                <button class="bar-btn secondary" type="button" onclick="openDraftImportPicker()"><i class="fa-solid fa-file-arrow-up"></i> นำเข้างานร่าง</button>
                 <button class="bar-btn primary" type="button" onclick="triggerPrintFromUserGesture()"><i class="fa-solid fa-print"></i> พิมพ์/PDF</button>
             </div>
         </div>
     </div>
-    <input id="draftImportInput" class="d-none" type="file" accept="application/json">
 </body>
 </html>
 
