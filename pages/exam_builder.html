@@ -3458,57 +3458,81 @@
             const looksLikeHttp = /^https?:\/\//i.test(raw);
             if (looksLikeHttp) return await fetchTextFile(raw);
 
-            const localUrl = new URL(raw, window.location.href).toString();
-            const objectPath = normalizeDataObjectPath(raw);
-            const canTryStorage = objectPath.startsWith('data/') && !!storage;
+            const buildTextPathCandidates = (p) => {
+                const list = [];
+                const add = (v) => {
+                    const s = String(v || '');
+                    if (!s) return;
+                    if (list.includes(s)) return;
+                    list.push(s);
+                };
+                add(p);
+                if (/\.txt$/i.test(p)) {
+                    const swapped = p.endsWith('.txt') ? p.slice(0, -4) + '.TXT' : p.slice(0, -4) + '.txt';
+                    add(swapped);
+                    if (!/\.\.txt$/i.test(p)) {
+                        const legacy = p.replace(/\.txt$/i, '..txt');
+                        add(legacy);
+                        const legacySwapped = legacy.endsWith('..txt') ? legacy.slice(0, -5) + '..TXT' : legacy.slice(0, -5) + '..txt';
+                        add(legacySwapped);
+                    }
+                }
+                return list;
+            };
+
+            const rawCandidates = buildTextPathCandidates(raw);
+            const localUrls = rawCandidates.map(p => new URL(p, window.location.href).toString());
+            const objectPaths = [...new Set(rawCandidates.map(p => normalizeDataObjectPath(p)))];
+            const canTryStorage = objectPaths.some(p => p.startsWith('data/')) && !!storage;
             const isGithubPages = /\.github\.io$/i.test(String(location.hostname || ''));
             const preferStorage = canTryStorage && (String(localStorage.getItem('preferFirebaseStorageData') || '') === '1' || isGithubPages);
-            const getLegacyPath = (p) => {
-                if (!/\.txt$/i.test(p) || /\.\.txt$/i.test(p)) return '';
-                return p.replace(/\.txt$/i, '..txt');
-            };
-            const tryLegacyStorage = async () => {
+            const storageCandidates = objectPaths.filter(p => p.startsWith('data/'));
+
+            const tryStorageCandidates = async () => {
                 if (!canTryStorage) return null;
-                const legacyObjectPath = getLegacyPath(objectPath);
-                if (!legacyObjectPath) return null;
-                try {
-                    const downloadUrl = await getFirebaseStorageDownloadUrl(legacyObjectPath);
-                    return await fetchTextFile(downloadUrl);
-                } catch (_) {
-                    return null;
+                let lastErr = null;
+                for (const p of storageCandidates) {
+                    try {
+                        const downloadUrl = await getFirebaseStorageDownloadUrl(p);
+                        return await fetchTextFile(downloadUrl);
+                    } catch (e) {
+                        lastErr = e;
+                    }
                 }
+                if (lastErr) throw lastErr;
+                return null;
+            };
+
+            const tryLocalCandidates = async () => {
+                let lastErr = null;
+                for (const u of localUrls) {
+                    try {
+                        return await fetchTextFile(u);
+                    } catch (e) {
+                        lastErr = e;
+                    }
+                }
+                if (lastErr) throw lastErr;
+                return null;
             };
 
             if (preferStorage) {
                 try {
-                    const downloadUrl = await getFirebaseStorageDownloadUrl(objectPath);
-                    return await fetchTextFile(downloadUrl);
+                    const v = await tryStorageCandidates();
+                    if (v !== null) return v;
                 } catch (_) {
-                    const legacyStorage = await tryLegacyStorage();
-                    if (legacyStorage !== null) return legacyStorage;
+                    // fallthrough
                 }
             }
 
             try {
-                return await fetchTextFile(localUrl);
+                const v = await tryLocalCandidates();
+                if (v !== null) return v;
             } catch (e) {
                 if (!canTryStorage) throw e;
-                const tryLegacyLocal = async () => {
-                    if (!/\.txt$/i.test(raw) || /\.\.txt$/i.test(raw)) return null;
-                    const legacyRaw = raw.replace(/\.txt$/i, '..txt');
-                    const legacyLocalUrl = new URL(legacyRaw, window.location.href).toString();
-                    try {
-                        return await fetchTextFile(legacyLocalUrl);
-                    } catch (_) {
-                        return null;
-                    }
-                };
-                const legacyLocal = await tryLegacyLocal();
-                if (legacyLocal !== null) return legacyLocal;
-                const legacyStorage = await tryLegacyStorage();
-                if (legacyStorage !== null) return legacyStorage;
-                const downloadUrl = await getFirebaseStorageDownloadUrl(objectPath);
-                return await fetchTextFile(downloadUrl);
+                const v = await tryStorageCandidates();
+                if (v !== null) return v;
+                throw e;
             }
         }
 
