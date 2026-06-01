@@ -2980,16 +2980,29 @@
             if (!v?.filesDir) return '';
             const maxPage = parseInt(v.maxPage, 10) || 0;
             const localPage = Math.max(1, Math.min(maxPage, parseInt(pageNumber, 10) || 1));
-            const base = v.filePrefix
-                ? `${String(v.filePrefix)}${String(localPage).padStart(4, '0')}`
-                : padPageNumber(localPage);
-            const primary = `${v.filesDir}/${base}.txt`;
-            try {
-                return await fetchTextFileByPath(primary);
-            } catch (e) {
-                const legacy = `${v.filesDir}/${base}..txt`;
-                return await fetchTextFileByPath(legacy);
+            const pad = (n, width) => String(n).padStart(width, '0');
+            const candidates = [];
+            if (v.filePrefix) {
+                const pfx = String(v.filePrefix);
+                candidates.push(`${v.filesDir}/${pfx}${pad(localPage, 4)}.txt`);
+                candidates.push(`${v.filesDir}/${pfx}${pad(localPage, 3)}.txt`);
+                candidates.push(`${v.filesDir}/${pfx}${pad(localPage, 5)}.txt`);
+                candidates.push(`${v.filesDir}/${pfx}${pad(localPage, 6)}.txt`);
             }
+            candidates.push(`${v.filesDir}/${padPageNumber(localPage)}.txt`);
+            candidates.push(`${v.filesDir}/${pad(localPage, 4)}.txt`);
+            candidates.push(`${v.filesDir}/${pad(localPage, 3)}.txt`);
+            candidates.push(`${v.filesDir}/${pad(localPage, 5)}.txt`);
+
+            let lastErr = null;
+            for (const url of candidates) {
+                try {
+                    return await fetchTextFileByPath(url);
+                } catch (e) {
+                    lastErr = e;
+                }
+            }
+            throw (lastErr || new Error('File not found'));
         }
 
         function getPageTextLines(pageNumber, text, levelCode = (document.getElementById('levelSelect')?.value || '')) {
@@ -3421,7 +3434,10 @@
                 if (!storage.ref) throw new Error('Storage ref not available');
                 await ensureAnonymousAuthForAnalytics();
                 return await storage.ref(key).getDownloadURL();
-            })();
+            })().catch((e) => {
+                try { firebaseStorageUrlCache.delete(key); } catch (_) {}
+                throw e;
+            });
             firebaseStorageUrlCache.set(key, p);
             return p;
         }
