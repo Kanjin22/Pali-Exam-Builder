@@ -2573,6 +2573,8 @@
 
         const DHAMMAPADA_PALI_RAW_ROOT = '../data/ธรรมบท/บาลี';
         const DHAMMAPADA_THAI_ROOT = '../data/ธรรมบท/ไทย';
+        const MANGALA_PALI_ROOT = '../data/มังคลัตถทีปนี/บาลี';
+        const MANGALA_THAI_ROOT = '../data/มังคลัตถทีปนี/ไทย';
         const PALI_PAGE_DATA_BY_LEVEL = {
             p12: { volumes: [
                 { maxPage: 148, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๑) ปฐโม ภาโค (สมบูรณ์)`, rawVolumeNo: 1 },
@@ -2584,8 +2586,8 @@
                 { maxPage: 120, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๕) ปญฺจโม ภาโค (สมบูรณ์)`, rawVolumeNo: 5 },
                 { maxPage: 189, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๖) ฉฏฺโฐ ภาโค (สมบูรณ์)`, rawVolumeNo: 6 }
             ] },
-            p4: { filesDir: '../data/ประโยค๔/01', maxPage: 376 },
-            p5: { filesDir: '../data/ประโยค๕/01', maxPage: 482 },
+            p4: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 01`, maxPage: 376 },
+            p5: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 02`, maxPage: 482 },
             p6: { filesDir: '../data/ประโยค๖/01', maxPage: 636 },
             p7: { volumes: [{ filesDir: '../data/ประโยค๗/01', maxPage: 630 }, { filesDir: '../data/ประโยค๗/02', maxPage: 285 }] },
             p8: { volumes: [{ filesDir: '../data/ประโยค๘/01', maxPage: 291 }, { filesDir: '../data/ประโยค๘/02', maxPage: 288 }, { filesDir: '../data/ประโยค๘/03', maxPage: 386 }] },
@@ -2614,8 +2616,8 @@
                 title: 'มังคลัตถทีปนี ภาค ๑',
                 partId: 'p7-thai-raw',
                 volumes: [
-                    { filesDir: '../data/ประโยค๔/02', maxPage: 195, label: 'เล่ม ๑' },
-                    { filesDir: '../data/ประโยค๔/03', maxPage: 356, filePrefix: '02', label: 'เล่ม ๒' }
+                    { filesDir: `${MANGALA_THAI_ROOT}/มังคลัตถทีปนี ภาค ๑ เล่ม ๑`, maxPage: 195, label: 'เล่ม ๑' },
+                    { filesDir: `${MANGALA_THAI_ROOT}/มังคลัตถทีปนี ภาค ๑ เล่ม ๒`, maxPage: 356, filePrefix: '02', label: 'เล่ม ๒' }
                 ]
             },
             p8: {

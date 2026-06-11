@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>                                   กถาว่าด้วยทาน
+<span class="LineNumber"> 002 </span>                                    [ทาน ๓ อย่าง]
+<span class="LineNumber"> 003 </span>           [๒]  ชื่อว่าทาน  มี ๓ อย่าง  ด้วยอำนาจจาคเจตนา  วิรัติและ
+<span class="LineNumber"> 004 </span>ไทยธรรม.
+<span class="LineNumber"> 005 </span>           จริงอย่างนั้น  จาคเจตนา  ชื่อว่าทาน  ในทาน<SUP>๑</SUP>สูตรในอัฏฐกนิบาต
+<span class="LineNumber"> 006 </span>อังคุตตรนิกายว่า " สัทธา ๑ ความมีหิรี ๑ ทานอันเป็นกุศล ๑ ดังนี้
+<span class="LineNumber"> 007 </span>เป็นต้น.
+<span class="LineNumber"> 008 </span>           อรรถกถา<SUP>๒</SUP>ทานสูตรนั้นว่า  "อริยสาวก  ย่อมให้ทานด้วยสัทธาใด
+<span class="LineNumber"> 009 </span>สัทธานั้น  พระผู้มีพระภาคทรงประสงค์ว่า  <B>สทฺธา</B>  ในคาถานั้น.
+<span class="LineNumber"> 010 </span>           อริยสาวกย่อมให้ทานด้วยหิริใด  หิรินั้นแล  ทรงประสงค์ว่า  หิริยํ.
+<span class="LineNumber"> 011 </span>           ทานอันไม่มีโทษ  ชื่อว่าทานอันเป็นกุศล.
+<span class="LineNumber"> 012 </span>           วิรัติ  ชื่อว่าทาน  ในอาคตสถาน (ที่มาแห่งทาน) ว่า "อริยา-
+<span class="LineNumber"> 013 </span>สาวก  ย่อมให้อภัย."
+<span class="LineNumber"> 014 </span>           ในคำว่า  <B>อภยํ  เทติ</B>  นั้น  มีอธิบายว่า  ย่อมทำอภัยทาน  คือ
+<span class="LineNumber"> 015 </span>สมาทานวิรัติ  กล่าวคือ  เบญจศีล.
+<span class="LineNumber"> 016 </span>           วิรัติทานนี้  จักมีแจ้งในมงคลข้อว่า  <B>อารตี  วิรตี  วิรตี  ปาปา</B>  (การ
+<span class="LineNumber"> 017 </span>งดเว้นจากบาป)   นั้น.
+<span class="LineNumber"> 018 </span>           ไทยธรรม  ชื่อว่าทาน  ในอาคตสถาน (ที่มาแห่งทาน)  ว่า
+<span class="LineNumber"> 019 </span>"อริยสาวก  ย่อมให้ทาน  คือข้าวและน้ำ"  ดังนี้เป็นต้น.
+
+<span class='footnote'>๑.  องฺ  อฏฺ€ก  ๒๓/๒๔๐.  ๒.  มโน.  ปู.  ๓/๒๘๘.</span>
