@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  410
+
+<span class="LineNumber"> 002 </span>	ยทีติ  สตีติ  ปเท  ปริกปฺโป  ฯ  เอวนฺติ  สตีติ  ปเท
+<span class="LineNumber"> 003 </span>ลกฺขณวนฺตํ  ฯ  กถนฺติ  ปุจฺฉา  ฯ  อวิตกฺกนฺติ  จิตฺตนฺติ  ปทสฺส
+<span class="LineNumber"> 004 </span>วิเสสนํ  ฯ  จิตฺตนฺติ  อาโรหตีติ  ปเท  กตฺตา  ฯ  อารมฺมณนฺติ
+<span class="LineNumber"> 005 </span>อาโรหตีติ  ปเท  กมฺมํ  ฯ  อิตีติ  โจทนาติ  ปทสฺส  สรูปํ  ฯ
+<span class="LineNumber"> 006 </span>	[๒๗๕]  ตมฺปิ  อวิตกฺกจิตฺตํ  วิตกฺก...อภินิโรหตีติ<SUP>๑</SUP>  ปิสทฺโท
+<span class="LineNumber"> 007 </span>น  เกวลํ  สวิตกฺกํ  จิตฺตํ  วิตกฺกพเลน  อารมฺมณํ  อภินิโรหตีติ๑
+<span class="LineNumber"> 008 </span>าเปติ  ฯ  วิตกฺกสฺส  พลํ  วิตกฺกพลํ  ฯ  เอวสทฺโท    น
+<span class="LineNumber"> 009 </span>อฺเนาติ  าเปติ  ฯ
+<span class="LineNumber"> 010 </span>	ตมฺปีติ  อภิ...หตีติ  ปเท  กตฺตา  ฯ  วิต...เนวาติ
+<span class="LineNumber"> 011 </span>อภินิโรหตีติ  ปเท  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 012 </span>	[๒๗๖]  ตมฺปิตฺยาทินา  วุตฺตมตฺถํ  อุปมาย  สาเธนฺโต
+<span class="LineNumber"> 013 </span>ยถาตฺยาทิมาห  ฯ  หิ  สจฺจํ  โส  ปุริโส  ปริจเยน  เตน  มิตฺเตน
+<span class="LineNumber"> 014 </span>วินาปิ...ปวิสติ  ยถา  เอวํ...อภินิโรหติ  ฯ
+<span class="LineNumber"> 015 </span>	หิสทฺโท  ทฬฺหี  ฯ  โส  ปุริโสติ  คามวาสี  ปุริโส  ฯ
+<span class="LineNumber"> 016 </span>ปริจยนํ  ปริจโย  ปุริสสฺส  ราชเคหปวิสเน  จิรปริจยนํ  ฯ
+<span class="LineNumber"> 017 </span>อปิสทฺโท  น  เกวลํ  มิตฺเตน  สหาติ  สมฺปิณฺเฑติ  ฯ  อาสงฺกนํ
+<span class="LineNumber"> 018 </span>อาสงฺกา  ฯ  อาปุพฺโพ  สกิ  สงฺกายํ  อิตฺถิยมติยโว  วาติ  อ  ปุน  อา
+<span class="LineNumber"> 019 </span>นิคฺคหิตฺจ  ฯ  อาสงฺกาย  อภาโว  นิราสงฺกา  ฯ  นิราสงฺโกติปิ
+<span class="LineNumber"> 020 </span>อตฺถิ  ฯ  อภิธมฺมาวตารฏีกายมฺปิ  นิราสงฺโกติปิ  อตฺถิ  ฯ  นตฺถิ
+<span class="LineNumber"> 021 </span>อาสงฺกา  เอตสฺส  ปุริสสฺสาติ  นิราสงฺโก  ฯ  ปริจยนํ  ปริจโย
+<span class='footnote'>๑.  อภิโรหตีติ  ฏีกาปาโ€  ฯ</span>
+<span class="LineNumber"> 022 </span>					อภิ.๘๕

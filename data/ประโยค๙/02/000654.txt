@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    654
+
+<span class="LineNumber"> 002 </span>เต  ปุถุชฺชนาทโย  ฯ  อาทิสทฺเทน  โสตาปนฺนสกทาคามีนํ  คหณํ
+<span class="LineNumber"> 003 </span>น  อนาคามีนํ  ฯ  กสฺมา  ฯ  อนาคามีนํ  วุจฺจมานตฺตา  ฯ  อนุรูปํ  ลทฺธํ
+<span class="LineNumber"> 004 </span>ยถาลทฺธํ  ยถาลทฺธญฺจ  ตํ  ฌานญฺจาติ  ยถาลทฺธชฺฌานํ  ฯ  ภูมิ
+<span class="LineNumber"> 005 </span>จ  ตํ  ภูตญฺจาติ  ภูมิภูตํ  ตํ  €านํ  ฯ  สุทฺธาวาสํ  วชฺเชตีติ
+<span class="LineNumber"> 006 </span>สุทฺธา...ชิตํ  ยํ  €านํ  ฯ
+<span class="LineNumber"> 007 </span>	นิกนฺติยาติ  สตีติ  ลกฺขณวนฺตํ  ฯ  สตีติ  นิพฺพตฺตนฺตีติ
+<span class="LineNumber"> 008 </span>ลกฺขณกิริยา  ฯ  ปุถุชฺชนาทโยติ  นิพฺพตฺตนฺตีติ  กตฺตา  ฯ  ยถา...
+<span class="LineNumber"> 009 </span>นสฺสาติ  ภูมีติ  สมฺพนฺโธ  ฯ  ภูมิ...ถจีติ  ตยํ  €าเนติ  วิเสสนํ  ฯ
+<span class="LineNumber"> 010 </span>€าเนติ  นิพฺพตฺตนฺตีติ  อาธาโร  ฯ
+<span class="LineNumber"> 011 </span>	[๘๑๕]  ยถา  นิกนฺติยา  สติ  ปุถุชฺชนาทโย  ยตฺถ  กตฺถจิ  นิพฺพตฺตนฺติ
+<span class="LineNumber"> 012 </span>เอวํ  กามภเว  นิพฺพตฺตนฺตีติ  าเปนฺโต  อาห  ตถาติอาทึ  ฯ
+<span class="LineNumber"> 013 </span>ตถา  นิกนฺติยา  สติ  ปุถุชฺชนาทโย  กาม...วเสน  นิพฺพตฺนฺตีติ  โยชนาฯ
+<span class="LineNumber"> 014 </span>	ตถาสทฺโท  อนุกฑฺฒนํ  ฯ  อปิสทฺโท  รูปารูปภวํ  อเปกฺขติ  ฯ
+<span class="LineNumber"> 015 </span>กามาวจรกมฺมสฺส  วโส  กามา...วโส  ฯ
+<span class="LineNumber"> 016 </span>	กามภเวปีติ  นิพฺพตฺตนฺตีติ  อาธาโร  ฯ  กามา...เสนาติ
+<span class="LineNumber"> 017 </span>นิพฺพตฺตนฺตีติ  กรณํ  ฯ
+<span class="LineNumber"> 018 </span>	[๘๑๖]  ตถา  กาม...วเสนาติ  วจนํ  ปาลิยา  สาเธนฺโต
+<span class="LineNumber"> 019 </span>อาห  อิชฺฌตีติอาทึ  ฯ  หิ  สจฺจํ  ภิกฺขเว  สีล...ปณิธิ  อิชฺฌติ
+<span class="LineNumber"> 020 </span>กสฺมา  สีลวนฺตสฺส  ปุคฺคลสฺส  วิสุทฺธตฺตา  อิติ  วจนํ  ภควตา
+<span class="LineNumber"> 021 </span>วุตฺตนฺติ  โยชนา  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๘๒

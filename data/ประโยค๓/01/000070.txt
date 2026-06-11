@@ -1,0 +1,15 @@
+<span class="LineNumber"> 001 </span>	     		" น นคฺคจริยา, น ชฏา, น ปงฺกา, 
+<span class="LineNumber"> 002 </span>	      		นานาสกา ตณฺฑิลสายิกา วา 
+<span class="LineNumber"> 003 </span>	     		 รโชชลฺลํ อุกฺกุฏิกปฺปธานํ 
+<span class="LineNumber"> 004 </span>	      		โสเธนฺติ มจฺจํ อวิติณฺณกงฺขนฺติ. 
+<span class="LineNumber"> 005 </span>	ตตฺถ   นานาสกาติ:   น   อนาสกา,   ภตฺตปฏิกฺเขโปติ  อตฺโถ. 
+<span class="LineNumber"> 006 </span>ตณฺฑิลสายิกาติ:   ภูมิสยนํ.   รโชชลฺลนฺติ:   กทฺทมเลปนากาเรน<SUP>๑</SUP> 
+<span class="LineNumber"> 007 </span>สรีเร   สนฺนิจิตรโช.  อุกฺกุฏิกปฺปธานนฺติ:  อุกฺกุฏิกภาเวน  อารทฺธวิริยํ. 
+<span class="LineNumber"> 008 </span>อิทํ   วุตฺตํ   โหติ   " โย  หิ  มจฺโจ  `เอวํ  อหํ  โลกนิสฺสรณสงฺขาตํ 
+<span class="LineNumber"> 009 </span>สุทฺธึ    ปาปุณิสฺสามีติ    อิเมสุ    นคฺคจริยาทีสุ   ยงฺกิฺจิ   สมาทาย 
+<span class="LineNumber"> 010 </span>วตฺเตยฺย,   โส   เกวลํ   มิจฺฉาทสฺสนฺเจว   วฑฺเฒยฺย  กิลมถสฺส  จ 
+<span class="LineNumber"> 011 </span>ภาคี   อสฺส;   น   หิ  เอตานิ  สุสมาทินฺนานิ  อฏฺ€วตฺถุกาย  กงฺขาย 
+<span class="LineNumber"> 012 </span>อวิติณฺณภาเวน อวิติณฺณกงฺขํ มจฺจํ โสเธนฺตีติ. 
+<span class="LineNumber"> 013 </span>	  เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 014 </span>	          		   พหุภณฺฑิกภิกฺขุวตฺถุ. 
+<span class='footnote'>๑. สี. ยุ....ลิมฺปนา. </span>

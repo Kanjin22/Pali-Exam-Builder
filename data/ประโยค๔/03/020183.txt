@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>อยู่ในกรงทอง  ตรัสสั่งให้พรานผู้นั้นแลมาแล้ว   ตรัสว่า  "เจ้าจง
+<span class="LineNumber"> 002 </span>ไปปล่อยไว้  ณ  ที่  ๆ  จับมาเถิด."  พรานนั้นได้ทำตามพระดำรัสสั่งนั้น. 
+<span class="LineNumber"> 003 </span>กินนร  ๒  ผัวเมียนั้น  ไม่กล่าวคำทุพภาษิตเพราะกลัวมุสาวาท   อาศัย
+<span class="LineNumber"> 004 </span>คำสุภาษิตของตนแท้  ๆ  พ้นจากมรณทุกข์แล้ว   ดังพรรณนามาฉะนี้.
+<span class="LineNumber"> 005 </span>		<B>เพราะฉะนั้น  บุคคลผู้มีปัญญาดี  ปรารถนาพ้น
+<span class="LineNumber"> 006 </span>		จากมรณะ  พึงละคำเหลาะแหละ   พูดแต่คำ
+<span class="LineNumber"> 007 </span>		จริงแล.</B>
+<span class="LineNumber"> 008 </span>	เรื่องกินนร  มาในอรรถกถา<SUP>๑</SUP>ตักการิยชาดก  ในเตรสนิบาต.
+<span class="LineNumber"> 009 </span>                            [พระวังคีสเถระอ้างคำสุภาษิต]
+<span class="LineNumber"> 010 </span>	[๒๘๒]  แม้พระวังคีสเถระ  เมื่อจะยังกุลบุตรให้เข้าใจความนี้
+<span class="LineNumber"> 011 </span>นี่แล  จึงกล่าวคาถานี้   ซึ่งนับเข้าในสุภาสิตสูตร<SUP>๒</SUP>เฉพาะพระพักตร์พระ
+<span class="LineNumber"> 012 </span>ผู้มีพระภาคว่า
+<span class="LineNumber"> 013 </span>		<B>"คำสัตย์แล   เป็นวาจาไม่ตาย,  นี่เป็นธรรมเก่า,
+<span class="LineNumber"> 014 </span>		สัตบุรุษทั้งหลายตั้งมั่นแล้ว    ในคำสัตย์อันเป็น
+<span class="LineNumber"> 015 </span>		ประโยชน์ด้วย  เป็นธรรมด้วย."</B>
+<span class="LineNumber"> 016 </span>                                          [แก้อรรถ]
+<span class="LineNumber"> 017 </span>	บรรดาบทเหล่านั้น   บทว่า   <B>อมตา</B>  ความว่า  คำสัตย์  ชื่อว่า
+<span class="LineNumber"> 018 </span>วาจาไม่ตาย  เพราะเป็นวาจายังประโยชน์ให้สำเร็จ.  สมจริงดังพระ
+<span class="LineNumber"> 019 </span>ดำรัสที่พระผู้มีพระภาคตรัสไว้ในอาฬวกสูตร<SUP>๓</SUP>ว่า   "คำสัตย์แล    ยัง
+
+<span class='footnote'>๑.  ขุ.  ชา.  ๒๗/๓๕๖   ตทฏฺ€กถา.   ๖/๒๙๔   ๒.  สํ.   ส.  ๑๕/๒๗๗.   ๓.  สํ  ส.  ๑๕/๓๑๔</span>

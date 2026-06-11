@@ -1,0 +1,18 @@
+<span class="LineNumber"> 001 </span>			สมนฺตปาสาทิกาย นาม วินยฏฺ€กถาย
+<span class="LineNumber"> 002 </span>		            มหาวิภงฺควณฺณนาย ทุติโย ภาโค  
+			
+<span class="LineNumber"> 003 </span>			         เตรสกณฺฑวณฺณนา
+<span class="LineNumber"> 004 </span>		ยํ ปาราชิกกณฺฑสฺส		สงฺคีตํ สมนนฺตรํ 
+<span class="LineNumber"> 005 </span>		ตสฺส เตรสกสฺสาย-		มปุพฺพปทวณฺณนา ฯ 
+<span class="LineNumber"> 006 </span>	เตน   สมเยน   พุทฺโธ   ภควา   สาวตฺถิยํ   วิหรติ   เชตวเน 
+<span class="LineNumber"> 007 </span>อนาถปิณฺฑิกสฺส   อาราเม ฯ   เตน   โข   ปน  สมเยน  อายสฺมา 
+<span class="LineNumber"> 008 </span>เสยฺยสโก   อนภิรโต   พฺรหฺมจริยํ   จรตีติ   เอตฺถ ฯ   อายสฺมาติ 
+<span class="LineNumber"> 009 </span>ปิยวจนํ ฯ   เสยฺยสโกติ   ตสฺส   ภิกฺขุโน   นามํ ฯ   อนภิรโตติ วิกฺขิตฺต-
+<span class="LineNumber"> 010 </span>จิตฺโต   กามราคปริฬาเหน   ปริทยฺหมาโน  น  ปน  คิหิภาวํ ปฏ€ย-
+<span class="LineNumber"> 011 </span>มาโน ฯ  โส เตน กิโส โหตีติ โส เสยฺยสโก เตน อนภิรตภาเวน 
+<span class="LineNumber"> 012 </span>กิโส   โหติ ฯ  อทฺทสา  โข  อายสฺมา  อุทายีติ  เอตฺถ ฯ  อุทายีติ 
+<span class="LineNumber"> 013 </span>ตสฺส   เถรสฺส   นามํ ฯ  อยํ  หิ  เสยฺยสกสฺส  อุปชฺฌาโย  โลลุทายิ 
+<span class="LineNumber"> 014 </span>นาม   ภนฺตมิคสปฏิภาโค   นิทฺทารามตาทิมนุยุตฺตานํ   อฺตโร 
+<span class="LineNumber"> 015 </span>โลลภิกฺขุ ฯ   กจฺจิ   โน   ตฺวนฺติ   กจฺจิ   นุ   ตฺวํ ฯ   ยาวทตฺถํ 
+<span class="LineNumber"> 016 </span>ภุฺชาติ   อาทีสุ   ยาวตา   อตฺโถ   ยาวทตฺถํ ฯ  อิทํ  วุตฺตํ  โหติ 
+<span class="LineNumber"> 017 </span>ยาวตา   เต   โภชเนน  อตฺโถ   ยตฺตกํ  ตฺวํ  อิจฺฉสิ  ตตฺตกํ  ภุฺช 

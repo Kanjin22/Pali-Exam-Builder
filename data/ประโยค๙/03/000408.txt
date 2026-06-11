@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อฏฺ€มปริจฺเฉทตฺถโยชนา  หน้า  409
+
+<span class="LineNumber"> 002 </span>ปกติกตฺตา  ฯ  นามานนฺติ  ปจฺจโยติ  สมฺปทานํ  ฯ  อญฺ...โยติ
+<span class="LineNumber"> 003 </span>น  โหตีติ  วิกติกตฺตา  ฯ  ตสฺมาติ  วุตฺตนฺติ  เหตุ  ฯ  จิตฺต...วจนนฺติ
+<span class="LineNumber"> 004 </span>วุตฺตนฺติ  กมฺมํ  ฯ
+<span class="LineNumber"> 005 </span>	[๒๕๙]  มหาภูตา  อญฺมญฺนฺติ  วจนสฺส  วจเน  เหตุํ
+<span class="LineNumber"> 006 </span>าเปนฺโต  อาห  ตถาตฺยาทิ  ฯ  ตถา  อุปา...อิติ  ตสฺมา  มหา...
+<span class="LineNumber"> 007 </span>มญฺนฺติ  วจนนฺติ  วุตฺตํ  ฯ  ตถาติ  ยถา  ปวตฺติยํ  รูปํ  นามานํ
+<span class="LineNumber"> 008 </span>อญฺมญฺปจฺจโย  น  โหติ  ตถาติ  อตฺโถ  ฯ  จสทฺโท  รูปํ
+<span class="LineNumber"> 009 </span>อเปกฺขติ  ฯ  ตถาติ  อุปสํหาโร  ฯ  อุปา...นิ  จาติ  น  โหนฺตีติ
+<span class="LineNumber"> 010 </span>ปกติกตฺตา  ฯ  ภู...นนฺติ  ปจฺจยาติ  สมฺปทานํ  ฯ  อญฺ...ยาติ  น
+<span class="LineNumber"> 011 </span>โหตีติ  วิกติกตฺตา  ฯ  อิตีติ  วุตฺตนฺติ  เหตุ  ฯ  มหา...นนฺติ  วจนนฺติ
+<span class="LineNumber"> 012 </span>กมฺมํ  ฯ
+<span class="LineNumber"> 013 </span>	[๒๖๐]  อรูปิโน  อาหารา...รูปานนฺติ  วจเน  โจทนํ  สมุฏฺ€า-
+<span class="LineNumber"> 014 </span>เปตฺวา  วิสชฺเชนฺโต  อาห  นนุตฺยาทิ  ฯ  อรูปิโน...รูปานนฺติ  วจนํ
+<span class="LineNumber"> 015 </span>อาจริเยน  นนุ  วุตฺตํ  ฯ  เอวญฺจ  วจเน  สติ  อสญฺ...€ิติกาติ  อิทํ
+<span class="LineNumber"> 016 </span>วจนํ  อมฺเหหิ  กถํ  นียติ  ายตีติ  โจทนา  ฯ
+<span class="LineNumber"> 017 </span>	นนุ  จาติ  โจทนตฺเถ  นิปาโต  ฯ  เอวญฺจาติ  จสทฺโท
+<span class="LineNumber"> 018 </span>วากฺยารมฺโภ  ฯ  สห  ชาโต  อาหาโร  สห...โร  ฯ  €ิยเต  €ิติ  ฯ
+<span class="LineNumber"> 019 </span>อาหาเรน  €ิติ  เอเตสํ  สตฺตานนฺติ  อาหารฏฺ€ิติกา  ฯ  นนุ  จาติ
+<span class="LineNumber"> 020 </span>นิปาโต  ฯ  อรูปิ...นนฺติ  วจนนฺติ  กมฺมํ<SUP>๑</SUP>  ฯ  เอวญฺจาติ  สตีติ
+<span class="LineNumber"> 021 </span>ลกฺขณวนฺตํ  ฯ  สตีติ  ลกฺขณํ  ฯ  อสญฺีนนฺติ  อสมฺภวโตติ
+<span class='footnote'>๑.  อรูปิ...นนฺติ  วจนนฺติ  วุตฺตนฺติ  กมฺมํ  ฯ</span>
+<span class="LineNumber"> 022 </span>						อภิ.๒๕๐

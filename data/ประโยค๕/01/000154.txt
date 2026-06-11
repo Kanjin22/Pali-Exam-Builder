@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>อสมฺมูฬฺโหติ  จ  วุจฺจติ  ฯ  โย  หิ  อภายิตพฺพโต  ภายติ โส สมฺมูฬฺโห 
+<span class="LineNumber"> 002 </span>นาม  ฯ  เตน  สุตฺตนิปาตสฺส  ทุติยวคฺเค พฺราหฺมณธมฺมิกสุตฺต-<SUP>๑</SUP>
+<span class="LineNumber"> 003 </span>วณฺณนายํ วุตฺตํ     จตฺตาโร     กิร     อภายิตพฺพํ    ภายนฺติ    คณฺฑุปฺปาทา 
+<span class="LineNumber"> 004 </span>กิกี โกนฺตินี พฺราหฺมณาติ ฯ 
+<span class="LineNumber"> 005 </span>	[๑๙๙]    คณฺฑุปฺปาทา   กิร   มหาป€วิกฺขยภเยน   มตฺติกโภชิโน 
+<span class="LineNumber"> 006 </span>โหนฺติ   น   พหุํ  มตฺติกํ  ขาทนฺติ  ฯ  กิกี  สกุณิกา  อากาสปตนภเยน 
+<span class="LineNumber"> 007 </span>อณฺฑสฺส  อุปริ  อุตฺตานา  เสนฺติ  ฯ  โกนฺตินี  สกุณิกา  ป€วีกมฺปนภเยน 
+<span class="LineNumber"> 008 </span>ปาเทหิ   ภูมึ   น   สุฏฺ€ุ  อกฺกมติ  ฯ  พฺราหฺมณา  กุลวํสุปจฺเฉทภเยน 
+<span class="LineNumber"> 009 </span>ทารํ ปริเยสนฺติ ฯ อาหุ เจตฺถ 
+<span class="LineNumber"> 010 </span>	<B>คณฺฑุปฺปาโท กิกี เจว   โกนฺโต พฺราหฺมณธมฺมิโก 
+<span class="LineNumber"> 011 </span>	เอเต อภายํ ภายนฺติ      สมฺมูฬฺหา จตุโร ชนาติ ฯ</B> 
+<span class="LineNumber"> 012 </span>	[๒๐๐]   ตสฺมา   อสมฺมูฬฺเหน   หุตฺวา   เวรํ   ปหาย  เวรมณี 
+<span class="LineNumber"> 013 </span>สมาทิยิตพฺพา  ฯ   เอวํ   กโรนฺโต   หิ  สีลวา   นาม  ฯ  เตนาห 
+<span class="LineNumber"> 014 </span>ภควา ปฺจกงฺคุตฺตเร เวรสุตฺเต <SUP>๒</SUP> อนาถปิณฺฑิกสฺส ธมฺมํ เทเสนฺโต 
+<span class="LineNumber"> 015 </span>	<B>โย ปาณมติมาเปติ <SUP>๓</SUP>         มุสาวาทฺจ ภาสติ 
+<span class="LineNumber"> 016 </span>	โลเก อทินฺนํ อาทิยติ         ปรทารฺจ คจฺฉติ 
+<span class="LineNumber"> 017 </span>	สุราเมรยปานฺจ              โย นโร อนุยุฺชติ 
+<span class="LineNumber"> 018 </span>	อปฺปหาย ปฺจ เวรานิ      ทุสฺสีโล อิติ วุจฺจติ 
+<span class="LineNumber"> 019 </span>	กายสฺส เภทา ทุปฺปฺโ   นิรยํ โส อุปปชฺชติ ฯ 
+<span class="LineNumber"> 020 </span>	โย ปาณนฺนาติมาเปติ        มุสาวาทนฺน ภาสติ</B> 
+
+<span class='footnote'>๑. ป. โช. ขุ. สุ. ๒/๑๔๗.  ๒. องฺ. ปฺจก. ๒๒/๒๒๙. ๓. ปาณมติปาเตตีติปิ </span>
+<span class='footnote'>เวรสุตฺตปาลิ. ฯ . ว. </span>

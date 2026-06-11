@@ -1,0 +1,19 @@
+<span class="LineNumber"> 001 </span>	เอตมฺปิ   เฉตฺวาน   วชนฺติ   ธีราติ:   ปณฺฑิตา   เอตํ   พนฺธนํ 
+<span class="LineNumber"> 002 </span>ฉินฺทิตฺวา   อนเปกฺขิโน   นิราลยา   หุตฺวา   อรหตฺตมคฺเคน  สพฺพทุกฺขํ 
+<span class="LineNumber"> 003 </span>ปหาย วชนฺติ คจฺฉนฺตีติ อตฺโถ. 
+<span class="LineNumber"> 004 </span>	เทสนาวสาเน    เขมา    อรหตฺเต    ปติฏฺ€หิ.   มหาชนสฺสาปิ 
+<span class="LineNumber"> 005 </span>สาตฺถิกา    เทสนา   อโหสิ.   สตฺถา   ราชานํ   อาห   "มหาราช 
+<span class="LineNumber"> 006 </span>เขมาย    ปพฺพชิตุํ    วา    ปรินิพฺพายิตุํ   วา   วฏฺฏตีติ.   "ภนฺเต 
+<span class="LineNumber"> 007 </span>ปพฺพาเชถ   นํ,   อลํ  ปรินิพฺพาเนนาติ.  สา  ปพฺพชิตฺวา  อคฺคสาวิกา 
+<span class="LineNumber"> 008 </span>อโหสีติ. 
+<span class="LineNumber"> 009 </span>		      			เขมาวตฺถุ. 
+		    
+<span class="LineNumber"> 010 </span>		๖. อุคฺคเสนเสฏฺ€ิปุตฺตวตฺถุ. (๒๔๕) 
+<span class="LineNumber"> 011 </span>	"มุฺจ   ปุเรติ   อิมํ   ธมฺมเทสนํ   สตฺถา   เวฬุวเน  วิหรนฺโต 
+<span class="LineNumber"> 012 </span>อุคฺคเสนํ อารพฺภ กเถสิ. 
+<span class="LineNumber"> 013 </span>	ปฺจสตา  กิร  นาฏกา  สํวจฺฉเร  วา  ฉมฺมาเส  วา  สมฺปตฺเต, 
+<span class="LineNumber"> 014 </span>ราชคหํ   คนฺตฺวา   รฺโ   สตฺตาหํ  สมชฺชํ  กตฺวา  พหุํ  หิรฺสุวณฺณํ 
+<span class="LineNumber"> 015 </span>ลภนฺติ,   อนฺตรนฺตเร   อุกฺเขปทายานํ   ปริยนฺโต   นตฺถิ.   มหาชโน 
+<span class="LineNumber"> 016 </span>มฺจาทีสุ<SUP>๑</SUP>   €ตฺวา   สมชฺชํ   โอโลเกสิ.   อเถกา   ลงฺฆธีตา 
+<span class="LineNumber"> 017 </span>วํสํ   อภิรุยฺห   ตสฺส   อุปริ   ปริวตฺติตฺวา  ตสฺส  ปริยนฺเต  อากาเส 
+<span class='footnote'>๑. สี. ม. ยุ. มฺจาติมฺจาทีสุ. </span>

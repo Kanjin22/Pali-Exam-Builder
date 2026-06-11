@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  332
+
+<span class="LineNumber"> 002 </span>	อตีตเหตูนํ...เอวํ  ติสนฺธิ  ฯ  อตีตเหตูนํ  ผลปญฺจกสฺสาติ
+<span class="LineNumber"> 003 </span>อนฺตราติ  สมฺพนฺโธ  ฯ  อิทานีติ  ผลาติ  อาธาโร  ฯ  จสทฺโท
+<span class="LineNumber"> 004 </span>สมุจฺจโย  ฯ  อนฺตราติ  เอโกติ  อาธาโร  ฯ  เอโกติ  สนฺธีติ
+<span class="LineNumber"> 005 </span>วิเสสนํ  ฯ  สนฺธีติ  ลิงฺคตฺโถ  ฯ  สนฺธานํ  สนฺธิ  ฯ  อิทานิ...นญฺจาติ
+<span class="LineNumber"> 006 </span>อนฺตราติ  สมฺพนฺโธ  ฯ  จสทฺโท  สมุจฺจโย  ฯ  เอโก  สนฺธิ  ฯ
+<span class="LineNumber"> 007 </span>อิทานิ...ผลสฺสาติ  อนฺตราติ  สมฺพนฺโธ  ฯ  จสทฺโท  สมุจฺจโย  ฯ
+<span class="LineNumber"> 008 </span>เอโก  สนฺธิ  ฯ  อิติ<SUP>๑</SUP>  เอวนฺติ  สรูปํ  ฯ  ติสนฺธีติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 009 </span>ตโย  สนฺธี  ติสนฺธิ<SUP>๒</SUP>  ฯ  ทิคุ  ฯ
+<span class="LineNumber"> 010 </span>	[๑๗๒]  อตฺตนา  วุตฺตวจนํ  สาธเกน  สาเธนฺโต  อาห
+<span class="LineNumber"> 011 </span>วุตฺตนฺตฺยาทิ  ฯ  หิ  สจฺจํ  สงฺขา...สนฺธีติ  เอตํ  วจนํ  ปฏิจฺจสมุปฺปาท-
+<span class="LineNumber"> 012 </span>วิภงฺคฏฺ€กถายํ  อาจริเยน  วุตฺตํ  ฯ  หิสทฺโท  ทฬฺหี  ฯ  เอตนฺติ
+<span class="LineNumber"> 013 </span>วุตฺตนฺติ  กมฺมํ  ฯ  สงฺขารา  จ  ปฏิสนฺธิวิญฺาณญฺจ  สงฺขาร-
+<span class="LineNumber"> 014 </span>วิญฺาณานิ  ฯ  เอโก  เหตุผลสนฺธิ  ฯ  เวทนา  จ  ตณฺหา  จ
+<span class="LineNumber"> 015 </span>เวทนาตณฺหา  ฯ  เอโก  เหตุผลสนฺธิ  ฯ  ภโว  จ  ชาติ  จ
+<span class="LineNumber"> 016 </span>ภวชาติ  ฯ  เอโก  เหตุผลสนฺธิ  ฯ  สงฺขาร...นนฺติ  อนฺตราติ
+<span class="LineNumber"> 017 </span>สมฺพนฺโธ    อนฺตราติ  เอโกติ  อาธาโร  ฯ  เอโกติ  สนฺธีติ
+<span class="LineNumber"> 018 </span>วิเสสนํ  ฯ  เสเสสุปิ  เอวํ  ฯ
+<span class="LineNumber"> 019 </span>	[๑๗๓]  โก  ปน  ติณฺณํ  สนฺธีนํ  วิเสโสติ  ปุจฺฉํ  สนฺธายาวิเสสํ
+<span class="LineNumber"> 020 </span>าเปนฺโต  อาห  เอตฺถาตฺยาทิ  ฯ  หิ  สจฺจํ  เอตฺถ  สนฺธีสุ  เหตุโต...
+<span class='footnote'>๑.  อิตีติ  ฯ    ๒.  ฏีกายมฺปน  ติสนฺธี  อิติ  ทิสฺสติ  ฯ</span>
+<span class="LineNumber"> 021 </span>					อภิ.๒๓๘-๙

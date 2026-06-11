@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>           <B>กปฺปติ  อาวาสกปฺโป</B>              กัปปะว่า  จะแยกกันทำสังฆกรรมมี
+<span class="LineNumber"> 002 </span>                                                         อุโบสถเป็นต้น  ในเสนาสนะต่าง
+<span class="LineNumber"> 003 </span>                                                         แห่งในสีมาเดียวกัน  ก็ควร,
+<span class="LineNumber"> 004 </span>           <B>กปฺปติ  อนุมติกปฺโป</B>               กัปปะว่า  เมื่อตั้งใจว่าจะถือเอา
+<span class="LineNumber"> 005 </span>                                                         อนุมัติในเวลาที่พวกภิกษุผู้ยังไม่มา
+<span class="LineNumber"> 006 </span>                                                         มาแล้ว  เมื่อเธอเหล่านั้นยังไม่ทันมา
+<span class="LineNumber"> 007 </span>                                                         สงฆ์เป็นวรรคจะทำกรรมนั้น  แล้ว
+<span class="LineNumber"> 008 </span>                                                         อนุมัติภายหลัง  ก็ควร,
+<span class="LineNumber"> 009 </span>           <B>กปฺปติ  อาจิณฺณกปฺโป</B>            กัปปะว่า  ข้อที่อาจารย์และอุปัชฌาย์
+<span class="LineNumber"> 010 </span>                                                          เคยประพฤติมา  ย่อมควร,
+<span class="LineNumber"> 011 </span>           <B>กปฺปติ  อมถิตกปฺโป</B>                กัปปะว่า  ภิกษุฉันแล้ว  ห้ามโภชนะ
+<span class="LineNumber"> 012 </span>                                                          แล้ว  ฉันนมสดที่ยังไม่เป็นทธิ  ซึ่ง
+<span class="LineNumber"> 013 </span>                                                          ไม่เป็นเดน  ย่อมควร,
+<span class="LineNumber"> 014 </span>           <B>กปฺปติ  ชโลคึ  ปาตุํ </B>                 ภิกษุจะดื่มสุราอย่างอ่อน  ที่ยังไม่ถึง
+<span class="LineNumber"> 015 </span>                                                          เป็นน้ำเมา  ก็ควร,
+<span class="LineNumber"> 016 </span>           <B>กปฺปติ  อทสกํ  นิสีทนํ </B>            ผ้านิสีทนะที่ไม่มีชาย  ก็ควร,
+<span class="LineNumber"> 017 </span>           <B>กปฺปติ  ชาตรูปรชตํ </B>                ทองและเงินควรแก่ภิกษุ.<SUP>๑</SUP>
+<span class="LineNumber"> 018 </span>           พระราชาทรงพระนามว่า  กาฬาโศก  ผู้เป็นพระราชโอรสของ
+<span class="LineNumber"> 019 </span>พระเจ้าสุสูนาค  ได้ทรงเป็นฝักฝ่ายของพวกภิกษุวัชชีบุตรเล่านั้นแล้ว.
+
+<span class='footnote'>๑.  วิ. จุล.  ๗/๓๙๖.</span>

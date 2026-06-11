@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  396
+
+<span class="LineNumber"> 002 </span>ยุตฺโต  ฯ  อุภินฺนนฺติ  ทฺวิเหตุกาเหตุกานํ  ฯ  อปิสทฺโท  อวยวํ
+<span class="LineNumber"> 003 </span>อเปกฺขติ  ฯ
+<span class="LineNumber"> 004 </span>	สเหตุ...ปจฺจโยตีติ  นิทสฺสนํ  ฯ  ปาฐโตติ  สมฺภวตีติ
+<span class="LineNumber"> 005 </span>เหตุ  ฯ  อเหตุ...นมฺปีติ  สมฺภวตีติ  สมฺปทานํ  ฯ  นานากมฺเมนาติ
+<span class="LineNumber"> 006 </span>สมฺภวตีติ  กรณํ  ฯ  ทฺวิเห...พนนฺติ  สมฺภวตีติ  กตฺตา  ฯ
+<span class="LineNumber"> 007 </span>ทฺวิเห...นมฺปีติ  นตฺถีติ  สมฺปทานํ  ฯ  วตฺตพฺพเมวาติ  นตฺถีติ
+<span class="LineNumber"> 008 </span>กตฺตา  ฯ  มูล...ธิยาติ  ชฑภาวาติ  ปเท  ภาวโยโค  ฯ
+<span class="LineNumber"> 009 </span>ชฑภาวโตติ  นตฺถีติ  เหตุ  ฯ  อุภินฺนมฺปีติ  นตฺถีติ  สมฺปทานํ  ฯ
+<span class="LineNumber"> 010 </span>ติเห...ลมฺพนนฺติ  นตฺถีติ  วุตฺตกตฺตา  ฯ  อิตีติ  นิทสฺสนํ  ฯ
+<span class="LineNumber"> 011 </span>ตถา...กานิ  จาตีติ  อาหาติ  ปเท  กมฺมํ  ฯ
+<span class="LineNumber"> 012 </span>	[๔๗๘]  อริสฺสจฺฉาวตารนามกคนฺถกรสฺส<SUP>๑</SUP>  โชติปาลตฺเถรสฺส
+<span class="LineNumber"> 013 </span>วาทํ  ทสฺเสตฺวา  ตํ  นิเสเธนฺโต  อาห  อาจริยาตฺยาทึ  ฯ
+<span class="LineNumber"> 014 </span>อาจริย...ลมฺพนํ  วตฺวา  อิธ  อิมสฺมึ  ปุคฺคลานํ  วชฺชิตพฺพจิตฺต-
+<span class="LineNumber"> 015 </span>ทสฺสนาธิกาเร  าณ...วเสน  โย  ปุคฺคโล  ตสฺส  ตถา  าณ-
+<span class="LineNumber"> 016 </span>สมฺปยุตฺตวิปากานีติ  วจนสฺส  กตฺตา  โส  เอว  ปุคฺคโล
+<span class="LineNumber"> 017 </span>ปุจฺฉิตพฺโพ  อิติ  วจนํ  วุตฺตํ  ตํ  ปน  วจนํ  ปริ...วิย  €ิตนฺติ
+<span class="LineNumber"> 018 </span>โยชนา  ฯ
+<span class="LineNumber"> 019 </span>	อาจริโย  จ  โส  โชติปาลตฺเถโร  จาติ  อาจริยโชติปาลตฺ-
+<span class="LineNumber"> 020 </span>เถโร  วิเสสนุตฺตโร  อริสฺสจฺฉาวตารนามกสฺส<SUP>๑</SUP>  สกฺกฏคนฺถสฺส
+<span class='footnote'>๑.  เอวํนาโม  คนฺโถ  สกฺกฏคนฺเถสุ  น  ทิสฺสติ  ฯ</span>
+<span class="LineNumber"> 021 </span>						อภิ.๑๕๒

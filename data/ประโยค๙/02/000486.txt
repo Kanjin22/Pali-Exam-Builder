@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    486
+
+<span class="LineNumber"> 002 </span>	มนุสฺสานํ  ยานิ  ปญฺาสวสฺสานิ  สนฺติ  ตานิ  ปญฺาส-
+<span class="LineNumber"> 003 </span>วสฺสานิ  ตหึ  จาตุมฺมหาราชิเก  ทิโน  เอกทินํ  ตึสรตฺตินฺทิโว
+<span class="LineNumber"> 004 </span>มาโส  ทฺวาทส  มาสา  วจฺฉรํ  สํวจฺฉโร  เตน  สํวจฺฉเรน
+<span class="LineNumber"> 005 </span>ทิพฺพปญฺจสตํ  ทิพฺพปฺปมาณปญฺจวสฺสสตํ  อายุ  อายุปฺปมาณํ  อิติ
+<span class="LineNumber"> 006 </span>มตํ  ปณฺฑิเตนาติ  โยชนา  ฯ
+<span class="LineNumber"> 007 </span>	ยานีติ  ปญฺาสวสฺสานีติ  วิเสสนํ  ฯ  ปญฺาสวสฺสานีติ
+<span class="LineNumber"> 008 </span>สนฺตีติ  กตฺตา  ฯ  มนุสฺสานนฺติ  วสฺสานีติ  สมฺพนฺโธ  ฯ  ทิโนติ
+<span class="LineNumber"> 009 </span>ลิงฺคตฺโถ  ฯ  ตหินฺติ  ทิโนติ  อาธาโร  ฯ  ตึสรตฺตินฺทิโวติ  มาโสติ
+<span class="LineNumber"> 010 </span>วิเสสนํ  ฯ  รตฺติ  จ  ทิโว  จ  รตฺตินฺทิวา  ตึส  จ  เต  รตฺตินฺทิวา
+<span class="LineNumber"> 011 </span>จาติ  ตึสรตฺตินฺทิโว  ทิคุ  ฯ  มาโสติ  ลิงฺคตฺโถ  ฯ  มาสาติ
+<span class="LineNumber"> 012 </span>สํวจฺฉรนฺติ  วิเสสนํ  ฯ  ทฺวาทสาติ  มาสาติ  วิเสสนํ  ฯ  สํวจฺฉรนฺติ
+<span class="LineNumber"> 013 </span>ลิงฺคตฺโถ  ฯ  วสติ  เอตฺถาติ  วจฺฉรํ  สตฺโต  เอตฺถ  กาเล  ฯ
+<span class="LineNumber"> 014 </span>เตนาติ  สํวจฺฉเรนาติ  วิเสสนํ  ฯ  สํวจฺฉเรนาติ  ปญฺจสตนฺติ  ปเท
+<span class="LineNumber"> 015 </span>ตติยาวิเสสนํ  ฯ  อายูติ  มตนฺติ  อากาโร  ฯ  ทิพฺพปญฺจสตนฺติ
+<span class="LineNumber"> 016 </span>มตนฺติ  กมฺมํ  ฯ  ทิวิ  ปวตฺตานํ  วสฺสานํ  ปมาณํ  ทิพฺพํ
+<span class="LineNumber"> 017 </span>ตทฺธิตวิคฺคโห  ฯ  ณ  ราคาทินา  โณ  ฯ  ปญฺจ  จ  ตานิ  วสฺสสตานิ
+<span class="LineNumber"> 018 </span>จาติ  ปญฺจสตํ  ทิคุ  ฯ  กฺวจาทิมชฺฌูติ  อาทินา  วสฺสโลโป  ฯ
+<span class="LineNumber"> 019 </span>ทิพฺพญฺจ  ตํ  ปญฺจสตญฺจาติ  ทิพฺพปญฺจสตํ  ฯ  อิตีติ  เอตนฺติ
+<span class="LineNumber"> 020 </span>สรูปํ  ฯ
+<span class="LineNumber"> 021 </span>					อภิ.๑๖๑

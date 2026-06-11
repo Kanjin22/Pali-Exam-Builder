@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>นิทฺโทสตฺตา นีลกหาปโณ นาม โหติ ฯ โหนฺติ เจตฺถ
+<span class="LineNumber"> 002 </span>	เหมรชตตมฺเพหิ               สตฺเถ นิทฺทิฏฺ€ลกฺขณํ
+<span class="LineNumber"> 003 </span>	อหาเปตฺวา กโต วีส-	       มาโส นีลกหาปโณ ฯ
+<span class="LineNumber"> 004 </span>	เหมปาทํ สชฺฌุปาทํ          ตมฺพปาททฺวยํ หิ โส
+<span class="LineNumber"> 005 </span>	มิสฺเสตฺวา รูปมปฺเปตฺวา    กาตุํ สตฺเถ สุทสฺสิโต
+<span class="LineNumber"> 006 </span>	เอโลติ วุจฺจเต โทโส           นิทฺโทสตฺตา ตถาริโต<SUP>๑</SUP>
+<span class="LineNumber"> 007 </span>	ตสฺส ปาโท สุวณฺณสฺส       วีสวีหคฺฆนามโก ฯ
+<span class="LineNumber"> 008 </span>	ยสฺมึ ปน ปเทเส โส            น วตฺตติ กหาปโณ
+<span class="LineNumber"> 009 </span>	วีสโสวณฺณวีหคฺฆํ              ตปิปาทคฺฆนฺติ เวทิยํ
+<span class="LineNumber"> 010 </span>	วีสโสวณฺณวีหคฺฆํ               เถเนนฺตา ภิกฺขโว ตโต
+<span class="LineNumber"> 011 </span>	จวนฺติ สามฺคุณา          อิจฺจาหุ วินยฺุโนติ
+<span class="LineNumber"> 012 </span>วาจิสฺสรนามกาจริเยน วุตฺตํ ฯ
+<span class="LineNumber"> 013 </span>	[๓๘๒] มูลจฺเฉทวเสนาติ<SUP>๒</SUP> ปทํ กตฺวาติ ปเท ตติยาวิเสสนํ 
+<span class="LineNumber"> 014 </span>กตฺวาติ ปทํ ปฺตฺเตติ ปเท ปุพฺพกาลกิริยา ฯ อปรํปิ รช...
+<span class="LineNumber"> 015 </span>วตฺถุํ ฯ ตสฺส วตฺถุสฺส อุปฺปตฺติทีปนตฺถํ อุปฺปตฺติฺาปนตฺถํ
+<span class="LineNumber"> 016 </span>เอวญฺจิทํ ฯ เป ฯ โหตีติ เอตํ วจนํ ธมฺมสงฺคาหกตฺเถเรหิ วุตฺตํ ฯ
+<span class="LineNumber"> 017 </span>ตสฺส วจนสฺส ฯ ยถา จ อิธ สิกฺขาปเท ตสฺส อตฺโถ จ
+<span class="LineNumber"> 018 </span>อนุปฺปฺตฺติสมฺพนฺโธ จ ฯ เป ฯ เวทิตพฺโพ เอวํ อิโต
+
+<span class='footnote'>๑. ตเถริโตติปิ ทิสฺสติ ฯ  ๒. มูลจฺเฉชฺช...อิติ วณฺณนาปาโ€ ฯ</span>
+<span class="LineNumber"> 019 </span>                              [ปา.๘๒ ฯ ส.๓๕๒]

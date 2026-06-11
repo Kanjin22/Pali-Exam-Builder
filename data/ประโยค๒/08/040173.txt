@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>        ๗.  เรื่องพราหมณ์ผู้เป็นสหายของพระสารีบุตรเถระ<SUP>*</SUP> [ ๘๗ ]
+<span class="LineNumber"> 002 </span>                                 [ ข้อความเบื้องต้น ]
+<span class="LineNumber"> 003 </span>	พระศาสดาเมื่อประทับอยู่ในพระเวฬุวัน   ทรงปรารภพราหมณ์ผู้
+<span class="LineNumber"> 004 </span>เป็นสหายของพระสารีบุตรเถระ  ตรัสพระธรรมเทศนานี้ว่า  <B>" ยงฺกิญฺจิ
+<span class="LineNumber"> 005 </span>ยิฏฺ€ญฺจ "</B>  เป็นต้น.
+<span class="LineNumber"> 006 </span>                       [ พระเถระพาสหายไปเฝ้าพระศาสดา ]
+<span class="LineNumber"> 007 </span>	ความพิสดารว่าพระเถระเข้าไปหาพราหมณ์แม้นั้นแล้ว  ถามว่า
+<span class="LineNumber"> 008 </span>" พราหมณ์  ท่านทำกุศลบางอย่างหรือ ? "
+<span class="LineNumber"> 009 </span>	พราหมณ์.   อย่างนั้น  ขอรับ.
+<span class="LineNumber"> 010 </span>	พระเถระ.   ทำกุศลอะไร ?
+<span class="LineNumber"> 011 </span>	พราหมณ์.   บูชายัญอย่างที่เขาบูชากัน.
+<span class="LineNumber"> 012 </span>	ทราบว่า   ครั้งนั้น  ชนทั้งหลายย่อมบูชายัญนั้น  ด้วยการบริจาค
+<span class="LineNumber"> 013 </span>อย่างมาก.  ต่อแต่นี้  พระเถระถามโดยนัยก่อนนั่นแล  แล้วนำพราหมณ์
+<span class="LineNumber"> 014 </span>นั้นไปยังสำนักของพระศาสดา  ทูลเรื่องนั้นแล้ว  กราบทูลว่า  " พระ
+<span class="LineNumber"> 015 </span>เจ้าข้า  ขอพระองค์ตรัสบอกทางแห่งพรหมโลก  แก่พราหมณ์นี้. "
+<span class="LineNumber"> 016 </span>                   [ พระศาสดาทรงแสดงธรรมโปรดพราหมณ์ ]
+<span class="LineNumber"> 017 </span>	พระศาสดาตรัสถามว่า   " ได้ยินว่าอย่างนั้นหรือ ?  พราหมณ์ "
+<span class="LineNumber"> 018 </span>เมื่อพราหมณ์ทูลรับรองว่า   " อย่างนั้น "  แล้ว  จึงตรัสว่า  " พราหมณ์
+
+<span class='footnote'>*พระมหาโปร่ง  ป.ธ.  ๙  วัดบวรนิเวศวิหาร  แปล.</span>

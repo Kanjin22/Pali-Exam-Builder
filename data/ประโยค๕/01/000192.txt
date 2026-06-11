@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>วุตฺตํ ฯ 
+<span class="LineNumber"> 002 </span>	[๒๕๙]   ตตฺถ   <B>อปฺปมาโทติ</B>   สติยา   อวิปฺปวาโส  ฯ   <B>อมตํ</B> 
+<span class="LineNumber"> 003 </span><B>ปทนฺติ</B>   อมตสฺส   นิพฺพานสฺส   ปทํ   อธิคมการณํ  ฯ  <B>มจฺจุโน</B>  ปทนฺติ 
+<span class="LineNumber"> 004 </span>มรณสฺส   การณํ  ฯ  ปมตฺโต  หิ  วิปสฺสนํ  วฑฺเฒตฺวา  อปฺปฏิสนฺธิกภาวํ 
+<span class="LineNumber"> 005 </span>ปตฺตุํ   อสกฺโกนฺโต   ปุนปฺปุนํ  สํสาเร  ชายติ  เจว  มียติ  จ  ตสฺมา 
+<span class="LineNumber"> 006 </span>ปมาโท   มจฺจุโน   ปทนฺนาม  ฯ   <B>น   มียนฺตีติ</B>  วิปสฺสนํ  วฑฺเฒตฺวา 
+<span class="LineNumber"> 007 </span>อปฺปฏิสนฺธิกภาวํ   ปตฺวา   ปุนปฺปุนํ   สํสาเร  อนิพฺพตฺตตฺตา  น  มียนฺติ 
+<span class="LineNumber"> 008 </span>นาม  ฯ  เย  <B>ปมตฺตาติ</B>  มหาราช  เย  ปุคฺคลา  ปมตฺตา  เต  ยถา 
+<span class="LineNumber"> 009 </span>มตา  ตเถว  ทฏฺ€พฺพา  ฯ  กสฺมา  ฯ  อกิจฺจสาธนตาย  ฯ มตสฺสปิ <SUP>๑</SUP>
+<span class="LineNumber"> 010 </span>หิ   อหํ   ทานํ   ทสฺสามิ   สีลํ   รกฺขิสฺสามิ   อุโปสถกมฺมํ  กริสฺสามิ 
+<span class="LineNumber"> 011 </span>กลฺยาณกมฺมํ   กริสฺสามีติ   อาโภโค   วา   ปฏฺ€นา   วา  ปริยุฏฺ€านํ 
+<span class="LineNumber"> 012 </span>วา   นตฺถิ   อปคตวิฺาณตฺตา   ปมตฺตสฺสาปิ  <SUP>๒</SUP>   อปฺปมาทาภาวาติ 
+<span class="LineNumber"> 013 </span>ตสฺมา อุโภเปเต เอกสทิสา วาติ ตํชาตกวณฺณนา <SUP>๓</SUP> ฯ 
+<span class="LineNumber"> 014 </span>	คหฏฺ€านํ   ตาว   ทานํ   ทสฺสาม   สีลํ  รกฺขิสฺสาม  อุโปสถกมฺมํ 
+<span class="LineNumber"> 015 </span>กริสฺสามาติ      เอกจิตฺตมฺปิ      น     อุปฺปชฺชติ     ปพฺพชิตานมฺปิ 
+<span class="LineNumber"> 016 </span>อาจริยูปชฺฌายวตฺตาทีนิ      ปูเรสฺสาม     ธูตงฺคานิ     สมาทิยิสฺสาม 
+<span class="LineNumber"> 017 </span>ภาวนํ    วฑฺเฒสฺสามาติ   เอกจิตฺตมฺปิ   น   อุปฺปชฺชติ   มเตหิ   เต 
+<span class="LineNumber"> 018 </span>กินฺนานาการณา วาติ ธมฺมปทวณฺณนา ฯ 
+<span class="LineNumber"> 019 </span>                                          อปฺปมาทกถา 
+
+<span class='footnote'>๑. มตสฺสาปีติ ชาตกวณฺณนา.  ๒. ปมตฺตสฺส หีติ ชาตกวณฺณนา ฯ  ๓.  ชาตกฏฺ€กถา. </span>
+<span class='footnote'>๗/๓๑๙ ฯ </span>

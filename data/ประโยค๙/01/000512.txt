@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  512
+
+<span class="LineNumber"> 002 </span>ชานนฺตีติ  ปณฺฑิตา  ปุคฺคลา  ฯ  ปฑิ  คติยํ  พุธ...กตฺตริ
+<span class="LineNumber"> 003 </span>ยถาคมมิกาโร  นิคฺคหิตฺจาติ  พินฺทาคโม  วคฺคนฺตํ  ฯ  วาถาติ
+<span class="LineNumber"> 004 </span>อิทํ  คาถาพนฺธวเสน  วุตฺตํ  ฯ
+<span class="LineNumber"> 005 </span>	ตสฺส  อตฺโถ  อถวาติ  าเปนฺโต  อถวาติ  อาห  ฯ  เอเกน
+<span class="LineNumber"> 006 </span>อุตฺตรํ  วีสํ  เอกวีสํ  เอกวีสาย  อธิกํ  สตํ  เอกวีสสตํ  ฯ
+<span class="LineNumber"> 007 </span>เอกุตฺตราติ  วิวรณํ  ฯ  เอกสทฺทสฺส  สมานตฺถสฺสปิ  วาจกตฺตา
+<span class="LineNumber"> 008 </span>สมวีสนฺติ  อตฺถํ  โกจิ  สงฺเกยฺย  ตํนิวตฺตนตฺถํ  อุตฺตรสทฺโท
+<span class="LineNumber"> 009 </span>ปกฺขิตฺโต  ฯ  วีสาย  คุณิตํ  สตนฺติ  อตฺถํ  วิวิตฺเตตุํ  อธิกสทฺโท
+<span class="LineNumber"> 010 </span>ปกฺขิตฺโต  ฯ  เทฺว  อุตฺตรมธิกสทฺทา  ปริยายา  ฯ  เอเกน  อุตฺตรํ
+<span class="LineNumber"> 011 </span>วีสํ  เอกุตฺตรวีสํ  เอกุตฺตรวีสาย  อธิกํ  เอกุตฺตรวีสาธิกํ  ฯ
+<span class="LineNumber"> 012 </span>	อิตฺถํ...เตนาติ  วิภชนฺตีติ  ปเท  ตติยาวิเสสนํ  ฯ  ชาติ...
+<span class="LineNumber"> 013 </span>วเสนาติ  เอกุ...ปเภทนฺติ  ปเท  ตติยาวิเสสนํ  ฯ  เอกุ...เภทนฺติ
+<span class="LineNumber"> 014 </span>กตฺวาติ  ปเท  กมฺมํ  ฯ  กตฺวาติ  วิภชนฺตีติ  ปเท  ปุพฺพกาลกิริยา  ฯ
+<span class="LineNumber"> 015 </span>มานสํ  จิตฺตนฺติ  วิภชนฺตีติ  ปเท  กมฺมํ  ฯ  วิเสเสนาติ  จกฺขณาติ
+<span class="LineNumber"> 016 </span>ปเท  ตติยาวิเสสนํ  ฯ  อตฺถ...ภาวาติ  ปณฺฑิตาติ  ปทสฺส
+<span class="LineNumber"> 017 </span>วิเสสนํ  ฯ  ปณฺฑิตาติ  กตฺตา  ฯ  เอกุ...ธิกนฺติ  สตนฺติ  ปทสฺส
+<span class="LineNumber"> 018 </span>วิเสสนํ  ฯ  สตนฺติ  กมฺมํ  ฯ
+<span class="LineNumber"> 019 </span>	[๓๗๑]  ป€มชฺฌานโสตาปตฺติมคฺคจิตฺตนฺติ  ปเท  วจนตฺถํ
+<span class="LineNumber"> 020 </span>าเปนฺโต  อาห  ฌานาตฺยาทึ  ฯ  ฌานงฺค...จิตฺตํ  จ  อิติ
+<span class="LineNumber"> 021 </span>ตสฺมา  ป€...จิตฺตํ  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๙๕

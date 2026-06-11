@@ -1,0 +1,12 @@
+<span class="LineNumber"> 001 </span>                           พุทฺธโฆสปฺปวตฺติกถา  
+<span class="LineNumber"> 002 </span>		พุทฺธโฆสปฺปวตฺตียํ    มยา สทฺธมฺมสงฺคเห  
+<span class="LineNumber"> 003 </span>		มหาวํเส ปุราเณ จ     วุตฺตนเยน สนฺถฏา  
+<span class="LineNumber"> 004 </span>		วิเสสํ าตุกาเมน     ตตฺถ ตตฺถ ยถารหํ  
+<span class="LineNumber"> 005 </span>		พุทฺธโฆสนิทาเนปิ     วํสมาลินิยมฺปิ วา  
+<span class="LineNumber"> 006 </span>		าโณทเย วิเสเสปิ    วิฺาตพฺพาว วิฺุนา  
+<span class="LineNumber"> 007 </span>		เอตฺตาวตา จ อมฺเหหิ   ลทฺโธ ปุฺมหณฺณโว  
+<span class="LineNumber"> 008 </span>		สพฺเพ เทวานุโมทนฺตุ   สพฺพสมฺปตฺติสิทฺธิยา  
+<span class="LineNumber"> 009 </span>		สีลํ รกฺขนฺตุ สทฺธาย     จิตฺตํ ภาเวนฺตุ ปาณิโน  
+<span class="LineNumber"> 010 </span>		ปฺฺจ นปฺปมชฺชนฺตุ   มคฺโค เหส วิสุทฺธิยา  
+<span class="LineNumber"> 011 </span>		ทุกฺขปฺปตฺตา จ นิทฺทุกฺขา   ภยปฺปตฺตา จ นิพฺภยา  
+<span class="LineNumber"> 012 </span>		โสกปฺปตฺตา จ นิสฺโสกา   สุทฺธึ ปปฺโปนฺตุ สาธโวติ ฯ  

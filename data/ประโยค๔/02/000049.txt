@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>                                     [แก้อรรถ]
+<span class="LineNumber"> 002 </span>           บรรดาบทเหล่านั้น  สองบทว่า  <B>อนยํ นยตี</B>  ความว่า   คนพาล
+<span class="LineNumber"> 003 </span>ถือสิ่งที่มิใช่เหตุว่า  "เป็นเหตุ"  คิดแต่กรรมอันไร้ประโยชน์เห็นปาน
+<span class="LineNumber"> 004 </span>นี้ว่า  "เราจักทำกรรม  มีปาณาติบาตเป็นต้นเลี้ยงชีวิต." 
+<span class="LineNumber"> 005 </span>           บทว่า  <B>อธุรายํ</B>  คือ  ไม่ประกอบในสัทธาธุระ  สีลธุระ  และ
+<span class="LineNumber"> 006 </span>ปัญญาธุระ  (กลับ)  ประกอบในสิ่งที่ไม่ควรประกอบ.
+<span class="LineNumber"> 007 </span>           บทว่า  <B>ทุนฺนธย</B>  ความว่า  การแนะนำชั่วเท่านั้น  เป็นความดี
+<span class="LineNumber"> 008 </span>ของคนพาลนั้น  คือคนพาลนั้นถืออย่างนี้ว่า  "การสมาทานทุศีล
+<span class="LineNumber"> 009 </span>กรรมทั้ง ๕  ประพฤตินั้นและเป็นความดี."  อีกนัยหนึ่ง คนพาลนั้น
+<span class="LineNumber"> 010 </span>บัณฑิต  แนะนำได้ยาก  คือใคร ๆ  ไม่อาจเพื่อแนะนำในข้อปฏิบัติ
+<span class="LineNumber"> 011 </span>ที่เป็นประโยชน์ได้.
+<span class="LineNumber"> 012 </span>           บทว่า  <B>สมฺมา</B> คือ  แม้ผู้อื่นว่ากล่าวแล้วโดยเหตุ  คือโดย
+<span class="LineNumber"> 013 </span>การณ์.
+<span class="LineNumber"> 014 </span>           บทว่า  <B>วินยํ</B>  ความว่า  ไม่รู้จักระเบียบ  คือมรรยาท  เป็นต้นว่า
+<span class="LineNumber"> 015 </span>พึงก้าวไปข้างหน้าอย่างนี้  และไม่ยอมรับโอวาทเลย.
+<span class="LineNumber"> 016 </span>           บทว่า  <B>สาธุ  ตสฺส</B>  ความว่า  ด้วยเหตุเหล่านี้  การไม่พบเห็น
+<span class="LineNumber"> 017 </span>่คนพาลเสียได้เลย  เป็นความดี.
+<span class="LineNumber"> 018 </span>           พระดาบส  เมื่อจะรับพรข้ออื่นอีก  จึงกล่าวว่า
+<span class="LineNumber"> 019 </span>              <B>"ขอข้าพเจ้า  พึงพบแต่บัณฑิต  พึงได้ยินบัณฑิต
+<span class="LineNumber"> 020 </span>              และพึงได้อยู่ร่วมกับบัณฑิต  พึงทำและพอใจ
+<span class="LineNumber"> 021 </span>              การเจรจาปราศรัยกับบัณฑิต."</B>
+
+

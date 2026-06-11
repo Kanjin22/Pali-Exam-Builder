@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			จตุตฺถปริจฺเฉทตฺถโยชนา    หน้า  267
+
+<span class="LineNumber"> 002 </span>นิสฺสเยน  ปฏิพทฺธา  นิสฺสยปฺปฏิพทฺธา  ฯ  มญฺจา  มญฺจฏฺ€า
+<span class="LineNumber"> 003 </span>อุกฺกุฏฺ€ึ  อุคฺโฆสนํ  กโรนฺติ  ฯ
+<span class="LineNumber"> 004 </span>	นิสฺสิตกิริยาติ  วุตฺตาติ  กมฺมํ  ฯ  นิสฺสยปฺปฏิพทฺธาติ  วุตฺตาติ
+<span class="LineNumber"> 005 </span>อากาโร  ฯ  ยถาติ  อุปมา  ฯ
+<span class="LineNumber"> 006 </span>	มญฺจา  อุกฺกุฏฺ€ึ  กโรนฺตีติ  ปโยเค  วิย  วิญฺาณกิริยา
+<span class="LineNumber"> 007 </span>นิสฺสโยปจารวเสน  วุตฺตา  ฯ  จกฺขุปฺปสาเทน  ทิสฺวาตฺยาธิปฺปาโย  ฯ
+<span class="LineNumber"> 008 </span>	[๓๒๑]  สมฺปฏิจฺฉนฺตนฺติ  €เปตฺวา  วิวรติ  ตเมว  รูปนฺติ
+<span class="LineNumber"> 009 </span>อนุวตฺตติ  ฯ  วิยสทฺโท  นิพฺยาจารภาวญาปนตฺถํ  ปกฺขิตฺโต  ฯ
+<span class="LineNumber"> 010 </span>ตุลนาทิอตฺถํ  นิวตฺเตนฺโต  €เปตฺวา  วิวรติ  ตเมวาติ  อนุวตฺตติ  ฯ
+<span class="LineNumber"> 011 </span>สุฏฺฐูติ  สํสทฺทสฺส  อตฺโถ  ฯ  โยนิ...เสน  เอเตน  ชวเนน  ปจฺจโย
+<span class="LineNumber"> 012 </span>ลทฺโธ  อิติ  ตสฺมา  ลทฺธปจฺจยํ  ตติยาพหุพฺพิหิ  ฯ  มนสฺมึ
+<span class="LineNumber"> 013 </span>กรณํ  มนสิกาโร  โยนิโส  อุปาเยน  มนสิกาโร  โยนิโสมนสิ-
+<span class="LineNumber"> 014 </span>กาโร  โยนิโสมนสิกาโร  อาทิ  ยสฺส  โส  โยนิโสมนสิการาทิ
+<span class="LineNumber"> 015 </span>ยสฺส  อโยนิโสมนสิการาทิกสฺส  ฯ  โยนิ...ทิสฺส  วโส  โยนิ...
+<span class="LineNumber"> 016 </span>วโส  ฯ
+<span class="LineNumber"> 017 </span>	โยนิ...เสนาติ  ลทฺโธติ  ตติยาวิเสสนํ  ฯ  ปจฺจโยติ  ลทฺโธติ
+<span class="LineNumber"> 018 </span>กมฺมํ  ฯ  เอเตนาติ  ลทฺโธติ  กตฺตา  ฯ
+<span class="LineNumber"> 019 </span>	ลทฺธปจฺจยนฺติ  อิมสฺส  สมฺพนฺธํ  าเปนฺโต  อาห  ยํกิญฺจิ-
+<span class="LineNumber"> 020 </span>ตฺยาทึ  ฯ  ลทฺธปจฺจยํ  ยํกิญฺจิ  ชวนํ  อิติ  สมฺพนฺโธ  ฯ
+<span class="LineNumber"> 021 </span>						อภิ.๑๓๗

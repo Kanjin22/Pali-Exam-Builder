@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  442
+
+<span class="LineNumber"> 002 </span>พฺรหฺมจริยโยคฺยานํ  ภาโว  พฺรหฺม...คฺยตา  ฯ  สติ  จ  สุรภาโว  
+<span class="LineNumber"> 003 </span>จ  พฺรหฺมจริยโยคฺยตา  จ  สติ...คฺยตา  สติ...จริยโยคฺยตา
+<span class="LineNumber"> 004 </span>อาทิ  เยสํ  สมาธิธิติอาทีนํ  เต  สติ...ตาทโย  สติ...ตาทโย
+<span class="LineNumber"> 005 </span>จ  เต  คุณา  จาติ  สติ...คุณา  ฯ  อุกฺกฏฺ€ํ  มนํ  เอเตสนฺติ
+<span class="LineNumber"> 006 </span>อุกฺกฏฺ€มนา  เอเตสํ  ปุคฺคลานํ  ฯ  อุกฺกฏฺ€มนานํ  ภาโว
+<span class="LineNumber"> 007 </span>อุกฺก...นตา  ฯ  มนติ  อารมฺมณํ  ชานาตีติ  มโน  ยํ  จิตฺตํ  ฯ
+<span class="LineNumber"> 008 </span>อุปุพฺโพ  สท  วิปุลภาเว  พุธ...กตฺตริ  ภิทานิ...อีณา  วา
+<span class="LineNumber"> 009 </span>ธาตฺวนฺเตน  สห  ตสฺส  อนฺนาเทโส  สสฺส  ทฺวิตฺตํ  ฯ  อุสฺสเทตีติ
+<span class="LineNumber"> 010 </span>อุสฺสํ  ยํ  จิตฺตํ  ฯ  อุปุพฺโพ  สท  อุกฺขิปเน  ธาตฺวนฺตสฺส  โลโป
+<span class="LineNumber"> 011 </span>กฺวิมฺหิ  กฺวิโลโป  ฯ  อุสฺสสทฺโท  อุสฺสนฺนสทฺทปริยาโย  ฯ
+<span class="LineNumber"> 012 </span>มโน...มนุสฺสาติ  ฉฏฺ€ีพหุพฺพิหิ  ฯ
+<span class="LineNumber"> 013 </span>	สติ...เณหีติ  อุกฺกฏฺ€าติ  ตติยาวิเสสนํ  ฯ  อุกฺก...ตายาติ
+<span class="LineNumber"> 014 </span>อุสฺสนฺนนฺติ  ตติยาวิเสสนํ  ฯ  มโนติ  ลิงฺคตฺโถ  ฯ  อุสฺสนฺนนฺติ
+<span class="LineNumber"> 015 </span>มโนติ  วิเสสนํ  ฯ  เอเตสนฺติ  มโนติ  สมฺพนฺโธ  ฯ  อิตีติ  มนุสฺสาติ
+<span class="LineNumber"> 016 </span>เหตุ  ฯ
+<span class="LineNumber"> 017 </span>	[๕๒๔]  สติสุร...มนุสฺสาติ  วจนํ  สาเธนฺโต  อาห  ตถาหิ-
+<span class="LineNumber"> 018 </span>ตฺยาทึ  ฯ  ตถาหิ  สจฺจํ  ปรม...ภูตาเยว  ฯ
+<span class="LineNumber"> 019 </span>	สรณํ  สติ  ฯ  นิสฺเสสโต  ปาเจติ  กุสลธมฺเมติ  นิปโก
+<span class="LineNumber"> 020 </span>โย  ญาณี  ปุคฺคโล  กุสลธมฺเม  นิสฺเสสโต  ปาเจติ  อิติ
+<span class="LineNumber"> 021 </span>ตสฺมา  โส  าณี  ปุคฺคโล  นิปโก  ฯ  นิปุพฺโพ  ปจ  ปาเก
+<span class="LineNumber"> 022 </span>					อภิ.๑๕๗

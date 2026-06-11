@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  256
+
+<span class="LineNumber"> 002 </span>จาเลนฺตํ  วิยาติ  ป€มจิตฺตนฺติ  วิเสสนํ  ฯ  อิตีติ  โวหรนฺตีติ
+<span class="LineNumber"> 003 </span>เหตุ    ฯ  ภวงฺคจลนนฺติ  โวหรนฺตีติ  อากาโร  ฯ
+<span class="LineNumber"> 004 </span>	[๓๐๘]  อิธ  ปน  จิตฺตทฺวยํ  ภวงฺคจลนนฺติ  วุตฺตนฺติ  ญาเปนฺโต
+<span class="LineNumber"> 005 </span>อาห  อิธาติ  อาทึ  ฯ  อิธ  ปน  อภิธมฺมตฺถสงฺคเห  อวิเสเสน
+<span class="LineNumber"> 006 </span>สามญฺเน  ทฺวิกฺขตฺตุํ...เต  อิติ  เอวํ  จิตฺตทฺวยํ  อนุรุทฺธาจริเยน
+<span class="LineNumber"> 007 </span>วุตฺตนฺติ  โยชนา  ฯ
+<span class="LineNumber"> 008 </span>	อิธาติ  วุตฺตนฺติ  อาธาโร  ฯ  ปนสทฺโท  วิเสสตฺโถ  ฯ
+<span class="LineNumber"> 009 </span>อวิเสเสนาติ  วุตฺตนฺติ  ตติยาวิเสสนํ  ฯ  ทฺวิกฺข...เตตีติ  วุตฺตนฺติ
+<span class="LineNumber"> 010 </span>อากาโร  ฯ
+<span class="LineNumber"> 011 </span>	[๓๐๙]  โจทนํ  €เปตฺวา  อาห  นนุ  จาติ  อาทึ  ฯ  รูปา-
+<span class="LineNumber"> 012 </span>ทินา...จลนํ  ยุตฺตํ  นนุ  จ  หทย...ภวงฺคสฺส  จลนํ  กถํ  ปน
+<span class="LineNumber"> 013 </span>ยุตฺตํ  อิติ  โจทนาติ  โยชนา  ฯ
+<span class="LineNumber"> 014 </span>	นนุ  จาติ  โจทนตฺเถ  นิปาโต  ฯ  รูปํ  อาทิ  ยสฺส  อารมฺมณสฺส
+<span class="LineNumber"> 015 </span>ตํ  รูปาทิ  ฯ  เอเกน  อารมฺมเณน  ปสาโท  ฆฏิตกฺขเณ
+<span class="LineNumber"> 016 </span>ฆฏิยติ  ตสฺมา  รูปาทินาติ  เอกวจนํ  ปกฺขิตฺตํ  ฯ  ตสฺมึ  ปสาเท
+<span class="LineNumber"> 017 </span>นิสฺสิตํ  วิญฺาณํ  ตนฺนิสฺสิตํ  ฯ  เอวสทฺโท  น  ภวงฺคสฺสาติ
+<span class="LineNumber"> 018 </span>นิวตฺเตติ  ฯ  ปนสทฺโท  วิเสสตฺโถ  ฯ  วสนฺติ  เอตฺถาติ  วตฺถุ
+<span class="LineNumber"> 019 </span>จิตฺตเจตสิกา  เอตฺถ  หทเย  วสนฺติ  อิติ  ตสฺมา  ตํ  หทยํ
+<span class="LineNumber"> 020 </span>วตฺถุ  ฯ  หทยํ  เอว  วตฺถุ  หทยวตฺถุ  หทยวตฺถุมฺหิ  นิสฺสิตํ
+<span class="LineNumber"> 021 </span>หทยวตฺถุนิสฺสิตํ  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๓๖

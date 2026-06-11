@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  234
+
+<span class="LineNumber"> 002 </span>วจนนฺติ  อาปชฺเชยฺยาติ  กตฺตา  ฯ  เอวเมวนฺติ  อุปเมยฺยํ  ฯ  อุปมา...
+<span class="LineNumber"> 003 </span>ถาหีติ  ภินฺนาติ  อปาทานํ  ฯ  ภินฺนาติ  ภงฺคาภิมุขาวตฺถาปีติ
+<span class="LineNumber"> 004 </span>วิเสสนํ  ฯ  ภงฺคาภิมุขาวตฺถาปีติ  อิจฺฉิตพฺพาติ  กมฺมํ  ฯ  สาติ
+<span class="LineNumber"> 005 </span>สญฺี  ฯ  €ิติ  นามาติ  สญฺา  ฯ
+<span class="LineNumber"> 006 </span>	[๒๗๙]  ยถา  €ิติ  อตฺถิ  เกน  ปาลิยํ  สา  น  วุตฺตาติ
+<span class="LineNumber"> 007 </span>อาห  ปาลิยมฺปนาติอาทึ  ฯ  ปาลิยํ...วเสน  สา  €ิติ  ภควตา
+<span class="LineNumber"> 008 </span>น  วุตฺตา  ฯ
+<span class="LineNumber"> 009 </span>	ปาลิยนฺติ  จิตฺตยมกปาลิยํ  ฯ  ปนสทฺโท  วิเสสตฺโถ  ฯ
+<span class="LineNumber"> 010 </span>วิเนตพฺพาติ  วิเนยฺยา  เย  ปุคฺคลา  ภควตา  วิเนตพฺพา  อิติ
+<span class="LineNumber"> 011 </span>ตสฺมา  เต  ปุคฺคลา  วิเนยฺยา  ฯ  อธิอาคนฺตฺวา  จิตฺเต  สยติ
+<span class="LineNumber"> 012 </span>ปวตฺตตีติ  อชฺฌาสโย  โย  ฉนฺโท  ฯ  วิเนยฺยานํ  อชฺฌาสโย
+<span class="LineNumber"> 013 </span>นิเนยฺยชฺฌาสโย  ฯ  อุรุชฺฌนํ  วิรุชฺฌนํ  อุรุโธ  ฯ  อุปุพฺโพ  รุธ
+<span class="LineNumber"> 014 </span>วิรุทฺเธ  ภาเว  จ  ฯ  น  อุรุโธ  อนุโรโธ  ฯ  วิเนยฺยชฺฌาสยสฺส
+<span class="LineNumber"> 015 </span>อนุโรโธ  วิเน...โรโธ  ฯ  นียติ  เอเตนาติ  นโย  €ิติ  เอเตน
+<span class="LineNumber"> 016 </span>อุปฺปาทภงฺคสฺส  ทสฺสเนน  นียติ  อิติ  ตสฺมา  ตํ  ทสฺสนํ  นโย  ฯ
+<span class="LineNumber"> 017 </span>อิธ  มิคปทวลญฺโช  อธิปฺเปโต    ฯ  อาทยนฺตมคฺคํ  ทีเปตฺวา  มชฺเฌ
+<span class="LineNumber"> 018 </span>ปน  อทสฺสนํ  มิคปทวลญฺโช  เวทิตพฺโพ  สุธีมตา  ฯ  ทสฺสิยเต
+<span class="LineNumber"> 019 </span>ทสฺสนํ  นยสฺส  ทสฺสนํ  นยทสฺสนํ  ฯ  วสนํ  สมฺพชฺฌนํ  วโส
+<span class="LineNumber"> 020 </span>นยทสฺสนสฺส  วโส  นยทสฺสนวโส  ฯ
+<span class="LineNumber"> 021 </span>						อภิ.๑๓๓

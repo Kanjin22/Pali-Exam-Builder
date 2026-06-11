@@ -1,0 +1,17 @@
+<span class="LineNumber"> 001 </span>อถ   นํ   ภิกฺขู   "อาวุโส   ตสฺมึ  ปุริเส  เอวํ  ปหรนฺเต,  กึ  ตฺวํ 
+<span class="LineNumber"> 002 </span>อวจ,   กึ   วา  เต  โกโธ  อุปฺปนฺโนติ.  "น  เม  อาวุโส  โกโธ 
+<span class="LineNumber"> 003 </span>อุปฺปชฺชตีติ.    เต   สตฺถุ   สนฺติกํ   คนฺตฺวา   ตมตฺถํ   อาโรเจตฺวา 
+<span class="LineNumber"> 004 </span>"ภนฺเต   เอโส  ภิกฺขุ  `โกโธ  เต  อุปฺปชฺชตีติ  วุจฺจมาโน  `น  เม 
+<span class="LineNumber"> 005 </span>อาวุโส  โกโธ  อุปฺปชฺชตีติ  วเทติ,  อภูตํ  วตฺวา  อฺํ  พฺยากโรตีติ. 
+<span class="LineNumber"> 006 </span>สตฺถา   เตสํ   กถํ   สุตฺวา   "ภิกฺขเว  ขีณาสวา  นาม  นิหิตทณฺฑา, 
+<span class="LineNumber"> 007 </span>เต ปหรนฺเตสุปิ โกธํ น กโรนฺติเยวาติ วตฺวา อิมํ คาถมาห 
+<span class="LineNumber"> 008 </span>		"นิธาย ทณฺฑํ ภูเตสุ      ตเสสุ ถาวเรสุ จ 
+<span class="LineNumber"> 009 </span>		โย น หนฺติ น ฆาเตติ,  ตมหํ พฺรูมิ พฺราหฺมณนฺติ. 
+<span class="LineNumber"> 010 </span>		ตตฺถ "นิธายาติ: นิกฺขิปิตฺวา โอโรเปตฺวา. 
+<span class="LineNumber"> 011 </span>	ตเสสุ   ถาวเรสุ   จาติ:  ตณฺหาตาเสน  ตเสสุ,  ตณฺหาอภาเวน 
+<span class="LineNumber"> 012 </span>ถิรตาย ถาวเรสุ จ. 
+<span class="LineNumber"> 013 </span>	โย    น    หนฺตีติ:   โย   เอวํ   สพฺพสตฺเตสุ   วิคตปฏิฆตาย 
+<span class="LineNumber"> 014 </span>นิกฺขิตฺตทณฺโฑ   เนว   กฺจิ   สยํ   หนติ   น  อฺํ  ฆาเตติ,  ตมหํ 
+<span class="LineNumber"> 015 </span>พฺราหฺมณํ วทามีติ อตฺโถ. 
+<span class="LineNumber"> 016 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 017 </span>		    		อฺตรภิกฺขุวตฺถุ. 

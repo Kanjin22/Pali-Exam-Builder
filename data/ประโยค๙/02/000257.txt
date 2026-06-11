@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			จตุตฺถปริจฺเฉทตฺถโยชนา    หน้า  257
+
+<span class="LineNumber"> 002 </span>	รูปาทินาติ  ฆฏิเตติ  กตฺตา  ฯ  ปสาเทติ  ลกฺขณวนฺตํ  ฯ
+<span class="LineNumber"> 003 </span>ฆฏิเตติ  จลนนฺติ  ลกฺขณกิริยา  ฯ  ตนฺนิสฺสิตสฺเสวาติ  จลนนฺติ
+<span class="LineNumber"> 004 </span>สมฺพนฺโธ  ฯ  จลนนฺติ  ยุตฺตนฺติ  ปเท  กตฺตา  ฯ  กถนฺติ  ปุจฺฉา  ฯ
+<span class="LineNumber"> 005 </span>หทยวตฺถุนิสฺสิตสฺสาติ  ภวงฺคสฺสาติ  วิเสสนํ  ฯ  ภวงฺคสฺสาติ  จลนนฺติ
+<span class="LineNumber"> 006 </span>สมฺพนฺโธ  ฯ  อิตีติ  โจทนาติ  สรูปํ  ฯ
+<span class="LineNumber"> 007 </span>	[๓๑๐]  โจทนํ  วิสชฺเชนฺโต  อาห  สนฺตติตฺยาทึ  ฯ
+<span class="LineNumber"> 008 </span>สนฺตติวเสน  จลิตรูปานํ  ปพนฺธวเสน  ภวงฺคสฺส  จลิตรูเปหิ  เอกา-
+<span class="LineNumber"> 009 </span>พทฺธตฺตา  หทยวตฺถุนิสฺสิตสฺส  ภวงฺคสฺส  จลนํ  ยุตฺตนฺติ  โยชนา  ฯ
+<span class="LineNumber"> 010 </span>	สนฺตานํ  รูปานํ  ปพนฺธนํ  สนฺตติ  สนฺตติยา  วสนํ  สนฺตติ-
+<span class="LineNumber"> 011 </span>วโส  ฯ  อาพทฺธนํ  สมฺพนฺธนํ  อาพทฺโธ  เอโก  อาพทฺโธ  ยสฺส
+<span class="LineNumber"> 012 </span>ตํ  เอกาพทฺธํ  ยสฺส  ภวงฺคสฺส  เอโก  รูเปหิ  อาพทฺโธ  ตํ  ภวงฺคํ
+<span class="LineNumber"> 013 </span>เอกาพทฺธํ  เอกาพทฺธสฺส  ภาโว  เอกาพทฺธตฺตํ  ฯ
+<span class="LineNumber"> 014 </span>	สนฺตติวเสนาติ  เอกาพทฺธาติ  ปเท  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 015 </span>ภวงฺคสฺสาติ  เอกาพทฺธตฺตาติ  ปเท  ภาวโยโค  ฯ  เอกาพทฺธตฺตาติ
+<span class="LineNumber"> 016 </span>ยุตฺตนฺติ  เหตุ  ฯ
+<span class="LineNumber"> 017 </span>	[๓๑๑]  สนฺตติวเสน  ภวงฺคสฺส  รูเปหิ  เอกาพทฺธตฺตํ  อุปมาย
+<span class="LineNumber"> 018 </span>ปากฏํ  กโรนฺโต  อาห  ยถาตฺยาทึ  ฯ  หิ  สจฺจํ  เภริยา  เอกสฺมึ...
+<span class="LineNumber"> 019 </span>คมนํ  โหติ  ยถา  เอวเมว...ปวตฺติ  โหตีติ  โยชนา  ฯ
+<span class="LineNumber"> 020 </span>	หิสทฺโท  วิตฺถาโร  ฯ  ภายนฺติ  เอเตนาติ  เภรี  ชนา
+<span class="LineNumber"> 021 </span>เอเตน  วตฺถุนา  ภายนฺติ  อิติ  ตสฺมา  ตํ  วตฺถุ  เภรี  ฯ  ภิ
+<span class="LineNumber"> 022 </span>					อภิ.๑๓๖

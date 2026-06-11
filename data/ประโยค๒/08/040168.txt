@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>          ๕.  เรื่องพราหมณ์ผู้เป็นลุงของพระสารีบุตรเถระ<SUP>*</SUP>   [ ๘๕ ]
+<span class="LineNumber"> 002 </span>                                    [ ข้อความเบื้องต้น ]
+<span class="LineNumber"> 003 </span>	พระศาสดาเมื่อประทับอยู่ในพระเวฬุวัน   ทรงปรารภพราหมณ์
+<span class="LineNumber"> 004 </span>ผู้เป็นลุงของพระสารีบุตรเถระ   ตรัสพระธรรมเทศนานี้ว่า   <B>" มาเส
+<span class="LineNumber"> 005 </span>มาเส "</B>  เป็นต้น.
+<span class="LineNumber"> 006 </span>                          [ พระเถระพาลุงไปเฝ้าพระศาสดา ]
+<span class="LineNumber"> 007 </span>	ได้ยินว่า  พระเถระ  ไปสู่สำนักของพราหมณ์นั้นแล้ว  ถามว่า
+<span class="LineNumber"> 008 </span>" พราหมณ์  ท่านทำกุศลอะไร ๆ บ้างหรือหนอแล ? "
+<span class="LineNumber"> 009 </span>	พราหมณ์.   ทำ  ขอรับ.
+<span class="LineNumber"> 010 </span>	พระเถระ.   ทำกุศลอะไร ?
+<span class="LineNumber"> 011 </span>	พราหมณ์.   ผมให้ทานด้วยบริจาคทรัพย์พันหนึ่ง   ทุก ๆ เดือน.
+<span class="LineNumber"> 012 </span>	พระเถระ.   ให้แก่ใคร.
+<span class="LineNumber"> 013 </span>	พราหมณ์.   ให้แก่พวกนิครนถ์  ขอรับ.
+<span class="LineNumber"> 014 </span>	พระเถระ.   ปรารถนาอะไร ?
+<span class="LineNumber"> 015 </span>	พราหมณ์.   พรหมโลก  ขอรับ.
+<span class="LineNumber"> 016 </span>	พระเถระ.   ก็นี้เป็นทางแห่งพรหมโลกหรือ ?
+<span class="LineNumber"> 017 </span>	พราหมณ์.   อย่างนั้น  ขอรับ.
+<span class="LineNumber"> 018 </span>	พระเถระ.   ใครกล่าวอย่างนี้ ?
+<span class="LineNumber"> 019 </span>	พราหมณ์.   พวกอาจารย์ผมกล่าว  ขอรับ.
+
+<span class='footnote'>* พระมหาโปร่ง  ป.ธ. ๙  วัดบวรนิเวศวิหาร  แปล.</span>

@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>	ปาลิยํ    <B>โก    อธิปฺปายโสติ </B>   เอตฺถ    โก   อธิกปฺปโยโคติ 
+<span class="LineNumber"> 002 </span>อตฺโถ  ฯ     <B>โลกวชฺชวเสนาติ</B>     โลกิยมหาชเนหิ     ปกติยา 
+<span class="LineNumber"> 003 </span>ครหิตพฺพวชฺชวเสน  ฯ  <B>วิปากวชฺชวเสนาติ</B>  วิปากสฺส  อปายสํวตฺตนิกสฺส 
+<span class="LineNumber"> 004 </span>วชฺชวเสนาติ ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 005 </span>	[๕๘๘]    กามฺเจเต    ทนฺธวิราคิตาทินา    วิเสสา    โหนฺติ 
+<span class="LineNumber"> 006 </span>อนฺธตมเหตุตาย ปน เอกสมาว ฯ เตนาห ภควา ภิกฺขูนํ 
+<span class="LineNumber"> 007 </span>	<B>อนตฺถชนโน โลโภ              โลโภ จิตฺตปฺปโกปโน 
+<span class="LineNumber"> 008 </span>	ภยมนฺตรโต ชาตํ                ตฺชโน นาวพุชฺฌติ 
+<span class="LineNumber"> 009 </span>	ลุทฺโธ อตฺถํ น ชานาติ          ลุทฺโธ ธมฺมํ น ปสฺสติ 
+<span class="LineNumber"> 010 </span>	อนฺธตมํ ตทา โหติ               ยํ โลโภ สหเต นรํ ฯ 
+<span class="LineNumber"> 011 </span>	อนตฺถชนโน โทโส                โทโส จิตฺตปฺปโกปโน 
+<span class="LineNumber"> 012 </span>	ภยมนฺตรโต ชาตํ                  ตฺชโน นาวพุชฺฌติ 
+<span class="LineNumber"> 013 </span>	ทุฏฺโ€ อตฺถํ น ชานาติ           ทุฏฺโ€ ธมฺมํ น ปสฺสติ 
+<span class="LineNumber"> 014 </span>	อนฺธตมํ ตทา โหติ                 ยํ โทโส สหเต นรํ ฯ 
+<span class="LineNumber"> 015 </span>	อนตฺถชนโน โมโห ...             ตฺชโน นาวพุชฺฌติ 
+<span class="LineNumber"> 016 </span>	มูฬฺโห อตฺถํ น ชานาติ ...        ยํ โมโห สหเต นรนฺติ ฯ</B> 
+<span class="LineNumber"> 017 </span>	อิติวุตฺตเก ติกนิปาตสฺส จตุตฺถวคฺเค มลสุตฺตปาลิ ฯ <SUP>๑</SUP>
+<span class="LineNumber"> 018 </span>	[๕๘๙]   อตฺตโน   ปเรสฺจ   อนตฺถํ   ชเนตีติ  อนตฺถชนโน  ฯ 
+<span class="LineNumber"> 019 </span><B>จิตฺตปฺปโกปโนติ</B>   จิตฺตสงฺโขภโน  ฯ   โลโภ   หิ  โลภนีเย  วตฺถุสฺมึ 
+<span class="LineNumber"> 020 </span>อุปฺปชฺชมาโน  จิตฺตํ  สงฺโขเภนฺโต  วิปริณาเมนฺโต  วิการํ  อาปาเทนฺโต 
+
+<span class='footnote'>๑. ขุ. อิติ. ๒๕/๒๙๕. </span>

@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ตสฺมึ ปุพฺพภาเค อสติ ทวาภณิตํ สหสาภณนํ โหติ ฯ อิติสทฺโท
+<span class="LineNumber"> 002 </span>สมาปนฺโน ฯ
+<span class="LineNumber"> 003 </span>	[๕๙๙] เอตฺถ จาติ มุสา ภณิสฺสนฺติอาทิวจเน ฯ น หีติ
+<span class="LineNumber"> 004 </span>ทฬฺหีกรณํ ฯ ยถา กึ ฯ เตเนว อสินา  โส อสิ ฉินฺทิตํ
+<span class="LineNumber"> 005 </span>ปุคฺคเลน น สกฺกา ฯ อิติสทฺโท สมาปนฺโน ฯ ยถา<SUP>๑</SUP> อุปฺปตฺติยาติ
+<span class="LineNumber"> 006 </span>เยนากาเรน  อุปฺปตฺติยา ฯ
+<span class="LineNumber"> 007 </span>	เตน ตสฺมา ปมาณํ ปุพฺพภาโค ว อิติ เอตํ วจนํ
+<span class="LineNumber"> 008 </span>ปณฺฑิเตน วุจฺจติ ตสฺมึ ปุพฺพภาเค สติ เสสปททฺวยํ น เหสฺสาติ
+<span class="LineNumber"> 009 </span>อิติ เอตํ วจนํ นตฺถิ อิติ ตสฺมา วาจา ติวงฺคิกา ฯ อิติสทฺโท
+<span class="LineNumber"> 010 </span>สมาปนฺโน ฯ
+<span class="LineNumber"> 011 </span>	หิ สจฺจํ ป€เม จิตฺเต อนิรุทฺธมฺหิ ปจฺฉิมํ อิทํ จิตฺตํ นาม
+<span class="LineNumber"> 012 </span>น อุปฺปชฺชติ นิรนฺตรุปฺปชฺชนโต เอกํ วิย ปกาสติ จิตฺตนฺติ
+<span class="LineNumber"> 013 </span>สมฺพนฺโธ ฯ อิติสทฺโท สมาปนฺโน ฯ
+<span class="LineNumber"> 014 </span>	[๖๐๐] อิโต ปรํ ปน จตูหากาเรหีติอาทิ วุตฺตนฺติ สมฺพนฺโธ ฯ
+<span class="LineNumber"> 015 </span>อิโตติ ตีหากาเรหีติอาทิวจนโต ฯ ยฺวายํ ปุคฺคโล ฯ โส ปุคฺคโล ฯ
+<span class="LineNumber"> 016 </span>เอวํ ทิฏฺ€ิ อสฺสาติ เอวํทิฏฺ€ิโก ฯ หิ สจฺจํ ตสฺส ปุคฺคลสฺส
+<span class="LineNumber"> 017 </span>อยํ ลทฺธิ อตฺเถว อตฺถิ เอว ตถา นตฺถิ ฯ เป ฯ ฌานนฺติ
+<span class="LineNumber"> 018 </span>เอวํ ลทฺธิ อสฺส ปุคฺคลสฺส ขมติ เจว รุจฺจติ จ นตฺถิ เม
+<span class="LineNumber"> 019 </span>ป€มํ ฌานนฺติ เอวํสภาวเมว จ อสฺส ปุคฺคลสฺส จิตฺตํ โหตีติ
+
+<span class='footnote'>๑. ตถาติ วณฺณนาปาโ€ ฯ</span>
+<span class="LineNumber"> 020 </span>                          [ปา.๑๗๒.. ฯ ส.๖๑๒.๖๑๓]

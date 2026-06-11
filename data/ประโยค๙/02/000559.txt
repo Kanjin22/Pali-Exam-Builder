@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    559
+
+<span class="LineNumber"> 002 </span>	[๖๗๓]  ตตฺถาตฺยาทิ  สรูปาปนตฺถํ  ฯ  ตตฺถ  อภิชฺฌาทีสุ  อโห
+<span class="LineNumber"> 003 </span>อหํ    ปฏฺเ€มิ  วต  เอกนฺเต  อิทํ  ภณฺฑํ  มน  สิยา  อิติ...ภิชฺฌา  ฯ
+<span class="LineNumber"> 004 </span>	ตตฺถาติ  นิทฺธารณํ  ฯ  อโหติ  ปฏฺ€นตฺเถ  นิปาโต  ฯ  วตาติ
+<span class="LineNumber"> 005 </span>เอกนฺตตฺเถ  ฯ  อิทนฺติ  สิยาติ  กตฺตา  ฯ  มมาติ  สิยาติ  สมฺปทานํ  ฯ
+<span class="LineNumber"> 006 </span>อิติ  เอวนฺติ  อภิ...นนฺติ  ปเท  นิทสฺสนํ  ฯ  ปร...นนฺติ  สญฺี  ฯ
+<span class="LineNumber"> 007 </span>ปรสฺส  ภณฺฑํ  ปรภณฺฑํ  ปรภณฺฑสฺส  อภิชฺฌายนํ  จินฺตนยนํ<SUP>๑</SUP>
+<span class="LineNumber"> 008 </span>ปร...นํ  ฯ  อภิชฺฌาติ  สญฺา  ฯ
+<span class="LineNumber"> 009 </span>	[๖๗๔]  สา  อภิชฺฌา  ปร...โหติ  ฯ  สาติ  โหตีติ  ปกติ-
+<span class="LineNumber"> 010 </span>กตฺตา  ฯ  ปรภณฺฑสฺสาติ  นามเนนาติ  กมฺมํ  ฯ  อตฺตโนติ  นามเนนาติ<SUP>๒</SUP>
+<span class="LineNumber"> 011 </span>สมฺปทานํ  ฯ  นามเนเนวาติ  กมฺมปโถติ  ตติยาวิเสสนํ    ฯ  นามาปิยเต
+<span class="LineNumber"> 012 </span>นามนํฯ  เอวสทฺโท  อนามนํ  นิวตฺเตติ  ฯ  กมฺมปโถติ  โหตีติ
+<span class="LineNumber"> 013 </span>วิกติกตฺตา  ฯ
+<span class="LineNumber"> 014 </span>	[๖๗๕]  อโห  ปฏฺเ€มิ  วต  เอกํเสน  อยํ...พฺยาปาโท  ฯ
+<span class="LineNumber"> 015 </span>	อโหติ  นิปาโต  ฯ  วตาติ  ตติยาวิเสสนํ  ฯ  อยนฺติ  สตฺโตติ
+<span class="LineNumber"> 016 </span>วิเสสนํ  ฯ  สตฺโตติ  วินสฺเสยฺยาติ  กตฺตา  ฯ  อิติ  เอวนฺติ  มโน-
+<span class="LineNumber"> 017 </span>ปโทโสติ  นิทสฺสนํ  ฯ  มโนปโทโสติ  สญฺี  ฯ  มนํ  ปทุสฺสติ
+<span class="LineNumber"> 018 </span>วินาเสติ  วิการมาปาทยตีติ  มโนปโทโส  โย  โกโธ  ฯ
+<span class="LineNumber"> 019 </span>	[๖๗๖]  นตฺถิ...ทิฏฺ€ิ  ฯ  ทินฺนํ  ทินฺนผลํ  นตฺถิ  ฯ  นตฺถิ  ทินฺนํ
+<span class="LineNumber"> 020 </span>อิติ  อาทิ  ยสฺส  นยสฺส  โส  นตฺถิ  ทินฺนนฺติอาทิ  ฯ  อาทิสทฺเทน
+<span class="LineNumber"> 021 </span>นตฺถิ  ยิฏฺ€นฺติ  อาทีนํ  คหณํ  ฯ  วิปรีตโต  ทสฺสนํ  วิปริตทสฺสนํ  ฯ
+<span class='footnote'>๑.  จินฺตยนนฺติ  มญฺเ  ฯ    ๒.  ฏีกายมฺปน  นมเนเนวาติ  ทิสฺสติ  ฯ</span>
+<span class="LineNumber"> 022 </span>					อภิ.๑๗๐

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    622
+
+<span class="LineNumber"> 002 </span>	ยนฺติ  ลิงฺคตฺโถ  ฯ  กรณกาเลติ  ปริวาริตนฺติ  กาลสตฺตมี  ฯ
+<span class="LineNumber"> 003 </span>อกุ...เมหีติ  ปริวาริตนฺติ  กตฺตา  ฯ  ปริวาริตนฺติ  ยนฺติ  วิเสสนํ  ฯ
+<span class="LineNumber"> 004 </span>ปจฺฉา  วาติ  ปริภาวิตนฺติ  กาลสตฺตมี  ฯ  ทุกฺกฏนฺติ  เอตนฺติ
+<span class="LineNumber"> 005 </span>วิเสสนํ  ฯ  เอตนฺติ  ลิงฺคตฺโถ  ฯ  มยาติ  ทุกฺกฏนฺติ  กตฺตา  ฯ  อิตีติ
+<span class="LineNumber"> 006 </span>วิปฺปฏิสาราติ  นิทสฺสนํ  ฯ  วิปฺป...เนนาติ  ปริภาวิตนฺติ  ตติยา-
+<span class="LineNumber"> 007 </span>วิเสสนํ  ฯ  ปริภาวิตนฺติ  ยนฺติ  วิเสสนํ  ฯ  ตนฺติ  ทฏฺ€พฺพนฺติ
+<span class="LineNumber"> 008 </span>กมฺมํ  ฯ  โอมกนฺตีติ  ทฏฺ€พฺพนฺติ  อากาโร  ฯ
+<span class="LineNumber"> 009 </span>	[๗๘๓]  เอกํ  อกุสลํ  ปฏิสนฺธึ  ทเทยฺยาติ  โกจิ  คณฺเหยฺย
+<span class="LineNumber"> 010 </span>ตสฺมา  ตนฺนิวารณตฺถํ  ปฏิสนฺธินฺตฺยาทิ  วุตฺตํ  ฯ  ปฏิสนฺธินฺติ  €ปนํ  ฯ
+<span class="LineNumber"> 011 </span>เอวสทฺโท  อเนกํ  นิวตฺเตติ  ฯ
+<span class="LineNumber"> 012 </span>	[๗๘๔]  วุตฺตมตฺถํ  ทฬฺหํ  กโรนฺโต  อาห  น  หิตฺยาทึ  ฯ
+<span class="LineNumber"> 013 </span>หิ  สจฺจํ  เอเกน...สนฺธิ  น  โหติ  ฯ
+<span class="LineNumber"> 014 </span>	หิสทฺโท  ทฬฺหี  ฯ  น  เอกา  อเนกา  ฯ  ชายนฺติ  เอตฺถาติ  ชาติ
+<span class="LineNumber"> 015 </span>สตฺตา  เอตฺถ  ภเว  ชายนฺติ  อิติ  ตสฺมา  โส  ภโว  ชาติ  ฯ
+<span class="LineNumber"> 016 </span>	นาติ  ปฏิเสโธ  ฯ  เอเกนาติ  กมฺเมนาติ  วิเสสนํ  ฯ  กมฺเมนาติ
+<span class="LineNumber"> 017 </span>น  โหตีติ  กรณํ  ฯ  อเนกาสูติ  ชาตีสูติ  วิเสสนํ  ฯ  ชาตีสูติ  โหตีติ
+<span class="LineNumber"> 018 </span>อาธาโร  ฯ  ปฏิสนฺธีติ  โหตีติ  กตฺตา  ฯ
+<span class="LineNumber"> 019 </span>	[๗๘๕]  เอเกน  กมฺเมน  เอกาเยว  ปฏิสนฺธิ  โหตุ  ปวตฺติ-
+<span class="LineNumber"> 020 </span>วิปาโก  ปน  กถนฺติ  อาห  ปวตฺติตฺยาทึ  ฯ  ปวตฺติ...โหติ  ฯ
+<span class="LineNumber"> 021 </span>	ปวตฺติยํ  วิปาโก  ปวตฺติวิปาโก  ฯ  ปนสทฺโท  วิเสสตฺโถ  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๗๘

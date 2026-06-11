@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>              <B>อธิฏฺ€านาอิทฺธิ</B>                       ฤทธิ์อธิฏฐาน
+<span class="LineNumber"> 002 </span>              <B>วิกุพฺพนาอิทฺธิ</B>                        ฤทธิ์บิดเบือน
+<span class="LineNumber"> 003 </span>              <B>มโนมยาอิทฺธิ</B>                          ฤทธิ์มโนมัย
+<span class="LineNumber"> 004 </span>              <B>าณวิปฺผาราอิทฺธิ</B>                  ฤทธิ์ญาณปกแผ่
+<span class="LineNumber"> 005 </span>              <B>สมาธิวิปฺผาราอิทฺธิ</B>                 ฤทธิ์สมาธิปกแผ่
+<span class="LineNumber"> 006 </span>              <B>อริยอิทฺธิ</B>                                 ฤทธิ์ของพระอริยะ
+<span class="LineNumber"> 007 </span>              <B>กมฺมวิปากชาอิทฺธิ</B>                   ฤทธิ์เกิดด้วยวิบากกรรม
+<span class="LineNumber"> 008 </span>              <B>ปุญฺวโต  อิทฺธิ</B>                      ฤทธิ์ของผู้มีบุญ
+<span class="LineNumber"> 009 </span>              <B>วิชฺชามยาอิทฺธิ</B>                         ฤทธิ์สำเร็จด้วยวิทยา
+<span class="LineNumber"> 010 </span>              <B>ตตฺถ  ตตฺถ  สมฺมาปโยค</B>-         ฤทธิ์โดยความหมายว่าสำเร็จ
+<span class="LineNumber"> 011 </span>              <B>ปจฺจยา  อิชฺฌานฏฺเ€น  อิทฺธิ</B>    เพราะความประกอบชอบ
+<span class="LineNumber"> 012 </span>                                                              ในกิจนั้น ๆ  เป็นปัจจัย<SUP>๑</SUP>
+<span class="LineNumber"> 013 </span>                                   [๑  อธิฏฺ€านาอิทฺธิ] 
+<span class="LineNumber"> 014 </span>           ในฤทธิเหล่านั้น   ฤทธิที่ท่านแจกแจงแสดงไว้ว่า  "(พระโยคี)
+<span class="LineNumber"> 015 </span>โดยปกติเป็นคนผู้เดียว  (แต่)  นึกให้เป็นคนมาก  จำนวน  ๑๐๐  ก็ดี
+<span class="LineNumber"> 016 </span>จำนวน ๑,๐๐๐ ก็ดี  จำนวน ๑๐๐,๐๐๐ ก็ดี  ครั้นนึกแล้วก็อธิฏฐาน
+<span class="LineNumber"> 017 </span>ด้วยญาณ<SUP>๒</SUP>  ว่า "เราจงเป็นคนจำนวนมาก"  (แล้วเธอก็เป็นคนจำนวน
+<span class="LineNumber"> 018 </span>มากขึ้น)"<SUP>๓</SUP>  ดังนี้เป็นต้น  ชื่อว่า  อธิฏฺ€านาอิทฺธิ - ฤทธิ์อธิฏฐาน  เพราะ
+<span class="LineNumber"> 019 </span>ความที่สำเร็จด้วยอำนาจการอธิฏฐาน
+<span class='footnote'>๑.  ขุ.  ป.  ๓๑/๕๘๙</span>
+<span class='footnote'>๒.  หมายถึงญาณในอภิญญา</span>
+<span class='footnote'>๓.  ขุ.  ป.  ๓๑/๕๙๒</span>
+
+  

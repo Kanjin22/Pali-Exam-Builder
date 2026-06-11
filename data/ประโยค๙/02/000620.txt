@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    620
+
+<span class="LineNumber"> 002 </span>	เอวนฺติ  วิปจฺจมาเนติ  นิทสฺสนํ  ฯ  วิปจฺจติ  เทตีติ  วิปจฺจมานํ
+<span class="LineNumber"> 003 </span>ยํ  กมฺมํ  ฯ  อปิสทฺโท  ครหตฺโถ  ฯ  อยญฺจ  อปิสทฺโท  ฏีกาจริเยน
+<span class="LineNumber"> 004 </span>ปกฺขิตฺโต  ฯ  นายํ  โปฏฺ€เก  อปิสทฺเทน  สทิโส  ฯ  วิปจฺจมาเนติ
+<span class="LineNumber"> 005 </span>กุสลกมฺเมติ  วิเสสนํ  ฯ  กุสลกมฺเมติ  นิทฺธารณํ  ฯ
+<span class="LineNumber"> 006 </span>	[๗๘๐]  อุกฺกฏฺ€นฺติ  €ปนํ  ฯ  กมฺมํ  กุสล...ภโต  วิสิฏฺ€ํ
+<span class="LineNumber"> 007 </span>วิเสสํ  ปตฺตํ  ปจฺฉา...ยา  วิสิฏฺ€ํ  ฯ
+<span class="LineNumber"> 008 </span>	กุสลญฺจ  ตํ  ปริวารญฺจ  กุสลปริวารํ  ฯ  ลภนํ  ลาโภ  ฯ
+<span class="LineNumber"> 009 </span>กุสลปริวารสฺส  ลาโภ  กุส...ลาโภ  ฯ  อาเสวนสฺส  ปวตฺติ  อาเส
+<span class="LineNumber"> 010 </span>...วตฺติ  ฯ  วาสทฺโท  วิกปฺโป  น  สมุจฺจโย  ฯ  วิเสสํ  ปชฺชีติ
+<span class="LineNumber"> 011 </span>วิสิฏฺ€ํ  ยํ  กมฺมํ  ฯ
+<span class="LineNumber"> 012 </span>	กุสล...โต  อาเส...ติยาติ  ทฺวยํ  วิสิฏฺ€นฺติ  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 013 </span>ปจฺฉาติ  ปวตฺตีติ  กาลสตฺตมี  ฯ
+<span class="LineNumber"> 014 </span>	[๗๘๑]  สงฺเขเปน  วิตฺถาเรนฺโต  อาห  ยนฺตฺยาทึ  ฯ
+<span class="LineNumber"> 015 </span>หิ  สจฺจํ  ยํ  กมฺมํ  อตฺต...ริตํ  วา  ยํ  กมฺมํ  ปจฺฉา  อาเส
+<span class="LineNumber"> 016 </span>...สมุทาจิณฺณํ  ปุนปฺปุนํ  ปริจิตํ  ตํ  กมฺมํ  อุกฺกฏฺ€ํ  ฯ
+<span class="LineNumber"> 017 </span>	หิสทฺโท  ทฬฺหี  ฯ  ปวตฺติยา  กาโล  ปวตฺติกาโล  ฯ  ปุริเมว
+<span class="LineNumber"> 018 </span>ปวตฺโต  ปุริโม  ปจฺฉา  ปวตฺโต  ปจฺฉา  ปุริโม  จ  ปจฺฉา
+<span class="LineNumber"> 019 </span>จ  ปุริมปจฺฉา  ปุริมปจฺฉา  จ  โส  ภาโค  จาติ  ปุริ...ภาโค
+<span class="LineNumber"> 020 </span>ปุริมปจฺฉาภาเค  ปวตฺตานิ  ปุริ...วตฺตานิ  ฯ  กุสลานิ  จ  ตานิ
+<span class="LineNumber"> 021 </span>กมฺมานิ  จาติ  กุส...มานิ  ฯ  วาสทฺโท  วิกปฺโป  ฯ  อาเสวนสฺส
+<span class="LineNumber"> 022 </span>					อภิ.๑๗๘

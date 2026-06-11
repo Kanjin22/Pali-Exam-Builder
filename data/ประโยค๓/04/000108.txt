@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>			"พาหิตปาโป หิ พฺราหฺมโณ 
+<span class="LineNumber"> 002 </span>			สมจริยาย `สมโณติ วุจฺจติ, 
+<span class="LineNumber"> 003 </span>			ปพฺพาชยมตฺตโน มลํ 
+<span class="LineNumber"> 004 </span>			ตสฺมา `ปพฺพชิโตติ วุจฺจตีติ. 
+<span class="LineNumber"> 005 </span>	ตตฺถ "สมจริยายาติ: สพฺพากุสลานิ สเมตฺวา จรเณน. 
+<span class="LineNumber"> 006 </span>	ตสฺมาติ:    ยสฺมา    พาหิตปาปตาย    พฺราหฺมโณ,    อกุสลานิ 
+<span class="LineNumber"> 007 </span>สเมตฺวา  จรเณน  `สมโณติ  วุจฺจติ;  ตสฺมา  โย  อตฺตโน  ราคาทิมลํ 
+<span class="LineNumber"> 008 </span>ปพฺพาชยนฺโต    วิโนเทนฺโต    จรติ,    โสปิ    เตน   ปพฺพาชเนน 
+<span class="LineNumber"> 009 </span>"ปพฺพชิโตติ วุจฺจตีติ อตฺโถ. 
+<span class="LineNumber"> 010 </span>	เทสนาวสาเน    โส    ปพฺพชิโต    โสตาปตฺติผเล    ปติฏฺ€หิ, 
+<span class="LineNumber"> 011 </span>สมฺปตฺตานํปิ สาตฺถิกา เทสนา อโหสีติ. 
+<span class="LineNumber"> 012 </span>		   		อฺตรปพฺพชิตวตฺถุ. 
+		     
+<span class="LineNumber"> 013 </span>		๗. สารีปุตฺตตฺเถรวตฺถุ. (๒๗๐) 
+<span class="LineNumber"> 014 </span>	"น    พฺราหฺมณสฺสาติ    อิมํ    ธมฺมเทสนํ    สตฺถา   เชตวเน 
+<span class="LineNumber"> 015 </span>วิหรนฺโต สารีปุตฺตตฺเถรํ อารพฺภ กเถสิ. 
+<span class="LineNumber"> 016 </span>	เอกสฺมึ    กิร   €าเน   สมฺพหุลา   มนุสฺสา   "อโห   อมฺหากํ 
+<span class="LineNumber"> 017 </span>อยฺโย    ขนฺติพเลน    สมนฺนาคโต,    อฺเสุ   อกฺโกสนฺเตสุ   วา 
+<span class="LineNumber"> 018 </span>ปหรนฺเตสุ   วา,   โกปมตฺตํปิ   น   โหตีติ  เถรสฺส  คุณกถํ  กถยึสุ. 
+<span class="LineNumber"> 019 </span>อเถโก   มิจฺฉาทิฏฺ€ิโก   พฺราหฺมโณ   "โก  เอส  น  กุชฺฌตีติ  ปุจฺฉิ. 

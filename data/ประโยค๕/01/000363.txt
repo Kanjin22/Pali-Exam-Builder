@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>                                    ธมฺมสากจฺฉากถา 
+<span class="LineNumber"> 002 </span>	[๔๖๔]  กาเลน  ธมฺมสากจฺฉา  นาม  ปโทเส  วา  ปจฺจูเส  วา 
+<span class="LineNumber"> 003 </span>เทฺว   สุตฺตนฺติกา   ภิกฺขู   อฺมฺํ  สุตฺตํ  <SUP>๑</SUP> สากจฺฉนฺติ  วินยธรา 
+<span class="LineNumber"> 004 </span>วินยํ    อาภิธมฺมิกา    อภิธมฺมํ    ชาตกภาณกา   ชาตกํ   อฏฺ€กถิกา 
+<span class="LineNumber"> 005 </span>อฏฺ€กถํ    ลีนุทฺธตวิจิกิจฺฉาปเรตจิตฺตวิโสธนตฺถํ    วา    ตมฺหิ    ตมฺหิ 
+<span class="LineNumber"> 006 </span>กาเล    สากจฺฉนฺติ    อยํ    กาเลน    ธมฺมสากจฺฉา  ฯ    สา อาคม-
+<span class="LineNumber"> 007 </span>พฺยตฺติอาทีนํ คุณานํ เหตุโต มงฺคลนฺติ วุจฺจตีติ อิธ <SUP>๒</SUP> วุตฺตํ ฯ 
+<span class="LineNumber"> 008 </span>	[๔๖๕]   ตตฺถ   <B>กาเลนาตีมสฺส</B>   อตฺถํ   ทสฺเสตุํ   ปโทเส  วา 
+<span class="LineNumber"> 009 </span>ปจฺจูเส   วาติ   วุตฺตํ  ฯ   ตตฺถ   <B>ปโทเสติ</B>   อภิปฺปโทเส  รตฺติยา 
+<span class="LineNumber"> 010 </span>ปารมฺเภติ อตฺโถ ฯ 
+<span class="LineNumber"> 011 </span>	สคฺคกณฺฑฏีกายฺหิ     โทสาย    รตฺติยา    ปารมฺโภ    ปโทโส 
+<span class="LineNumber"> 012 </span>อภิธานโต   ปสทฺทสฺส   ปุพฺพนิปาโต   อปฺปธานรสฺโส   จ  ฯ  อถวา 
+<span class="LineNumber"> 013 </span>ปทุสฺสนฺติ ยตฺถ สพฺพกมฺมานีติ ปโทโสติ วุตฺตํ ฯ 
+<span class="LineNumber"> 014 </span>	<B>ปจฺจูเสติ</B> ปภาเต ฯ 
+<span class="LineNumber"> 015 </span>	สคฺคกณฺฑฏีกายฺหิ    อุส    รุชายํ  ฯ    ปจฺจูเสติ    ติมิรนฺติ 
+<span class="LineNumber"> 016 </span>ปจฺจูโส อโหมุขนฺติ วุตฺตํ ฯ 
+<span class="LineNumber"> 017 </span>	จิตฺตํ  ยสฺมึ  กาเล  ลีนฺจ  ยสฺมึ  อุทฺธตฺจ  ยสฺมึ  วิจิกิจฺฉา-
+<span class="LineNumber"> 018 </span>ปเรตํ ตาย    อุปทฺทูตฺจ    โหติ    ตสฺมึ   ตสฺมึ   กาเลปิ   ธมฺมสากจฺฉา 
+<span class="LineNumber"> 019 </span>กาเลน   ธมฺมสากจฺฉา   นามาติ  ทสฺเสตุํ  ลีนุทฺธตอิจฺจาทินา  ทุติยนโย 
+<span class="LineNumber"> 020 </span>วุตฺโต ฯ 
+
+<span class='footnote'>๑. สุตฺตนฺตํ. ๒. ปรมตฺถโชติกา ขุทฺทกปา€วณฺณนา. ๑๖๖. </span>

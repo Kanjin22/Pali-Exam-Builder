@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>		"โยธ กาเม ปหนฺตฺวาน       อนาคาโร ปริพฺพเช, 
+<span class="LineNumber"> 002 </span>		กามภวปริกฺขีณํ             ตมหํ พฺรูมิ พฺราหฺมณนฺติ. 
+<span class="LineNumber"> 003 </span>	ตสฺสตฺโถ:   โย   ปุคฺคโล   อิธ   โลเก  อุโภปิ  กาเม  หิตฺวา 
+<span class="LineNumber"> 004 </span>อนาคาโร   หุตฺวา   ปริพฺพชติ,   ตํ   ปริกฺขีณกามฺเจว  ปริกฺขีณภวฺจ 
+<span class="LineNumber"> 005 </span>อหํ พฺราหฺมณํ วทามีติ อตฺโถ. 
+<span class="LineNumber"> 006 </span>	เทสนาวสาเน   เถโร   อรหตฺตํ   ปตฺวา   อิทฺธิพเลน   เวหาสํ 
+<span class="LineNumber"> 007 </span>อพฺภุคฺคนฺตฺวา   กณฺณิกามณฺฑลํ   วินิวิชฺฌิตฺวา  สตฺถุ  สรีรํ  โถเมนฺโตเยว 
+<span class="LineNumber"> 008 </span>อาคนฺตฺวา   สตฺถารํ   วนฺทิ.  ธมฺมสภายํปิ  กถํ  สมุฏฺ€าเปสุํ  "อาวุโส 
+<span class="LineNumber"> 009 </span>ชิวฺหาวิฺเยฺยํ    รสํ    นิสฺสาย   มนํ   นฏฺโ€   สุนฺทรสมุทฺทตฺเถโร, 
+<span class="LineNumber"> 010 </span>สตฺถา   ปนสฺส   อวสฺสโย   ชาโตติ.   สตฺถา   ตํ  กถํ  สุตฺวา  "น 
+<span class="LineNumber"> 011 </span>ภิกฺขเว   อิทาเนว,   ปุพฺเพปาหํ   เอตสฺส   รสตณฺหาย   พชฺฌมานสฺส 
+<span class="LineNumber"> 012 </span>อวสฺสโย   ชาโตเยวาติ  วตฺวา  เตหิ  ยาจิโต  ตสฺสตฺถสฺส  ปกาสนตฺถํ 
+<span class="LineNumber"> 013 </span>อตีตํ อาหริตฺวา 
+<span class="LineNumber"> 014 </span>			"น กิรตฺถิ รเสหิ ปาปิโย 
+<span class="LineNumber"> 015 </span>			อาวาเสหิ วา สนฺถเวหิ วา, 
+<span class="LineNumber"> 016 </span>			วาตมิคํ คหนนิสฺสิตํ 
+<span class="LineNumber"> 017 </span>			วสมาเนติ รเสหิ สฺชโยติ 
+<span class="LineNumber"> 018 </span>อิมํ   วาตมิคชาตกํ<SUP>๑</SUP>  วิตฺถาเรตฺวา  "ตทา  สุนฺทรสมุทฺโท  วาตมิโค 
+<span class="LineNumber"> 019 </span>อโหสิ,    อิมํ   ปน   คาถํ   วตฺวา   ตสฺส   วิสฺสชฺชาปิโต   รฺโ 
+<span class="LineNumber"> 020 </span>มหามจฺโจ อหเมวาติ ชาตกํ สโมธาเนสิ. 
+<span class="LineNumber"> 021 </span>		  		สุนฺทรสมุทฺทตฺเถรวตฺถุ. 
+		     
+<span class='footnote'>๑. ขุ. ชา. เอก. ๒๗/๕ ตทฏฺ€กถา. ๑/๒๓๗. </span>

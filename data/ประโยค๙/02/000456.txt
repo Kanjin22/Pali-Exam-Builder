@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  456
+
+<span class="LineNumber"> 002 </span>	[๕๔๓]  เอเตสํ  พฺรหฺมานํ  อปฺปมาณา  อาภา  อิติ  ตสฺมา
+<span class="LineNumber"> 003 </span>อปฺปมาณาภา  ฯ
+<span class="LineNumber"> 004 </span>	ปกาเรน  มิยเตติ  ปมาณา  ยา  อาภา  ฯ  มา  มาเน
+<span class="LineNumber"> 005 </span>ยุ  ฯ  น  ปมาณา  อปฺปมาณา  ฯ
+<span class="LineNumber"> 006 </span>	อปฺปมาณาติ  อาภาติ  วิเสสนํ  ฯ  อาภาติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 007 </span>เอเตสนฺติ  อาภาติ  ปเท  สมฺพนฺโธ  ฯ  ฉฏฺ€ีพหุพฺพิหิ  ฯ
+<span class="LineNumber"> 008 </span>	[๕๔๔]  วฬาหกโต...จิโต  จ  เอเตสํ  พฺรหฺมานํ  อาภา
+<span class="LineNumber"> 009 </span>สรติ  นิสฺสรติ  สปฺปีติ...นตฺตา  อิติ  ตสฺมา  อาภสฺสรา  นาม  ฯ
+<span class="LineNumber"> 010 </span>	วารึ  วหตีติ  วฬาหโก  โย  เมโฆ  ฯ  วาริสทฺทุปปโท  วห
+<span class="LineNumber"> 011 </span>วหเน  ณฺวุ  เตสุ  วุฑฺฒิตฺยาทินา  วาริสทฺทสฺส  โว  วสฺส  จ
+<span class="LineNumber"> 012 </span>โฬ  ฯ  วิชฺโชตเตติ  วิชฺชุ  ยา  วิชฺชุตา  ฯ  วิปุพฺโพ  ชุ  ทิตฺติมฺหิ
+<span class="LineNumber"> 013 </span>กาเล  วตฺตมานา  ชุปจฺจโย<SUP>๑</SUP>  ฯ  อิโต  จิโต  จ  €านโต  ฯ  จสทฺโท
+<span class="LineNumber"> 014 </span>สมุจฺจโย  ฯ  สรตีติมสฺส  วิวรณํ  นิสฺสรตีติ  ฯ  นิสทฺโท
+<span class="LineNumber"> 015 </span>คติอาทฺยตฺถภาสโก  ตสฺมา  นิคจฺฉตีติ  อตฺโถ  ฯ  สร  นิคมเน
+<span class="LineNumber"> 016 </span>อนฺตปจฺจโย  นทาทิโต  วา  อี  นตุสฺส  ตมีกาเร  รสฺโส  ฯ  สห
+<span class="LineNumber"> 017 </span>ปีติยา  วตฺตตีติ  สปฺปีติกํ  ยํ  ฌานํ  ฯ  สปฺปีติกญฺจ  ตํ
+<span class="LineNumber"> 018 </span>ฌานญฺจาติ  สปฺปีติกชฺฌานํ  ฯ  นิพฺพตฺตยีติ  นิพฺพตฺโต  โย  ขนฺธ-
+<span class="LineNumber"> 019 </span>สนฺตาโน  ฯ  สปฺปีติกชฺฌานโต  นิพฺพตฺโต  สปฺปีติกชฺฌานิพฺพตฺโต  ฯ
+<span class="LineNumber"> 020 </span>ขนฺธานํ  สนฺตาโน  ขนฺธสนฺตาโน  ฯ  สปฺปีติกชฺฌานนิพฺพตฺโต  ขนฺธ-
+<span class='footnote'>๑.  ยทิ  วิชฺชุสทฺโท  ชุ  ทิตฺติมฺหีติ  ธาตุโน  นิปฺผนฺโน  ภเวยฺย  กิมตฺถํ  ชุปจฺจโย  โหติ  ฯ  </span>
+<span class='footnote'>อยํ  วิคฺคโห  สุฏฺฐุ  วิจาเรตพฺโพ  ฯ</span>
+<span class="LineNumber"> 021 </span>						อภิ.๑๕๘

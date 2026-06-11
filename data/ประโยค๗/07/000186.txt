@@ -1,0 +1,5 @@
+<span class="LineNumber"> 001 </span>ผู้ศึกษาทั้งหลาย  พึงค้นดูจากคัมภีร์ศัพทศาสตร์.
+<span class="LineNumber"> 002 </span>           บทว่า  <B>" สมุกฺเขฏิโต "</B>  นี้  ตรัสไว้ด้วยอำนาจแสดงภาวะที่กลับ
+<span class="LineNumber"> 003 </span>แอบแนบไม่ได้อีก  แม้แห่งราคะที่สหรคตเพียงเล็กน้อย  เพราะถอนขึ้น
+<span class="LineNumber"> 004 </span>เด็ดขาด  ด้วยประการฉะนี้. 
+<span class="LineNumber"> 005 </span>                                    สุทธิกวารกถา  จบ.

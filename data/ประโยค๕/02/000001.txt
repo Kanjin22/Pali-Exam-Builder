@@ -1,0 +1,17 @@
+<span class="LineNumber"> 001 </span>                            มังคลัตถทีปนี  แปล
+<span class="LineNumber"> 002 </span>                                     เล่ม ๓
+<span class="LineNumber"> 003 </span>                        พรรณาความแห่งคาถาที่* ๕
+<span class="LineNumber"> 004 </span>           [๑]  พึงทราบวินิจฉัยในคาถาที่ ๕.  เจตนาเป็นเหตุให้  ชื่อว่า 
+<span class="LineNumber"> 005 </span>ทาน.  ความประพฤติ  คือการทำซึ่งธรรม  ชื่อว่าธรรมจริยา.
+<span class="LineNumber"> 006 </span>           บทว่า  <B>าตกานํ</B>  ความว่า  การสงเคราะห์ซึ่งญาติทั้งหลาย
+<span class="LineNumber"> 007 </span>ของตน.
+<span class="LineNumber"> 008 </span>           บทว่า  <B>อนวชฺชานิ</B>  ได้แก่  กรรมทั้งหลายมีอุโบสถกรรมเป็นต้น
+<span class="LineNumber"> 009 </span>ไม่มีโทษ  คือบัณฑิตไม่นินทา  ไม่ติเตียน.
+<span class="LineNumber"> 010 </span>           บทว่า  <B>เอตํ</B>  ความว่า  เทพดา  ท่านจงถือว่า  "ทาน ๑ การ-
+<span class="LineNumber"> 011 </span>ประพฤติธรรม ๑  การสงเคราะห์ญาติ ๑  กรรมอันไม่มีโทษ ๑  กรรม
+<span class="LineNumber"> 012 </span>๔  อย่างมีทานเป็นต้นนี้  เป็นมงคลอย่างสูงสุด."
+<span class="LineNumber"> 013 </span>           ความสังเขปในคาถาที่ ๔ นี้  เท่านี้.
+<span class="LineNumber"> 014 </span>           ส่วนความพิสดารในคาถาที่ ๕ นี้ ดังต่อไปนี้ :-
+
+<span class='footnote'>*  พระมหาเจริญ  สุวฑฺฒโน  ป. ธ. ๗ วัดบวรนิเวศวิหาร แปล.  (บัดนี้เป็นสมเด็จพระญาณสังวร</span>
+<span class='footnote'>ป. ธ. ๙)</span>

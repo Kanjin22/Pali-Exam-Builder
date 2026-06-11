@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>			"อยสา ว มลํ สมุฏฺ€าย 
+<span class="LineNumber"> 002 </span>			ตทุฏฺ€าย ตเมว ขาทติ; 
+<span class="LineNumber"> 003 </span>			เอวํ อติโธนจารินํ 
+<span class="LineNumber"> 004 </span>			สานิ กมฺมานิ นยนฺติ ทุคฺคตินฺติ. 
+<span class="LineNumber"> 005 </span>	ตตฺถ     "อยสาติ:    อยโต.    สมุฏฺ€ายาติ:    สมุฏฺ€หิตฺวา. 
+<span class="LineNumber"> 006 </span>ตทุฏฺ€ายาติ:   ตโต   อุฏฺ€หิตฺวา.   อติโธนจารินนฺติ:   โธนา  วุจฺจติ 
+<span class="LineNumber"> 007 </span>จตฺตาโร    ปจฺจเย    "อิทมตฺถํ    เอเตหีติ<SUP>๑</SUP>     ปจฺจเวกฺขิตฺวา 
+<span class="LineNumber"> 008 </span>ปริภุฺชนปฺา,   ตํ   อติกฺกมิตฺวา   จรนฺโต  อติโธนจารี  นาม.  อิทํ 
+<span class="LineNumber"> 009 </span>วุตฺตํ  โหติ  "ยถา  อยโต  มลํ  สมุฏฺ€าย อยโต สมุฏฺ€ิตํ ตเมว ขาทติ; 
+<span class="LineNumber"> 010 </span>เอวเมว   จตุปฺปจฺจเย   อปฺปจฺจเวกฺขิตฺวา   ปริภุฺชนฺตํ   อติโธนจารินํ 
+<span class="LineNumber"> 011 </span>สานิ    กมฺมานิ   อตฺตนิ   อุฏฺ€ิตตฺตา   อตฺตโน   สนฺตกาเนว   ตานิ 
+<span class="LineNumber"> 012 </span>กมฺมานิ ทุคฺคตึ นยนฺตีติ. 
+<span class="LineNumber"> 013 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 014 </span>		  	 	ติสฺสตฺเถรวตฺถุ. 
+		
+<span class="LineNumber"> 015 </span>		๔. โลฬุทายิตฺเถรวตฺถุ. (๑๘๔) 
+<span class="LineNumber"> 016 </span>	"อสชฺฌายมลา    มนฺตาติ:   อิมํ   ธมฺมเทสนํ   สตฺถา   เชตวเน 
+<span class="LineNumber"> 017 </span>วิหรนฺโต โลฬุทายิตฺเถรํ<SUP>๒</SUP>   อารพฺภ กเถสิ. 
+<span class="LineNumber"> 018 </span>	สาวตฺถิยํ    กิร   ปฺจโกฏิมตฺตา   อริยสาวกา   ปุเรภตฺตํ   ทานํ 
+<span class='footnote'>๑. ยุ. อิทมตฺถิตาย อลเมเตนาติ.  ๒. "ลาฬุทายิตฺเถรนฺติปิ ปาโ€. </span>

@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>                    ๒๐.  เรื่องพระเขมาภิกษุณี<SUP>*</SUP>  [๒๘๓] 
+<span class="LineNumber"> 002 </span>                                 [ข้อความเบื้องต้น]
+<span class="LineNumber"> 003 </span>	พระศาสดา  เมื่อประทับอยู่ที่ภูเขาคิชฌกูฏ  ทรงปรารภพระ
+<span class="LineNumber"> 004 </span>เขมาภิกษุณี  ตรัสพระธรรมเทศนานี้ว่า  <B>"คมฺภีรปญฺํ"</B> เป็นต้น.
+<span class="LineNumber"> 005 </span>                       [พระเขมาภิกษุณีพบท้าวสักกะ]
+<span class="LineNumber"> 006 </span>	ความพิสดารว่า  ในวันหนึ่ง  ท้าวสักกเทวราช  เสด็จมากับ
+<span class="LineNumber"> 007 </span>เทวบริษัท  ในระหว่างแห่งปฐมยาม  ประทับนั่งสดับธรรมกถาอัน
+<span class="LineNumber"> 008 </span>เป็นที่ตั้งแห่งความระลึกถึงอยู่  ในสำนักพระศาสดา.
+<span class="LineNumber"> 009 </span>	ในขณะนั้น  พระเขมาภิกษุณี  มาด้วยดำริว่า  "จักเฝ้าพระ
+<span class="LineNumber"> 010 </span>ศาสดา"   เห็นท้าวสักกะแล้ว  ยืนอยู่ในอากาศนั่นเอง  ถวาย
+<span class="LineNumber"> 011 </span>บังคมพระศาสดาแล้วก็กลับไป.
+<span class="LineNumber"> 012 </span>	ท้าวสักกะ  ทอดพระเนตรเห็นพระเขมานั้นแล้ว  ทูลถามว่า
+<span class="LineNumber"> 013 </span>"พระเจ้าข้า  ภิกษุณีนั่นชื่ออะไร ?    มายืนอยู่ในอากาศนั้นเอง
+<span class="LineNumber"> 014 </span>ถวายบังคมแล้ว  กลับไป."
+<span class="LineNumber"> 015 </span>              [ลักษณะแห่งพราหมณ์ในพระพุทธศาสนา]
+<span class="LineNumber"> 016 </span>	พระศาสดา  ตรัสว่า  "มหาบพิตร  ภิกษุณีนั่น  เป็นธิดาของ
+<span class="LineNumber"> 017 </span>อาตมภาพ  ชื่อเขมา  เป็นผู้มีปัญญามาก  ฉลาดในทางและมิใช่ทาง"
+<span class="LineNumber"> 018 </span>ดังนี้แล้ว  ตรัสพระคาถานี้ว่า:-
+<span class="LineNumber"> 019 </span>	<B>"เราเรียกผู้มีปัญญาลึกซึ้ง  เป็นปราชญ์   ฉลาด
+<span class="LineNumber"> 020 </span>	ในทางและมิใช่ทาง บรรลุประโยชน์สูงสุด  นั้น</B>
+
+<span class='footnote'>*  พระมหาชาลี  ป.  ธ.  ๗  วัดบรมนิวาส  แปล.</span>

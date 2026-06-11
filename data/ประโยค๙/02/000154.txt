@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  154
+
+<span class="LineNumber"> 002 </span>	[๑๙๖]  ยํ  อารมฺมณํ  สตฺเตหิ  ผุสิยติ  ฆฏิยติ  อิติ
+<span class="LineNumber"> 003 </span>ตสฺมา  ตํ  อารมฺมณํ  โผฏฺ€พฺพํ  ฯ  ตเทว  โผฏฺ€พฺพํ  อารมฺมณํ
+<span class="LineNumber"> 004 </span>ิอิติ  ตสฺมา  โผฏฺ€พฺพารมฺมณํ  ฯ
+<span class="LineNumber"> 005 </span>	[๑๙๗]  ธมฺโมเยว...อารมฺมณํ  อวธารณกมฺมธารโย  ฯ
+<span class="LineNumber"> 006 </span>ปณฺฑิเตหิ  ยถาสภาวโต  ธารยตีติ  ธมฺโม  ฯ
+<span class="LineNumber"> 007 </span>	[๑๙๘]  ตตฺถาติ  เอตฺถ  ตสทฺโท  รูปเมวาติ  วุตฺตตฺตา
+<span class="LineNumber"> 008 </span>รูปาทีนิ  ปจฺจามสตีติ  โกจิ  สงฺเกยฺย  ตสฺมา  ตตฺถาติ  €เปตฺวา
+<span class="LineNumber"> 009 </span>วิวรติ  เตสุ...เณสูติ  ฯ  เตสุ...เณสูติ  นิทฺธารณํ  ฯ
+<span class="LineNumber"> 010 </span>	[๑๙๙]  รูปเมวาติ  เอตฺถ  รูปายตนโถ  เสสภูตุปาทายรูปํ
+<span class="LineNumber"> 011 </span>ปิยรูปาทิปญฺจคหิตนฺติ  โกจิ  สงฺเกยฺย  ตสฺมา  €เปตฺวา  วิวรติ
+<span class="LineNumber"> 012 </span>วณฺณา...ขาตนฺติ  ฯ  วณฺณา...ขาตนฺติ  รูปเมวาติ  ปทสฺส
+<span class="LineNumber"> 013 </span>วิเสสนํ  ฯ  วณฺโณ  เอว  อายตนํ  วณฺณายตนํ  วณฺณายตนํ
+<span class="LineNumber"> 014 </span>อิติ  สงฺขาตํ  วณฺณา...ขาตํ  ฯ
+<span class="LineNumber"> 015 </span>	[๒๐๐]  สทฺทาทโยติ  เอตฺถ  สทฺทายตนาทโยว  คหิตา  น
+<span class="LineNumber"> 016 </span>สทฺทนกิริยาสีลาทิธมฺมสาราทิผุสนกิริยาติ  าเปนฺโต  สทฺทาทโยติ
+<span class="LineNumber"> 017 </span>€เปตฺวา  วิวรติ  สทฺทา...ทโยติ  ฯ  สทฺทา...ขาตาติ  สทฺทาทโยติ
+<span class="LineNumber"> 018 </span>ปทสฺส  วิเสสนํ  ฯ  สทฺทาทโยติ  ลิงฺคตฺโถ  ฯ  สทฺโท  เอว  อายตนํ
+<span class="LineNumber"> 019 </span>สทฺทายตนํ  สทฺทายตนํ  อาทิ  เยสํ  คนฺธายตนาทีนํ  ตานิ  สทฺทา-
+<span class="LineNumber"> 020 </span>ยตนาทีนิ  สทฺทายตนาทีนิ  อิติ  สงฺขาตา  สทฺทา...ขาตา  ฯ  สทฺโท
+<span class="LineNumber"> 021 </span>อาทิ  เยสํ  เต  สทฺทาทโย  ฯ  อาโป...ขาตนฺติ  โผฏฺ€...ตนนฺติ
+<span class="LineNumber"> 022 </span>						อภิ.๑๒๔

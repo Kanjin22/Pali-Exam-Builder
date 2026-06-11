@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  298
+
+<span class="LineNumber"> 002 </span>สกฺโกตีติ  ปโหนกํ  ยํ  อารมฺมณํ  ฯ  น  ปโหนกํ  อปฺปโหนกํ
+<span class="LineNumber"> 003 </span>อปฺปโหนกสฺส  ภาโว  อปฺปโหนกภาโว  ฯ
+<span class="LineNumber"> 004 </span>	อุปริมโกฏิยาติ  สตฺต...สาปีติ  ตติยาวิเสสนํ  ฯ  สตฺต...สาปีติ
+<span class="LineNumber"> 005 </span>ภาวโตติ  สมฺพนฺโธ  ฯ  ทฺวิตฺติ...ติยาติ  อปฺปโหนกาติ  ปเท
+<span class="LineNumber"> 006 </span>ตุมตฺถสมฺปทานํ  ฯ  อปฺปโหนกภาวโตติ  นตฺถีติ  เหตุ  ฯ  วีถิจิตฺตานนฺติ
+<span class="LineNumber"> 007 </span>อุปฺปาโทติ  สมฺพนฺโธ  ฯ  อุปฺปาโทติ  นตฺถีติ  กตฺตา  ฯ
+<span class="LineNumber"> 008 </span>	[๓๕๘]  วีถิจิตฺตุปฺปาโท  นตฺถิ  โก  ปน  โหตีติ  อาห
+<span class="LineNumber"> 009 </span>ภวงฺคาตฺยาทึ  ฯ  ภวงฺคปาโตว  โหติ  อิติ  อธิปฺปาโย  ฯ  เอวสทฺโท
+<span class="LineNumber"> 010 </span>วีถิจิตฺตุปฺปาทํ  นิวตฺเตติ  ฯ
+<span class="LineNumber"> 011 </span>	[๓๕๙]  ภวงฺคจลนเมว  โหตีติ  เอตฺตเก  วุตฺเต  วีถิจิตฺตุปฺ-
+<span class="LineNumber"> 012 </span>ปาทาภาโว  วิญฺายติ  นตฺถิ  วีถิจิตฺตุปฺปาโทติ  อิทํ  กิมตฺถํ
+<span class="LineNumber"> 013 </span>วุตฺตนฺติ  อาห  ภวงฺคจาตฺยาทึ  ฯ  ภวงฺคจลนเมวาติ  ปเท  อว...อิติ
+<span class="LineNumber"> 014 </span>วจนํ  อาจริเยน  วุตฺตํ  ฯ
+<span class="LineNumber"> 015 </span>	อวธาริยเต  อวธารณํ  ภาวสาธนํ  ฯ  อวธารณสฺส  ผลํ
+<span class="LineNumber"> 016 </span>อวธารณผลํ  ฯ  ภวงฺคจลนเมวาติ  ปเทติ  อวธารณาติ  ปเท
+<span class="LineNumber"> 017 </span>อาธาโร  ฯ  อวธารณผลนฺติ  ทสฺเสตุนฺติ  กมฺมํ  ฯ  ทสฺเสตุนฺติ
+<span class="LineNumber"> 018 </span>วุตฺตนฺติ  สมฺปทานํ  ฯ  อิติ  วจนนฺติ  วุตฺตนฺติ  กมฺมํ  ฯ
+<span class="LineNumber"> 019 </span>	[๓๖๐]  อปเรสํ  วาทํ  ทสฺเสนฺโต  อาห  อปเรตฺยาทึ  ฯ
+<span class="LineNumber"> 020 </span>อปเร  ปน  อาจริยา  นตฺถิ...โท  อิติ  อวธารณผลํ  ทสฺเสนฺติ  ฯ
+<span class="LineNumber"> 021 </span>						อภิ.๑๔๑

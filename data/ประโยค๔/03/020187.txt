@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>                   [เพลงขับที่เป็นสุภาษิตอาจให้บรรลุคุณพิเศษ]
+<span class="LineNumber"> 002 </span>	ก็ในข้อนี้   มีภิกษุนักวิปัสสนาประมาณ  ๖๐  รูป  กำลังเดินทาง
+<span class="LineNumber"> 003 </span>ได้สดับเด็กหญิงชาวสีหลผู้เฝ้าข้าวกล้าที่ข้างทางในเกาะสีหล   ผู้ขับ
+<span class="LineNumber"> 004 </span>เพลงขับอันประกอบด้วยชาติ  ชรา  พยาธิ  มรณะ  ด้วยภาษาสีหล 
+<span class="LineNumber"> 005 </span>นั้นแล  แล้วบรรลุพระอรหัตเป็นอุทาหรณ์.
+<span class="LineNumber"> 006 </span>	อีกอุทาหรณ์หนึ่ง  ภิกษุชื่อว่า  ติสสะ  ผู้ปรารภวิปัสสนา   กำลัง
+<span class="LineNumber"> 007 </span>เดินไปโดยทางใกล้สระปทุม  สดับเด็กหญิงผู้หักปทุมในสระปทุม  ขับ
+<span class="LineNumber"> 008 </span>เพลงขับอยู่ดังนี้ว่า
+<span class="LineNumber"> 009 </span>	[๒๘๕]  <B>"ดอกปทุมชื่อโกกนท<SUP>๑</SUP>  บานแล้วในเวลา
+<span class="LineNumber"> 010 </span>	เช้า  ถูกแสงพระอาทิตย์แผดเผา  (ให้เหี่ยวแห้งไป)
+<span class="LineNumber"> 011 </span>	ฉันใด,  สัตว์ทั้งหลายผู้ถึงความเป็นมนุษย์  ย่อม
+<span class="LineNumber"> 012 </span>	เหี่ยวแห้งไปด้วยกำลังชราฉันนั้น."</B>
+<span class="LineNumber"> 013 </span>ดังนี้แล้ว  บรรลุพระอรหัต.
+<span class="LineNumber"> 014 </span>	อนึ่ง  บุรุษผู้หนึ่งในพุทธันดร  (เวลาว่างพระพุทธเจ้า)  ๑  กลับ
+<span class="LineNumber"> 015 </span>จากป่าพร้อมกับบุตร  ๗  คน     ฟังเพลงขับของสตีผู้หนึ่งซึ่งกำลังเอา
+<span class="LineNumber"> 016 </span>สากตำข้าวสารดังนี้ว่า
+<span class="LineNumber"> 017 </span>		<B>"สรีระนี่อาศัยหนังมีผิวเหี่ยวแห้ง  ถูกชราย่ำยีแล้ว,
+<span class="LineNumber"> 018 </span>		สรีระนี่ถึงความเป็นอามิส  คือเหยื่อของมฤตยู   ย่อม
+<span class="LineNumber"> 019 </span>		ตกไปเพราะมรณะ,  สรีระนี่เป็นที่อยู่ของหมู่หนอน
+<span class="LineNumber"> 020 </span>		เต็มไปด้วยซากศพต่าง  ๆ,   สรีระนี่เป็นภาชนะของ</B>
+
+<span class='footnote'>๑.  บัวแตง  (รตฺตุปฺปล)  A  red  lotus. </span>

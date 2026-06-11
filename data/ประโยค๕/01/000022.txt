@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>สห   ปวตฺตีติ   อาห   สหภาวํ  เอกีภาวํ  คตาติ  ฯ  อสิตสฺสาติ  วา 
+<span class="LineNumber"> 002 </span>ตณฺหาพนฺธเนน อพนฺธสฺสาติ ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 003 </span>	[๒๗]   <B>ทายโก   ทานปตีติ </B> ทายโก  เจว  ทานปติ  จ  ฯ  โย 
+<span class="LineNumber"> 004 </span>หิ   อฺสฺส   สนฺตกํ   เตนาณตฺโต  เทติ  โสปิ  ทายโก  โหติ  ตสฺมึ 
+<span class="LineNumber"> 005 </span>ปน   ทาเน   อิสฺสริยาภาวโต   น   ทานปติ  ฯ   อยมฺปน  อตฺตโน 
+<span class="LineNumber"> 006 </span>สนฺตกํเยว   เทติ  เตนาห  อหฺหิ  โภ  โคตม  ทายโก  ทานปตีติ  ฯ 
+<span class="LineNumber"> 007 </span>อยเมว   เอตฺถ   อตฺโถ  ฯ   อฺตฺถ  ปน  อนฺตรนฺตรา  มจฺเฉเรน 
+<span class="LineNumber"> 008 </span>อภิภุยฺยมาโน    ทายโก   อนภิภูโต   ทานปตีติอาทินา   นเยน   วตฺตุํ 
+<span class="LineNumber"> 009 </span>วฏฺฏตีติ สุตฺตนิปาเต มาฆสุตฺตวณฺณนา <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 010 </span>                                         ป€มนโย ฯ 
+<span class="LineNumber"> 011 </span>	[๒๘]  อปโร  นโย  ฯ  ทานํ  นาม  ธมฺมามิสวเสน ทุวิธํ โหติ ฯ 
+<span class="LineNumber"> 012 </span>วุตฺตฺเหตํ    ทุกงฺคุตฺตเร    ตติยปณฺณาสกสฺส    ตติยวคฺเค   เทฺวมานิ 
+<span class="LineNumber"> 013 </span>ภิกฺขเว  ทานานิ  ฯ  กตมานิ  เทฺว  ฯ  อามิสทานฺจ  ธมฺมทานฺจ  ฯ 
+<span class="LineNumber"> 014 </span>อิมานิ   โข   ภิกฺขเว   เทฺว  ทานานิ  ฯ  เอตทคฺคํ  ภิกฺขเว  อิเมสํ 
+<span class="LineNumber"> 015 </span>ทฺวินฺนํ ทานานํ ยทิทํ ธมฺมทานนฺติ ฯ 
+<span class="LineNumber"> 016 </span>                                         ทานสุตฺตํ <SUP>๒</SUP> ฯ 
+<span class="LineNumber"> 017 </span>	[๒๙]   ทานานีติ   ทิยฺยนกวเสน   ทานานิ  ฯ  เทยฺยธมฺมสฺเสตํ 
+<span class="LineNumber"> 018 </span>นามํ  ฯ   สวตฺถุกา   วา   เจตนา  ทานํ  ฯ  สมฺปตฺติปริจฺจาคสฺเสตํ 
+<span class="LineNumber"> 019 </span>นามนฺติ ตพฺพณฺณนา <SUP>๓</SUP> ฯ 
+<span class="LineNumber"> 020 </span>	ทิยฺยตีติ  ทานํ  ฯ  เทยฺยธมฺมสฺเสตํ  อธิวจนํ  ฯ  ทิยฺยติ  อเนนาติ 
+
+<span class='footnote'>๑. ป. โช. ขุ. สุ. ๒/๒๗๓.  ๒. องฺ. ทุก. ๒๐/๑๑๔.  ๓. มโน. ปู. ๒/๗๖. </span>

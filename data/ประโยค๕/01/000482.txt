@@ -1,0 +1,12 @@
+<span class="LineNumber"> 001 </span>	<B>สพฺพธมฺมาน เฉโกหํ         ภเวยฺยํ ชาติชาติยํ ฯ 
+<span class="LineNumber"> 002 </span>	จิรํ ทิปฺปตุ สทฺธมฺโม          โลกนาถสฺส สาสนํ 
+<span class="LineNumber"> 003 </span>	ปสนฺนา โหนฺตุ สพฺเพปิ     ปาณิโน พุทฺธสาสเน ฯ 
+<span class="LineNumber"> 004 </span>	เทโว กาเล ปวสฺสนฺโต        สมิทฺธํ เนตุ เมทนึ 
+<span class="LineNumber"> 005 </span>	สมฺมา ธารํ ปเวจฺฉนฺโต       รกฺขนฺตุ ภูมิชํ สทา 
+<span class="LineNumber"> 006 </span>	มาตา ปิตา จ อตฺรชํ            นิจฺจํ รกฺขนฺติ ปุตฺตกํ 
+<span class="LineNumber"> 007 </span>	เอวํ ธมฺเมน ราชาโน            ชนํ รกฺขนฺตุ สพฺพทาติ ฯ 
+<span class="LineNumber"> 008 </span>	    มงฺคลตฺถทีปนี สมฺปุณฺณา <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 009 </span>	ยาว พุทฺโธติ นามมฺปิ            โลเก วตฺตติ ตาทิโน 
+<span class="LineNumber"> 010 </span>	ติฏฺ€ตุ สา นยํ ตาว                ทสฺเสนฺตี โสตุมิจฺฉตนฺติ</B> <SUP>๒</SUP> 
+		 
+<span class='footnote'>๑. มงฺคลทีปนี อฏฺ€กถา สมตฺตาติปิ ปา€า ฯ  ๒. อยํ คาถา กตฺถจิ น ทิสฺสติ ฯ </span>

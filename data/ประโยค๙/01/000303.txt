@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			ป€มปริจฺเฉทตฺถโยชนา  หน้า  303
+
+<span class="LineNumber"> 002 </span>	เตนาติ  อาหาติ  ปเท  เหตุ  ฯ  ภควาติ  อาหาติ  ปเท
+<span class="LineNumber"> 003 </span>กตฺตา  ฯ  จกฺขุ...อาทีติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 004 </span>	[๑๘๓]  อาจริโย  อตฺตนา  โจทนํ  สมุฏฺ€าเปตฺวา  วิสชฺเชนฺโต
+<span class="LineNumber"> 005 </span>อาห  ยทิตฺยาทึ  ฯ  เอวํ  จกฺขุสทฺโท  อสฺสาทวาจาโก  ยทิ  สิยา
+<span class="LineNumber"> 006 </span>โสตํ...อสฺสาทนํ  อตฺถิ  อิติ  ตสฺมา  เตสมฺปิ  โสตาทีนมฺปิ
+<span class="LineNumber"> 007 </span>จกฺขุ...ปชฺชติ  อิติ    โจทนา  ฯ
+<span class="LineNumber"> 008 </span>	โสตํ  โข...ทิตํ  อิติ  อาทิ  ยสฺส  ตํ  โสตํ...ทิตนฺติอาทิ  ฯ
+<span class="LineNumber"> 009 </span>โสตํ...อาทิ  จ  ตํ  วจนฺจาติ  โสตํ...อาทิวจนํ  ฯ  โสตํ  อาทิ
+<span class="LineNumber"> 010 </span>เยสํ  ฆานาทีนํ  ตานิ  โสตาทีนิ  ฯ  อปิสทฺโท  น  เกวลํ  จกฺขุ-
+<span class="LineNumber"> 011 </span>รูปสฺสาทกนฺติ  าเปติ  ฯ  สทฺโท  อาทิ  เยสํ  เต  สทฺทาทโย  ฯ
+<span class="LineNumber"> 012 </span>อสฺสาทิยเต  อสฺสาทนํ  ฯ  สทฺทาทีนิ  อสฺสาทนํ  สทฺทาทิอสฺสาทนํ  ฯ
+<span class="LineNumber"> 013 </span>ปิสทฺโท  จกฺขุํ  อเปกฺขติ  ฯ  จกฺขุ  อิติ  สทฺโท  จกฺขุสทฺโท  ฯ
+<span class="LineNumber"> 014 </span>อภิธาตพฺโพติ  อภิเธยฺโย  อตฺโถ  จกฺขุสทฺเทน  อภิธาตพฺโพ  อิติ
+<span class="LineNumber"> 015 </span>ตสฺมา  โส  อตฺโถ  อภิเธยฺโย  ฯ  จกฺขุสทฺเทน  อภิเธยฺโย  จกฺขุ...
+<span class="LineNumber"> 016 </span>เธยฺโย  จกฺขุสทฺทาภิเธยฺยสฺส  ภาโว  จกฺขุ...ยตา  ฯ
+<span class="LineNumber"> 017 </span>	ยทีติ  ปริกปฺโป  ฯ  เอวนฺติ  สิยาติ  ปเท  กตฺตา  ฯ  โสตํ
+<span class="LineNumber"> 018 </span>โข...วจนโตติ  อตฺถีติ  ปเท  เหตุ  ฯ  โสตาทีนมฺปีติ  อสฺสาทนนฺติ
+<span class="LineNumber"> 019 </span>ปเท  สมฺพนฺโธ  ฯ  สทฺทาทิ...ทนนฺติ  อตฺถีติ  ปเท  กตฺตา  ฯ
+<span class="LineNumber"> 020 </span>อิตีติ  อาปชฺชตีติ  ปเท  เหตุ  ฯ  เตสมฺปีติ  จกฺขุสทฺทาภิเธยฺยตาติ
+<span class="LineNumber"> 021 </span>ปเท  สมฺพนฺโธ  ฯ  จกฺขุ...ยตาติ  อาปชฺชตีติ  ปเท  กตฺตา  ฯ
+<span class="LineNumber"> 022 </span>อิตีติ  โจทนาติ  ปทสฺส  สรูปํ  ฯ
+<span class="LineNumber"> 023 </span>						อภิ.๗๕

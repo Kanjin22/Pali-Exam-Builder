@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  478
+
+<span class="LineNumber"> 002 </span>อาทิโต  ปาปุณนนฺติมสฺส  อธิปฺปายวเสน  วิวรณํ  ป€มสมาคโมติ  ฯ
+<span class="LineNumber"> 003 </span>ป€มสทฺเทน  อาทิสทฺทสฺส  มริยาทาทิอตฺถํ  นิวตฺเตติ  ฯ  มคฺคสฺส
+<span class="LineNumber"> 004 </span>สํอาคมนํ  สมาคโม  ฯ  สํอาปุพฺโพ  คมุ  สพฺพโต  ณฺวุตฺวาวี  ฯ
+<span class="LineNumber"> 005 </span>วาติ  อ  ฯ  ป€มํ  สมาคโม  ป€...คโม  ฯ  ป€มสมนฺนาคโมติปิ  ฯ
+<span class="LineNumber"> 006 </span>โสเยวตฺโถ  ฯ  สมํ  อาคมนํ  สมนฺนาคโม  ฯ  นกาโร  อาคโม  ฯ
+<span class="LineNumber"> 007 </span>อุปคนฺตฺวา  อตฺถํ  สชฺชติ  ปกาเสตีติ  อุปสคฺโค  ฯ  กรณํ  กมฺมํ
+<span class="LineNumber"> 008 </span>กิริยา  ฯ  อาทิ  จ  ตํ  กมฺมฺจาติ  อาทิกมฺมํ  ฯ  อาทิกมฺมนีติ
+<span class="LineNumber"> 009 </span>ปเทน  อภิมุขภาวาทิอตฺเถ  นิวตฺเตติ  ฯ
+<span class="LineNumber"> 010 </span>	ตสฺสาติ  ปชฺชนนฺติ  ปเท  กมฺมํ  สมาคโมติ  ปเท  สมฺพนฺโธ
+<span class="LineNumber"> 011 </span>วา  ฯ  อาทิโตติ  ปชฺชนนฺติ  ปเท  อาธาโร  ฯ  ป€...คโมติ
+<span class="LineNumber"> 012 </span>ลิงฺคตฺโถ  ฯ  โสตาปตฺตีติ  ลิงฺคตฺโถ  ฯ  อาอุ...คสฺสาติ  ปวตฺตนโตติ
+<span class="LineNumber"> 013 </span>ปเท  สมฺพนฺโธ  ฯ  อาทิกมฺมนีติ  ปวตฺตนโตติ  ปเท  อาธาโร  ฯ
+<span class="LineNumber"> 014 </span>ปวตฺตนโตติ  อาทิโต  ปชฺชนนฺติ  ปเท  เหตุ  ฯ
+<span class="LineNumber"> 015 </span>	อาทิโต  ปชฺชนํ  อาปตฺติ  สตฺตมีตปฺปุริโส  ฯ  โสตสฺส
+<span class="LineNumber"> 016 </span>อาปตฺติ  โสตาปตฺติ  ฉฏฺ€ีตปฺปุริโส  ฯ
+<span class="LineNumber"> 017 </span>	[๓๔๓]  โย  ธมฺโม  นิพฺพานํ  มคฺเคติ  คเวสติ  วา
+<span class="LineNumber"> 018 </span>นิพฺพานตฺถิเกหิ  ปุคฺคเลหิ  มคฺคิยติ  วา  โย  ธมฺโม  กิเลเส
+<span class="LineNumber"> 019 </span>มาเรนฺโต  นิพฺพานํ  คจฺฉติ  อิติ  ตสฺมา  โส  ธมฺโม  มคฺโค  ฯ
+<span class="LineNumber"> 020 </span>มาเรตีติ  มาเรนฺโต  ฯ  มร  หึสายํ  อนฺต  จุราทิโต  เณณยา  ฯ
+<span class="LineNumber"> 021 </span>	นิพฺพานนฺติ  มคฺเคตีติ  ปเท  กมฺมํ  ฯ  นิพฺพา...เกหีติ
+<span class="LineNumber"> 022 </span>					อภิ.๙๑

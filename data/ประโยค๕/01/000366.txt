@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>                    นวมคาถายตฺถวณฺณนา 
+<span class="LineNumber"> 002 </span>	[๔๖๙]     นวมคาถายํ  ฯ    ตโปติ    อินฺทฺริยสํวราทิ  ฯ <B>พฺรหฺม-
+<span class="LineNumber"> 003 </span>จริยนฺติ </B>   เมถุนวิรตฺยาทิ  ฯ    <B>อริยสจฺจานทสฺสนนฺติ</B>    จตุนฺนํ อริย-
+<span class="LineNumber"> 004 </span>สจฺจานํ    อภิสมยวเสน    มคฺคทสฺสนํ  ฯ    <B>นิพฺพานสจฺฉิกิริยาติ</B> อรหตฺต-
+<span class="LineNumber"> 005 </span>สงฺขาตสฺส   นิพฺพานสฺส   ปตฺติ   ปจฺจเวกฺขณา  วา  ฯ  เอตนฺติ 
+<span class="LineNumber"> 006 </span>โย    จ    ตโป   ยฺจ   พฺรหฺมจริยํ   ยฺจ   อริยสจฺจาภิสมยวเสน 
+<span class="LineNumber"> 007 </span>มคฺคทสฺสนํ    ยา    จ    นิพฺพานสจฺฉิกิริยา   อิทํ   ตปาทิ   จตุพฺพิธํ 
+<span class="LineNumber"> 008 </span>อุตฺตมํ    มงฺคลนฺติ    คณฺหาหิ   เทวเตติ   อยเมตฺถ   สงฺเขโป  ฯ 
+<span class="LineNumber"> 009 </span>อยนฺเตฺวตฺถ วิตฺถาโร ฯ 
+<span class="LineNumber"> 010 </span>                                        ตปกถา 
+<span class="LineNumber"> 011 </span>	[๔๗๐]  ตโป  นาม  ปาปตาปนโก  ธมฺโม  ฯ  เตนฏฺ€กถายํ  <SUP>๑</SUP>
+<span class="LineNumber"> 012 </span>ปาปเก ธมฺเม ตปตีติ ตโปติ วุตฺตํ ฯ 
+<span class="LineNumber"> 013 </span>	ตตฺถ    ตปตีติ    สนฺตาเปตีติ   อตฺโถ  ฯ   เตน   ภูวาทิคเณ 
+<span class="LineNumber"> 014 </span>ตป   สนฺตาเป   ตปตีติ   วุตฺตํ  ฯ   ตป   ทาเห   ตเปติ  การิเต 
+<span class="LineNumber"> 015 </span>ตาเปตีติ   จุราทิคโณ  ฯ   ตปสทฺโท   ธมฺมวตฺเตสุ  วตฺตติ  ฯ  เตน 
+<span class="LineNumber"> 016 </span>ปทาเนกตฺเถ <SUP>๒</SUP> ตโป ธมฺเม วเต เจวาติ วุตฺตํ 
+<span class="LineNumber"> 017 </span>	วเต ทิฏฺ€ิสมาจาเรติ <SUP>๓</SUP> ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 018 </span>	[๔๗๑]   ธมฺโม   นาม   ขนฺตฺยาทิ  ฯ   ตถา  หิ  ขนฺตี  ปรมํ 
+<span class="LineNumber"> 019 </span>ตโป   ตีติกฺขาติ   เอตฺถ   ขนฺติ   ตโป   นาม  ฯ  ตโป  กริสฺสามิ 
+
+<span class='footnote'>๑. ป. โช. ขุ. ขุ.๑๖๖. ๒. สี. เตน อเนกตฺเถ. ๓. สี. เต ทิฏฺ€ิสมาจาเรติ. </span>

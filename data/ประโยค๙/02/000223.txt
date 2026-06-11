@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			จตุตฺถปริจฺเฉทตฺถโยชนา    หน้า  223
+
+<span class="LineNumber"> 002 </span>	เอกํ  จิตฺตํ  เอกจิตฺตํ  ฯ  ขิยติ  เอตฺถาติ  ขโณ  จิตฺตํ
+<span class="LineNumber"> 003 </span>เอตฺถ  กาเล  ขิยติ  อิติ  ตสฺมา  โส  กาโล  ขโณ  ฯ  ขิ  ขเย
+<span class="LineNumber"> 004 </span>กตฺตุ...สุ  จาติ  ยุ  อนกา  ยุณฺวูนํ  รหาทิโต  โน  ณ  ฯ
+<span class="LineNumber"> 005 </span>เอกจิตฺตสฺส  ขโณ  เอกจิตฺตกฺขโณ  เอกจิตฺตกฺขณํ  อตีตํ
+<span class="LineNumber"> 006 </span>เอกจิตฺตกฺขณาตีตํ  ฯ  โสฬส  จ  ตานิ  จิตฺตานิ  จาติ  โสฬสจิตฺตานิ
+<span class="LineNumber"> 007 </span>โสฬสจิตฺตานํ  ขโณ  โสฬสจิตฺตกฺขโณ  ฯ  โสฬสจิตฺตกฺขโณ
+<span class="LineNumber"> 008 </span>อายุ  ยสฺส  อารมมฺณสฺส  ตํ  โสฬสจิตฺตกฺขณายุกํ  ฯ  มหนฺตายุ-
+<span class="LineNumber"> 009 </span>กตฺตา  อธิกํ  มหนฺตํ  อติมหนฺตํ  ฯ
+<span class="LineNumber"> 010 </span>	อติมหนฺตาทีสูติ  วินิจฺฉโยติ  ปเท  อาธาโร  ฯ  เอกจิตฺตกฺ-
+<span class="LineNumber"> 011 </span>ขณาตีตํ  อา...ยุกนฺติ  ติปทํ  อารมฺมณนฺติ  ปทสฺส  วิเสสนํ  ฯ
+<span class="LineNumber"> 012 </span>หุตฺวาติ  อาคตนฺติ  ปทสฺส  วิเสสนํ  ฯ  อาปาถนฺติ  อาคตนฺติ  ปเท
+<span class="LineNumber"> 013 </span>กมฺมํ  ฯ  อติมหนฺตํ  นามาติ  สญฺา  ฯ
+<span class="LineNumber"> 014 </span>	เทฺว  วา  ตีณิ  วา  จิตฺตานิ  ทฺวิตฺติจิตฺตานิ  สงฺขโยภย-
+<span class="LineNumber"> 015 </span>พหุพฺพิหิ  ฯ  เตสุ  วุฑฺฒีติ  อาทินา  อิสฺส  อ  ฯ  ทฺวิตฺติจิตฺตานํ
+<span class="LineNumber"> 016 </span>ขโณ  ทฺวิตฺติจิตฺตกฺขโณ  ทฺวิตฺติจิตฺตกฺขณํ  อตีตํ  ทฺวิตฺติ...
+<span class="LineNumber"> 017 </span>ตีตํ  ฯ  ปณฺณรส  วา  จุทฺทส  วา  จิตฺตานิ  ปณฺณรสจุทฺทส-
+<span class="LineNumber"> 018 </span>จิตฺตานิ  พหุพฺพิหิ  ฯ  ปณฺณรสจุทฺทสจิตฺตานํ  ขโณ  ปณฺณ...
+<span class="LineNumber"> 019 </span>ขโณ  ปณฺณ...ขโณ  อายุ  ยสฺส  ตํ  ปณฺณร...ยุกํ  ฯ
+<span class="LineNumber"> 020 </span>ทฺวิตฺติ...ยุกนฺติ  ปททฺวยํ  อารมฺมณนฺติ  ปทสฺส  วิเสสนํ    ฯ
+<span class="LineNumber"> 021 </span>มหนฺตํ  นามาติ  สญฺา  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๓๒

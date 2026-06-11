@@ -1,0 +1,15 @@
+<span class="LineNumber"> 001 </span>                                         [ แก้อรรถ ]
+<span class="LineNumber"> 002 </span>	บรรดาบทเหล่านั้น  บทว่า   <B>น   อตฺตเหตุ</B>   ความว่า   ธรรมดา
+<span class="LineNumber"> 003 </span>บัณพิต   ย่อมไม่ทำบาป   เพราะเหตุแห่งตนหรือเพราะเหตุแห่ง
+<span class="LineNumber"> 004 </span>บุคคลอื่น.
+<span class="LineNumber"> 005 </span>	บทว่า   <B>น  ปุตฺตมิจฺเฉ</B>   ความว่า   บัณฑิตไม่พึงปรารถนาบุตร
+<span class="LineNumber"> 006 </span>หรือทรัพย์  หรือแว่นแคว้น  ด้วยกรรมอันลามก,   บัณฑิตเมื่อปรารถนา
+<span class="LineNumber"> 007 </span>แม้สิ่งเหล่านั้น  ย่อมไม่กระทำกรรมลามกเลย.
+<span class="LineNumber"> 008 </span>	บทว่า   <B>สมิทฺธิมตฺตโน</B>   ความว่า  บัณฑิตไม่พึงปรารถนา  แม้
+<span class="LineNumber"> 009 </span>ความสำเร็จเพื่อตน  โดยไม่เป็นธรรม.   อธิบายว่า  บัณฑิตย่อมไม่ทำบาป
+<span class="LineNumber"> 010 </span>แม้เพราะเหตุแห่งความสำเร็จ.
+<span class="LineNumber"> 011 </span>	บทว่า   <B>ส   สีลวา</B>   ความว่า   บุคคลผู้เห็นปานนี้นั่นแล  พึงเป็น
+<span class="LineNumber"> 012 </span>ผู้มีศีล  มีปัญญา  และตั้งอยู่ในธรรม.   อธิบายว่า  ไม่พึงเป็นอย่างอื่น.
+<span class="LineNumber"> 013 </span>	ในกาลจบเทศนา  ชนเป็นอันมาก  บรรลุอริยผลทั้งหลายมี
+<span class="LineNumber"> 014 </span>โสดาปัตติผลเป็นต้น  ดังนี้แล.
+<span class="LineNumber"> 015 </span>                              เรื่องพระเถระผู้ตั้งอยู่ในธรรม   จบ.

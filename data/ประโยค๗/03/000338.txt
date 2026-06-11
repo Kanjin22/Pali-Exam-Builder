@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ตโตติ €านโต ฯ สุงฺกมารหนฺติ สุงฺการหํ ฯ ราชรหํ ราชารหนฺติ
+<span class="LineNumber"> 002 </span>จ เทฺว ปา€า ฯ ยโต ภณฺฑโต ฯ อิโตติ ภณฺฑโต ฯ
+<span class="LineNumber"> 003 </span>อูรุนา โอรุนาติ จ เทฺว ปา€า ฯ ตญฺเจติ ตํ ภณฺฑํ เจ
+<span class="LineNumber"> 004 </span>อวสฺสํ ปตนกํ ฯ ตญฺเจติ ตํ ภณฺฑํ เจ ปฏิหตํ ฯ พลววาตเวค
+<span class="LineNumber"> 005 </span>อิติ ปทํ อุกฺขิตฺตนฺติ ปเท กตฺตา ฯ
+<span class="LineNumber"> 006 </span>	ภณฺฑํ วฏฺฏิตฺวา คมิสฺสตีติ วา อฺโ ชโน ตํ ภณฺฑํ
+<span class="LineNumber"> 007 </span>วฏฺเฏสฺสตีติ วา มนสิกาเรน ภิกฺขุนา อนฺโต €ปิตํ ภณฺฑํ
+<span class="LineNumber"> 008 </span>ปจฺฉา สยํ วา วฏฺเฏติ<SUP>๑</SUP> ฯ €ปิตนฺติ ปทํ วฏฺเฏตีติ ปเท
+<span class="LineNumber"> 009 </span>กตฺตา ฯ สยนฺติ ภณฺฑสงฺขาเตน อตฺตนา ฯ อฺเนาติ ปทํ
+<span class="LineNumber"> 010 </span>วฏฺฏิตนฺติ ปเท กตฺตา ฯ €ปิเต ปน ภณฺเฑ ฯ ตถาติ สยํ
+<span class="LineNumber"> 011 </span>วา อฺเน วฏฺฏเนน วา ฯ
+<span class="LineNumber"> 012 </span>	พหิปุฏเก วิชฺชมานํ ภณฺฑํ สุงฺกํ ปาทํ กิญฺจาปิ อคฺฆติ ฯ
+<span class="LineNumber"> 013 </span>สุงฺกํ ปาทนฺติ ปทํ กมฺมํ ฯ เตน พหิปุฏเกน ฯ อพฺภนฺตริมนฺติ
+<span class="LineNumber"> 014 </span>ปทํ ปริวตฺเตตฺวาติ ปเท กมฺมํ ฯ
+<span class="LineNumber"> 015 </span>	อิติ มนสิกาเรน €เปติ ฯ ภณฺเฑ นีหเฏ ฯ อิทญฺจ ภณฺฑํ ฯ
+<span class="LineNumber"> 016 </span>เตน ภิกฺขุนา นีตนฺติ ปเท กตฺตา ฯ €ปิเตติ ภณฺเฑ เนวตฺถีติ
+<span class="LineNumber"> 017 </span>ปเท อาธาโร ฯ ตสฺส ภิกฺขุสฺส ปโยคํ วินา เตสุ ยานาทีสุ
+<span class="LineNumber"> 018 </span>คเตสุ ฯ เอหิ เรติ อามนฺตนํ ฯ อฺํ ชนํ เอฬกโลมํ หราเปติ
+<span class="LineNumber"> 019 </span>อิติ เอวํ อิมสฺมึ €าเน อนาปตฺตีติ สมฺพนฺโธ ฯ ยาเน วา
+
+<span class='footnote'>๑. วฏฺฏมานนฺติ วณฺณนาปาโ€ ฯ</span>
+<span class="LineNumber"> 020 </span>                         [ปา.๙๔ ฯ ส.๔๓๐...๔๓๒]

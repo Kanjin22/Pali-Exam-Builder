@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>เทวทัตนั้นอีก  ตรัสชาดกทั้งหลายเป็นต้นว่า
+<span class="LineNumber"> 002 </span>		<B>"ดูก่อนไม้มะลื่น    ข้อที่เจ้ากลิ้งมานี้  กวางรู้
+<span class="LineNumber"> 003 </span>		แล้ว, เราจักไปยังไม้มะลื่นต้นอื่น  เพราะว่า
+<span class="LineNumber"> 004 </span>		ผลของเจ้าเราไม่ชอบใจ<SUP>๑</SUP>"</B>
+<span class="LineNumber"> 005 </span>เมื่อกถายังเป็นไปอยู่อีกว่า  "พระเทวทัตเสื่อมแล้วจากผล ๒ ประการ
+<span class="LineNumber"> 006 </span>คือ  จากลาภและสักการะประการหนึ่ง  จากสามัญผลประการหนึ่ง,"
+<span class="LineNumber"> 007 </span>พระผู้มีพระภาคเจ้า  ตรัสว่า  "ภิกษุทั้งหลาย  มิใช่แต่บัดนี้เท่านั้น,  แม้
+<span class="LineNumber"> 008 </span>ครั้งก่อน     เทวทัตก็เสื่อมแล้วเหมือนกัน"     ดังนี้แล้ว     ตรัสชาดก
+<span class="LineNumber"> 009 </span>ทั้งหลายเป็นต้นว่า
+<span class="LineNumber"> 010 </span>		<B>"ตาทั้ง ๒ แตกแล้ว,  ผ้าก็หายแล้ว, และเพื่อน
+<span class="LineNumber"> 011 </span>		บ้านก็บาดหมางกัน,  ผัวและเมีย  ๒  คนนั้น  มี
+<span class="LineNumber"> 012 </span>		การงานเสียหายแล้ว  ทั้ง ๒ ทาง  คือ  ทั้งทางน้ำ
+<span class="LineNumber"> 013 </span>		ทั้งทางบก<SUP>๒</SUP>."</B>
+<span class="LineNumber"> 014 </span>	พระศาสดา เมื่อประทับอยู่กรุงราชคฤห์ ทรงปรารภพระ
+<span class="LineNumber"> 015 </span>เทวทัต  ตรัสชาดกเป็นอันมาก  ด้วยประการอย่างนั้นแล้ว เสด็จ
+<span class="LineNumber"> 016 </span>(ออก)  จากกรุงราชคฤห์ไปสู่เมืองสาวัตถี ประทับอยู่ในพระเชตวัน
+<span class="LineNumber"> 017 </span>มหาวิหาร.
+<span class="LineNumber"> 018 </span>                     [พระเทวทัตให้สาวกนำไปเฝ้าพระศาสดา]
+<span class="LineNumber"> 019 </span>	ฝ่ายพระเทวทัตแล  เป็นไข้ถึง  ๙  เดือน,  ในกาลสุดท้าย  ใคร่
+
+<span class='footnote'>๑.  ขุ. ชา.  ๒๗/๗.  ตทฏฺ€กถา.  ๑/๒๖๑.  กุรุงฺคมิชาดกํ.</span>
+<span class='footnote'>๒.  ขุ.  ชา. ๒๗/๔๕.  ตทฏฺ€กถา. ๒/๒๗๔  อุภโตภฏฺ€ชาดํก.</span>
+

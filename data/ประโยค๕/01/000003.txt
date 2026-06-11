@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>สมฺมาทิฏฺ€ิโก   เอโกว   อตฺถิ   ทินฺนนฺติ   สมฺมาลทฺธิโก  หุตฺวา  ทานํ 
+<span class="LineNumber"> 002 </span>นาม    สุนฺทรํ    พุทฺธาทีหิ    ปณฺฑิเตหิ    ปสตฺถํ   ปณฺฑิตปฺปฺตฺตนฺติ 
+<span class="LineNumber"> 003 </span>สทฺทหนฺโต   อตฺตนาปิ   ทานํ   เทติ   ปรมฺปิ   ตตฺถ   สมาทเปติ  น 
+<span class="LineNumber"> 004 </span>มิจฺฉาทิฏฺ€ิโก  ฯ   ตถา   หิ   นตฺถิ   ทินฺนนฺติ  มิจฺฉาลทฺธิโก  อชิโต 
+<span class="LineNumber"> 005 </span>นาม    ติตฺถกโร    เอวมาห    ภสฺสนฺตา    หุติโย    ทตฺตุปฺปฺตฺตํ 
+<span class="LineNumber"> 006 </span>ยทิทํ ทานนฺติ ฯ 
+<span class="LineNumber"> 007 </span>	ตตฺถ   ภสฺสนฺตาติ  ภสฺมนฺตา  ฯ  อยเมว  วา  ปาลิ  ฯ  หุติโยติ 
+<span class="LineNumber"> 008 </span>ยํ    ปโหนกสกฺการาทิเภทํ    ทินฺนทานํ    สพฺพนฺตํ   ฉาริกาวสานเมว 
+<span class="LineNumber"> 009 </span>โหติ  ฯ   น   ตโต   ปรํ   ผลทายกํ   หุตฺวา  คจฺฉตีติ  อตฺโถ  ฯ 
+<span class="LineNumber"> 010 </span>ทตฺตุปฺปฺตฺตนฺติ    ทตฺตูหิ   พาลมนุสฺเสหิ   ปฺตฺตํ  ฯ   อิทํ   วุตฺตํ 
+<span class="LineNumber"> 011 </span>โหติ    พาเลหิ    อพุทฺธีหิ    ปฺตฺตมิทํ    ทานํ    น    ปณฺฑิเตหิ 
+<span class="LineNumber"> 012 </span>พาลา    เทนฺติ   ปณฺฑิตา   คณฺหนฺตีติ  <SUP>๑</SUP>  สามฺผลวณฺณนา  <SUP>๒</SUP> 
+<span class="LineNumber"> 013 </span>ขนฺธกวคฺเค <SUP>๓</SUP> ทิฏฺ€ิสํยุตฺตวณฺณนา <SUP>๔</SUP> จ ฯ 
+<span class="LineNumber"> 014 </span>	ทปฺปนฺติ มุยฺหนฺตีติ ทตฺตู มุยฺหปุคฺคลาติ สามฺผลฏีกา ฯ 
+<span class="LineNumber"> 015 </span>	[๕] อนฺนาทิทสวตฺถุกาติ 
+<span class="LineNumber"> 016 </span>	<B>อนฺนํ ปานํ วตฺถํ ยานํ   มาลา คนฺธํ วิเลปนํ 
+<span class="LineNumber"> 017 </span>	เสยฺยาวสถํ      ปทีเปยฺยํ       ทานวตฺถู     อิเม     ทสาติ</B> 
+<span class="LineNumber"> 018 </span>เอวํ วุตฺตเทยฺยธมฺมวตฺถุกา ฯ 
+<span class="LineNumber"> 019 </span>	ตตฺถ    <B>อนฺนนฺติ</B>    ยงฺกิฺจิ    ขาทนียํ   โภชนียํ  ฯ   <B>ปานนฺติ</B>
+ 
+<span class='footnote'>๑. เอตฺถนฺตเร ปนฏฺ€กถาสุ ทสฺเสตีติ ปทํ ขายติ. ๒. สุ. วิ. ๑/๒๐๗.</span>
+<span class='footnote'>๓. ขนฺธวารวคฺเค. . ว.   ๔. สา. ป. ๒/๔๑๑.</span>

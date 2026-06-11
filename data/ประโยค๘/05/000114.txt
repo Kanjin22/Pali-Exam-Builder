@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>                                                           สัญญาไว้ในใจ การเปลี่ยนอิริยา  
+<span class="LineNumber"> 002 </span>                                                           บถ และการเสพอัพโภกาสเป็นต้น 
+<span class="LineNumber"> 003 </span>           <B>กุสีตปุคฺคลปริวชฺชนตา</B>            ความหลีกเว้นบุคคลเกียจคร้าน 
+<span class="LineNumber"> 004 </span>           <B>อารทฺธวิริยปุคฺคลเสวนตา</B>        ความคบหาบุคคลปรารภความเพียร 
+<span class="LineNumber"> 005 </span>           <B>สมฺมปฺปธานปจฺจเวกฺขณตา</B>      ความพิจารณาเห็น ( อานุภาพ ) 
+<span class="LineNumber"> 006 </span>                                                           สัมมัปปธาน 
+<span class="LineNumber"> 007 </span>           <B>ตทธิมุตฺตตา</B>                              ความน้อมใจไปในวิริยะนั้น 
+<span class="LineNumber"> 008 </span>              	ธรรม ๑๑ ประการเป็นทางเกิดขึ้นแห่งปีติสัมโพชฌงค์ คือ
+<span class="LineNumber"> 009 </span>           <B>พุทฺธานุสฺสติ</B>                              ระลึกพระพุทธคุณ 
+<span class="LineNumber"> 010 </span>           <B>ธมฺมานุสฺสติ</B>                               ระลึกพระธรรมคุณ 
+<span class="LineNumber"> 011 </span>           <B>สงฺฆานุสฺสติ</B>                               ระลึกพระสังฆคุณ 
+<span class="LineNumber"> 012 </span>           <B>สีลานุสฺสติ</B>                                  ระลึกถึงศีลที่รักษา 
+<span class="LineNumber"> 013 </span>           <B>จาคานุสฺสติ</B>                                 ระลึกถึงการบริจาค 
+<span class="LineNumber"> 014 </span>           <B>เทวตานุสฺสติ</B>                               ระลึกถึงเทวดาและเทวธรรม 
+<span class="LineNumber"> 015 </span>           <B>อุปสมานุสฺสติ</B>                             ระลึกถึงคุณพระนิพพาน 
+<span class="LineNumber"> 016 </span>           <B>ลูขปุคฺคลปริวชฺชนตา</B>                   ความหลีกเว้นคนมัวซัว<SUP>*</SUP>
+<span class="LineNumber"> 017 </span>           <B>สินิทฺธปุคฺคลเสวนตา</B>                    ความคบหาผู้แจ่มใส 
+<span class="LineNumber"> 018 </span>           <B>ปสาทนียสุตฺตนฺตปจฺจกเวกฺขณตา</B> ความพิจารณาความในพระสูตร 
+<span class="LineNumber"> 019 </span>                                                                 อันชวนเลื่อมใส 
+
+<span class='footnote'>*  มหาฎีกาว่า  ลูขบุคคลนั้นหัวใจหยาบมัว  เพราะไม่มีความเลื่อมใสในพระรัตนตรัย</span>
+<span class='footnote'>ส่วนสินิทธบุคคลตรงกันข้าม </span>
+
+

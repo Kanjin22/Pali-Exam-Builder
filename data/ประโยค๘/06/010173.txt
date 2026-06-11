@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>	<B>"ลิงนี่ก็เป็นอาหารของพวกมนุษย์  เหมือนสัตว์ป่า 
+<span class="LineNumber"> 002 </span>	อื่น  ๆ  ในป่านั่นเอง    อย่ากระนั้นเลยเราก็หิวแล้ว
+<span class="LineNumber"> 003 </span>	ฆ่าลิงตัวนี้กินเสียเถิดน่ะ<SUP>๑</SUP>   เรากินอิ่มแล้ว  ก็จะต้อง
+<span class="LineNumber"> 004 </span>	ถือเอาเนื้อมันเป็นเสบียงไปด้วย  (เมื่อเป็นเช่นนั้น)
+<span class="LineNumber"> 005 </span>	เราก็จักข้ามทางกันดารไปได้   เสบียงก็จักมีแก่
+<span class="LineNumber"> 006 </span>	เรา  (ด้วย)"</B>
+<span class="LineNumber"> 007 </span>ดังนี้แล้วยกก้อนหินทุ่มหัวเอา  ก็ยังมองบุรุษนั้น  ด้วยดวงตาอันนอง
+<span class="LineNumber"> 008 </span>ด้วยน้ำตา  กล่าว  (กะเขาโดยดี)  ว่า
+<span class="LineNumber"> 009 </span>	<B>"นายจ๋า  นายอย่าทำกะข้าซิ  น่าติ  !  ท่านทำกรรม
+<span class="LineNumber"> 010 </span>	เช่นนี้ได้  (ลงคอ)   ท่านก็ได้ชื่อว่าเป็นผู้มีอายุยืน
+<span class="LineNumber"> 011 </span>	ควรแต่จะห้ามคนอื่น  (มิให้ทำร้ายกัน  แต่นี่ท่าน
+<span class="LineNumber"> 012 </span>	กลับทำร้ายเสียเอง)"<SUP>๒</SUP></B>
+<span class="LineNumber"> 013 </span>ไม่ยังจิตให้คิดร้ายในบุรุษนั้น  ไม่คิดถึงความทุกข์ของตนเลย  ยังพาบุรุษ
+<span class="LineNumber"> 014 </span>นั้น  (ไปส่ง)  ให้ถึงที่  ๆ  ปลอดภัยเสียด้วย
+
+<span class='footnote'>	๑.  ขาเทยฺย  นี้  คือ  ขาเทยฺยํ  ลบนิคคหิตด้วยอำนาจฉันท์</span>
+<span class='footnote'>	๒.  คาถานี้แปลยา  อรรถกถาท่านก็ทิ้งเสีย  เปิดดูในอรรถกถามหากปิชาดก  ตึสตินิบาต  ท่าน</span>
+<span class='footnote'>เรียงไว้ดังนี้</span>
+<span class='footnote'>			มายฺโย  มํ  กริ  ภทฺทนฺเต   	ตฺวฺจ  นาเมทิสํ  กริ</span>
+<span class='footnote'>			ตฺวญฺจ  โข  นาม  ที่ฆาวุ		อฺเ  วาเตุมรหสิ</span>
+<span class='footnote'>เห็นว่าพอแปลได้  จึงแปลตามนี้</span>

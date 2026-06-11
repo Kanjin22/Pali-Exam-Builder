@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>คหิตาติ โยชนา ฯ เอตฺถาติ คพฺภเสยฺยา ปุนพฺภวาภินิพฺพตฺตีติ
+<span class="LineNumber"> 002 </span>ปททฺวเย ฯ อิธาปีติ อิมสฺมึ €าเน ฯ อิธ จ €าเน ฯ ปุนพฺภโว
+<span class="LineNumber"> 003 </span>ฯ เป ฯ นิพฺพตฺตีติ วจนํ มยา วุตฺตํ ฯ
+<span class="LineNumber"> 004 </span>	[๒๐๕] เอวนฺติ ปาลิยํ วุตฺตนเยน ฯ ปฏฺ€ายาติ ปทํ อกฺ-
+<span class="LineNumber"> 005 </span>โกสนฺตมฺปีติ ปเท วิเสสนํ ฯ อปิสทฺโท สมฺภาวนํ ฯ พฺราหฺมณนฺติ
+<span class="LineNumber"> 006 </span>ปทํ โอโลเกนฺโตติ ปเท กมฺมํ ฯ อนุกมฺปายาติ ปทํ สีตเลนาติ
+<span class="LineNumber"> 007 </span>ปเท ตติยาวิเสสนํ ฯ
+<span class="LineNumber"> 008 </span>	จกฺขุนาติ ปทโต ปรสฺมึ วิชฺชมานํ พฺราหฺมณนฺติ ปทํ อตฺถิ ตํ
+<span class="LineNumber"> 009 </span>น ยุชฺชติ กสฺมา เหฏฺ€า พฺราหฺมณนฺติ ปทสฺส วิชฺชมานตฺตา ฯ
+<span class="LineNumber"> 010 </span>	สุปฺปฏิวิทฺธตฺตาติ ปทํ วิธมนฺโตติ ปเท เหตุ ฯ มหา...การนฺติ<SUP>๑</SUP>
+<span class="LineNumber"> 011 </span>มหนฺตํ หทเย อนฺธการํ ฯ อฺถาติ อฺเน ปกาเรน ฯ
+<span class="LineNumber"> 012 </span>ทสฺเสตฺวาติ ปทํ ปกาเสนฺโตติ ปเท ปุพฺพกาลกิริยา ฯ กรุณาย
+<span class="LineNumber"> 013 </span>วิปฺผาโร กรุณาวิปฺผาโร ฯ โลกธมฺเมหีติ ปทํ อกมฺปิยาติ ปเท
+<span class="LineNumber"> 014 </span>อปาทานํ เหตุ วา ฯ อกมฺ...เวนาติ ปฏิลทฺธนฺติ ปเท
+<span class="LineNumber"> 015 </span>ตติยาวิเสสนํ ฯ ปฏิลทฺธนฺติ ปทํ ตาทิคุณลกฺขณนฺติ ปทสฺส
+<span class="LineNumber"> 016 </span>วิเสสนํ ฯ
+<span class="LineNumber"> 017 </span>	ตาทิคุโณ เอว ลกฺขณํ ตาทิคุณลกฺขณํ ฯ ป€วิยา สมํ
+<span class="LineNumber"> 018 </span>จิตฺตํ ยสฺส โส ป€วีสมจิตฺโต ป€วีสมจิตฺตสฺส ภาโว ป€...
+<span class="LineNumber"> 019 </span>ตตา ฯ อกุปฺโป ธมฺโม ยสฺส โส อกุปฺปธมฺโม อกุปฺปธมฺมสฺส
+
+<span class='footnote'>๑. มหาสทฺทรหิโต วณฺณนาปาโ€ ฯ</span>
+<span class="LineNumber"> 020 </span>                                    [ปา.๕ ฯ ส.๑๔๗]

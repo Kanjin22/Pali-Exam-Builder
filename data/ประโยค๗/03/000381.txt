@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>ปสฺสาสานนฺติ ปท อาธาโร ฯ ตตฺถ จาติ จสทฺโท อนุคจฺฉนฺโต
+<span class="LineNumber"> 002 </span>จ €เปนฺโต จาติ โยเชตพฺโพ ฯ เตสนฺติ อาทิมชฺฌปริโยสานานํ ฯ
+<span class="LineNumber"> 003 </span>	ปุริเสติ ปทํ น วีมํสตีติ ปเท กมฺมํ ฯ หิ สจฺจํ เต
+<span class="LineNumber"> 004 </span>นครสฺส อนฺโต พหิ คตา มนุสฺสา ตสฺส โทวาริกสฺส น ภารา ฯ
+<span class="LineNumber"> 005 </span>	[๕๒๒] นิมิตฺตํ อสฺสาสปฺปสฺสาสา เอกจิตฺตสฺส อนารมฺมณํ
+<span class="LineNumber"> 006 </span>โหนฺติ ตโย ธมฺเม อชานโต จ อชานนฺตสฺส ปุคฺคลสฺส ภาวนา
+<span class="LineNumber"> 007 </span>นุปลพฺภติ น สิชฺฌติ ฯ
+<span class="LineNumber"> 008 </span>	ตเมนนฺติ รุกฺขํ ฯ รุกฺเขติ ปทํ ผุฏฺ€ อิติ ปเท อาธาโร ฯ 
+<span class="LineNumber"> 009 </span>พฺยนฺติ<SUP>๑</SUP> โหนฺตีติ เอตฺถ อิการาคโม ฯ
+<span class="LineNumber"> 010 </span>	อานาปานสฺสติ ยถา พุทฺเธน เทสิตา ตเถว ยสฺส เยน
+<span class="LineNumber"> 011 </span>ภิกฺขุนา ทีฆรสฺสปฺปชานนาทิวิธินา อนุปุพฺพมฺปริจิตา สุภาวิตา
+<span class="LineNumber"> 012 </span>ปริปุณฺณา โส ภิกฺขุ อิมํ โลกํ ปภาเสติ อพฺภา มุตฺโต จนฺทิมา
+<span class="LineNumber"> 013 </span>อิวาติ โยชนา ฯ
+<span class="LineNumber"> 014 </span>	อิธาติ อิมสฺมึ €าน ปโยชนนฺติ ปท อาธาโร ฯ อสฺสาติ
+<span class="LineNumber"> 015 </span>อุปมาภูตสฺส กกจสฺส ปโยชนนฺติ ปเท สมฺพนฺโธ ฯ
+<span class="LineNumber"> 016 </span>อาคตคตวเสนาติ<SUP>๒</SUP> ปทํ อมนสิการ อิติ ปเท ตติยาวิเสสนํ ฯ
+<span class="LineNumber"> 017 </span>ปโยชนนฺติ อานยเน ปโยชนํ ฯ
+
+<span class='footnote'>๑. พฺยนฺตี อิติ วณฺณนาปาโ€ ฯ  ๒. อาคตาคต... อิติ วณฺณนาปาโ€ น อาคเต วา คเต </span>
+<span class='footnote'>วา กกจทนฺเต มนสิกโรตีติ เหฏฺ€าวจเนน น สเมติ ฯ</span>
+<span class="LineNumber"> 018 </span>                                [ปา.๑๒๙ ฯ ส.๕๐๖..๕๐๘]

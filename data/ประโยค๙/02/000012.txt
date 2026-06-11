@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  12
+
+<span class="LineNumber"> 002 </span>	[๒๐]  กสฺมา  อิเธว  เทฺว  เทฺว  ธมฺมา  วุตฺตา  นนุ
+<span class="LineNumber"> 003 </span>สมาธิอาทโย  วิย  เอเกเก  ธมฺมา  วตฺตพฺพาติ  อาห  ยสฺมา
+<span class="LineNumber"> 004 </span>เอเตตฺยาทึ  ฯ  เทฺว  เทฺว  เอเต  ธมฺมา  ปสฺสทฺธิอาทโย  ธมฺมา
+<span class="LineNumber"> 005 </span>เอกโต...ธมฺเม  กายจิตฺตทรถาทิเก  ปจฺจนิกธมฺเม  ยสฺมา  หนนฺติ
+<span class="LineNumber"> 006 </span>วินาเสนฺติ  ตสฺมา  อิเธว  ปสฺสทฺธิอาทิเกเยว  ทุวิธตา  ภควตา  วุตฺตา
+<span class="LineNumber"> 007 </span>สมาธิอาทีสุ  ทุวิธตา  น  วุตฺตา  ฯ
+<span class="LineNumber"> 008 </span>	อตฺตโน  อนุรูปํ  ยถาสกํ  ฯ  ปฏิปกฺขา  จ  เต  ธมฺมา
+<span class="LineNumber"> 009 </span>จาติ  ปฏิปกฺขธมฺมา  อุทฺธตาทิถีนาทิมิทฺธาทิกามจฺฉนฺทาทิอสทฺธาทิ-
+<span class="LineNumber"> 010 </span>มายาทโย  ฯ  หรนฺตีติปิ  อตฺถิ  ฯ  เอวสทฺโท  สมาธิอาทโย
+<span class="LineNumber"> 011 </span>นิวตฺเตติ  ฯ  เทฺว  วิธา  ปการา  เยสํ  ปสฺสทฺธิอาทีนํ  เต  ทุวิธา
+<span class="LineNumber"> 012 </span>ทุวิธานํ  ภาโว  ทุวิธตา  ฯ  สมาธิ  อาทิ  เยสํ  สทฺธาปญฺาทีนํ
+<span class="LineNumber"> 013 </span>เต  สมาธิอาทโย  ฯ
+<span class="LineNumber"> 014 </span>	ยสฺมาติ  หนนฺตีติ  ปเท  กิริยาปรามสนํ  ฯ  เอเต  เทฺว
+<span class="LineNumber"> 015 </span>เทฺวติ  ธมฺมาต  ปทสฺส  วิเสสนํ  ฯ  ธมฺมาติ  หนนฺตีติ  ปเท
+<span class="LineNumber"> 016 </span>กตฺตา  ฯ  เอกโตติ  หุตฺวาติ  ปเท  อาธาโร<SUP>๑</SUP>  ฯ  หุตฺวาติ  หนนฺตีติ  ปเท
+<span class="LineNumber"> 017 </span>วิเสสนํ  ฯ  ยถากนฺติ  หนนฺตีติ  ปเท  กิริยาวิเสสนํ  ฯ  ปฏิ...
+<span class="LineNumber"> 018 </span>ธมฺเมติ  หนนฺตีติ  ปเท  กมฺมํ  ฯ  ตสฺมาติ  วุตฺตาติ  ปเท  เหตุ  ฯ
+<span class="LineNumber"> 019 </span>อิเธวาติ  วุตฺตาติ  ปเท  อาธาโร  ฯ  ทุวิธตาติ  วุตฺตาติ  ปเท
+<span class='footnote'>๑.  ตติยาวิเสสเนน  ภวิตพฺพํ  ฯ</span>
+<span class="LineNumber"> 020 </span>						อภิ.๑๐๖

@@ -1,0 +1,19 @@
+<span class="LineNumber"> 001 </span>น   ปสฺสติ.   นตฺถิ   ปาปนฺติ:   ตสฺส   เอวรูปสฺส  อิทํ  นาม  ปาปํ 
+<span class="LineNumber"> 002 </span>อกตฺตพฺพนฺติ นตฺถิ. 
+<span class="LineNumber"> 003 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 004 </span>		  		จิฺจมาณวิกาวตฺถุ. 
+	
+<span class="LineNumber"> 005 </span>		๑๐. อสทิสทานวตฺถุ. (๑๔๖) 
+<span class="LineNumber"> 006 </span>	"น   เว   กทริยา  เทวโลกํ  วชนฺตีติ  อิมํ  ธมฺมเทสนํ  สตฺถา 
+<span class="LineNumber"> 007 </span>เชตวเน วิหรนฺโต อสทิสทานํ อารพฺภ กเถสิ. 
+<span class="LineNumber"> 008 </span>	เอกสฺมึ  หิ  สมเย  สตฺถา  จาริกํ  จริตฺวา  ปฺจสตภิกฺขุปริวาโร 
+<span class="LineNumber"> 009 </span>เชตวนํ   ปาวิสิ.   ราชา   วิหารํ   คนฺตฺวา   สตฺถารํ   นิมนฺเตตฺวา 
+<span class="LineNumber"> 010 </span>ปุนทิวเส   อาคนฺตุกทานํ   สชฺเชตฺวา   "ทานํ  เม  ปสฺสนฺตูติ  นาคเร 
+<span class="LineNumber"> 011 </span>ปกฺโกสิ.   นาครา   อาคนฺตฺวา   รฺโ   ทานํ   ทิสฺวา   ปุนทิวเส 
+<span class="LineNumber"> 012 </span>สตฺถารํ   นิมนฺเตตฺวา   ทานํ   สชฺเชตฺวา   "อมฺหากํ   ทานํ   เทโว 
+<span class="LineNumber"> 013 </span>ปสฺสตูติ   รฺโ   ปหิณึสุ.   ราชา   คนฺตฺวา   เตสํ   ทานํ   ทิสฺวา 
+<span class="LineNumber"> 014 </span>"อิเมหิ   มม   ทานโต   อุตฺตริตรํ   กตํ,   ปุน   ทานํ   กริสฺสามีติ 
+<span class="LineNumber"> 015 </span>ปุนทิวเสปิ   ทานํ   สชฺเชสิ.   นาคราปิ   ตํ   ทิสฺวา   ปุนทิวเส 
+<span class="LineNumber"> 016 </span>สชฺชยึสูติ.   เอวํ   เนว   ราชา   นาคเร   ปราเชตุํ  สกฺโกติ,  น 
+<span class="LineNumber"> 017 </span>นาครา   ราชานํ.   อถ   ฉฏฺเ€   วาเร  นาครา  สตคุณํ  สหสฺสคุณํ 
+<span class="LineNumber"> 018 </span>วฑฺเฒตฺวา,   ยถา   น   สกฺกา   โหติ   "อิทํ  นาม  อิเมสํ  ทาเน 

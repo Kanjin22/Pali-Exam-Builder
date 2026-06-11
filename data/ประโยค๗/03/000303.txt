@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ทฺทาเลติ ปทํ ยาจนฺตาติ ปเท กมฺมํ ฯ ตโตติ ปจฺฉา ฯ อากรนฺติ
+<span class="LineNumber"> 002 </span>โลหปฺปติฏฺ€านฏฺ€านํ ฯ ยถา อิธ ปเทเส ทุกฺกเฏหิ สทฺธึ
+<span class="LineNumber"> 003 </span>ปาจิตฺติยานิ โหนฺติ เอวํ สพฺพตฺถ ปเทเส ฯ อิติ เอวํ สพฺพํ
+<span class="LineNumber"> 004 </span>วจนํ ฯ
+<span class="LineNumber"> 005 </span>	สหาโย จ กุทฺทาโล จ ปิฏกญฺจ สหา...กานิ ปริเยฏฺ-
+<span class="LineNumber"> 006 </span>€ิตานิ ปริเยสิตานิ สหายกุทฺทาลปิฏกานิ เยน โส ปริ...ปิฏโก ฯ
+<span class="LineNumber"> 007 </span>	ยถา อิธ นิธิฏฺ€านคมเน อตฺเถยฺยจิตฺตสฺส อนาปตฺติ เอวํ
+<span class="LineNumber"> 008 </span>สพฺพตฺถ €าเน ฯ จิรนิหิตายาติ จรํ €ปิตาย ฯ
+<span class="LineNumber"> 009 </span>	[๔๐๐] อิตีติ ปทํ อฏฺ€วิธนฺติ ปทสฺส สรูปํ ฯ ตตฺถาติ ตสฺมึ
+<span class="LineNumber"> 010 </span>อฏฺ€วิเธ ทุกฺกเฏ นิทฺธารณํ ฯ อิติ เอวํ วุตฺตํ อิทํ ทุกฺกฏํ ฯ
+<span class="LineNumber"> 011 </span>เอตฺถ หีติ หิ สจฺจํ เถยฺยจิตฺโต ฯ เป ฯ ทุกฺกฏสฺสาติ วจเน ฯ
+<span class="LineNumber"> 012 </span>เอตฺถ ปนาติ<SUP>๑</SUP> ตตฺถ ชาตกํ ฯ เป ฯ ฏฺฏสฺสาติ วจเน ฯ ยํ
+<span class="LineNumber"> 013 </span>ปน ทุกฺกฏํ ภควตา วุตฺตํ ฯ ตตฺถาติ €าเน ฯ ตตฺถาติ ปตฺเต ฯ
+<span class="LineNumber"> 014 </span>ยํ ทุกฺกฏํ อิติ วุตฺตํ ฯ
+<span class="LineNumber"> 015 </span>	อสฺสาติ อเนน ภิกฺขุนา ฉินฺเนปีติ ปเท กตฺตา อสฺสาติ
+<span class="LineNumber"> 016 </span>วา ภิกฺขุสฺส อชฺชิธมฺโมติ ปเท สมฺพนฺโธ ฯ อถ ยทิ ขนติ
+<span class="LineNumber"> 017 </span>ขน... ปติฏฺ€าติ ภิกฺขุ ฯ นนุ จ อกปฺปิยป€วึ ขนนฺตสฺส
+<span class="LineNumber"> 018 </span>ปาจิตฺติเยน ภวิตพฺพนฺติ โจทนํ สนฺธายาห อกปฺปิยาติอาทึ ฯ
+<span class="LineNumber"> 019 </span>อิธาติ ปํสุขนนาธิกาเร ฯ อสฺส ภิกฺขุสฺส ฯ ปตฺตสฺสาปีติ อปิสทฺโท
+
+<span class='footnote'>๑. อยํ ปนสทฺโท วณฺณนายํ นตฺถิ ฯ</span>
+<span class="LineNumber"> 020 </span>                            [ปา.๘๖ ฯ ส.๓๖๙..๓๗๑]

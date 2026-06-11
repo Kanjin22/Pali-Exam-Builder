@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			จตุตฺถปริจฺเฉทตฺถโยชนา    หน้า  385
+
+<span class="LineNumber"> 002 </span>	สตฺต  จ  ตานิ  ชวนานิ  จาติ  สตฺตชวนํ  สตฺตชวนํ  ปรมํ
+<span class="LineNumber"> 003 </span>ปมาณํ  ยสฺสา  สา  สตฺตชวนปรมา  ยสฺสา  เอกาวชฺชนวีถิยา  ฯ
+<span class="LineNumber"> 004 </span>สตฺตชวนปรมาย  ภาโว  สตฺต...มตฺตํ  ฯ  หิสทฺโท  ทฬฺหี  ฯ
+<span class="LineNumber"> 005 </span>เอกํ  อาวชฺชนํ  ยสฺสา  สา  เอกาวชฺชนา  ยสฺสา  วีถิยา  ฯ
+<span class="LineNumber"> 006 </span>เอกาวชฺชนา  วีถิ  เอกา...วีถิ  ฯ  อุปฺปชฺชตีติ  อุปฺปนฺโน  โย
+<span class="LineNumber"> 007 </span>มคฺโค  ฯ  อุปฺปนฺโน  จ  โส  มคฺโค  จาติ  อุปฺปนฺนมคฺโค  ฯ  เทฺว
+<span class="LineNumber"> 008 </span>วาติ  วาสทฺโท  น  เกวลํ  ตีณิ  โหนฺตีติ  าเปติ  ฯ
+<span class="LineNumber"> 009 </span>	สตฺต...มตฺตาติ  โหนฺตีติ  าปกเหตุ  ฯ  เอกา...วีถิยาติ
+<span class="LineNumber"> 010 </span>สตฺต...มตฺตาติ  ปเท  ภาวโยโค  ฯ  จตุตฺถนฺติ  อุปฺปนฺนาติ
+<span class="LineNumber"> 011 </span>กิริยาวิเสสนํ  ฯ  อุปฺปนฺนมคฺคโตติ  ปรนฺติ  อปาทานํ  ฯ  ปรนฺติ
+<span class="LineNumber"> 012 </span>โหนฺตีติ  กิริยาวิเสสนํ  ฯ  ตีณิ  ผลจิตฺตานีติ  โหนฺตีติ  กตฺตา  ฯ
+<span class="LineNumber"> 013 </span>ปญฺจมนฺติ  อุปฺปนฺนาติ  กิริยาวิเสสนํ  ฯ  อุปฺปนฺนมคฺคโตติ  ปรนฺติ
+<span class="LineNumber"> 014 </span>อปาทานํ  ฯ  ปรนฺติ  โหนฺตีติ  กิริยาวิเสสนํ  ฯ  เทฺว  วาติ  โหนฺตีติ
+<span class="LineNumber"> 015 </span>กตฺตา  ฯ
+<span class="LineNumber"> 016 </span>	[๔๖๒]  นิโรธ...กาเลติ  ปทสฺส  นิโรธสฺส  ปุพฺพภาเคติ
+<span class="LineNumber"> 017 </span>อตฺโถ  น  นิโรธสมาปชฺชนกาเลติ  อตฺโถติ  าเปนฺโต  อาห
+<span class="LineNumber"> 018 </span>นิโรธตฺยาทึ    ฯ
+<span class="LineNumber"> 019 </span>	นิโร...กาเลติ  €ปนํ  ฯ  นิโรธสฺสาติ  ปุพฺพภาเคติ  สมฺพนฺโธ  ฯ
+<span class="LineNumber"> 020 </span>นิรุชฺฌนํ  นิโรโธ  ฯ  ปุพฺพภาเคติ  ปทํ  กาเลติ  ปทสฺส  วิวรณํ  ฯ
+<span class="LineNumber"> 021 </span>ภชิยเตติ  ภาโค  โย  กาโล  ชเนน  ภชิยเต  วิภชิยเต  อิติ
+<span class="LineNumber"> 022 </span>						อภิ.๑๕๑

@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ดีเยี่ยมมีสีเสมอด้วยสีดอกสามหาว  โดยยาวประมาณ ๑ คืบ ๔ นิ้ว
+<span class="LineNumber"> 002 </span>โดยกลมประมาณเท่าลูกหินบด  ผุดขึ้นบนหลังหาดทราย  ใกล้ลำธาร
+<span class="LineNumber"> 003 </span>อันไหลไปสู่บึงแห่งเปฬิวาปิกคาม. 
+<span class="LineNumber"> 004 </span>           มนุษย์ทั้งหลาย  พบแร่ทองเป็นต้นเหล่านั้นแล้ว  กราบทูบแด่
+<span class="LineNumber"> 005 </span>พระราชา.  พระราชา  ให้ขนแร่ทั้งหมดนั้นมาแล้ว.
+<span class="LineNumber"> 006 </span>           เรื่องพระเจ้าทุฏฐคามณีอภัย  มาในปริเฉทที่ ๒๘ ในคัมภีร์มหาวงศ์
+<span class="LineNumber"> 007 </span>                                 [นิธิกัณฑสุตตคาถา]
+<span class="LineNumber"> 008 </span>           [๑๐๐]  ก็พระศาสดา  ครั้นตรัส ๒ คาถานี้แล้ว  ตรัสว่า  "คฤห-
+<span class="LineNumber"> 009 </span>บดี  ชื่อว่าบ่อเกิดอื่นเช่นกับบุญของสัตว์เหล่านี้ ไม่มี,  ด้วยว่า  รัตนะ
+<span class="LineNumber"> 010 </span>ทั้งหลาย  ย่อมเกิดขึ้นแม้ในที่มิใช่บ่อเกิดแก่คนมีบุญเท่านั้น"  ดังนี้
+<span class="LineNumber"> 011 </span>แล้ว  เมื่อทรงแสดงธรรมโดยนัยที่ตรัสไว้ในนิธิกัณฑ์* จึงตรัสคาถา
+<span class="LineNumber"> 012 </span>เหล่านี้ว่า  
+<span class="LineNumber"> 013 </span>              <B>"(บุญ)  นิธินั่นให้สมบัติน่าใคร่ทุกอย่างแก่ทวย
+<span class="LineNumber"> 014 </span>              เทพและมนุษย์:  ทวยเทพและมนุษย์ปรารถนา
+<span class="LineNumber"> 015 </span>              ผลใด ๆ,  ผลนั้น ๆ ทั้งปวง  ย่อมได้ด้วยบุญ-
+<span class="LineNumber"> 016 </span>              นิธินั่น.
+<span class="LineNumber"> 017 </span>                        ความเป็นผู้มีวรรณะงาม  ความเป็นผู้มีเสียง
+<span class="LineNumber"> 018 </span>              ไพเราะ ความมีทรวดทรงสมส่วน  ความเป็นผู้
+<span class="LineNumber"> 019 </span>              มีรูปสวย  ความเป็นใหญ่ยิ่ง  ความมีบริวาร,
+<span class="LineNumber"> 020 </span>              ผลทั้งปวง  ย่อมได้ด้วยบุญนิธินั่น.</B>
+
+<span class='footnote'>*  ขุ.  ธ.  ๒๕/๑๑.</span>

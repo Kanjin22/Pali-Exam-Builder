@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  302
+
+<span class="LineNumber"> 002 </span>	หิสทฺโท  พฬฺหี  ฯ  มฺตีติ  มธุ  ยํ  ธมฺมชาตํ  ชเนน
+<span class="LineNumber"> 003 </span>มฺติ  ายติ  อิติ  ตสฺมา  ตํ  ธมฺมชาตํ  มธุ  มธุกเรหิ  กตํ
+<span class="LineNumber"> 004 </span>รสํ  ฯ  มนุ  าเณ  กาล  วตฺตมานาตีเต  ณฺวาทโยติ  อุ  กฺวจิ
+<span class="LineNumber"> 005 </span>ธาตูติอาทินา  นสฺส  โธ  ฯ  วิเสเสน  อชฺชนฺติ  อสฺสาทภาวํ  คจฺฉนฺติ
+<span class="LineNumber"> 006 </span>เอตฺถ  มจฺฉมํสาทิมฺหิ  ชนาติ  พฺยฺชนํ  ฯ  วิปุพฺโพ  อช  คติยํ
+<span class="LineNumber"> 007 </span>กตฺตุ...สุ  จ  อนกา  ยุณฺวูนํ  นิคฺคหิตฺจาติ  มชฺเฌ  พินฺทาคโม
+<span class="LineNumber"> 008 </span>วคฺคนฺตึ  อิวณฺโณ  ยนฺนวา  โท  ธสฺส  จาติ  จสทฺเทน  วสฺส  โพ
+<span class="LineNumber"> 009 </span>นเย  ฯ  อสฺสาทิยเต  อสฺสาทนํ  ภาวสาธนํ  ฯ  อาปุพฺโพ  สท
+<span class="LineNumber"> 010 </span>สาทเน  นนฺทาทีหิ  ยุ  อฺเสุ  จ  นเย  สสฺส  ทฺวิตฺตํ  รสฺสํ  ฯ
+<span class="LineNumber"> 011 </span>อสฺสาทนํ  อตฺโถ  ยสฺส  จกฺขติสทฺทสฺส  โส  อสฺสาทนตฺโถ  ฯ
+<span class="LineNumber"> 012 </span>	จกฺขตีติ  สทฺโทติ  ปทสฺส  สรูปํ  ฯ  อยนฺติ  สทฺโทติ  ปทสฺส
+<span class="LineNumber"> 013 </span>วิเสสนํ  ฯ  สทฺโทติ  โหตีติ  ปเท  ปกติกตฺตา  ฯ  มธุ...ทีสูติ
+<span class="LineNumber"> 014 </span>จกฺขติสทฺโทติ  ปเท  อาธาโร  ฯ  วิยาติ  อุปมาโชตโก  ฯ
+<span class="LineNumber"> 015 </span>อสฺสาทนตฺโถติ  โหตีติ  ปเท  วิกติกตฺตา  ฯ
+<span class="LineNumber"> 016 </span>	[๑๘๒]  จกฺขุสฺส  รูปสฺสาทนภาวํ  ปาลิยา  สาเธนฺโต  อาห
+<span class="LineNumber"> 017 </span>เตนาตฺยาทึ  ฯ  เตน  จกฺขุสฺส  รูปสฺสาทนภาวโต  ภควา  อาห
+<span class="LineNumber"> 018 </span>จกฺขุ...อาทิวจนํ  ฯ
+<span class="LineNumber"> 019 </span>	มาคนฺทิยาติ  ตํ  พฺราหฺมณํ  นาเมน  อาลปติ  ฯ  รูปสฺมึ
+<span class="LineNumber"> 020 </span>อารามํ  รูปารามํ  ฯ  อิตรทฺวยํ  ตสฺส  เววจนํ  ฯ  รูเป  รตํ
+<span class="LineNumber"> 021 </span>รูปรตํ  ฯ  รูเป  สมฺมุทิตํ  สมฺมา  อุทิตํ  รูปสมฺมุทิตํ<SUP>๑</SUP>  ฯ
+<span class='footnote'>๑.  รูเปน  จกฺขุํ  อาโมทิตํ  สมฺโมทิตนฺติ  รูปสมฺมุทิตนฺติ  มาคณฺฑิยสุตฺตวณฺณนา  ฯ</span>
+<span class="LineNumber"> 022 </span>					อภิ.๗๕

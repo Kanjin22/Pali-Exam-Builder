@@ -1,0 +1,6 @@
+<span class="LineNumber"> 001 </span>	ตํ   สุตฺวา   เวเทโห   ตสฺโสวาเท   €ตฺวา  เตน  กถิตนเยน 
+<span class="LineNumber"> 002 </span>กสิณปริกมฺมํ    กตฺวา    ฌานาภิฺาลาภี    อโหสิ  ฯ   เต   อุโภ 
+<span class="LineNumber"> 003 </span>พฺรหฺมโลกุปคา  ฯ   อยเมตฺถ   สงฺเขโป  ฯ   วิตฺถาโร   ตุ  ตโต 
+<span class="LineNumber"> 004 </span>คเหตพฺโพ ฯ 
+<span class="LineNumber"> 005 </span>		    ทฺวิตาปสวตฺถุ ฯ 
+<span class="LineNumber"> 006 </span>		   วินโยติปทกถา ฯ 

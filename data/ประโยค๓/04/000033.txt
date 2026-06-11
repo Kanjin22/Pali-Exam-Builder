@@ -1,0 +1,19 @@
+<span class="LineNumber"> 001 </span>	พฺยนฺติกาหตีติ:   เอส   ภิกฺขุ   ตีสุ   ภเวสุ   อุปฺปชฺชนกํ   ตณฺหํ 
+<span class="LineNumber"> 002 </span>วิคตํ กริสฺสติ. 
+<span class="LineNumber"> 003 </span>	มารพนฺธนนฺติ:      เอส     เตภูมิกวฏฺฏสงฺขาตํ     มารพนฺธนํปิ 
+<span class="LineNumber"> 004 </span>ฉินฺทิสฺสตีติ อตฺโถ. 
+<span class="LineNumber"> 005 </span>	เทสนาวสาเน   โส  ภิกฺขุ  โสตาปตฺติผเล  ปติฏฺ€หิ,  สมฺปตฺตานํปิ 
+<span class="LineNumber"> 006 </span>สาตฺถิกา เทสนา อโหสีติ. 
+<span class="LineNumber"> 007 </span>		   		จูฬธนุคฺคหปณฺฑิตวตฺถุ. 
+		   
+<span class="LineNumber"> 008 </span>		  ๘. มารวตฺถุ. (๒๔๗) 
+<span class="LineNumber"> 009 </span>	"นิฏฺ€ํ   คโตติ   อิมํ   ธมฺมเทสนํ   สตฺถา   เชตวเน  วิหรนฺโต 
+<span class="LineNumber"> 010 </span>มารํ อารพฺภ กเถสิ. 
+<span class="LineNumber"> 011 </span>	เอกทิวสํ    หิ   วิกาเล   สมฺพหุลา   เถรา   เชตวนมหาวิหารํ 
+<span class="LineNumber"> 012 </span>ปวิสิตฺวา   ราหุลตฺเถรสฺส   วสนฏฺ€านํ   คนฺตฺวา  ตํ  วุฏฺ€าเปสส.<SUP>๑</SUP> 
+<span class="LineNumber"> 013 </span>โส   อฺตฺถ   วสนฏฺ€านํ  อปสฺสนฺโต  คนฺตฺวา  ตถาคตสฺส  คนฺธกุฏิยา 
+<span class="LineNumber"> 014 </span>ปมุเข   นิปชฺชิ.   ตทา   โส   อายสฺมา  อรหตฺตํ  ปตฺโต  อวสฺสิโกว 
+<span class="LineNumber"> 015 </span>อโหสิ.    มาโร    วสวตฺตี    ภวเน    €ิโตเยว   ตํ   อายสฺมนฺตํ 
+<span class="LineNumber"> 016 </span>คนฺธกุฏิปฺปมุเข   นิปนฺนํ   ทิสฺวา  จินฺเตสิ  "สมณสฺส  โคตมสฺส  รุชนกา 
+<span class="LineNumber"> 017 </span>องฺคุลี   พหิ   นิปนฺนา,   สยํ   อนฺโตคนฺธกุฏิยํ   นิปนฺโน;   องฺคุลิยา 
+<span class='footnote'>๑. อาจารสมฺปนฺนา น ตถา กรึสุ. </span>

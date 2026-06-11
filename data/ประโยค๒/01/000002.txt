@@ -1,0 +1,5 @@
+<span class="LineNumber"> 001 </span>              คาถานํ พฺยฺชนปทํ                    ยํ ตตฺถ น วิภาวิตํ 
+<span class="LineNumber"> 002 </span>              เกวลนฺตํ วิภาเวตฺวา                    เสสนฺตเมว อตฺถโต 
+<span class="LineNumber"> 003 </span>              ภาสนฺตเรน ภาสิสฺสํ                   อาวหนฺโต วิภาวินํ
+<span class="LineNumber"> 004 </span>              มนโส ปีติปาโมชฺชํ                    อตฺถธมฺมูปนิสฺสิตนฺติ.
+<span class="LineNumber"> 005 </span>                                           ----------------------

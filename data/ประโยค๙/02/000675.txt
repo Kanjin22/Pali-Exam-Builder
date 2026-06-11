@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    675
+
+<span class="LineNumber"> 002 </span>กตฺตา  ฯ  ตสฺมึ  สมเยติ  กโรตีติ  อาธาโร  ฯ  เจติ  ปริกปฺโป  ฯ  
+<span class="LineNumber"> 003 </span>กาลนฺติ  กมฺมํ  ฯ  เอตํ  €านนฺติ  วิชฺชตีติ  กตฺตา  ฯ  ยนฺติ  อุป-
+<span class="LineNumber"> 004 </span>ปชฺเชยฺยาติ  กรณํ  ฯ  ทฺวินฺนนฺติ  คตีนนฺติ  วิเสสนํ  ฯ  คตีนนฺติ
+<span class="LineNumber"> 005 </span>นิทธารณํ  ฯ  อญฺตรนฺติ  อุปปชฺเชยฺยาติ  กมฺมํ  ฯ  นิย...นึ  วาติ
+<span class="LineNumber"> 006 </span>อญฺตรนฺติ  สรูปํ  ฯ
+<span class="LineNumber"> 007 </span>	[๘๔๔]  ตตฺโถณตํ<SUP>๑</SUP> วาติ  €ปนํ  ฯ  ตสฺมินฺติ  ภเวติ  วิเสสนํ  ฯ
+<span class="LineNumber"> 008 </span>อุปฺปชฺชิตพฺพภเวติ  โอณตนฺติ  อาธาโร  ฯ  อุปฺปชฺชิตพฺโพ  จ  โส
+<span class="LineNumber"> 009 </span>ภโว  จาติ  อุปฺปชฺชิตพฺพภโว  ฯ  โอณตํ  วิยาติ  จิตฺตสนฺตานนฺติ
+<span class="LineNumber"> 010 </span>วิเสสนํ  ฯ
+<span class="LineNumber"> 011 </span>	ป€มนเย  ตตฺถ  โอณตํ  อิวาติ  เฉโท  ฯ  วา  อปโร  นโย  ฯ
+<span class="LineNumber"> 012 </span>ตตฺโถ...อิติ  ปทจฺเฉโท  ฯ
+<span class="LineNumber"> 013 </span>	[๘๔๕]  พาหุลเลนาติ  ปเท  อธิปฺปาโย  เหฏฺ€า  วุตฺตนเยน
+<span class="LineNumber"> 014 </span>ทฏฺ€พฺโพติ  าเปนฺโต  อาห  พาหุตฺยาทึ  ฯ  พาหุ...เอตฺถ  ปเท
+<span class="LineNumber"> 015 </span>อธิปฺปาโย  เยภุ...เอตฺถ  ปเท  วุตฺต...โพ  ปณฺฑิเตน  ฯ
+<span class="LineNumber"> 016 </span>	พาหุ...ถาติ  อธิปฺปาโยติ  อาธาโร  ฯ  อธิปฺปาโยติ
+<span class="LineNumber"> 017 </span>ทฏฺ€พฺโพติ  กมฺมํ  ฯ  เยภุ...ถาติ  วุตฺตาติ  อาธาโร  ฯ  วุตฺตนเยนาติ
+<span class="LineNumber"> 018 </span>ทฏฺ€พฺโพติ  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 019 </span>	[๘๔๖]  อปรมฺปิ  อยํ  าเปนฺโต  อาห  อถวาตฺยาทึ  ฯ
+<span class="LineNumber"> 020 </span>ยถา...มินา  ปเทน  โส  อธิปฺปาโย  สงฺคเหตุํ  สกฺกา  อิติ  ตสฺมา
+<span class="LineNumber"> 021 </span>พาหุ...นา  ปเทน  สห...ตานํ  สตฺตานํ  จิตฺตสนฺตานํ  สณิ...ตานํ
+<span class='footnote'>๑.  ตตฺโถนตํ  วาติ  ฏีกาปาโ€  ฯ</span>
+<span class="LineNumber"> 022 </span>						อภิ.๑๘๕

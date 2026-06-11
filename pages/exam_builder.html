@@ -3484,8 +3484,7 @@
             const localUrls = rawCandidates.map(p => new URL(p, window.location.href).toString());
             const objectPaths = [...new Set(rawCandidates.map(p => normalizeDataObjectPath(p)))];
             const canTryStorage = objectPaths.some(p => p.startsWith('data/')) && !!storage;
-            const isGithubPages = /\.github\.io$/i.test(String(location.hostname || ''));
-            const preferStorage = canTryStorage && (String(localStorage.getItem('preferFirebaseStorageData') || '') === '1' || isGithubPages);
+            const preferStorage = canTryStorage && (String(localStorage.getItem('preferFirebaseStorageData') || '') === '1');
             const storageCandidates = objectPaths.filter(p => p.startsWith('data/'));
 
             const tryStorageCandidates = async () => {

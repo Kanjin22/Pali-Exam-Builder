@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>	[๑๕๙]     อริยมคฺคสมฺปยุตฺตา    ปน    วิรติ    สมุจฺเฉทวิรตีติ 
+<span class="LineNumber"> 002 </span>เวทิตพฺพา    ยสฺสา    อุปฺปตฺติโต    ปภูติ    ปาณํ    ฆาเตสฺสามาติ 
+<span class="LineNumber"> 003 </span>อริยปุคฺคลานํ จิตฺตมฺปิ น อุปฺปชฺชตีติ สมฺมาทิฏฺ€ิวณฺณนาทิ <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 004 </span>	เอตฺถ   จ   จิตฺตมฺปิ   น   อุปฺปชฺชตีติ   เอเตน   ปฺจเวรจิตฺตํ 
+<span class="LineNumber"> 005 </span>วูปสนฺตเมวาติ   ทสฺเสติ  ฯ   เตนฏฺ€กถายํ  <SUP>๒</SUP>  อริยมคฺคสมฺปยุตฺตา 
+<span class="LineNumber"> 006 </span>สมุจฺเฉทวิรติ   นาม   ยสฺสา   ปวตฺติโต    ปภูติ  อริยสาวกสฺส  ปฺจ 
+<span class="LineNumber"> 007 </span>ภยานิ  เวรานิ  วูปสนฺตานิ  โหนฺตีติ  วุตฺตํ  ฯ  ตตฺถ  ภยานิ  เวรานีติ 
+<span class="LineNumber"> 008 </span>ภยเวรเจตนาโย ฯ 
+<span class="LineNumber"> 009 </span>	                           วิรติตฺตยํ สรูปํ ฯ 
+<span class="LineNumber"> 010 </span>	[๑๖๐]    ปาปํ   นาม   กมฺมกฺกิเลสสงฺขาตํ   จตุพฺพิธมกุสลํ  ฯ 
+<span class="LineNumber"> 011 </span>วุตฺตฺเหตํ   สิคาลสุตฺเต  <SUP>๓</SUP>  กตมสฺส  จตฺตาโร  กมฺมกฺกิเลสา  ปหีนา 
+<span class="LineNumber"> 012 </span>โหนฺติ  ฯ   ปาณาติปาโต  โข  คหปติปุตฺต  กมฺมกฺกิเลโส  อทินฺนาทานํ 
+<span class="LineNumber"> 013 </span>กมฺมกฺกิเลโส    กาเมสุ    มิจฺฉาจาโร    กมฺมกฺกิเลโส    มุสาวาโท 
+<span class="LineNumber"> 014 </span>กมฺมกฺกิเลโส   อิมสฺส   จตฺตาโร   กมฺมกฺกิเลสา   ปหีนา  โหนฺตีติ  ฯ 
+<span class="LineNumber"> 015 </span>อิทมโวจ ภควา อิทํ วตฺวาน สุคโต อถาปรํ เอตทโวจ สตฺถา 
+<span class="LineNumber"> 016 </span>		<B>ปาณาติปาโต อทินฺนาทานํ    มุสาวาโท จ วุจฺจติ 
+<span class="LineNumber"> 017 </span>		ปรทารคมนฺเจว <SUP>๔</SUP>               นปฺปสํสนฺติ ปณฺฑิตาติ ฯ</B> 
+<span class="LineNumber"> 018 </span>	<B>กตมสฺสาติ</B> กตเม อสฺสาติ ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 019 </span>	ตตฺถ <B>อสฺสาติ</B> โสตาปนฺนสฺส อริยสาวกสฺส ฯ
+ 
+<span class='footnote'>๑. ป. สู. ๑/๒๗๐ ฯ  ๒. ป. โช. ขุ. ขุ. ๑๕๗ ฯ  ๓. ที. ปาฏิ. ๑๑/๑๙๕ ฯ </span>
+<span class='footnote'>๔. ปุราณโปตุถเก ปรทารคมนฺเจตีติ ทิสฺสติ ฯ . ว. </span>

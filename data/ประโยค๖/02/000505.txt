@@ -1,0 +1,10 @@
+<span class="LineNumber"> 001 </span>อนุวาโต จ ปริภณฺฑํ จ อนุ...ณฺฑํ  เตน อตฺถิโก อนุ...
+<span class="LineNumber"> 002 </span>ตฺถิโก ฯ เภสชฺชนาฬิมตฺตนฺติ เภสชฺชสฺส นาฬิกตฺตํ ฯ ตโตติ
+<span class="LineNumber"> 003 </span>เอกนาฬิโต ตติย อิติ ปเท อปาทานํ ฯ ทิวสานีติ อจฺจนฺต-
+<span class="LineNumber"> 004 </span>สํโยโค ฯ ปริปุณฺณายาติ ปทํ ปุจฺฉิตฺวาติ ปเท ลกฺขณกิริยา ฯ
+<span class="LineNumber"> 005 </span>คุฬปิณฺเฑปีติ ปทํ ตติยภาโคติ ปเท อาธาโร อถวา
+<span class="LineNumber"> 006 </span>ทาตพฺโพติ ปเท อาธาโร ฯ นิฏฺ€ิเตติ ปทํ ปุจฺฉิตฺวาติ ปเท
+<span class="LineNumber"> 007 </span>ลกฺขณกิริยา ฯ ตโตติ ตีหิ ทิวเสหิ ฯ
+<span class="LineNumber"> 008 </span>               เสนาสนกฺขนฺธกวณฺณนา นิฏฺ€ิตา ฯ
+<span class="LineNumber"> 009 </span>                                ------------
+<span class="LineNumber"> 010 </span>             [ปา.๑๔๗..๑๕๐ ส.๔๒๕.๔๒๖]

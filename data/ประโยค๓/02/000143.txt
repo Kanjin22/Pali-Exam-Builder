@@ -1,0 +1,19 @@
+<span class="LineNumber"> 001 </span>		"ปิยโต ชายเต โสโก,   ปิยโต ชายเต ภยํ, 
+<span class="LineNumber"> 002 </span>		ปิยโต วิปฺปมุตฺตสฺส     นตฺถิ โสโก, กุโต ภยนฺติ. 
+<span class="LineNumber"> 003 </span>	ตตฺถ   "ปิยโตติ:   วฏฺฏมูลโก   หิ   โสโก   วา   ภยํ   วา 
+<span class="LineNumber"> 004 </span>อุปฺปชฺชมานํ   ปิยเมว   สตฺตํ   วา  สงฺขารํ  วา  นิสฺสาย  อุปฺปชฺชติ, 
+<span class="LineNumber"> 005 </span>ตโต ปน วิปฺปมุตฺตสฺส อุภยํเปตํ นตฺถีติ อตฺโถ. 
+<span class="LineNumber"> 006 </span>	เทสนาวสาเน   กุฏุมฺพิโก   โสตาปตฺติผเล  ปติฏฺ€หิ.  สมฺปตฺตานํ 
+<span class="LineNumber"> 007 </span>สาตฺถิกา เทสนา อโหสีติ. 
+<span class="LineNumber"> 008 </span>				 อฺตรกุฏุมฺพิกวตฺถุ. 
+		  
+<span class="LineNumber"> 009 </span>		๓. วิสาขาอุปาสิกาวตฺถุ. (๑๖๗) 
+<span class="LineNumber"> 010 </span>	"เปมโต  ชายเตติ  อิมํ  ธมฺมเทสนํ  สตฺถา  เชตวเน  วิหรนฺโต 
+<span class="LineNumber"> 011 </span>วิสาขํ อุปาสิกํ อารพฺภ กเถสิ. 
+<span class="LineNumber"> 012 </span>	สา   กิร   ปุตฺตสฺส   ธีตรํ   สุทตฺตึ   นาม   กุมาริกํ  อตฺตโน 
+<span class="LineNumber"> 013 </span>€าเน   €เปตฺวา   เคเห   ภิกฺขุสงฺฆสฺส   เวยฺยาวจฺจํ  กาเรสิ.  สา 
+<span class="LineNumber"> 014 </span>อปเรน   สมเยน   กาลมกาสิ.   สา  ตสฺสา  สรีรนิกฺเขปํ  กาเรตฺวา 
+<span class="LineNumber"> 015 </span>โสกํ   สนฺธาเรตุํ   อสกฺโกนฺตี   ทุกฺขินี   ทุมฺมนา<SUP>๑</SUP>  สตฺถุ  สนฺติกํ 
+<span class="LineNumber"> 016 </span>คนฺตฺวา   วนฺทิตฺวา   เอกมนฺตํ   นิสีทิ.  อถ  นํ  สตฺถา  "กึ  นุ  โข 
+<span class="LineNumber"> 017 </span>ตฺวํ   วิสาเข   ทุกฺขินี   ทุมฺมนา   อสฺสุมุขา   โรทมานา   นิสินฺนาสีติ 
+<span class='footnote'>๑. อิโต ปรํ สีหลโปตฺถเก `อสฺสุมุขา รุทมานาติ ทิสฺสติ. </span>

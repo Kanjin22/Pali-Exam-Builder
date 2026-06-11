@@ -1,0 +1,15 @@
+<span class="LineNumber"> 001 </span>ปเรสํ    ปหรณาทีนํ    วา    อภาเวน    หตฺถสฺโต.   ทุติยปเทปิ 
+<span class="LineNumber"> 002 </span>เอเสว นโย. วาจาย ปน มุสาวาทาทีนํ อกรณโต วาจาสฺโต. 
+<span class="LineNumber"> 003 </span>	สฺตตฺตโมติ:    สฺตตฺตภาโว,   กายจลนสีสุกฺขิปนภมุกวิการาทีนํ 
+<span class="LineNumber"> 004 </span>อการโกติ<SUP>๑</SUP> อตฺโถ. 
+<span class="LineNumber"> 005 </span>	อชฺฌตฺตรโตติ:      โคจรชฺฌตฺตสงฺขาตาย      กมฺมฏฺ€านภาวนาย 
+<span class="LineNumber"> 006 </span>รโต. 
+<span class="LineNumber"> 007 </span>	สมาหิโตติ: สุฏฺ€ุ สมาหิโต. 
+<span class="LineNumber"> 008 </span>	เอโก  สนฺตุสิโตติ:  เอกวิหารี  หุตฺวา สุฏฺ€ุ ตุสิโต วิปสฺสนาจารโต 
+<span class="LineNumber"> 009 </span>ปฏฺ€าย   อตฺตโน   อธิคเมน  ตุฏฺ€มานโส.  ปุถุชฺชนกลฺยาณกํ  หิ  อาทึ 
+<span class="LineNumber"> 010 </span>กตฺวา   สพฺเพปิ   เสขา   อตฺตโน   อธิคเมน  สนฺตุสนฺตีติ  สนฺตุสิตา, 
+<span class="LineNumber"> 011 </span>อรหา ปน เอกนฺตสนฺตุสิโตว; ตํ สนฺธาเยตํ วุตฺตํ. 
+<span class="LineNumber"> 012 </span>	เทสนาวสาเน พหู โสตาปตฺติผลาทีนิ ปาปุณึสูติ. 
+<span class="LineNumber"> 013 </span>		    		หํสฆาตกภิกฺขุวตฺถุ. 
+		  
+<span class='footnote'>๑. สี. ม. ยุ. อกรณโตติ. </span>

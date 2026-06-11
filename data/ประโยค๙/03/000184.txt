@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  184
+
+<span class="LineNumber"> 002 </span>กิเลสาติ  วิเสสนํ  ฯ  อิตีติ  วุจฺจนฺตีติ  เหตุ  ฯ  ตทวตฺถาติ
+<span class="LineNumber"> 003 </span>กิเลสาติ  วิเสสนํ  ฯ  กิเลสาติ  วุจฺจนฺตีติ  กมฺมํ  ฯ  อนุสยาตีติ
+<span class="LineNumber"> 004 </span>วุจฺจนฺตีติ  อากาโร  ฯ
+<span class="LineNumber"> 005 </span>	เต  กิเลสา  นิปฺปริยายโต  อนุสยาติ  าเปนฺโต  อาห
+<span class="LineNumber"> 006 </span>เตตฺยาหิ  ฯ
+<span class="LineNumber"> 007 </span>	[๘๑]  นิปฺป...คตา  เต  ปน  กิเลสา  อนุสยาติ  วุจฺจนฺติ  ฯ
+<span class="LineNumber"> 008 </span>อตีตปจฺจุปฺปนฺนาปิ  กิเลสา  ตํสภาวตฺตา  อุปฺปชฺชนกสภาวตฺตา  ตถา
+<span class="LineNumber"> 009 </span>อนุสยาติ  ปณฺฑิเตน  วุจฺจนฺตีติ  โยชนา  ฯ
+<span class="LineNumber"> 010 </span>	ปนสทฺโท  วิเสโส  ฯ  อตีตา  จ  ปจฺจุปฺปนฺนา  จ  อตีต-
+<span class="LineNumber"> 011 </span>ปจฺจุปฺปนฺนา  ฯ  อปิสทฺโท  อนาคเต  สมฺปิณฺเฑติ  ฯ  สา  อุปฺปชฺชนา<SUP>๑</SUP>
+<span class="LineNumber"> 012 </span>สภาโว  เอเตสํ  กิเลสานนฺติ  ตํสภาวา  ฯ  ตํสภาวานํ  ภาโว
+<span class="LineNumber"> 013 </span>ตํสภาวตฺตํ  ฯ  ตถาติ  เอวํ  ฯ  เต  อนาคตาติ  กิเลสาติ  วิเสสนํ  ฯ
+<span class="LineNumber"> 014 </span>กิเลสาติ  วุจฺจนฺตีติ  กมฺมํ  ฯ  อตีต...นาปีติ  วุจฺจนฺตีติ  กมฺมํ  ฯ
+<span class="LineNumber"> 015 </span>ตํสภาวตฺตาติ  วุจฺจนฺตีติ  เหตุ  ฯ  ตถาติ  วุจฺจนฺตีติ  นิทสฺสนํ  ฯ  นนุ
+<span class="LineNumber"> 016 </span>กาลเภเท  เอวํ  สติ  ธมฺมานํ  สภาวเภโท  ภเวยฺยาติ  โจทนํ
+<span class="LineNumber"> 017 </span>สนฺธายาห  น  หีตฺยาทิ  ฯ  หิ  สจฺจํ  กาลเภโท  ฯ  สภาวสฺส  เภโท
+<span class="LineNumber"> 018 </span>สภาวเภโท  ฯ  นาติ  ปฏิเสโธ  ฯ  กาลเภเทนาติ  เภโทติ  ตติยา-
+<span class="LineNumber"> 019 </span>วิเสสนํ  ฯ  ธมฺมานนฺติ  สภาวาติ  สมฺพนฺโธ  ฯ  เภโทติ  อตฺถีติ
+<span class='footnote'>๑.  ตํ  อุปฺปชฺชนํ  ฯ</span>
+<span class="LineNumber"> 020 </span>						อภิ.๒๑๘

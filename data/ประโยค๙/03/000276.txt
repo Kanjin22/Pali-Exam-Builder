@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  276
+
+<span class="LineNumber"> 002 </span>ทฺวารา...ยาโย  ฯ  อิมสฺส  วฏฺฏสฺส  ภูมิโย  ติสฺโส  อิติ  ตสฺมา
+<span class="LineNumber"> 003 </span>ตํ  วฏฺฏํ  ติภุมฺมํ  ฯ
+<span class="LineNumber"> 004 </span>	ติสฺโสติ  ภูมิโยติ  วิเสสนํ  ฯ  ภูมิโยติ  ลิงฺคตฺโถ  ฯ  ภวนฺติ
+<span class="LineNumber"> 005 </span>ชายนฺติ  เอตฺถ  โอกาเสสุ  สตฺตาทโยติ  ภูมิโย  ฯ  ภู  ชนเน  ฯ
+<span class="LineNumber"> 006 </span>กาเลติอาทินา  มิ  ฯ  อิมสฺสาติ  ภูมิโยติ  สมฺพนฺโธ  ฯ  อิตีติ
+<span class="LineNumber"> 007 </span>เหตุ  ฯ  ติภูมิ  อิติ  €ิตํ  ฯ  กฺวจิ  สมาสาทินา  อนฺเต  อปจฺจโย  ฯ
+<span class="LineNumber"> 008 </span>ปรเทฺว  ฯ  มสฺส  ทฺวิตฺตํ  ฯ  รสฺสํ  ฯ  ติภุมฺมํ<SUP>๑</SUP>  ฯ  ติภุมฺมํเยว
+<span class="LineNumber"> 009 </span>เตภูมิกํ  ฯ  เอวสทฺโท  ณิโก  สกตฺเถ  วตฺตตีติ  สญฺาเปติ  ฯ
+<span class="LineNumber"> 010 </span>ติภุมฺม  อิติ  €ิตํ  ฯ  ตมธิเต  ณิโก  ฯ  เตสุ  วุทฺธิ  ฯ  ติสฺส
+<span class="LineNumber"> 011 </span>เต  ฯ  กมฺมํ...โก  จ  เอตฺถ  ธมฺมชาเต  วตฺตติ  อิติ  ตสฺมา  ตํ
+<span class="LineNumber"> 012 </span>ธมฺมชาตํ  วฏฺฏํ  ฯ  ตสฺส  กมฺมสฺส  วิปาโก  ตพฺพิปาโก  ฯ  จสทฺโท
+<span class="LineNumber"> 013 </span>สมุจฺจโย  ฯ  วตุ  วตฺตเน  ฯ  ฉทาทีหิ  ตตฺรณ  ฯ  โท  ธสฺส  จาติ
+<span class="LineNumber"> 014 </span>จสทฺเทน  ตสฺส  โฏ  ฯ  เอตฺถาติ  วตฺตตีติ  อาธาโร  ฯ  กมฺมํ
+<span class="LineNumber"> 015 </span>ตพฺพิปาโกติ  วตฺตตีติ  กตฺตา  ฯ  อิตีติ  เหตุ  ฯ
+<span class="LineNumber"> 016 </span>	[๑๓๒]  ตณฺหาติ  ฐปนํ  ฯ  ตณฺหาย  เภทํ  ทสฺเสติ
+<span class="LineNumber"> 017 </span>กามาตฺยาทินา  ฯ  กาม...เภทา  จ  ตณฺหา  ฯ  กาม...นาติ  ติวิธาติ
+<span class="LineNumber"> 018 </span>ตติยาวิเสสนํ  ฯ  ติวิธาติ  ตณฺหาติ  วิเสสนํ  ฯ  กามตณฺหา  อาทิ
+<span class="LineNumber"> 019 </span>ยาสํ  ตณฺหานํ  ตา  กามตณฺหาทโย  ฯ  กามตณฺหาทีนํ  วโส  เภโท
+<span class="LineNumber"> 020 </span>กาม...วโส  ฯ  ตโย  วิธา  ยาสํ  ตา  ติวิธา  ฯ  กามรูปา-
+<span class='footnote'>๑.  ฏีกายมฺปน  ติภูมนฺติ  ทิสฺสติ  ฯ</span>
+<span class="LineNumber"> 021 </span>					อภิ.๒๓๑

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  144
+
+<span class="LineNumber"> 002 </span>ฉนฺนสนฺตีรณตทาลมฺพนานิ  อุปฺปชฺชนฺติ  โยนิโสมนสิการเหตุนา
+<span class="LineNumber"> 003 </span>กุสลา  กามาวจรชวนานิ  อโยนิโสมนสิกาเร  อกุสลชวนนานิ
+<span class="LineNumber"> 004 </span>นิรานุสยสนฺตานวเสน  กามาวจรกิริยาชวนานิ  อรหนฺตานเมว
+<span class="LineNumber"> 005 </span>อุปฺปชฺชนฺติ  ฯ  อาทิสทฺเทน  ปน  คหิเตสุ  ภูมิปุคฺคเลสุ  กามภูมิยํ
+<span class="LineNumber"> 006 </span>ตทาลมฺพนานิ  อุปฺปชฺชนฺติ  รูปภูมิยํ  ตทาลมฺพนานิ  เจว  ปฏิฆ-
+<span class="LineNumber"> 007 </span>ชวนญฺจ  น  อุปฺปชฺชนฺติ  ปุคฺคเลสุ  จ  ทุเหตุกาเหตุกานํ  สตฺตานํ
+<span class="LineNumber"> 008 </span>ทฺวิเหตุกตทาลมฺพนํ  น  อุปฺปชฺชติ  ฯ
+<span class="LineNumber"> 009 </span>	[๑๘๔]  สพฺพถาปีติ  ถาปจฺจโย  ปการตฺเถ  วตฺตตีติ
+<span class="LineNumber"> 010 </span>มนสิกตฺวา  สพฺพถาปีติ  ปทสฺสตฺถํ  าเปนฺโต  สพฺพถาปีติ  €เปตฺวา
+<span class="LineNumber"> 011 </span>อาวชฺช...กาเรนาติ  วิวรติ  ฯ
+<span class="LineNumber"> 012 </span>	อาว...เสนาติ  ปกาเรนาติ  ปทสฺส  วิเสสนํ  ฯ  อาวชฺชนํ
+<span class="LineNumber"> 013 </span>อาทิ  ยสฺส  ปการสฺส  โส  อาวชฺชนาทิ  ฯ  ตทาลมฺพนํ  ปริโยสานํ
+<span class="LineNumber"> 014 </span>ยสฺส  โส  ตทาลมฺพนปริโยสาโน  ฯ  อาวชฺชนาทิ  จ  โส
+<span class="LineNumber"> 015 </span>ตทาลมฺพนปริโยสาโน  จาติ  อาวชฺช...สาโน  ฯ  ปกาเรนาติ
+<span class="LineNumber"> 016 </span>สามญฺสฺส  เภทเกน  วิเสเสน  ฯ
+<span class="LineNumber"> 017 </span>	เอวํ  อตฺเถ  คหิเต  สพฺพถาปีติ  ปทํ  กามาวจราเนวาติ
+<span class="LineNumber"> 018 </span>อิมินา  สมฺพชฺฌตีติ  าเปนฺโต  อาห  กามา...เนวาติ  ฯ
+<span class="LineNumber"> 019 </span>สพฺพถาปีติ  ปทํ  กามา...เนวาติ  ปเท  ตติยาวิเสสนํ  ฯ  กามา
+<span class="LineNumber"> 020 </span>เนว  อิติ  โยชนา  ฯ  ปญฺจทฺวาเรสุ  อุปฺปนฺนานิ  จตุปญฺาส
+<span class="LineNumber"> 021 </span>จิตฺตานิ  สพฺพถาปีติ  กามาวจราเนว  อิติ  เวทิตพฺพานีติ  โยชนา  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๒๒

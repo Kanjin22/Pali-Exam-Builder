@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>เตนาห   เสนาสนกฺขนฺธเก  <SUP>๑</SUP> น  ภิกฺขเว  อุจฺจา  มฺจปฺปฏิปาทกา 
+<span class="LineNumber"> 002 </span>ธาเรตพฺพา    โย   ธาเรยฺย   อาปตฺติ   ทุกฺกฏสฺส  ฯ   อนุชานามิ 
+<span class="LineNumber"> 003 </span>ภิกฺขเว อฏฺ€งฺคุลปรมํ มฺจปฺปฏิปาทกนฺติ ฯ 
+<span class="LineNumber"> 004 </span>	ตพฺพณฺณนายฺจ  <SUP>๒</SUP>    มนุสฺสานํ   ปมาณงฺคุลเมว   อฏฺ€งฺคุลนฺติ 
+<span class="LineNumber"> 005 </span>วุตฺตํ ฯ 
+<span class="LineNumber"> 006 </span>	อิติ   สมจตุรสฺสอาสนฺทิกโต  อฺํ  มฺจปี€ํ  วิทตฺถฺยาธิกมุฏฺ€ิรตนโต 
+<span class="LineNumber"> 007 </span>อธิกุจฺจปาทกํ       อฏฺ€งฺคุลโต       อธิกุจฺจปฺปฏิปาทโก      มฺโจ 
+<span class="LineNumber"> 008 </span>จ   อุจฺจาสยนํ   นาม  ฯ   อุจฺจํ   วา  โหตุ  อนุจฺจํ  วา  มฺจปี€ํ 
+<span class="LineNumber"> 009 </span>อกปฺปิยปฺปจฺจตฺถรณตฺถตํ    ตํ    มหาสยนํ    นาม  ฯ   ตทุภยํ   น 
+<span class="LineNumber"> 010 </span>วฏฺฏติ  ฯ   เตน   ขุทฺทกปา€วณฺณนายํ  <SUP>๓</SUP>  ตทุภยมฺปิ  สาทิยโต  น 
+<span class="LineNumber"> 011 </span>เกนจิ ปริยาเยน วฏฺฏตีติ วุตฺตํ ฯ 
+<span class="LineNumber"> 012 </span>	[๑๒๗]    อกปฺปิยปฺปจฺจตฺถรณฺหิ    มฺจปี€ตฺถตเมว   น   วฏฺฏติ 
+<span class="LineNumber"> 013 </span>นาฺํ  ฯ  เตน  ธมฺมิกสุตฺตวณฺณนายํ  <SUP>๔</SUP>  ฉมายมฺปน โคณกาทิ-
+<span class="LineNumber"> 014 </span>สนฺถตายปิ วฏฺฏตีติ วุตฺตํ ฯ 
+<span class="LineNumber"> 015 </span>	ยสฺมา  ปน  อาธาเร  ปฏิกฺขิตฺเต  ตทาธารา  กิริยา  ปฏิกฺขิตฺตา ว 
+<span class="LineNumber"> 016 </span>โหติ    ตสฺมา   อุจฺจาสยนมหาสยนา   อิจฺเจว   วุตฺตํ  ฯ   อตฺถโต 
+<span class="LineNumber"> 017 </span>ปน    ตทุปโภคภูตนิสชฺชานิปชฺชเนหิ    วิรติ    ทสฺสิตาติ    ทฏฺ€พฺพาติ 
+<span class="LineNumber"> 018 </span>พฺรหฺมชาลอุโปสถสุตฺตฏีกา ฯ 
+<span class="LineNumber"> 019 </span>	[๑๒๘]  อิติ  สตฺตมฏฺ€มงฺคทฺวยเมกํ  กตฺวา  อฏฺ€งฺคานิ  โหนฺติ  ฯ 
+
+<span class='footnote'>๑. วิ. จุลฺล. ๗/๙๒ ฯ ๒. สมนฺต. ๓/๓๕๕ ฯ  ๓. ปรมตฺถโชติกา ขุทฺทกปา€- </span>
+<span class='footnote'>วณฺณนา ๓๕ ฯ  ๔. ป. โช. ขุ. สุ. ๒/๒๒๖ ฯ </span>

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    609
+
+<span class="LineNumber"> 002 </span>	ปฏฺ€าเนติ  อุทฺธริตฺวา  อุทฺธโฏติ  ปททฺวเย  อาธาโร  ฯ
+<span class="LineNumber"> 003 </span>ปนสทฺโท  วิเสสตฺโถ  ฯ  สหชาตา...โยตีติ  ปทํ  อุทฺธริตฺวาติ
+<span class="LineNumber"> 004 </span>นิทสฺสนํ  ฯ  ทสฺส...ย  เอวาติ  ภาวาติ  สมฺพนฺโธ  ฯ  เอวสทฺโท
+<span class="LineNumber"> 005 </span>ภาวนาย  ปหาตพฺพเจตนํ  นิวตฺเตติ  ฯ  สห...วนฺติ  อุทฺธริตฺวาติ
+<span class="LineNumber"> 006 </span>กมฺมํ  ฯ  อุทฺธริตฺวาติ  อุทฺธโฏติ  ปุพฺพกาลกิริยา  ฯ  สห...
+<span class="LineNumber"> 007 </span>โยตีติ  อุทฺธโฏติ  นิทสฺสนํ  ฯ  ภาว...ยาติ  ภาโวติ  สมฺพนฺโธ  ฯ
+<span class="LineNumber"> 008 </span>สห...โวติ  อุทฺธโฏติ  กมฺมํ  ฯ  เอวสทฺโท  อผโล  ฯ  น  ปนตฺยาทิมฺหิ
+<span class="LineNumber"> 009 </span>นาติ  ปฏิเสโธ  ฯ  ปนสทฺโท  วิเสสตฺโถ  ฯ  นานา...โวติ
+<span class="LineNumber"> 010 </span>อุทฺธโฏติ  กมฺมํ  ฯ
+<span class="LineNumber"> 011 </span>	[๗๖๗]  นานาขณิกกมฺมปจฺยสภาวสฺส  อนุทฺธนํ  โหตุ
+<span class="LineNumber"> 012 </span>ปฏิสนฺธิกานํ  สิยา  อาห  น  จาติอาทึ  ฯ  นานา...วินา
+<span class="LineNumber"> 013 </span>อุทฺธจฺจสหคตสฺส  ปฏิ...นํ  น  จ  อตฺถิ  ตสฺมา  ตสฺส  อุทฺธจฺจ-
+<span class="LineNumber"> 014 </span>สหคตสฺส  สพฺพตฺถาปิ  สพฺพปฺปกาเรน  ปฏิส...นํ  น  จ  อตฺถีติ
+<span class="LineNumber"> 015 </span>โยชนา  ฯ
+<span class="LineNumber"> 016 </span>	นาติ  อตฺถีติ  ปฏิเสโธ  ฯ  จสทฺโท  วากฺยารมฺโภ  ฯ  นานา
+<span class="LineNumber"> 017 </span>...ยนฺติ  วินาติ  กมฺมํ  ฯ    วินาติ  อากฑฺฒนนฺติ  วิเสสนํ  ฯ  ปฏิ...
+<span class="LineNumber"> 018 </span>ฺฺฒนนฺติ  อตฺถีติ  กตฺตา  ฯ  ปฏิสนฺธิยา  อากฑฺฒนํ  ปฏิ...ฒนํ  ฯ
+<span class="LineNumber"> 019 </span>ตสฺมาติ  ปฏิสมฺภิทาวิภงฺเค  ปวตฺติวิปากํ  สนฺธาย  วิปากสฺส
+<span class="LineNumber"> 020 </span>อุทฺธฏตฺตา  เจว  ปฏฺ€าเน  นานาขณิกกมฺมปจฺจยภาวสฺส  อนุทฺธฏตฺตา
+<span class="LineNumber"> 021 </span>จ  ฯ  ตสฺมาติ  นตฺถีติ  เหตุ  ฯ  ตสฺสาติ  นตฺถีติ  สมฺปทานํ  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๗๖

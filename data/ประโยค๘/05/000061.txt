@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>วิกขายิตกะ วิกขิตตกะ หตวิขิตตกะ โลหิตกะ ปุฬูวกะ  อัฏฐิกะ  
+<span class="LineNumber"> 002 </span>          นี้อนุสสติ ๑๐ คือ พุทธานุสสติ ธัมมานุสสติ สังฆานุสสติ  
+<span class="LineNumber"> 003 </span>สีลานุสสติ  จาคานุสสติ เทวตานุสสติ มรณานุสสติ  กายคตาสติ 
+<span class="LineNumber"> 004 </span>อานาปานสติ อุปสมนานุสสติ 
+<span class="LineNumber"> 005 </span>          นี้พรหมวิหาร ๔ คือ   เมตตา   กรุณา    มุทิตา    อุเบกขา 
+<span class="LineNumber"> 006 </span>          นี้อรูป ๔ คือ อากาสานัญจายตนะ วิญญาณัญจายตนะ อากิญ-
+<span class="LineNumber"> 007 </span>จัญญายตนะ เนวสัญญานาสัญญายตนะ 
+<span class="LineNumber"> 008 </span>          อาหาเรปฏิกูลสัญญา ชื่อว่า สัญญา  ๑  จตุธาตุววัฏฐาน  ชื่อ
+<span class="LineNumber"> 009 </span>ว่า ววัฏฐาน ๑ แล 
+<span class="LineNumber"> 010 </span>          บัณฑิต พึงทราบวินิจฉัยโดยแสดงจำนวน ดังนี้ 
+<span class="LineNumber"> 011 </span>                             [อุปจารปฺปนาวหโต
+<span class="LineNumber"> 012 </span>          บทว่า " โดยเป็นกรรมฐานนำมาได้เพียงอุปจารฌานหรือถึง
+<span class="LineNumber"> 013 </span>อัปปนาฌาน " มีวินิจฉัยว่า ก็ในกรรมฐานเหล่านั้น กรรมฐาน 
+<span class="LineNumber"> 014 </span>๑๐  ข้อ คือ อนุสสติ เว้นกายคตาสติ และอานาปานสติ เหลือ ๘ 
+<span class="LineNumber"> 015 </span>อาหาเรปฏิกูลสัญญา ๑ จตุธาตุววัฏฐาน ๑นี้เท่านั้นเป็นอุปจารา-
+<span class="LineNumber"> 016 </span>วหะ ( เป็นกรรมฐานนำมาได้เพียงอุปจารฌาน ) กรรมฐานนอกนั้น
+<span class="LineNumber"> 017 </span>เป็นอัปปนาวหะ ( นำมาได้ถึงอัปปนา ) แล 
+<span class="LineNumber"> 018 </span>         พึงทราบวินิจฉัย โดยเป็นกรรมฐานนำมาได้เพียงอุปจารฌาน
+<span class="LineNumber"> 019 </span>หรือถึงอัปปนาฌาน ดังนี้แล 
+
+

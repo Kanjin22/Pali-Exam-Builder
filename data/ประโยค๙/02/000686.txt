@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    686
+
+<span class="LineNumber"> 002 </span>	[๘๖๑]  อิมสฺส  จ  สงฺขารสฺส  มูลํ...ภูตํ  ตณฺหานุสโยว  อิติ
+<span class="LineNumber"> 003 </span>ตสฺมา  ตณฺหา...ลโก  ฯ
+<span class="LineNumber"> 004 </span>	ตณฺหา  เอว  อนุสโย  ตณฺหานุสโย  ฯ  เอวสทฺโท  มูลํ
+<span class="LineNumber"> 005 </span>น  อญฺนฺติ  าเปติ  ฯ  มูลนฺติมสฺส  วิวรณํ  ปธานนฺติ  ฯ  สห
+<span class="LineNumber"> 006 </span>...ภูตนฺติ  ปธานนฺติ  ปทสฺส  อธิปฺปายวเสน  อตฺถิวรณํ  ฯ  มูลติ
+<span class="LineNumber"> 007 </span>ปธานภาเวน  ปติฏฺ€าตีติ  มูลํ  ยํ  ธมฺมชาตํ  ปธานภาเวน  มูลติ
+<span class="LineNumber"> 008 </span>ปติฏฺ€าติ  อิติ  ตสฺมา  ตํ  ธมฺมชาตํ  มูลํ  ตณฺหา  ฯ  ปกฏฺเ€น
+<span class="LineNumber"> 009 </span>ธาติ  ปติฏฺ€าตีติ  ปธานํ  ยํ  ธมฺมชาตํ  ฯ  ผลํ  สห  กโรติ
+<span class="LineNumber"> 010 </span>สีเลนาติ  สหการี  ยา  ตณฺหา  สีเลน  กมฺเมน  สห  ผลํ  กโรติ
+<span class="LineNumber"> 011 </span>อิติ  ตสฺมา  สา  ตณฺหา  สหการี  ฯ  สหการี  จ  ตํ  การณญฺจาติ
+<span class="LineNumber"> 012 </span>สห...รณํ  ฯ  สหการิการณํ  หุตฺวา  ภวตีติ  สห...ภูตํ  ยํ
+<span class="LineNumber"> 013 </span>ธมฺมชาตํ  ฯ
+<span class="LineNumber"> 014 </span>	ตณฺหา...โยวาติ  ลิงฺคตฺโถ  ฯ  มูลํ...ภูตนฺติ  ตณฺหา...
+<span class="LineNumber"> 015 </span>โยวาติ  วิเสสนํ  ฯ  อิมสฺสาติ  มูลนฺติ  สมฺพนฺโธ  ฯ  อิตีติ  ตณฺหา
+<span class="LineNumber"> 016 </span>...โกติ  นามลาภเหตุ  ฯ  ตณฺหา..ลโกติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 017 </span>	ตณฺหานุสโย  มูลํ  อิมสฺสาติ  ตณฺหานุสยมูลโก  ฯ  กฺวจิ
+<span class="LineNumber"> 018 </span>สมาสาทินา  โก  ฯ
+<span class="LineNumber"> 019 </span>	[๘๖๒]  สงฺขาโร  นาม  สงฺขตสงฺขาราทินา  พหุวิโธติ  มนสิ-
+<span class="LineNumber"> 020 </span>กตฺวา  สงฺขาเรนาติ  ปทํ  €เปตฺวา  อาห  กุสาตฺยาทึ  ฯ
+<span class="LineNumber"> 021 </span>สงฺขาเรนาติ  €ปนํ  ฯ  กุส...กมฺเมน  วา  กมฺม...ทาเยน  วา
+<span class="LineNumber"> 022 </span>จุติ...ชาเตน  เตน  ผสฺสาทิธมฺมสมุทาเยน  ชนิยมานนฺติ  โยชนา  ฯ
+<span class="LineNumber"> 023 </span>						อภิ.๑๘๖

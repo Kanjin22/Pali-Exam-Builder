@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>          ๖.  เรื่องพราหมณ์ผู้เป็นหลานของพระสารีบุตรเถระ<SUP>*</SUP>  [ ๘๖ ]
+<span class="LineNumber"> 002 </span>                                    [ ข้อความเบื้องต้น ]
+<span class="LineNumber"> 003 </span>	พระศาสดาเมื่อประทับอยู่ในพระเวฬุวัน   ทรงปรารภหลานของ
+<span class="LineNumber"> 004 </span>พระสารีบุตรเถระ  ตรัสพระธรรมเทศนานี้ว่า   <B>" โย  จ  วสฺสสตํ  ชนฺตุ "</B>
+<span class="LineNumber"> 005 </span>                         [ พระเถระพาหลานไปเฝ้าพระศาสดา ]
+<span class="LineNumber"> 006 </span>	ความพิสดารว่า   พระเถระเข้าไปหาหลานแม้นั้นแล้ว  ถามว่า
+<span class="LineNumber"> 007 </span>" พราหมณ์  เธอทำกุศลหรือ ? "
+<span class="LineNumber"> 008 </span>	พราหมณ์.   อย่างนั้น  ขอรับ.
+<span class="LineNumber"> 009 </span>	พระเถระ.   ทำกุศลอะไร ?
+<span class="LineNumber"> 010 </span>	พราหมณ์.   ฆ่าสัตว์เลี้ยงตัวหนึ่งแล้วบำเรอไฟทุก ๆ เดือน.
+<span class="LineNumber"> 011 </span>	พระเถระ.   ทำอย่างนั้น  เพื่ออะไร ?
+<span class="LineNumber"> 012 </span>	พราหมณ์.   เขาว่า  นั่นเป็นทางแห่งพรหมโลก.
+<span class="LineNumber"> 013 </span>	พระเถระ.   ใคร  ว่าอย่างนั้น ?
+<span class="LineNumber"> 014 </span>	พราหมณ์.   พวกอาจารย์ของกระผม  ขอรับ.
+<span class="LineNumber"> 015 </span>	พระเถระ  กล่าวว่า   " เธอไม่รู้ทางแห่งพรหมโลกเลย,  แม้พวก
+<span class="LineNumber"> 016 </span>อาจารย์ของเธอก็ไม่รู้,   มาเถิด,   เราจักไปสำนักของพระศาสดา "
+<span class="LineNumber"> 017 </span>ดังนี้แล้ว   นำหลานนั้นไปสู่สำนักของพระศาสดา  ทูลเรื่องนั้นแล้ว
+<span class="LineNumber"> 018 </span>กราบทูลว่า   " พระเจ้าข้า  ขอพระองค์ตรัสบอกทางแห่งพรหมโลก
+<span class="LineNumber"> 019 </span>แก่พราหมณ์นี้. "
+
+<span class='footnote'>* พระมหาโปร่ง  ป.ธ. ๙  วัดบวรนิเวศวิหาร  แปล.</span>

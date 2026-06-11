@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>น    วฏฺฏติ   คีตูปสฺหิโต   ปน   ธมฺโม   วฏฺฏตีติ   ลิขิตํ  ฯ   ตํ 
+<span class="LineNumber"> 002 </span>พฺรหฺมชาลาทิฏีกายํ อานีตวจเนน น สเมตีติ ฯ 
+<span class="LineNumber"> 003 </span>	[๑๒๒]    อฏฺ€มงฺเค   ปน   อุจฺจาสยนนฺติ   ปมาณาติกฺกนฺตํ  ฯ 
+<span class="LineNumber"> 004 </span><B>มหาสยนนฺติ</B> อกปฺปิยตฺถตนฺติ พฺรหฺมชาลอุโปสถสุตฺตวณฺณนา <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 005 </span>	อุจฺจาสยนํ    มหาสยนฺจ   สมณสารุปฺปรหิตํ   อธิปฺเปตนฺติ   อาห 
+<span class="LineNumber"> 006 </span>ปมาณาติกฺกนฺตํ อกปฺปิยตฺถตนฺติ ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 007 </span>	<B>มหาสยนนฺติ</B> อกปฺปิยสยนํ อกปฺปิยตฺถรณฺจาติ ขุทฺทกปา€-
+<span class="LineNumber"> 008 </span>วณฺณนา <SUP>๒</SUP> ฯ 
+<span class="LineNumber"> 009 </span>	<B>อุจฺจาติ</B>  อุจฺจสทฺเทน  สมานตฺถํ  เอกํ  สทฺทนฺตรํ  ฯ เสติ เอตฺถาติ 
+<span class="LineNumber"> 010 </span>สยนํ อาสนฺทาทิ ฯ อาสนฺเจตฺถ สยเนน สงฺคหิตนฺติ พฺรหฺมชาลาทิฏีกา ฯ 
+<span class="LineNumber"> 011 </span>	[๑๒๓] <B>อาสนฺทีติ</B> ปมาณาติกฺกนฺตาสนนฺติ จมฺมกฺขนฺธก-
+<span class="LineNumber"> 012 </span>วณฺณนา <SUP>๓</SUP> ฯ 
+<span class="LineNumber"> 013 </span>	อนุชานามิ ภิกฺขเว อุจฺจกมฺปิ อาสนฺทิกนฺติ เสนาสนกฺขนฺธก-
+<span class="LineNumber"> 014 </span>ปาลิ <SUP>๔</SUP> ฯ 
+<span class="LineNumber"> 015 </span>	<B>อาสนฺทิโกติ</B>    จตุรสฺสปี€ํ   วุจฺจติ  ฯ   <B>อุจฺจกมฺปิ   อาสนฺทิกนฺติ </B>
+<span class="LineNumber"> 016 </span>วจนโต   เอกโต   ภาเคน  ทีฆปี€เมว  หิ  อฏฺ€งฺคุลปาทกํ  วฏฺฏติ  ฯ 
+<span class="LineNumber"> 017 </span>จตุรสฺสาสนฺทิโก    ปน    ปมาณาติกฺกนฺโตปิ    วฏฺฏตีติ    เวทิตพฺโพติ 
+<span class="LineNumber"> 018 </span>ตพฺพณฺณนา <SUP>๕</SUP> ฯ 
+
+<span class='footnote'>๑. สุ. วิ. ๑/๑๐๔, มโน. ปู. ๒/๒๖๓ ฯ ๒. ปรมตฺถโชติกา ขุทฺทกปา€วณฺณนา ๓๕ ฯ </span>
+<span class='footnote'>๓. สมนฺต. ๓/๑๘๓ ฯ  ๔. วิ. จุลฺล. ๗/๙๑ ฯ ๕. สมนฺต. ๓/๓๕๔ ฯ </span>

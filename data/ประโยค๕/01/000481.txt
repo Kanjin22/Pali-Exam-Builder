@@ -1,0 +1,25 @@
+<span class="LineNumber"> 001 </span>	<B>ลงฺกตํ สพฺพคุเณหิ               ลเภยฺยํ ภวอนฺติเม ฯ 
+<span class="LineNumber"> 002 </span>	ยทา หฺยริยเมตฺเตยฺโย           อุปฺปนฺโน โลกนายโก 
+<span class="LineNumber"> 003 </span>	ตทาหํ สมฺมุขีภูโต                 ตสฺส ธมฺมํ สุเณยฺย ตํ 
+<span class="LineNumber"> 004 </span>	ตสฺส ธมฺมํ สุณิตฺวาน             คจฺเฉยฺยํ ปรมํ ผลํ 
+<span class="LineNumber"> 005 </span>	ตทาหํลงฺกโต สิยํ                   คุเณหิ สกเลหิปิ ฯ 
+<span class="LineNumber"> 006 </span>	สเจ เนตฺถ ผลํ คจฺเฉ               สํสรนฺโต ภวาภเว 
+<span class="LineNumber"> 007 </span>	ปาปมิตฺตํ น เสเวยฺยํ               เสเวยฺยํ ปุริสุตฺตเม 
+<span class="LineNumber"> 008 </span>	กุทิฏฺ€ิยา น สํยุเช                   สํยุเชหํ สุทิฏฺ€ิยา ฯ 
+<span class="LineNumber"> 009 </span>	ทานาทิสํยุตฺโต โหมิ                ปสนฺโน โลกสมฺมโต 
+<span class="LineNumber"> 010 </span>	ชาติสฺสโร มหาปฺโ             อกฺขุพฺโภ สาครูปโม</B> 
+		
+<span class='footnote'>       ชาติสฺสโร มหาปฺโ        อกฺโขโภ สาครูปโม </span>
+<span class='footnote'>       สพฺพธมฺมานเฉโกหํ             ภเวยฺยํ ชาติชาติยํ. </span>
+<span class='footnote'>       จิรํ ติฏฺ€ตุ สทฺธมฺโม              โลกนาถสฺส สาสนํ </span>
+<span class='footnote'>       ปสนฺนา โหนฺตุ สพฺเพปิ       ปาณิโน พุทฺธสาสเน. </span>
+<span class='footnote'>       เทโว โลเก ปวสฺสนฺโต          สมิทฺธึ เนตุ เมทนึ </span>
+<span class='footnote'>       สมฺมา ธารํ ปเวจฺฉนฺโต          รกฺขตุ ภูมิมํ สทา. </span>
+<span class='footnote'>       มาตา ปิตา จ อตฺรชํ                 นิจฺจํ รกฺขนฺตุ ปุตฺตกํ </span>
+<span class='footnote'>       เอวํ ธมฺเมน ราชาโน              ชนํ รกฺขนฺตุ สพฺพทาติ. </span>
+<span class='footnote'>                                 มงฺคลตฺถทีปนี </span>
+<span class='footnote'>                                  สมฺปุณฺณา ฯ </span>
+<span class='footnote'>                           นิพฺพานปจฺจโย โหตุ ฯ </span>
+<span class='footnote'>       ยาว พุทฺโธติ นามมฺปิ        โลเก วตฺตติ ตาทิโน </span>
+<span class='footnote'>       ติฏฺ€ตํ สาสนํ ตาว             เทเสนฺตุ โสตุมิจฺฉตนฺติ. </span>
+<span class='footnote'>                                   สิทฺธิรตฺถุ ฯ </span>

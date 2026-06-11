@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>              <B>การอยู่ร่วมกัน  ย่อมเป็นเช่นนั้น.  คนชั่ว  ใคร 
+<span class="LineNumber"> 002 </span>              คบเข้า  ก็เปื้อนคนคบ  ใครแตะต้องเข้า  ก็เปื้อน
+<span class="LineNumber"> 003 </span>              ผู้อื่น  ซึ่งเป็นผู้แตะต้องซึ่งมิได้เปื้อน  (มาแต่
+<span class="LineNumber"> 004 </span>              เดิม)  ดุจลูกศรอันร้าย  (ซึ่งกำซาบด้วยยาพิษ)
+<span class="LineNumber"> 005 </span>              ก็พลอยติดแล่งไปด้วย.  เพราะกลัวจะพลอย  
+<span class="LineNumber"> 006 </span>              เปื้อน  ธีรชนจึงไม่ควรมีคนชั่วเป็นสหายเสีย
+<span class="LineNumber"> 007 </span>              เลย.  คนห่อปลาเน่าด้วยในหญ้าคา  แม้ในหญ้าคา  ก็
+<span class="LineNumber"> 008 </span>              (พลอย)  เหม็นฟุ้งไปด้วย  ฉันใด,  การคบกับ
+<span class="LineNumber"> 009 </span>              คบพลอยก็ฉันนั้น.   เหตุนั้น  บัณฑิตรู้ความ
+<span class="LineNumber"> 010 </span>              แม้ใบก็ (พลอย)  หอมฟุ้งไปด้วยฉันใด,  การ
+<span class="LineNumber"> 011 </span>              อบรมของตน  (ว่า)  เหมือนใบไม้สำหรับห่อแล้ว
+<span class="LineNumber"> 012 </span>              ไม่พึงคบอสัตบุรุษ  ย่อมนำไปสู่นรก,  พวกสัตบุรุษ
+<span class="LineNumber"> 013 </span>              พวกอสัตบุรุษ  ย่อมนำไปสู่นรก,  พวกสัตบุรุษ
+<span class="LineNumber"> 014 </span>              ย่อมให้ถึงสุคติ."</B>
+<span class="LineNumber"> 015 </span>                                        [แก้อรรถ]
+<span class="LineNumber"> 016 </span>           [๒๔]  บรรดาบทเหล่านั้น  บทว่า  <B>สนฺตํ</B>  ได้แก่  สัตบุรุษ.
+<span class="LineNumber"> 017 </span>           บทว่า  <B>อสํ</B>  ได้แก่  อสัตบุรุษ.
+<span class="LineNumber"> 018 </span>           บทว่า  <B>เสวมาโน</B>  ได้แก่  อาจารย์.
+<span class="LineNumber"> 019 </span>           บทว่า  <B>เสวมานํ</B>  ได้แก่  อันเตวาสิก.
+<span class="LineNumber"> 020 </span>           บทว่า  <B>สมฺผุฏโ€</B>  ได้แก่  อาจารย์อันอันเตวาสิกแตะต้อง.
+
+
+  

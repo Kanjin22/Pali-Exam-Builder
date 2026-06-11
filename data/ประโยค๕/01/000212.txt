@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ปริจฺเฉเท 
+<span class="LineNumber"> 002 </span>		<B>วฏฺฏคามณิโน ปุตฺโต      โจรนาโคติ วิสฺสุโต 
+<span class="LineNumber"> 003 </span>		มหาจูฬสฺส รชฺชมฺหิ         โจโร หุตฺวาจรี ตทา 
+<span class="LineNumber"> 004 </span>		มหาจูเฬ อุปรเต              รชฺชํ กาเรสิ <SUP>๑</SUP>อาคโต 
+<span class="LineNumber"> 005 </span>		อตฺตโน โจรกาเล โส         นิวาสํ เยสุ นาลภิ 
+<span class="LineNumber"> 006 </span>		อฏฺ€ารส วิหาเร เต            วิทฺธํสาเปสิ ทุมฺมตีติ ฯ</B> 
+<span class="LineNumber"> 007 </span>	ตตฺถ   <B>อาคโตติ</B>   ชนปทโต  อนุราธปุรมาคโต  ฯ  <B>เยสูติ</B>   เยสุ 
+<span class="LineNumber"> 008 </span>วิหาเรสุ  ฯ  โส  ปาปราชา  อตฺตโน  เทวิยา  วิสํ  ขาทาปิโต  กาลํ 
+<span class="LineNumber"> 009 </span>กตฺวา โลกนฺตริกนิรเย <SUP>๒</SUP> นิพฺพตฺตตีติ ฯ 
+<span class="LineNumber"> 010 </span>                                โจรนาควตฺถุ ฯ 
+<span class="LineNumber"> 011 </span>                               ปฏิสณฺ€ารกถา ฯ 
+<span class="LineNumber"> 012 </span>	[๒๘๒]  อปิจ  คหฏฺเ€น  นาม  องฺคชนปเท  อสฺสปุรวฺหยนิคมวาสีหิ 
+<span class="LineNumber"> 013 </span>วิย พุทฺธาทีสุ สคารเวน ภวิตพฺพํ ฯ 
+<span class="LineNumber"> 014 </span>	ตสฺมึ    กิร   นิคเม   มนุสฺสา   สทฺธา   ปสนฺนา   พุทฺธมามกา 
+<span class="LineNumber"> 015 </span>ธมฺมมามกา   สงฺฆมามกา   ตทหุปฺปพฺพชิตสามเณรมฺปิ  วสฺสสติกตฺเถรสทิสํ 
+<span class="LineNumber"> 016 </span>กตฺวา       ปสฺสนฺติ      ปุพฺพณฺหสมเย      ภิกฺขุสงฺฆํ      ปิณฺฑาย 
+<span class="LineNumber"> 017 </span>ปวิสนฺตํ    ทิสฺวา    พีชนงฺคลาทีนิ    คเหตฺวา    เขตฺตํ   คจฺฉนฺตาปิ 
+<span class="LineNumber"> 018 </span>ผรสุอาทีนิ    คเหตฺวา    อรฺํ    ปวิสนฺตาปิ    ตานิ    อุปกรณานิ 
+<span class="LineNumber"> 019 </span>นิกฺขิปิตฺวา   ภิกฺขุสงฺฆสฺส   นิสีทนฏฺ€านํ   อาสนสาลํ   วา  มณฺฑปํ  วา 
+<span class="LineNumber"> 020 </span>รุกฺขมูลํ วา สมฺมชฺชิตฺวา อาสนานิ ปฺาเปตฺวา อาธารเก จ ปานียฺจ <SUP>๓</SUP>
+ 
+<span class='footnote'>๑. การยีติปิ ปาโ€.  ๒. โลกนฺตนิรเยติปิ ปาโ€. ๓. อาวรเก จ ปานียํ. </span>

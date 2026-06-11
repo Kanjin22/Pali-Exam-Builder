@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>ของพระอนาคามีไม่ควร, และยังไม่ถึงความสิ้นอาสวะ  ไม่พึงให้ความ
+<span class="LineNumber"> 002 </span>คิดเกิดขึ้นว่า 'เราถึงสุขแล้ว"  ได้ตรัสพระคาถาเหล่านี้ว่า :- 
+<span class="LineNumber"> 003 </span>	<B>"ภิกษุ  ภิกษุยังไม่ถึงอาสวักขัย  อย่าเพิ่มถึง
+<span class="LineNumber"> 004 </span>	ความวางใจ  ด้วยเหตุสักว่าศีลและวัตร  ด้วย
+<span class="LineNumber"> 005 </span>	ความเป็นพหุสูต  ด้วยอันได้สมาธิ  ด้วยอัน
+<span class="LineNumber"> 006 </span>	นอนในที่สงัด  หรือ  (ด้วยเหตุเพียงรู้ว่า)  'เรา
+<span class="LineNumber"> 007 </span>	ถูกต้องสุขในเนกขัมมะ  ซึ่งปุถุชนเสพไม่ได้
+<span class="LineNumber"> 008 </span>	แล้ว.</B>"
+<span class="LineNumber"> 009 </span>                                           [แก้อรรถ]
+<span class="LineNumber"> 010 </span>	บรรดาบทเหล่านั้น  บทว่า  <B>สีลพฺพตมตฺเตน  </B>คือด้วยเหตุสัก
+<span class="LineNumber"> 011 </span>ว่า  ปาริสุทธิศีล<SUP>๑</SUP>  ๔  หรือสักว่าธุดงคคุณ<SUP>๒</SUP>  ๑๓.
+<span class="LineNumber"> 012 </span>	บทว่า  <B>พาหุสจฺเจน  วา</B> ความว่า  หรือด้วยเหตุสักว่าความ
+<span class="LineNumber"> 013 </span>เป็นผู้เรียนปิฎก ๓.
+<span class="LineNumber"> 014 </span>	บทว่า  <B>สมาธิลาเภน</B>  ความว่า  หรือด้วยอันได้สมาบัติ<SUP>๓ </SUP> ๘.
+<span class="LineNumber"> 015 </span>ภิกษุอย่าเพิ่งถึงความวางใจ  ด้วยเหตุมีประมาณเพียงรู้เท่านี้ว่า  'เราถูก
+<span class="LineNumber"> 016 </span>ต้องสุขของพระอนาคามี.'
+<span class="LineNumber"> 017 </span>	บทว่า  <B>อปุถุชฺชนเสวิตํ</B> ความว่า  อันปุถุชนทั้งหลายเสพไม่
+<span class="LineNumber"> 018 </span>ได้  คืออันพระอริยะเสพแล้วอย่างเดียว. ภิกษุเหล่านั้น  พระผู้มี
+
+<span class='footnote'>๑.  พึงดูในนวโกวาทหมดที่ ๔.  ๒.  พึงดูในธรรมวิภาคปริเฉทที่  ๒  ตอนอติเรกทสกะ</span>
+<span class='footnote'>๓.  มีชื่อเช่นเดียวกับรูปฌาน  ๔  อรูปฌาน ๔.</span>

@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    713
+
+<span class="LineNumber"> 002 </span>	ปญฺจทฺวาเรติ  อาปาถนฺติ  อาธาโร  ฯ  จสทฺโท  ฏีกายํ  อตฺถิ
+<span class="LineNumber"> 003 </span>มูลฏีกายํ  ปน  นตฺถิ  ฯ  อาปาถนฺติ  อาคจฺฉนฺตนฺติ  กมฺมํ  ฯ
+<span class="LineNumber"> 004 </span>อาคจฺฉนฺตนฺติ  กมฺมนิมิตฺตนฺติ  วิเสสนํ  ฯ  กมฺมนิมิตฺตนฺติ
+<span class="LineNumber"> 005 </span>ทฏฺ€พฺพนฺติ  กมฺมํ  ฯ
+<span class="LineNumber"> 006 </span>	อาส...ติยนฺติ  จุติกาลาสนฺนกตสฺส  กมฺมสฺส  อารมฺมณ-
+<span class="LineNumber"> 007 </span>สนฺตาเน  ฯ  อาสนฺเน  กตํ  อาสนฺนกตํ  ฯ  อาสนฺนกตญฺจ  ตํ
+<span class="LineNumber"> 008 </span>กมฺมญฺจาติ  อาสนฺนตกมฺมํ  ฯ  อารมฺมณสฺส  สนฺตติ  อาร...ตติ  ฯ
+<span class="LineNumber"> 009 </span>อาสนฺนกตกมฺมสฺส  อารมฺมณสนฺตติ  อาส...สนฺตติ  ฯ
+<span class="LineNumber"> 010 </span>	อาส...ยนฺติ  อุปฺปนฺนนฺติ  อาธาโร  ฯ  อุปฺป...สนฺติ  ทฺวยํ
+<span class="LineNumber"> 011 </span>กมฺมนิมิตฺตนฺติ  วิเสสนํ  ฯ
+<span class="LineNumber"> 012 </span>	อุปฺปชฺชตีติ  อุปฺปนฺนํ  ยํ  นิมิตฺตํ  ฯ  ตํสทิสนฺติ  ยถาวุตฺต-
+<span class="LineNumber"> 013 </span>กมฺมารมฺมณสทิสํ  ฯ  เตน  ยถาวุตฺตกมฺมารมฺมเณน  สทิสํ  ตํสทิสํ  ฯ
+<span class="LineNumber"> 014 </span>จุติกาลาสนฺนกตกมฺมสฺส  อารมฺมเณน  สทิสนฺตฺยตฺโถ  ฯ  จสทฺโท
+<span class="LineNumber"> 015 </span>อุปฺปนฺนญฺจ  ตํสทิสญฺจาติ  โยเชตพฺโพ  ฯ  จสทฺโท  มูลฏีกายํ
+<span class="LineNumber"> 016 </span>อตฺถิ  อิธ  ปน  นตฺถิ  ฯ  ตํสทิสนฺตีติ  ปน  อตฺถิ  ฯ  ตํ  มูลฏีกาย
+<span class="LineNumber"> 017 </span>น  สเมติ  ฯ
+<span class="LineNumber"> 018 </span>	[๘๙๑]  ยถารหนฺติ  ป€มทุติยตติยจตุตฺถานํ  อนุรูปนฺติ  อตฺเถ
+<span class="LineNumber"> 019 </span>สงฺกา  สิยา  ตสฺมา  ตสฺสตฺถํ  าเปนฺโต  อาห  ยถาตฺยาทึ  ฯ
+<span class="LineNumber"> 020 </span>ยถารหนฺติ  €ปนํ  ฯ
+<span class="LineNumber"> 021 </span>	ทุติ...นนฺติ  ปฏิสนฺธีนนฺติ  วิเสสนํ  ฯ  ปฏิสนฺธีนนฺติ
+<span class="LineNumber"> 022 </span>อนุรูปโตติ  สมฺปทานํ  ฯ  อนุรูปโตติ  อาลมฺพนนฺติ  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 023 </span>						อภิ.๑๘๙

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			จตุตฺถปริจฺเฉทตฺถโยชนา    หน้า  301
+
+<span class="LineNumber"> 002 </span>วาโรติ  วุตฺโตติ  กมฺมํ  ฯ  อิธาติ  วุตฺโตติ  อาธาโร  ฯ  โมฆ-
+<span class="LineNumber"> 003 </span>วารวเสนาติ  วุตฺโตติ  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 004 </span>	[๓๖๕]  อนุรุทฺธาจริเยน  ปน  ทุติยตติยวาราปิ  ปรมตฺถวินิจฺฉเย
+<span class="LineNumber"> 005 </span>โมฆวาราวาติ  วุตฺตาติ  าเปนฺโต  อาห  อญฺตฺถาตฺยาทึ  ฯ
+<span class="LineNumber"> 006 </span>อญฺตฺถ  ปน  อญฺสฺมึ  ปรมตฺถวินิจฺฉยสงฺขาเต  ปกรเณ  ทุติ...วารา
+<span class="LineNumber"> 007 </span>อิติ  อนุรุทฺธาจริเยน  วุตฺตา  ฯ
+<span class="LineNumber"> 008 </span>	ปนสทฺโท  วิเสสตฺโถ  ฯ  ทุติโย  จ  ตติโย  จ  ทุติยตติยา
+<span class="LineNumber"> 009 </span>ทุติยตติยา  จ  เต  วารา  จาติ  ทุติยตติยวารา  ฯ  อปิสทฺโท
+<span class="LineNumber"> 010 </span>ปจฺฉิมวารํ  สมฺปิณฺเฑติ  ฯ  ตทาลมฺพนญฺจ  ชวนญฺจ  ตทาลมฺพน-
+<span class="LineNumber"> 011 </span>ชวนานิ  ฯ  สุญฺนฺตีติ  สุญฺา  เย  วารา  ตทาลมฺพนชวเนหิ
+<span class="LineNumber"> 012 </span>สุญฺนฺติ  ริจฺฉนฺติ  อิติ  ตสฺมา  เต  วารา  สุญฺา  ฯ  สุจ
+<span class="LineNumber"> 013 </span>วิวิตฺเต  กาเล  วตฺตมานา  ณปจฺจโย  กฺวจิ  ธาตุ  จโลโป
+<span class="LineNumber"> 014 </span>ทฺวิตฺตํ  ฯ  สุญฺานํ  ภาโว  สุญฺตฺตํ  ฯ
+<span class="LineNumber"> 015 </span>	อญฺตฺถาติ  วุตฺตาติ  อาธาโร  ฯ  ทุติยตติยวาราปีติ  วุตฺตาติ
+<span class="LineNumber"> 016 </span>กมฺมํ  ฯ  ตทาลมฺพนชวเนหีติ  สุญฺตฺตาติ  อปาทานํ  ฯ  สุญฺตฺตาติ
+<span class="LineNumber"> 017 </span>วุตฺตาติ  เหตุ  ฯ  โมฆวาราตีติ  วุตฺตาติ  อากาโร  ฯ
+<span class="LineNumber"> 018 </span>	[๓๖๖]  วิสโย  เจว  ปจฺจโย  จ  อิธ  อารมฺมณนฺติ  คหิโตติ
+<span class="LineNumber"> 019 </span>อตฺถํ  าเปนฺโต  อาห  อารมฺมณาตฺยาทึ  ฯ
+<span class="LineNumber"> 020 </span>	อารมฺมณภูตาติ  €ปนํ  ฯ  วิสิโนติ  วิสยิธมฺมํ  พนฺธตีติ
+<span class="LineNumber"> 021 </span>วิสโย  วิสโย  หุตฺวา  ภวตีติ  วิสยภูตา  ฯ  ปจฺจโย  ภวตีติ
+<span class="LineNumber"> 022 </span>						อภิ.๑๔๑

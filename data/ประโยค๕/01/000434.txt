@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>อคฺคมคฺโค   มานสํ  ฯ   ตนฺนิพฺพตฺตตฺตา   ปน   อรหตฺตสฺส  มานสตา 
+<span class="LineNumber"> 002 </span>ทฏฺ€พฺพา ฯ ชเนสุตาติ สตฺตโลเก วิสฺสุตา <SUP>๑</SUP>ปตฺถฏยสาติ ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 003 </span>	[๕๖๓]   <B>ยสฺสาติ</B>   นวสฺส   วา   มชฺฌิมสฺส  วา  เถรสฺส  วาติ 
+<span class="LineNumber"> 004 </span>อิธ <SUP>๒</SUP> วุตฺตํ ฯ 
+<span class="LineNumber"> 005 </span>	วโยวุฑฺฒาทีสุ   โย   วา   โส   วา   โหตุ  ปริปุณฺณทสวสฺสตาย 
+<span class="LineNumber"> 006 </span>เถโร    อูนปฺจวสฺสตาย    นโว    อติเรกปฺจวสฺสตาย    มชฺฌิโมติ 
+<span class="LineNumber"> 007 </span>ป€มปาราชิกวณฺณนา <SUP>๓</SUP> ฯ 
+<span class="LineNumber"> 008 </span>	อุปสมฺปทาย   ปฺจวสฺสิกกาลโต   เหฏฺ€า   ชาติยา   สฏฺ€ิวสฺโสปิ 
+<span class="LineNumber"> 009 </span>นโวเยว  ฯ   ปฺจวสฺสกาลโต  ปฏฺ€าย  ยาว  นววสฺสกาลา  มชฺฌิโม 
+<span class="LineNumber"> 010 </span>นาม  ฯ   ทสวสฺสกาลโต   ปฏฺ€าย   เถโร   นามาติ   ติกงฺคุตฺตเร 
+<span class="LineNumber"> 011 </span>ทุติยปณฺณาสกสฺส ปฺจมวคฺเค อฏฺ€มสุตฺตฏีกา ฯ 
+<span class="LineNumber"> 012 </span>	อปริปุณฺณปฺจวสฺโส    ภิกฺขุ    นโว   นาม   โหติ   ปฺจวสฺสโต 
+<span class="LineNumber"> 013 </span>ปฏฺ€าย   มชฺฌิโม   ทสวสฺสโต   ปฏฺ€าย  เถโร  ฯ  อปโร  นโย  ฯ 
+<span class="LineNumber"> 014 </span>อปริปุณฺณทสวสฺโส      นโว      ทสวสฺสโต     ปฏฺ€าย     มชฺฌิโม 
+<span class="LineNumber"> 015 </span>วีสติวสฺสโต     ปฏฺ€าย     เถโรติ    เทวตาสํยุตฺตสฺส    ทุติยวคฺเค 
+<span class="LineNumber"> 016 </span>ทสมสุตฺตวณฺณนา <SUP>๔</SUP> ฯ 
+<span class="LineNumber"> 017 </span>	ภิกฺขุโนวาทกลกฺขณมฺปตฺตํ   เถรํ   สนฺธาย   วีสติวสฺสโต   ปฏฺ€าย 
+<span class="LineNumber"> 018 </span>เถโรติ วุตฺตนฺติ ตฏฺฏีกา ฯ 
+<span class="LineNumber"> 019 </span>	[๕๖๔]   ตตฺถ   ยสฺส   โลกธมฺเมหิ   ผุฏฺ€สฺส  จิตฺตํ  น  กมฺปติ 
+
+<span class='footnote'>๑. ตฏฺฏีกายมฺปน ชเน สกลสตฺตโลเก วิสฺสุต อิติ ทิสฺสติ. ๒. ป. โช. ขุ. ขุ. ๑๖๘.   </span>
+<span class='footnote'>๓. สมนฺต. ๑/๒๗๘. ๔. สา. ป. ๑/๕๓. </span>

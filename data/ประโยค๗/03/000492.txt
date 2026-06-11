@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>อาทานคฺคาหี จ ทุปฺปฏินิสฺสคฺคี จ สนฺทิฏฺ€ิ...นิสฺสคฺคิโน เตสํ
+<span class="LineNumber"> 002 </span>ภาโว สนฺทิฏฺ€ิ...นิสฺสคฺคิตา ฯ
+<span class="LineNumber"> 003 </span>	[๗๑๕] ยถานุสิฏฺ€นฺติ ปทํ อปฺ...นโตติ<SUP>๑</SUP> ปทสฺส กิริยาวิเสสนํ
+<span class="LineNumber"> 004 </span>อปฺ...นโตติ ปทํ น คณฺหตีติ ปเท เหตุ ฯ อปฺปทกฺขิณคฺคาหิ-
+<span class="LineNumber"> 005 </span>อนุสาสนีติ กิตนฺตตปฺปุริโส ฯ ฏีกาการมเตน ปน อนุสาสนีติ
+<span class="LineNumber"> 006 </span>ปทํ วิสุํ เอกํ ปทํ วิย ทิสฺสติ ฯ
+<span class="LineNumber"> 007 </span>	อุทฺทิสิยตีติ อุทฺเทโส ปาฏิโมกฺโข ฯ อุทฺเทเส ปริยาปนฺนา
+<span class="LineNumber"> 008 </span>อุทฺเทสปริยาปนฺนา ฯ
+<span class="LineNumber"> 009 </span>	อนฺโตปาฏิโมกฺขสฺสาติ ปาฏิโมกฺขสฺส อนฺโต ฯ พุทฺธปฺ-
+<span class="LineNumber"> 010 </span>ปฺตฺเตนาติ พุทฺเธน €ปิเตน วิหิเตน ฯ สหธมฺเมนาติ
+<span class="LineNumber"> 011 </span>สการเณน ฯ ปาสา...สมฺปตฺติเกนาติ ปาสาทิกภาวสมฺปนฺเนน ฯ
+<span class="LineNumber"> 012 </span>ปาสาว...สํวตฺตนิเกนาติปิ อตฺถิ ปาสาทิกภาวสฺส ชนเกนาติ
+<span class="LineNumber"> 013 </span>อตฺโถ ฯ เตนาติ ยทิทนฺติ วจเนน ทสฺสิตนฺติ ปเท กรณํ ฯ
+<span class="LineNumber"> 014 </span>	[๗๑๖] ตตฺถาติ กุลทูสเก วินิจฺฉโย ฯ อาวาสิกา ...เอตฺถ
+<span class="LineNumber"> 015 </span>วจเน วินิจฺฉโย ฯ อาวสนฺติ เอตฺถาติ อาวาโส ฯ วิหรนฺติ
+<span class="LineNumber"> 016 </span>เอตฺถาติ วิหาโร ฯ โส วิหาโร เยสํ ภิกฺขูนํ อายตฺโต ปฏิพทฺโธ ฯ
+<span class="LineNumber"> 017 </span>เยสนฺติ ปทํ อายตฺโตติ ปเท สมฺพนฺโธ ฯ นว...ตายาติ ปทํ
+<span class="LineNumber"> 018 </span>อายตฺโตติ ปเท ตติยาวิเสสนํ ฯ
+<span class="LineNumber"> 019 </span>	นวกมฺมสฺส กรณํ นวกมฺมกรณํ ฯ ปุราณสฺส ปฏิสงฺขรณํ 
+
+<span class='footnote'>๑. อปฏิปชฺชนฺโตติ วณฺณนาปาโ€ ฯ</span>
+<span class="LineNumber"> 020 </span>                       [ปา.๔๐๘..๔๑๑ ฯ ส.๑๒๖.๑๒๗]

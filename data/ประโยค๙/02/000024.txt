@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  24
+
+<span class="LineNumber"> 002 </span>	[๓๑]  ยา  ธมฺมชาติ  ปรทุกฺเข  สติ  สาธูนํ  หทยเขทํ  กโรติ
+<span class="LineNumber"> 003 </span>ชเนติ  วา  ยา  ธมฺมชาติ  ปรทุกฺขํ  กิรติ  วิกฺขิปติ  วา  ยา
+<span class="LineNumber"> 004 </span>ธมฺมชาติ  ตํ  ปรทุกฺขํ  กิณาติ  หึสติ  วา  ยา  ธมฺมชาติ
+<span class="LineNumber"> 005 </span>ปุคฺคเลน  ทุกฺขิเตสุ  สตฺเตสุ  กริยติ  ปสาริยติ  อิติ  ตสฺมา
+<span class="LineNumber"> 006 </span>สา  ธมฺมชาติ  กรุณา  ฯ
+<span class="LineNumber"> 007 </span>	ปเรสํ  ทุกฺขํ  ปรทุกฺขํ  ฯ  สาเธนฺติ  อตฺตปรหิตนฺติ  สาธู
+<span class="LineNumber"> 008 </span>เย  ปุคฺคลา  อตฺตปรหิตํ  สาเธนฺติ  อิติ  ตสฺมา  เต  ปุคฺคลา
+<span class="LineNumber"> 009 </span>สาธู  สปฺปุริสา  ฯ  สาธ  สิทฺธิยํ  กาเล  วตฺตมานาตีเต  ณฺวาทโยติ
+<span class="LineNumber"> 010 </span>ณุ  ฯ  หรตีติ  หทยํ  ยํ  ธมฺมชาตํ  จิตฺตํ  นิสฺสยภาเวน  หรติ
+<span class="LineNumber"> 011 </span>อิติ  ตสฺมา  ตํ  ธมฺมชาตํ  หทยํ  หทยสฺส  วตฺถุ  ฯ  หร  หรเณ
+<span class="LineNumber"> 012 </span>กาเลตฺยาทินา  โย  กฺวจิ  ธาตูติอาทินา  รสฺส  โท  ฯ  ขิชฺชนํ
+<span class="LineNumber"> 013 </span>เขโท  ฯ  ขิท  เขเท  ฯ  เขโท  กิลมนํ  ฯ  ภาเว  จ  ฯ  หทยสฺส
+<span class="LineNumber"> 014 </span>เขโท  หทยเขโท  ฯ  ชเนตีติ  กโรตีติ  ปทสฺส  วิวรณํ  ฯ  วิกฺขิปตีติ
+<span class="LineNumber"> 015 </span>กิรตีติ  ปทสฺส  วิวรณํ  ฯ  หึสตีติ  กิณาตีติ  ปทสฺส  วิวรณํ  ฯ
+<span class="LineNumber"> 016 </span>ทุกฺขํ  อิตํ  คตํ  สญฺาตํ  เยสํ  สตฺตานํ  เต  ทุกฺขิตา  ฯ
+<span class="LineNumber"> 017 </span>	ปรทุกฺเขติ  สตีติ  ปเท  ลกฺขณวนฺตํ  ฯ  สตีติ  ลกฺขณ-
+<span class="LineNumber"> 018 </span>กิริยา  ฯ  สาธูนนฺติ  หทยาติ  ปเท  สมฺพนฺโธ  ฯ  หทยเขทนฺติ  กโรติ
+<span class="LineNumber"> 019 </span>ชเนติ  ปททฺวเย  กมฺมํ  ฯ  ปรทุกฺขนฺติ  กิรติ  วิกฺขิปตีติ  ปททฺวเย
+<span class="LineNumber"> 020 </span>กมฺมํ  ฯ  ตนฺติ  กิณาติ  หึสตีติ  ปททฺวเย  กมฺมํ  ฯ  ทุกฺขิเตสูติ
+<span class="LineNumber"> 021 </span>					อภิ.๑๐๖

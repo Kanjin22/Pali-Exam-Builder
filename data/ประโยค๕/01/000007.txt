@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>ปมาณํ   กาตุํ   เอตฺตโก   ปุฺาภิสนฺโท   กุสลาภิสนฺโท  สุขสฺสาหาโร 
+<span class="LineNumber"> 002 </span>โสวคฺคิโก   สุขวิปาโก   สคฺคสํวตฺตนิโก   อิฏฺ€าย   กนฺตาย  มนาปาย 
+<span class="LineNumber"> 003 </span>หิตาย    สุขาย    สํวตฺตตีติ    อถโข    อสงฺเขยฺโย    อปฺปเมยฺโย 
+<span class="LineNumber"> 004 </span>มหาปุฺกฺขนฺโธเตฺวว   สงฺขฺยํ  <SUP>๑</SUP>  คจฺฉติ  ฯ  เสยฺยถาปิ  ภิกฺขเว 
+<span class="LineNumber"> 005 </span>มหาสมุทฺเท    น    สุกรํ    อุทกสฺส    ปมาณํ   คเหตุํ   เอตฺตกานิ 
+<span class="LineNumber"> 006 </span>อุทกาฬฺหกานีติ   วา   เอตฺตกานิ   อุทกาฬฺหกสตานีติ   วา  เอตฺตกานิ 
+<span class="LineNumber"> 007 </span>อุทกาฬฺหกสหสฺสานีติ    วา   เอตฺตกานิ   อุทกาฬฺหกสตสหสฺสานีติ   วา 
+<span class="LineNumber"> 008 </span>อถโข   อสงฺเขยฺโย   อปฺปเมยฺโย   มหาอุทกกฺขนฺโธเตฺวว  สงฺขฺยํ  <SUP>๑</SUP>
+<span class="LineNumber"> 009 </span>คจฺฉติ   เอวเมว   โข   ภิกฺขเว  เอวํ  ฉฬงฺคสมนฺนาคตาย  ทกฺขิณาย 
+<span class="LineNumber"> 010 </span>น   สุกรํ   ปุฺสฺส   ปมาณํ   คเหตุํ  ฯเปฯ   มหาปุฺกฺขนฺโธเตฺวว 
+<span class="LineNumber"> 011 </span>สงฺขฺยํ    คจฺฉตีติ  ฯ   อิทมโวจ   ภควา   อิทํ   วตฺวาน   สุคโต 
+<span class="LineNumber"> 012 </span>อถาปรํ เอตทโวจ สตฺถา 
+<span class="LineNumber"> 013 </span>	[๑๑] <B>ปุพฺเพว ทานา สุมโน        ททํ จิตฺตํ ปสาทเย 
+<span class="LineNumber"> 014 </span>                  ทตฺวา อตฺตมโน โหติ       เอสา ยฺสฺส สมฺปทา ฯ 
+<span class="LineNumber"> 015 </span>                   วีตราโค วีตโทโส            วีตโมโห อนาสโว 
+<span class="LineNumber"> 016 </span>                   เขตฺตํ ปุฺสฺส <SUP>๒</SUP>            สมฺปนฺนํ สฺตา พฺรหฺมจาริโน 
+<span class="LineNumber"> 017 </span>                   สยํ อาจมยิตฺวาน <SUP>๓</SUP>          ทตฺวา สเยหิ <SUP>๔</SUP> ปาณิภิ 
+<span class="LineNumber"> 018 </span>                   อตฺตโน ปรโต เจโส           ยฺโ โหติ มหปฺผโล ฯ</B> 
+
+<span class='footnote'>๑. ปาลิยมฺปน สงฺขนฺติ ทิสฺสติ  ๒. ยฺสฺสาติ ฯ . ว. ๓. อาจรยิตฺวานาติ </span>
+<span class='footnote'>ปาลิยํ ทิสฺสติ.  ๔. สเกหีติ ฯ . ว. </span>

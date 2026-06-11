@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>วุตฺเต ตํ วตฺถุ ภิกฺขุนา สเจ น ลทฺธํ น ลทฺธนฺติ วตฺวา
+<span class="LineNumber"> 002 </span>โส ชโน ยํ วตฺถุํ เทติ ตํ วตฺถุํ คเหตุํ วฏฺฏตีติ สมฺพนฺโธ ฯ
+<span class="LineNumber"> 003 </span>ปสาทาทีนนฺติ ปทํ วินาเสนาติ ปเท กมฺมํ ฯ ทานานิ เอว
+<span class="LineNumber"> 004 </span>ปานปถานิ ฯ ปุริมนเย ปถสทฺทสฺส วิสุํอตฺโถ นตฺถิ ฯ ปถสทฺทสฺส
+<span class="LineNumber"> 005 </span>วิสุํอตฺถวนฺตภาวํ ทสฺเสนฺโต อถวาติอาทิมาห ฯ ทานนิพทฺธานีติ
+<span class="LineNumber"> 006 </span>วิหิตทานานิ ฯ ทายเกหิ ปจฺฉินฺนานิ น ภิกฺขูหีติ อธิปฺปาโย ฯ
+<span class="LineNumber"> 007 </span>เต ทายกา ตานิ ทานานิ น เทนฺติ ฯ ตสฺมาติ ปทํ น กาตพฺพนฺติ
+<span class="LineNumber"> 008 </span>ปเท เหตุ ฯ อิตีติ ปทํ อีทิเสสูติ ปทสฺส สรูปํ ฯ เอตานิ
+<span class="LineNumber"> 009 </span>สาสนานิ กปฺปิ...สนานิ คิหีนํ ...ยุตฺตานิ น ฯ อิติสทฺโท
+<span class="LineNumber"> 010 </span>สมาปนฺโน ฯ
+<span class="LineNumber"> 011 </span>	[๗๓๒] อตฺถโต สภาวโต ฯ โส ภิกฺขุ อาคโต โหติ ฯ
+<span class="LineNumber"> 012 </span>เอวนฺติ อาคโตติ อตฺเถ ฯ วตฺตมานสมีเปติ วตฺตมานกาลสมีเป
+<span class="LineNumber"> 013 </span>อตีตตฺเถ ฯ วตฺตตีติ วตฺตมาโน กาโล ฯ วุจฺจติ เอเตนาติ
+<span class="LineNumber"> 014 </span>วจนํ วตฺตมานสฺส วจนํ วตฺตมานวจนํ ฯ ปริโยสาเนติ ปทํ
+<span class="LineNumber"> 015 </span>วจเนติ ปเท อาธาโร ฯ
+<span class="LineNumber"> 016 </span>	[๗๓๓] เอวํปีติ เอวํ ปฏิชานเน โรเปตพฺพาติ ปเท
+<span class="LineNumber"> 017 </span>ภาวลกฺขณํ ฯ อปิสทฺโท ปุพฺเพ วุตฺตปฺปฏิชานนํ อเปกฺขติ ฯ
+<span class="LineNumber"> 018 </span>อิมสฺมึ วตฺถุสฺมึ อาปตฺตีติ ปเท เหตุ ฯ เอวํ<SUP>๑</SUP> วุตฺตนเยน ฯ
+<span class="LineNumber"> 019 </span>ยทิ เนว ปฏิชานนฺติ ฯ เอตฺถาติ ป€มํ อสฺสชิปุนพฺพสุกา
+
+<span class='footnote'>๑. อยํ วณฺณนายํ นตฺถิ ฯ</span>
+<span class="LineNumber"> 020 </span>                        [ปา.๔๑๓..๔๑๘ ฯ ส.๑๔๐.๑๔๑]
+

@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>อตฺถิ ฯ สุวกาหฏนฺติ สุเวหิ อาหฏํ ฯ ปุฺกมฺมาภินิพฺพตฺ-
+<span class="LineNumber"> 002 </span>ตนฺติ ปุฺกมฺเมน อภินิพฺพตฺตํ ฯ อโสกวฺหโยติ อโสกนามโก
+<span class="LineNumber"> 003 </span>ราชา ฯ
+<span class="LineNumber"> 004 </span>	เอต...การํ เปเสสีติ สมฺพนฺโธ ฯ อุเปหิสีติ<SUP>๑</SUP> อุปคจฺฉิสฺสติ ฯ
+<span class="LineNumber"> 005 </span>ราชาติ ปทํ โหตีติ ปเท ปกติกตฺตา ฯ ตํ ทิวสนฺติ ตสฺมึ ทิวเส
+<span class="LineNumber"> 006 </span>โหตีติ ปเท อาธาโร ฯ หีติ สจฺจํ ฯ อสฺสาติ เทวานํปิยติสฺส-
+<span class="LineNumber"> 007 </span>รฺโ ฯ
+<span class="LineNumber"> 008 </span>	[๑๔๐] โส ราชา อนุสฺสรมาโน ตํ วจนํ สุตฺวา อิติ จินฺเตตฺวา
+<span class="LineNumber"> 009 </span>นิกฺขิปิตฺวา กถยมาโน นิสีทิติ โยชนา ฯ
+<span class="LineNumber"> 010 </span>	อุปาวิสีติ นิสีทิ ฯ ราชา นิสชฺช นิสีทิตฺวา พหุํ อตฺถุปสญฺหิตํ
+<span class="LineNumber"> 011 </span>อตฺเถน อุเปตํ วจนํ กถยมาโน สมฺโมทีติ โยชนา ฯ
+<span class="LineNumber"> 012 </span>	ตสฺมินฺติ รฺเ ฯ มยา สทฺธึเยว มหาราชาติ เถโร อาห ฯ
+<span class="LineNumber"> 013 </span>อิทานิ ฯ เป ฯ สนฺตีติ ราชา ปุจฺฉิ ฯ สนฺติ ฯ เป ฯ สาวกาติ
+<span class="LineNumber"> 014 </span>เถโร อาห ฯ
+<span class="LineNumber"> 015 </span>	เตวิชฺชา อิทฺธิปฺปตฺตา จ เจโตปริยายโกวิทา ขีณาสวา พหู
+<span class="LineNumber"> 016 </span>พุทฺธสฺส สาวกา อรหนฺโต ชมฺพุทีเป สนฺตีติ โยชนา ฯ
+<span class="LineNumber"> 017 </span>	ภนฺเต ฯ เป ฯ ตตฺถาติ ราชา ปุจฺฉิ ฯ อาคตา อตฺถาติ
+<span class="LineNumber"> 018 </span>พุทฺธสฺส สาวกา อรหนฺโต ชมฺพุทีเป สนฺตีติ โยชนา ฯ
+<span class="LineNumber"> 019 </span>	ภนฺเต ฯ เป ฯ ตตฺถาติ ราชา ปุจฺฉิ ฯ อาคตา อตฺถาติ
+<span class="LineNumber"> 020 </span>เฉโท ฯ เนว ฯ เป ฯ เลนาติ เถโร อาห ฯ วิยตฺตสฺส ภาโว
+<span class="LineNumber"> 021 </span>เวยฺยตฺติยํ ตสฺส ภาวกมฺเมสูติอาทินา สุตฺเตน นิยปฺปจฺจโย ฯ
+
+<span class='footnote'>๑. อุเปหีติ วณฺณนาปาโ€ ฯ</span>
+<span class="LineNumber"> 022 </span>                                     [ส.๗๖.๗๗]

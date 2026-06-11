@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>สมฺปาเทติ  ยถาวิภวฺจ  ทานํ  เทติ  สีลานิ  จ รกฺขติ ฯ โส อปรภาเค 
+<span class="LineNumber"> 002 </span>กาลํ  กตฺวา  ตาวตึเสสุ  ทฺวาทสโยชนิเก  กนกวิมาเน  นิพฺพตฺติ  ฯ  ตํ 
+<span class="LineNumber"> 003 </span>อายสฺมา มหาโมคฺคลฺลานตฺเถโร อุปสงฺกมิตฺวา คาถาหิ ปฏิปุจฺฉิ 
+<span class="LineNumber"> 004 </span>	[๑๔๗]  <B>อุจฺจมิทํ มณิถูณํ วิมานํ 
+<span class="LineNumber"> 005 </span>                     สมนฺตโต ทฺวาทส โยชนานิ 
+<span class="LineNumber"> 006 </span>                     กูฏาคารา สตฺตสตา อุฬารา 
+<span class="LineNumber"> 007 </span>                     เวฬุริยตฺถมฺภา รุจิรตฺถตา สุภา 
+<span class="LineNumber"> 008 </span>                     ตตฺถจฺฉสิ ปิวสิ ขาทสิ จ 
+<span class="LineNumber"> 009 </span>                     ทิพฺพา จ วีณา ปวทนฺติ วคฺคู 
+<span class="LineNumber"> 010 </span>                     ทิพฺพรสา <SUP>๑</SUP>กามคุเณตฺถ ปฺจ 
+<span class="LineNumber"> 011 </span>                     นาริโย จ นจฺจนฺติ สุวณฺณฉนฺนา 
+<span class="LineNumber"> 012 </span>        เกน เตตาทิโส วณฺโณ         เกน เต อิธ อิชฺฌติ <SUP>๒</SUP> 
+<span class="LineNumber"> 013 </span>        อุปฺปชฺชนฺติ จ เต โภคา        เย เกจิ มนโส ปิยา ฯ 
+<span class="LineNumber"> 014 </span>                     ปุจฺฉามิ ตํ เทว มหานุภาวํ <SUP>๓</SUP> 
+<span class="LineNumber"> 015 </span>                     มนุสฺสภูโต กิมกาสิ ปุฺํ 
+<span class="LineNumber"> 016 </span>                     เกนาสิ เอวฺชลิตานุภาโว 
+<span class="LineNumber"> 017 </span>                     วณฺโณ จ เต สพฺพทิสา ปภาสตีติ <SUP>๔</SUP> ฯ</B> 
+<span class="LineNumber"> 018 </span>	ตตฺถ  <B>อุจฺจนฺติ</B>  อจฺจุคฺคตํ  ฯ  <B>มณิถูณนฺติ</B>  ปทุมราคาทิมณิ-
+<span class="LineNumber"> 019 </span>มยตฺถมฺภํ  ฯ <B>สมนฺตโตติ</B>      จตูสุ     ปสฺเสสุปิ  ฯ     <B>รุจิรตฺถตาติ</B>     ตสฺสํ 
+
+<span class='footnote'>๑. ปาลิยฺหิ ทิพฺพา รสาติ ทิสฺสติ ฯ ๒. ปาลิยํ อิธมิชฺฌตีติ ทิสฺสติ ฯ </span>
+<span class='footnote'>๓. มหานุภาวาติ ฯ . ว.  ๔. ขุ. วิมาน. ๒๖/๙๙ ฯ </span>

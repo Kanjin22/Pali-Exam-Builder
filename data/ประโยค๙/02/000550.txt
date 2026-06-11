@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า    550
+
+<span class="LineNumber"> 002 </span>	[๖๕๗]  ชนา  เอเตน  สภาเวน  ตํ  อภูตํ  วตฺถุํ  ตจฺฉโต
+<span class="LineNumber"> 003 </span>วทนฺติ  อิติ  ตสฺมา  โส  สภาโว  มุสาวาโท  ฯ
+<span class="LineNumber"> 004 </span>	ตนฺติ  วทนฺติ  กมฺมํ  ฯ  ตจฺฉโตติ  วทนฺตีติ  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 005 </span>ตจฺฉนํ  ตถนํ  ตจฺฉํ  ฯ  ตจ  ตเถ  วชาทินา  โน  ฯ  ตจฺฉโตติ  อิมินา
+<span class="LineNumber"> 006 </span>อตจฺฉํ  นิวตฺเตติ  ฯ  เอเตนาติ  วทนฺตีติ  กรณํ  ฯ  อิตีติ  เหตุ  ฯ
+<span class="LineNumber"> 007 </span>มุสา  วทนฺติ  เอเตนาติ  มุสาวาโท  ฯ  กิตนฺตทุติยาตปฺปุริโส  ฯ
+<span class="LineNumber"> 008 </span>	[๖๕๘]  ยา  ธมฺมชาติ  สามคฺคิยํ  ปิสติ  สํ...ปติ  วา
+<span class="LineNumber"> 009 </span>ยา  ธมฺมชาติ  ปิย...โรติ  อิติ  ตสฺมา  สา  ธมฺมชาติ  ปิสุณา  ฯ
+<span class="LineNumber"> 010 </span>	สํจุ...ปตีติ  อิทํ  ปิสตีติ  ปทสฺส  อตฺถวิวรณํ  ฯ  ปึสตีติปิ  ฯ
+<span class="LineNumber"> 011 </span>นิคฺคหิตาคโม  ฯ  สามคฺคิยนฺติ  สํจุณฺเณตีติ  กมฺมํ  ฯ  สมคฺคสฺส
+<span class="LineNumber"> 012 </span>ภาโว  สามคฺคิยํ  ฯ  ตุสทฺเทน  ณิโย  ฯ  สํจุณฺเณตีติ  อิทํ  ธาตฺ-
+<span class="LineNumber"> 013 </span>วตฺถวเสน  วิวรณํ  ฯ  วิกฺขิปตีติ  อิทํ  อธิปฺปายวเสน  วิวรณํ  ฯ
+<span class="LineNumber"> 014 </span>ปิยภาวนฺติ  กโรตีติ  ปกติกมฺมํ  ฯ  สุญฺนฺติ  กโรตีติ  วิกติกมฺมํ  ฯ
+<span class="LineNumber"> 015 </span>วาสทฺโท  วิกปฺโป  ฯ
+<span class="LineNumber"> 016 </span>	ปิสติ  สามคฺคิยํ  สํจุณฺเณติ  วิกฺขิปตีติ  ปิสุณา  ยา  วาจา  ฯ
+<span class="LineNumber"> 017 </span>ปิส  สํจุณฺณเน  ยุ  ฯ  ปิยภาวํ  สุญฺํ  กโรตีติ  ปิสุณา  ยา
+<span class="LineNumber"> 018 </span>วาจา  ฯ  รูปํ  ปุพฺเพ  วุตฺตนยเมว  ฯ
+<span class="LineNumber"> 019 </span>	[๖๕๙]  ยา  วาจา  อตฺตานมฺปิ  ปรมฺปิ  ผรุสํ  จณฺฑํ  กโรติ
+<span class="LineNumber"> 020 </span>วา  ยา  วาจา  กกโจ  วิย  ขรสมฺผสฺสา  อิติ  ตสฺมา  สา
+<span class="LineNumber"> 021 </span>วาจา  ผรุสา  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๖๘

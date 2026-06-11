@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  174
+
+<span class="LineNumber"> 002 </span>	เตนาติ  ปฏิกฺขิตฺตนฺติ  ปเท  กรณํ  ฯ  นิรา...มตนฺติ  โหตีติ
+<span class="LineNumber"> 003 </span>ปเท  กตฺตา  ฯ  ปฏิกฺขิตฺตนฺติ  นิรา...มตนฺติ  ปทสฺส  วิเสสนํ  ฯ
+<span class="LineNumber"> 004 </span>โหตีติ  กตฺตุวาจกํ  ฯ
+<span class="LineNumber"> 005 </span>	จิตฺตํ  นาม  อารมฺมณํ  น  คณฺหาตีติ  ปรวาทีนํ  มตํ  ตํ
+<span class="LineNumber"> 006 </span>วิสยวิชานนลกฺขณนฺติ  อิมินา  ปเทน  อารมฺมณชานนทีปนโต
+<span class="LineNumber"> 007 </span>ปฏิกฺขิตฺตนฺตยาธิปฺปาโย  ฯ
+<span class="LineNumber"> 008 </span>	[๖๘]  จินฺเตตีติ  จิตฺตนฺติ  อิมินา  วจนตฺเถน  จิตฺตเมว
+<span class="LineNumber"> 009 </span>อารมฺมณํ  วิชานาตีติ  วจนํ  าปิตํ  ตํสมฺปยุตฺตา  ปน  เจตสิกา
+<span class="LineNumber"> 010 </span>อารมฺมณํ  ชานนฺตีติ  น  วิฺาปิตํ  เจตสิกา  ปน  ชานนฺติ
+<span class="LineNumber"> 011 </span>ตถาปิ  เต  เจตสิกา  กรณภูเตน  จิตฺเตน  อารมฺมณํ  ชานนฺตีติ
+<span class="LineNumber"> 012 </span>มนสิกตฺวา  จินฺเตนฺติ  วาติ  อาทิมาห  ฯ  วา  สมฺปยุตฺตธมฺมา  กรณภูเตน
+<span class="LineNumber"> 013 </span>เอเตน  ธมฺมชาเตน  จินฺเตนฺติ  อารมฺมณํ  ชานนฺติ  อิติ  ตสฺมา  ตํ
+<span class="LineNumber"> 014 </span>ธมฺมชาตํ  จิตฺตํ  ฯ
+<span class="LineNumber"> 015 </span>	กโรนฺติ  เอเตนาติ  กรณํ  สมฺปยุตฺตธมฺมา  เอเตน  จิตฺเตน
+<span class="LineNumber"> 016 </span>กโรนฺติ  อารมฺมณชานนํ  นิปฺผาเทนฺติ  อิติ  ตสฺมา  ตํ  จิตฺตํ  กรณํ  ฯ
+<span class="LineNumber"> 017 </span>กรณฺจ  ตํ  ภูตฺจาติ  กรณภูตํ  ฯ  สมฺปยุตฺตา  จ  เต  ธมฺมา
+<span class="LineNumber"> 018 </span>จาติ  สมฺปยุตฺตธมฺมา  ฯ
+<span class="LineNumber"> 019 </span>	วาติ  วิกปฺโป  ฯ  เอเตนาติ  จินฺเตนฺตีติ  ปเท  กรณํ  ฯ
+<span class="LineNumber"> 020 </span>กรณภูเตนาติ  เอเตนาติ  ปทสฺส  วิเสสนํ  ฯ  สมฺปยุตฺตธมฺมาติ
+<span class="LineNumber"> 021 </span>จินฺเตนฺตีติ  ปเท  กตฺตา  ฯ  จินฺเตนฺตีติ  กตฺตุวาจกํ  ฯ  อิตีติ
+<span class="LineNumber"> 022 </span>จิตฺตนฺติ  ปเท  เหตุ  ฯ  จิตฺตนฺติ  สฺา  ฯ
+<span class="LineNumber"> 023 </span>					อภิ.๖๖

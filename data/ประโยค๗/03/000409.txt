@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>	อนุราธปุรโต ยาว เจติยคิรีมคฺโค ติคาวุตนฺติ โลกทีปกสาเร
+<span class="LineNumber"> 002 </span>วุตฺตํ ฯ
+<span class="LineNumber"> 003 </span>	ขียนกถาติ ครหกถา ฯ ปกติวตฺตนฺติ<SUP>๑</SUP> ปกติทานวตฺตํ ฯ อถาติ
+<span class="LineNumber"> 004 </span>ตทา ฯ เนสํ โจรานํ ฯ เอวํ กรเณ ฯ อิติ มนสิกาเรน ฯ ตํ
+<span class="LineNumber"> 005 </span>ภณฺฑํ ฯ อิตีติ ปทํ อาหาติ ปเท อากาโร ฯ ตโตติ สงฺฆิกภณฺฑโต
+<span class="LineNumber"> 006 </span>ทินฺนกนฺติ ปเท อปาทานํ ฯ เถเรน ทินฺนกํ สพฺพมฺปิ ภณฺฑํ นคฺฆิ
+<span class="LineNumber"> 007 </span>น อคฺฆิ ฯ เถเรนาติ ปทํ ทินฺนกนฺติ ปเท กตฺตา ฯ ตโตติ ปจฺฉา ฯ
+<span class="LineNumber"> 008 </span>	[๕๗๓] องฺคุลีปโตทวตฺถุสฺมึ วินิจฺฉโย ฯ อาปตฺติยาติ ปทํ
+<span class="LineNumber"> 009 </span>ภวิตพฺพนฺติ ปเท กตฺตา ฯ ขุทฺทเกสูติ ขุทฺทกสิกฺขาปเทสุ ฯ
+<span class="LineNumber"> 010 </span>อิธ สิกฺขาปเท ฯ
+<span class="LineNumber"> 011 </span>	โส ฉพฺพคฺคิโย ภิกฺขุ ฯ เตหิ สตฺตรสวคฺคิเยหิ ฯ อทฺทูหล-
+<span class="LineNumber"> 012 </span>ปาสาณา วิย มิคนฺติ มิคํ มาเรนฺตา อทฺทูหลอาโรปิตปาสาณา วิย ฯ
+<span class="LineNumber"> 013 </span>	[๕๗๔] น เกวลญฺจ ยกฺขเมว มาเรนฺตสฺส ถุลฺลจฺจยนฺติ
+<span class="LineNumber"> 014 </span>สมฺพนฺโธ ฯ
+<span class="LineNumber"> 015 </span>	หิ สจฺจํ เอตฺถ วาฬกนฺตาราทิวตฺถูสุ เกวลํ เอกนฺตํ ปทตฺถ-
+<span class="LineNumber"> 016 </span>มตฺตเมว นานํ ฯ ตสฺส เจติ ตสฺส ภิกฺขุสฺส วจนํ<SUP>๒</SUP> เจ มาเรติ ฯ
+<span class="LineNumber"> 017 </span>	[๕๗๕] ตํ มฺ...ทีสุ วจเนสุ วินิจฺฉโย ฯ ทิวา อิมํ
+
+<span class='footnote'>๑. ...วฏฺฏํ อิติ วณฺณนาปาโ€ ฯ  ๒. อิโต ปรํ สุตฺวาติ ปทํ วณฺณนายํ  ทิสฺสติ </span>
+<span class='footnote'>อิธาปิ ตํ ปกฺขิปิตพฺพํ ฯ</span>
+<span class="LineNumber"> 018 </span>                             [ปา.๑๕๖...๑๕๘ ฯ ส.๕๖๗...๕๗๐]

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    469
+
+<span class="LineNumber"> 002 </span>	โอกฺกนฺติกฺขเณติ  €ปนํ  ฯ  โอกฺกมนํ  ปวิสนํ  โอกฺกนฺติ
+<span class="LineNumber"> 003 </span>ปฏิสนฺธิ  น  โอกฺกมนกิริยามตฺตํ  ฯ  โอกฺกนฺติยา  ขโณ  กาโล
+<span class="LineNumber"> 004 </span>โอกฺกนฺติกฺขโณ  ฯ  ปฏิสนฺธิกฺขเณติ  วิวรณํ  ฯ
+<span class="LineNumber"> 005 </span>	[๕๖๒]  ชจฺจนฺธาทีนนฺติ  เอตฺถ  ชจฺจนฺธสทฺทสฺส  วจนํ
+<span class="LineNumber"> 006 </span>าเปนฺโต  อาห  ชาติยาตฺยาทึ  ฯ  ชาติยา  อนฺโธ  อิติ  ตสฺมา
+<span class="LineNumber"> 007 </span>ชจฺจนฺโธ  ฯ
+<span class="LineNumber"> 008 </span>	ชนนํ  ชาติ  ฯ  อนฺธตีติ  อนฺโธ  โย  สตฺโต  ฯ  อนฺธ
+<span class="LineNumber"> 009 </span>ทิฏฺฐุปสํหาเร  ฯ  ทิฏฺฐุปสํหาโร  นาม  จกฺขุสญฺิตาย  ทิฏฺ€ิยา
+<span class="LineNumber"> 010 </span>อุปสํหาโร  วินาโส  ฯ  สพฺพโต  ณฺวุตฺวาวี  วาติ  อ  ฯ
+<span class="LineNumber"> 011 </span>	ชาติยาติ  อนฺโธติ  อาธาโร  ฯ  อนฺโธติ  ลิงฺคตฺโถ  ฯ  อิตีติ
+<span class="LineNumber"> 012 </span>เหตุ  ฯ
+<span class="LineNumber"> 013 </span>	[๕๖๓]  เอวํ  สตฺตมีตปฺปุริสวจนตฺเถ  สติ  อณฺฑชชลาพุชา
+<span class="LineNumber"> 014 </span>สพฺเพปิ  สตฺตา  โอกฺกนฺติกฺขเณ  จกฺขุสฺสาภาวโต  ชจฺจนฺธา  นาม
+<span class="LineNumber"> 015 </span>ภเวยฺยุนฺติ  โจทนํ  สนฺธายาห  กิญฺจาปิตฺยาทึ  ฯ  ชาติกฺขเณ
+<span class="LineNumber"> 016 </span>อณฺฑชชลาพุชา  สพฺเพ  สตฺตา  กิญฺจาปิ  อจกฺขุกาว  ตถาปิ
+<span class="LineNumber"> 017 </span>จกฺขฺวา...อนุปฺปาทิตพฺพจกฺขุโก  อนุปาทิยมานจกฺขุโก  สตฺโต  ชจฺจนฺโธ
+<span class="LineNumber"> 018 </span>นาม  ฯ
+<span class="LineNumber"> 019 </span>	กิญฺจาปีติ  โจทกอาโภคทสฺสโน  นิปาโต  ฯ  ชนนํ  ชาติ
+<span class="LineNumber"> 020 </span>ชาติยา  ขโณ  ชาติกฺขโณ  ฯ  อเมนฺติ  อุปฺปชฺชนฺติ  เอตฺถาติ
+<span class="LineNumber"> 021 </span>อณฺโฑ  ปกฺขีอาทโย  สตฺตา  เอตฺถ  อณฺฑปฺปสเว  อเมนฺติ
+<span class="LineNumber"> 022 </span>						อภิ.๑๖๐

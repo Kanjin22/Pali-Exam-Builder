@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span><B>โภคาติ</B>     อิมินา     อุปโภคปริโภควตฺถุภูตา     ทิพฺพรูปสทฺทคนฺธรส- 
+<span class="LineNumber"> 002 </span>โผฏฺ€พฺพปฺปเภทกามคุณสมฺปทา  ฯ  <B>มนโส  ปิยาติ</B>  อิมินา  เตสํ  รูปาทีนํ 
+<span class="LineNumber"> 003 </span>อิฏฺ€กนฺตมนาปตา  ฯ  <B>อิธ  อิชฺฌตีติ </B>อิมินา ทิพฺพอายุยสสุขอธิป-
+<span class="LineNumber"> 004 </span>เตยฺยสมฺปทา ทสฺสิตา  ฯ    <B>ปุจฺฉามีติ</B>    ปฺหํ    กโรมิ  ฯ   าตุํ   อิจฺฉามีติ 
+<span class="LineNumber"> 005 </span>อตฺโถ  ฯ   อยฺหิ   ปุจฺฉา  <SUP>๑</SUP>  ทิฏฺ€สํสนฺทนาว  ฯ  <B>มนุสฺสภูโตติ</B> 
+<span class="LineNumber"> 006 </span>มนุสฺเสสุ   ภูโต  ชาโต  มนุสฺสภาวํ  วา  ปตฺโต  ฯ  <B>กิมกาสิ  ปุฺนฺติ</B> 
+<span class="LineNumber"> 007 </span>กึ  ทานสีลาทิปฺปเภเทสุ  กีทิสํ  ปูชภวผลนิพฺพตฺตนโต <SUP>๒</SUP> ยตฺถ สยํ อุปฺปนฺนํ 
+<span class="LineNumber"> 008 </span>ตํ   สนฺตานํ   ปุนาติ   วิโสเธตีติ   จ   ปุฺนฺติ   ลทฺธนามํ   สุจริตํ กุสล-
+<span class="LineNumber"> 009 </span>กมฺมํ  อกาสิ  อุปจินิ  นิพฺพตฺเตสีติ  อตฺโถ  ฯ ชลิตานุภาโวติ สพฺพโส 
+<span class="LineNumber"> 010 </span>วิชฺโชตมานปุฺิทฺธิโกติ สพฺพปฺป€มปิฏฺ€วิมานวณฺณนานโย ฯ 
+<span class="LineNumber"> 011 </span>	[๑๔๙]   เอวํ   เถเรน  ปุฏฺโ€  เทวปุตฺโต  ปฺหํ  พฺยากโรนฺโต 
+<span class="LineNumber"> 012 </span>อิมา คาถา อภาสิ 
+<span class="LineNumber"> 013 </span>		  <B>อหํ มนุสฺเสสุ มนุสฺสภูโต 
+<span class="LineNumber"> 014 </span>		  วิวเน ปเถ สงฺกมนํ <SUP>๓</SUP> อกาสึ 
+<span class="LineNumber"> 015 </span>		  อารามรุกฺขานิ จ โรปยิสฺสํ 
+<span class="LineNumber"> 016 </span>		  ปิยา จ เม สีลวนฺโต อเหสุํ 
+<span class="LineNumber"> 017 </span>		  อนฺนฺจ ปานฺจ ปสนฺนจิตฺโต 
+<span class="LineNumber"> 018 </span>		  สกฺกจฺจทานํ วิปุลํ อทาสึ ฯ </B>
+
+<span class='footnote'>๑. ปุจฺฉาติ ติสฺโส ปุจฺฉา  อทิฏฺ€โชตนา ปุจฺฉา ทิฏฺ€สํสนฺทนา ปุจฺฉา วิมติจฺเฉทนา </span>
+<span class='footnote'>ปุจฺฉา ฯ ๒. ปุนพฺภวผลนิพฺพตฺตนโตติปิ ปาโ€ ฯ . ว. ๓. ปาลิยมฺปน จงฺกมนฺติปิ </span>
+<span class='footnote'>ปาโ€ ทิสฺสติ ฯ . ว. </span>

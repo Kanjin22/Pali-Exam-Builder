@@ -1,0 +1,24 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  90
+
+<span class="LineNumber"> 002 </span>ภาโว  ภินฺนารมฺมณตฺตํ  ฯ  ยกาโร  อาคโม  ฯ  เอวสทฺโท
+<span class="LineNumber"> 003 </span>อภินฺนารมฺมณตฺตํ  นิวตฺเตติ  ฯ  อิตีติ  อธิปฺปาโยติ  ปทสฺส
+<span class="LineNumber"> 004 </span>สรูปํ  ฯ  อธิปฺปาโยติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 005 </span>	[๑๑๖]  อธิโมกฺขวิรหิตาติ  วจนสฺส  วจเน  เหตุํ  าเปนฺโต
+<span class="LineNumber"> 006 </span>อาห  อธิโมกฺสฺสาตฺยาทึ  ฯ  อธิโมกฺขสฺส...นตฺถิ  อิติ  ตสฺมา
+<span class="LineNumber"> 007 </span>อธิ...หิตาติ  วจนํ  อาจริเยน  วุตฺตํ  ฯ
+<span class="LineNumber"> 008 </span>	อธิ...สาติ  ปวตฺตีติ  ปเท  สมฺพนฺโธ  ฯ  นิจฺฉ...วตฺติโตติ
+<span class="LineNumber"> 009 </span>นตฺถีติ  ปเท  เหตุ  ฯ  อารมฺมณสฺส  นิจฺฉยํ  นิจฺฉโย  นิจฺฉโย
+<span class="LineNumber"> 010 </span>เอว  อากาโร  นิจฺฉยากาโร  ฯ  ปวตฺตนํ  ปวตฺติ  นิจฺฉยากาเรน
+<span class="LineNumber"> 011 </span>ปวตฺติ  นิจฺฉ...ปวตฺติ  ฯ  เทฺวฬฺห...ภาเวติ  วิจิกิจฺฉาจิตฺเตติ  ปทสฺส
+<span class="LineNumber"> 012 </span>วิเสสนํ  ฯ  ทฺวิธา  อิลนํ  ปวตฺตนํ  เทฺวฬฺหกํ  ฯ  ทฺวิสทฺทุปปโท
+<span class="LineNumber"> 013 </span>อิล  คติยํ  วชาทีหิ...จนฺเตติ  หปจฺจโย  ฯ  สพฺพโต  โกติ  สกตฺเถ
+<span class="LineNumber"> 014 </span>โก  เตสุวุฑฺฒีติ  อาทินา  อิสฺเส<SUP>๑</SUP>  ฯ  เทฺวฬฺหกํ  สภาโว  ปกติ  ยสฺส
+<span class="LineNumber"> 015 </span>จิตฺตสฺส  ตํ  เทฺวฬฺหกสภาวํ  ฯ  วิจิกิจฺฉาจิตฺเตติ  สมฺภโวติ  ปเท
+<span class="LineNumber"> 016 </span>อาธาโร  ฯ  วิจิกิจฺฉาย  สมฺปยุตฺตํ  จิตฺตํ  วิจิกิจฺฉาจิตฺตํ  ฯ
+<span class="LineNumber"> 017 </span>สมฺภโวติ  นตฺถีติ  ปเท  กตฺตา  ฯ  อิตีติ  วุตฺตนฺติ  ปเท  เหตุ  ฯ
+<span class="LineNumber"> 018 </span>อธิ...หิตาตีติ  วุตฺตนฺติ  ปเท  กมฺมํ  ฯ
+<span class="LineNumber"> 019 </span>	[๑๑๗]  เอกูนวีสตฺยาทิคาถาย  โยชนํ  กโรนฺโต  อาห  เอกูน-
+<span class="LineNumber"> 020 </span>วีสตฺยาทึ  ฯ  เอกูนวีสติ  ธมฺมา  ป€ม...เกสุ  €ิตา  อฏฺ€ารส
+<span class="LineNumber"> 021 </span>ธมฺมา  ตติย...เกสุ  €ิตา  วีส  ธมฺมา  ปญฺจ...เก  €ิตา
+<span class='footnote'>๑.  อิสฺส  เอต  เฉโท  ฯ</span>
+<span class="LineNumber"> 022 </span>						อภิ.๑๑๕

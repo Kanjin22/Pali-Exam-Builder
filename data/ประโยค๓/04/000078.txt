@@ -1,0 +1,19 @@
+<span class="LineNumber"> 001 </span>	"วสฺสิกา วิย ปุปฺผานิ      มชฺชวานิ<SUP>๑</SUP> ปมุฺจติ, 
+<span class="LineNumber"> 002 </span>	เอวํ ราคฺจ โทสฺจ     วิปฺปมุฺเจถ ภิกฺขโวติ. 
+<span class="LineNumber"> 003 </span>	ตตฺถ "วสฺสิกาติ: สุมนา. 
+<span class="LineNumber"> 004 </span>	มชฺชวานีติ:   มิลาตาน  [<SUP>๒</SUP>]  อิทํ  วุตฺตํ  โหติ  "ยถา  วสฺสิกา 
+<span class="LineNumber"> 005 </span>หิยฺโย    ปุปฺผิตปุปฺผานิ    ปุนทิวเส    ปุราณภูตานิ   มุฺจติ   วณฺฏโต 
+<span class="LineNumber"> 006 </span>วิสฺสชฺเชติ: เอวํ ตุมฺเหปิ ราคาทโย โทเส วิปฺปมุฺเจถาติ. 
+<span class="LineNumber"> 007 </span>	เทสนาวสาเน สพฺเพปิ ภิกฺขู อรหตฺเต ปติฏฺ€หึสูติ. 
+<span class="LineNumber"> 008 </span>		    		ปฺจสตภิกฺขุวตฺถุ. 
+		    
+<span class="LineNumber"> 009 </span>		๙. สนฺตกายตฺเถรวตฺถุ. (๒๖๐) 
+<span class="LineNumber"> 010 </span>	"สนฺตกาโยติ    อิมํ   ธมฺมเทสนํ   สตฺถา   เชตวเน   วิหรนฺโต 
+<span class="LineNumber"> 011 </span>สนฺตกายตฺเถรํ อารพฺภ กเถสิ. 
+<span class="LineNumber"> 012 </span>	ตสฺส   กิร   หตฺถปาทกุกฺกุจฺจนฺนาม   นาโหสิ,   กายวิชมฺภนรหิโต 
+<span class="LineNumber"> 013 </span>สนฺตอตฺตภาโว     อโหสิ.     โส     กิร    สีหโยนิยา    อาคโต 
+<span class="LineNumber"> 014 </span>[เถโร].  สีหา  กิร  เอกทิวสํ โคจรํ คเหตฺวา รชตสุวณฺณมณิปวาฬคุหานํ 
+<span class="LineNumber"> 015 </span>อฺตรํ    ปวิสิตฺวา    มโนสิลาหริตาลจุณฺเณสุ    สตฺตาหํ   นิปชฺชิตฺวา 
+<span class="LineNumber"> 016 </span>สตฺตเม      ทิวเส      อุฏฺ€าย     นิปนฺนฏฺ€านํ     โอโลเกตฺวา, 
+<span class="LineNumber"> 017 </span>สเจ    นงฺคุฏฺ€สฺส   วา   กณฺณานํ   วา   ปาทานํ   วา   จลิตตฺตา 
+<span class='footnote'>๑. สี. ยุ. มทฺทวานิ. ม. มจฺจวานิ.   ๒. สี. ยุ. เอตฺถนฺตเร "อิทานีติ อตฺถิ. </span>

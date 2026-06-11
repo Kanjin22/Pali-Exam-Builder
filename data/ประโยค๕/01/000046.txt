@@ -1,0 +1,21 @@
+<span class="LineNumber"> 001 </span>                                  ธมฺมจริยากถา 
+<span class="LineNumber"> 002 </span>	[๕๔] ธมฺมจริยา นาม ทสกุสลกมฺมปถจริยาติ อิธ <SUP>๑</SUP>วุตฺตํ ฯ 
+<span class="LineNumber"> 003 </span>	ธมฺมจริยสมจริยา    นาม    ทส   กุสลกมฺมปถาติ   ทุกงฺคุตฺตรสฺส 
+<span class="LineNumber"> 004 </span>ทุติยวคฺเค ฉฏฺ€สุตฺตวณฺณนา <SUP>๒</SUP> ฯ 
+<span class="LineNumber"> 005 </span>	ตตฺถ ทส กุสลกมฺมปถา เหฏฺ€า อาคาริยวินเย วุตฺตาว ฯ 
+<span class="LineNumber"> 006 </span>	ธมฺมสฺส   จริยา   ธมฺมา   วา   อนเปตา   จริยา  ธมฺมจริยาติ 
+<span class="LineNumber"> 007 </span>อิทมฺปีธ <SUP>๓</SUP>  วุตฺตํ ฯค 
+<span class="LineNumber"> 008 </span>	ธมฺมสฺส จริยา ธมฺมจริยา ธมฺมกรณนฺติ สาเลยฺยกสุตฺตวณฺณนานโย <SUP>๔</SUP> ฯ 
+<span class="LineNumber"> 009 </span>	ธมฺมํ   จรติ   เอตายาติ   ธมฺมจริยา   ตถาปวตฺตา   เจตนา  ฯ 
+<span class="LineNumber"> 010 </span>ธมฺโมติ    ปน    ตํสมุฏฺ€าโน    ปโยโค    ทฏฺ€พฺโพ  ฯ   ธมฺมโต 
+<span class="LineNumber"> 011 </span>อนเปตาติ   วา   ธมฺมา   ธมฺมา  จ  สา  จริยา  จาติ  ธมฺมจริยาติ 
+<span class="LineNumber"> 012 </span>ตฏฺฏีกานโย ฯ 
+<span class="LineNumber"> 013 </span>	[๕๕]  สา  สคฺคุปฺปตฺยาทิเหตุโต  มงฺคลนฺติ  เวทิตพฺพา  ฯ เตนาห 
+<span class="LineNumber"> 014 </span>ภควา   มูลปณฺณาสกสฺส  ปฺจมวคฺเค  สาเลยฺยกสุตฺเต  <SUP>๕</SUP>  โกสลรฏฺเ€ 
+<span class="LineNumber"> 015 </span>สาลคาเม   นิวาสิตาย   สาเลยฺยกานํ  นาม  พฺราหฺมณคหปติกานํ  ธมฺมํ 
+<span class="LineNumber"> 016 </span>เทเสนฺโต    ธมฺมจริยสมจริยเหตุ    โข    คหปตโย   เอวมิเธกจฺเจ 
+<span class="LineNumber"> 017 </span>สตฺตา  กายสฺส  เภทา  ปรมฺมรณา  สุคตึ  สคฺคํ   โลกํ  อุปปชฺชนฺติ  ฯ 
+<span class="LineNumber"> 018 </span>ติวิธํ   โข   คหปตโย   กาเยน   ธมฺมจริยสมจริยา   โหติ   จตุพฺพิธํ 
+
+<span class='footnote'>๑.  ป. โช. ขุ. ขุ. ๑๕๕. ๒. มโน. ปู. ๒/๑๘. ๓. ป. โช. ขุ. ขุ. ๑๕๔. </span>
+<span class='footnote'>๔. ป. สู. ๒/๔๔๔. ปฏิปกฺขนโย.  ๕. ม. มู. ๑๒/๕๑๙. </span>

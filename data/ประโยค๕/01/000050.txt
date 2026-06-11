@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>อโห   วตาหํ   อาสวานํ   ขยา   อนาสวํ   เจโตวิมุตฺตึ  ปฺาวิมุตฺตึ 
+<span class="LineNumber"> 002 </span>ทิฏฺเ€   ว   ธมฺเม  สยํ  อภิฺา  สจฺฉิกตฺวา  อุปสมฺปชฺช  วิหเรยฺยนฺติ 
+<span class="LineNumber"> 003 </span>€านํ   โข  ปเนตํ  วิชฺชติ  ยํ  โส  อาสวานํ  ขยา  ...  อุปสมฺปชฺช 
+<span class="LineNumber"> 004 </span>วิหเรยฺย ตํ กิสฺส เหตุ ตถา หิ โส ธมฺมจารี สมจารีติ ฯ 
+<span class="LineNumber"> 005 </span>                                            ปาลิ ฯ 
+<span class="LineNumber"> 006 </span>	[๕๖]      <B>ธมฺมจริยสมจริยเหตูติ</B>      ธมฺมจริยสงฺขาตสมจริยเหตุ 
+<span class="LineNumber"> 007 </span>ตํการณา ตปฺปจฺจยาติ อตฺโถติ ทุกงฺคุตฺตรวณฺณนานโย <SUP>๑</SUP>ฯ 
+<span class="LineNumber"> 008 </span>	<B>ติวิธนฺติ</B>    ตีหิ   โกฏฺ€าเสหิ  ฯ   <B>กาเยนาติ</B>   กายทฺวาเรนาติ 
+<span class="LineNumber"> 009 </span>สาเลยฺยกวณฺณนา <SUP>๒</SUP> ฯ 
+<span class="LineNumber"> 010 </span>	สมํ  <SUP>๓</SUP>   จริยา   สมสฺส  วา  กมฺมสฺส  จริยาติ  สมจริยา  ฯ 
+<span class="LineNumber"> 011 </span>ธมฺมจริยา  จ  สา  สมจริยา  จาติ  ธมฺมจริยสมจริยา ธมฺมจริยสงฺขาตา 
+<span class="LineNumber"> 012 </span>สมจริยาติ อตฺโถติ สาเลยฺยกทุกงฺคุตฺตรวณฺณนานโย <SUP>๔</SUP> ฯ 
+<span class="LineNumber"> 013 </span>	[๕๗]     <B>ปาณาติปาตํ     ปหายาติ </B>   ปาณาติปาตเจตนาสงฺขาตํ 
+<span class="LineNumber"> 014 </span>ทุสฺสีลฺยํ    ปชหิตฺวา  ฯ   <B>ปฏิวิรโตติ</B>   ปหีนกาลโต   ปฏฺ€าย   ตโต 
+<span class="LineNumber"> 015 </span>ทุสฺสีลฺยโต   โอรโต   วิรโต   ว   โหติ  ฯ  <B>นิหิตทณฺโฑ  นิหิตสตฺโถติ</B> 
+<span class="LineNumber"> 016 </span>ปรูปฆาตตฺถาย    ทณฺฑํ    วา    สตฺถํ    วา   อาทาย   อวตฺตนโต 
+<span class="LineNumber"> 017 </span>นิกฺขิตฺตทณฺโฑ  เจว  นิกฺขิตฺตสตฺโถ  จาติ  อตฺโถ  ฯ  เอตฺถ จ €เปตฺวา 
+<span class="LineNumber"> 018 </span>ทณฺฑํ   สพฺพมฺปิ   อวเสสํ   อุปกรณํ   สตฺตานํ   วิหึสนภาวโต  สตฺถนฺติ 
+<span class="LineNumber"> 019 </span>เวทิตพฺพํ  ฯ   ยมฺปน   ภิกฺขู   กตฺตรทณฺฑํ  วา  ทนฺตกฏฺ€ํ  วา  วาสึ 
+
+<span class='footnote'>๑. มโน. ปู. ๒/๑๘.  ๒-๔ ป. สู. ๒/๔๔๔. มโน. ปู. ๒/๑๘. ๓. สมาติปิ </span>
+<span class='footnote'>ปาโ€. . ว. </span>

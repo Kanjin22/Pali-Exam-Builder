@@ -1,0 +1,20 @@
+<span class="LineNumber"> 001 </span>วิชหนฺเตเยว    มหาป€วี    สิเนรุยุคนฺธราทโย   มหาภาเร   ธาเรตุํ 
+<span class="LineNumber"> 002 </span>สมตฺถาปิ    ตสฺส   อคุณราสึ   ธาเรตุํ   อสกฺโกนฺตี   วิย   ภิชฺชิตฺวา 
+<span class="LineNumber"> 003 </span>วิวรมทาสิ  ฯ    ตาวเทว   อวีจิชาลา   นิกฺขมิตฺวา   ตํ   อกตฺ 
+<span class="LineNumber"> 004 </span>มิตฺตทุพฺภึ   ปริกฺขิปิตฺวา   คณฺหิ  ฯ   อถ   ตสฺมึ  วนสณฺเฑ  อธิวตฺถา 
+<span class="LineNumber"> 005 </span>รุกฺขเทวตา เอกนิปาตสฺส อฏฺ€มวคฺเค สีลวชาตเก <SUP>๑</SUP>อิมํ คาถมาห 
+<span class="LineNumber"> 006 </span>	[๓๘๑] <B>อกตฺุสฺส โปสสฺส            นิจฺจํ วิวรทสฺสิโน 
+<span class="LineNumber"> 007 </span>                     สพฺพฺเจ ป€วึ ทชฺชา           เนว นํ อภิราธเยติ ฯ</B> 
+<span class="LineNumber"> 008 </span>	ตตฺถ    <B>อกตฺุสฺสาติ</B>    อตฺตโน    กตคุณํ    อชานนฺตสฺส  ฯ 
+<span class="LineNumber"> 009 </span><B>โปสสฺสาติ</B>    ปุริสสฺส  ฯ    <B>วิวรทสฺสิโนติ</B>   ฉิทฺทเมว   โอกาสเมว 
+<span class="LineNumber"> 010 </span>โอโลเกนฺตสฺส  ฯ  <B>สพฺพฺเจ  ป€วึ  ทชฺชาติ</B>  สเจปิ  สกลํ จกฺกวตฺติรชฺชํ 
+<span class="LineNumber"> 011 </span>อิมํ   วา   ปน   มหาป€วึ  ปริวตฺเตตฺวา  ป€โวชํ  ทเทยฺย  ฯ  <B>เนว 
+<span class="LineNumber"> 012 </span>นํ   อภิราธเยติ </B>  เอวํ   กโรนฺโตปิ  โกจิ  ปริโตเสตุํ  วา  ปสาเทตุํ 
+<span class="LineNumber"> 013 </span>วา น สกฺกุเณยฺยาติ ฯ 
+<span class="LineNumber"> 014 </span>	หตฺถี ยาวตายุกํ €ตฺวา ยถากมฺมํ คโต ฯ 
+<span class="LineNumber"> 015 </span>                                    วนจรกวตฺถุ ฯ 
+<span class="LineNumber"> 016 </span>	เอวํ   อกตฺุสฺส   ทุคฺคติ   สมฺปราโย   โหติ  ฯ  กตฺู  ปน 
+<span class="LineNumber"> 017 </span>สุคตึ อุปปนฺโน คณนปถํ วีติวตฺโต ฯ กึ วตฺถุนาติ ฯ 
+<span class="LineNumber"> 018 </span>                              กตฺุตาติปทกถา 
+
+<span class='footnote'>๑. ชาตกฏฺ€กถา. ๒/๑๒๔. </span>

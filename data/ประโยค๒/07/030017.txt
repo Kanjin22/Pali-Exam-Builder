@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>	นารทอำมาตย์ถามว่า 
+<span class="LineNumber"> 002 </span>	<B>"ท่านบริโภคข้าวสุกแห่งข้าวสาลี  อันจืดด้วย
+<span class="LineNumber"> 003 </span>	เนื้อดี ๆ  แล้ว,  ข้าวฟ่างและลูกเดือย  ซึ่งหารส
+<span class="LineNumber"> 004 </span>	เค็มมิได้  จะทำให้ท่านยินดีได้อย่างไร ?"</B>
+<span class="LineNumber"> 005 </span>	ท่านตอบว่า
+<span class="LineNumber"> 006 </span>	<B>"ผู้คุ้นเคยกันบริโภค<SUP>๑</SUP>อาหารไม่อร่อยหรืออร่อย
+<span class="LineNumber"> 007 </span>	น้อยหรือมากในที่ใด,  (อาหารที่บริโภคในที่นั้น
+<span class="LineNumber"> 008 </span>	ก็ให้สำเร็จประโยชน์ได้)  เพราะว่า   รสทั้งหลาย
+<span class="LineNumber"> 009 </span>	มีความคุ้นเคยเป็นอย่างยิ่ง."</B>
+<span class="LineNumber"> 010 </span>                            [พระศาสดาทรงย่อชาดก]
+<span class="LineNumber"> 011 </span>	พระศาสดาครั้นทรงทำพระธรรมเทศนานี้มาแล้ว  ทรงประมวล
+<span class="LineNumber"> 012 </span>ชาดก  ตรัสว่า   "พระราชา   ในครั้งนั้น  ได้เป็นโมคคัลลานะ,  นารท-
+<span class="LineNumber"> 013 </span>อำมาตย์  ได้เป็นสารีบุตร,  อันเตวาสิกชื่อกัปปกะ  ได้เป็นอานนท์,
+<span class="LineNumber"> 014 </span>เกสวดาบส  เป็นเราเอง"  ดังนี้แล้ว  ตรัสว่า   "อย่างนั้น   มหาบพิตร
+<span class="LineNumber"> 015 </span>บัณฑิตในปางก่อน   ถึงเวทนาปางตาย  ได้ไปสู่ที่คนมีความคุ้นเคย
+<span class="LineNumber"> 016 </span>กันแล้ว,  สาวกทั้งหลายของอาตมภาพ  ชะรอยจะไม่ได้ความคุ้นเคย
+<span class="LineNumber"> 017 </span>ในสำนักของพระองค์."
+<span class="LineNumber"> 018 </span>                [พระราชาทรงส่งสาสน์ไปขอธิดาเจ้าศากยะ]
+<span class="LineNumber"> 019 </span>	พระราชาทรงดำริว่า  "เราควรจะทำความคุ้นเคยกับภิกษุสงฆ์,
+<span class="LineNumber"> 020 </span>เราจักทำอย่างไรหนอ ?"   ดังนี้แล้ว  ทรงดำริ  (อีก)   ว่า  "ควร
+
+<span class='footnote'>๑.   ภุญฺเชยฺย  ในชาดกและบาลีเป็น   ภุญฺเช  อรรถกถาแก้เป็น  ภุฺชิ.</span>

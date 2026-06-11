@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			อภิธมฺมตฺถวิภาวินิยา  หน้า  600
+
+<span class="LineNumber"> 002 </span>	[๗๔๗]  ทสฺสเนนตฺยาทิ  วิสชฺชนํ  ฯ  ทสฺสเนน...ตตฺตา  อุทฺธจฺจ-
+<span class="LineNumber"> 003 </span>สหคตสฺส  อุทฺธจฺจ...ถีติ  เอตํ  วจนํ  ปณฺฑิเตหิ  วิญฺาตพฺพนฺติ
+<span class="LineNumber"> 004 </span>โยชนา  ฯ
+<span class="LineNumber"> 005 </span>	ทสฺสเนนาติ  ปหาตพฺเพสูติ  กตฺตา  ฯ  ปหาตพฺเพสูติ
+<span class="LineNumber"> 006 </span>อนาคตตฺตาติ  อาธาโร  ฯ  อนาคตตฺตาติ  วิญฺาตพฺพนฺติ  เหตุ  ฯ
+<span class="LineNumber"> 007 </span>อนาคตสฺส  อุทฺธจฺจสหคตสฺส  ภาโว  อนาคตตฺตํ  ฯ
+<span class="LineNumber"> 008 </span>	[๗๔๘]  ทสฺสเนน...อนาคตตฺตาติ  วจนํ  ทฬฺหํ  กโรนฺโต  อาห
+<span class="LineNumber"> 009 </span>ติวิธาตฺยาทึ  ฯ  หิ  สจฺจํ  ทสฺส...ตพฺพา  ติวิธา  อกุสลาติ  โยชนา  ฯ  
+<span class="LineNumber"> 010 </span>	ตโย  วิธา  เยสํ  เต  ติวิธา  ฯ  หิสทฺโท  ทฬฺหี  ฯ  สิยาติ
+<span class="LineNumber"> 011 </span>กทาจิ  ฯ
+<span class="LineNumber"> 012 </span>	ติวิธาติ  อกุสลาติ  วิเสสนํ  ฯ  อกุสลาติ  ลิงฺคตฺโถ  ฯ
+<span class="LineNumber"> 013 </span>ทสฺสเนนาติ  ปหาตพฺพาติ  กตฺตา  ฯ  ภาวนายาติ  ปหาตพฺพาติ  กตฺตา  ฯ
+<span class="LineNumber"> 014 </span>สิยาติ  ปหาตพฺพาติ  กาลสตฺตมี  ฯ  อิตีติ  ติวิธาติ  สรูปํ  ฯ
+<span class="LineNumber"> 015 </span>	[๗๔๙]  ติวิธากุสลานํ  สรูปํ  าเปนฺโต  อาห  ตตฺถตฺยาทึ  ฯ
+<span class="LineNumber"> 016 </span>ตตฺถ  เตสุ  ติวิเธสุ  อกุสเลสุ  ทิฏฺ€ิ...นาม  กสฺมา  ป€มํ...
+<span class="LineNumber"> 017 </span>ตพฺพตฺตาติ  โยชนา  ฯ
+<span class="LineNumber"> 018 </span>	ทิฏฺ€ิยา  สหคโต  ทิฏฺ€ิสหคโต  ฯ  วิจิกิจฺฉาย  สหคโต  วิจิ...
+<span class="LineNumber"> 019 </span>คโต  ฯ  ทิฏฺ€ิสหคโต  จ  วิจิกิจฺฉาสหคโต  จ  ทิฏฺ€ิ...คตา  ฯ
+<span class="LineNumber"> 020 </span>จิตฺตญฺจ  อุปฺปาทา  จ  จิตฺตุปฺปาทา  ฯ  ทิฏฺ€ิ...คตา  จ  เต
+<span class="LineNumber"> 021 </span>จิตฺตุปฺปาทา  จาติ  ทิฏฺ€ิ...ปาทา  ฯ
+<span class="LineNumber"> 022 </span>						อภิ.๑๗๕

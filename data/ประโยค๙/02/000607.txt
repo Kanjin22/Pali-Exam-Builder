@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    607
+
+<span class="LineNumber"> 002 </span>วุตฺตตฺตาติ  ภาวโยโค  ฯ  เอกนฺตโตติ  วุตฺตตฺตาติ  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 003 </span>ภาว...นาติ  วุตฺตตฺตาติ  ตติยาวิเสสนํ  ฯ  วุตฺตตฺตาติ  นาติ  เหตุ  ฯ
+<span class="LineNumber"> 004 </span>วุตฺตสฺส  ภาโว  วุตฺตตฺตํ  ฯ
+<span class="LineNumber"> 005 </span>	[๗๖๓]  กถํ  วุตฺตนฺติ  อาห  วุตฺตญฺเหตนฺตฺยาทึ  ฯ  หิ
+<span class="LineNumber"> 006 </span>สจฺจํ  กตเม...ปาโทติ  เอตํ  วจนํ  ภควตา  วุตฺตํ  ฯ  ตสฺมา
+<span class="LineNumber"> 007 </span>ภาวนาย  ปหาตพฺพภาเวน  วุตฺตตฺตา  ทสฺส...เธตีติ  โยชนา  ฯ
+<span class="LineNumber"> 008 </span>	หิสทฺโท  ทฬฺหี  ฯ  เอตนฺติ  วุตฺตนฺติ  กมฺมํ  ฯ  กต...โทตีติ
+<span class="LineNumber"> 009 </span>ปทํ  เอตนฺติ  สรูปํ  ฯ  ตสฺมาติ  สาเธตีติ  เหตุ  ฯ  ทสฺส...สูติ
+<span class="LineNumber"> 010 </span>อวจนนฺติ  อาธาโร  ฯ  เอวสทฺโท  น  ภาวนาย  ปหาตพฺเพสุ
+<span class="LineNumber"> 011 </span>อวจนนฺติ  สาเธตีติ  กตฺตา  ฯ  อิมสฺส  อุทฺธจฺจสหคตสฺส  ฯ
+<span class="LineNumber"> 012 </span>อิมสฺสาติ  ทานาติ  สมฺพนฺโธ  ฯ  ปฏิ...วนฺติ  สาเธตีติ  กมฺมํ  ฯ
+<span class="LineNumber"> 013 </span>ปฏิสนฺธิยา  ทานํ  ปฏิสนฺธิทานํ  ปฏิสนฺธิทานสฺส  อภาโว
+<span class="LineNumber"> 014 </span>ปฏิสนฺธิทานาภาโว  ฯ
+<span class="LineNumber"> 015 </span>	[๗๖๔]  โกจิ  ปฏิสมฺภิทาวิภงฺเค  วุตฺตวจนํ  ทิสฺวา  โจเทยฺย
+<span class="LineNumber"> 016 </span>ตสฺมา  ตํ  โจทนํ  ฐเปนฺโต  อาห  นนุ  จาติ  อาทึ  ฯ  ปฏิ...ตสฺส
+<span class="LineNumber"> 017 </span>อุทฺธจฺจสหคตจิตฺตุปฺปาทสฺส  วิปาโกปิ  ภควตา  นนุ  จ  อุทฺธโฏ
+<span class="LineNumber"> 018 </span>อิติ  ตสฺมา  อสฺส  อุทฺธจฺจสหคตสฺส  ปฏิ...โว  ตุมฺเหหิ  กถํ
+<span class="LineNumber"> 019 </span>สมฺปฏิจฺฉิตพฺโพ  อิติ  โจทนาติ  โยชนา  ฯ
+<span class="LineNumber"> 020 </span>	นนุ  จาติ  ปุจฺฉา  ฯ  ปฏิ...เคติ  อุทฺธริตฺวา  อุทฺธโฏติ  ทฺวเย
+<span class="LineNumber"> 021 </span>					อภิ.๑๗๖

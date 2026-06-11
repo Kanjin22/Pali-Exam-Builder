@@ -1,0 +1,22 @@
+<span class="LineNumber"> 001 </span>ปหาย  กาเมติ  โลมสกสฺสปชาตเก<SUP>๑</SUP> สีลํ  ฯ  ทานํ  สีลํ  ปริจฺจาคํ 
+<span class="LineNumber"> 002 </span>อาชฺชวํ  มทฺทวํ  ตปนฺติ  มหาหํสชาตเก<SUP>๒</SUP>  อุโปสถกมฺมํ  ฯ  สมคฺคานํ 
+<span class="LineNumber"> 003 </span>ตโป   สุโขติ   เอตฺถ   พุทฺธวจนุคฺคหณาทิ  ฯ  เตน  ธมฺมปทวณฺณนายํ 
+<span class="LineNumber"> 004 </span>สมคฺคานมฺปน   เอกจิตฺตานํ   ยสฺมา  พุทฺธวจนํ  วา  อุคฺคหิตุํ  ธูตงฺคานิ 
+<span class="LineNumber"> 005 </span>วา   ปริหริตุํ   สมณธมฺเม   วา   กาตุํ  สุขํ  ตสฺมา  สมคฺคานํ  ตโป 
+<span class="LineNumber"> 006 </span>สุโขติ วุตฺตนฺติ วุตฺตํ ฯ 
+<span class="LineNumber"> 007 </span>	[๔๗๒]       เทวปุตตสํยุตฺตฏีกายนฺตุ       ธูตงฺคธมฺโม      หิ ตณฺหา-
+<span class="LineNumber"> 008 </span>โลลุปฺปสฺส  ตปนโต  ตโปติ  อตฺโถ  วุตฺโต  ฯ  จุราทิคเณ  ตโปติ 
+<span class="LineNumber"> 009 </span>อกุสลานํ ตาปนตฺเถน ตโป สีลนฺติ วุตฺตํ ฯ 
+<span class="LineNumber"> 010 </span>	อิธ   ปน   อินฺทฺริยสํวราทิ  ฯ   เตนฏฺ€กถายํ  <SUP>๓</SUP>  ตโป  นาม 
+<span class="LineNumber"> 011 </span>อภิชฺฌาโทมนสฺสาทีนํ     ตปนโต    อินฺทฺริยสํวโร    โกสชฺชสฺส    วา 
+<span class="LineNumber"> 012 </span>ตปนโต วิริยนฺติ วุตฺตํ ฯ 
+<span class="LineNumber"> 013 </span>	ตตฺถ   อินฺทฺริยสํวโรติ   สติสํวโร  ฯ   โส   จตฺถโต   สติ  ฯ 
+<span class="LineNumber"> 014 </span>เตน    มูลปริยายสุตฺตฏีกายํ    สติสํวโรติ   อินฺทฺริยสํวรตา   สา   จ 
+<span class="LineNumber"> 015 </span>ตถาปวตฺตา เอวาติ วุตฺตํ ฯ 
+<span class="LineNumber"> 016 </span>	สํวรณโต    สํวโร    ปิทหนโต    ถกนโตติ   วุตฺตํ   โหติ  ฯ 
+<span class="LineNumber"> 017 </span>สติยา เอตํ อธิวจนนฺติ สพฺพาสวสุตฺตวณฺณนา <SUP>๔</SUP> ฯ 
+<span class="LineNumber"> 018 </span>	[๔๗๓]   อินฺทฺริยสํวรวุโต   หิ   อภิชฺฌาทโย   ปชหิตุํ  อินฺทฺริยานิ 
+<span class="LineNumber"> 019 </span>รกฺขติ  ฯ  เตนาห  จตุกฺกงฺคุตฺตเร<SUP>๒</SUP>  ป€มปณฺณาสกสฺส  จตุตฺถวคฺเค 
+
+<span class='footnote'>๑. ชาตกฏฺ€กถา. ๕/๓๘๖. ๒. ชาตกฏฺ€กถา. ๘/๒๗๘. ๓.ป. โช. ขุ. ขุ.๑๖๗ </span>
+<span class='footnote'>๔. ป. สู. ๑/๑๐๔. ๕. องฺ. จตุกฺก. ๒๑/๕๐. </span>

@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>			ปญฺจมปริจฺเฉทตฺถโยชนา    หน้า    505
+
+<span class="LineNumber"> 002 </span>เอกเมวาติ  €เปตฺวา  ภูมิ...เมวาติ  วิวรติ  ฯ
+<span class="LineNumber"> 003 </span>	ภูมิ...รโตติ  จตุปฺปทํ  สมานเมวาติ  ปเท  ตติยาวิเสสนํ  ฯ
+<span class="LineNumber"> 004 </span>จสทฺโท  สมุจฺจโย  ฯ  สมานเมวาติ  ปฏิสนฺธิ  ภวงฺคญฺจ  จวน-
+<span class="LineNumber"> 005 </span>มานสนฺติ  ปทตฺตยสฺส  วิเสสนํ  ฯ
+<span class="LineNumber"> 006 </span>	[๖๐๒]  ชาติสทฺโท  ปสูติภวาทีสุ  วตฺตติ  ตสฺมา  เอกชาติยนฺติ
+<span class="LineNumber"> 007 </span>€เปตฺวา  เอกสฺมึ  ภเวติ  วิวรติ  ฯ
+<span class="LineNumber"> 008 </span>	เอกสทฺโท  สงฺขฺยาวาจโก  ฯ  ภวติ  เอตฺถ  สตฺตสมฺมติขนฺธาทิ-
+<span class="LineNumber"> 009 </span>ปฏิปาฏิสงฺขาเต  ธมฺมปุญฺชสฺมินฺติ  ภโว  สํสาโร  ฯ  เอโก  จ  โส
+<span class="LineNumber"> 010 </span>ภโว  จาติ  เอกภโว  ฯ
+<span class="LineNumber"> 011 </span>	[๖๐๓]  อิทานิตฺยาทิ  ชนกนฺตฺยาทิวจนสิส  อนุสนฺธิทสฺสนํ  ฯ
+<span class="LineNumber"> 012 </span>อิทานิ...อาทิ  อาจริเยน  อารทฺธํ  ฯ
+<span class="LineNumber"> 013 </span>	อิทานีติ  ทสฺเสตุนฺติ  กาลสตฺตมี  ฯ  กมฺมจตุกฺกนฺติ  ทสฺเสตุนฺติ
+<span class="LineNumber"> 014 </span>กมฺมํ  ฯ  จตุนฺนํ  สมุโห  จตุกฺโก  กมฺมานํ  จตุกฺโก  กมฺมจตุกฺโก  ฯ
+<span class="LineNumber"> 015 </span>จตูหากาเรหีติ  ชนกุปตฺถมฺภกาทีหิ  เภเทหิ  ฯ  จตูหีติ  อากาเรหีติ
+<span class="LineNumber"> 016 </span>วิเสสนํ  ฯ  อากาเรหีติ  ทสฺเสตุนฺติ  ตติยาวิเสสนํ  ฯ  ทสฺเสตุนฺติ
+<span class="LineNumber"> 017 </span>อารทฺธนฺติ  สมฺปทานํ  ฯ
+<span class="LineNumber"> 018 </span>	[๖๐๔]  อวยวตฺถํ  าเปนฺโต  อาห  ชนยติตฺยาทึ  ฯ  ยํ
+<span class="LineNumber"> 019 </span>กมฺมํ  ชนยติ  อิติ  ตสฺมา  ตํ  ชนกํ  ฯ  ชนยติ  ชน  ชนเน
+<span class="LineNumber"> 020 </span>ติ  จุราทิโต  เณณยา  ฯ  ชน  สพฺพโต  ณฺวุตฺวาวี  วาติ  ณฺวุ
+<span class="LineNumber"> 021 </span>อนกา  ยุณฺวูนํ  ฯ  ยํ  กมฺมํ  อุปถมฺเภติ  อิติ  ตํ  กมฺมํ  อุปตฺถมฺภกํ  ฯ
+<span class="LineNumber"> 022 </span>					อภิ.๑๖๓
