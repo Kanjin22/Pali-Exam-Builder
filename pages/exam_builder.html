@@ -2846,8 +2846,8 @@
                 candidates.push(s);
             };
 
-            add(`ธมฺมปทฏฺฐกถา (${volThai}) ${range}${suffix}.txt`);
             add(`ธมฺมปทฏฺฐกถา (${volThai}) - หน้า ${range}${suffix}.txt`);
+            add(`ธมฺมปทฏฺฐกถา (${volThai}) ${range}${suffix}.txt`);
             return candidates;
         }
 
@@ -2954,15 +2954,37 @@
             return pageText;
         }
 
+        function toSafeFetchUrl(url) {
+            const encodeSegments = (pathname) => pathname
+                .split('/')
+                .map((seg, idx) => {
+                    if (idx === 0 && seg === '') return '';
+                    try {
+                        return encodeURIComponent(decodeURIComponent(seg));
+                    } catch (_) {
+                        return encodeURIComponent(seg);
+                    }
+                })
+                .join('/');
+            try {
+                const u = new URL(url, location.href);
+                u.pathname = encodeSegments(u.pathname);
+                return u.toString();
+            } catch (_) {
+                return encodeSegments(String(url || ''));
+            }
+        }
+
         async function fetchTextFile(url) {
-            if (mangalaFileCache.has(url)) return mangalaFileCache.get(url);
-            const p = fetch(url, { cache: 'no-store' }).then(async (r) => {
+            const safeUrl = toSafeFetchUrl(url);
+            if (mangalaFileCache.has(safeUrl)) return mangalaFileCache.get(safeUrl);
+            const p = fetch(safeUrl, { cache: 'no-store' }).then(async (r) => {
                 if (!r.ok) throw new Error(`HTTP ${r.status}`);
                 const buf = await r.arrayBuffer();
                 const decoded = decodeThaiText(new Uint8Array(buf));
                 return applyTextFixes(decoded);
             });
-            mangalaFileCache.set(url, p);
+            mangalaFileCache.set(safeUrl, p);
             return p;
         }
 
@@ -3504,8 +3526,8 @@
             const rawCandidates = buildTextPathCandidates(raw);
             const localUrls = rawCandidates.map(p => new URL(p, window.location.href).toString());
             const objectPaths = [...new Set(rawCandidates.map(p => normalizeDataObjectPath(p)))];
-            const canTryStorage = objectPaths.some(p => p.startsWith('data/')) && !!storage;
             const isGithubPages = /\.github\.io$/i.test(String(location.hostname || ''));
+            const canTryStorage = objectPaths.some(p => p.startsWith('data/')) && !!storage && !isGithubPages;
             const preferStorage = canTryStorage && !isGithubPages && (String(localStorage.getItem('preferFirebaseStorageData') || '') === '1');
             const storageCandidates = objectPaths.filter(p => p.startsWith('data/'));
 
