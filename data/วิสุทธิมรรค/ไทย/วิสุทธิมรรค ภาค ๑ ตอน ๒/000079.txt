@@ -1,0 +1,23 @@
+<span class="LineNumber"> 001 </span>ให้ไกล ( กว่านั้น ) ก็ได้ละวิหารอันไม่เหมาะสมแก่การบำเพ็ญ    
+<span class="LineNumber"> 002 </span>สมาธิเสีย แล้วพำนักอยู่ในวิหารที่เหมาะสมเถิด
+<span class="LineNumber"> 003 </span>                               [วิหารไม่เหมาะสม] 
+<span class="LineNumber"> 004 </span>          ในวิหารไม่เหมาะสมและวิหารเหมาะสม ๒ อย่างนั้น วิหาร
+<span class="LineNumber"> 005 </span>ที่ประกอบด้วยโทษ ๑๘ ประการ อย่างใดอย่างหนึ่ง ชื่อว่าวิหารไม่
+<span class="LineNumber"> 006 </span>เหมาะสม นี้โทษ ๑๘ ประการในคำนั้น คือ 
+<span class="LineNumber"> 007 </span>          (๑) <B>มหนฺตตฺตํ</B>             ความเป็นวิหารใหญ่ 
+<span class="LineNumber"> 008 </span>          (๒) <B>นวตฺตํ</B>                  ความเป็นวิหารใหม่ ( ยังไม่แล้วดี ) 
+<span class="LineNumber"> 009 </span>          (๓) <B>ชิณฺณกตฺตํ</B>            ความเป็นวิหารเก่า ( ทรุดโทรมแล้ว ) 
+<span class="LineNumber"> 010 </span>          (๔) <B>ปนฺถสนฺนิสฺสิตฺตํ</B>  ความเป็นวิหารติดทางเดิน 
+<span class="LineNumber"> 011 </span>          (๕) <B>โสณฺฑึ</B>                 วิหารมีตระพังน้ำ 
+<span class="LineNumber"> 012 </span>          (๖) <B>ปณฺณํ</B>                    วิหารมีไม้ใบ ( ที่เป็นผัก ) 
+<span class="LineNumber"> 013 </span>          (๗) <B>ปุปฺผํ</B>                     วิหารมีไม้ดอก 
+<span class="LineNumber"> 014 </span>          (๘) <B>ผลํ</B>                         วิหารมีไม้ผล 
+<span class="LineNumber"> 015 </span>          (๙) <B>ปฏฺฐนียตา</B>              ความเป็นวิหารที่คนทั้งหลายมุ่งมั่น 
+<span class="LineNumber"> 016 </span>          (๑๐) <B>นครสนฺนิสฺสิตตา</B> ความเป็นวิหารติดเมือง 
+<span class="LineNumber"> 017 </span>          (๑๑) <B>ทารุสนฺนิสฺสิตตา</B>  ความเป็นวิหารติดป่าไม้ 
+<span class="LineNumber"> 018 </span>          (๑๒) <B>เขตฺตสนฺนิสฺสิตตา</B> ความเป็นวิหารติดที่นา ( ของชาวบ้าน ) 
+<span class="LineNumber"> 019 </span>          (๑๓) <B>วิสภาคานํ ปุคฺคาลนํ</B>  ความเป็นวิหารมีบุคคลผู้เป็น
+<span class="LineNumber"> 020 </span>                  <B>อตฺถิตา</B>                        วิสภาคกันอยู่ 
+           
+
+

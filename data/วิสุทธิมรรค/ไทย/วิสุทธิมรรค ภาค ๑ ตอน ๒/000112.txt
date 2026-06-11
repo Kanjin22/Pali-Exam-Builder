@@ -1,0 +1,26 @@
+<span class="LineNumber"> 001 </span>           <B>ปริปุจฺฉกตา</B>                         ความเป็นผู้ไต่ถาม   
+<span class="LineNumber"> 002 </span>           <B>วตฺถุวิสทกิริยตา</B>                   ความทำวัตถุให้สละสลวย  
+<span class="LineNumber"> 003 </span>           <B>อินฺทริยสมตฺตปฏิปาทนา</B>     การปรับอินทรีย์ให้เสมอกัน 
+<span class="LineNumber"> 004 </span>           <B>ทุปฺปญฺญปุคฺคลปริวชฺชนา</B>    การหลีกเว้นบุคคลปัญญาทราม 
+<span class="LineNumber"> 005 </span>           <B>ปญฺญวนฺตปุคฺคลเสวนา</B>        การคบหาบุคคลมีปัญญา 
+<span class="LineNumber"> 006 </span>           <B>คมฺภีรญาณจริยปจฺจเวกฺขณา</B> การพิจารณาสอดส่องด้วยปัญญา
+<span class="LineNumber"> 007 </span>                                                        อันลึก<SUP>*</SUP> 
+<span class="LineNumber"> 008 </span>           <B>ตทธิมุตฺตตา</B>                          ความน้อมจิตไปในธัมมวิจยะนั้น 
+<span class="LineNumber"> 009 </span>           ธรรม ๑๑ ประการเป็นทางเกิดขึ้นแห่งวิริยสัมโพชฌงค์ คือ
+<span class="LineNumber"> 010 </span><B>อปายาทิภยปจฺจเวกฺขณตา</B>                ความพิจารณาเห็นภัยมีอบาย
+<span class="LineNumber"> 011 </span>							เป็นต้น
+<span class="LineNumber"> 012 </span><B>วิริยายตฺต ... วิเสสาธิคมานิสํส</B>         ความเป็นผู้มีปกติเห็นอานิสงส์ คือ 
+<span class="LineNumber"> 013 </span><B>ทสฺสิตา</B>                                            การได้บรรลุคุณวิเศษที่เป็นโลกิยะ
+<span class="LineNumber"> 014 </span>                                                         และโลกุตตระอันเนื่องด้วยวิริยะ 
+<span class="LineNumber"> 015 </span><B>... คมนวีถิปจฺจเวกฺขณตา</B>                  ความพิจารณาเห็นวิถีทางดำเนิน
+<span class="LineNumber"> 016 </span>                                                        โดยนัยดังนี้ว่า " มรรคาที่พระ-
+<span class="LineNumber"> 017 </span>                                                        พุทธเจ้า พระปัจเจกพุทธเจ้า และ
+<span class="LineNumber"> 018 </span>                                                        พระมหาสาวกทั้งหลายดำเนินไป
+<span class="LineNumber"> 019 </span>                                                        แล้ว เราต้องดำเนิน ( ตาม ) ก็
+
+<span class='footnote'>*  แปลโดยนัยมหาฎีกา  ซึ่งแก้ไว้ว่า  คมฺภีราเณหิ  จริตพฺพานํ  ฯ  เป  ฯ  สุตฺตนุตารนํ</span>
+<span class='footnote'>ปจฺจเวกขณา</span>
+
+                                                
+
+

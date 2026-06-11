@@ -1,0 +1,6 @@
+<span class="LineNumber"> 001 </span>           ที่ ๗   ฉอนุสตินิเทศ
+<span class="LineNumber"> 002 </span>           ที่ ๘   เสสอนุสตินิเทศ 
+<span class="LineNumber"> 003 </span>           ที่ ๙   พรหมวิหารนิเทศ
+<span class="LineNumber"> 004 </span>           ที่ ๑๐ อารุปปนิเทศ
+<span class="LineNumber"> 005 </span>           ที่ ๑๑  สองนิเทศคือปฏิกูลสัญญาและธาตุววัฏฐาน  (ซึ่งท่าน
+<span class="LineNumber"> 006 </span>                      รวมเรียกว่า  สมาธินิเทศ
