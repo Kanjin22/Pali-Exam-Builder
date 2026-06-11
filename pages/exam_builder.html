@@ -2812,8 +2812,16 @@
             return out;
         }
 
-        function stripP12RawFootnoteMarkers(text) {
-            return String(text || '').replace(/(^|[ \t])(?:\[[๐-๙0-9]{1,3}\]|[๐-๙0-9]{1,3})\s*-\s*/g, '$1');
+        function shouldStripRawPaliFootnotes(levelCode) {
+            return levelCode === 'p12' || levelCode === 'p3';
+        }
+
+        function stripRawPaliFootnoteMarkers(text) {
+            let out = String(text || '');
+            out = out.replace(/(^|[ \t])(?:\[[๐-๙0-9]{1,3}\]|[๐-๙0-9]{1,3})\s*-\s*/g, '$1');
+            out = out.replace(/\[\s*[^\]\r\n\s]{1,4}\s*\]\s*-\s*/g, '');
+            out = out.replace(/\[\s*[^\]\r\n\s]{1,4}\s*\]/g, '');
+            return out;
         }
 
         function padPageNumber(num) {
@@ -3052,8 +3060,9 @@
             const rawLines = String(text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
             let cleaned = rawLines
                 .filter(line => !/class\s*=\s*['"]footnote['"]/i.test(String(line || '')))
-                .filter(line => !(levelCode === 'p12' && /^\s*@/.test(String(line || ''))))
+                .filter(line => !(shouldStripRawPaliFootnotes(levelCode) && /^\s*[@*]/.test(String(line || ''))))
                 .map(line => stripInlineMarkup(line))
+                .map(line => shouldStripRawPaliFootnotes(levelCode) ? stripRawPaliFootnoteMarkers(line) : line)
                 .map(line => line.replace(/\u00a0/g, ' '))
                 .map(line => line.replace(/\s+$/g, ''));
             
@@ -4329,7 +4338,7 @@
             const levelCode = document.getElementById('levelSelect')?.value || '';
             let out = String(text || '');
             out = out.replace(/\r\n/g, '\n');
-            if (levelCode === 'p12') {
+            if (shouldStripRawPaliFootnotes(levelCode)) {
                 out = out.replace(/หน้า\s*[๐-๙0-9]+/g, '');
                 out = out.replace(/-\s*\n\s*\*/g, '');
                 const lines = out.split('\n').map(line => String(line || '').replace(/^\s*[๐-๙0-9]{1,4}\s+(?=\S)/, ''));
@@ -4347,7 +4356,7 @@
             for (const line of lines) {
                 const trimmed = String(line || '').trim();
                 if (/^หน้า\s*[๐-๙0-9]+$/.test(trimmed)) continue;
-                if (levelCode === 'p12' && /^@/.test(trimmed)) continue;
+                if (shouldStripRawPaliFootnotes(levelCode) && /^[@*]/.test(trimmed)) continue;
                 let next = String(line || '');
                 next = next.replace(/^\s*[๐-๙0-9]{1,4}\s+(?=\S)/, '');
                 cleaned.push(next);
@@ -5042,10 +5051,12 @@
                     processed = processed.replace(/[ \t]*\r?\n[ \t]*/g, '');
                 }
                 
-                if (isPaliContent && levelCode === 'p12') {
-                    processed = stripP12RawFootnoteMarkers(processed);
+                if (isPaliContent && shouldStripRawPaliFootnotes(levelCode)) {
+                    processed = stripRawPaliFootnoteMarkers(processed);
                     processed = processed.replace(/-\s*\r?\n\s*\*/g, '');
-                    processed = processed.replace(/\./g, ' ฯ');
+                    if (levelCode === 'p12') {
+                        processed = processed.replace(/\./g, ' ฯ');
+                    }
                 }
                 if (isPaliContent && levelCode === 'p3') {
                     processed = processed.replace(/\s*["“”]\s*/g, '\uE000');
