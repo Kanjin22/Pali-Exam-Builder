@@ -1,5 +1,0 @@
-<span class="LineNumber"> 001 </span>	เทสนาวสาเน   พหู   โสตาปตฺติผลาทีนิ   ปาปุณึสุ,   พฺราหฺมโณปิ 
-<span class="LineNumber"> 002 </span>ปสนฺนมานโส สรเณสุ ปติฏฺ€าย อุปาสกตฺตํ ปเวเทสีติ. 
-<span class="LineNumber"> 003 </span>				เทวหิตพฺราหฺมณวตฺถุ. 
-<span class="LineNumber"> 004 </span>		  	 พฺราหฺมณวคฺควณฺณนา นิฏฺ€ิตา. 
-<span class="LineNumber"> 005 </span>				  ฉพฺพีสติโม วคฺโค. 

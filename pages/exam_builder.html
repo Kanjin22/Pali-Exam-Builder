@@ -2571,18 +2571,18 @@
             return match ? parseInt(match[0], 10) : 0;
         }
 
+        const DHAMMAPADA_PALI_RAW_ROOT = '../data/ธรรมบท/บาลี';
+        const DHAMMAPADA_THAI_ROOT = '../data/ธรรมบท/ไทย';
         const PALI_PAGE_DATA_BY_LEVEL = {
             p12: { volumes: [
-                { filesDir: '../data/ประโยค๒/01', maxPage: 148, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๑) ปฐโม ภาโค (สมบูรณ์)', rawVolumeNo: 1 },
-                { filesDir: '../data/ประโยค๒/02', maxPage: 158, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๒) ทุติโย ภาโค (สมบูรณ์)', rawVolumeNo: 2 },
-                { filesDir: '../data/ประโยค๒/03', maxPage: 190, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๓) ตติโย ภาโค (สมบูรณ์)', rawVolumeNo: 3 },
-                { filesDir: '../data/ประโยค๒/04', maxPage: 149, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๔) จตุตฺโถ ภาโค (สมบูรณ์)', rawVolumeNo: 4 }
+                { maxPage: 148, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๑) ปฐโม ภาโค (สมบูรณ์)`, rawVolumeNo: 1 },
+                { maxPage: 158, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๒) ทุติโย ภาโค (สมบูรณ์)`, rawVolumeNo: 2 },
+                { maxPage: 190, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๓) ตติโย ภาโค (สมบูรณ์)`, rawVolumeNo: 3 },
+                { maxPage: 149, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๔) จตุตฺโถ ภาโค (สมบูรณ์)`, rawVolumeNo: 4 }
             ] },
             p3: { volumes: [
-                { filesDir: '../data/ประโยค๓/01', maxPage: 120, rawFilesDir: '../data/ประโยค๓/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๕) ปญฺจโม ภาโค (สมบูรณ์)', rawVolumeNo: 5 },
-                { filesDir: '../data/ประโยค๓/02', maxPage: 189, rawFilesDir: '../data/ประโยค๓/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๖) ฉฏฺโฐ ภาโค (สมบูรณ์)', rawVolumeNo: 6 },
-                { filesDir: '../data/ประโยค๓/03', maxPage: 162 },
-                { filesDir: '../data/ประโยค๓/04', maxPage: 194 }
+                { maxPage: 120, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๕) ปญฺจโม ภาโค (สมบูรณ์)`, rawVolumeNo: 5 },
+                { maxPage: 189, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๖) ฉฏฺโฐ ภาโค (สมบูรณ์)`, rawVolumeNo: 6 }
             ] },
             p4: { filesDir: '../data/ประโยค๔/01', maxPage: 376 },
             p5: { filesDir: '../data/ประโยค๕/01', maxPage: 482 },
@@ -2592,22 +2592,22 @@
             p9: { filesDir: '../data/ประโยค๙/04', maxPage: 278 }
         };
         const THAI_SOURCE_PAGE_DATA_BY_LEVEL = {
-            p4: { filesDir: '../data/ประโยค๒/05', maxPage: 215, partId: 'p4-thai-raw', label: 'ธรรมบท ภาคที่ ๕ (ภาษาไทย)' },
+            p4: { title: 'พระธัมมปทัฏฐกถา', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๑)`, maxPage: 215, partId: 'p4-thai-raw', label: 'ธรรมบท ภาคที่ ๑' },
             p5: {
                 title: 'พระธัมมปทัฏฐกถา',
                 parts: [
-                    { partId: 'p5-thai-2', label: 'ภาค ๒', filesDir: '../data/ประโยค๒/06', maxPage: 241, filePrefix: '02' },
-                    { partId: 'p5-thai-3', label: 'ภาค ๓', filesDir: '../data/ประโยค๒/07', maxPage: 286, filePrefix: '03' },
-                    { partId: 'p5-thai-4', label: 'ภาค ๔', filesDir: '../data/ประโยค๒/08', maxPage: 225, filePrefix: '04' }
+                    { partId: 'p5-thai-2', label: 'ภาค ๒', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๒)`, maxPage: 241, filePrefix: '02' },
+                    { partId: 'p5-thai-3', label: 'ภาค ๓', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๓)`, maxPage: 286, filePrefix: '03' },
+                    { partId: 'p5-thai-4', label: 'ภาค ๔', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๔)`, maxPage: 225, filePrefix: '04' }
                 ]
             },
             p6: {
                 title: 'พระธัมมปทัฏฐกถา',
                 parts: [
-                    { partId: 'p6-thai-5', label: 'ภาค ๕', filesDir: '../data/ประโยค๓/05', maxPage: 187 },
-                    { partId: 'p6-thai-6', label: 'ภาค ๖', filesDir: '../data/ประโยค๓/06', maxPage: 295 },
-                    { partId: 'p6-thai-7', label: 'ภาค ๗', filesDir: '../data/ประโยค๓/07', maxPage: 252 },
-                    { partId: 'p6-thai-8', label: 'ภาค ๘', filesDir: '../data/ประโยค๓/08', maxPage: 302, filePrefix: '08' }
+                    { partId: 'p6-thai-5', label: 'ภาค ๕', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๕)`, maxPage: 187 },
+                    { partId: 'p6-thai-6', label: 'ภาค ๖', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๖)`, maxPage: 295 },
+                    { partId: 'p6-thai-7', label: 'ภาค ๗', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๗)`, maxPage: 252 },
+                    { partId: 'p6-thai-8', label: 'ภาค ๘', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๘)`, maxPage: 302, filePrefix: '08' }
                 ]
             },
             p7: {
@@ -2641,7 +2641,7 @@
         const rawChunkPageCache = new Map();
         const BOOK_TITLES_BY_LEVEL = {
             p12: ['ปฐโม ภาโค', 'ทุติโย ภาโค', 'ตติโย ภาโค', 'จตุตฺโถ ภาโค'],
-            p3: ['ปญฺจโม ภาโค', 'ฉฏฺโฐ ภาโค', 'สตฺตโม ภาโค', 'อฏฺฐโม ภาโค'],
+            p3: ['ปญฺจโม ภาโค', 'ฉฏฺโฐ ภาโค'],
             p4: ['มงฺคลตฺถทีปนิยา ปฐโม ภาโค'],
             p5: ['มงฺคลตฺถทีปนิยา ทุติโย ภาโค'],
             p6: ['สมนฺตปาสาทิกา นาม วินยฏฺฐกถา ตติโย ภาโค'],
@@ -2664,14 +2664,8 @@
             if (!el) return;
             let badgeText = '';
             const thaiSourceCfg = subjectLabel.includes('ไทยเป็นมคธ') ? (THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] || null) : null;
-            if (['p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && thaiSourceCfg) {
+            if (['p4', 'p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && thaiSourceCfg && subjectLabel.includes('ไทยเป็นมคธ')) {
                 badgeText = `(${thaiSourceCfg.title || 'พระธัมมปทัฏฐกถา'})`;
-                el.textContent = badgeText;
-                return;
-            }
-            const isPt4To9ThaiToMagadha = ['p4','p5','p6','p7','p8','p9'].includes(levelCode) && subjectLabel.includes('ไทยเป็นมคธ');
-            if (isPt4To9ThaiToMagadha) {
-                badgeText = '(พระธัมมปทัฏฐกถา ภาค  ๑)';
                 el.textContent = badgeText;
                 return;
             }
@@ -3008,6 +3002,7 @@
             const v = volumes[vIdx];
             const maxPage = parseInt(v.maxPage, 10) || 0;
             const localPage = Math.max(1, Math.min(maxPage, parseInt(pageNumber, 10) || 1));
+            let rawLoadError = null;
 
             if (v.rawFilesDir) {
                 try {
@@ -3015,8 +3010,11 @@
                         return await loadRawSingleFilePage(v, localPage);
                     }
                     return await loadRawChunkPage(v, localPage);
-                } catch (_) {}
+                } catch (e) {
+                    rawLoadError = e;
+                }
             }
+            if (!v.filesDir) throw (rawLoadError || new Error('File not found'));
 
             const base = padPageNumber(localPage);
             const primary = `${v.filesDir}/${base}.txt`;
@@ -3252,20 +3250,16 @@
             'ประโยค ป.ธ. ๓': {
                 'แปล  มคธเป็นไทย': [
                     { id: 'dhamma-5', label: 'ธรรมบท ภาคที่ ๕' },
-                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' },
-                    { id: 'dhamma-7', label: 'ธรรมบท ภาคที่ ๗' },
-                    { id: 'dhamma-8', label: 'ธรรมบท ภาคที่ ๘' }
+                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' }
                 ],
                 'สัมพันธ์ไทย': [
                     { id: 'dhamma-5', label: 'ธรรมบท ภาคที่ ๕' },
-                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' },
-                    { id: 'dhamma-7', label: 'ธรรมบท ภาคที่ ๗' },
-                    { id: 'dhamma-8', label: 'ธรรมบท ภาคที่ ๘' }
+                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' }
                 ]
             },
             'ประโยค ป.ธ. ๔': {
                 'แปล  ไทยเป็นมคธ': [
-                    { id: 'p4-thai-raw', label: 'ธรรมบท ภาคที่ ๕ (ภาษาไทย)' }
+                    { id: 'p4-thai-raw', label: 'ธรรมบท ภาคที่ ๑' }
                 ],
                 'แปล  มคธเป็นไทย': [
                     { id: 'mangala-1', label: 'มังคลัตถทีปนี ภาคที่ ๑' }
