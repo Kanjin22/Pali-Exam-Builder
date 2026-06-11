@@ -3070,13 +3070,6 @@
                 const idx = cleaned.findIndex(line => /^\s*001\s+(?=\S)/.test(String(line || '')));
                 if (idx >= 0 && idx <= 2) cleaned.splice(idx, 1);
             }
-            if (levelCode === 'p3') {
-                cleaned = cleaned.map((line) => {
-                    let out = String(line || '');
-                    out = out.replace(/\.(?=[ \t]|$)/g, ' ฯ');
-                    return out.replace(/[ \t]+$/g, '');
-                });
-            }
             return cleaned;
         }
 
