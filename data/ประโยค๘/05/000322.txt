@@ -1,7 +1,0 @@
-<span class="LineNumber"> 001 </span>                             ปริจเฉทที่ ๗ ชื่อ ฉอนุสสตินิเทศ 
-<span class="LineNumber"> 002 </span>                ในอธิการแห่งสมาธิภาวนา ในปกรณ์วิสุทธิมรรค 
-<span class="LineNumber"> 003 </span>          อันข้าพเจ้าทำเพื่อประโยชน์แก่ความปราโมชแห่งสาธุชน
-<span class="LineNumber"> 004 </span>                                               ดั่งนี้
-
-
-

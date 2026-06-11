@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>( นำมา )   บรรยาย.
-<span class="LineNumber"> 002 </span>                             กถาว่าด้วยความเพียร   จบ.
-<span class="LineNumber"> 003 </span>           ตบะกล่าวคือความเพียรและอินทรียสังวร      บัณฑิตพึงทราบว่า
-<span class="LineNumber"> 004 </span>เป็นมงคล   เพราะเป็นเหตุละอกุศลธรรมมีอภิชฌาเป็นต้น      และได้
-<span class="LineNumber"> 005 </span>เฉพาะซึ่งอริยธรรมมีฌานเป็นต้น   ด้วยประการอย่างนี้.
-<span class="LineNumber"> 006 </span>                              กถาว่าด้วยบทว่าตบะ   จบ.                                                  

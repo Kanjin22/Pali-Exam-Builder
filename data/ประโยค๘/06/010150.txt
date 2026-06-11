@@ -1,6 +1,0 @@
-<span class="LineNumber"> 001 </span>                                       บริเฉทที่  ๘  
-<span class="LineNumber"> 002 </span>                            ชื่ออนุสสติกัมมฐานนิเทส
-<span class="LineNumber"> 003 </span>                           ในอธิการแห่งสมาธิภาวนา
-<span class="LineNumber"> 004 </span>                         ในปกรณ์วิเศษชื่อวิสุทธิมรรค
-<span class="LineNumber"> 005 </span>        อันข้าเจ้าทำเพื่อประโยชน์แก่ความปราโมชแห่งสาธุชน
-<span class="LineNumber"> 006 </span>                                          ดั่งนี้
