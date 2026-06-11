@@ -2575,6 +2575,8 @@
         const DHAMMAPADA_THAI_ROOT = '../data/ธรรมบท/ไทย';
         const MANGALA_PALI_ROOT = '../data/มังคลัตถทีปนี/บาลี';
         const MANGALA_THAI_ROOT = '../data/มังคลัตถทีปนี/ไทย';
+        const SAMANTA_PALI_ROOT = '../data/สมันตปาสาทิกา/บาลี';
+        const SAMANTA_THAI_ROOT = '../data/สมันตปาสาทิกา/ไทย';
         const PALI_PAGE_DATA_BY_LEVEL = {
             p12: { volumes: [
                 { maxPage: 148, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๑) ปฐโม ภาโค (สมบูรณ์)`, rawVolumeNo: 1 },
@@ -2588,8 +2590,8 @@
             ] },
             p4: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 01`, maxPage: 376 },
             p5: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 02`, maxPage: 482 },
-            p6: { filesDir: '../data/ประโยค๖/01', maxPage: 636 },
-            p7: { volumes: [{ filesDir: '../data/ประโยค๗/01', maxPage: 630 }, { filesDir: '../data/ประโยค๗/02', maxPage: 285 }] },
+            p6: { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 03`, maxPage: 636 },
+            p7: { volumes: [{ filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 01`, maxPage: 630 }, { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 02`, maxPage: 285 }] },
             p8: { volumes: [{ filesDir: '../data/ประโยค๘/01', maxPage: 291 }, { filesDir: '../data/ประโยค๘/02', maxPage: 288 }, { filesDir: '../data/ประโยค๘/03', maxPage: 386 }] },
             p9: { filesDir: '../data/ประโยค๙/04', maxPage: 278 }
         };
@@ -2624,9 +2626,9 @@
                 title: 'สมันตปาสาทิกา ภาค ๑',
                 partId: 'p8-thai-raw',
                 volumes: [
-                    { filesDir: '../data/ประโยค๗/05', maxPage: 404, label: 'เล่ม ๑' },
-                    { filesDir: '../data/ประโยค๗/06', maxPage: 404, label: 'เล่ม ๒' },
-                    { filesDir: '../data/ประโยค๗/07', maxPage: 216, label: 'เล่ม ๓' }
+                    { filesDir: `${SAMANTA_THAI_ROOT}/สมันตปาสาทิกา ภาค ๑ เล่ม ๑`, maxPage: 404, label: 'เล่ม ๑' },
+                    { filesDir: `${SAMANTA_THAI_ROOT}/สมันตปาสาทิกา ภาค ๑ เล่ม ๒`, maxPage: 404, label: 'เล่ม ๒' },
+                    { filesDir: `${SAMANTA_THAI_ROOT}/สมันตปาสาทิกา ภาค ๑ เล่ม ๓`, maxPage: 216, label: 'เล่ม ๓' }
                 ]
             },
             p9: {
@@ -3023,8 +3025,12 @@
             try {
                 return await fetchTextFileByPath(primary);
             } catch (e) {
-                const legacy = `${v.filesDir}/${base}..txt`;
-                return await fetchTextFileByPath(legacy);
+                try {
+                    return await fetchTextFileByPath(`${v.filesDir}/${localPage}.txt`);
+                } catch (_) {
+                    const legacy = `${v.filesDir}/${base}..txt`;
+                    return await fetchTextFileByPath(legacy);
+                }
             }
         }
 
