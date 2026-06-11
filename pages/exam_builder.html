@@ -3060,7 +3060,7 @@
             const rawLines = String(text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
             let cleaned = rawLines
                 .filter(line => !/class\s*=\s*['"]footnote['"]/i.test(String(line || '')))
-                .filter(line => !(shouldStripRawPaliFootnotes(levelCode) && /^\s*[@*]/.test(String(line || ''))))
+                .filter(line => !(shouldStripRawPaliFootnotes(levelCode) && /^\s*@/.test(String(line || ''))))
                 .map(line => stripInlineMarkup(line))
                 .map(line => shouldStripRawPaliFootnotes(levelCode) ? stripRawPaliFootnoteMarkers(line) : line)
                 .map(line => line.replace(/\u00a0/g, ' '))
@@ -4349,7 +4349,7 @@
             for (const line of lines) {
                 const trimmed = String(line || '').trim();
                 if (/^หน้า\s*[๐-๙0-9]+$/.test(trimmed)) continue;
-                if (shouldStripRawPaliFootnotes(levelCode) && /^[@*]/.test(trimmed)) continue;
+                if (shouldStripRawPaliFootnotes(levelCode) && /^@/.test(trimmed)) continue;
                 let next = String(line || '');
                 next = next.replace(/^\s*[๐-๙0-9]{1,4}\s+(?=\S)/, '');
                 cleaned.push(next);
