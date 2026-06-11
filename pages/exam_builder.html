@@ -2578,7 +2578,12 @@
                 { filesDir: '../data/ประโยค๒/03', maxPage: 190, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธป. ๓ (บาลี)', rawVolumeNo: 3 },
                 { filesDir: '../data/ประโยค๒/04', maxPage: 149, rawFilesDir: '../data/ประโยค๒/(ไฟล์ดิบ) ธป. ๔ (บาลี)', rawVolumeNo: 4 }
             ] },
-            p3: { volumes: [{ filesDir: '../data/ประโยค๓/01', maxPage: 120 }, { filesDir: '../data/ประโยค๓/02', maxPage: 189 }, { filesDir: '../data/ประโยค๓/03', maxPage: 162 }, { filesDir: '../data/ประโยค๓/04', maxPage: 194 }] },
+            p3: { volumes: [
+                { filesDir: '../data/ประโยค๓/01', maxPage: 120, rawFilesDir: '../data/ประโยค๓/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๕) ปญฺจโม ภาโค', rawVolumeNo: 5 },
+                { filesDir: '../data/ประโยค๓/02', maxPage: 189 },
+                { filesDir: '../data/ประโยค๓/03', maxPage: 162 },
+                { filesDir: '../data/ประโยค๓/04', maxPage: 194 }
+            ] },
             p4: { filesDir: '../data/ประโยค๔/01', maxPage: 376 },
             p5: { filesDir: '../data/ประโยค๕/01', maxPage: 482 },
             p6: { filesDir: '../data/ประโยค๖/01', maxPage: 636 },
@@ -2821,10 +2826,10 @@
             return String(n).padStart(3, '0');
         }
 
-        function getP12RawChunkFilename(volume, pageNumber) {
+        function getRawChunkFilenameCandidates(volume, pageNumber) {
             const maxPage = parseInt(volume?.maxPage, 10) || 0;
             const rawVolumeNo = parseInt(volume?.rawVolumeNo, 10) || 0;
-            if (!volume?.rawFilesDir || !rawVolumeNo || !maxPage) return '';
+            if (!volume?.rawFilesDir || !rawVolumeNo || !maxPage) return [];
 
             const localPage = Math.max(1, Math.min(maxPage, parseInt(pageNumber, 10) || 1));
             const chunkStart = Math.floor((localPage - 1) / 10) * 10 + 1;
@@ -2832,11 +2837,18 @@
             const range = `${padChunkPageNumber(chunkStart)}-${padChunkPageNumber(chunkEnd)}`;
             const suffix = chunkEnd >= maxPage ? ' (จบ)' : '';
 
-            if (rawVolumeNo === 1) {
-                return `ธมฺมปทฏฺฐกถา (๑) ${range}${suffix}.txt`;
-            }
+            const volThai = rawVolumeNo === 1 ? '๑' : toThaiDigits(rawVolumeNo);
+            const candidates = [];
+            const add = (name) => {
+                const s = String(name || '');
+                if (!s) return;
+                if (candidates.includes(s)) return;
+                candidates.push(s);
+            };
 
-            return `ธมฺมปทฏฺฐกถา (${toThaiDigits(rawVolumeNo)}) - หน้า ${range}${suffix}.txt`;
+            add(`ธมฺมปทฏฺฐกถา (${volThai}) ${range}${suffix}.txt`);
+            add(`ธมฺมปทฏฺฐกถา (${volThai}) - หน้า ${range}${suffix}.txt`);
+            return candidates;
         }
 
         function extractRawSingleFilePageText(text, pageNumber) {
@@ -2906,17 +2918,26 @@
         }
 
         async function loadRawChunkPage(volume, pageNumber) {
-            const fileName = getP12RawChunkFilename(volume, pageNumber);
-            if (!fileName) return '';
+            const fileNames = getRawChunkFilenameCandidates(volume, pageNumber);
+            if (!fileNames.length) return '';
 
-            const path = `${volume.rawFilesDir}/${fileName}`;
-            const cacheKey = `${path}#${parseInt(pageNumber, 10) || 1}`;
-            if (rawChunkPageCache.has(cacheKey)) return rawChunkPageCache.get(cacheKey);
-
-            const chunkText = await fetchTextFileByPath(path);
-            const pageText = extractRawChunkPageText(chunkText, pageNumber);
-            rawChunkPageCache.set(cacheKey, pageText);
-            return pageText;
+            const localPage = parseInt(pageNumber, 10) || 1;
+            let lastErr = null;
+            for (const fileName of fileNames) {
+                const path = `${volume.rawFilesDir}/${fileName}`;
+                const cacheKey = `${path}#${localPage}`;
+                if (rawChunkPageCache.has(cacheKey)) return rawChunkPageCache.get(cacheKey);
+                try {
+                    const chunkText = await fetchTextFileByPath(path);
+                    const pageText = extractRawChunkPageText(chunkText, localPage);
+                    rawChunkPageCache.set(cacheKey, pageText);
+                    return pageText;
+                } catch (e) {
+                    lastErr = e;
+                }
+            }
+            if (lastErr) throw lastErr;
+            return '';
         }
 
         async function loadRawSingleFilePage(volume, pageNumber) {
@@ -2953,7 +2974,7 @@
             const maxPage = parseInt(v.maxPage, 10) || 0;
             const localPage = Math.max(1, Math.min(maxPage, parseInt(pageNumber, 10) || 1));
 
-            if (document.getElementById('levelSelect')?.value === 'p12' && v.rawFilesDir) {
+            if (v.rawFilesDir) {
                 try {
                     if (v.rawSingleFile) {
                         return await loadRawSingleFilePage(v, localPage);
