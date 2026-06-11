@@ -2813,7 +2813,12 @@
         }
 
         function shouldStripRawPaliFootnotes(levelCode) {
-            return levelCode === 'p12' || levelCode === 'p3';
+            const cfg = PALI_PAGE_DATA_BY_LEVEL[levelCode] || PALI_PAGE_DATA_BY_LEVEL.p4;
+            const volumes = getPaliVolumes(cfg);
+            return volumes.some((volume) => {
+                const rawVolumeNo = parseInt(volume?.rawVolumeNo, 10) || 0;
+                return !!volume?.rawFilesDir && rawVolumeNo >= 1 && rawVolumeNo <= 8;
+            });
         }
 
         function stripRawPaliFootnoteMarkers(text) {
