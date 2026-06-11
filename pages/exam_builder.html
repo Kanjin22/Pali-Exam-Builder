@@ -5053,7 +5053,7 @@
                 }
                 if (isPaliContent && levelCode === 'p3') {
                     processed = processed.replace(/\s*["“”]\s*/g, '\uE000');
-                    processed = processed.replace(/\.(?=\s|$)/g, 'ฯ');
+                    processed = processed.replace(/\s*\.(?=\s|$)/g, ' ฯ');
                     processed = processed.replace(/[!#$%&'()*+,\-./:;<=>@\[\\\]^_`{|}~]/g, ' ');
                     processed = processed.replace(/[\u2010-\u201F\u2026]/g, ' ');
                 }
