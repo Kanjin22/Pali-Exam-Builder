@@ -2546,7 +2546,8 @@
             ] },
             p3: { volumes: [
                 { maxPage: 120, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๕) ปญฺจโม ภาโค (สมบูรณ์)`, rawVolumeNo: 5 },
-                { maxPage: 189, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๖) ฉฏฺโฐ ภาโค (สมบูรณ์)`, rawVolumeNo: 6 }
+                { maxPage: 189, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๖) ฉฏฺโฐ ภาโค (สมบูรณ์)`, rawVolumeNo: 6 },
+                { maxPage: 162, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๗) สตฺตโม ภาโค (สมบูรณ์)`, rawVolumeNo: 7 }
             ] },
             p4: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 01`, maxPage: 376 },
             p5: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 02`, maxPage: 482 },
@@ -2605,7 +2606,7 @@
         const rawChunkPageCache = new Map();
         const BOOK_TITLES_BY_LEVEL = {
             p12: ['ปฐโม ภาโค', 'ทุติโย ภาโค', 'ตติโย ภาโค', 'จตุตฺโถ ภาโค'],
-            p3: ['ปญฺจโม ภาโค', 'ฉฏฺโฐ ภาโค'],
+            p3: ['ปญฺจโม ภาโค', 'ฉฏฺโฐ ภาโค', 'สตฺตโม ภาโค', 'อฏฺฐโม ภาโค'],
             p4: ['มงฺคลตฺถทีปนิยา ปฐโม ภาโค'],
             p5: ['มงฺคลตฺถทีปนิยา ทุติโย ภาโค'],
             p6: ['สมนฺตปาสาทิกา นาม วินยฏฺฐกถา ตติโย ภาโค'],
@@ -3222,11 +3223,13 @@
             'ประโยค ป.ธ. ๓': {
                 'แปล  มคธเป็นไทย': [
                     { id: 'dhamma-5', label: 'ธรรมบท ภาคที่ ๕' },
-                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' }
+                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' },
+                    { id: 'dhamma-7', label: 'ธรรมบท ภาคที่ ๗' }
                 ],
                 'สัมพันธ์ไทย': [
                     { id: 'dhamma-5', label: 'ธรรมบท ภาคที่ ๕' },
-                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' }
+                    { id: 'dhamma-6', label: 'ธรรมบท ภาคที่ ๖' },
+                    { id: 'dhamma-7', label: 'ธรรมบท ภาคที่ ๗' }
                 ]
             },
             'ประโยค ป.ธ. ๔': {
@@ -4867,7 +4870,7 @@
                         textToUse = s.gatha.lines.map(l => (l||'').trim()).join('\n');
                     }
                 } else if (isThaiSourceRenderMode(mode)) {
-                    textToUse = s.thai_desana || s.thai_sense || s.thai || '';
+                    textToUse = s.senseThai || s.thai_desana || s.thai_sense || s.thai || '';
                 }
 
                 // แทรกตัวบอกหน้าเมื่อเปลี่ยนหน้า
