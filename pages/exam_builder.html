@@ -63,6 +63,7 @@
         .container { max-width: 1100px; margin: 30px auto; background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); overflow: hidden; }
         .header { padding: 18px 24px; border-bottom: 1px solid #e0e0e0; display:flex; align-items:center; justify-content:space-between; }
         .header h1 { font-size: 1.25rem; color: #2c3e50; margin:0; }
+        .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
         .content { padding: 24px; display: block; }
         .section { border: 1px solid #eaeaea; border-radius: 10px; padding: 24px; background:#fafafa; margin-bottom: 24px; }
         .section h2 { font-size: 1rem; color: #37474f; margin: 0 0 16px 0; border-bottom: 1px solid #eee; padding-bottom: 8px; }
@@ -495,6 +496,7 @@
             .container { margin: 0; border-radius: 0; box-shadow: none; max-width: 100%; }
             .header { flex-direction: column; align-items: flex-start; gap: 10px; }
             .header h1 { font-size: 1.1rem; }
+            .header-actions { justify-content: flex-start; }
             .badge { display: block; margin: 4px 0; }
             .content { padding: 16px; }
             .section { padding: 16px; }
@@ -726,6 +728,13 @@
         .modal-title { margin: 0; color: #2c3e50; }
         .modal-close-btn { border: none; background: transparent; font-size: 1.5rem; cursor: pointer; color: #7f8c8d; }
         .modal-footer { text-align: right; margin-top: 15px; }
+        .about-project-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+        .about-project-card { border: 1px solid #e6eaee; border-radius: 10px; background: #fafbfd; padding: 14px 16px; }
+        .about-project-card h4 { margin: 0 0 8px 0; color: #2c3e50; font-size: 1rem; }
+        .about-project-card p { margin: 0; color: #455a64; line-height: 1.6; }
+        .about-project-list { margin: 8px 0 0 18px; padding: 0; color: #455a64; line-height: 1.7; }
+        .about-project-list li { margin-bottom: 4px; }
+        .about-project-link { word-break: break-word; }
 
         .tablet-action-bar {
             display: block;
@@ -867,9 +876,10 @@
             <div class="flex-center gap-15">
                 <h1><i class="fa-solid fa-file-lines"></i> ระบบออกข้อสอบ</h1>
             </div>
-            <div>
+            <div class="header-actions">
                 <span class="badge" id="durationDisplay">เวลา: ๐ ชั่วโมง กับ ๐ นาที.</span>
                 <span class="badge" id="dateDisplay">วันที่: -</span>
+                <button class="btn secondary" type="button" onclick="openAboutProjectModal()"><i class="fa-solid fa-circle-info"></i> เครดิต/เกี่ยวกับ</button>
             </div>
         </div>
         <div class="layout-root">
@@ -6049,6 +6059,16 @@
             bookTextSearchAbortToken++;
         }
 
+        function openAboutProjectModal() {
+            const modal = document.getElementById('aboutProjectModal');
+            if (modal) modal.classList.add('d-flex');
+        }
+
+        function closeAboutProjectModal() {
+            const modal = document.getElementById('aboutProjectModal');
+            if (modal) modal.classList.remove('d-flex');
+        }
+
         function cancelBookTextSearch() {
             bookTextSearchAbortToken++;
             const meta = document.getElementById('bookTextSearchMeta');
@@ -6392,6 +6412,48 @@
             </div>
             <div class="modal-footer">
                 <button class="btn secondary" type="button" onclick="document.getElementById('examStatsModal').classList.remove('d-flex')">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="aboutProjectModal" class="modal-overlay" onclick="if (event && event.target === this) closeAboutProjectModal()">
+        <div class="modal-content max-w-760">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-circle-info"></i> เครดิต/เกี่ยวกับโครงการ</h3>
+                <button class="modal-close-btn" type="button" onclick="closeAboutProjectModal()">&times;</button>
+            </div>
+            <div class="about-project-grid">
+                <section class="about-project-card">
+                    <h4>วัตถุประสงค์ของโครงการ</h4>
+                    <p>โครงการนี้จัดทำขึ้นเพื่อประโยชน์ในการศึกษาพระบาลีของคณะสงฆ์ และเพื่ออำนวยความสะดวกแก่ครูบาอาจารย์ผู้สอนในการจัดทำข้อสอบ โดยลักษณะของงานเป็นพื้นที่ทดลองและพัฒนาต่อยอด จึงอาจมีทั้งข้อมูลที่ใช้งานจริง และโครงสร้างรองรับงานในอนาคต</p>
+                </section>
+                <section class="about-project-card">
+                    <h4>แหล่งข้อมูลและโปรแกรมอ้างอิง</h4>
+                    <ul class="about-project-list">
+                        <li>ข้อมูลหนังสือใน `data/` คัดลอกมาจากโปรแกรม BUDSIR 7 และโปรแกรมพระไตรปิฎก (TPD) และมีการแก้ไข/ปรับปรุงเพิ่มเติมในส่วนของคำแปลเพื่อใช้ในการศึกษาเท่านั้น</li>
+                        <li>โปรแกรมอ้างอิงที่เกี่ยวข้อง: โปรแกรมพระไตรปิฎก (TPD), โปรแกรม BUDSIR 7 และโปรแกรมออกข้อสอบของวัดพระธรรมกาย</li>
+                        <li class="about-project-link">TPD: <a href="http://www.learntripitaka.com/Download.html" target="_blank" rel="noopener noreferrer">http://www.learntripitaka.com/Download.html</a></li>
+                        <li class="about-project-link">BUDSIR 7: <a href="https://mahidol.ac.th/budsir/orderT.php" target="_blank" rel="noopener noreferrer">https://mahidol.ac.th/budsir/orderT.php</a></li>
+                    </ul>
+                </section>
+                <section class="about-project-card">
+                    <h4>ขอบเขตการใช้งาน</h4>
+                    <ul class="about-project-list">
+                        <li>จัดทำขึ้นเพื่อการศึกษาเท่านั้น มิได้จัดทำขึ้นเพื่อประโยชน์เชิงพาณิชย์</li>
+                        <li>ข้อมูลตัวบทและคำแปลใน `data/` อาจมีเงื่อนไขด้านลิขสิทธิ์ตามแหล่งที่มา ผู้ใช้งานควรตรวจสอบให้ถูกต้องก่อนนำไปเผยแพร่หรือใช้งานในลักษณะอื่นใด</li>
+                        <li>หากนำโค้ดหรือข้อมูลไปดัดแปลงหรือพัฒนาต่อ ขอความกรุณาระบุที่มาของโครงการนี้ไว้ในหน้าเครดิตหรือเอกสารประกอบ</li>
+                    </ul>
+                </section>
+                <section class="about-project-card">
+                    <h4>แหล่งที่มาของโครงการนี้</h4>
+                    <ul class="about-project-list">
+                        <li class="about-project-link">Repository: <a href="https://github.com/Kanjin22/Pali-Exam-Builder" target="_blank" rel="noopener noreferrer">https://github.com/Kanjin22/Pali-Exam-Builder</a></li>
+                        <li class="about-project-link">GitHub Pages: <a href="https://kanjin22.github.io/Pali-Exam-Builder/pages/exam_builder.html" target="_blank" rel="noopener noreferrer">https://kanjin22.github.io/Pali-Exam-Builder/pages/exam_builder.html</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" type="button" onclick="closeAboutProjectModal()">ปิด</button>
             </div>
         </div>
     </div>

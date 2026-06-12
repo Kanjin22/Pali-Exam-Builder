@@ -19,6 +19,10 @@
       "name": "โปรแกรมพระไตรปิฎก (TPD)",
       "type": "software",
       "url": "http://www.learntripitaka.com/Download.html"
+    },
+    {
+      "name": "โปรแกรมออกข้อสอบของวัดพระธรรมกาย",
+      "type": "reference_software"
     }
   ],
   "notes": [
