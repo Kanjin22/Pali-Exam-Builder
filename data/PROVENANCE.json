@@ -12,11 +12,13 @@
   "sources": [
     {
       "name": "BUDSIR 7",
-      "type": "software"
+      "type": "software",
+      "url": "https://mahidol.ac.th/budsir/orderT.php"
     },
     {
       "name": "โปรแกรมพระไตรปิฎก (TPD)",
-      "type": "software"
+      "type": "software",
+      "url": "http://www.learntripitaka.com/Download.html"
     }
   ],
   "notes": [
@@ -24,4 +26,3 @@
     "หากนำไปดัดแปลงหรือเผยแพร่ต่อ ขอความกรุณาระบุที่มาโดยอ้างอิง repository ของโครงการ"
   ]
 }
-
