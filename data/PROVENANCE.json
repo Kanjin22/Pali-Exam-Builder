@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "name": "Pali Exam Builder (ระบบออกข้อสอบบาลี)",
+    "repository": "https://github.com/Kanjin22/Pali-Exam-Builder",
+    "pages": "https://kanjin22.github.io/Pali-Exam-Builder/pages/exam_builder.html"
+  },
+  "intent": {
+    "purpose": "เพื่อการศึกษาพระบาลีของคณะสงฆ์ และเพื่ออำนวยความสะดวกแก่ครูบาอาจารย์ผู้สอนในการจัดทำข้อสอบ",
+    "nonCommercial": true
+  },
+  "sources": [
+    {
+      "name": "BUDSIR 7",
+      "type": "software"
+    },
+    {
+      "name": "โปรแกรมพระไตรปิฎก (TPD)",
+      "type": "software"
+    }
+  ],
+  "notes": [
+    "ข้อมูลในโฟลเดอร์ data/ อาจมีเงื่อนไขด้านลิขสิทธิ์ตามแหล่งที่มา ผู้ใช้งานควรตรวจสอบก่อนนำไปเผยแพร่หรือใช้งานในลักษณะอื่นใด",
+    "หากนำไปดัดแปลงหรือเผยแพร่ต่อ ขอความกรุณาระบุที่มาโดยอ้างอิง repository ของโครงการ"
+  ]
+}
+
