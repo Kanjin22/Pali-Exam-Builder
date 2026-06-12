@@ -1,0 +1,17 @@
+{
+  // ใช้เป็นแม่แบบสำหรับ ธรรมบท ภาค ๑-๔
+  // ไฟล์จริงภายหลังควรเป็น JSONL: 1 บรรทัด = 1 segment
+  // thai เป็นสำเนาของ senseThai เพื่อให้เข้ากับงานเดิม
+  "id": "dhammapada-v4-s000001",
+  "book": "ธรรมบท",
+  "source": "ธมฺมปทฏฺฐกถา",
+  "volume": 4,
+  "pageStart": 1,
+  "pageEnd": 1,
+  "type": "content",
+  "useInExamSelection": true,
+  "pali": "",
+  "literalThai": "",
+  "senseThai": "",
+  "thai": ""
+}

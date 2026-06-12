@@ -1,0 +1,18 @@
+{
+  // ใช้เป็นแม่แบบสำหรับ ธรรมบท ภาค ๕-๘
+  // ชุดนี้มีสัมพันธ์ไทยเพิ่มจากภาค ๑-๔
+  // thai เป็นสำเนาของ senseThai เพื่อให้เข้ากับงานเดิม
+  "id": "dhammapada-v6-s000001",
+  "book": "ธรรมบท",
+  "source": "ธมฺมปทฏฺฐกถา",
+  "volume": 6,
+  "pageStart": 1,
+  "pageEnd": 1,
+  "type": "content",
+  "useInExamSelection": true,
+  "pali": "",
+  "literalThai": "",
+  "senseThai": "",
+  "thaiRelation": "",
+  "thai": ""
+}

@@ -1,0 +1,15 @@
+{
+  // ใช้เป็นแม่แบบสำหรับหนังสือที่เก็บเฉพาะแปลโดยอรรถ
+  // thai เป็นสำเนาของ senseThai เพื่อให้เข้ากับงานเดิม
+  "id": "visuddhi-v1-s000001",
+  "book": "วิสุทธิมรรค",
+  "source": "วิสุทฺธิมคฺค",
+  "volume": 1,
+  "pageStart": 1,
+  "pageEnd": 1,
+  "type": "content",
+  "useInExamSelection": true,
+  "pali": "",
+  "senseThai": "",
+  "thai": ""
+}
