@@ -36,7 +36,7 @@
         } catch (_) {}
     </script>
     <style>
-        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+        html { -webkit-text-size-adjust: 100%; }
         body { font-family: "Sarabun", "Niramit", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; background-color: #f4f6f8; margin: 0; }
         /* สไตล์สถานะของแต่ละขั้นตอน */
         .step-required {
@@ -267,7 +267,6 @@
         .paper-content-text { 
             text-align: justify; 
             text-align-last: left; /* บังคับให้บรรทัดสุดท้ายชิดซ้าย */
-            text-justify: inter-word;
             line-height: var(--paper-line-height, 1.6); 
             font-size: 1em; 
             color: #000;
@@ -703,6 +702,9 @@
         .text-gray-666 { color: #666; }
         .text-gray-light { color: #7f8c8d; }
         .w-full { width: 100%; }
+        .w-160 { width: 160px; }
+        .w-150 { width: 150px; }
+        .w-110 { width: 110px; }
         .border-collapse { border-collapse: collapse; }
         .bg-light-gray { background: #f8f9fa; }
         .border-bottom-ddd { border-bottom: 2px solid #ddd; }
@@ -717,6 +719,8 @@
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center; }
         .modal-overlay.d-flex { display: flex; }
         .modal-content { background: #fff; padding: 20px; border-radius: 8px; width: 90%; max-width: 800px; max-height: 80vh; overflow-y: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .max-w-760 { max-width: 760px; }
+        .max-w-560 { max-width: 560px; }
         .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         .modal-title { margin: 0; color: #2c3e50; }
         .modal-close-btn { border: none; background: transparent; font-size: 1.5rem; cursor: pointer; color: #7f8c8d; }
@@ -732,6 +736,7 @@
             background: rgba(255,255,255,0.96);
             border-top: 1px solid #dfe6ee;
             padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
         .tablet-action-bar .bar-inner {
@@ -872,9 +877,9 @@
                     <div class="section form-compact">
                         <h2>ขั้นตอนที่ ๑ : กำหนดข้อสอบ</h2>
                         <div class="row" id="levelRow">
-                            <label>ชั้น</label>
+                            <label for="levelSelect">ชั้น</label>
                             <div class="flex-center gap-10 flex-1">
-                                <select id="levelSelect" class="flex-1" title="เลือกชั้นประโยค">
+                                <select id="levelSelect" class="flex-1" title="เลือกชั้นประโยค" aria-label="เลือกชั้นประโยค">
                                     <option value="" disabled selected>(กรุณาเลือกชั้นประโยค)</option>
                                     <option value="p12">ประโยค ๑–๒</option>
                                     <option value="p3">ประโยค ป.ธ. ๓</option>
@@ -888,21 +893,21 @@
                             </div>
                         </div>
                         <div class="row step-locked" id="subjectRow">
-                            <label>วิชา</label>
+                            <label for="subjectSelect">วิชา</label>
                             <select id="subjectSelect" aria-label="เลือกวิชา">
                                 <option value="" disabled selected>(กรุณาเลือกวิชา)</option>
                             </select>
                         </div>
                         <div class="row" id="dateRow">
-                            <label>วันที่</label>
-                            <input type="date" id="dateInput" title="เลือกวันที่สอบ" />
+                            <label for="dateInput">วันที่</label>
+                            <input type="date" id="dateInput" title="เลือกวันที่สอบ" aria-label="เลือกวันที่สอบ" />
                         </div>
                         <div class="row">
-                            <label>สอบครั้งที่</label>
-                            <input type="text" id="attemptInput" placeholder="เช่น ๑" />
+                            <label for="attemptInput">สอบครั้งที่</label>
+                            <input type="text" id="attemptInput" placeholder="เช่น ๑" aria-label="สอบครั้งที่" />
                         </div>
                         <div class="row time-row">
-                            <label>ให้เวลา</label>
+                            <label for="hoursInput">ให้เวลา</label>
                             <div class="time-fields">
                                 <div class="time-field">
                                     <input type="number" id="hoursInput" min="0" value="4" title="ชั่วโมง" aria-label="ชั่วโมง" />
@@ -915,12 +920,12 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label>ชื่อโครงการ</label>
-                            <input type="text" id="projectNameInput" placeholder="เช่น อบรมบาลีก่อนสอบสนามหลวง" />
+                            <label for="projectNameInput">ชื่อโครงการ</label>
+                            <input type="text" id="projectNameInput" placeholder="เช่น อบรมบาลีก่อนสอบสนามหลวง" aria-label="ชื่อโครงการ" />
                         </div>
                         <div class="row">
-                            <label>ผู้ออกข้อสอบ</label>
-                            <input type="text" id="examAuthorInput" placeholder="เช่น พระมหาสามารถ สามญฺญชโย ป.ธ.๙" />
+                            <label for="examAuthorInput">ผู้ออกข้อสอบ</label>
+                            <input type="text" id="examAuthorInput" placeholder="เช่น พระมหาสามารถ สามญฺญชโย ป.ธ.๙" aria-label="ผู้ออกข้อสอบ" />
                         </div>
                     </div>
                 </div>
@@ -1579,8 +1584,11 @@
             try {
                 const svg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8">
+  <style>
+    .foTest { width: 8px; height: 8px; background: #000; }
+  </style>
   <foreignObject width="100%" height="100%">
-    <div xmlns="http://www.w3.org/1999/xhtml" style="width:8px;height:8px;background:#000"></div>
+    <div xmlns="http://www.w3.org/1999/xhtml" class="foTest"></div>
   </foreignObject>
 </svg>`;
                 const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
@@ -6303,11 +6311,11 @@
                     : "''";
                 return `
                     <tr class="border-bottom-eee">
-                        ${showPartColumn ? `<td class="p-8 valign-top" style="width: 160px;">${escapeHtml(partLabel || '-')}</td>` : ''}
-                        ${showVolumeColumn ? `<td class="p-8 valign-top" style="width: 160px;">${vLabel}</td>` : ''}
-                        <td class="p-8 valign-top" style="width: 110px;">หน้า ${page}</td>
+                        ${showPartColumn ? `<td class="p-8 valign-top w-160">${escapeHtml(partLabel || '-')}</td>` : ''}
+                        ${showVolumeColumn ? `<td class="p-8 valign-top w-160">${vLabel}</td>` : ''}
+                        <td class="p-8 valign-top w-110">หน้า ${page}</td>
                         <td class="p-8 valign-top">${snippetHtml}</td>
-                        <td class="p-8 valign-top" style="width: 150px;">
+                        <td class="p-8 valign-top w-150">
                             <button class="btn secondary text-xs" type="button" onclick="applyBookSearchResult(${m.page}, ${vIdx}, ${partIdJsArg})">
                                 ใช้หน้านี้
                             </button>
@@ -6387,8 +6395,8 @@
         </div>
     </div>
 
-    <div id="bookTextSearchModal" class="modal-overlay" onclick="if (event && event.target === this) closeBookTextSearchModal()">
-        <div class="modal-content" style="max-width: 760px;">
+        <div id="bookTextSearchModal" class="modal-overlay" onclick="if (event && event.target === this) closeBookTextSearchModal()">
+        <div class="modal-content max-w-760">
             <div class="modal-header">
                 <h3 class="modal-title"><i class="fa-solid fa-book-open"></i> ค้นหาในหนังสือ (จากคำ/ประโยคที่จำได้)</h3>
                 <button class="modal-close-btn" type="button" onclick="closeBookTextSearchModal()">&times;</button>
@@ -6407,30 +6415,30 @@
                 <div class="w-full"><span class="text-gray-666" id="bookTextSearchBookTitle"></span></div>
             </div>
             <div class="row d-none" id="bookTextSearchPartRow">
-                <label>ภาค (ถ้าจำได้)</label>
-                <select id="bookTextSearchPart" class="w-full" onchange="syncBookTextSearchPartPlaceholders()"></select>
+                <label for="bookTextSearchPart">ภาค (ถ้าจำได้)</label>
+                <select id="bookTextSearchPart" class="w-full" onchange="syncBookTextSearchPartPlaceholders()" aria-label="ภาค (ถ้าจำได้)"></select>
             </div>
             <div class="row" id="bookTextSearchVolumeRow">
-                <label>เล่ม (ถ้าจำได้)</label>
-                <select id="bookTextSearchVolume" class="w-full" onchange="syncBookTextSearchPagePlaceholders()"></select>
+                <label for="bookTextSearchVolume">เล่ม (ถ้าจำได้)</label>
+                <select id="bookTextSearchVolume" class="w-full" onchange="syncBookTextSearchPagePlaceholders()" aria-label="เล่ม (ถ้าจำได้)"></select>
             </div>
             <div class="row">
-                <label>ผลการค้นหาใส่ไปที่</label>
-                <select id="bookTextSearchTarget" class="w-full" onchange="syncBookTextSearchPartOptions(); syncBookTextSearchVolumeOptions()">
+                <label for="bookTextSearchTarget">ผลการค้นหาใส่ไปที่</label>
+                <select id="bookTextSearchTarget" class="w-full" onchange="syncBookTextSearchPartOptions(); syncBookTextSearchVolumeOptions()" aria-label="ผลการค้นหาใส่ไปที่">
                     <option value="literal">ข้อ ๑</option>
                     <option value="sense">ข้อ ๒</option>
                 </select>
             </div>
             <div class="row">
-                <label>ช่วงหน้า (เว้นว่าง = ค้นหาทั้งเล่ม)</label>
+                <label for="bookTextSearchStartPage">ช่วงหน้า (เว้นว่าง = ค้นหาทั้งเล่ม)</label>
                 <div class="d-flex gap-10 w-full">
-                    <input id="bookTextSearchStartPage" type="number" class="page-input" placeholder="เริ่มต้น" />
-                    <input id="bookTextSearchEndPage" type="number" class="page-input" placeholder="สิ้นสุด" />
+                    <input id="bookTextSearchStartPage" type="number" class="page-input" placeholder="เริ่มต้น" aria-label="ช่วงหน้าเริ่มต้น" />
+                    <input id="bookTextSearchEndPage" type="number" class="page-input" placeholder="สิ้นสุด" aria-label="ช่วงหน้าสิ้นสุด" />
                 </div>
             </div>
             <div class="row">
-                <label>คำ/ประโยคที่จำได้</label>
-                <textarea id="bookTextSearchQuery" class="w-full resize-v h-120" placeholder="พิมพ์/วางคำที่จำได้ เช่น “กสิณุคฺฆาฏิ” หรือ “อากาสํเยว เปกฺขมาโน”"></textarea>
+                <label for="bookTextSearchQuery">คำ/ประโยคที่จำได้</label>
+                <textarea id="bookTextSearchQuery" class="w-full resize-v h-120" placeholder="พิมพ์/วางคำที่จำได้ เช่น “กสิณุคฺฆาฏิ” หรือ “อากาสํเยว เปกฺขมาโน”" aria-label="คำ/ประโยคที่จำได้"></textarea>
             </div>
 
             <div id="bookTextSearchMeta" class="text-gray-666 text-sm mt-5"></div>
@@ -6451,16 +6459,16 @@
                 <button id="templateModalCloseBtn" class="modal-close-btn" type="button" onclick="closeTemplateModal()">&times;</button>
             </div>
             <div class="row">
-                <label>ชุดแม่แบบ</label>
-                <select id="templateSetFilter" class="w-full" onchange="refreshTemplateListUI(true)">
+                <label for="templateSetFilter">ชุดแม่แบบ</label>
+                <select id="templateSetFilter" class="w-full" onchange="refreshTemplateListUI(true)" aria-label="ชุดแม่แบบ">
                     <option value="ALL">ทั้งหมด</option>
                     <option value="A4">ชุด A4</option>
                     <option value="F4">ชุด F14 (14 นิ้ว)</option>
                 </select>
             </div>
             <div class="row">
-                <label>เลือกแม่แบบ</label>
-                <select id="templateSelect" class="w-full"></select>
+                <label for="templateSelect">เลือกแม่แบบ</label>
+                <select id="templateSelect" class="w-full" aria-label="เลือกแม่แบบ"></select>
             </div>
             <div id="templateMeta" class="text-gray-666 text-sm mt-5"></div>
             <div id="templateDefaultInfo" class="text-gray-666 text-sm mt-5"></div>
@@ -6476,7 +6484,7 @@
     </div>
 
     <div id="importMergeModal" class="modal-overlay" onclick="if (event && event.target === this) resolveImportMerge('cancel')">
-        <div class="modal-content" style="max-width: 560px;">
+        <div class="modal-content max-w-560">
             <div class="modal-header">
                 <h3 class="modal-title"><i class="fa-solid fa-layer-group"></i> เพิ่ม/แทนที่ข้อความ</h3>
                 <button class="modal-close-btn" type="button" onclick="resolveImportMerge('cancel')">&times;</button>
