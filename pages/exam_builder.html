@@ -38,18 +38,18 @@
     <style>
         html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         body { font-family: "Sarabun", "Niramit", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; background-color: #f4f6f8; margin: 0; }
-        /* Workflow State Styles */
+        /* สไตล์สถานะของแต่ละขั้นตอน */
         .step-required {
-            background-color: #fffde7 !important; /* Yellow-ish */
-            border: 2px solid #d32f2f !important; /* Red border */
+            background-color: #fffde7 !important; /* เหลืองอ่อน */
+            border: 2px solid #d32f2f !important; /* เส้นขอบสีแดง */
             box-shadow: 0 0 5px rgba(211, 47, 47, 0.2);
             padding: 10px;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
         .step-completed {
-            background-color: #f1f8e9 !important; /* Green-ish */
-            border: 2px solid #388e3c !important; /* Green border */
+            background-color: #f1f8e9 !important; /* เขียวอ่อน */
+            border: 2px solid #388e3c !important; /* เส้นขอบสีเขียว */
             padding: 10px;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -96,8 +96,8 @@
         }
         #contentSection.step2-empty #step2Body { display: none; }
         #contentSection:not(.step2-empty) #step2Placeholder { display: none; }
-        /* Paper (A4-like) */
-        /* DilleniaUPC (Standard) */
+        /* กระดาษหลัก (ลักษณะคล้าย A4) */
+        /* ฟอนต์ DilleniaUPC (ข้อความทั่วไป) */
         @font-face {
             font-family: 'DilleniaUPC';
             src: local('DilleniaUPC'), url('fonts/DilleniaUPC-Regular.ttf') format('truetype');
@@ -148,7 +148,7 @@
             font-style: italic;
         }
 
-        /* DilleniaUPC_4Balee (Custom Pali) */
+        /* ฟอนต์ DilleniaUPC_4Balee (บาลีปรับแต่ง) */
         @font-face {
             font-family: 'DilleniaUPC_4Balee';
             src: local('DilleniaUPC_4Balee'), url('fonts/DilleniaUPC_4Balee-Regular.ttf') format('truetype');
@@ -174,7 +174,7 @@
             font-style: italic;
         }
 
-        /* Buddhadham */
+        /* ฟอนต์ Buddhadham */
         @font-face {
             font-family: 'Buddhadham';
             src: url('fonts/Buddhadham.otf') format('opentype');
@@ -188,7 +188,7 @@
             font-style: normal;
         }
 
-        /* BuddhadhamPali */
+        /* ฟอนต์ BuddhadhamPali */
         @font-face {
             font-family: 'BuddhadhamPali';
             src: url('fonts/BuddhadhamPali.otf') format('opentype');
@@ -202,7 +202,7 @@
             font-style: normal;
         }
 
-        /* Buddhawajana */
+        /* ฟอนต์ Buddhawajana */
         @font-face {
             font-family: 'Buddhawajana';
             src: url('fonts/Buddhawajana.otf') format('opentype');
@@ -216,7 +216,7 @@
             font-style: normal;
         }
 
-        /* BuddhawajanaPali */
+        /* ฟอนต์ BuddhawajanaPali */
         @font-face {
             font-family: 'BuddhawajanaPali';
             src: url('fonts/BuddhawajanaPali.otf') format('opentype');
@@ -230,7 +230,7 @@
             font-style: normal;
         }
 
-        /* Burapa */
+        /* ฟอนต์ Burapa */
         @font-face {
             font-family: 'Burapa';
             src: url('fonts/Burapa.otf') format('opentype');
@@ -266,7 +266,7 @@
         .paper-list .paper-item { margin: 6px 0; }
         .paper-content-text { 
             text-align: justify; 
-            text-align-last: left; /* Ensure last line aligns left */
+            text-align-last: left; /* บังคับให้บรรทัดสุดท้ายชิดซ้าย */
             text-justify: inter-word;
             line-height: var(--paper-line-height, 1.6); 
             font-size: 1em; 
@@ -274,15 +274,15 @@
             letter-spacing: var(--paper-letter-spacing, 0);
             word-break: normal;
             overflow-wrap: break-word;
-            white-space: pre-wrap; /* Preserve spaces but allow wrapping */
-            text-indent: 1.27cm; /* First line indent for question number */
+            white-space: pre-wrap; /* คงช่องว่างไว้แต่ยอมให้ตัดบรรทัด */
+            text-indent: 1.27cm; /* ย่อหน้าแรกสำหรับเลขข้อ */
         }
         .paper-foot { margin-top: 20px; font-weight: bold; color: #000; font-size: 1em; white-space: pre-wrap; letter-spacing: var(--paper-letter-spacing, 0); }
         
         .no-split { white-space: nowrap; word-break: normal; overflow-wrap: normal; }
         .justify-all .paper-content-text { text-align-last: justify; }
 
-        /* Toolbar for Paper */
+        /* แถบเครื่องมือของกระดาษ */
         .toolbar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; background: #eceff1; padding: 10px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #cfd8dc; }
         .toolbar-group { display: flex; gap: 2px; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid #e0e0e0; }
         .tool-btn { border: none; background: transparent; padding: 6px 10px; cursor: pointer; border-radius: 4px; color: #455a64; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; gap: 6px; line-height: 1.1; white-space: nowrap; }
@@ -462,9 +462,9 @@
             width: auto;
         }
         
-        /* Paper Sizes */
+        /* ขนาดกระดาษ */
         .paper.size-a4 { width: 210mm; min-height: 297mm; position: relative; }
-        .paper.size-f4 { width: 216mm; min-height: 356mm; position: relative; } /* Legal (F14) */
+        .paper.size-f4 { width: 216mm; min-height: 356mm; position: relative; } /* ขนาด F14 */
 
         .print-mirror-host { position: fixed; left: -12000px; top: 0; width: 1px; height: 1px; overflow: hidden; pointer-events: none; }
         #printMirrorPaper { margin: 0; border: none; box-shadow: none; max-width: none; zoom: 1; }
@@ -581,10 +581,10 @@
             }
             #overflowWarning { display: none !important; }
             
-            /* Solution Mode Print Overrides - REMOVED to match Exam Mode Layout */
+            /* ส่วนปรับการพิมพ์ของโหมดเฉลยถูกถอดออก เพื่อให้โครงหน้าตรงกับโหมดข้อสอบ */
         }
 
-        /* Utility Classes */
+        /* คลาสใช้งานทั่วไป */
         .d-flex { display: flex; }
         .d-inline-flex { display: inline-flex; }
         .flex-center { display: flex; align-items: center; }
@@ -697,7 +697,7 @@
         .step2-range-line.page-line .page-input { flex: 1 1 180px; min-width: 140px; }
         #contentSection.step2-p12 .grid-3 { display: none; }
         
-        /* Utility classes for Exam Builder Refactor */
+        /* คลาสช่วยเหลือของโครงสร้างหน้าออกข้อสอบแบบใหม่ */
         .text-gray-dark { color: #555; }
         .text-gray-medium { color: #888; }
         .text-gray-666 { color: #666; }
@@ -713,7 +713,7 @@
         .text-blue-dark { color: #2980b9; }
         .error-msg { color: red; font-weight: bold; text-align: center; padding: 20px; }
         
-        /* Modal Utilities */
+        /* ส่วนช่วยเหลือของหน้าต่างโมดัล (modal) */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center; }
         .modal-overlay.d-flex { display: flex; }
         .modal-content { background: #fff; padding: 20px; border-radius: 8px; width: 90%; max-width: 800px; max-height: 80vh; overflow-y: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -777,7 +777,7 @@
         .no-split-fab:active { transform: translateY(1px); }
         .no-split-fab > i { line-height: 1; }
 
-        /* Print/Display Utilities for Content */
+        /* ส่วนช่วยเหลือการพิมพ์และการแสดงผลเนื้อหา */
         .print-container { margin-bottom: 8px; page-break-inside: avoid; text-indent: 0; }
         .print-pali { font-family: 'DilleniaUPC_4Balee', 'DilleniaUPC', sans-serif; margin-bottom: 0; text-align: justify; text-align-last: left; white-space: pre-wrap; }
         .print-thai { margin-left: 25px; margin-top: 0; text-align: justify; text-align-last: left; white-space: pre-wrap; }
@@ -1267,6 +1267,7 @@
     </div>
 
     <script>
+        // สถานะหลักของหน้า และคีย์ที่ใช้เก็บข้อมูลไว้ในเครื่องผู้ใช้
         let isBsMode = false;
         let headerLockEnabled = true;
         let paperZoom = 1;
@@ -1378,6 +1379,7 @@
             scheduleDraftSave();
         }
 
+        // สรุปหมายเหตุภายใน และตัวช่วยสำหรับอธิบายช่วงหน้าที่เลือกมาออกข้อสอบ
         function toggleInternalNotePanel() {
             const panel = document.getElementById('internalNotePanel');
             if (!panel) return;
@@ -1508,6 +1510,7 @@
             auto.textContent = [header, '', s1, '', s2, '', bookLinesSummary].join('\n');
         }
 
+        // สร้างสแนปชอตของสถานะปัจจุบันไว้ใช้กับงานร่างและแม่แบบข้อสอบ
         function getPaperSettingsState() {
             return {
                 isBsMode,
@@ -1569,6 +1572,7 @@
             };
         }
 
+        // งานร่างอัตโนมัติ การนำเข้า/ส่งออก และการกู้คืนสถานะเดิมของหน้า
         let svgForeignObjectSupport = null;
         async function supportsSvgForeignObjectToCanvas() {
             if (svgForeignObjectSupport !== null) return !!svgForeignObjectSupport;
@@ -1822,6 +1826,7 @@
             }
         }
 
+        // จัดการแม่แบบข้อสอบและแม่แบบเริ่มต้นรายขนาดกระดาษ
         function openTemplateModal() {
             const filter = document.getElementById('templateSetFilter');
             const currentPaperSize = document.getElementById('paperSizeSelect')?.value || 'A4';
@@ -2044,56 +2049,7 @@
             scheduleDraftSave();
         }
 
-        function saveExamTemplate() {
-            openTemplateModal();
-            saveNewTemplateFromModal();
-        }
-
-        async function loadExamTemplate() {
-            openTemplateModal();
-        }
-
-        function saveExamTemplateLegacy() {
-            const defaultName = `${getSelectedLevelLabel() || 'แม่แบบข้อสอบ'} ${document.getElementById('subjectSelect')?.value || ''}`.trim();
-            const name = window.prompt('ตั้งชื่อแม่แบบข้อสอบ', defaultName);
-            if (!name || !name.trim()) return;
-            const trimmedName = name.trim();
-            const templates = readStorageJson(STORAGE_KEYS.templates, {});
-            if (templates[trimmedName] && !window.confirm('มีแม่แบบชื่อนี้อยู่แล้ว ต้องการบันทึกทับหรือไม่?')) {
-                return;
-            }
-            templates[trimmedName] = {
-                ...getTemplateState(),
-                name: trimmedName,
-                savedAt: Date.now()
-            };
-            if (writeStorageJson(STORAGE_KEYS.templates, templates)) {
-                alert(`บันทึกเป็นแม่แบบ "${trimmedName}" เรียบร้อยแล้ว`);
-                scheduleDraftSave();
-            } else {
-                alert('ไม่สามารถบันทึกเป็นแม่แบบได้');
-            }
-        }
-        async function loadExamTemplateLegacy() {
-            const templates = readStorageJson(STORAGE_KEYS.templates, {});
-            const names = Object.keys(templates);
-            if (!names.length) {
-                alert('ยังไม่มีแม่แบบข้อสอบที่บันทึกไว้');
-                return;
-            }
-            names.sort();
-            const selectedName = window.prompt(`พิมพ์ชื่อแม่แบบที่ต้องการเรียกใช้:\n- ${names.join('\n- ')}`, names[0]);
-            if (!selectedName || !selectedName.trim()) return;
-            const template = templates[selectedName.trim()];
-            if (!template) {
-                alert('ไม่พบแม่แบบข้อสอบตามชื่อที่ระบุ');
-                return;
-            }
-            await applySavedState(template, { restorePaperHtml: false });
-            alert(`เรียกใช้แม่แบบ "${selectedName.trim()}" เรียบร้อยแล้ว`);
-            scheduleDraftSave();
-        }
-
+        // เครื่องมือจัดรูปข้อความและหน้ากระดาษในขั้นตอนแก้ไขข้อสอบ
         function execCmd(command) {
             document.execCommand(command, false, null);
             document.getElementById('paperEditable')?.focus();
@@ -2110,18 +2066,18 @@
                 return;
             }
 
-            // Check if inside .no-split
+            // ตรวจว่าจุดที่เลือกอยู่ภายใน `.no-split` หรือไม่
             let node = sel.anchorNode;
-            if (node.nodeType === 3) node = node.parentNode; // Text node -> Element
+            if (node.nodeType === 3) node = node.parentNode; // แปลงจากโหนดข้อความ (text node) ไปเป็นอิลิเมนต์ (element)
 
             if (node.classList.contains('no-split')) {
-                // Unwrap: Simple approach - replace outerHTML with innerHTML
-                // But node might be part of selection. 
-                // Better: Just execute remove format or manual unwrap
+                // คลายแร็ปเปอร์ (wrapper): วิธีง่ายคือแทน outerHTML ด้วย innerHTML
+                // แต่ node นี้อาจเป็นส่วนหนึ่งของการเลือก (selection)
+                // วิธีที่ปลอดภัยกว่าคือใช้คำสั่ง remove format หรือคลายแร็ปเปอร์เอง
                 const content = node.innerHTML;
                 node.outerHTML = content;
             } else {
-                // Wrap
+                // ห่อข้อความด้วยแร็ปเปอร์ (wrapper)
                 try {
                     const span = document.createElement('span');
                     span.className = 'no-split';
@@ -2202,11 +2158,11 @@
             const fontStack = `"${font.split(',')[0]}", ${font}, sans-serif`;
 
             if (isInside && !selection.isCollapsed) {
-                // Apply to selection
+                // ใช้กับข้อความที่เลือกไว้
                 document.execCommand('styleWithCSS', false, true);
                 document.execCommand('fontName', false, fontStack);
             } else {
-                // Apply globally
+                // ใช้กับทั้งกระดาษ
                 document.querySelector('.paper').style.fontFamily = fontStack;
             }
             schedulePrintOverflowCheck();
@@ -2406,7 +2362,7 @@
             if (size === 'A4') p.classList.add('size-a4');
             if (size === 'F4') p.classList.add('size-f4');
             
-            // Set for print media query hook
+            // ตั้งค่าไว้ให้มีเดียคิวรี (media query) ตอนพิมพ์ใช้งานต่อ
             document.body.setAttribute('data-print-size', size);
             updatePrintPageStyle();
             syncPrintMirrorPaperSize();
@@ -2566,7 +2522,7 @@
             if (typeof page === 'number') return page;
             if (!page) return 0;
             const str = thaiToArabic(String(page));
-            // Extract first sequence of digits
+            // ดึงชุดตัวเลขแรกออกมาใช้
             const match = str.match(/\d+/);
             return match ? parseInt(match[0], 10) : 0;
         }
@@ -2575,6 +2531,7 @@
         const DHAMMAPADA_THAI_ROOT = '../data/ธรรมบท/ไทย';
         const MANGALA_PALI_ROOT = '../data/มังคลัตถทีปนี/บาลี';
         const MANGALA_THAI_ROOT = '../data/มังคลัตถทีปนี/ไทย';
+        // แผนที่ชุดหนังสือและจำนวนหน้าที่ใช้เป็นแหล่งข้อมูลหลักของแต่ละชั้น/วิชา
         const SAMANTA_PALI_ROOT = '../data/สมันตปาสาทิกา/บาลี';
         const SAMANTA_THAI_ROOT = '../data/สมันตปาสาทิกา/ไทย';
         const VISUDDHI_PALI_ROOT = '../data/วิสุทธิมรรค/บาลี';
@@ -2656,6 +2613,7 @@
             p8: ['ปฐโม ภาโค', 'ทุติโย ภาโค'],
             p9: ['อภิธมฺมตฺถวิภาวินี']
         };
+        // แปลงค่ากำหนดของหนังสือให้เป็นโครงมาตรฐานสำหรับตัวเลือกและตัวโหลดข้อมูล
         function getBookTitlesForLevel(levelCode) {
             const titles = BOOK_TITLES_BY_LEVEL[levelCode];
             return Array.isArray(titles) ? titles : [];
@@ -2786,6 +2744,7 @@
             }
         }
 
+        // โหลดไฟล์ข้อความหลายรูปแบบชื่อไฟล์และเอนโค้ดดิ้ง (encoding) แล้วทำความสะอาดข้อมูลดิบก่อนใช้งาน
         function decodeThaiText(bytes) {
             const encodings = ['utf-8', 'windows-874', 'tis-620', 'iso-8859-11'];
             for (const enc of encodings) {
@@ -2989,6 +2948,7 @@
             }
         }
 
+        // อ่านไฟล์จากพาธ (path) จริงของหนังสือ พร้อมทางเลือกสำรองหลายรูปแบบตามชื่อไฟล์ที่พบในคลัง
         async function fetchTextFile(url) {
             const safeUrl = toSafeFetchUrl(url);
             if (mangalaFileCache.has(safeUrl)) return mangalaFileCache.get(safeUrl);
@@ -3217,7 +3177,7 @@
                 o.text = s;
                 sel.appendChild(o);
             });
-            // Ensure the first option is selected and value is set
+            // บังคับให้เลือกตัวเลือกแรกและตั้งค่า (value) ให้เรียบร้อย
             if (subjects.length > 0) {
                 sel.value = subjects[0];
             }
@@ -3231,6 +3191,7 @@
             const year = toThaiDigits(d.getFullYear() + 543);
             return `วันที่ ${day} ${month} ${year}`;
         }
+        // ผังชั้น/วิชา -> ชุดหนังสือ และการเติมตัวเลือกในขั้นตอนเลือกเนื้อหา
         function updateDuration() {
             const h = document.getElementById('hoursInput').value || 0;
             const m = document.getElementById('minutesInput').value || 0;
@@ -3245,7 +3206,7 @@
             input.value = String(input.value).replace(/[0-9]/g, d => m[d]).replace(/\s+/g,'').trim();
         }
         function allowedPartsForLevel() {
-            // Deprecated by CONTENT_MAPPING logic, keeping for safety if called elsewhere, but we will replace usages.
+            // ฟังก์ชันนี้ถูกแทนที่ด้วยตรรกะของ CONTENT_MAPPING แล้ว แต่ยังคงไว้กันกรณีมีจุดอื่นเรียกใช้อยู่
             return [];
         }
         
@@ -3340,7 +3301,7 @@
             const levelConfig = CONTENT_MAPPING[levelLabel] || {};
             const parts = levelConfig[subjectLabel] || [];
 
-            // Fallback for unspecified levels
+            // ค่าทดแทนสำหรับชั้นที่ยังไม่ได้ระบุไว้ชัดเจน
             if (parts.length === 0 && !levelLabel.includes('ป.ธ.')) {
                  parts.push({id:'dhamma-1', label:'ธรรมบท ภาคที่ ๑'}, {id:'dhamma-2', label:'ธรรมบท ภาคที่ ๒'}, {id:'dhamma-3', label:'ธรรมบท ภาคที่ ๓'}, {id:'dhamma-4', label:'ธรรมบท ภาคที่ ๔'});
             }
@@ -3429,7 +3390,7 @@
                 if (senseLabel) senseLabel.innerText = ['p12','p3'].includes(levelCode) ? 'แปล โดยอรรถ' : 'ข้อ ๒';
             }
             
-            // Trigger Vagga update for both
+            // สั่งให้อัปเดตวรรคทั้งสองฝั่ง
             updateVaggaSelect('literal');
             updateVaggaSelect('sense');
         }
@@ -3445,7 +3406,7 @@
                 o.text = v;
                 sel.appendChild(o);
             });
-            // Reset Story and Pages
+            // รีเซ็ตเรื่องและช่วงหน้า
             updateStorySelect(mode);
         }
 
@@ -3461,11 +3422,11 @@
                 o.text = s;
                 sel.appendChild(o);
             });
-            // Reset Pages
+            // รีเซ็ตช่วงหน้า
             updatePageRange(mode);
         }
 
-        // --- Stats Logic ---
+        // --- ส่วนตรรกะของสถิติ ---
         let db = null;
         let storage = null;
         try {
@@ -3576,7 +3537,7 @@
                     const v = await tryStorageCandidates();
                     if (v !== null) return v;
                 } catch (_) {
-                    // fallthrough
+                    // ถ้าไม่สำเร็จให้ลองตัวเลือกถัดไปต่อ
                 }
             }
 
@@ -3641,6 +3602,7 @@
             }
         }
 
+        // บันทึกสถิติการใช้งานหน้าเว็บ และดึงสถิติประกอบการออกข้อสอบ
         function isNewSessionForAnalytics() {
             try {
                 const now = Date.now();
@@ -3686,12 +3648,8 @@
             await db.collection('web_analytics_totals').doc('ALL').set(totalPayload, { merge: true });
         }
 
-        function refreshWebUsageBadge() {
-            // Removed
-        }
-
         function startWebAnalytics() {
-            // Removed
+            // เว้นส่วนนี้ไว้เป็นตัวแทน (placeholder) ยังไม่ใช้งาน
         }
 
         async function fetchStats() {
@@ -3703,7 +3661,7 @@
             const slContent = document.getElementById('sanluangStatsContent');
             const sysContent = document.getElementById('systemStatsContent');
             
-            // Determine active story/book
+            // หาเรื่องหรือชุดหนังสือที่กำลังใช้งานอยู่
             const litStory = document.getElementById('literalStory').value;
             const senseStory = document.getElementById('senseStory').value;
             const story = litStory || senseStory;
@@ -3719,9 +3677,9 @@
             slContent.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังตรวจสอบ...';
             sysContent.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> กำลังตรวจสอบ...';
 
-            // 1. Sanluang Stats
+            // 1. สถิติข้อสอบสนามหลวง
             try {
-                // Query by story name (NO ORDER BY to avoid index issues)
+                // ค้นจากชื่อเรื่องโดยไม่ใช้ ORDER BY เพื่อเลี่ยงปัญหาดัชนี (index)
                 const slSnap = await db.collection('sanluang_exams')
                     .where('story', '==', story)
                     .get();
@@ -3729,16 +3687,16 @@
                 if (slSnap.empty) {
                     slContent.innerHTML = '<span class="text-gray">ยังไม่เคยออกข้อสอบสนามหลวง (หรือไม่มีข้อมูล)</span>';
                 } else {
-                    // Client-side Sort
+                    // เรียงข้อมูลฝั่งไคลเอนต์
                     const docs = [];
                     slSnap.forEach(doc => docs.push(doc.data()));
-                    docs.sort((a,b) => b.year - a.year); // Descending
+                    docs.sort((a,b) => b.year - a.year); // เรียงจากมากไปน้อย
 
                     let html = `<div class="mb-5 text-dark-red font-bold">
                         <i class="fa-solid fa-bell"></i> เนื้อหานี้เคยออกข้อสอบสนามหลวง ${slSnap.size} ครั้ง
                     </div>`;
                     
-                    // Store data globally for modal
+                    // เก็บข้อมูลไว้แบบส่วนกลาง (global) เพื่อส่งต่อให้หน้าต่างโมดัล (modal)
                     window.currentExamStats = docs;
                     
                     html += `<button class="btn secondary btn-stats-detail" onclick="showExamStatsModal(window.currentExamStats)">
@@ -3752,7 +3710,7 @@
                 slContent.innerHTML = '<span class="text-red">โหลดข้อมูลผิดพลาด (โปรดตรวจสอบการเชื่อมต่อ)</span>';
             }
 
-            // 2. System Usage Stats
+            // 2. สถิติการใช้งานของระบบ
             try {
                 let webUsageHtml = '';
                 try {
@@ -3770,7 +3728,7 @@
                     webUsageHtml = `<div class="text-sm text-gray-dark mb-10">ผู้เข้าใช้งานวันนี้: -</div>`;
                 }
 
-                // Query by story name
+                // ค้นจากชื่อเรื่อง
                 const sysSnap = await db.collection('exam_logs')
                     .where('story', '==', story)
                     .get();
@@ -3809,23 +3767,23 @@
             if (!story) return;
 
             try {
-                // Check if recently logged (debounce)
+                // ตรวจว่าพึ่งบันทึก log ไปเมื่อไม่นานหรือไม่ (debounce)
                 const lastLog = sessionStorage.getItem('lastExamLog');
-                if (lastLog === story) return; // Prevent double logging for same story in session
+                if (lastLog === story) return; // กันการบันทึกซ้ำของเรื่องเดิมในเซสชันเดียวกัน
 
                 await db.collection('exam_logs').add({
                     uid: user.uid,
                     teacherName: user.displayName || user.email,
                     level: document.getElementById('levelSelect').value,
                     subject: document.getElementById('subjectSelect').value,
-                    book: document.getElementById('literalPart').value || document.getElementById('sensePart').value, // Approx
+                    book: document.getElementById('literalPart').value || document.getElementById('sensePart').value, // ค่าประมาณ
                     story: story,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 });
                 
                 sessionStorage.setItem('lastExamLog', story);
                 console.log('Exam log saved');
-                fetchStats(); // Refresh stats to show new count
+                fetchStats(); // โหลดสถิติใหม่เพื่อให้จำนวนล่าสุดแสดงผล
             } catch (e) {
                 console.error('Failed to save log', e);
             }
@@ -3948,6 +3906,7 @@
 </html>`;
         }
 
+        // เตรียมผลลัพธ์สำหรับพิมพ์และสร้าง PDF/ภาพตัวอย่างจากกระดาษที่ผู้ใช้แก้ไขแล้ว
         async function printExamAsImages() {
             syncPrintMirrorStyles();
             updatePrintPageStyle();
@@ -4225,9 +4184,9 @@
                     document.getElementById(mode + 'StartPage').value = min;
                     document.getElementById(mode + 'EndPage').value = max;
                     
-                    generatePreview(); // Auto-generate when story selected
+                    generatePreview(); // สร้างภาพตัวอย่างอัตโนมัติเมื่อเลือกเรื่อง
                     
-                    // Fetch Stats
+                    // ดึงสถิติ
                     fetchStats();
 
                 } else {
@@ -4237,7 +4196,7 @@
             }
         }
 
-        // Hierarchy selectors (vagga, story, page) derived from slides
+        // ตัวเลือกแบบลำดับชั้น (วรรค เรื่อง หน้า) ที่คำนวณจากสไลด์ (slides)
         function unique(arr) { return [...new Set(arr.filter(Boolean))]; }
         function deriveVaggas(part) {
             const obj = partsMap[part] || {};
@@ -4262,14 +4221,14 @@
             }).map(s => parsePageNumber(s.page));
             return unique(nums).filter(n => n > 0).sort((a,b) => a-b);
         }
-        // Cache for stable indexing
+        // แคชสำหรับคงลำดับดัชนี (index) ให้เสถียร
         const partSlidesCache = new Map();
         function getPartSlides(part) {
             if (partSlidesCache.has(part)) return partSlidesCache.get(part);
             const obj = partsMap[part] || {};
             let slides = [];
-            // Iterate keys in stable order if possible, but object keys are unordered.
-            // We assume the file structure defines order by key insertion, usually works.
+            // วนคีย์ตามลำดับที่เสถียรเท่าที่ทำได้ แม้คีย์ของอ็อบเจ็กต์ (object key) โดยหลักจะไม่รับประกันลำดับ
+            // สมมติว่าโครงสร้างไฟล์คงลำดับจากการใส่คีย์ ซึ่งโดยทั่วไปใช้งานได้
             Object.keys(obj).forEach(k => {
                 const arr = obj[k];
                 if (Array.isArray(arr)) slides = slides.concat(arr);
@@ -4279,23 +4238,23 @@
         }
 
         function collectSlides(part, startPage, endPage, vagga, story) {
-            // We use the cached full list to ensure we have the original objects
+            // ใช้รายการเต็มจากแคช เพื่อให้ยังอ้างถึงอ็อบเจ็กต์ (object) ต้นฉบับได้
             const allSlides = getPartSlides(part);
             
-            // Map to include original index for Key generation
+            // สร้างแมป (map) ใหม่เพื่อพกดัชนี (index) เดิมไว้ใช้สร้างคีย์
             const indexedSlides = allSlides.map((s, i) => ({ ...s, _origIndex: i }));
             
-            // Filter
+            // กรองข้อมูล
             let slides = indexedSlides.filter(s => typeof s.page !== 'undefined');
             
-            // Filter by vagga/story
+            // กรองข้อมูลตามวรรคและเรื่อง
             slides = slides.filter(s => {
                 const okV = vagga ? (s.vagga === vagga) : true;
                 const okS = story ? (((s.story || s.section) === story)) : true;
                 return okV && okS;
             });
             
-            // Sort by page (though usually already sorted)
+            // เรียงตามหน้า แม้โดยมากข้อมูลจะเรียงมาอยู่แล้ว
             slides.sort((a,b) => {
                 const pa = parsePageNumber(a.page);
                 const pb = parsePageNumber(b.page);
@@ -4312,7 +4271,7 @@
                 return true;
             });
         }
-        // Global content storage for "Book Mode"
+        // ที่เก็บเนื้อหาแบบส่วนกลาง (global) สำหรับโหมดหนังสือ (Book Mode)
         window.examContent = { literal: '', sense: '' };
         window.renderCache = {};
         window.selectedLiteral = window.selectedLiteral || new Set();
@@ -4369,6 +4328,7 @@
             return out;
         }
 
+        // ทำความสะอาดข้อความก่อนลงกระดาษจริง และรักษาตำแหน่งการเลือก (selection) ระหว่างการปรับรูปแบบ (normalize)
         function stripThaiSourceInlineMarkers(text) {
             let out = String(text || '');
             out = out.replace(/[ \t]*\[[^\]\r\n]+\][ \t]*/g, ' ');
@@ -4515,6 +4475,7 @@
         };
         let ensureCaretFrame = 0;
 
+        // ช่วยเลือกข้อความบน iPad/iPhone และดูแลการเลื่อนเคอร์เซอร์ (caret) ให้ใช้งานสะดวกขึ้น
         function isIosDevice() {
             const ua = navigator.userAgent || '';
             if (/iPad|iPhone|iPod/i.test(ua)) return true;
@@ -4811,7 +4772,7 @@
                 return;
             }
 
-            // Determine target slot
+            // หาว่าจะนำข้อความไปลงช่องไหน
             const target = getTargetModeFromRenderMode(mode);
             const prev = String(window.examContent?.[target] || '');
             if (prev.trim()) {
@@ -4828,16 +4789,16 @@
             }
             trackGaEvent('import_text', { source: mode, target });
 
-            // Generate Preview
+            // สร้างภาพตัวอย่างใหม่
             buildExamPreview();
 
-            // Visual Feedback
+            // ให้ผลตอบกลับทางสายตาแก่ผู้ใช้
             const btn = document.getElementById('btn-use-' + mode);
             if (btn) {
                 const originalText = btn.innerHTML;
                 btn.innerHTML = '<i class="fa-solid fa-check"></i> เรียบร้อย';
                 btn.classList.remove('primary');
-                btn.classList.add('step-completed'); // Greenish
+                btn.classList.add('step-completed'); // สีเขียวอ่อน
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.classList.add('primary');
@@ -4846,11 +4807,12 @@
             }
         }
 
+        // สร้างรายการข้อความจากหนังสือให้ผู้ใช้คลุมเลือกก่อนนำไปวางบนกระดาษข้อสอบ
         function renderList(containerId, items, mode, part, startPage, endPage) {
             const box = document.getElementById(containerId);
             if (box) box.innerHTML = '';
 
-            // Cache params
+            // เก็บพารามิเตอร์ลงแคช
             if (!window.renderCache) window.renderCache = {};
             window.renderCache[containerId] = { items, mode, part, startPage, endPage };
 
@@ -4859,10 +4821,10 @@
                 return;
             }
 
-            // Book Mode Render (ไม่มีโหมดเลือกทีละประโยคแล้ว)
+            // แสดงผลแบบโหมดหนังสือ (Book Mode) (ตอนนี้ไม่มีโหมดเลือกทีละประโยคแล้ว)
             const wrapper = document.createElement('div');
                 
-            // Toolbar
+            // แถบเครื่องมือ
             const toolbar = document.createElement('div');
             toolbar.className = 'd-flex items-start gap-10 mb-10';
             const ios = isIosDevice();
@@ -4887,7 +4849,7 @@
             `;
             wrapper.appendChild(toolbar);
 
-            // Text Area (Read-only but selectable)
+            // พื้นที่ข้อความ (อ่านอย่างเดียวแต่ยังเลือกข้อความได้)
             const textArea = document.createElement('div');
             textArea.className = 'book-content-area';
             textArea.tabIndex = 0;
@@ -4908,7 +4870,7 @@
                     textToUse = s.thai_desana || s.thai_sense || s.thai || '';
                 }
 
-                // Append Page Marker if changed
+                // แทรกตัวบอกหน้าเมื่อเปลี่ยนหน้า
                 const pageVal = parsePageNumber(s.page);
                 if (pageVal > 0 && pageVal !== lastPage) {
                     const marker = document.createElement('div');
@@ -4941,7 +4903,7 @@
             box.appendChild(wrapper);
 
             updateTapSelectButton(mode);
-            updateSelectionCounterForMode(mode); // Initial display
+            updateSelectionCounterForMode(mode); // แสดงผลครั้งแรก
             scheduleSelectionCounterUpdate();
         }
         function buildExamPreview() {
@@ -4961,14 +4923,14 @@
             
 
             
-            // Determine context based on Subject
-            // Translate Pali -> Thai (Subject: แปล มคธเป็นไทย) => Content is Pali => Use 2 spaces, Pali Font
-            // Translate Thai -> Pali (Subject: แปล ไทยเป็นมคธ) => Content is Thai => Use 1 space, Thai Font
-            // Relation (Subject: สัมพันธ์ไทย) => Content is Pali => Use 2 spaces, Pali Font
+            // กำหนดบริบทตามวิชาที่เลือก
+            // แปลบาลี -> ไทย (วิชา: แปล มคธเป็นไทย) => เนื้อหาเป็นบาลี => ใช้ 2 ช่องว่างและฟอนต์บาลี
+            // แปลไทย -> บาลี (วิชา: แปล ไทยเป็นมคธ) => เนื้อหาเป็นไทย => ใช้ 1 ช่องว่างและฟอนต์ไทย
+            // สัมพันธ์ไทย => เนื้อหาเป็นบาลี => ใช้ 2 ช่องว่างและฟอนต์บาลี
             
-            // Logic:
-            // If subject contains "มคธเป็นไทย" or "สัมพันธ์" => Pali Content
-            // If subject contains "ไทยเป็นมคธ" => Thai Content
+            // หลักการทำงาน:
+            // ถ้าวิชามีคำว่า "มคธเป็นไทย" หรือ "สัมพันธ์" => ถือว่าเป็นเนื้อหาบาลี
+            // ถ้าวิชามีคำว่า "ไทยเป็นมคธ" => ถือว่าเป็นเนื้อหาไทย
             
             let isPaliContent = false;
             if (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์')) {
@@ -4976,32 +4938,32 @@
             } else if (subjectLabel.includes('ไทยเป็นมคธ')) {
                 isPaliContent = false;
             } else {
-                // Default fallback
+                // ค่าทดแทนเริ่มต้น
                 isPaliContent = false; 
             }
 
-            // Function to clean punctuation for P.T.3-9
+            // ฟังก์ชันทำความสะอาดเครื่องหมายวรรคตอนสำหรับ ป.ธ.๓-๙
             const cleanPunctuation = (text) => {
                 if (!text) return '';
-                // Strategy: Keep Thai chars, Pali chars, Numbers, Space, ฯ, ฯลฯ
-                // Remove other punctuation marks
+                // แนวทางคือเก็บอักษรไทย อักษรบาลี ตัวเลข ช่องว่าง ฯ และ ฯลฯ ไว้
+                // ลบเครื่องหมายวรรคตอนอื่นออก
                 
-                // First replace ฯลฯ to temporary placeholder to protect it
+                // แทน ฯลฯ ด้วยตัวแทนชั่วคราวก่อน เพื่อไม่ให้ถูกลบ
                 let processed = text.replace(/ฯลฯ/g, 'PALITOKENP2');
-                // Replace ฯ to temporary placeholder
+                // แทน ฯ ด้วยตัวแทนชั่วคราว
                 processed = processed.replace(/ฯ/g, 'PALITOKENP1');
                 
-                // Remove punctuation:
-                // Standard ASCII Punctuation: ! " # $ % & ' * + , - . / : ; < = > @ [ \ ] ^ _ ` { | } ~
-                // Exclude ( ) from removal as requested
+                // ลบเครื่องหมายวรรคตอน:
+                // กลุ่มเครื่องหมาย ASCII มาตรฐาน: ! " # $ % & ' * + , - . / : ; < = > @ [ \ ] ^ _ ` { | } ~
+                // ยกเว้นวงเล็บ ( ) ตามที่ต้องการ
                 processed = processed.replace(/[!"#$%&'*+,\-./:;<=>@[\]^_`{|}~]/g, ' ');
                 
-                // Remove Special Punctuation (Smart Quotes, Dashes, Ellipsis, etc.)
-                // \u2010-\u201F (Dashes, Quotes)
-                // \u2026 (Ellipsis)
+                // ลบเครื่องหมายพิเศษ เช่น อัญประกาศอัจฉริยะ (smart quotes), ขีด (dash), จุดไข่ปลา (ellipsis) เป็นต้น
+                // \u2010-\u201F คือกลุ่มขีด (dash) และอัญประกาศ (quote)
+                // \u2026 คือจุดไข่ปลา (ellipsis)
                 processed = processed.replace(/[\u2010-\u201F\u2026]/g, ' ');
 
-                // Restore placeholders
+                // คืนค่าตัวแทน (placeholder) กลับเป็นเครื่องหมายเดิม
                 processed = processed.replace(/PALITOKENP1/g, 'ฯ');
                 processed = processed.replace(/PALITOKENP2/g, 'ฯลฯ');
                 processed = processed.replace(/\bP1\b/g, 'ฯ');
@@ -5010,38 +4972,38 @@
                 return processed;
             };
             
-            // Check if we need to clean punctuation (Level P.T.4-9)
-            // Level codes: p4 to p9
+            // ตรวจว่าต้องทำความสะอาดเครื่องหมายหรือไม่ (ระดับ ป.ธ.๔-๙)
+            // รหัสระดับที่เกี่ยวข้องคือ p4 ถึง p9
             const levelCode = document.getElementById('levelSelect').value;
             const needsCleaning = ['p4','p5','p6','p7','p8','p9'].includes(levelCode);
 
-            // Determine Header Label (Convert to B.S. if checked)
-            // const isBSMode = document.getElementById('bsMode').checked; // Removed checkbox
-            // Use global variable isBsMode
+            // กำหนดข้อความหัวกระดาษ (แปลงเป็น บ.ศ. เมื่อเปิดใช้)
+            // const isBSMode = document.getElementById('bsMode').checked; // เอา checkbox ออกแล้ว เหลือคอมเมนต์ไว้เป็นร่องรอย
+            // ใช้ตัวแปรส่วนกลาง (global) `isBsMode` แทน
             let displayLevelLabel = levelLabel;
             
             if (isBsMode) {
                 if (levelLabel.includes('ประโยค ๑–๒')) {
                     displayLevelLabel = 'ประโยค บ.ศ. ๑–๒';
                 } else if (levelLabel.includes('ประโยค ป.ธ.')) {
-                    // Replace ป.ธ. with บ.ศ.
+                    // แทน ป.ธ. เป็น บ.ศ.
                     displayLevelLabel = levelLabel.replace('ป.ธ.', 'บ.ศ.');
                 }
             }
 
-            // Helper for spacing
+            // ตัวช่วยจัดระยะช่องว่าง
             const addDoubleSpacing = (text) => {
                 if (!text) return '';
                 let processed = String(text);
                 
-                // Normalization
+                // ปรับข้อความให้อยู่ในรูปแบบมาตรฐาน
                 const normalized = processed.replace(/\s+/g, ' ').trim();
                 
-                // Use 2 spaces
+                // ใช้ 2 ช่องว่าง
                 return normalized.replace(/ /g, '  '); 
             };
 
-            // Helper for spacing
+            // ตัวช่วยจัดระยะช่องว่าง
             const formatSpacing = (text) => {
                 if (!text) return '';
                     let processed = normalizeUnicodeWhitespaceForPaper(String(text));
@@ -5095,7 +5057,7 @@
                 return spaced.split('\uE000').join('    ');
             };
 
-            // Set Content Font Class
+            // ตั้งคลาสของฟอนต์เนื้อหา
             const contentClass = isPaliContent ? 'font-pali' : 'font-thai';
             const needsStripMarkers = isMangala01PageMode() && !(levelCode === 'p12' && subjectLabel.includes('มคธเป็นไทย'));
             const prepareContent = (t) => {
@@ -5225,12 +5187,12 @@
         async function generatePreview() {
             const token = ++generatePreviewAbortToken;
             document.body.classList.remove('mode-solution');
-            // NOTE: We do NOT clear selection buffers here anymore.
-            // This allows users to change stories/parts without losing their previous selections.
-            // Users can manually clear selections using the UI if needed.
+            // หมายเหตุ: ตอนนี้จะไม่ล้างบัฟเฟอร์ของการเลือก (selection) ตรงนี้แล้ว
+            // เพื่อให้ผู้ใช้เปลี่ยนเรื่องหรือภาคได้ โดยไม่ทำให้ข้อความที่เลือกไว้หาย
+            // ถ้าต้องการล้าง ผู้ใช้ยังล้างเองผ่าน UI ได้
             
-            // NOTE: We do NOT clear Book Mode content here anymore.
-            // This fixes the issue where selecting a new story wipes out the manually selected text.
+            // หมายเหตุ: ตอนนี้จะไม่ล้างเนื้อหาโหมดหนังสือ (Book Mode) ตรงนี้แล้ว
+            // เพื่อแก้ปัญหาที่การเลือกเรื่องใหม่ทำให้ข้อความที่เลือกเองไว้ถูกลบทิ้ง
 
             const level = document.getElementById('levelSelect').value;
             const attempt = document.getElementById('attemptInput').value;
@@ -5370,6 +5332,7 @@
             buildExamPreview();
             applyFontLockForSubject();
         }
+        // ขั้นตอนหลักของการสร้างภาพตัวอย่างและรีเซ็ตบริบทเมื่อผู้ใช้เปลี่ยนเงื่อนไข
         function resetSelection(mode) {
             if (mode === 'literal') { 
                 if (window.examContent) window.examContent.literal = '';
@@ -5427,7 +5390,7 @@
             document.getElementById('senseStartPage').value = '';
             document.getElementById('senseEndPage').value = '';
             
-            // Reset hierarchical selects
+            // รีเซ็ตตัวเลือกแบบลำดับชั้น
             document.getElementById('literalVagga').value = '';
             document.getElementById('literalStory').innerHTML = '<option value="">(เลือกเรื่อง)</option>';
             document.getElementById('senseVagga').value = '';
@@ -5463,7 +5426,7 @@
             const selection = window.getSelection();
             if (!selection.rangeCount) return;
             
-            // Ensure selection is inside paper
+            // ตรวจให้แน่ใจว่าการเลือก (selection) อยู่ภายในกระดาษ
             let node = selection.anchorNode;
             let isInside = false;
             while(node) {
@@ -5475,29 +5438,29 @@
             }
             if (!isInside) return;
 
-            // Detect Font Family
-            // Use document.queryCommandValue if possible, or computed style
-            // Note: queryCommandValue('fontName') returns the font name string
+            // ตรวจสอบตระกูลฟอนต์ปัจจุบัน
+            // ใช้ document.queryCommandValue ก่อน ถ้าไม่ได้ค่อยใช้ทางเลือกสำรอง (fallback) ไปใช้ computed style
+            // หมายเหตุ: queryCommandValue('fontName') จะคืนชื่อฟอนต์กลับมาเป็นข้อความ
             let currentFont = document.queryCommandValue('fontName');
             
-            // Sometimes queryCommandValue returns empty or weird values in some browsers/contexts
-            // Fallback to computed style of the parent element of the selection
+            // บางเบราว์เซอร์ (browser) หรือบางบริบทอาจคืนค่าว่างหรือค่าที่แปลกออกมา
+            // ใช้ทางเลือกสำรอง (fallback) ไปอ่าน computed style ของ element แม่ที่ครอบ selection อยู่
             if (!currentFont) {
                 const parent = selection.anchorNode.nodeType === 3 ? selection.anchorNode.parentNode : selection.anchorNode;
                 const computed = window.getComputedStyle(parent);
                 currentFont = computed.fontFamily;
             }
 
-            // Clean up font string (remove quotes)
+            // ทำความสะอาดชื่อฟอนต์ เช่น เอา quote ออก
             currentFont = currentFont.replace(/['"]/g, '');
             
-            // Match with dropdown options
-            // Our options values: DilleniaUPC, DilleniaUPC_4Balee, etc.
-            // The computed font might be "DilleniaUPC, sans-serif" or just "DilleniaUPC"
+            // จับคู่กับตัวเลือกในช่องดรอปดาวน์ (dropdown)
+            // ค่าในช่องดรอปดาวน์ (dropdown) ของเรามีเช่น DilleniaUPC, DilleniaUPC_4Balee เป็นต้น
+            // ค่าฟอนต์ที่อ่านได้อาจเป็น "DilleniaUPC, sans-serif" หรือแค่ "DilleniaUPC"
             const fontSelect = document.getElementById('fontFamilySelect');
             const options = Array.from(fontSelect.options);
             
-            // Try exact match first
+            // ลองจับคู่แบบตรงตัวก่อน
             let matched = false;
             for (let opt of options) {
                 if (currentFont.includes(opt.value)) {
@@ -5507,7 +5470,7 @@
                 }
             }
             
-            // If not matched (e.g. global style), check paper style
+            // ถ้ายังจับคู่ไม่ได้ เช่น มาจากสไตล์ส่วนกลาง (global style) ให้ตรวจสไตล์ของกระดาษต่อ
             if (!matched) {
                  const paperStyle = window.getComputedStyle(document.querySelector('.paper')).fontFamily.replace(/['"]/g, '');
                  for (let opt of options) {
@@ -5528,14 +5491,14 @@
             const dateRow = document.getElementById('dateRow');
             const contentSection = document.getElementById('contentSection');
 
-            // Step 1: Level
+            // ขั้นที่ 1: ชั้นประโยค
             const isLevelSelected = levelSelect.value && levelSelect.value !== "";
             if (isLevelSelected) {
                 levelRow.classList.remove('step-required');
                 levelRow.classList.add('step-completed');
                 contentSection.classList.remove('d-none');
                 
-                // Unlock Step 2
+                // ปลดล็อกขั้นที่ 2
                 subjectRow.classList.remove('step-locked');
                 subjectRow.classList.remove('pointer-events-none');
                 subjectRow.classList.remove('opacity-50');
@@ -5544,28 +5507,28 @@
                 levelRow.classList.add('step-required');
                 levelRow.classList.remove('step-completed');
                 
-                // Lock Step 2 & 3 & Content
+                // ล็อกขั้นที่ 2 ขั้นที่ 3 และส่วนเนื้อหา
                 subjectRow.classList.add('step-locked');
                 subjectRow.classList.add('pointer-events-none');
                 subjectRow.classList.add('opacity-50');
                 subjectSelect.disabled = true;
                 subjectSelect.value = ""; 
                 
-                // Cascade lock
+                // ล็อกต่อเนื่องลงไปยังขั้นถัด ๆ ไป
                 dateRow.classList.add('step-locked');
                 
                 contentSection.classList.add('step-locked');
                 contentSection.classList.add('step2-empty');
-                return; // Stop processing
+                return; // หยุดประมวลผลต่อ
             }
 
-            // Step 2: Subject
+            // ขั้นที่ 2: วิชา
             const isSubjectSelected = subjectSelect.value && subjectSelect.value !== "";
             if (isSubjectSelected) {
                 subjectRow.classList.remove('step-required');
                 subjectRow.classList.add('step-completed');
                 
-                // Unlock Step 3
+                // ปลดล็อกขั้นที่ 3
                 dateRow.classList.remove('step-locked');
                 contentSection.classList.remove('step-locked');
                 contentSection.classList.remove('step2-empty');
@@ -5573,15 +5536,15 @@
                 subjectRow.classList.add('step-required');
                 subjectRow.classList.remove('step-completed');
                 
-                // Lock Step 3 & Content
+                // ล็อกขั้นที่ 3 และส่วนเนื้อหา
                 dateRow.classList.add('step-locked');
                 
                 contentSection.classList.add('step-locked');
                 contentSection.classList.add('step2-empty');
-                return; // Stop processing
+                return; // หยุดประมวลผลต่อ
             }
 
-            // Step 3: Date
+            // ขั้นที่ 3: วันที่สอบ
             const isDateSelected = dateInput.value && dateInput.value !== "";
             if (isDateSelected) {
                 dateRow.classList.remove('step-required');
@@ -5626,6 +5589,7 @@
             normalizeThaiNumerals(this);
             buildExamPreview();
         });
+        // ผูกเหตุการณ์ (event) ตอนเริ่มหน้า เพื่อให้ส่วนติดต่อผู้ใช้ (UI) ทุกส่วนซิงก์กันและสร้างภาพตัวอย่างได้ทันที
         document.getElementById('projectNameInput').addEventListener('input', buildExamPreview);
         document.getElementById('examAuthorInput').addEventListener('input', buildExamPreview);
         document.getElementById('saveTemplateBtn').addEventListener('click', () => {
@@ -5663,7 +5627,7 @@
             printBtn.addEventListener('touchend', triggerPrintFromUserGesture, { passive: false });
         }
         
-        // Toolbar state listeners
+        // ตัวดักฟังสถานะของแถบเครื่องมือ
         document.getElementById('paperEditable').addEventListener('mouseup', updateToolbarState);
         document.getElementById('paperEditable').addEventListener('keyup', updateToolbarState);
         document.getElementById('paperEditable').addEventListener('click', updateToolbarState);
@@ -5681,7 +5645,7 @@
         });
         document.getElementById('internalNoteText')?.addEventListener('input', scheduleDraftSave);
         
-        // Hierarchical Select Listeners
+        // ตัวดักฟังของตัวเลือกแบบลำดับชั้น
         document.getElementById('literalPart').addEventListener('change', () => { updateVaggaSelect('literal'); generatePreview(); });
         document.getElementById('literalVagga').addEventListener('change', () => { updateStorySelect('literal'); });
         document.getElementById('literalStory').addEventListener('change', () => { updatePageRange('literal'); });
@@ -5690,7 +5654,7 @@
         document.getElementById('senseVagga').addEventListener('change', () => { updateStorySelect('sense'); });
         document.getElementById('senseStory').addEventListener('change', () => { updatePageRange('sense'); });
 
-        // Direct page input updates
+        // อัปเดตเมื่อผู้ใช้กรอกเลขหน้าโดยตรง
         let pageInputPreviewTimer = 0;
         function scheduleGeneratePreviewFromPageInput() {
             try {
@@ -5807,7 +5771,7 @@
     </script>
 
     <script>
-        // Modal for Exam Stats
+        // หน้าต่างโมดัล (modal) สำหรับดูสถิติข้อสอบ
         function showExamStatsModal(data) {
             const body = document.getElementById('examStatsModalBody');
             if (!data || data.length === 0) {
@@ -5856,11 +5820,12 @@
             html += '</tbody></table>';
             body.innerHTML = html;
             
-            // Show Modal
+            // เปิดหน้าต่างโมดัล (modal)
             const modal = document.getElementById('examStatsModal');
             modal.classList.add('d-flex');
         }
 
+        // ค้นข้อความในหนังสือจริงแบบข้ามหน้า/ข้ามเล่ม แล้วส่งผลลัพธ์กลับไปที่ขั้นที่ 2
         function normalizeSearchText(text) {
             let out = String(text || '');
             out = out.replace(/\r\n/g, '\n');
@@ -6403,7 +6368,7 @@
         }
     </script>
     
-    <!-- Modal for Exam Stats -->
+    <!-- หน้าต่างโมดัล (modal) สำหรับสถิติข้อสอบ -->
     <div id="examStatsModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -6411,7 +6376,7 @@
                 <button onclick="document.getElementById('examStatsModal').classList.remove('d-flex')" class="modal-close-btn">&times;</button>
             </div>
             <div id="examStatsModalBody">
-                <!-- Table will go here -->
+                <!-- ตารางจะแสดงที่นี่ -->
             </div>
             <div class="modal-footer">
                 <button class="btn secondary" onclick="document.getElementById('examStatsModal').classList.remove('d-flex')">ปิดหน้าต่าง</button>
