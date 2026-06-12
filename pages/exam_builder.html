@@ -36,7 +36,7 @@
         } catch (_) {}
     </script>
     <style>
-        html { -webkit-text-size-adjust: 100%; }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         body { font-family: "Sarabun", "Niramit", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; background-color: #f4f6f8; margin: 0; }
         /* สไตล์สถานะของแต่ละขั้นตอน */
         .step-required {
@@ -391,6 +391,7 @@
         .collapsible-panel summary {
             list-style: none;
             cursor: pointer;
+            -webkit-user-select: none;
             user-select: none;
             display: inline-flex;
             align-items: center;
@@ -1026,14 +1027,14 @@
                         </div>
                         <div class="draft-status" id="draftStatus">งานร่างอัตโนมัติพร้อมใช้งาน</div>
                         <div class="actions step3-actions">
-                            <button class="btn secondary" id="bsToggleBtn" onclick="toggleBsMode()" title="สลับโหมด บาลีศึกษา (บ.ศ.)"><i class="fa-solid fa-right-left"></i> โหมด: ป.ธ.</button>
-                            <button class="btn secondary" id="solutionBtn" onclick="generateSolution()" title="สร้างเฉลย"><i class="fa-solid fa-wand-magic-sparkles"></i> เฉลย</button>
+                            <button class="btn secondary" id="bsToggleBtn" type="button" onclick="toggleBsMode()" title="สลับโหมด บาลีศึกษา (บ.ศ.)"><i class="fa-solid fa-right-left"></i> โหมด: ป.ธ.</button>
+                            <button class="btn secondary" id="solutionBtn" type="button" onclick="generateSolution()" title="สร้างเฉลย"><i class="fa-solid fa-wand-magic-sparkles"></i> เฉลย</button>
                             <a href="font_download.html" class="btn secondary text-decoration-none d-inline-flex flex-center gap-5" title="หน้าดาวน์โหลดและวิธีติดตั้งฟอนต์"><i class="fa-solid fa-font"></i> ดาวน์โหลดฟอนต์</a>
-                            <button class="btn secondary" id="resetBtn"><i class="fa-solid fa-rotate-left"></i> รีเซ็ต</button>
-                            <button class="btn secondary" id="copyBtn"><i class="fa-solid fa-copy"></i> คัดลอก</button>
-                            <button class="btn secondary" id="saveTemplateBtn"><i class="fa-solid fa-floppy-disk"></i> บันทึกเป็นแม่แบบ</button>
-                            <button class="btn secondary" id="loadTemplateBtn"><i class="fa-solid fa-folder-open"></i> เรียกใช้แม่แบบ</button>
-                            <button class="btn primary" id="generateBtn" title="ล้างการแก้ไขข้อสอบและสร้างใหม่จากเนื้อหาที่เลือกอยู่"><i class="fa-solid fa-rotate-right"></i> ล้างการแก้ไขข้อสอบ</button>
+                            <button class="btn secondary" id="resetBtn" type="button"><i class="fa-solid fa-rotate-left"></i> รีเซ็ต</button>
+                            <button class="btn secondary" id="copyBtn" type="button"><i class="fa-solid fa-copy"></i> คัดลอก</button>
+                            <button class="btn secondary" id="saveTemplateBtn" type="button"><i class="fa-solid fa-floppy-disk"></i> บันทึกเป็นแม่แบบ</button>
+                            <button class="btn secondary" id="loadTemplateBtn" type="button"><i class="fa-solid fa-folder-open"></i> เรียกใช้แม่แบบ</button>
+                            <button class="btn primary" id="generateBtn" type="button" title="ล้างการแก้ไขข้อสอบและสร้างใหม่จากเนื้อหาที่เลือกอยู่"><i class="fa-solid fa-rotate-right"></i> ล้างการแก้ไขข้อสอบ</button>
                         </div>
                     </div>
                 </div>
@@ -1044,10 +1045,10 @@
                             <div class="tool-row-label" title="รูปแบบอักษร"><i class="fa-solid fa-font"></i><span class="label-text">รูปแบบอักษร:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
-                                    <button class="tool-btn" onclick="execCmd('bold')" title="ตัวหนา"><i class="fa-solid fa-bold"></i></button>
-                                    <button class="tool-btn" onclick="execCmd('italic')" title="ตัวเอียง"><i class="fa-solid fa-italic"></i></button>
-                                    <button class="tool-btn" onclick="execCmd('underline')" title="ขีดเส้นใต้"><i class="fa-solid fa-underline"></i></button>
-                                    <button class="tool-btn" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i> ห้ามตัดคำ</button>
+                                    <button class="tool-btn" type="button" onclick="execCmd('bold')" title="ตัวหนา"><i class="fa-solid fa-bold"></i></button>
+                                    <button class="tool-btn" type="button" onclick="execCmd('italic')" title="ตัวเอียง"><i class="fa-solid fa-italic"></i></button>
+                                    <button class="tool-btn" type="button" onclick="execCmd('underline')" title="ขีดเส้นใต้"><i class="fa-solid fa-underline"></i></button>
+                                    <button class="tool-btn" type="button" onclick="toggleNoSplit()" title="ห้ามตัดคำ (คลุมดำคำที่ถูกฉีกแล้วกด)"><i class="fa-solid fa-link"></i> ห้ามตัดคำ</button>
                                 </div>
                             </div>
                         </div>
@@ -1055,11 +1056,11 @@
                             <div class="tool-row-label" title="รูปแบบย่อหน้า"><i class="fa-solid fa-align-left"></i><span class="label-text">รูปแบบย่อหน้า:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
-                                    <button class="tool-btn" onclick="execCmd('justifyLeft')" title="จัดชิดซ้าย"><i class="fa-solid fa-align-left"></i></button>
-                                    <button class="tool-btn" onclick="execCmd('justifyCenter')" title="จัดกึ่งกลาง"><i class="fa-solid fa-align-center"></i></button>
-                                    <button class="tool-btn" onclick="execCmd('justifyRight')" title="จัดชิดขวา"><i class="fa-solid fa-align-right"></i></button>
-                                    <button class="tool-btn" onclick="execCmd('justifyFull')" title="จัดเต็มบรรทัด"><i class="fa-solid fa-align-justify"></i></button>
-                                    <button class="tool-btn" onclick="toggleJustifyAll()" title="กระจายทุกบรรทัด (รวมบรรทัดสุดท้าย/Shift+Enter)"><i class="fa-solid fa-arrows-left-right-to-line"></i></button>
+                                    <button class="tool-btn" type="button" onclick="execCmd('justifyLeft')" title="จัดชิดซ้าย"><i class="fa-solid fa-align-left"></i></button>
+                                    <button class="tool-btn" type="button" onclick="execCmd('justifyCenter')" title="จัดกึ่งกลาง"><i class="fa-solid fa-align-center"></i></button>
+                                    <button class="tool-btn" type="button" onclick="execCmd('justifyRight')" title="จัดชิดขวา"><i class="fa-solid fa-align-right"></i></button>
+                                    <button class="tool-btn" type="button" onclick="execCmd('justifyFull')" title="จัดเต็มบรรทัด"><i class="fa-solid fa-align-justify"></i></button>
+                                    <button class="tool-btn" type="button" onclick="toggleJustifyAll()" title="กระจายทุกบรรทัด (รวมบรรทัดสุดท้าย/Shift+Enter)"><i class="fa-solid fa-arrows-left-right-to-line"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1079,7 +1080,7 @@
                                         <option value="Cordia New">Cordia New</option>
                                         <option value="Niramit">Niramit</option>
                                     </select>
-                                    <button class="tool-btn" onclick="applyPaliWordFont()" title="คลุมเฉพาะอักษร “ญ/ฐ” ที่ต้องการ แล้วกดเพื่อเปลี่ยนเป็นรูปอักษรบาลี">ญฐ→บาลี</button>
+                                    <button class="tool-btn" type="button" onclick="applyPaliWordFont()" title="คลุมเฉพาะอักษร “ญ/ฐ” ที่ต้องการ แล้วกดเพื่อเปลี่ยนเป็นรูปอักษรบาลี">ญฐ→บาลี</button>
                                 </div>
                             </div>
                         </div>
@@ -1130,7 +1131,7 @@
                                         <option value="-0.4px">แน่น</option>
                                         <option value="-0.6px">แน่นมาก</option>
                                     </select>
-                                    <button class="tool-btn" id="letterSqueezeBtn" onclick="cycleLetterSqueeze()" title="บีบตัวอักษร (ปรับความแน่นแบบวนระดับ)"><i class="fa-solid fa-compress"></i> บีบ</button>
+                                    <button class="tool-btn" type="button" id="letterSqueezeBtn" onclick="cycleLetterSqueeze()" title="บีบตัวอักษร (ปรับความแน่นแบบวนระดับ)"><i class="fa-solid fa-compress"></i> บีบ</button>
                                 </div>
                             </div>
                         </div>
@@ -1145,7 +1146,7 @@
                                         <option value="1.05">105%</option>
                                         <option value="1.1">110%</option>
                                     </select>
-                                    <button class="tool-btn" id="horizontalScaleBtn" onclick="cycleHorizontalScale()" title="ยืด/หดตัวอักษร (Horizontal Scale)"><i class="fa-solid fa-left-right"></i> กว้าง</button>
+                                    <button class="tool-btn" type="button" id="horizontalScaleBtn" onclick="cycleHorizontalScale()" title="ยืด/หดตัวอักษร (Horizontal Scale)"><i class="fa-solid fa-left-right"></i> กว้าง</button>
                                 </div>
                             </div>
                         </div>
@@ -1170,22 +1171,22 @@
                                             <div class="margin-inline-grid" aria-label="ตั้งค่าระยะขอบ (cm)">
                                                 <div class="margin-inline-item">
                                                     <span class="margin-inline-label">บน</span>
-                                                    <input type="number" id="marginTop" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('top', this.value)">
+                                                    <input type="number" id="marginTop" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('top', this.value)" title="ระยะขอบบน (cm)" aria-label="ระยะขอบบน (cm)">
                                                     <span class="unit-label">cm</span>
                                                 </div>
                                                 <div class="margin-inline-item">
                                                     <span class="margin-inline-label">ล่าง</span>
-                                                    <input type="number" id="marginBottom" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('bottom', this.value)">
+                                                    <input type="number" id="marginBottom" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('bottom', this.value)" title="ระยะขอบล่าง (cm)" aria-label="ระยะขอบล่าง (cm)">
                                                     <span class="unit-label">cm</span>
                                                 </div>
                                                 <div class="margin-inline-item">
                                                     <span class="margin-inline-label">ซ้าย</span>
-                                                    <input type="number" id="marginLeft" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('left', this.value)">
+                                                    <input type="number" id="marginLeft" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('left', this.value)" title="ระยะขอบซ้าย (cm)" aria-label="ระยะขอบซ้าย (cm)">
                                                     <span class="unit-label">cm</span>
                                                 </div>
                                                 <div class="margin-inline-item">
                                                     <span class="margin-inline-label">ขวา</span>
-                                                    <input type="number" id="marginRight" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('right', this.value)">
+                                                    <input type="number" id="marginRight" min="0" max="10" step="0.1" value="2.54" oninput="updateMargin('right', this.value)" title="ระยะขอบขวา (cm)" aria-label="ระยะขอบขวา (cm)">
                                                     <span class="unit-label">cm</span>
                                                 </div>
                                             </div>
@@ -1199,9 +1200,9 @@
                             <div class="tool-row-label" title="ซูม"><i class="fa-solid fa-magnifying-glass"></i><span class="label-text">ซูม:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
-                                    <button class="tool-btn" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
-                                    <button class="tool-btn" id="zoomResetBtn" onclick="setPaperZoom(1)" title="ขนาดปกติ">100%</button>
-                                    <button class="tool-btn" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                                    <button class="tool-btn" type="button" onclick="adjustPaperZoom(-0.1)" title="ย่อหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                                    <button class="tool-btn" type="button" id="zoomResetBtn" onclick="setPaperZoom(1)" title="ขนาดปกติ">100%</button>
+                                    <button class="tool-btn" type="button" onclick="adjustPaperZoom(0.1)" title="ขยายหน้าแก้ไขข้อสอบ"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1209,7 +1210,7 @@
                             <div class="tool-row-label" title="อื่นๆ"><i class="fa-solid fa-gear"></i><span class="label-text">อื่นๆ:</span></div>
                             <div class="tool-row-controls">
                                 <div class="toolbar-group">
-                                    <button class="tool-btn" id="headerLockBtn" onclick="toggleHeaderLock()" title="ล็อกหัว/ท้ายกระดาษไม่ให้แก้ไข">ล็อกหัว/ท้ายกระดาษ</button>
+                                    <button class="tool-btn" type="button" id="headerLockBtn" onclick="toggleHeaderLock()" title="ล็อกหัว/ท้ายกระดาษไม่ให้แก้ไข">ล็อกหัว/ท้ายกระดาษ</button>
                                 </div>
                             </div>
                         </div>
@@ -6384,13 +6385,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title"><i class="fa-solid fa-history"></i> ประวัติการออกข้อสอบสนามหลวง</h3>
-                <button onclick="document.getElementById('examStatsModal').classList.remove('d-flex')" class="modal-close-btn">&times;</button>
+                <button type="button" onclick="document.getElementById('examStatsModal').classList.remove('d-flex')" class="modal-close-btn">&times;</button>
             </div>
             <div id="examStatsModalBody">
                 <!-- ตารางจะแสดงที่นี่ -->
             </div>
             <div class="modal-footer">
-                <button class="btn secondary" onclick="document.getElementById('examStatsModal').classList.remove('d-flex')">ปิดหน้าต่าง</button>
+                <button class="btn secondary" type="button" onclick="document.getElementById('examStatsModal').classList.remove('d-flex')">ปิดหน้าต่าง</button>
             </div>
         </div>
     </div>
