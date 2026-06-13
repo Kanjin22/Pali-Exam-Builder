@@ -2584,7 +2584,12 @@
             p6: { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 03`, maxPage: 636 },
             p7: { volumes: [{ filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 01`, maxPage: 630 }, { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 02`, maxPage: 569 }] },
             p8: { volumes: [{ filesDir: `${VISUDDHI_PALI_ROOT}/วิสุทฺธิมคฺค 01`, maxPage: 291 }, { filesDir: `${VISUDDHI_PALI_ROOT}/วิสุทฺธิมคฺค 02`, maxPage: 288 }] },
-            p9: { filesDir: `${ABHIDHAMMA_PALI_ROOT}/อภิธมฺมตฺถสงฺคหปาลิ`, maxPage: 278 }
+            p9: {
+                rawFilesDir: `${ABHIDHAMMA_PALI_ROOT}/(ไฟล์ดิบ) อภิธมฺมตฺถสงฺคหปาลิยา (สมบูรณ์)`,
+                rawChunkBaseName: 'อภิธมฺมตฺถสงฺคหปาลิ',
+                rawChunkOmitVolume: true,
+                maxPage: 279
+            }
         };
         const THAI_SOURCE_PAGE_DATA_BY_LEVEL = {
             p4: { title: 'พระธัมมปทัฏฐกถา', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๑)`, maxPage: 215, partId: 'p4-thai-raw', label: 'ธรรมบท ภาคที่ ๑' },
@@ -2838,7 +2843,7 @@
         function getRawChunkFilenameCandidates(volume, pageNumber) {
             const maxPage = parseInt(volume?.maxPage, 10) || 0;
             const rawVolumeNo = parseInt(volume?.rawVolumeNo, 10) || 0;
-            if (!volume?.rawFilesDir || !rawVolumeNo || !maxPage) return [];
+            if (!volume?.rawFilesDir || !maxPage) return [];
 
             const localPage = Math.max(1, Math.min(maxPage, parseInt(pageNumber, 10) || 1));
             const chunkStart = Math.floor((localPage - 1) / 10) * 10 + 1;
@@ -2846,8 +2851,8 @@
             const range = `${padChunkPageNumber(chunkStart)}-${padChunkPageNumber(chunkEnd)}`;
             const suffix = chunkEnd >= maxPage ? ' (จบ)' : '';
 
-            const volThai = rawVolumeNo === 1 ? '๑' : toThaiDigits(rawVolumeNo);
             const rawChunkBaseName = String(volume?.rawChunkBaseName || 'ธมฺมปทฏฺฐกถา').trim();
+            const rawChunkOmitVolume = !!volume?.rawChunkOmitVolume;
             const candidates = [];
             const add = (name) => {
                 const s = String(name || '');
@@ -2856,8 +2861,13 @@
                 candidates.push(s);
             };
 
-            add(`${rawChunkBaseName} (${volThai}) - หน้า ${range}${suffix}.txt`);
-            add(`${rawChunkBaseName} (${volThai}) ${range}${suffix}.txt`);
+            if (rawVolumeNo && !rawChunkOmitVolume) {
+                const volThai = rawVolumeNo === 1 ? '๑' : toThaiDigits(rawVolumeNo);
+                add(`${rawChunkBaseName} (${volThai}) - หน้า ${range}${suffix}.txt`);
+                add(`${rawChunkBaseName} (${volThai}) ${range}${suffix}.txt`);
+            }
+            add(`${rawChunkBaseName} - หน้า ${range}${suffix}.txt`);
+            add(`${rawChunkBaseName} ${range}${suffix}.txt`);
             return candidates;
         }
 
