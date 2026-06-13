@@ -2569,7 +2569,12 @@
                 { maxPage: 162, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๗) สตฺตโม ภาโค (สมบูรณ์)`, rawVolumeNo: 7 },
                 { maxPage: 194, rawFilesDir: `${DHAMMAPADA_PALI_RAW_ROOT}/(ไฟล์ดิบ) ธมฺมปทฏฺฐกถา (๘) อฏฺฐโม ภาโค (สมบูรณ์)`, rawVolumeNo: 8 }
             ] },
-            p4: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 01`, maxPage: 376 },
+            p4: {
+                rawFilesDir: `${MANGALA_PALI_ROOT}/(ไฟล์ดิบ) มงฺคลตฺถทีปนี (๑) ปฐโม ภาโค (สมบูรณ์)`,
+                rawVolumeNo: 1,
+                rawChunkBaseName: 'มงฺคลตฺถทีปนี',
+                maxPage: 375
+            },
             p5: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 02`, maxPage: 482 },
             p6: { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 03`, maxPage: 636 },
             p7: { volumes: [{ filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 01`, maxPage: 630 }, { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 02`, maxPage: 569 }] },
@@ -2796,10 +2801,7 @@
         function shouldStripRawPaliFootnotes(levelCode) {
             const cfg = PALI_PAGE_DATA_BY_LEVEL[levelCode] || PALI_PAGE_DATA_BY_LEVEL.p4;
             const volumes = getPaliVolumes(cfg);
-            return volumes.some((volume) => {
-                const rawVolumeNo = parseInt(volume?.rawVolumeNo, 10) || 0;
-                return !!volume?.rawFilesDir && rawVolumeNo >= 1 && rawVolumeNo <= 8;
-            });
+            return volumes.some(volume => !!volume?.rawFilesDir);
         }
 
         function stripRawPaliFootnoteMarkers(text) {
@@ -2832,6 +2834,7 @@
             const suffix = chunkEnd >= maxPage ? ' (จบ)' : '';
 
             const volThai = rawVolumeNo === 1 ? '๑' : toThaiDigits(rawVolumeNo);
+            const rawChunkBaseName = String(volume?.rawChunkBaseName || 'ธมฺมปทฏฺฐกถา').trim();
             const candidates = [];
             const add = (name) => {
                 const s = String(name || '');
@@ -2840,8 +2843,8 @@
                 candidates.push(s);
             };
 
-            add(`ธมฺมปทฏฺฐกถา (${volThai}) - หน้า ${range}${suffix}.txt`);
-            add(`ธมฺมปทฏฺฐกถา (${volThai}) ${range}${suffix}.txt`);
+            add(`${rawChunkBaseName} (${volThai}) - หน้า ${range}${suffix}.txt`);
+            add(`${rawChunkBaseName} (${volThai}) ${range}${suffix}.txt`);
             return candidates;
         }
 
