@@ -2575,7 +2575,12 @@
                 rawChunkBaseName: 'มงฺคลตฺถทีปนี',
                 maxPage: 375
             },
-            p5: { filesDir: `${MANGALA_PALI_ROOT}/มงฺคลตฺถทีปนี 02`, maxPage: 482 },
+            p5: {
+                rawFilesDir: `${MANGALA_PALI_ROOT}/(ไฟล์ดิบ) มงฺคลตฺถทีปนี (๒) ทุติโย ภาโค (สมบูรณ์)`,
+                rawVolumeNo: 2,
+                rawChunkBaseName: 'มงฺคลตฺถทีปนี',
+                maxPage: 482
+            },
             p6: { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 03`, maxPage: 636 },
             p7: { volumes: [{ filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 01`, maxPage: 630 }, { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 02`, maxPage: 569 }] },
             p8: { volumes: [{ filesDir: `${VISUDDHI_PALI_ROOT}/วิสุทฺธิมคฺค 01`, maxPage: 291 }, { filesDir: `${VISUDDHI_PALI_ROOT}/วิสุทฺธิมคฺค 02`, maxPage: 288 }] },
@@ -3137,7 +3142,7 @@
 
             const levelCode = document.getElementById('levelSelect')?.value || '';
             const texts = await Promise.all(pages.map(p => loadMangala01Page(p, vIdx)));
-            const preserveLeadingBracketNumber = levelCode === 'p4';
+            const preserveLeadingBracketNumber = ['p4', 'p5'].includes(levelCode);
             const pageLineSets = texts.map((text, idx) => getPageTextLines(pages[idx], text, levelCode, { preserveLeadingBracketNumber }));
 
             const items = [];

@@ -1,7 +1,0 @@
-<span class="LineNumber"> 001 </span>วา   โหนฺตุ   พฺราหฺมณา  วา  เวสฺสา  วา  สูทา  วา  คหฏฺ€า  วา 
-<span class="LineNumber"> 002 </span>ปพฺพชิตา  วา  ติรจฺฉานคตา  วา  เย  เกจิ สตฺตา เชฏฺ€าปจายนธมฺเม 
-<span class="LineNumber"> 003 </span>เฉกา    กุสลา    คุณสมฺปนฺนานํ    วโยวุฑฺฒานํ    อปจิตึ    กโรนฺติ 
-<span class="LineNumber"> 004 </span>เต   อิมสฺมึ   อตฺตภาเว   เชฏฺ€าปจิติกาติ   ปสํสนํ  วณฺณนํ  โถมนฺจ 
-<span class="LineNumber"> 005 </span>ลภนฺติ กายสฺส เภทา จ สคฺเค นิพฺพตฺตนฺตีติ ฯ 
-<span class="LineNumber"> 006 </span>                                  สหายกวตฺถุ ฯ 
-<span class="LineNumber"> 007 </span>                               คารโวติปทกถา ฯ 
