@@ -2712,7 +2712,7 @@
         }
         function getPaliVolumes(cfg) {
             if (cfg && Array.isArray(cfg.volumes) && cfg.volumes.length) return cfg.volumes;
-            return [{ filesDir: cfg.filesDir, maxPage: cfg.maxPage }];
+            return cfg ? [{ ...cfg }] : [];
         }
         function clampVolumeIndex(volumes, idx) {
             const i = parseInt(idx, 10);
