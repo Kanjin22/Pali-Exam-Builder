@@ -2583,7 +2583,20 @@
             },
             p6: { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 03`, maxPage: 636 },
             p7: { volumes: [{ filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 01`, maxPage: 630 }, { filesDir: `${SAMANTA_PALI_ROOT}/สมนฺตปาสาทิกา 02`, maxPage: 569 }] },
-            p8: { volumes: [{ filesDir: `${VISUDDHI_PALI_ROOT}/วิสุทฺธิมคฺค 01`, maxPage: 291 }, { filesDir: `${VISUDDHI_PALI_ROOT}/วิสุทฺธิมคฺค 02`, maxPage: 288 }] },
+            p8: { volumes: [
+                {
+                    rawFilesDir: `${VISUDDHI_PALI_ROOT}/(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๑) ปฐโม ภาโค (สมบูรณ์)`,
+                    rawVolumeNo: 1,
+                    rawChunkBaseName: 'วิสุทฺธิมคฺค',
+                    maxPage: 291
+                },
+                {
+                    rawFilesDir: `${VISUDDHI_PALI_ROOT}/(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๒) ทุติโย ภาโค (สมบูรณ์)`,
+                    rawVolumeNo: 2,
+                    rawChunkBaseName: 'วิสุทฺธิมคฺค',
+                    maxPage: 288
+                }
+            ] },
             p9: {
                 rawFilesDir: `${ABHIDHAMMA_PALI_ROOT}/(ไฟล์ดิบ) อภิธมฺมตฺถสงฺคหปาลิยา (สมบูรณ์)`,
                 rawChunkBaseName: 'อภิธมฺมตฺถสงฺคหปาลิ',
@@ -2849,6 +2862,7 @@
             const chunkStart = Math.floor((localPage - 1) / 10) * 10 + 1;
             const chunkEnd = Math.min(maxPage, chunkStart + 9);
             const range = `${padChunkPageNumber(chunkStart)}-${padChunkPageNumber(chunkEnd)}`;
+            const singlePage = padChunkPageNumber(chunkStart);
             const suffix = chunkEnd >= maxPage ? ' (จบ)' : '';
 
             const rawChunkBaseName = String(volume?.rawChunkBaseName || 'ธมฺมปทฏฺฐกถา').trim();
@@ -2865,9 +2879,17 @@
                 const volThai = rawVolumeNo === 1 ? '๑' : toThaiDigits(rawVolumeNo);
                 add(`${rawChunkBaseName} (${volThai}) - หน้า ${range}${suffix}.txt`);
                 add(`${rawChunkBaseName} (${volThai}) ${range}${suffix}.txt`);
+                if (chunkStart === chunkEnd) {
+                    add(`${rawChunkBaseName} (${volThai}) - หน้า ${singlePage}${suffix}.txt`);
+                    add(`${rawChunkBaseName} (${volThai}) ${singlePage}${suffix}.txt`);
+                }
             }
             add(`${rawChunkBaseName} - หน้า ${range}${suffix}.txt`);
             add(`${rawChunkBaseName} ${range}${suffix}.txt`);
+            if (chunkStart === chunkEnd) {
+                add(`${rawChunkBaseName} - หน้า ${singlePage}${suffix}.txt`);
+                add(`${rawChunkBaseName} ${singlePage}${suffix}.txt`);
+            }
             return candidates;
         }
 
