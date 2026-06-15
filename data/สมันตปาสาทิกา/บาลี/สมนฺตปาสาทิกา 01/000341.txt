@@ -1,9 +1,0 @@
-<span class="LineNumber"> 001 </span>		ตตฺรีทํ สมนฺตปาสาทิกาย สมนฺตปาสาทิกตสฺมึ  
-<span class="LineNumber"> 002 </span>		อาจริยปรมฺปรโต นิทานวตฺถุปฺปเภททีปนโต  
-<span class="LineNumber"> 003 </span>		ปรสมยวิสชฺชนโต สกสมยวิสุทฺธิโต เจว  
-<span class="LineNumber"> 004 </span>		พฺยฺชนปริโสธนโต ปทตฺถโต ปาลิโยชนกฺกมโต  
-<span class="LineNumber"> 005 </span>		สิกฺขาปทวินิจฺฉยโต วิภงฺคนยเภททสฺสนโต  
-<span class="LineNumber"> 006 </span>		สมฺปสฺสตํ น ทิสฺสติ กิฺจิ อปาสาทิกํ ยโต เอตฺถ  
-<span class="LineNumber"> 007 </span>		วิฺูนมยํ ตสฺมา สมนฺตปาสาทิกาเตฺวว  
-<span class="LineNumber"> 008 </span>		สํวณฺณนา ปวตฺตา วินยสฺส วินยทมนกุสเลน  
-<span class="LineNumber"> 009 </span>		วุตฺตสฺส โลกนาเถน โลกานุกมฺปมาเนนาติ ฯ  
