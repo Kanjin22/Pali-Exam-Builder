@@ -2529,6 +2529,94 @@
             scheduleDraftSave();
         }
         const partsMap = {};
+        const DHAMMAPADA_TOPICS_PALI_PATH = '../data/ธรรมบท/topics/dhammapada_topics_pali.json';
+        const DHAMMAPADA_TOPICS_THAI_PATH = '../data/ธรรมบท/topics/dhammapada_topics_thai.json';
+        const dhammapadaTopicsCache = { pali: null, thai: null, paliPromise: null, thaiPromise: null };
+
+        function isDhammapadaPaliPartId(partId) {
+            return /^dhamma-[1-8]$/.test(String(partId || '').trim());
+        }
+        function isDhammapadaThaiPartId(partId) {
+            return /^(p4-thai-raw|p5-thai-[234]|p6-thai-[5678])$/.test(String(partId || '').trim());
+        }
+        function isDhammapadaPaliPageMode() {
+            const levelCode = document.getElementById('levelSelect')?.value || '';
+            const subjectLabel = document.getElementById('subjectSelect')?.value || '';
+            const isDhammaLevel = levelCode === 'p12' || levelCode === 'p3';
+            const isDhammaSubject = subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์ไทย');
+            return isDhammaLevel && isDhammaSubject;
+        }
+        function getDhammapadaPaliVolumeIndexForPart(levelCode, partId) {
+            const pid = String(partId || '').trim();
+            const m = pid.match(/^dhamma-(\d+)$/);
+            const n = m ? parseInt(m[1], 10) : 0;
+            if (!Number.isFinite(n) || n <= 0) return 0;
+            if (String(levelCode || '') === 'p12') return Math.max(0, Math.min(3, n - 1));
+            if (String(levelCode || '') === 'p3') return Math.max(0, Math.min(3, n - 5));
+            return 0;
+        }
+        async function fetchJsonByPath(pathOrUrl) {
+            const txt = await fetchTextFileByPath(pathOrUrl);
+            return JSON.parse(String(txt || ''));
+        }
+        function applyDhammapadaTopicsToPartsMap(kind, data) {
+            const src = data && data.parts ? data.parts : {};
+            Object.keys(src).forEach((partId) => {
+                const arr = src[partId];
+                if (!Array.isArray(arr)) return;
+                partsMap[partId] = { topics: arr };
+            });
+            if (kind === 'pali') dhammapadaTopicsCache.pali = data;
+            if (kind === 'thai') dhammapadaTopicsCache.thai = data;
+        }
+        function kickLoadDhammapadaTopics(kind) {
+            if (kind === 'pali') {
+                if (dhammapadaTopicsCache.pali) return Promise.resolve(dhammapadaTopicsCache.pali);
+                if (dhammapadaTopicsCache.paliPromise) return dhammapadaTopicsCache.paliPromise;
+                dhammapadaTopicsCache.paliPromise = fetchJsonByPath(DHAMMAPADA_TOPICS_PALI_PATH).then((d) => {
+                    applyDhammapadaTopicsToPartsMap('pali', d);
+                    return d;
+                }).finally(() => {
+                    dhammapadaTopicsCache.paliPromise = null;
+                });
+                return dhammapadaTopicsCache.paliPromise;
+            }
+            if (kind === 'thai') {
+                if (dhammapadaTopicsCache.thai) return Promise.resolve(dhammapadaTopicsCache.thai);
+                if (dhammapadaTopicsCache.thaiPromise) return dhammapadaTopicsCache.thaiPromise;
+                dhammapadaTopicsCache.thaiPromise = fetchJsonByPath(DHAMMAPADA_TOPICS_THAI_PATH).then((d) => {
+                    applyDhammapadaTopicsToPartsMap('thai', d);
+                    return d;
+                }).finally(() => {
+                    dhammapadaTopicsCache.thaiPromise = null;
+                });
+                return dhammapadaTopicsCache.thaiPromise;
+            }
+            return Promise.resolve(null);
+        }
+        function ensureDhammapadaTopicsForPart(partId) {
+            const pid = String(partId || '').trim();
+            if (pid && partsMap[pid] && Array.isArray(partsMap[pid].topics)) return true;
+            if (isDhammapadaPaliPartId(pid)) {
+                kickLoadDhammapadaTopics('pali').then(() => {
+                    try {
+                        updateVaggaSelect('literal');
+                        updateVaggaSelect('sense');
+                    } catch (_) {}
+                }).catch(() => {});
+                return false;
+            }
+            if (isDhammapadaThaiPartId(pid)) {
+                kickLoadDhammapadaTopics('thai').then(() => {
+                    try {
+                        updateVaggaSelect('literal');
+                        updateVaggaSelect('sense');
+                    } catch (_) {}
+                }).catch(() => {});
+                return false;
+            }
+            return true;
+        }
         function toThaiDigits(str) {
             const m = { '0':'๐','1':'๑','2':'๒','3':'๓','4':'๔','5':'๕','6':'๖','7':'๗','8':'๘','9':'๙' };
             return String(str).replace(/[0-9]/g, d => m[d]);
@@ -2751,6 +2839,8 @@
             const cfg = isThaiVolumeMode ? thaiCfg : getPaliPageDataConfig();
             const volumes = isThaiVolumeMode ? getThaiVolumes(cfg) : getPaliVolumes(cfg);
             const shouldShow = volumes.length > 1;
+            const hideForDhammaPartMode = !isThaiSource && isDhammapadaPaliPageMode();
+            const shouldShowFinal = shouldShow && !hideForDhammaPartMode;
             const bookTitles = getBookTitlesForLevel(levelCode);
 
             const literalWrap = document.getElementById('literalVolumeWrap');
@@ -2782,12 +2872,12 @@
                 if (!el) return;
                 el.classList.toggle('d-none', !on);
             };
-            setVisible(literalWrap, shouldShow);
-            setVisible(literalDivider, shouldShow);
-            setVisible(senseWrap, shouldShow);
-            setVisible(senseDivider, shouldShow);
+            setVisible(literalWrap, shouldShowFinal);
+            setVisible(literalDivider, shouldShowFinal);
+            setVisible(senseWrap, shouldShowFinal);
+            setVisible(senseDivider, shouldShowFinal);
 
-            if (!shouldShow) {
+            if (!shouldShowFinal) {
                 if (literalSelect) literalSelect.value = '0';
                 if (senseSelect) senseSelect.value = '0';
             }
@@ -3423,7 +3513,9 @@
             const isThaiPageMode = isThaiSourcePageMode();
             const literalGrid = literalRow ? literalRow.querySelector('.grid-3') : null;
             const senseGrid = senseRow ? senseRow.querySelector('.grid-3') : null;
-            if (isMangalaPageMode || isThaiPageMode) {
+            const currentPartId = String(literalSel?.value || parts?.[0]?.id || '').trim();
+            const enableTopicHierarchy = (!isThaiSource && isDhammapadaPaliPageMode()) || (isThaiSource && isDhammapadaThaiPartId(currentPartId));
+            if ((isMangalaPageMode || isThaiPageMode) && !enableTopicHierarchy) {
                 if (literalGrid) literalGrid.classList.add('d-none');
                 if (senseGrid) senseGrid.classList.add('d-none');
                 const keepThaiPartSelectors = isThaiPageMode && isThaiSource && parts.length > 1;
@@ -3448,6 +3540,8 @@
                 if (senseStorySel) senseStorySel.classList.remove('d-none');
                 if (literalGrid) literalGrid.style.gridTemplateColumns = '';
                 if (senseGrid) senseGrid.style.gridTemplateColumns = '';
+                try { ensureDhammapadaTopicsForPart(literalSel?.value || ''); } catch (_) {}
+                try { ensureDhammapadaTopicsForPart(senseSel?.value || ''); } catch (_) {}
             }
 
             if (isThaiSource) {
@@ -3474,6 +3568,13 @@
 
         function updateVaggaSelect(mode) {
             const partId = document.getElementById(mode + 'Part').value;
+            if ((isDhammapadaPaliPartId(partId) || isDhammapadaThaiPartId(partId)) && !ensureDhammapadaTopicsForPart(partId)) {
+                const sel = document.getElementById(mode + 'Vagga');
+                if (sel) sel.innerHTML = '<option value="">(กำลังโหลดชื่อเรื่อง)</option>';
+                const storySel = document.getElementById(mode + 'Story');
+                if (storySel) storySel.innerHTML = '<option value="">(เลือกเรื่อง)</option>';
+                return;
+            }
             const vaggas = deriveVaggas(partId);
             const sel = document.getElementById(mode + 'Vagga');
             sel.innerHTML = '<option value="">(เลือกวรรค)</option>';
@@ -3489,6 +3590,11 @@
 
         function updateStorySelect(mode) {
             const partId = document.getElementById(mode + 'Part').value;
+            if ((isDhammapadaPaliPartId(partId) || isDhammapadaThaiPartId(partId)) && !ensureDhammapadaTopicsForPart(partId)) {
+                const sel = document.getElementById(mode + 'Story');
+                if (sel) sel.innerHTML = '<option value="">(กำลังโหลดชื่อเรื่อง)</option>';
+                return;
+            }
             const vagga = document.getElementById(mode + 'Vagga').value;
             const stories = deriveStories(partId, vagga);
             const sel = document.getElementById(mode + 'Story');
@@ -4291,11 +4397,18 @@
             const obj = partsMap[part] || {};
             let slides = [];
             Object.keys(obj).forEach(k => { const a = obj[k]; if (Array.isArray(a)) slides = slides.concat(a); });
-            const nums = slides.filter(s => {
+            const nums = [];
+            slides.forEach((s) => {
                 const okV = vagga ? s.vagga === vagga : true;
                 const okS = story ? ((s.story || s.section) === story) : true;
-                return okV && okS;
-            }).map(s => parsePageNumber(s.page));
+                if (!okV || !okS) return;
+                const p = typeof s.page !== 'undefined' ? parsePageNumber(s.page) : 0;
+                const ps = typeof s.pageStart !== 'undefined' ? parsePageNumber(s.pageStart) : 0;
+                const pe = typeof s.pageEnd !== 'undefined' ? parsePageNumber(s.pageEnd) : 0;
+                if (p) nums.push(p);
+                if (ps) nums.push(ps);
+                if (pe) nums.push(pe);
+            });
             return unique(nums).filter(n => n > 0).sort((a,b) => a-b);
         }
         // แคชสำหรับคงลำดับดัชนี (index) ให้เสถียร
@@ -5289,8 +5402,16 @@
             const senseStart = document.getElementById('senseStartPage').value;
             const senseEnd = document.getElementById('senseEndPage').value;
             updateVolumeSelectors();
-            const literalVol = parseInt(document.getElementById('literalVolumeSelect')?.value || '0', 10) || 0;
-            const senseVol = parseInt(document.getElementById('senseVolumeSelect')?.value || '0', 10) || 0;
+            let literalVol = parseInt(document.getElementById('literalVolumeSelect')?.value || '0', 10) || 0;
+            let senseVol = parseInt(document.getElementById('senseVolumeSelect')?.value || '0', 10) || 0;
+            if (isMangala01PageMode() && !isThaiSource && isDhammapadaPaliPageMode()) {
+                literalVol = getDhammapadaPaliVolumeIndexForPart(level, literalPart);
+                senseVol = getDhammapadaPaliVolumeIndexForPart(level, sensePart);
+                const lv = document.getElementById('literalVolumeSelect');
+                const sv = document.getElementById('senseVolumeSelect');
+                if (lv) lv.value = String(literalVol);
+                if (sv) sv.value = String(senseVol);
+            }
             const literalThaiPageCfg = getThaiSourcePageDataConfig(literalPart);
             const senseThaiPageCfg = getThaiSourcePageDataConfig(sensePart);
 
