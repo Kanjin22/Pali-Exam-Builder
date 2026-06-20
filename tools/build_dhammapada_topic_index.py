@@ -116,11 +116,14 @@ def build_thai_topics_for_folder(folder_name: str, max_page: int) -> list[Topic]
                     "vagga": current_vagga,
                     "story": line,
                     "start": page,
-                    "end": -1
+                    "end": -1,
+                    "base_name": re.sub(r"^[๐-๙0-9]+\.\s*", "", line).strip()
                 })
             elif "จบ." in line and stories:
                 current_story = stories[-1]
-                if current_story["end"] == -1:
+                # ตรวจสอบว่าบรรทัดที่มี "จบ." เป็นของเรื่องปัจจุบันหรือไม่
+                # รูปแบบเช่น "เรื่องพระจักขุปาลเถระ  จบ."
+                if current_story["end"] == -1 and current_story["base_name"] in line:
                     current_story["end"] = page
     topics: list[Topic] = []
     for i, s in enumerate(stories):
