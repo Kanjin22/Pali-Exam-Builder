@@ -3353,6 +3353,9 @@
             if (subjects.length > 0) {
                 sel.value = subjects[0];
             }
+            
+            // หลังจากจัดตัวเลือกวิชาใหม่ ต้องอัปเดตตัวเลือกภาคด้วย
+            populatePartSelects();
         }
         function formatThaiDate(iso) {
             if (!iso) return '-';
