@@ -3313,7 +3313,7 @@
         function isMangala01PageMode() {
             const levelCode = document.getElementById('levelSelect').value;
             const subjectLabel = document.getElementById('subjectSelect').value || '';
-            if (levelCode === 'p3' && (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์ไทย'))) {
+            if ((levelCode === 'p12' || levelCode === 'p3') && (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์ไทย'))) {
                 return true;
             }
             return ['p4', 'p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && subjectLabel.includes('มคธเป็นไทย');
