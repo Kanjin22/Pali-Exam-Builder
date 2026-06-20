@@ -3549,8 +3549,16 @@
                 if (senseStorySel) senseStorySel.classList.remove('d-none');
                 if (literalGrid) literalGrid.style.gridTemplateColumns = '';
                 if (senseGrid) senseGrid.style.gridTemplateColumns = '';
-                try { ensureDhammapadaTopicsForPart(literalSel?.value || ''); } catch (_) {}
-                try { ensureDhammapadaTopicsForPart(senseSel?.value || ''); } catch (_) {}
+                try { 
+                    if (ensureDhammapadaTopicsForPart(literalSel?.value || '')) {
+                        updateVaggaSelect('literal');
+                    }
+                } catch (_) {}
+                try { 
+                    if (ensureDhammapadaTopicsForPart(senseSel?.value || '')) {
+                        updateVaggaSelect('sense');
+                    }
+                } catch (_) {}
             }
 
             if (isThaiSource) {
