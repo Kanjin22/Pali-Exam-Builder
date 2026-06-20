@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-20T17:04:43.184133+00:00",
+  "generatedAt": "2026-06-20T17:15:24.821722+00:00",
   "source": "tpd_thai_pages",
   "parts": {
     "p4-thai-raw": [
@@ -7,13 +7,13 @@
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๑. เรื่องพระจักขุปาลเถระ",
         "pageStart": 3,
-        "pageEnd": 35
+        "pageEnd": 34
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๒. เรื่องมัฏฐกุณฑลี",
         "pageStart": 35,
-        "pageEnd": 53
+        "pageEnd": 52
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
@@ -25,31 +25,31 @@
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๔. เรื่องความเกิดขึ้นของนางกาลียักษิณี",
         "pageStart": 64,
-        "pageEnd": 74
+        "pageEnd": 73
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๕. เรื่องภิกษุชาวเมืองโกสัมพี",
         "pageStart": 74,
-        "pageEnd": 91
+        "pageEnd": 90
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๖. เรื่องจุลกาลและมหากาล",
         "pageStart": 91,
-        "pageEnd": 105
+        "pageEnd": 104
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๗. เรื่องพระเทวทัต",
         "pageStart": 105,
-        "pageEnd": 113
+        "pageEnd": 112
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๘. เรื่องสญชัย",
         "pageStart": 113,
-        "pageEnd": 153
+        "pageEnd": 152
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
@@ -61,25 +61,25 @@
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๑๐. เรื่องนายจุนทสูกริก",
         "pageStart": 168,
-        "pageEnd": 173
+        "pageEnd": 172
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๑๑. เรื่องธัมมิกอุบาสก",
         "pageStart": 173,
-        "pageEnd": 179
+        "pageEnd": 178
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๑๒. เรื่องพระเทวทัต",
         "pageStart": 179,
-        "pageEnd": 203
+        "pageEnd": 202
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
         "story": "๑๓. เรื่องนางสุมนาเทวี",
         "pageStart": 203,
-        "pageEnd": 208
+        "pageEnd": 207
       },
       {
         "vagga": "๑. ยมกวรรค วรรณนา",
@@ -93,103 +93,103 @@
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๑. เรื่องพระนางสามาวดี",
         "pageStart": 1,
-        "pageEnd": 97
+        "pageEnd": 96
       },
       {
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๒. เรื่องกุมภโฆสก",
         "pageStart": 97,
-        "pageEnd": 110
+        "pageEnd": 109
       },
       {
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๓. เรื่องพระจูฬปันถกเถระ",
         "pageStart": 110,
-        "pageEnd": 132
+        "pageEnd": 131
       },
       {
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๔. เรื่องพาลนักษัตร",
         "pageStart": 132,
-        "pageEnd": 136
+        "pageEnd": 135
       },
       {
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๕. เรื่องพระมหากัสสปเถระ",
         "pageStart": 136,
-        "pageEnd": 139
+        "pageEnd": 138
       },
       {
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๖. เรื่องภิกษุ ๒ สหาย",
         "pageStart": 139,
-        "pageEnd": 143
+        "pageEnd": 142
       },
       {
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๗. เรื่องท้าวสักกะ",
         "pageStart": 143,
-        "pageEnd": 167
+        "pageEnd": 166
       },
       {
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๘. เรื่องภิกษุรูปใดรูปหนึ่ง",
         "pageStart": 167,
-        "pageEnd": 170
+        "pageEnd": 169
       },
       {
         "vagga": "๒. อัปปมาทวรรค วรรณนา",
         "story": "๙. เรื่องพระติสสเถระผู้มีปกติอยู่ในนิคม",
         "pageStart": 170,
-        "pageEnd": 175
+        "pageEnd": 174
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
         "story": "๑. เรื่องพระเมฆิยเถระ",
         "pageStart": 175,
-        "pageEnd": 180
+        "pageEnd": 179
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
         "story": "๒. เรื่องภิกษุรูปใดรูปหนึ่ง",
         "pageStart": 180,
-        "pageEnd": 194
+        "pageEnd": 193
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
         "story": "๓. เรื่องอุกกัณฐิตภิกษุ",
         "pageStart": 194,
-        "pageEnd": 199
+        "pageEnd": 198
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
         "story": "๔. เรื่องพระภาคิไนยสังฆรักขิตเถระ",
         "pageStart": 199,
-        "pageEnd": 205
+        "pageEnd": 204
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
         "story": "๕. เรื่องพระจิตตหัตถเถระ",
         "pageStart": 205,
-        "pageEnd": 215
+        "pageEnd": 214
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
         "story": "๖. เรื่องภิกษุผู้ปรารภวิปัสสนา",
         "pageStart": 215,
-        "pageEnd": 222
+        "pageEnd": 221
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
         "story": "๗. เรื่องพระปูติคัตตติสสเถระ",
         "pageStart": 222,
-        "pageEnd": 228
+        "pageEnd": 227
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
         "story": "๘. เรื่องนันทโคปาลกะ",
         "pageStart": 228,
-        "pageEnd": 232
+        "pageEnd": 231
       },
       {
         "vagga": "๓.จิตตวรรค วรรณนา",
@@ -203,157 +203,157 @@
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๑. เรื่องภิกษุ ๕๐๐ รูปผู้ขวนขวายในปฐวีกถา",
         "pageStart": 1,
-        "pageEnd": 4
+        "pageEnd": 3
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๒. เรื่องพระเถระผู้เจริญมรีจิกัมมัฏฐาน",
         "pageStart": 4,
-        "pageEnd": 7
+        "pageEnd": 6
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๓. เรื่องพระเจ้าวิฑูฑภะ",
         "pageStart": 7,
-        "pageEnd": 40
+        "pageEnd": 39
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๔. เรื่องนางปติปูชิกา",
         "pageStart": 40,
-        "pageEnd": 46
+        "pageEnd": 45
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๕. เรื่องโกสิยเศรษฐีผู้มีความตระหนี่",
         "pageStart": 46,
-        "pageEnd": 58
+        "pageEnd": 57
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๖. เรื่องปาฏิกาชีวก",
         "pageStart": 58,
-        "pageEnd": 64
+        "pageEnd": 63
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๗. เรื่องฉัตตปาณิอุบาสก",
         "pageStart": 64,
-        "pageEnd": 71
+        "pageEnd": 70
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๘. เรื่องนางวิสาขา",
         "pageStart": 71,
-        "pageEnd": 116
+        "pageEnd": 115
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๙. เรื่องปัญหาของพระอานนทเถระ",
         "pageStart": 116,
-        "pageEnd": 121
+        "pageEnd": 120
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๑๐. เรื่องถวายบิณฑบาตแก่พระมหากัสสปเถระ",
         "pageStart": 121,
-        "pageEnd": 131
+        "pageEnd": 130
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๑๑. เรื่องปรินิพพานของพระโคธิกเถระ",
         "pageStart": 131,
-        "pageEnd": 136
+        "pageEnd": 135
       },
       {
         "vagga": "๔. ปุปผวรรค วรรณนา",
         "story": "๑๒. เรื่องครหทินน์",
         "pageStart": 136,
-        "pageEnd": 152
+        "pageEnd": 151
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๑. เรื่องบุรุษคนใดคนหนึ่ง",
         "pageStart": 152,
-        "pageEnd": 175
+        "pageEnd": 174
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๒. เรื่องสัทธิวิหาริกของพระมหากัสสปเถระ",
         "pageStart": 175,
-        "pageEnd": 183
+        "pageEnd": 182
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๓. เรื่องอานนทเศรษฐี",
         "pageStart": 183,
-        "pageEnd": 188
+        "pageEnd": 187
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๔. เรื่องโจรผู้ทำลายปม",
         "pageStart": 188,
-        "pageEnd": 191
+        "pageEnd": 190
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๕. เรื่องพระอุทายีเถระ",
         "pageStart": 191,
-        "pageEnd": 193
+        "pageEnd": 192
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๖. เรื่องภิกษุชาวเมืองปาฐา",
         "pageStart": 193,
-        "pageEnd": 195
+        "pageEnd": 194
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๗. เรื่องสุปปพุทธกุฏฐิ",
         "pageStart": 195,
-        "pageEnd": 200
+        "pageEnd": 199
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๘. เรื่องชาวนา ๔๒",
         "pageStart": 200,
-        "pageEnd": 205
+        "pageEnd": 204
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๙. เรื่องนายสุมนมาลาการ",
         "pageStart": 205,
-        "pageEnd": 214
+        "pageEnd": 213
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๑๐. เรื่องพระอุบลวรรณาเถรี",
         "pageStart": 214,
-        "pageEnd": 219
+        "pageEnd": 218
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๑๑. เรื่องชัมพุกาชีวก",
         "pageStart": 219,
-        "pageEnd": 234
+        "pageEnd": 233
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๑๒. เรื่องอหิเปรต",
         "pageStart": 234,
-        "pageEnd": 241
+        "pageEnd": 240
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๑๓. เรื่องสัฏฐิกูฏเปรต",
         "pageStart": 241,
-        "pageEnd": 248
+        "pageEnd": 247
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
         "story": "๑๔. เรื่องพระสุธรรมเถระ",
         "pageStart": 248,
-        "pageEnd": 261
+        "pageEnd": 260
       },
       {
         "vagga": "๕. พาลวรรค วรรณนา",
@@ -367,205 +367,205 @@
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๑. เรื่องพระราธเถระ",
         "pageStart": 1,
-        "pageEnd": 8
+        "pageEnd": 7
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๒. เรื่องภิกษุอัสสชิและปุนัพพสุกะ",
         "pageStart": 8,
-        "pageEnd": 11
+        "pageEnd": 10
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๓. เรื่องพระฉันนเถระ",
         "pageStart": 11,
-        "pageEnd": 14
+        "pageEnd": 13
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๔. เรื่องพระมหากัปปินเถระ",
         "pageStart": 14,
-        "pageEnd": 34
+        "pageEnd": 33
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๕. เรื่องบัณฑิตสามเณร",
         "pageStart": 34,
-        "pageEnd": 59
+        "pageEnd": 58
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๖. เรื่องพระลกุณฏกภัททิยเถระ",
         "pageStart": 59,
-        "pageEnd": 61
+        "pageEnd": 60
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๗. เรื่องมารดาของนางกาณา",
         "pageStart": 61,
-        "pageEnd": 68
+        "pageEnd": 67
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๘. เรื่องภิกษุ ๕๐๐ รูป",
         "pageStart": 68,
-        "pageEnd": 73
+        "pageEnd": 72
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๙. เรื่องพระเถระผู้ตั้งอยู่ในธรรม",
         "pageStart": 73,
-        "pageEnd": 76
+        "pageEnd": 75
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๑๐. เรื่องการฟังธรรม",
         "pageStart": 76,
-        "pageEnd": 78
+        "pageEnd": 77
       },
       {
         "vagga": "๖. บัณฑิตวรรค วรรณนา",
         "story": "๑๐. เรื่องภิกษุอาคันตุกะ",
         "pageStart": 78,
-        "pageEnd": 81
+        "pageEnd": 80
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๑. เรื่องหมอชีวก",
         "pageStart": 81,
-        "pageEnd": 86
+        "pageEnd": 85
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๒. เรื่องพระมหากัสสปเถระ",
         "pageStart": 86,
-        "pageEnd": 92
+        "pageEnd": 91
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๓. เรื่องพระเพฬัฏฐสีสเถระ",
         "pageStart": 92,
-        "pageEnd": 96
+        "pageEnd": 95
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๔. เรื่องพระอนุรุทธเถระ",
         "pageStart": 96,
-        "pageEnd": 100
+        "pageEnd": 99
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๕. เรื่องพระมหากัจจายนเถระ",
         "pageStart": 100,
-        "pageEnd": 103
+        "pageEnd": 102
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๖. เรื่องพระสารีบุตรเถระ",
         "pageStart": 103,
-        "pageEnd": 108
+        "pageEnd": 107
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๗. เรื่องพระติสสเถระชาวกรุงโกสัมพี",
         "pageStart": 108,
-        "pageEnd": 114
+        "pageEnd": 113
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๘. เรื่องพระสารีบุตรเถระ",
         "pageStart": 114,
-        "pageEnd": 117
+        "pageEnd": 116
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๙. เรื่องพระขทิรวนิยเรวตเถระ",
         "pageStart": 117,
-        "pageEnd": 132
+        "pageEnd": 131
       },
       {
         "vagga": "๗. อรหันตวรรค วรรณนา",
         "story": "๑๐. เรื่องหญิงคนใดคนหนึ่ง",
         "pageStart": 132,
-        "pageEnd": 135
+        "pageEnd": 134
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๑. เรื่องบุรุษผู้ฆ่าโจรมีเคราแดง",
         "pageStart": 135,
-        "pageEnd": 143
+        "pageEnd": 142
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๒. เรื่องพระทารุจีริยเถระ",
         "pageStart": 143,
-        "pageEnd": 152
+        "pageEnd": 151
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๓. เรื่องพระกุณฑลเกสีเถรี",
         "pageStart": 152,
-        "pageEnd": 164
+        "pageEnd": 163
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๔. เรื่องอนัตถปุจฉกหราหมณ์",
         "pageStart": 164,
-        "pageEnd": 168
+        "pageEnd": 167
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๕. เรื่องพราหมณ์ผู้เป็นลุงของพระสารีบุตรเถระ",
         "pageStart": 168,
-        "pageEnd": 171
+        "pageEnd": 170
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๖. เรื่องพราหมณ์ผู้เป็นหลานของพระสารีบุตรเถระ",
         "pageStart": 171,
-        "pageEnd": 173
+        "pageEnd": 172
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๗. เรื่องพราหมณ์ผู้เป็นสหายของพระสารีบุตรเถระ",
         "pageStart": 173,
-        "pageEnd": 176
+        "pageEnd": 175
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๘. เรื่องอายุวัฒนกุมาร",
         "pageStart": 176,
-        "pageEnd": 182
+        "pageEnd": 181
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๙. เรื่องสังกิจจสามเณร",
         "pageStart": 182,
-        "pageEnd": 197
+        "pageEnd": 196
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๑๐. เรื่องพระขานุโกณฑัญญะเถระ",
         "pageStart": 197,
-        "pageEnd": 200
+        "pageEnd": 199
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๑๑. เรื่องพระสัปปทาสเถระ",
         "pageStart": 200,
-        "pageEnd": 206
+        "pageEnd": 205
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๑๒. เรื่องนางปฏาจารา",
         "pageStart": 206,
-        "pageEnd": 216
+        "pageEnd": 215
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
         "story": "๑๓. เรื่องนางกิสาโคตมี",
         "pageStart": 216,
-        "pageEnd": 223
+        "pageEnd": 222
       },
       {
         "vagga": "๘. สหัสสวรรค วรรณนา",
@@ -579,187 +579,187 @@
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๑. เรื่องพราหมณ์ชื่อจูเฬกสาฎก",
         "pageStart": 1,
-        "pageEnd": 7
+        "pageEnd": 6
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๒. เรื่องพระเสยยสกัตเถระ",
         "pageStart": 7,
-        "pageEnd": 9
+        "pageEnd": 8
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๓. เรื่องนางลาชเทวธิดา",
         "pageStart": 9,
-        "pageEnd": 14
+        "pageEnd": 13
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๔. เรื่องอนาถบิณฑิกเศรษฐิ",
         "pageStart": 14,
-        "pageEnd": 22
+        "pageEnd": 21
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๕. เรื่องภิกษุไม่ถนอมบริขาร",
         "pageStart": 22,
-        "pageEnd": 25
+        "pageEnd": 24
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๖. เรื่องเศรษฐีชื่อพิฬาลปทกะ",
         "pageStart": 25,
-        "pageEnd": 30
+        "pageEnd": 29
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๗. เรื่องมหาธนวาณิช",
         "pageStart": 30,
-        "pageEnd": 34
+        "pageEnd": 33
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๘. เรื่องนายพรานกุกกุฏมิตร",
         "pageStart": 34,
-        "pageEnd": 44
+        "pageEnd": 43
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๙. เรื่องนายพรานสุนัขชื่อโกกะ",
         "pageStart": 44,
-        "pageEnd": 49
+        "pageEnd": 48
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๑๐. เรื่องพระติสสเถระผู้เข้าถึงสกุลนายช่างแก้ว๑",
         "pageStart": 49,
-        "pageEnd": 54
+        "pageEnd": 53
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๑๑. เรื่องชน ๓ คน",
         "pageStart": 54,
-        "pageEnd": 62
+        "pageEnd": 61
       },
       {
         "vagga": "๙. ปาปวรรค วรรณนา",
         "story": "๑๒. เรื่องสุปปพุทธศากยะ",
         "pageStart": 62,
-        "pageEnd": 67
+        "pageEnd": 66
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๑. เรื่องภิกษุฉัพพัคคีย์",
         "pageStart": 67,
-        "pageEnd": 70
+        "pageEnd": 69
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๒. เรื่องภิกษุฉัพพัคคีย์",
         "pageStart": 70,
-        "pageEnd": 72
+        "pageEnd": 71
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๓. เรื่องเด็กหลายคน",
         "pageStart": 72,
-        "pageEnd": 74
+        "pageEnd": 73
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๔. เรื่องพระโกณฑธานเถระ",
         "pageStart": 74,
-        "pageEnd": 84
+        "pageEnd": 83
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๕. เรื่องอุโบสถกรรม",
         "pageStart": 84,
-        "pageEnd": 87
+        "pageEnd": 86
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๖. เรื่องอชครเปรต",
         "pageStart": 87,
-        "pageEnd": 93
+        "pageEnd": 92
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๗. เรื่องพระมหาโมคคัลลานเถระ",
         "pageStart": 93,
-        "pageEnd": 103
+        "pageEnd": 102
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๘. เรื่องภิกษุมีภัณฑะมาก",
         "pageStart": 103,
-        "pageEnd": 113
+        "pageEnd": 112
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๙. เรื่องสันตติมหาอำมาตย์",
         "pageStart": 113,
-        "pageEnd": 121
+        "pageEnd": 120
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๑๐. เรื่องพระปิโลติกเถระ",
         "pageStart": 121,
-        "pageEnd": 126
+        "pageEnd": 125
       },
       {
         "vagga": "๑๐. ทัณฑวรรค วรรณนา",
         "story": "๑๑. เรื่องสุขสามเณร",
         "pageStart": 126,
-        "pageEnd": 142
+        "pageEnd": 141
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
         "story": "๑. เรื่องหญิงสหายของนางวิสาขา",
         "pageStart": 142,
-        "pageEnd": 147
+        "pageEnd": 146
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
         "story": "๒. เรื่องนางสิริมา",
         "pageStart": 147,
-        "pageEnd": 154
+        "pageEnd": 153
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
         "story": "๓. เรื่องพระอุตตราเถร",
         "pageStart": 154,
-        "pageEnd": 156
+        "pageEnd": 155
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
         "story": "๔. เรื่องพระอธิมานิกภิกษุ",
         "pageStart": 156,
-        "pageEnd": 159
+        "pageEnd": 158
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
         "story": "๕. เรื่องพระนางรูปนันทาเถรี",
         "pageStart": 159,
-        "pageEnd": 167
+        "pageEnd": 166
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
         "story": "๖. เรื่องพระนางมัลลิกาเทวี",
         "pageStart": 167,
-        "pageEnd": 173
+        "pageEnd": 172
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
         "story": "๗. เรื่องพระโลฬุทายีเถระ",
         "pageStart": 173,
-        "pageEnd": 179
+        "pageEnd": 178
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
         "story": "๘. เรื่องปฐมโพธิกาล",
         "pageStart": 179,
-        "pageEnd": 182
+        "pageEnd": 181
       },
       {
         "vagga": "๑๑. ชราวรรค วรรณนา",
@@ -773,133 +773,133 @@
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๑. เรื่องโพธิราชกุมาร",
         "pageStart": 1,
-        "pageEnd": 9
+        "pageEnd": 8
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๒. เรื่องพระอุปนันทศากยบุตร",
         "pageStart": 9,
-        "pageEnd": 14
+        "pageEnd": 13
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๓. เรื่องพระปธานิกติสสเถระ",
         "pageStart": 14,
-        "pageEnd": 17
+        "pageEnd": 16
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๔. เรื่องมารดาของพระกุมารกัสสปเถระ",
         "pageStart": 17,
-        "pageEnd": 24
+        "pageEnd": 20
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๕. เรื่องอุบาสกชื่อมหากาล",
         "pageStart": 24,
-        "pageEnd": 29
+        "pageEnd": 28
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๖. เรื่องพระเทวทัต",
         "pageStart": 29,
-        "pageEnd": 32
+        "pageEnd": 31
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๗. เรื่องกระเสือกกระสนเพื่อจะทำลายสงฆ์",
         "pageStart": 32,
-        "pageEnd": 35
+        "pageEnd": 34
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๘. เรื่องพระกาลเถระ",
         "pageStart": 35,
-        "pageEnd": 39
+        "pageEnd": 38
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๙. เรื่องอุบาสถชื่อจุลกาล",
         "pageStart": 39,
-        "pageEnd": 42
+        "pageEnd": 41
       },
       {
         "vagga": "๑๒. อัตตวรรค วรรณนา",
         "story": "๑๐. เรื่องพระอัตตทัตถเถระ",
         "pageStart": 42,
-        "pageEnd": 45
+        "pageEnd": 44
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๑. เรื่องภิกษุหนุ่ม",
         "pageStart": 45,
-        "pageEnd": 49
+        "pageEnd": 48
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๒. เรื่องพระเจ้าสุทโธทนะ",
         "pageStart": 49,
-        "pageEnd": 53
+        "pageEnd": 52
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๓. เรื่องภิกษุผู้เจริญวิปัสสนา",
         "pageStart": 53,
-        "pageEnd": 55
+        "pageEnd": 54
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๔. เรื่องอภัยราชกุมาร",
         "pageStart": 55,
-        "pageEnd": 58
+        "pageEnd": 57
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๕. เรื่องพระสัมมัชชนเถระ",
         "pageStart": 58,
-        "pageEnd": 61
+        "pageEnd": 60
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๖. เรื่องพระอังคุลิมาลเถระ",
         "pageStart": 61,
-        "pageEnd": 63
+        "pageEnd": 62
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๗. เรื่องธิดาของนายช่างหูก",
         "pageStart": 63,
-        "pageEnd": 72
+        "pageEnd": 71
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๘. เรื่องภิกษุ ๓๐ รูป",
         "pageStart": 72,
-        "pageEnd": 74
+        "pageEnd": 73
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๙. เรื่องนางจิญจมาณวิกา",
         "pageStart": 74,
-        "pageEnd": 82
+        "pageEnd": 81
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๑๐. เรื่องอสทิสทาน",
         "pageStart": 82,
-        "pageEnd": 91
+        "pageEnd": 90
       },
       {
         "vagga": "๓. โลกวรรค วรรณนา",
         "story": "๑๑. เรื่องนายกาละบุตรของอนาถบิณฑิกเศรษฐี",
         "pageStart": 91,
-        "pageEnd": 96
+        "pageEnd": 95
       },
       {
         "vagga": "๑๔. พุทธวรรค วรรณนา",
         "story": "๑. เรื่องมารธิดา",
         "pageStart": 96,
-        "pageEnd": 105
+        "pageEnd": 104
       },
       {
         "vagga": "๑๔. พุทธวรรค วรรณนา",
@@ -911,187 +911,187 @@
         "vagga": "๑๔. พุทธวรรค วรรณนา",
         "story": "๓. เรื่องนาคราชชื่อเอรกปัตต์",
         "pageStart": 145,
-        "pageEnd": 154
+        "pageEnd": 153
       },
       {
         "vagga": "๑๔. พุทธวรรค วรรณนา",
         "story": "๔. เรื่องปัญหาของพระอานนทเถระ",
         "pageStart": 154,
-        "pageEnd": 158
+        "pageEnd": 157
       },
       {
         "vagga": "๑๔. พุทธวรรค วรรณนา",
         "story": "๕. เรื่องภิกษุผู้ไม่ยินดี",
         "pageStart": 158,
-        "pageEnd": 163
+        "pageEnd": 162
       },
       {
         "vagga": "๑๔. พุทธวรรค วรรณนา",
         "story": "๖. เรื่องปุโรหิตชื่ออัคคิทัต",
         "pageStart": 163,
-        "pageEnd": 173
+        "pageEnd": 172
       },
       {
         "vagga": "๑๔. พุทธวรรค วรรณนา",
         "story": "๗. เรื่องปัญหาของพระอานนทเถระ",
         "pageStart": 173,
-        "pageEnd": 175
+        "pageEnd": 174
       },
       {
         "vagga": "๑๔. พุทธวรรค วรรณนา",
         "story": "๘. เรื่องสัมพหุลภิกขุ",
         "pageStart": 175,
-        "pageEnd": 178
+        "pageEnd": 177
       },
       {
         "vagga": "๑๔. พุทธวรรค วรรณนา",
         "story": "๙. เรื่องพระเจดีย์ทองของพระกัสสปทสพล",
         "pageStart": 178,
-        "pageEnd": 183
+        "pageEnd": 182
       },
       {
         "vagga": "๑๕. สุขวรรค วรรณนา",
         "story": "๑. เรื่องระงับความทะเลาะแห่งหมู่พระญาติ",
         "pageStart": 183,
-        "pageEnd": 188
+        "pageEnd": 187
       },
       {
         "vagga": "๑๕. สุขวรรค วรรณนา",
         "story": "๒. เรื่องมาร",
         "pageStart": 188,
-        "pageEnd": 191
+        "pageEnd": 190
       },
       {
         "vagga": "๑๕. สุขวรรค วรรณนา",
         "story": "๓. เรื่องปราชัยของพระเจ้าโกศล",
         "pageStart": 191,
-        "pageEnd": 193
+        "pageEnd": 192
       },
       {
         "vagga": "๑๕. สุขวรรค วรรณนา",
         "story": "๔. เรื่องเด็กหญิงแห่งตระกูลคนใดคนหนึ่ง",
         "pageStart": 193,
-        "pageEnd": 195
+        "pageEnd": 194
       },
       {
         "vagga": "๑๕. สุขวรรค วรรณนา",
         "story": "๕. เรื่องอุบาสกคนใดคนหนึ่ง",
         "pageStart": 195,
-        "pageEnd": 199
+        "pageEnd": 198
       },
       {
         "vagga": "๑๕. สุขวรรค วรรณนา",
         "story": "๖. เรื่องพระเจ้าปเสนทิโกศล",
         "pageStart": 199,
-        "pageEnd": 204
+        "pageEnd": 203
       },
       {
         "vagga": "๑๕. สุขวรรค วรรณนา",
         "story": "๗. เรื่องพระติสสเถระ",
         "pageStart": 204,
-        "pageEnd": 207
+        "pageEnd": 206
       },
       {
         "vagga": "๑๕. สุขวรรค วรรณนา",
         "story": "๘. เรื่องท้าวสักกะ",
         "pageStart": 207,
-        "pageEnd": 213
+        "pageEnd": 212
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๑. เรื่องบรรพชิต ๓ รูป",
         "pageStart": 213,
-        "pageEnd": 219
+        "pageEnd": 218
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๒. เรื่องกุฎุมพีคนใดคนหนึ่ง",
         "pageStart": 219,
-        "pageEnd": 222
+        "pageEnd": 221
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๓. เรื่องนางวิสาขาอุบาสิกา",
         "pageStart": 222,
-        "pageEnd": 225
+        "pageEnd": 224
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๔. เรื่องเจ้าลิจฉวี",
         "pageStart": 225,
-        "pageEnd": 227
+        "pageEnd": 226
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๕. เรื่องอนิตถิคันธกุมาร",
         "pageStart": 227,
-        "pageEnd": 232
+        "pageEnd": 231
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๖. เรื่องพราหมณ์คนใดคนหนึ่ง",
         "pageStart": 232,
-        "pageEnd": 236
+        "pageEnd": 235
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๗. เรื่องเด็ก ๕๐๐ คน",
         "pageStart": 236,
-        "pageEnd": 240
+        "pageEnd": 239
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๘. เรื่องพระอนาคามิเถระ",
         "pageStart": 240,
-        "pageEnd": 243
+        "pageEnd": 242
       },
       {
         "vagga": "๑๖. ปิยวรรค วรรณนา",
         "story": "๙. เรื่องนายนันทิยะ",
         "pageStart": 243,
-        "pageEnd": 248
+        "pageEnd": 247
       },
       {
         "vagga": "๑๗. โกธวรรค วรรณนา",
         "story": "๑. เรื่องเจ้าหญิงโรหิณี",
         "pageStart": 248,
-        "pageEnd": 255
+        "pageEnd": 254
       },
       {
         "vagga": "๑๗. โกธวรรค วรรณนา",
         "story": "๒. เรื่องภิกษุรูปใดรูปหนึ่ง",
         "pageStart": 255,
-        "pageEnd": 258
+        "pageEnd": 257
       },
       {
         "vagga": "๑๗. โกธวรรค วรรณนา",
         "story": "๓. เรื่องอุตตราอุบาสิกา",
         "pageStart": 258,
-        "pageEnd": 272
+        "pageEnd": 271
       },
       {
         "vagga": "๑๗. โกธวรรค วรรณนา",
         "story": "๔. เรื่องปัญหาของพระโมคคัลลานเถระ",
         "pageStart": 272,
-        "pageEnd": 276
+        "pageEnd": 275
       },
       {
         "vagga": "๑๗. โกธวรรค วรรณนา",
         "story": "๕. เรื่องปัญหาที่ภิกษุทูลถาม",
         "pageStart": 276,
-        "pageEnd": 282
+        "pageEnd": 281
       },
       {
         "vagga": "๑๗. โกธวรรค วรรณนา",
         "story": "๖. เรื่องนางปุณณทาสี",
         "pageStart": 282,
-        "pageEnd": 288
+        "pageEnd": 287
       },
       {
         "vagga": "๑๗. โกธวรรค วรรณนา",
         "story": "๗. เรื่องอตุลอุบสิก",
         "pageStart": 288,
-        "pageEnd": 294
+        "pageEnd": 293
       },
       {
         "vagga": "๑๗. โกธวรรค วรรณนา",
@@ -1105,61 +1105,61 @@
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๑. เรื่องบุตรของนายโคฆาตก์",
         "pageStart": 1,
-        "pageEnd": 9
+        "pageEnd": 8
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๒. เรื่องพราหมณ์คนใดคนหนึ่ง",
         "pageStart": 9,
-        "pageEnd": 12
+        "pageEnd": 11
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๓. เรื่องพระติสสเถระ",
         "pageStart": 12,
-        "pageEnd": 17
+        "pageEnd": 16
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๔. เรื่องพระโลฬุทายีเถระ",
         "pageStart": 17,
-        "pageEnd": 22
+        "pageEnd": 21
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๕. เรื่องกุลบุตรคนใดคนหนึ่ง",
         "pageStart": 22,
-        "pageEnd": 26
+        "pageEnd": 25
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๖. เรื่องภิกษุชื่อจูฬสารี",
         "pageStart": 26,
-        "pageEnd": 31
+        "pageEnd": 30
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๗. เรื่องอุบาสกห้าคน",
         "pageStart": 31,
-        "pageEnd": 34
+        "pageEnd": 33
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๘. เรื่องภิกษุหนุ่มชื่อติสสะ",
         "pageStart": 34,
-        "pageEnd": 38
+        "pageEnd": 37
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๙. เรื่องอุบาสกห้าคน",
         "pageStart": 38,
-        "pageEnd": 43
+        "pageEnd": 42
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๑๐. เรื่องเมณฑกเศรษฐี",
         "pageStart": 43,
-        "pageEnd": 58
+        "pageEnd": 57
       },
       {
         "vagga": "๑๘. มลวรรควรรณนา",
@@ -1171,133 +1171,133 @@
         "vagga": "๑๘. มลวรรควรรณนา",
         "story": "๑๒. เรื่องสุภัททปริพาชก",
         "pageStart": 60,
-        "pageEnd": 63
+        "pageEnd": 62
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๑. เรื่องมหาอำมาตย์ผู้วินิจฉัย",
         "pageStart": 63,
-        "pageEnd": 67
+        "pageEnd": 66
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๒. เรื่องภิกษุฉัพพัคคีย์",
         "pageStart": 67,
-        "pageEnd": 69
+        "pageEnd": 68
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๓. เรื่องพระเอกุทานเถระ",
         "pageStart": 69,
-        "pageEnd": 73
+        "pageEnd": 72
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๔. เรื่องพระลกุณฏกภัททิยเถระ",
         "pageStart": 73,
-        "pageEnd": 79
+        "pageEnd": 75
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๖. เรื่องภิกษุชื่อหัตถกะ",
         "pageStart": 79,
-        "pageEnd": 81
+        "pageEnd": 80
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๗. เรื่องพราหมณ์คนใดคนหนึ่ง",
         "pageStart": 81,
-        "pageEnd": 83
+        "pageEnd": 82
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๘. เรื่องเดียรถีย์",
         "pageStart": 83,
-        "pageEnd": 86
+        "pageEnd": 85
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๙. เรื่องพรานเบ็ดชื่ออริยะ",
         "pageStart": 86,
-        "pageEnd": 88
+        "pageEnd": 87
       },
       {
         "vagga": "๑๙. ธัมมัฏฐวรรค วรรณนา",
         "story": "๑๐. เรื่องภิกษุมากรูป",
         "pageStart": 88,
-        "pageEnd": 91
+        "pageEnd": 90
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๑. เรื่องภิกษุ ๕๐๐ รูป",
         "pageStart": 91,
-        "pageEnd": 96
+        "pageEnd": 95
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๒. เรื่องภิกษุ ๕๐๐ รูปอื่นอีก",
         "pageStart": 96,
-        "pageEnd": 100
+        "pageEnd": 97
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๓. เรื่องพระปธานกัมมิกติสสเถระ",
         "pageStart": 100,
-        "pageEnd": 104
+        "pageEnd": 103
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๔. เรื่องสูกรเปรต",
         "pageStart": 104,
-        "pageEnd": 112
+        "pageEnd": 111
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๕. เรื่องพระโปฐิลเถระ",
         "pageStart": 112,
-        "pageEnd": 117
+        "pageEnd": 116
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๖. เรื่องพระเถระแก่",
         "pageStart": 117,
-        "pageEnd": 121
+        "pageEnd": 120
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๗. เรื่องสัทธิวิหาริกของพระสารีบุตรเถระ",
         "pageStart": 121,
-        "pageEnd": 126
+        "pageEnd": 125
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๘. เรื่องพ่อค้ามีทรัพย์มาก",
         "pageStart": 126,
-        "pageEnd": 130
+        "pageEnd": 129
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๙. เรื่องนางกิสาโคตมี",
         "pageStart": 130,
-        "pageEnd": 133
+        "pageEnd": 132
       },
       {
         "vagga": "๒๐. มัคควรรค วรรณนา",
         "story": "๑๐. เรื่องนางปฏาจารา",
         "pageStart": 133,
-        "pageEnd": 136
+        "pageEnd": 135
       },
       {
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
         "story": "๑. เรื่องบุรพกรรมของพระองค์",
         "pageStart": 136,
-        "pageEnd": 151
+        "pageEnd": 150
       },
       {
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
         "story": "๒. เรื่องกุมาริกากินไข่ไก่",
         "pageStart": 151,
-        "pageEnd": 154
+        "pageEnd": 153
       },
       {
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
@@ -1309,133 +1309,133 @@
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
         "story": "๔. เรื่องพระลกุณฏกภัททิยเถระ",
         "pageStart": 157,
-        "pageEnd": 161
+        "pageEnd": 160
       },
       {
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
         "story": "๕. เรื่องนายทารุสากฏิกะ",
         "pageStart": 161,
-        "pageEnd": 168
+        "pageEnd": 167
       },
       {
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
         "story": "๖. เรื่องภิกษุวัชชีบุตร",
         "pageStart": 168,
-        "pageEnd": 172
+        "pageEnd": 171
       },
       {
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
         "story": "๗. เรื่องจิตตฤหบดี",
         "pageStart": 172,
-        "pageEnd": 174
+        "pageEnd": 173
       },
       {
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
         "story": "๘. เรื่องนางจูฬสุภัททา",
         "pageStart": 174,
-        "pageEnd": 182
+        "pageEnd": 181
       },
       {
         "vagga": "๒๑. ปกิณณกวรรค วรรณนา",
         "story": "๙. เรื่องพระเถระชื่อเอกวิหารี",
         "pageStart": 182,
-        "pageEnd": 184
+        "pageEnd": 183
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๑. เรื่องนางปริพาชิกาชื่อสุนทรี",
         "pageStart": 184,
-        "pageEnd": 190
+        "pageEnd": 189
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๒. เรื่องสัตว์ผู้ถูกทุกข์เบียดเบียน",
         "pageStart": 190,
-        "pageEnd": 192
+        "pageEnd": 191
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๓. เรื่องภิกษุผู้อยู่ที่ฝังแม่น้ำชื่อวัคคุมุทา",
         "pageStart": 192,
-        "pageEnd": 194
+        "pageEnd": 193
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๔. เรื่องบุตรเศรษฐีชื่อเขมกะ",
         "pageStart": 194,
-        "pageEnd": 197
+        "pageEnd": 196
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๕. เรื่องภิกษุว่ายาก",
         "pageStart": 197,
-        "pageEnd": 200
+        "pageEnd": 199
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๖. เรื่องหญิงขี้หึง",
         "pageStart": 200,
-        "pageEnd": 202
+        "pageEnd": 201
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๗. เรื่องอาคันตุกภิกษุ",
         "pageStart": 202,
-        "pageEnd": 205
+        "pageEnd": 204
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๘. เรื่องนิครนถ์",
         "pageStart": 205,
-        "pageEnd": 208
+        "pageEnd": 207
       },
       {
         "vagga": "๒๒. นิรยวรรค วรรณนา",
         "story": "๙. เรื่องสาวกเดียรถีย์",
         "pageStart": 208,
-        "pageEnd": 211
+        "pageEnd": 210
       },
       {
         "vagga": "๒๓. นาควรรค วรรณนา",
         "story": "๑. เรื่องของพระองค์",
         "pageStart": 211,
-        "pageEnd": 217
+        "pageEnd": 216
       },
       {
         "vagga": "๒๓. นาควรรค วรรณนา",
         "story": "๒. เรื่องภิกษุผู้เคยเป็นควาญช้าง",
         "pageStart": 217,
-        "pageEnd": 219
+        "pageEnd": 218
       },
       {
         "vagga": "๒๓. นาควรรค วรรณนา",
         "story": "๓. เรื่องบุตรของพราหมณ์เฒ่า",
         "pageStart": 219,
-        "pageEnd": 228
+        "pageEnd": 227
       },
       {
         "vagga": "๒๓. นาควรรค วรรณนา",
         "story": "๔. เรื่องพระเจ้าปเสนทิโกศล",
         "pageStart": 228,
-        "pageEnd": 231
+        "pageEnd": 230
       },
       {
         "vagga": "๒๓. นาควรรค วรรณนา",
         "story": "๕. เรื่องสานุสามเณร",
         "pageStart": 231,
-        "pageEnd": 239
+        "pageEnd": 238
       },
       {
         "vagga": "๒๓. นาควรรค วรรณนา",
         "story": "๖. เรื่องช้างชื่อปาเวรกะ",
         "pageStart": 239,
-        "pageEnd": 241
+        "pageEnd": 240
       },
       {
         "vagga": "๒๓. นาควรรค วรรณนา",
         "story": "๗. เรื่องสัมพหุลภิกษุ",
         "pageStart": 241,
-        "pageEnd": 247
+        "pageEnd": 246
       },
       {
         "vagga": "๒๓. นาควรรค วรรณนา",
@@ -1449,55 +1449,55 @@
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๑. เรื่องปลาชื่อกปิละ",
         "pageStart": 1,
-        "pageEnd": 12
+        "pageEnd": 11
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๒. เรื่องนางลูกสุกร",
         "pageStart": 12,
-        "pageEnd": 20
+        "pageEnd": 19
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๓. เรื่องวิพภันตกภิกษุ",
         "pageStart": 20,
-        "pageEnd": 23
+        "pageEnd": 22
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๔. เรื่องเรือนจำ",
         "pageStart": 23,
-        "pageEnd": 32
+        "pageEnd": 27
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๖. เรื่องบุตรเศรษฐีชื่ออุคคเสน",
         "pageStart": 32,
-        "pageEnd": 41
+        "pageEnd": 40
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๗. เรื่องจูฬธนุคคหบัณฑิต",
         "pageStart": 41,
-        "pageEnd": 47
+        "pageEnd": 46
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๘. เรื่องมาร",
         "pageStart": 47,
-        "pageEnd": 51
+        "pageEnd": 50
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๙. เรื่องอุปกาชีวก",
         "pageStart": 51,
-        "pageEnd": 54
+        "pageEnd": 53
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๑๐. เรื่องท้าวสักกเทวราช",
         "pageStart": 54,
-        "pageEnd": 61
+        "pageEnd": 60
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
@@ -1509,19 +1509,19 @@
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๑๒. เรื่องอังกุรเทพบุตร",
         "pageStart": 66,
-        "pageEnd": 69
+        "pageEnd": 68
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๑. เรื่องภิกษุ ๕ รูป",
         "pageStart": 69,
-        "pageEnd": 75
+        "pageEnd": 74
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๒. เรื่องภิกษุฆ่าหงส์",
         "pageStart": 75,
-        "pageEnd": 82
+        "pageEnd": 81
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
@@ -1533,247 +1533,247 @@
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๔. เรื่องพระธรรมมารามเถระ",
         "pageStart": 86,
-        "pageEnd": 89
+        "pageEnd": 88
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๕. เรื่องภิกษุคบภิกษุผู้เป็นฝักฝ่ายผิดรูปใดรูปหนึ่ง",
         "pageStart": 89,
-        "pageEnd": 93
+        "pageEnd": 92
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๖. เรื่องปัญจัคคทายกพราหมณ์",
         "pageStart": 93,
-        "pageEnd": 99
+        "pageEnd": 98
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๗. เรื่องสัมพหุลภิกษุ",
         "pageStart": 99,
-        "pageEnd": 114
+        "pageEnd": 113
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๘. เรื่องภิกษุประมาณ ๕๐๐ รูป",
         "pageStart": 114,
-        "pageEnd": 116
+        "pageEnd": 115
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๙. เรื่องพระสันตกายเถระ",
         "pageStart": 116,
-        "pageEnd": 119
+        "pageEnd": 118
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๑๐. เรื่องพระนังคลกูฏเถระ",
         "pageStart": 119,
-        "pageEnd": 123
+        "pageEnd": 122
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๑๑. เรื่องพระวักกลิเถระ",
         "pageStart": 123,
-        "pageEnd": 127
+        "pageEnd": 126
       },
       {
         "vagga": "๒๔. ตัณหาวรรค วรรณนา",
         "story": "๑๒. เรื่องสุมนสามเณร",
         "pageStart": 127,
-        "pageEnd": 149
+        "pageEnd": 148
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑. เรื่องพราหมณ์ผู้มีความเลื่อมใสมาก",
         "pageStart": 149,
-        "pageEnd": 152
+        "pageEnd": 151
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒. เรื่องภิกษุมากรูป",
         "pageStart": 152,
-        "pageEnd": 154
+        "pageEnd": 153
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓. เรื่องมาร",
         "pageStart": 154,
-        "pageEnd": 156
+        "pageEnd": 155
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๔. เรื่องพราหมณ์คนใดคนหนึ่ง",
         "pageStart": 156,
-        "pageEnd": 158
+        "pageEnd": 157
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๕. เรื่องพระอานนทเถระ",
         "pageStart": 158,
-        "pageEnd": 161
+        "pageEnd": 160
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๖. เรื่องบรรพชิตรูปใดรูปหนึ่ง",
         "pageStart": 161,
-        "pageEnd": 163
+        "pageEnd": 162
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๗. เรื่องพระสารีบุตรเถระ",
         "pageStart": 163,
-        "pageEnd": 169
+        "pageEnd": 168
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๘. เรื่องพระนางมหาปชาบดีโคตมี",
         "pageStart": 169,
-        "pageEnd": 171
+        "pageEnd": 170
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๙. เรื่องพระสารีบุตรเถระ",
         "pageStart": 171,
-        "pageEnd": 173
+        "pageEnd": 172
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๐. เรื่องชฎิลพราหมณ์",
         "pageStart": 173,
-        "pageEnd": 175
+        "pageEnd": 174
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๑. เรื่องกุหกพราหมณ์",
         "pageStart": 175,
-        "pageEnd": 180
+        "pageEnd": 179
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๒. เรื่องนางกิสาโคตมี",
         "pageStart": 180,
-        "pageEnd": 182
+        "pageEnd": 181
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๓. เรื่องพราหมณ์คนใดคนหนึ่ง",
         "pageStart": 182,
-        "pageEnd": 184
+        "pageEnd": 183
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๔. เรื่องอุคคเสน",
         "pageStart": 184,
-        "pageEnd": 186
+        "pageEnd": 185
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๕. เรื่องพราหมณ์ ๒ คน",
         "pageStart": 186,
-        "pageEnd": 188
+        "pageEnd": 187
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๖. เรื่องอักโกสกภารทวาชพราหมณ์",
         "pageStart": 188,
-        "pageEnd": 192
+        "pageEnd": 191
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๗. เรื่องพระสารีบุตรเถระ",
         "pageStart": 192,
-        "pageEnd": 195
+        "pageEnd": 194
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๘. เรื่องพระอุบลวัณณาเถรี",
         "pageStart": 195,
-        "pageEnd": 197
+        "pageEnd": 196
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๑๙. เรื่องพราหมณ์คนใดคนหนึ่ง",
         "pageStart": 197,
-        "pageEnd": 199
+        "pageEnd": 198
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๐. เรื่องพระเขมาภิกษุณี",
         "pageStart": 199,
-        "pageEnd": 201
+        "pageEnd": 200
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๑. เรื่องพระติสสเถระผู้อยู่ในเงื้อมเขา",
         "pageStart": 201,
-        "pageEnd": 207
+        "pageEnd": 206
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๒. เรื่องภิกษุรูปใดรูปหนึ่ง",
         "pageStart": 207,
-        "pageEnd": 210
+        "pageEnd": 209
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๓. เรื่องสามเณร",
         "pageStart": 210,
-        "pageEnd": 216
+        "pageEnd": 215
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๔. เรื่องพระมหาปันถกเถระ",
         "pageStart": 216,
-        "pageEnd": 218
+        "pageEnd": 217
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๕. เรื่องพระปิลินทวัจฉเถระ",
         "pageStart": 218,
-        "pageEnd": 220
+        "pageEnd": 219
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๖. เรื่องภิกษุรูปใด รูปหนึ่ง",
         "pageStart": 220,
-        "pageEnd": 223
+        "pageEnd": 222
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๗. เรื่องพระสารีบุตรเถระ",
         "pageStart": 223,
-        "pageEnd": 225
+        "pageEnd": 224
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๘. เรื่องพระมหาโมคคัลลานเถระ",
         "pageStart": 225,
-        "pageEnd": 227
+        "pageEnd": 226
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๒๙. เรื่องพระเรวตเถระ",
         "pageStart": 227,
-        "pageEnd": 229
+        "pageEnd": 228
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๐. เรื่องพระจันทาภเถระ",
         "pageStart": 229,
-        "pageEnd": 236
+        "pageEnd": 235
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๑. เรื่องพระสีวลีเถระ",
         "pageStart": 236,
-        "pageEnd": 239
+        "pageEnd": 238
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๒. เรื่องพระสุนทรสมุทรเถระ",
         "pageStart": 239,
-        "pageEnd": 246
+        "pageEnd": 245
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
@@ -1785,37 +1785,37 @@
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๔. เรื่องภิกษุผู้เคยเป็นนักฟ้อนรูปที่ ๑",
         "pageStart": 282,
-        "pageEnd": 284
+        "pageEnd": 283
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๕. เรื่องภิกษุผู้เคยเป็นนักฟ้อนรูปที่ ๒",
         "pageStart": 284,
-        "pageEnd": 286
+        "pageEnd": 285
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๖. เรื่องพระวังคีสเถระ",
         "pageStart": 286,
-        "pageEnd": 291
+        "pageEnd": 290
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๗. เรื่องพระธรรมทินนาเถรี",
         "pageStart": 291,
-        "pageEnd": 295
+        "pageEnd": 294
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๘. เรื่องพระอังคุลิมาลเถระ",
         "pageStart": 295,
-        "pageEnd": 297
+        "pageEnd": 296
       },
       {
         "vagga": "๒๖. พราหมณวรรค วรรณนา",
         "story": "๓๙. เรื่องเทวหิตพราหมณ์",
         "pageStart": 297,
-        "pageEnd": 302
+        "pageEnd": 299
       }
     ]
   }

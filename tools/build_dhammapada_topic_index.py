@@ -65,6 +65,12 @@ def clean_title_text(s: str) -> str:
     return t
 
 
+def extract_story_base_name(title: str) -> str:
+    t = re.sub(r"^[๐-๙0-9]+\.\s*", "", title)
+    t = re.sub(r"\s*\([๐-๙0-9]+\)\s*$", "", t)
+    return t.strip()
+
+
 HEADING_THAI_RE = re.compile(r"^\s*[๐-๙0-9]+\.\s*.+วรรค\s*วรรณนา\s*$")
 STORY_THAI_RE = re.compile(r"^\s*[๐-๙0-9]+\.\s*เรื่อง.+$")
 
@@ -97,22 +103,34 @@ def iter_thai_page_lines(folder: Path, page: int) -> list[str]:
 def build_thai_topics_for_folder(folder_name: str, max_page: int) -> list[Topic]:
     folder = THAI_ROOT / folder_name
     current_vagga = ""
-    stories: list[tuple[str, str, int]] = []
+    stories: list[dict] = []
     for page in range(1, max_page + 1):
         lines = iter_thai_page_lines(folder, page)
         for line in lines[:40]:
             if HEADING_THAI_RE.match(line):
                 current_vagga = line
                 break
-        for line in lines[:60]:
+        for line in lines:
             if STORY_THAI_RE.match(line):
-                stories.append((current_vagga, line, page))
-                break
+                stories.append({
+                    "vagga": current_vagga,
+                    "story": line,
+                    "start": page,
+                    "end": -1
+                })
+            elif "จบ." in line and stories:
+                current_story = stories[-1]
+                if current_story["end"] == -1:
+                    current_story["end"] = page
     topics: list[Topic] = []
-    for i, (vagga, story, start) in enumerate(stories):
-        next_start = stories[i + 1][2] if i + 1 < len(stories) else max_page
-        end = max(start, min(max_page, next_start))
-        topics.append(Topic(vagga=vagga, story=story, start_page=start, end_page=end))
+    for i, s in enumerate(stories):
+        start = s["start"]
+        end = s["end"]
+        next_start = stories[i + 1]["start"] if i + 1 < len(stories) else max_page
+        if end == -1:
+            end = max(start, min(max_page, next_start))
+        end = max(start, min(max_page, end))
+        topics.append(Topic(vagga=s["vagga"], story=s["story"], start_page=start, end_page=end))
     return topics
 
 
@@ -122,7 +140,7 @@ def build_pali_topics_from_segments(volume_no: int, max_page: int) -> list[Topic
     if not path.exists():
         return []
     current_vagga = ""
-    stories: list[tuple[str, str, int]] = []
+    stories: list[dict] = []
     with path.open("r", encoding="utf-8") as f:
         for raw in f:
             line = str(raw or "").strip()
@@ -138,12 +156,26 @@ def build_pali_topics_from_segments(volume_no: int, max_page: int) -> list[Topic
             if typ == "heading" and pali and page:
                 current_vagga = pali
             if typ == "story_title" and pali and page:
-                stories.append((current_vagga, pali, page))
+                stories.append({
+                    "vagga": current_vagga,
+                    "story": pali,
+                    "start": page,
+                    "end": -1,
+                    "base_name": extract_story_base_name(pali)
+                })
+            elif pali and stories:
+                current_story = stories[-1]
+                if current_story["end"] == -1 and pali == current_story["base_name"]:
+                    current_story["end"] = page
     topics: list[Topic] = []
-    for i, (vagga, story, start) in enumerate(stories):
-        next_start = stories[i + 1][2] if i + 1 < len(stories) else max_page
-        end = max(start, min(max_page, next_start))
-        topics.append(Topic(vagga=vagga, story=story, start_page=start, end_page=end))
+    for i, s in enumerate(stories):
+        start = s["start"]
+        end = s["end"]
+        next_start = stories[i + 1]["start"] if i + 1 < len(stories) else max_page
+        if end == -1:
+            end = max(start, min(max_page, next_start))
+        end = max(start, min(max_page, end))
+        topics.append(Topic(vagga=s["vagga"], story=s["story"], start_page=start, end_page=end))
     return topics
 
 
