@@ -2537,7 +2537,7 @@
             return /^dhamma-[1-8]$/.test(String(partId || '').trim());
         }
         function isDhammapadaThaiPartId(partId) {
-            return /^(p4-thai-raw|p5-thai-[234]|p6-thai-[5678])$/.test(String(partId || '').trim());
+            return /^(p4-thai-raw|p5-thai-[234]|p6-thai-[5678]|p12-thai-[1234])$/.test(String(partId || '').trim());
         }
         function isDhammapadaPaliPageMode() {
             const levelCode = document.getElementById('levelSelect')?.value || '';
@@ -2693,6 +2693,15 @@
             }
         };
         const THAI_SOURCE_PAGE_DATA_BY_LEVEL = {
+            p12: {
+                title: 'พระธัมมปทัฏฐกถา',
+                parts: [
+                    { partId: 'p12-thai-1', label: 'ภาค ๑', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๑)`, maxPage: 215 },
+                    { partId: 'p12-thai-2', label: 'ภาค ๒', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๒)`, maxPage: 241, filePrefix: '02' },
+                    { partId: 'p12-thai-3', label: 'ภาค ๓', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๓)`, maxPage: 286, filePrefix: '03' },
+                    { partId: 'p12-thai-4', label: 'ภาค ๔', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๔)`, maxPage: 225, filePrefix: '04' }
+                ]
+            },
             p4: { title: 'พระธัมมปทัฏฐกถา', filesDir: `${DHAMMAPADA_THAI_ROOT}/ธรรมปทัฏฐกถา (๑)`, maxPage: 215, partId: 'p4-thai-raw', label: 'ธรรมบท ภาคที่ ๑' },
             p5: {
                 title: 'พระธัมมปทัฏฐกถา',
@@ -2766,7 +2775,7 @@
             if (!el) return;
             let badgeText = '';
             const thaiSourceCfg = subjectLabel.includes('ไทยเป็นมคธ') ? (THAI_SOURCE_PAGE_DATA_BY_LEVEL[levelCode] || null) : null;
-            if (['p4', 'p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && thaiSourceCfg && subjectLabel.includes('ไทยเป็นมคธ')) {
+            if (['p12', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && thaiSourceCfg && subjectLabel.includes('ไทยเป็นมคธ')) {
                 badgeText = `(${thaiSourceCfg.title || 'พระธัมมปทัฏฐกถา'})`;
                 el.textContent = badgeText;
                 return;
@@ -3307,7 +3316,7 @@
             if (levelCode === 'p3' && (subjectLabel.includes('มคธเป็นไทย') || subjectLabel.includes('สัมพันธ์ไทย'))) {
                 return true;
             }
-            return ['p12', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && subjectLabel.includes('มคธเป็นไทย');
+            return ['p4', 'p5', 'p6', 'p7', 'p8', 'p9'].includes(levelCode) && subjectLabel.includes('มคธเป็นไทย');
         }
         function isThaiSourcePageMode() {
             const levelCode = document.getElementById('levelSelect').value || '';
@@ -3320,7 +3329,7 @@
             return opt ? opt.textContent.trim() : '';
         }
         const SUBJECTS_BY_LEVEL = {
-            'ประโยค ๑–๒': ['แปล  มคธเป็นไทย'],
+            'ประโยค ๑–๒': ['แปล  มคธเป็นไทย', 'แปล  ไทยเป็นมคธ'],
             'ประโยค ป.ธ. ๓': ['แปล  มคธเป็นไทย','สัมพันธ์ไทย'],
             'ประโยค ป.ธ. ๔': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
             'ประโยค ป.ธ. ๕': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
@@ -3380,6 +3389,12 @@
                     { id: 'dhamma-2', label: 'ธรรมบท ภาคที่ ๒' },
                     { id: 'dhamma-3', label: 'ธรรมบท ภาคที่ ๓' },
                     { id: 'dhamma-4', label: 'ธรรมบท ภาคที่ ๔' }
+                ],
+                'แปล  ไทยเป็นมคธ': [
+                    { id: 'p12-thai-1', label: 'ภาค ๑' },
+                    { id: 'p12-thai-2', label: 'ภาค ๒' },
+                    { id: 'p12-thai-3', label: 'ภาค ๓' },
+                    { id: 'p12-thai-4', label: 'ภาค ๔' }
                 ]
             },
             'ประโยค ป.ธ. ๓': {
