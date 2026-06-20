@@ -697,7 +697,6 @@
         .step2-range-line.volume-line select { width: 100%; }
         .step2-range-line.page-line { flex-wrap: nowrap; }
         .step2-range-line.page-line .page-input { flex: 1 1 180px; min-width: 140px; }
-        #contentSection.step2-p12 .grid-3 { display: none; }
         
         /* คลาสช่วยเหลือของโครงสร้างหน้าออกข้อสอบแบบใหม่ */
         .text-gray-dark { color: #555; }
@@ -2769,7 +2768,6 @@
             const subjectLabel = document.getElementById('subjectSelect').value || '';
             const levelCode = document.getElementById('levelSelect').value || '';
             const contentSection = document.getElementById('contentSection');
-            if (contentSection) contentSection.classList.toggle('step2-p12', levelCode === 'p12');
             if (titleEl) titleEl.innerHTML = 'ขั้นตอนที่ ๒ : เลือกช่วงหน้า <span id="bookTitleBadge" class="text-md text-gray-666"></span>';
             const el = document.getElementById('bookTitleBadge');
             if (!el) return;
@@ -3343,22 +3341,23 @@
             const subjects = SUBJECTS_BY_LEVEL[label] || ['แปล  มคธเป็นไทย'];
             const sel = document.getElementById('subjectSelect');
             sel.innerHTML = '';
-            subjects.forEach(s => {
-                const o = document.createElement('option');
-                o.value = s;
-                o.text = s;
-                sel.appendChild(o);
-            });
-            // บังคับให้เลือกตัวเลือกแรกและตั้งค่า (value) ให้เรียบร้อย
-            if (subjects.length > 0) {
+            
+            // ถ้าไม่ใช่ชั้นประโยคที่รองรับ หรือไม่มีวิชา ให้ใส่ค่า default
+            if (subjects.length === 0) {
+                const opt = document.createElement('option');
+                opt.value = '';
+                opt.text = '(กรุณาเลือกวิชา)';
+                sel.appendChild(opt);
+            } else {
+                subjects.forEach(s => {
+                    const o = document.createElement('option');
+                    o.value = s;
+                    o.text = s;
+                    sel.appendChild(o);
+                });
+                // บังคับให้เลือกตัวเลือกแรกและตั้งค่า (value) ให้เรียบร้อยเสมอ
                 sel.value = subjects[0];
             }
-            
-            // หลังจากจัดตัวเลือกวิชาใหม่ ต้องอัปเดตตัวเลือกภาคด้วย
-            // หมายเหตุ: เรียกใช้ผ่าน setTimout เพื่อรอให้ DOM อัปเดต value เสร็จก่อน
-            setTimeout(() => {
-                populatePartSelects();
-            }, 0);
         }
         function formatThaiDate(iso) {
             if (!iso) return '-';
@@ -3503,6 +3502,14 @@
             const currentPartId = String(literalSel?.value || parts?.[0]?.id || '').trim();
             const isThaiSource = subjectLabel.includes('ไทยเป็นมคธ');
             const enableTopicHierarchy = (!isThaiSource && isDhammapadaPaliPageMode()) || (isThaiSource && isDhammapadaThaiPartId(currentPartId));
+            
+            console.log('--- DEBUG populatePartSelects ---');
+            console.log('levelLabel:', levelLabel);
+            console.log('subjectLabel:', subjectLabel);
+            console.log('parts.length:', parts.length);
+            console.log('isThaiSource:', isThaiSource);
+            console.log('isDhammapadaPaliPageMode():', isDhammapadaPaliPageMode());
+            console.log('enableTopicHierarchy:', enableTopicHierarchy);
             if (parts.length === 1 && !enableTopicHierarchy) {
                 literalSel.value = parts[0].id;
                 senseSel.value = parts[0].id;
@@ -5779,7 +5786,7 @@
         document.getElementById('levelSelect').addEventListener('change', () => { 
             resetStep2ForNewContext();
             populateSubjectSelect(); 
-            // populatePartSelects() ถูกเรียกใช้งานใน populateSubjectSelect แล้ว จึงไม่ต้องเรียกซ้ำ
+            populatePartSelects(); 
             generatePreview(); 
             updateWorkflowState();
             updateBookTitleBadge();
