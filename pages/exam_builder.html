@@ -3355,7 +3355,10 @@
             }
             
             // หลังจากจัดตัวเลือกวิชาใหม่ ต้องอัปเดตตัวเลือกภาคด้วย
-            populatePartSelects();
+            // หมายเหตุ: เรียกใช้ผ่าน setTimout เพื่อรอให้ DOM อัปเดต value เสร็จก่อน
+            setTimeout(() => {
+                populatePartSelects();
+            }, 0);
         }
         function formatThaiDate(iso) {
             if (!iso) return '-';
@@ -5776,7 +5779,7 @@
         document.getElementById('levelSelect').addEventListener('change', () => { 
             resetStep2ForNewContext();
             populateSubjectSelect(); 
-            populatePartSelects(); 
+            // populatePartSelects() ถูกเรียกใช้งานใน populateSubjectSelect แล้ว จึงไม่ต้องเรียกซ้ำ
             generatePreview(); 
             updateWorkflowState();
             updateBookTitleBadge();
