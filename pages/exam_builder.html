@@ -3329,7 +3329,7 @@
             return opt ? opt.textContent.trim() : '';
         }
         const SUBJECTS_BY_LEVEL = {
-            'ประโยค ๑–๒': ['แปล  มคธเป็นไทย', 'แปล  ไทยเป็นมคธ'],
+            'ประโยค ๑–๒': ['แปล  มคธเป็นไทย'],
             'ประโยค ป.ธ. ๓': ['แปล  มคธเป็นไทย','สัมพันธ์ไทย'],
             'ประโยค ป.ธ. ๔': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
             'ประโยค ป.ธ. ๕': ['แปล  ไทยเป็นมคธ','แปล  มคธเป็นไทย'],
@@ -3389,12 +3389,6 @@
                     { id: 'dhamma-2', label: 'ธรรมบท ภาคที่ ๒' },
                     { id: 'dhamma-3', label: 'ธรรมบท ภาคที่ ๓' },
                     { id: 'dhamma-4', label: 'ธรรมบท ภาคที่ ๔' }
-                ],
-                'แปล  ไทยเป็นมคธ': [
-                    { id: 'p12-thai-1', label: 'ภาค ๑' },
-                    { id: 'p12-thai-2', label: 'ภาค ๒' },
-                    { id: 'p12-thai-3', label: 'ภาค ๓' },
-                    { id: 'p12-thai-4', label: 'ภาค ๔' }
                 ]
             },
             'ประโยค ป.ธ. ๓': {
@@ -3500,6 +3494,9 @@
 
             const literalHierarchy = literalSel ? literalSel.parentElement : null;
             const senseHierarchy = senseSel ? senseSel.parentElement : null;
+            const currentPartId = String(literalSel?.value || parts?.[0]?.id || '').trim();
+            const isThaiSource = subjectLabel.includes('ไทยเป็นมคธ');
+            const enableTopicHierarchy = (!isThaiSource && isDhammapadaPaliPageMode()) || (isThaiSource && isDhammapadaThaiPartId(currentPartId));
             if (parts.length === 1 && !enableTopicHierarchy) {
                 literalSel.value = parts[0].id;
                 senseSel.value = parts[0].id;
@@ -3514,7 +3511,6 @@
                 if (senseHierarchy) senseHierarchy.classList.remove('d-none');
             }
             
-            const isThaiSource = subjectLabel.includes('ไทยเป็นมคธ');
             const isRelationThai = subjectLabel.includes('สัมพันธ์ไทย');
             const literalRow = document.getElementById('literalRow');
             const senseRow = document.getElementById('senseRow');
@@ -3528,8 +3524,6 @@
             const isThaiPageMode = isThaiSourcePageMode();
             const literalGrid = literalRow ? literalRow.querySelector('.grid-3') : null;
             const senseGrid = senseRow ? senseRow.querySelector('.grid-3') : null;
-            const currentPartId = String(literalSel?.value || parts?.[0]?.id || '').trim();
-            const enableTopicHierarchy = (!isThaiSource && isDhammapadaPaliPageMode()) || (isThaiSource && isDhammapadaThaiPartId(currentPartId));
             if ((isMangalaPageMode || isThaiPageMode) && !enableTopicHierarchy) {
                 if (literalGrid) literalGrid.classList.add('d-none');
                 if (senseGrid) senseGrid.classList.add('d-none');
