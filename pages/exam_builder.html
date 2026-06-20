@@ -5419,7 +5419,7 @@
             updateVolumeSelectors();
             let literalVol = parseInt(document.getElementById('literalVolumeSelect')?.value || '0', 10) || 0;
             let senseVol = parseInt(document.getElementById('senseVolumeSelect')?.value || '0', 10) || 0;
-            if (isMangala01PageMode() && !isThaiSource && isDhammapadaPaliPageMode()) {
+            if (!isThaiSource && isDhammapadaPaliPageMode()) {
                 literalVol = getDhammapadaPaliVolumeIndexForPart(level, literalPart);
                 senseVol = getDhammapadaPaliVolumeIndexForPart(level, sensePart);
                 const lv = document.getElementById('literalVolumeSelect');
