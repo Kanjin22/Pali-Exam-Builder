@@ -3524,7 +3524,7 @@
             const isThaiPageMode = isThaiSourcePageMode();
             const literalGrid = literalRow ? literalRow.querySelector('.grid-3') : null;
             const senseGrid = senseRow ? senseRow.querySelector('.grid-3') : null;
-            if ((isMangalaPageMode || isThaiPageMode) && !enableTopicHierarchy) {
+            if (!enableTopicHierarchy) {
                 if (literalGrid) literalGrid.classList.add('d-none');
                 if (senseGrid) senseGrid.classList.add('d-none');
                 const keepThaiPartSelectors = isThaiPageMode && isThaiSource && parts.length > 1;
