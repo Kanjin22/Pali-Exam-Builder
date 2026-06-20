@@ -3500,7 +3500,7 @@
 
             const literalHierarchy = literalSel ? literalSel.parentElement : null;
             const senseHierarchy = senseSel ? senseSel.parentElement : null;
-            if (parts.length === 1) {
+            if (parts.length === 1 && !enableTopicHierarchy) {
                 literalSel.value = parts[0].id;
                 senseSel.value = parts[0].id;
                 if (literalHierarchy) literalHierarchy.classList.add('d-none');
