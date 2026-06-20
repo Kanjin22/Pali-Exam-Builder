@@ -110,8 +110,8 @@ def build_thai_topics_for_folder(folder_name: str, max_page: int) -> list[Topic]
                 break
     topics: list[Topic] = []
     for i, (vagga, story, start) in enumerate(stories):
-        next_start = stories[i + 1][2] if i + 1 < len(stories) else (max_page + 1)
-        end = max(start, min(max_page, next_start - 1))
+        next_start = stories[i + 1][2] if i + 1 < len(stories) else max_page
+        end = max(start, min(max_page, next_start))
         topics.append(Topic(vagga=vagga, story=story, start_page=start, end_page=end))
     return topics
 
@@ -141,8 +141,8 @@ def build_pali_topics_from_segments(volume_no: int, max_page: int) -> list[Topic
                 stories.append((current_vagga, pali, page))
     topics: list[Topic] = []
     for i, (vagga, story, start) in enumerate(stories):
-        next_start = stories[i + 1][2] if i + 1 < len(stories) else (max_page + 1)
-        end = max(start, min(max_page, next_start - 1))
+        next_start = stories[i + 1][2] if i + 1 < len(stories) else max_page
+        end = max(start, min(max_page, next_start))
         topics.append(Topic(vagga=vagga, story=story, start_page=start, end_page=end))
     return topics
 
