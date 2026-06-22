@@ -4695,15 +4695,15 @@
         };
         let ensureCaretFrame = 0;
 
-        // ช่วยเลือกข้อความบน iPad/iPhone และดูแลการเลื่อนเคอร์เซอร์ (caret) ให้ใช้งานสะดวกขึ้น
-        function isIosDevice() {
+        // ช่วยเลือกข้อความบน iPad/iPhone/Android และดูแลการเลื่อนเคอร์เซอร์ (caret) ให้ใช้งานสะดวกขึ้น
+        function isTouchDevice() {
             const ua = navigator.userAgent || '';
-            if (/iPad|iPhone|iPod/i.test(ua)) return true;
+            if (/iPad|iPhone|iPod|Android/i.test(ua)) return true;
             return (navigator.platform === 'MacIntel' && (navigator.maxTouchPoints || 0) > 1);
         }
 
         function scheduleEnsureCaretVisible() {
-            if (!isIosDevice()) return;
+            if (!isTouchDevice()) return;
             if (ensureCaretFrame) cancelAnimationFrame(ensureCaretFrame);
             ensureCaretFrame = requestAnimationFrame(() => {
                 ensureCaretFrame = 0;
@@ -5047,8 +5047,8 @@
             // แถบเครื่องมือ
             const toolbar = document.createElement('div');
             toolbar.className = 'd-flex items-start gap-10 mb-10';
-            const ios = isIosDevice();
-            if (ios) {
+            const isTouch = isTouchDevice();
+            if (isTouch) {
                 tapSelectMode[mode] = true;
             }
             toolbar.innerHTML = `
@@ -5057,11 +5057,11 @@
                         <i class="fa-solid fa-file-import"></i> นำข้อความที่คลุมดำไปออกข้อสอบ
                     </button>
                     <div class="text-sm text-gray-666 import-hint">
-                        <i class="fa-solid fa-circle-info"></i> ${ios ? 'แตะเลือกได้ (แตะ 1 ครั้ง=เริ่ม, แตะอีกครั้ง=จบ) แล้วกดปุ่มนี้' : 'ลากคลุมดำข้อความในกล่องด้านล่าง แล้วกดปุ่มนี้'}
+                        <i class="fa-solid fa-circle-info"></i> ${isTouch ? 'แตะเลือกได้ (แตะ 1 ครั้ง=เริ่ม, แตะอีกครั้ง=จบ) แล้วกดปุ่มนี้' : 'ลากคลุมดำข้อความในกล่องด้านล่าง แล้วกดปุ่มนี้'}
                     </div>
                     <div class="text-sm selection-counter" id="selectionCounter-${mode}"></div>
                 </div>
-                <button class="btn ${ios ? 'primary' : 'secondary'} text-xs" id="btn-tap-${mode}" onclick="toggleTapSelectMode('${mode}')" title="โหมดแตะเลือก (เหมาะกับ iPad)">แตะเลือก: ${ios ? 'เปิด' : 'ปิด'}</button>
+                <button class="btn ${isTouch ? 'primary' : 'secondary'} text-xs" id="btn-tap-${mode}" onclick="toggleTapSelectMode('${mode}')" title="โหมดแตะเลือก (เหมาะกับหน้าจอสัมผัส)">แตะเลือก: ${isTouch ? 'เปิด' : 'ปิด'}</button>
                 <button class="btn secondary text-xs" onclick="clearTapSelection('${mode}')" title="ล้างช่วงที่แตะเลือก">ล้างช่วง</button>
                 <button class="btn secondary ml-auto text-xs" onclick="window.examContent['${getTargetModeFromRenderMode(mode)}'] = ''; buildExamPreview(); alert('ล้างค่าแล้ว');">
                     <i class="fa-solid fa-trash"></i> ล้างค่า
