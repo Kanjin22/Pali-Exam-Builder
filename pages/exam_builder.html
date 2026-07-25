@@ -805,20 +805,20 @@
         .paper-foot.paper-header-font { margin-top: 12px; line-height: 1.25; white-space: pre-wrap; }
 
         .layout-root { padding: 18px 24px calc(24px + 92px + env(safe-area-inset-bottom)) 24px; --tool-panel-width: 420px; }
-        .layout-top { display: flex; align-items: flex-start; gap: 18px; }
+        .layout-top { display: flex; align-items: flex-start; gap: 18px; flex-wrap: wrap; }
         .top-left { flex: 0 0 var(--tool-panel-width); width: var(--tool-panel-width); min-width: 320px; }
-        .top-right { flex: 1 1 auto; min-width: 0; }
+        .top-right { flex: 1 1 500px; min-width: 0; }
         .layout-sep { border-top: 1px solid #e0e0e0; margin: 18px 0; }
         .layout-bottom { display: flex; flex-direction: column; gap: 12px; }
-        .step3-main { display: flex; align-items: flex-start; gap: 18px; }
+        .step3-main { display: flex; align-items: flex-start; gap: 18px; flex-wrap: wrap; }
         .bottom-left { flex: 0 0 var(--tool-panel-width); width: var(--tool-panel-width); min-width: 320px; }
-        .bottom-right { flex: 1 1 auto; min-width: 0; }
+        .bottom-right { flex: 1 1 500px; min-width: 0; }
         .layout-bottom .section.non-print > h2 { text-align: center; }
         .step3-head { display: flex; flex-direction: column; gap: 10px; align-items: center; }
         .step3-head .editor-warning { width: 100%; max-width: none; margin: 0; }
         .step3-head .draft-status { width: 100%; max-width: none; margin: 0; }
         .step3-actions { width: 100%; }
-        .layout-root.step3-stacked .step3-main { flex-direction: column; }
+        .layout-root.step3-stacked .step3-main { flex-direction: column; flex-wrap: nowrap; }
         .layout-root.step3-stacked .bottom-left { flex: 1 1 auto; width: 100%; min-width: 0; }
         .layout-root.step3-stacked .bottom-right { width: 100%; }
         .layout-root.step3-stacked .bottom-left .toolbar { flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; overflow-x: auto; overflow-y: visible; padding: 10px; }
@@ -826,6 +826,18 @@
         .layout-root.step3-stacked .bottom-left .tool-row-label { min-width: 0; padding-top: 0; white-space: nowrap; }
         .layout-root.step3-stacked .bottom-left .tool-row-controls { flex-wrap: nowrap; white-space: nowrap; }
         .layout-root.step3-stacked .bottom-left .toolbar-group { flex-wrap: nowrap; }
+        @media only screen and (max-width: 1024px) {
+            .top-left { flex: 1 1 100%; width: 100%; min-width: 0; }
+            .top-right { flex: 1 1 100%; width: 100%; }
+            .bottom-left { flex: 1 1 100%; width: 100%; min-width: 0; }
+            .bottom-right { flex: 1 1 100%; width: 100%; }
+            .step3-main { flex-direction: column; flex-wrap: nowrap; }
+            .bottom-left .toolbar { flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px; overflow-x: auto; overflow-y: visible; padding: 10px; }
+            .bottom-left .tool-row { flex: 0 0 auto; border-top: 0; padding-top: 0; align-items: center; flex-wrap: nowrap; gap: 8px; background: #ffffff; border: 1px solid #eaeaea; border-radius: 12px; padding: 6px 10px; }
+            .bottom-left .tool-row-label { min-width: 0; padding-top: 0; white-space: nowrap; }
+            .bottom-left .tool-row-controls { flex-wrap: nowrap; white-space: nowrap; }
+            .bottom-left .toolbar-group { flex-wrap: nowrap; }
+        }
 
         .form-compact .row { margin: 10px 0; }
         .form-compact label { min-width: 92px; font-size: 0.9rem; }
