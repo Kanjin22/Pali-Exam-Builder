@@ -4699,12 +4699,25 @@
         let paperNormalizeFrame = 0;
         let isNormalizingPaperContent = false;
 
-        const tapSelectMode = { literal: false, sense: false };
+        const tapSelectMode = {
+            literal: false,
+            sense: false,
+            thai_source_literal: false,
+            thai_source_sense: false
+        };
         const tapSelectRange = {
             literal: { start: -1, end: -1 },
-            sense: { start: -1, end: -1 }
+            sense: { start: -1, end: -1 },
+            thai_source_literal: { start: -1, end: -1 },
+            thai_source_sense: { start: -1, end: -1 }
         };
         let ensureCaretFrame = 0;
+
+        function logicalTapModeKey(mode) {
+            const s = String(mode || '');
+            if (s === 'sense' || s === 'thai_source_sense') return 'sense';
+            return 'literal';
+        }
 
         // ช่วยเลือกข้อความบน iPad/iPhone/Android และดูแลการเลื่อนเคอร์เซอร์ (caret) ให้ใช้งานสะดวกขึ้น
         function isTouchDevice() {
@@ -4838,8 +4851,9 @@
         }
         function updateSelectionCounters() {
             selectionCounterFrame = 0;
-            updateSelectionCounterForMode('literal');
-            updateSelectionCounterForMode('sense');
+            ['literal', 'sense', 'thai_source_literal', 'thai_source_sense'].forEach((m) => {
+                updateSelectionCounterForMode(m);
+            });
         }
         function updateSelectionCounterForMode(mode) {
             const el = document.getElementById(`selectionCounter-${mode}`);
@@ -5585,6 +5599,8 @@
             resetSelection('sense');
             try { clearTapSelection('literal'); } catch (_) {}
             try { clearTapSelection('sense'); } catch (_) {}
+            try { clearTapSelection('thai_source_literal'); } catch (_) {}
+            try { clearTapSelection('thai_source_sense'); } catch (_) {}
             const idsToClear = ['literalStartPage', 'literalEndPage', 'senseStartPage', 'senseEndPage'];
             idsToClear.forEach((id) => {
                 const el = document.getElementById(id);
