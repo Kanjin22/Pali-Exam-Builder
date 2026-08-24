@@ -40,12 +40,35 @@
         "documentation": {}
     },
     {
-        "label": "argparse",
-        "kind": 6,
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
         "documentation": {}
     },
     {
@@ -99,6 +122,62 @@
         "documentation": {}
     },
     {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -136,6 +215,255 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Segment",
+        "kind": 6,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "class Segment:\n    id: str\n    volume: int\n    page_start: int\n    page_end: int\n    pali: str\n@dataclass\nclass AnnotationFields:\n    sense_thai: str = \"\"\ndef classify_segment_type(text: str) -> str:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "AnnotationFields",
+        "kind": 6,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "class AnnotationFields:\n    sense_thai: str = \"\"\ndef classify_segment_type(text: str) -> str:\n    s = str(text or \"\").strip()\n    if not s:\n        return \"content\"\n    if re.fullmatch(r\"-{3,}\", s):\n        return \"separator\"\n    if re.search(r\"วณฺณนา$\", s) or re.search(r\"ปริจฺเฉโท$\", s):\n        return \"heading\"",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "parse_page_number",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(page: int) -> str:\n    local_page = max(1, min(MAX_PAGE, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(MAX_PAGE, chunk_start + 9)",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "pad_chunk_page_number",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(page: int) -> str:\n    local_page = max(1, min(MAX_PAGE, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(MAX_PAGE, chunk_start + 9)\n    suffix = \" (จบ)\" if chunk_end >= MAX_PAGE else \"\"\n    range_part = f\"{pad_chunk_page_number(chunk_start)}-{pad_chunk_page_number(chunk_end)}\"\n    return f\"{RAW_CHUNK_BASE_NAME} - หน้า {range_part}{suffix}.txt\"\ndef decode_thai_bytes(b: bytes) -> str:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "chunk_filename_for_page",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def chunk_filename_for_page(page: int) -> str:\n    local_page = max(1, min(MAX_PAGE, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(MAX_PAGE, chunk_start + 9)\n    suffix = \" (จบ)\" if chunk_end >= MAX_PAGE else \"\"\n    range_part = f\"{pad_chunk_page_number(chunk_start)}-{pad_chunk_page_number(chunk_end)}\"\n    return f\"{RAW_CHUNK_BASE_NAME} - หน้า {range_part}{suffix}.txt\"\ndef decode_thai_bytes(b: bytes) -> str:\n    encodings = [\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"]\n    for enc in encodings:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "decode_thai_bytes",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def decode_thai_bytes(b: bytes) -> str:\n    encodings = [\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"]\n    for enc in encodings:\n        try:\n            t = b.decode(enc, errors=\"replace\")\n        except Exception:\n            continue\n        if \"�\" not in t:\n            return t\n    return b.decode(\"utf-8\", errors=\"replace\")",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "extract_raw_chunk_page_text",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def extract_raw_chunk_page_text(text: str, target_page: int) -> str:\n    lines = str(text or \"\").replace(\"\\r\\n\", \"\\n\").replace(\"\\r\", \"\\n\").split(\"\\n\")\n    markers: list[tuple[int, int]] = []\n    for i, raw in enumerate(lines):\n        line = str(raw or \"\").strip()\n        m = re.search(r\"หน้า\\s*([๐-๙0-9]+)\\s*$\", line)\n        if not m:\n            continue\n        markers.append((i, parse_page_number(m.group(1))))\n    idx = next((j for j, (_, p) in enumerate(markers) if p == target_page), -1)",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "clean_page_lines_for_segments",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def clean_page_lines_for_segments(page_text: str) -> list[str]:\n    lines = str(page_text or \"\").replace(\"\\r\\n\", \"\\n\").replace(\"\\r\", \"\\n\").split(\"\\n\")\n    out: list[str] = []\n    for raw in lines:\n        line = str(raw or \"\").replace(\"\\u00a0\", \" \").rstrip()\n        trimmed = line.strip()\n        if not trimmed:\n            continue\n        if trimmed.startswith(\"@\"):\n            continue",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "classify_segment_type",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def classify_segment_type(text: str) -> str:\n    s = str(text or \"\").strip()\n    if not s:\n        return \"content\"\n    if re.fullmatch(r\"-{3,}\", s):\n        return \"separator\"\n    if re.search(r\"วณฺณนา$\", s) or re.search(r\"ปริจฺเฉโท$\", s):\n        return \"heading\"\n    return \"content\"\ndef should_use_in_exam_selection(segment_type: str) -> bool:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "should_use_in_exam_selection",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def should_use_in_exam_selection(segment_type: str) -> bool:\n    return segment_type != \"separator\"\ndef read_annotation_fields(obj: dict) -> AnnotationFields:\n    return AnnotationFields(sense_thai=str(obj.get(\"senseThai\") or obj.get(\"thai\") or \"\"))\ndef load_existing_records() -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    if not OUTPUT_PATH.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}\n    with OUTPUT_PATH.open(\"r\", encoding=\"utf-8\") as f:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "read_annotation_fields",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def read_annotation_fields(obj: dict) -> AnnotationFields:\n    return AnnotationFields(sense_thai=str(obj.get(\"senseThai\") or obj.get(\"thai\") or \"\"))\ndef load_existing_records() -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    if not OUTPUT_PATH.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}\n    with OUTPUT_PATH.open(\"r\", encoding=\"utf-8\") as f:\n        for raw in f:\n            line = str(raw or \"\").strip()",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "load_existing_records",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def load_existing_records() -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    if not OUTPUT_PATH.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}\n    with OUTPUT_PATH.open(\"r\", encoding=\"utf-8\") as f:\n        for raw in f:\n            line = str(raw or \"\").strip()\n            if not line:\n                continue",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "iter_segments",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def iter_segments() -> list[Segment]:\n    segments: list[Segment] = []\n    buf: list[str] = []\n    start_page = 1\n    seg_index = 0\n    def add_segment(text: str, page_start: int, page_end: int) -> None:\n        nonlocal seg_index\n        cleaned = re.sub(r\"\\s+\", \" \", str(text or \"\")).strip()\n        cleaned = re.sub(r\"\\s+([ฯ.])\", r\"\\1\", cleaned)\n        if not cleaned:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "def main() -> None:\n    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)\n    segments = iter_segments()\n    existing_annotations_by_id, existing_annotations_by_pali = load_existing_records()\n    with OUTPUT_PATH.open(\"w\", encoding=\"utf-8\", newline=\"\\n\") as f:\n        for s in segments:\n            segment_type = classify_segment_type(s.pali)\n            annotations = existing_annotations_by_id.get(s.id, existing_annotations_by_pali.get(s.pali, AnnotationFields()))\n            f.write(\n                json.dumps(",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "PROJECT_ROOT = Path(r\"d:\\Pali-Exam-Builder\")\nRAW_DIR = PROJECT_ROOT / \"data\" / \"อภิธรรมฯ\" / \"บาลี\" / \"(ไฟล์ดิบ) อภิธมฺมตฺถสงฺคหปาลิยา (สมบูรณ์)\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"อภิธรรมฯ\" / \"segments\"\nOUTPUT_PATH = OUTPUT_DIR / \"อภิธมฺมตฺถสงฺคหปาลิ.segments.jsonl\"\nBOOK = \"อภิธรรมฯ\"\nSOURCE = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nVOLUME_NO = 1\nMAX_PAGE = 279\nRAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "RAW_DIR",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "RAW_DIR = PROJECT_ROOT / \"data\" / \"อภิธรรมฯ\" / \"บาลี\" / \"(ไฟล์ดิบ) อภิธมฺมตฺถสงฺคหปาลิยา (สมบูรณ์)\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"อภิธรรมฯ\" / \"segments\"\nOUTPUT_PATH = OUTPUT_DIR / \"อภิธมฺมตฺถสงฺคหปาลิ.segments.jsonl\"\nBOOK = \"อภิธรรมฯ\"\nSOURCE = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nVOLUME_NO = 1\nMAX_PAGE = 279\nRAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_DIR",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "OUTPUT_DIR = PROJECT_ROOT / \"data\" / \"อภิธรรมฯ\" / \"segments\"\nOUTPUT_PATH = OUTPUT_DIR / \"อภิธมฺมตฺถสงฺคหปาลิ.segments.jsonl\"\nBOOK = \"อภิธรรมฯ\"\nSOURCE = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nVOLUME_NO = 1\nMAX_PAGE = 279\nRAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_PATH",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "OUTPUT_PATH = OUTPUT_DIR / \"อภิธมฺมตฺถสงฺคหปาลิ.segments.jsonl\"\nBOOK = \"อภิธรรมฯ\"\nSOURCE = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nVOLUME_NO = 1\nMAX_PAGE = 279\nRAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "BOOK",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "BOOK = \"อภิธรรมฯ\"\nSOURCE = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nVOLUME_NO = 1\nMAX_PAGE = 279\nRAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "SOURCE",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "SOURCE = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nVOLUME_NO = 1\nMAX_PAGE = 279\nRAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "VOLUME_NO",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "VOLUME_NO = 1\nMAX_PAGE = 279\nRAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_PAGE",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "MAX_PAGE = 279\nRAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(page: int) -> str:",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "RAW_CHUNK_BASE_NAME",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "RAW_CHUNK_BASE_NAME = \"อภิธมฺมตฺถสงฺคหปาลิ\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(page: int) -> str:\n    local_page = max(1, min(MAX_PAGE, int(page) if page else 1))",
+        "detail": "tools.build_abhidhamma_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "THAI_DIGITS",
+        "kind": 5,
+        "importPath": "tools.build_abhidhamma_v1_segments",
+        "description": "tools.build_abhidhamma_v1_segments",
+        "peekOfCode": "THAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(page: int) -> str:\n    local_page = max(1, min(MAX_PAGE, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1",
+        "detail": "tools.build_abhidhamma_v1_segments",
         "documentation": {}
     },
     {
@@ -352,6 +680,177 @@
         "description": "tools.build_dhammapada_segments",
         "peekOfCode": "THAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    return str(int(n)).translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(volume_no: int, max_page: int, page: int) -> str:",
         "detail": "tools.build_dhammapada_segments",
+        "documentation": {}
+    },
+    {
+        "label": "Topic",
+        "kind": 6,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "class Topic:\n    vagga: str\n    story: str\n    start_page: int\n    end_page: int\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef thai_to_arabic(s: str) -> str:\n    return str(s or \"\").translate(THAI_DIGITS)\ndef parse_page_number(s: str) -> int:\n    raw = thai_to_arabic(str(s or \"\").strip())",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "thai_to_arabic",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def thai_to_arabic(s: str) -> str:\n    return str(s or \"\").translate(THAI_DIGITS)\ndef parse_page_number(s: str) -> int:\n    raw = thai_to_arabic(str(s or \"\").strip())\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef decode_thai_bytes(b: bytes) -> str:\n    for enc in (\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"):\n        try:\n            t = b.decode(enc, errors=\"replace\")",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "parse_page_number",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def parse_page_number(s: str) -> int:\n    raw = thai_to_arabic(str(s or \"\").strip())\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef decode_thai_bytes(b: bytes) -> str:\n    for enc in (\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"):\n        try:\n            t = b.decode(enc, errors=\"replace\")\n        except Exception:\n            continue",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "decode_thai_bytes",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def decode_thai_bytes(b: bytes) -> str:\n    for enc in (\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"):\n        try:\n            t = b.decode(enc, errors=\"replace\")\n        except Exception:\n            continue\n        if \"�\" not in t:\n            return t\n    return b.decode(\"cp874\", errors=\"replace\")\ndef strip_html(s: str) -> str:",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "strip_html",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def strip_html(s: str) -> str:\n    t = str(s or \"\")\n    t = re.sub(r\"<\\s*br\\s*/?\\s*>\", \"\\n\", t, flags=re.IGNORECASE)\n    t = re.sub(r\"<\\s*/?\\s*sup\\b[^>]*>\", \"\", t, flags=re.IGNORECASE)\n    t = re.sub(r\"<\\s*/?\\s*b\\b[^>]*>\", \"\", t, flags=re.IGNORECASE)\n    t = re.sub(r\"<[^>]+>\", \"\", t)\n    t = t.replace(\"\\u00a0\", \" \")\n    return t\ndef clean_title_text(s: str) -> str:\n    t = str(s or \"\")",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "clean_title_text",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def clean_title_text(s: str) -> str:\n    t = str(s or \"\")\n    t = strip_html(t)\n    t = re.sub(r\"^\\s*\\d{1,4}\\s+(?=[๐-๙0-9]+\\.)\", \"\", t)\n    t = re.sub(r\"\\[\\s*[๐-๙0-9]+\\s*\\]\\s*$\", \"\", t).strip()\n    t = re.sub(r\"\\s+\", \" \", t).strip()\n    t = t.replace(\"*\", \"\").strip()\n    return t\ndef extract_story_base_name(title: str) -> str:\n    t = re.sub(r\"^[๐-๙0-9]+\\.\\s*\", \"\", title)",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "extract_story_base_name",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def extract_story_base_name(title: str) -> str:\n    t = re.sub(r\"^[๐-๙0-9]+\\.\\s*\", \"\", title)\n    t = re.sub(r\"\\s*\\([๐-๙0-9]+\\)\\s*$\", \"\", t)\n    return t.strip()\nHEADING_THAI_RE = re.compile(r\"^\\s*[๐-๙0-9]+\\.\\s*.+วรรค\\s*วรรณนา\\s*$\")\nSTORY_THAI_RE = re.compile(r\"^\\s*[๐-๙0-9]+\\.\\s*เรื่อง.+$\")\ndef iter_thai_page_lines(folder: Path, page: int) -> list[str]:\n    candidates = [\n        folder / f\"{str(page).rjust(6, '0')}.txt\",\n        folder / f\"{str(page).rjust(6, '0')}.TXT\",",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "iter_thai_page_lines",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def iter_thai_page_lines(folder: Path, page: int) -> list[str]:\n    candidates = [\n        folder / f\"{str(page).rjust(6, '0')}.txt\",\n        folder / f\"{str(page).rjust(6, '0')}.TXT\",\n        folder / f\"{str(page).rjust(3, '0')}.txt\",\n        folder / f\"{str(page).rjust(3, '0')}.TXT\",\n    ]\n    path = next((p for p in candidates if p.exists()), None)\n    if path is None:\n        matches = sorted(folder.glob(f\"*{str(page).rjust(3, '0')}.txt\"))",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "build_thai_topics_for_folder",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def build_thai_topics_for_folder(folder_name: str, max_page: int) -> list[Topic]:\n    folder = THAI_ROOT / folder_name\n    current_vagga = \"\"\n    stories: list[dict] = []\n    for page in range(1, max_page + 1):\n        lines = iter_thai_page_lines(folder, page)\n        for line in lines[:40]:\n            if HEADING_THAI_RE.match(line):\n                current_vagga = line\n                break",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "build_pali_topics_from_segments",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def build_pali_topics_from_segments(volume_no: int, max_page: int) -> list[Topic]:\n    vol_thai = str(volume_no).translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\n    path = PALI_SEGMENTS_DIR / f\"ธมฺมปทฏฺฐกถา_{vol_thai}.segments.jsonl\"\n    if not path.exists():\n        return []\n    current_vagga = \"\"\n    stories: list[dict] = []\n    with path.open(\"r\", encoding=\"utf-8\") as f:\n        for raw in f:\n            line = str(raw or \"\").strip()",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "write_json",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def write_json(path: Path, data: dict) -> None:\n    path.parent.mkdir(parents=True, exist_ok=True)\n    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding=\"utf-8\")\ndef main() -> None:\n    generated_at = datetime.now(timezone.utc).isoformat()\n    pali_volume_cfg = {\n        1: {\"max_page\": 148, \"part_id\": \"dhamma-1\"},\n        2: {\"max_page\": 158, \"part_id\": \"dhamma-2\"},\n        3: {\"max_page\": 190, \"part_id\": \"dhamma-3\"},\n        4: {\"max_page\": 149, \"part_id\": \"dhamma-4\"},",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "def main() -> None:\n    generated_at = datetime.now(timezone.utc).isoformat()\n    pali_volume_cfg = {\n        1: {\"max_page\": 148, \"part_id\": \"dhamma-1\"},\n        2: {\"max_page\": 158, \"part_id\": \"dhamma-2\"},\n        3: {\"max_page\": 190, \"part_id\": \"dhamma-3\"},\n        4: {\"max_page\": 149, \"part_id\": \"dhamma-4\"},\n        5: {\"max_page\": 120, \"part_id\": \"dhamma-5\"},\n        6: {\"max_page\": 189, \"part_id\": \"dhamma-6\"},\n        7: {\"max_page\": 162, \"part_id\": \"dhamma-7\"},",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "kind": 5,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "PROJECT_ROOT = Path(r\"d:\\Pali-Exam-Builder\")\nPALI_SEGMENTS_DIR = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"segments\"\nTHAI_ROOT = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"ไทย\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"topics\"\n@dataclass(frozen=True)\nclass Topic:\n    vagga: str\n    story: str\n    start_page: int\n    end_page: int",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "PALI_SEGMENTS_DIR",
+        "kind": 5,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "PALI_SEGMENTS_DIR = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"segments\"\nTHAI_ROOT = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"ไทย\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"topics\"\n@dataclass(frozen=True)\nclass Topic:\n    vagga: str\n    story: str\n    start_page: int\n    end_page: int\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "THAI_ROOT",
+        "kind": 5,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "THAI_ROOT = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"ไทย\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"topics\"\n@dataclass(frozen=True)\nclass Topic:\n    vagga: str\n    story: str\n    start_page: int\n    end_page: int\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef thai_to_arabic(s: str) -> str:",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_DIR",
+        "kind": 5,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "OUTPUT_DIR = PROJECT_ROOT / \"data\" / \"ธรรมบท\" / \"topics\"\n@dataclass(frozen=True)\nclass Topic:\n    vagga: str\n    story: str\n    start_page: int\n    end_page: int\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef thai_to_arabic(s: str) -> str:\n    return str(s or \"\").translate(THAI_DIGITS)",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "THAI_DIGITS",
+        "kind": 5,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "THAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef thai_to_arabic(s: str) -> str:\n    return str(s or \"\").translate(THAI_DIGITS)\ndef parse_page_number(s: str) -> int:\n    raw = thai_to_arabic(str(s or \"\").strip())\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef decode_thai_bytes(b: bytes) -> str:\n    for enc in (\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"):\n        try:",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "HEADING_THAI_RE",
+        "kind": 5,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "HEADING_THAI_RE = re.compile(r\"^\\s*[๐-๙0-9]+\\.\\s*.+วรรค\\s*วรรณนา\\s*$\")\nSTORY_THAI_RE = re.compile(r\"^\\s*[๐-๙0-9]+\\.\\s*เรื่อง.+$\")\ndef iter_thai_page_lines(folder: Path, page: int) -> list[str]:\n    candidates = [\n        folder / f\"{str(page).rjust(6, '0')}.txt\",\n        folder / f\"{str(page).rjust(6, '0')}.TXT\",\n        folder / f\"{str(page).rjust(3, '0')}.txt\",\n        folder / f\"{str(page).rjust(3, '0')}.TXT\",\n    ]\n    path = next((p for p in candidates if p.exists()), None)",
+        "detail": "tools.build_dhammapada_topic_index",
+        "documentation": {}
+    },
+    {
+        "label": "STORY_THAI_RE",
+        "kind": 5,
+        "importPath": "tools.build_dhammapada_topic_index",
+        "description": "tools.build_dhammapada_topic_index",
+        "peekOfCode": "STORY_THAI_RE = re.compile(r\"^\\s*[๐-๙0-9]+\\.\\s*เรื่อง.+$\")\ndef iter_thai_page_lines(folder: Path, page: int) -> list[str]:\n    candidates = [\n        folder / f\"{str(page).rjust(6, '0')}.txt\",\n        folder / f\"{str(page).rjust(6, '0')}.TXT\",\n        folder / f\"{str(page).rjust(3, '0')}.txt\",\n        folder / f\"{str(page).rjust(3, '0')}.TXT\",\n    ]\n    path = next((p for p in candidates if p.exists()), None)\n    if path is None:",
+        "detail": "tools.build_dhammapada_topic_index",
         "documentation": {}
     },
     {
@@ -1000,6 +1499,456 @@
         "description": "tools.build_mangala_v2_segments",
         "peekOfCode": "THAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")",
         "detail": "tools.build_mangala_v2_segments",
+        "documentation": {}
+    },
+    {
+        "label": "Segment",
+        "kind": 6,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "class Segment:\n    id: str\n    volume: int\n    page_start: int\n    page_end: int\n    pali: str\n@dataclass\nclass AnnotationFields:\n    sense_thai: str = \"\"\ndef classify_segment_type(text: str) -> str:",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "AnnotationFields",
+        "kind": 6,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "class AnnotationFields:\n    sense_thai: str = \"\"\ndef classify_segment_type(text: str) -> str:\n    s = str(text or \"\").strip()\n    if not s:\n        return \"content\"\n    if re.fullmatch(r\"-{3,}\", s):\n        return \"separator\"\n    if re.match(r\"^[๐-๙0-9]+\\.\\s*.+วณฺณนา$\", s):\n        return \"heading\"",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "to_thai_digits",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(page: int) -> str:",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "parse_page_number",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(page: int) -> str:\n    local_page = max(1, min(MAX_PAGE, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(MAX_PAGE, chunk_start + 9)",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "pad_chunk_page_number",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(page: int) -> str:\n    local_page = max(1, min(MAX_PAGE, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(MAX_PAGE, chunk_start + 9)\n    suffix = \" (จบ)\" if chunk_end >= MAX_PAGE else \"\"\n    range_part = f\"{pad_chunk_page_number(chunk_start)}-{pad_chunk_page_number(chunk_end)}\"\n    vol_thai = to_thai_digits(VOLUME_NO)\n    return f\"{RAW_CHUNK_BASE_NAME} ({vol_thai}) - หน้า {range_part}{suffix}.txt\"",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "chunk_filename_for_page",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def chunk_filename_for_page(page: int) -> str:\n    local_page = max(1, min(MAX_PAGE, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(MAX_PAGE, chunk_start + 9)\n    suffix = \" (จบ)\" if chunk_end >= MAX_PAGE else \"\"\n    range_part = f\"{pad_chunk_page_number(chunk_start)}-{pad_chunk_page_number(chunk_end)}\"\n    vol_thai = to_thai_digits(VOLUME_NO)\n    return f\"{RAW_CHUNK_BASE_NAME} ({vol_thai}) - หน้า {range_part}{suffix}.txt\"\ndef decode_thai_bytes(b: bytes) -> str:\n    encodings = [\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"]",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "decode_thai_bytes",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def decode_thai_bytes(b: bytes) -> str:\n    encodings = [\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"]\n    for enc in encodings:\n        try:\n            t = b.decode(enc, errors=\"replace\")\n        except Exception:\n            continue\n        if \"�\" not in t:\n            return t\n    return b.decode(\"utf-8\", errors=\"replace\")",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "extract_raw_chunk_page_text",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def extract_raw_chunk_page_text(text: str, target_page: int) -> str:\n    lines = str(text or \"\").replace(\"\\r\\n\", \"\\n\").replace(\"\\r\", \"\\n\").split(\"\\n\")\n    markers: list[tuple[int, int]] = []\n    for i, raw in enumerate(lines):\n        line = str(raw or \"\").strip()\n        m = re.search(r\"หน้า\\s*([๐-๙0-9]+)\\s*$\", line)\n        if not m:\n            continue\n        markers.append((i, parse_page_number(m.group(1))))\n    idx = next((j for j, (_, p) in enumerate(markers) if p == target_page), -1)",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "clean_page_lines_for_segments",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def clean_page_lines_for_segments(page_text: str) -> list[str]:\n    lines = str(page_text or \"\").replace(\"\\r\\n\", \"\\n\").replace(\"\\r\", \"\\n\").split(\"\\n\")\n    out: list[str] = []\n    for raw in lines:\n        line = str(raw or \"\").replace(\"\\u00a0\", \" \").rstrip()\n        trimmed = line.strip()\n        if not trimmed:\n            continue\n        if trimmed.startswith(\"@\"):\n            continue",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "classify_segment_type",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def classify_segment_type(text: str) -> str:\n    s = str(text or \"\").strip()\n    if not s:\n        return \"content\"\n    if re.fullmatch(r\"-{3,}\", s):\n        return \"separator\"\n    if re.match(r\"^[๐-๙0-9]+\\.\\s*.+วณฺณนา$\", s):\n        return \"heading\"\n    if re.match(r\"^[๐-๙0-9]+\\.\\s*.+วตฺถุ\\.\\s*(\\([๐-๙0-9]+\\))?$\", s):\n        return \"story_title\"",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "should_use_in_exam_selection",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def should_use_in_exam_selection(segment_type: str) -> bool:\n    return segment_type != \"separator\"\ndef read_annotation_fields(obj: dict) -> AnnotationFields:\n    return AnnotationFields(sense_thai=str(obj.get(\"senseThai\") or obj.get(\"thai\") or \"\"))\ndef load_existing_records() -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    if not OUTPUT_PATH.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}\n    with OUTPUT_PATH.open(\"r\", encoding=\"utf-8\") as f:",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "read_annotation_fields",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def read_annotation_fields(obj: dict) -> AnnotationFields:\n    return AnnotationFields(sense_thai=str(obj.get(\"senseThai\") or obj.get(\"thai\") or \"\"))\ndef load_existing_records() -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    if not OUTPUT_PATH.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}\n    with OUTPUT_PATH.open(\"r\", encoding=\"utf-8\") as f:\n        for raw in f:\n            line = str(raw or \"\").strip()",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "load_existing_records",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def load_existing_records() -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    if not OUTPUT_PATH.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}\n    with OUTPUT_PATH.open(\"r\", encoding=\"utf-8\") as f:\n        for raw in f:\n            line = str(raw or \"\").strip()\n            if not line:\n                continue",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "iter_segments",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def iter_segments() -> list[Segment]:\n    segments: list[Segment] = []\n    buf: list[str] = []\n    start_page = 1\n    seg_index = 0\n    def add_segment(text: str, page_start: int, page_end: int) -> None:\n        nonlocal seg_index\n        cleaned = re.sub(r\"\\s+\", \" \", str(text or \"\")).strip()\n        cleaned = re.sub(r\"\\s+([ฯ.])\", r\"\\1\", cleaned)\n        if not cleaned:",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "def main() -> None:\n    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)\n    segments = iter_segments()\n    existing_annotations_by_id, existing_annotations_by_pali = load_existing_records()\n    with OUTPUT_PATH.open(\"w\", encoding=\"utf-8\", newline=\"\\n\") as f:\n        for s in segments:\n            segment_type = classify_segment_type(s.pali)\n            annotations = existing_annotations_by_id.get(s.id, existing_annotations_by_pali.get(s.pali, AnnotationFields()))\n            f.write(\n                json.dumps(",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "PROJECT_ROOT = Path(r\"d:\\Pali-Exam-Builder\")\nRAW_DIR = PROJECT_ROOT / \"data\" / \"สมันตปาสาทิกา\" / \"บาลี\" / \"(ไฟล์ดิบ) สมนฺตปาสาทิกา นาม วินยฏฺฐกถา (๑) ปฐโม ภาโค (สมบูรณ์)\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"สมันตปาสาทิกา\" / \"segments\"\nOUTPUT_PATH = OUTPUT_DIR / \"สมนฺตปาสาทิกา_01.segments.jsonl\"\nBOOK = \"สมันตปาสาทิกา\"\nSOURCE = \"สมนฺตปาสาทิกา\"\nVOLUME_NO = 1\nMAX_PAGE = 630\nRAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "RAW_DIR",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "RAW_DIR = PROJECT_ROOT / \"data\" / \"สมันตปาสาทิกา\" / \"บาลี\" / \"(ไฟล์ดิบ) สมนฺตปาสาทิกา นาม วินยฏฺฐกถา (๑) ปฐโม ภาโค (สมบูรณ์)\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"สมันตปาสาทิกา\" / \"segments\"\nOUTPUT_PATH = OUTPUT_DIR / \"สมนฺตปาสาทิกา_01.segments.jsonl\"\nBOOK = \"สมันตปาสาทิกา\"\nSOURCE = \"สมนฺตปาสาทิกา\"\nVOLUME_NO = 1\nMAX_PAGE = 630\nRAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_DIR",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "OUTPUT_DIR = PROJECT_ROOT / \"data\" / \"สมันตปาสาทิกา\" / \"segments\"\nOUTPUT_PATH = OUTPUT_DIR / \"สมนฺตปาสาทิกา_01.segments.jsonl\"\nBOOK = \"สมันตปาสาทิกา\"\nSOURCE = \"สมนฺตปาสาทิกา\"\nVOLUME_NO = 1\nMAX_PAGE = 630\nRAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_PATH",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "OUTPUT_PATH = OUTPUT_DIR / \"สมนฺตปาสาทิกา_01.segments.jsonl\"\nBOOK = \"สมันตปาสาทิกา\"\nSOURCE = \"สมนฺตปาสาทิกา\"\nVOLUME_NO = 1\nMAX_PAGE = 630\nRAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "BOOK",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "BOOK = \"สมันตปาสาทิกา\"\nSOURCE = \"สมนฺตปาสาทิกา\"\nVOLUME_NO = 1\nMAX_PAGE = 630\nRAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "SOURCE",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "SOURCE = \"สมนฺตปาสาทิกา\"\nVOLUME_NO = 1\nMAX_PAGE = 630\nRAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "VOLUME_NO",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "VOLUME_NO = 1\nMAX_PAGE = 630\nRAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_PAGE",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "MAX_PAGE = 630\nRAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "RAW_CHUNK_BASE_NAME",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "RAW_CHUNK_BASE_NAME = \"สมนฺตปาสาทิกา\"\nTHAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "THAI_DIGITS",
+        "kind": 5,
+        "importPath": "tools.build_samanta_v1_segments",
+        "description": "tools.build_samanta_v1_segments",
+        "peekOfCode": "THAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef to_thai_digits(n: int) -> str:\n    s = str(int(n))\n    return s.translate(str.maketrans(\"0123456789\", \"๐๑๒๓๔๕๖๗๘๙\"))\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")",
+        "detail": "tools.build_samanta_v1_segments",
+        "documentation": {}
+    },
+    {
+        "label": "Segment",
+        "kind": 6,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "class Segment:\n    id: str\n    volume: int\n    page_start: int\n    page_end: int\n    pali: str\n@dataclass\nclass AnnotationFields:\n    sense_thai: str = \"\"\ndef classify_segment_type(text: str) -> str:",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "AnnotationFields",
+        "kind": 6,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "class AnnotationFields:\n    sense_thai: str = \"\"\ndef classify_segment_type(text: str) -> str:\n    s = str(text or \"\").strip()\n    if not s:\n        return \"content\"\n    if re.fullmatch(r\"-{3,}\", s):\n        return \"separator\"\n    if re.search(r\"(นิทฺเทโส|ปริจฺเฉโท|ภาโค)$\", s):\n        return \"heading\"",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "parse_page_number",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(volume_no: int, max_page: int, page: int) -> str:\n    local_page = max(1, min(max_page, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(max_page, chunk_start + 9)",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "pad_chunk_page_number",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(volume_no: int, max_page: int, page: int) -> str:\n    local_page = max(1, min(max_page, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(max_page, chunk_start + 9)\n    suffix = \" (จบ)\" if chunk_end >= max_page else \"\"\n    if chunk_start == chunk_end:\n        page_part = pad_chunk_page_number(chunk_start)\n    else:",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "chunk_filename_for_page",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def chunk_filename_for_page(volume_no: int, max_page: int, page: int) -> str:\n    local_page = max(1, min(max_page, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1\n    chunk_end = min(max_page, chunk_start + 9)\n    suffix = \" (จบ)\" if chunk_end >= max_page else \"\"\n    if chunk_start == chunk_end:\n        page_part = pad_chunk_page_number(chunk_start)\n    else:\n        page_part = f\"{pad_chunk_page_number(chunk_start)}-{pad_chunk_page_number(chunk_end)}\"\n    return f\"{SOURCE} ({'๑' if volume_no == 1 else str(volume_no).translate(str.maketrans('0123456789', '๐๑๒๓๔๕๖๗๘๙'))}) - หน้า {page_part}{suffix}.txt\"",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "decode_thai_bytes",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def decode_thai_bytes(b: bytes) -> str:\n    for enc in (\"utf-8\", \"cp874\", \"tis-620\", \"iso8859_11\"):\n        try:\n            t = b.decode(enc, errors=\"replace\")\n        except Exception:\n            continue\n        if \"�\" not in t:\n            return t\n    return b.decode(\"utf-8\", errors=\"replace\")\ndef extract_raw_chunk_page_text(text: str, target_page: int) -> str:",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "extract_raw_chunk_page_text",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def extract_raw_chunk_page_text(text: str, target_page: int) -> str:\n    lines = str(text or \"\").replace(\"\\r\\n\", \"\\n\").replace(\"\\r\", \"\\n\").split(\"\\n\")\n    markers: list[tuple[int, int]] = []\n    for i, raw in enumerate(lines):\n        line = str(raw or \"\").strip()\n        m = re.search(r\"หน้า\\s*([๐-๙0-9]+)\\s*$\", line)\n        if m:\n            markers.append((i, parse_page_number(m.group(1))))\n    idx = next((j for j, (_, p) in enumerate(markers) if p == target_page), -1)\n    if idx < 0:",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "strip_raw_pali_footnote_markers",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def strip_raw_pali_footnote_markers(text: str) -> str:\n    out = str(text or \"\")\n    out = out.replace(\"\\u00a0\", \" \")\n    out = re.sub(r\"(^|[ \\t])(?:\\[[๐-๙0-9]{1,3}\\]|[๐-๙0-9]{1,3})\\s*-\\s*\", r\"\\1\", out)\n    out = re.sub(r\"\\[\\s*[^\\]\\r\\n\\s]{1,4}\\s*\\]\\s*-\\s*\", \"\", out)\n    out = re.sub(r\"\\[\\s*[^\\]\\r\\n\\s]{1,4}\\s*\\]\", \"\", out)\n    out = re.sub(r\"^\\s*\\*\\s*\", \"\", out)\n    return out\ndef clean_page_lines_for_segments(page_text: str) -> list[str]:\n    out: list[str] = []",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "clean_page_lines_for_segments",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def clean_page_lines_for_segments(page_text: str) -> list[str]:\n    out: list[str] = []\n    for raw in str(page_text or \"\").replace(\"\\r\\n\", \"\\n\").replace(\"\\r\", \"\\n\").split(\"\\n\"):\n        line = str(raw or \"\").rstrip()\n        trimmed = line.strip()\n        if not trimmed:\n            continue\n        if trimmed.startswith(\"@\"):\n            continue\n        if re.fullmatch(r\"[=]{10,}\", trimmed):",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "classify_segment_type",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def classify_segment_type(text: str) -> str:\n    s = str(text or \"\").strip()\n    if not s:\n        return \"content\"\n    if re.fullmatch(r\"-{3,}\", s):\n        return \"separator\"\n    if re.search(r\"(นิทฺเทโส|ปริจฺเฉโท|ภาโค)$\", s):\n        return \"heading\"\n    return \"content\"\ndef should_use_in_exam_selection(segment_type: str) -> bool:",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "should_use_in_exam_selection",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def should_use_in_exam_selection(segment_type: str) -> bool:\n    return segment_type != \"separator\"\ndef output_path_for_volume(volume_no: int) -> Path:\n    return OUTPUT_DIR / f\"{SOURCE}_{volume_no:02d}.segments.jsonl\"\ndef raw_dir_for_volume(volume_no: int) -> Path:\n    return RAW_ROOT / str(VOLUME_CONFIGS[volume_no][\"raw_dir_name\"])\ndef read_annotation_fields(obj: dict) -> AnnotationFields:\n    return AnnotationFields(sense_thai=str(obj.get(\"senseThai\") or obj.get(\"thai\") or \"\"))\ndef load_existing_records(volume_no: int) -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    output_path = output_path_for_volume(volume_no)",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "output_path_for_volume",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def output_path_for_volume(volume_no: int) -> Path:\n    return OUTPUT_DIR / f\"{SOURCE}_{volume_no:02d}.segments.jsonl\"\ndef raw_dir_for_volume(volume_no: int) -> Path:\n    return RAW_ROOT / str(VOLUME_CONFIGS[volume_no][\"raw_dir_name\"])\ndef read_annotation_fields(obj: dict) -> AnnotationFields:\n    return AnnotationFields(sense_thai=str(obj.get(\"senseThai\") or obj.get(\"thai\") or \"\"))\ndef load_existing_records(volume_no: int) -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    output_path = output_path_for_volume(volume_no)\n    if not output_path.exists():\n        return {}, {}",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "raw_dir_for_volume",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def raw_dir_for_volume(volume_no: int) -> Path:\n    return RAW_ROOT / str(VOLUME_CONFIGS[volume_no][\"raw_dir_name\"])\ndef read_annotation_fields(obj: dict) -> AnnotationFields:\n    return AnnotationFields(sense_thai=str(obj.get(\"senseThai\") or obj.get(\"thai\") or \"\"))\ndef load_existing_records(volume_no: int) -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    output_path = output_path_for_volume(volume_no)\n    if not output_path.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "read_annotation_fields",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def read_annotation_fields(obj: dict) -> AnnotationFields:\n    return AnnotationFields(sense_thai=str(obj.get(\"senseThai\") or obj.get(\"thai\") or \"\"))\ndef load_existing_records(volume_no: int) -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    output_path = output_path_for_volume(volume_no)\n    if not output_path.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}\n    with output_path.open(\"r\", encoding=\"utf-8\") as f:\n        for raw in f:",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "load_existing_records",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def load_existing_records(volume_no: int) -> tuple[dict[str, AnnotationFields], dict[str, AnnotationFields]]:\n    output_path = output_path_for_volume(volume_no)\n    if not output_path.exists():\n        return {}, {}\n    annotations_by_id: dict[str, AnnotationFields] = {}\n    annotations_by_pali: dict[str, AnnotationFields] = {}\n    with output_path.open(\"r\", encoding=\"utf-8\") as f:\n        for raw in f:\n            line = str(raw or \"\").strip()\n            if not line:",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "iter_segments",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def iter_segments(volume_no: int, max_page: int) -> list[Segment]:\n    raw_dir = raw_dir_for_volume(volume_no)\n    segments: list[Segment] = []\n    buf: list[str] = []\n    start_page = 1\n    seg_index = 0\n    def add_segment(text: str, page_start: int, page_end: int) -> None:\n        nonlocal seg_index\n        cleaned = re.sub(r\"\\s+\", \" \", str(text or \"\")).strip()\n        cleaned = re.sub(r\"\\s+([ฯ.])\", r\"\\1\", cleaned)",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "write_volume_segments",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def write_volume_segments(volume_no: int) -> int:\n    max_page = int(VOLUME_CONFIGS[volume_no][\"max_page\"])\n    output_path = output_path_for_volume(volume_no)\n    output_path.parent.mkdir(parents=True, exist_ok=True)\n    segments = iter_segments(volume_no, max_page)\n    annotations_by_id, annotations_by_pali = load_existing_records(volume_no)\n    with output_path.open(\"w\", encoding=\"utf-8\", newline=\"\\n\") as f:\n        for segment in segments:\n            segment_type = classify_segment_type(segment.pali)\n            annotations = annotations_by_id.get(segment.id, annotations_by_pali.get(segment.pali, AnnotationFields()))",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "def main() -> None:\n    counts = {}\n    for volume_no in sorted(VOLUME_CONFIGS):\n        counts[volume_no] = write_volume_segments(volume_no)\n    for volume_no, count in counts.items():\n        print(f\"Volume {volume_no}: wrote {count} segments to {output_path_for_volume(volume_no)}\")\nif __name__ == \"__main__\":\n    main()",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "kind": 5,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "PROJECT_ROOT = Path(r\"d:\\Pali-Exam-Builder\")\nRAW_ROOT = PROJECT_ROOT / \"data\" / \"วิสุทธิมรรค\" / \"บาลี\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"วิสุทธิมรรค\" / \"segments\"\nBOOK = \"วิสุทธิมรรค\"\nSOURCE = \"วิสุทฺธิมคฺค\"\nVOLUME_CONFIGS = {\n    1: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๑) ปฐโม ภาโค (สมบูรณ์)\",\n        \"max_page\": 291,\n    },",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "RAW_ROOT",
+        "kind": 5,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "RAW_ROOT = PROJECT_ROOT / \"data\" / \"วิสุทธิมรรค\" / \"บาลี\"\nOUTPUT_DIR = PROJECT_ROOT / \"data\" / \"วิสุทธิมรรค\" / \"segments\"\nBOOK = \"วิสุทธิมรรค\"\nSOURCE = \"วิสุทฺธิมคฺค\"\nVOLUME_CONFIGS = {\n    1: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๑) ปฐโม ภาโค (สมบูรณ์)\",\n        \"max_page\": 291,\n    },\n    2: {",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "OUTPUT_DIR",
+        "kind": 5,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "OUTPUT_DIR = PROJECT_ROOT / \"data\" / \"วิสุทธิมรรค\" / \"segments\"\nBOOK = \"วิสุทธิมรรค\"\nSOURCE = \"วิสุทฺธิมคฺค\"\nVOLUME_CONFIGS = {\n    1: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๑) ปฐโม ภาโค (สมบูรณ์)\",\n        \"max_page\": 291,\n    },\n    2: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๒) ทุติโย ภาโค (สมบูรณ์)\",",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "BOOK",
+        "kind": 5,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "BOOK = \"วิสุทธิมรรค\"\nSOURCE = \"วิสุทฺธิมคฺค\"\nVOLUME_CONFIGS = {\n    1: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๑) ปฐโม ภาโค (สมบูรณ์)\",\n        \"max_page\": 291,\n    },\n    2: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๒) ทุติโย ภาโค (สมบูรณ์)\",\n        \"max_page\": 288,",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "SOURCE",
+        "kind": 5,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "SOURCE = \"วิสุทฺธิมคฺค\"\nVOLUME_CONFIGS = {\n    1: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๑) ปฐโม ภาโค (สมบูรณ์)\",\n        \"max_page\": 291,\n    },\n    2: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๒) ทุติโย ภาโค (สมบูรณ์)\",\n        \"max_page\": 288,\n    },",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "VOLUME_CONFIGS",
+        "kind": 5,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "VOLUME_CONFIGS = {\n    1: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๑) ปฐโม ภาโค (สมบูรณ์)\",\n        \"max_page\": 291,\n    },\n    2: {\n        \"raw_dir_name\": \"(ไฟล์ดิบ) วิสุทฺธิมคฺคสฺส นาม ปกรณวิเสสสฺส (๒) ทุติโย ภาโค (สมบูรณ์)\",\n        \"max_page\": 288,\n    },\n}",
+        "detail": "tools.build_visuddhi_segments",
+        "documentation": {}
+    },
+    {
+        "label": "THAI_DIGITS",
+        "kind": 5,
+        "importPath": "tools.build_visuddhi_segments",
+        "description": "tools.build_visuddhi_segments",
+        "peekOfCode": "THAI_DIGITS = str.maketrans({\"๐\": \"0\", \"๑\": \"1\", \"๒\": \"2\", \"๓\": \"3\", \"๔\": \"4\", \"๕\": \"5\", \"๖\": \"6\", \"๗\": \"7\", \"๘\": \"8\", \"๙\": \"9\"})\ndef parse_page_number(s: str) -> int:\n    raw = str(s or \"\").strip().translate(THAI_DIGITS)\n    m = re.search(r\"\\d+\", raw)\n    return int(m.group(0)) if m else 0\ndef pad_chunk_page_number(n: int) -> str:\n    return str(int(n)).rjust(3, \"0\")\ndef chunk_filename_for_page(volume_no: int, max_page: int, page: int) -> str:\n    local_page = max(1, min(max_page, int(page) if page else 1))\n    chunk_start = ((local_page - 1) // 10) * 10 + 1",
+        "detail": "tools.build_visuddhi_segments",
         "documentation": {}
     },
     {
