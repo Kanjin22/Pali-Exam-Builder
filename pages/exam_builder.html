@@ -4382,16 +4382,52 @@
             try {
                 syncPrintMirrorStyles();
                 updatePrintPageStyle();
+                const ios = typeof isLikelyIOS === 'function' && isLikelyIOS();
                 try {
                     if (document.fonts && document.fonts.ready) {
-                        await document.fonts.ready;
+                        const maxMs = ios ? 250 : 1000;
+                        await Promise.race([
+                            document.fonts.ready,
+                            new Promise(r => setTimeout(r, maxMs))
+                        ]);
                     }
                 } catch (_) {}
-                await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-                window.print();
+                if (ios) {
+                    await new Promise(r => setTimeout(r, 0));
+                } else {
+                    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+                }
+                try {
+                    window.print();
+                } catch (e2) {
+                    console.error(e2);
+                    try { alert('เปิดหน้าพิมพ์ไม่สำเร็จ กรุณาลองอีกครั้ง') } catch (_) {}
+                    throw e2;
+                }
+                if (ios) {
+                    try {
+                        setTimeout(async () => {
+                            try {
+                                const html = await printExamAsImages();
+                                if (!html || !String(html).trim()) return;
+                                try {
+                                    const w = window.open('', '_blank', 'noopener');
+                                    if (w) {
+                                        w.document.open();
+                                        w.document.write(html);
+                                        w.document.close();
+                                        try {
+                                            setTimeout(() => { try { w.focus(); } catch (_) {} }, 300);
+                                        } catch (_) {}
+                                    }
+                                } catch (_) {}
+                            } catch (_) {}
+                        }, 3500);
+                    } catch (_) {}
+                }
             } catch (e) {
                 console.error(e);
-                alert('พิมพ์ไม่สำเร็จ กรุณารีเฟรชแล้วลองใหม่');
+                try { alert('พิมพ์ไม่สำเร็จ กรุณารีเฟรชแล้วลองใหม่') } catch (_) {}
             }
         }
 
