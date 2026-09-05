@@ -4811,13 +4811,19 @@
                 var parts = (CONTENT_MAPPING[levelLabel] && CONTENT_MAPPING[levelLabel][subjectLabel]) ? CONTENT_MAPPING[levelLabel][subjectLabel] : [];
                 var partValue = partEl ? (partEl.value || '') : '';
                 var volIdx = 0;
-                var found = false;
-                for (var i = 0; i < parts.length; i++) {
-                    if (parts[i] && parts[i].id === partValue) { volIdx = i; found = true; break; }
-                }
-                if (!found && volSel) {
+                if (volSel) {
                     var vi = parseInt(volSel.value, 10);
-                    if (isFinite(vi) && vi >= 0) volIdx = vi;
+                    if (isFinite(vi) && vi >= 0) {
+                        volIdx = vi;
+                    } else {
+                        for (var j = 0; j < parts.length; j++) {
+                            if (parts[j] && parts[j].id === partValue) { volIdx = j; break; }
+                        }
+                    }
+                } else {
+                    for (var k = 0; k < parts.length; k++) {
+                        if (parts[k] && parts[k].id === partValue) { volIdx = k; break; }
+                    }
                 }
                 var sp = document.getElementById(mode === 'sense' ? 'senseStartPage' : 'literalStartPage').value;
                 var ep = document.getElementById(mode === 'sense' ? 'senseEndPage' : 'literalEndPage').value;
