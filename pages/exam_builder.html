@@ -3637,6 +3637,12 @@
             // สั่งให้อัปเดตวรรคทั้งสองฝั่ง
             updateVaggaSelect('literal');
             updateVaggaSelect('sense');
+            // รีเซ็ตสถานะซ่อน banner และรีเฟรชสถิติสนามหลังทุกครั้งที่เปลี่ยนภาค/ชั้น/วิชา
+            try {
+                SL_BANNER_CLOSED.literal = false;
+                SL_BANNER_CLOSED.sense = false;
+                refreshSanluangBanners();
+            } catch (_) {}
         }
 
         function updateVaggaSelect(mode) {
@@ -6951,6 +6957,23 @@
             updateBookTitleBadge();
             updateVolumeSelectors();
         });
+        // Event handlers สำหรับ refresh สถิติสนามหลวง เมื่อเปลี่ยนภาค หรือเปลี่ยนช่วงหน้า
+        (function _bindSanluangTriggers() {
+            function resetClosedAndRefresh(modes) {
+                try {
+                    (modes || ['literal', 'sense']).forEach(function (m) { SL_BANNER_CLOSED[m] = false; });
+                    refreshSanluangBanners();
+                } catch (_) {}
+            }
+            var litPart = document.getElementById('literalPart');
+            var senPart = document.getElementById('sensePart');
+            if (litPart) litPart.addEventListener('change', function () { resetClosedAndRefresh(['literal']); generatePreview(); });
+            if (senPart) senPart.addEventListener('change', function () { resetClosedAndRefresh(['sense']); generatePreview(); });
+            ['literalStartPage', 'literalEndPage', 'senseStartPage', 'senseEndPage'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) el.addEventListener('input', function () { resetClosedAndRefresh(); });
+            });
+        })();
         document.getElementById('hoursInput').addEventListener('input', () => {
             updateDuration();
             buildExamPreview();
