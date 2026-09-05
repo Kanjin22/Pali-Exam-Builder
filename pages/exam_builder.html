@@ -4059,7 +4059,7 @@
                 { y: 2561, q: 2, v: 2, s: 82, e: 82, t: 'โสเรยยเถระ', a: 'สตฺถา ภตฺตกิจฺจปริโยสาเน', z: 'พลนฺนาม มหนฺตนฺติ. ฯ', pid: '12-MT-61-1' },
                 { y: 2561, q: 1, v: 2, s: 156, e: 156, t: 'โสเรยยเถระ', a: 'ปุริสลิงฺเค ปาตุภูตมตฺเตเยว', z: 'โสเรยฺยตฺเถโรติ นามํ อโหสิ. ฯ', pid: '12-MT-61-2' },
                 { y: 2561, q: 2, v: 2, s: 156, e: 157, t: 'โสเรยยเถระ', a: 'ชนปทวาสิโน ตํ ปวตฺตึ', z: 'อิมํ คาถมาห ฯ', pid: '12-MT-61-2' },
-                { y: 2562, q: 1, v: 1, s: 57, e: 58, t: 'โกสัมพิกะ', a: 'อานนฺทตฺเถโร อนาถปิณฺฑิกาทีหิ', z: 'ยาวชีวํ ปฏิชคฺเคยฺย.' },
+                { y: 2562, q: 1, v: 1, s: 57, e: 58, t: 'โกสัมพิกะ', a: 'อานนฺทตฺเถโร อนาถปิณฺฑิกาทีหิ', z: 'ยาวชีวํ ปฏิชคฺเคยฺย.', pid: '12-MT-62-1' },
                 { y: 2562, q: 2, v: 1, s: 58, e: 59, t: 'โกสัมพิกะ', a: 'สตฺถา ปน ตํ คามูปจารํ', z: 'นิสีทนฺติ น ติฏฺฐนฺติ.', pid: '12-MT-62-1' },
                 { y: 2562, q: 1, v: 1, s: 144, e: 145, t: 'เทวสหายกภิกขุ', a: 'สาวตฺถีวาสิโน หิ', z: 'สหายกภิกฺขุ ภนฺเตติ วทนฺติ.', pid: '12-MT-62-2' },
                 { y: 2562, q: 2, v: 1, s: 145, e: 145, t: 'เทวสหายกภิกขุ', a: 'เอวํ เถเร ปุนปฺปุนํ', z: 'ปุจฺฉิตุํ วฏฺฏตีติ จินฺเตสิ.', pid: '12-MT-62-2' },
@@ -4377,7 +4377,7 @@
                 }
                 var html = '';
                 html += '<div class="sl-match-head">';
-                html +=   '<h4><span class="sl-match-icon">⚠</span> ตรงกับข้อสอบสนามหลวง ' + matches.length + ' ครั้ง (' + modeLabel + ')</h4>';
+                html +=   '<h4><span class="sl-match-icon">⚠</span> ตรงกับข้อสอบสนามหลวง ' + matches.length + ' ครั้ง</h4>';
                 html += '</div>';
                 html += '<p class="sl-match-sub">เนื้อหาที่ท่านเลือกอยู่ในช่วงหน้าที่เคยออกปัญหาสนามหลวงดังนี้ (เรียงปีล่าสุดก่อน)</p>';
                 html += '<div class="sl-match-list">';
@@ -4421,7 +4421,9 @@
         }
         function refreshSanluangBanners() {
             try {
-                var modes = ['literal', 'sense'];
+                var subjectLabel = document.getElementById('subjectSelect').value || '';
+                var isSampanThai = subjectLabel === 'สัมพันธ์ไทย';
+                var modes = isSampanThai ? ['literal'] : ['literal', 'sense'];
                 var labels = { literal: 'แปล โดยพยัญชนะ', sense: 'แปล โดยอรรถ' };
                 for (var i = 0; i < modes.length; i++) {
                     var m = modes[i];
@@ -4437,6 +4439,14 @@
                         bannerEl.innerHTML = '';
                         bannerEl.classList.add('d-none');
                         bannerEl.style.display = 'none';
+                    }
+                }
+                if (isSampanThai) {
+                    var senseBanner = document.getElementById('sl-banner-sense');
+                    if (senseBanner) {
+                        senseBanner.innerHTML = '';
+                        senseBanner.classList.add('d-none');
+                        senseBanner.style.display = 'none';
                     }
                 }
                 try {
