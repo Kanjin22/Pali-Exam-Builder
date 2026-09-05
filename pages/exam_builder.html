@@ -3525,13 +3525,14 @@
             const levelConfig = CONTENT_MAPPING[levelLabel] || {};
             const parts = levelConfig[subjectLabel] || [];
 
-            // ค่าทดแทนสำหรับชั้นที่ยังไม่ได้ระบุไว้ชัดเจน
             if (parts.length === 0 && !levelLabel.includes('ป.ธ.')) {
                  parts.push({id:'dhamma-1', label:'ปฐโม ภาโค'}, {id:'dhamma-2', label:'ทุติโย ภาโค'}, {id:'dhamma-3', label:'ตติโย ภาโค'}, {id:'dhamma-4', label:'จตุตฺโถ ภาโค'});
             }
 
             const literalSel = document.getElementById('literalPart');
             const senseSel = document.getElementById('sensePart');
+            const prevLiteralVal = String(literalSel?.value || '').trim();
+            const prevSenseVal = String(senseSel?.value || '').trim();
             literalSel.innerHTML = '';
             senseSel.innerHTML = '';
             
@@ -3540,19 +3541,21 @@
                 const o2 = document.createElement('option'); o2.value = p.id; o2.text = p.label; senseSel.appendChild(o2);
             });
 
+            try {
+                const lVals = Array.from(literalSel.options || []).map(o => String(o.value || ''));
+                const sVals = Array.from(senseSel.options || []).map(o => String(o.value || ''));
+                if (prevLiteralVal && lVals.indexOf(prevLiteralVal) >= 0) literalSel.value = prevLiteralVal;
+                else if (parts.length) literalSel.value = parts[0].id;
+                if (prevSenseVal && sVals.indexOf(prevSenseVal) >= 0) senseSel.value = prevSenseVal;
+                else if (parts.length) senseSel.value = parts[0].id;
+            } catch (_) {}
+
             const literalHierarchy = literalSel ? literalSel.parentElement : null;
             const senseHierarchy = senseSel ? senseSel.parentElement : null;
             const currentPartId = String(literalSel?.value || parts?.[0]?.id || '').trim();
             const isThaiSource = subjectLabel.includes('ไทยเป็นมคธ');
             const enableTopicHierarchy = (!isThaiSource && isDhammapadaPaliPageMode()) || (isThaiSource && isDhammapadaThaiPartId(currentPartId));
             
-            console.log('--- DEBUG populatePartSelects ---');
-            console.log('levelLabel:', levelLabel);
-            console.log('subjectLabel:', subjectLabel);
-            console.log('parts.length:', parts.length);
-            console.log('isThaiSource:', isThaiSource);
-            console.log('isDhammapadaPaliPageMode():', isDhammapadaPaliPageMode());
-            console.log('enableTopicHierarchy:', enableTopicHierarchy);
             if (parts.length === 1 && !enableTopicHierarchy) {
                 literalSel.value = parts[0].id;
                 senseSel.value = parts[0].id;
@@ -4803,11 +4806,18 @@
                 var levelCode = document.getElementById('levelSelect').value || '';
                 var subjectLabel = document.getElementById('subjectSelect').value || '';
                 var partEl = document.getElementById((mode === 'sense' ? 'sensePart' : 'literalPart'));
-                var parts = (CONTENT_MAPPING[getSelectedLevelLabel()] && CONTENT_MAPPING[getSelectedLevelLabel()][subjectLabel]) ? CONTENT_MAPPING[getSelectedLevelLabel()][subjectLabel] : [];
+                var volSel = document.getElementById((mode === 'sense' ? 'senseVolumeSelect' : 'literalVolumeSelect'));
+                var levelLabel = getSelectedLevelLabel();
+                var parts = (CONTENT_MAPPING[levelLabel] && CONTENT_MAPPING[levelLabel][subjectLabel]) ? CONTENT_MAPPING[levelLabel][subjectLabel] : [];
                 var partValue = partEl ? (partEl.value || '') : '';
                 var volIdx = 0;
+                var found = false;
                 for (var i = 0; i < parts.length; i++) {
-                    if (parts[i] && parts[i].id === partValue) { volIdx = i; break; }
+                    if (parts[i] && parts[i].id === partValue) { volIdx = i; found = true; break; }
+                }
+                if (!found && volSel) {
+                    var vi = parseInt(volSel.value, 10);
+                    if (isFinite(vi) && vi >= 0) volIdx = vi;
                 }
                 var sp = document.getElementById(mode === 'sense' ? 'senseStartPage' : 'literalStartPage').value;
                 var ep = document.getElementById(mode === 'sense' ? 'senseEndPage' : 'literalEndPage').value;
@@ -6957,7 +6967,7 @@
             updateBookTitleBadge();
             updateVolumeSelectors();
         });
-        // Event handlers สำหรับ refresh สถิติสนามหลวง เมื่อเปลี่ยนภาค หรือเปลี่ยนช่วงหน้า
+        // Event handlers สำหรับ refresh สถิติสนามหลวง เมื่อเปลี่ยนภาค/เล่ม หรือเปลี่ยนช่วงหน้า
         (function _bindSanluangTriggers() {
             function resetClosedAndRefresh(modes) {
                 try {
@@ -6965,14 +6975,36 @@
                     refreshSanluangBanners();
                 } catch (_) {}
             }
-            var litPart = document.getElementById('literalPart');
-            var senPart = document.getElementById('sensePart');
-            if (litPart) litPart.addEventListener('change', function () { resetClosedAndRefresh(['literal']); generatePreview(); });
-            if (senPart) senPart.addEventListener('change', function () { resetClosedAndRefresh(['sense']); generatePreview(); });
+            function bind(id, evt, fn) {
+                try {
+                    var el = document.getElementById(id);
+                    if (el) el.addEventListener(evt, fn);
+                } catch (_) {}
+            }
+            bind('literalPart', 'change', function () { resetClosedAndRefresh(['literal']); generatePreview(); });
+            bind('sensePart', 'change', function () { resetClosedAndRefresh(['sense']); generatePreview(); });
+            bind('literalVolumeSelect', 'change', function () { resetClosedAndRefresh(['literal']); generatePreview(); });
+            bind('senseVolumeSelect', 'change', function () { resetClosedAndRefresh(['sense']); generatePreview(); });
             ['literalStartPage', 'literalEndPage', 'senseStartPage', 'senseEndPage'].forEach(function (id) {
-                var el = document.getElementById(id);
-                if (el) el.addEventListener('input', function () { resetClosedAndRefresh(); });
+                bind(id, 'input', function () { resetClosedAndRefresh(); });
             });
+            try {
+                document.addEventListener('change', function (e) {
+                    var t = e && e.target;
+                    if (!t || !t.id) return;
+                    if (['literalPart', 'sensePart', 'literalVolumeSelect', 'senseVolumeSelect'].indexOf(String(t.id)) >= 0) {
+                        var mode = (String(t.id).indexOf('sense') === 0) ? 'sense' : 'literal';
+                        resetClosedAndRefresh([mode]);
+                    }
+                });
+                document.addEventListener('input', function (e) {
+                    var t = e && e.target;
+                    if (!t || !t.id) return;
+                    if (['literalStartPage', 'literalEndPage', 'senseStartPage', 'senseEndPage'].indexOf(String(t.id)) >= 0) {
+                        resetClosedAndRefresh();
+                    }
+                });
+            } catch (_) {}
         })();
         document.getElementById('hoursInput').addEventListener('input', () => {
             updateDuration();
